@@ -1,0 +1,38 @@
+***************
+*** 23,29 ****
+  
+  #include "ptmutex.h"
+  
+- #ifdef HAVE_LIBPTHREAD
+  
+  #include <pthread.h>
+  
+--- 23,29 ----
+  
+  #include "ptmutex.h"
+  
++ #if defined HAVE_LIBPTHREAD || defined HAVE_LIBPTHREADGC2
+  
+  #include <pthread.h>
+  
+***************
+*** 52,58 ****
+  	void Dump();
+  	int lockcount;
+  	int exclusive;
+  	struct {pthread_t id; int count;} counttable[RWMUTEX_THREADS_MAX];
+  	pthread_cond_t cond;
+  };
+  
+--- 52,62 ----
+  	void Dump();
+  	int lockcount;
+  	int exclusive;
++ #ifdef WIN32
++ 	struct {void *id; int count;} counttable[RWMUTEX_THREADS_MAX];
++ #else
+  	struct {pthread_t id; int count;} counttable[RWMUTEX_THREADS_MAX];
++ #endif
+  	pthread_cond_t cond;
+  };
+  

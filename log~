@@ -1,0 +1,4185 @@
+==5218== Memcheck, a memory error detector.
+==5218== Copyright (C) 2002-2007, and GNU GPL'd, by Julian Seward et al.
+==5218== Using LibVEX rev 1804, a library for dynamic binary translation.
+==5218== Copyright (C) 2004-2007, and GNU GPL'd, by OpenWorks LLP.
+==5218== Using valgrind-3.3.0-Debian, a dynamic binary instrumentation framework.
+==5218== Copyright (C) 2000-2007, and GNU GPL'd, by Julian Seward et al.
+==5218== For more details, rerun with: -v
+==5218== 
+Photoprint starting...
+Initialized Gutenprint
+==5218== Invalid read of size 8
+==5218==    at 0x4015EE4: (within /lib/ld-2.7.so)
+==5218==    by 0x400AB93: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x90CE03C: __nss_lookup_function (in /lib/libc-2.7.so)
+==5218==    by 0xD8D844A: (within /lib/libnss_compat-2.7.so)
+==5218==  Address 0xd8508a8 is 16 bytes inside a block of size 21 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4008B75: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x90CE03C: __nss_lookup_function (in /lib/libc-2.7.so)
+==5218==    by 0xD8D844A: (within /lib/libnss_compat-2.7.so)
+==5218==    by 0xD8D9968: _nss_compat_getpwnam_r (in /lib/libnss_compat-2.7.so)
+==5218==    by 0x9082A40: getpwnam_r (in /lib/libc-2.7.so)
+Setting up gettext... photoprint, /usr/local/share/locale
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015D6E: (within /lib/ld-2.7.so)
+==5218==    by 0x4011F31: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x57B1F01: gtk_theme_engine_get (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xd8bb5a0 is 48 bytes inside a block of size 49 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x57B1F01: gtk_theme_engine_get (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573A26C: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573C301: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573CE28: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D295: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D3F2: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015D6E: (within /lib/ld-2.7.so)
+==5218==    by 0x400780A: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xd8bb5a0 is 48 bytes inside a block of size 49 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x57B1F01: gtk_theme_engine_get (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573A26C: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573C301: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573CE28: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D295: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D3F2: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EE4: (within /lib/ld-2.7.so)
+==5218==    by 0x4007817: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xd8bb5a0 is 48 bytes inside a block of size 49 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x57B1F01: gtk_theme_engine_get (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573A26C: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573C301: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573CE28: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D295: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D3F2: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EE4: (within /lib/ld-2.7.so)
+==5218==    by 0x400A99D: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==  Address 0xd8bb5a0 is 48 bytes inside a block of size 49 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x57B1F01: gtk_theme_engine_get (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573A26C: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573C301: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573CE28: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D295: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x573D3F2: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EE4: (within /lib/ld-2.7.so)
+==5218==    by 0x400DEE6: (within /lib/ld-2.7.so)
+==5218==    by 0x400E093: (within /lib/ld-2.7.so)
+==5218==    by 0x400A547: (within /lib/ld-2.7.so)
+==5218==    by 0x90F42F3: (within /lib/libc-2.7.so)
+==5218==    by 0x6D540F3: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D540A9: dlsym (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51571: g_module_symbol (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x6B51C7E: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xd8bb608 is 48 bytes inside a block of size 49 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x57B1FFA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015D33: (within /lib/ld-2.7.so)
+==5218==    by 0x4011F31: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x646F1C8: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==  Address 0xdf8aa10 is 40 bytes inside a block of size 47 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x646F1C8: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F288: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F306: pango_map_get_engines (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472459: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x64726CE: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472D3B: pango_itemize_with_base_dir (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015D33: (within /lib/ld-2.7.so)
+==5218==    by 0x400780A: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==  Address 0xdf8aa10 is 40 bytes inside a block of size 47 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x646F1C8: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F288: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F306: pango_map_get_engines (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472459: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x64726CE: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472D3B: pango_itemize_with_base_dir (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x4007817: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==  Address 0xdf8aa10 is 40 bytes inside a block of size 47 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x646F1C8: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F288: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F306: pango_map_get_engines (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472459: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x64726CE: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472D3B: pango_itemize_with_base_dir (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x400A99D: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==  Address 0xdf8aa10 is 40 bytes inside a block of size 47 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x646F1C8: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F288: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x646F306: pango_map_get_engines (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472459: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x64726CE: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==    by 0x6472D3B: pango_itemize_with_base_dir (in /usr/lib/libpango-1.0.so.0.2000.1)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x400AB93: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==  Address 0xe06a5c0 is 40 bytes inside a block of size 47 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x400DEE6: (within /lib/ld-2.7.so)
+==5218==    by 0x400E093: (within /lib/ld-2.7.so)
+==5218==    by 0x400A547: (within /lib/ld-2.7.so)
+==5218==    by 0x90F42F3: (within /lib/libc-2.7.so)
+==5218==    by 0x6D540F3: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D540A9: dlsym (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51571: g_module_symbol (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x6B51BF1: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==5218==  Address 0xe06a5c0 is 40 bytes inside a block of size 47 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x646F0DA: (within /usr/lib/libpango-1.0.so.0.2000.1)
+In LayoutDB constructor
+Using libcups to identify print queues
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x4011C2B: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x90CE03C: __nss_lookup_function (in /lib/libc-2.7.so)
+==5218==    by 0x90CE114: (within /lib/libc-2.7.so)
+==5218==    by 0x90D6B28: getservbyname_r (in /lib/libc-2.7.so)
+==5218==    by 0x90D687B: getservbyname (in /lib/libc-2.7.so)
+==5218==    by 0x72331FD: ippPort (in /usr/lib/libcups.so.2)
+==5218==    by 0x72287A2: cupsGetDests (in /usr/lib/libcups.so.2)
+==5218==    by 0x453EEA: pqinfo_create (printerqueues_unix.c:164)
+==5218==  Address 0xd1bb8b8 is 40 bytes inside a block of size 46 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x400DF00: (within /lib/ld-2.7.so)
+==5218==    by 0x4008DA5: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x90CE03C: __nss_lookup_function (in /lib/libc-2.7.so)
+==5218==    by 0x90CE114: (within /lib/libc-2.7.so)
+==5218==    by 0x90D6B28: getservbyname_r (in /lib/libc-2.7.so)
+In PrintOutput constructor...
+Getting name for queue 0
+Queue: PDF
+Querying cups for printer driver...
+Done...
+Creating PathDBHandler...
+Setting default filename
+State created...
+Set initial filename
+Settings directory: /home/amr/.photoprint
+Created fresh stp_vars
+*** Leaving PrintOutput section
+Getting name for queue 0
+Queue: PDF
+Getting name for queue 1
+Queue: Stylus_Photo_R285
+Getting name for queue 2
+Queue: <Use custom print command>
+Printer queue exists
+Checking stpvars
+Checking olddriver
+Checking driver
+Comparing drivers:ps against ps2
+SetDriver(): Setting driver to ps2
+Checking printer
+Setting defaults
+PPDFile parameter active? Yes
+Checking desc.is_active
+Getting default PPD...
+Current queue: <Use custom print command>
+Current queue: <Use custom print command>
+No PPD returned for <Use custom print command>
+No PPD found
+Current queue: <Use custom print command>
+No PPD returned for <Use custom print command>
+Checking defppd
+Setting PageSize to: A4
+Setting custom width to: 595
+Setting custom height to: 842
+After stputil_validate_parameters(): en_GB.UTF-8
+Translation test: Initializing...
+Building NUp Layout
+Width: 595
+Height: 842
+Imageable area from GP: L: 0, R: 595, T: 0, B: 842
+Pagewidth: 595
+Pageheight: 842
+Imageable width: 595
+Imageable height: 842
+Left bleed: 0
+Right bleed: 0
+Top bleed: 0
+Bottom bleed: 0
+After reading papersize and margins: en_GB.UTF-8
+Translation test: Initializing...
+Translation test: Initializing...
+Width: 595
+Height: 842
+Imageable area from GP: L: 0, R: 595, T: 0, B: 842
+Pagewidth: 595
+Pageheight: 842
+Imageable width: 595
+Imageable height: 842
+Left bleed: 0
+Right bleed: 0
+Top bleed: 0
+Bottom bleed: 0
+After reading papersize and margins: en_GB.UTF-8
+Getting size limits...
+Comparing min and max width:
+No width adjustment possible...
+Comparing min and max height:
+No height adjustment possible...
+Proofmode set to: 1
+Translation test: Initializing...
+Translation test: Initializing...
+Translation test: Initializing...
+==5218== 
+==5218== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==5218==    at 0x90B684C: writev (in /lib/libc-2.7.so)
+==5218==    by 0xBE3D365: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3D8EA: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3DA1C: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3DAFE: xcb_flush (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0x8363336: _XSend (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x836343F: _XEventsQueued (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x834CFCC: XPending (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x5BC60D8: (within /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5BC655D: (within /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x6F8E261: g_main_context_dispatch (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F91515: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==  Address 0xd854c42 is 4,426 bytes inside a block of size 8,680 alloc'd
+==5218==    at 0x4C220BC: calloc (vg_replace_malloc.c:397)
+==5218==    by 0xBE3D57E: xcb_connect_to_fd (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3FADF: xcb_connect (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0x8362529: _XConnectXCB (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x834B7C5: XOpenDisplay (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x5BBA448: gdk_display_open (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5B99AA3: gdk_display_open_default_libgtk_only (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56F4373: gtk_init_check (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x41C17A: main (photoprint.cpp:104)
+Placing image at 0, 0, 0
+Getting thumbnail
+Thumbnail not cached - loading...
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Found - loading image to check for embedded profile...
+Loading filename: /home/amr/ChristinesCard.bmp
+Extension: .bmp
+done
+DrawThumbnail - Obtain
+Launching render thread
+Subthread - about to obtain mutex
+ObtainThumbnail - Release
+==5218== 
+==5218== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==5218==    at 0x90B68D3: writev (in /lib/libc-2.7.so)
+==5218==    by 0xBE3D365: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3D8EA: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3DA1C: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3DAFE: xcb_flush (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0x8363336: _XSend (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x836343F: _XEventsQueued (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x834CFCC: XPending (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x5BC408A: (within /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x6F90AE6: g_main_context_prepare (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F911A7: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F917D6: g_main_loop_run (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==  Address 0xd854c9e is 4,518 bytes inside a block of size 8,680 alloc'd
+==5218==    at 0x4C220BC: calloc (vg_replace_malloc.c:397)
+==5218==    by 0xBE3D57E: xcb_connect_to_fd (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3FADF: xcb_connect (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0x8362529: _XConnectXCB (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x834B7C5: XOpenDisplay (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x5BBA448: gdk_display_open (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5B99AA3: gdk_display_open_default_libgtk_only (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56F4373: gtk_init_check (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x41C17A: main (photoprint.cpp:104)
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+Generating high-res preview - Using tdev: 2
+Loading filename: /home/amr/ChristinesCard.bmp
+Extension: .bmp
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Got imagesource - fitting and rendering
+finished - finalising
+Subthread waiting for main thread to finish drawing
+Preview drawn - sending sync to sub-thread
+Subthread releasing mutex and exiting
+Placing image at 0, 1, 0
+Getting thumbnail
+Thumbnail not cached - loading...
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015DA1: (within /lib/ld-2.7.so)
+==5218==    by 0x4011F31: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==    by 0x900623D: (within /lib/libc-2.7.so)
+==5218==    by 0x9004C44: (within /lib/libc-2.7.so)
+==5218==  Address 0xe2285c8 is 72 bytes inside a block of size 76 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x900E731: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==    by 0x900623D: (within /lib/libc-2.7.so)
+==5218==    by 0x9004C44: (within /lib/libc-2.7.so)
+==5218==    by 0x90047F3: iconv_open (in /lib/libc-2.7.so)
+==5218==    by 0x6F79538: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F795DE: g_iconv_open (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79DEA: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79EEE: g_convert (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0xF9A1F2E: (within /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015DA1: (within /lib/ld-2.7.so)
+==5218==    by 0x400780A: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==  Address 0xe2285c8 is 72 bytes inside a block of size 76 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x900E731: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==    by 0x900623D: (within /lib/libc-2.7.so)
+==5218==    by 0x9004C44: (within /lib/libc-2.7.so)
+==5218==    by 0x90047F3: iconv_open (in /lib/libc-2.7.so)
+==5218==    by 0x6F79538: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F795DE: g_iconv_open (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79DEA: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79EEE: g_convert (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0xF9A1F2E: (within /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EFE: (within /lib/ld-2.7.so)
+==5218==    by 0x4007817: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==  Address 0xe2285c8 is 72 bytes inside a block of size 76 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x900E731: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==    by 0x900623D: (within /lib/libc-2.7.so)
+==5218==    by 0x9004C44: (within /lib/libc-2.7.so)
+==5218==    by 0x90047F3: iconv_open (in /lib/libc-2.7.so)
+==5218==    by 0x6F79538: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F795DE: g_iconv_open (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79DEA: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79EEE: g_convert (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0xF9A1F2E: (within /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EFE: (within /lib/ld-2.7.so)
+==5218==    by 0x400A99D: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==  Address 0xe2285c8 is 72 bytes inside a block of size 76 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x900E731: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==    by 0x900623D: (within /lib/libc-2.7.so)
+==5218==    by 0x9004C44: (within /lib/libc-2.7.so)
+==5218==    by 0x90047F3: iconv_open (in /lib/libc-2.7.so)
+==5218==    by 0x6F79538: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F795DE: g_iconv_open (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79DEA: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F79EEE: g_convert (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0xF9A1F2E: (within /usr/lib/gtk-2.0/2.10.0/loaders/libpixbufloader-png.so)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EFE: (within /lib/ld-2.7.so)
+==5218==    by 0x400AB93: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==  Address 0xe0581a8 is 24 bytes inside a block of size 28 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EFE: (within /lib/ld-2.7.so)
+==5218==    by 0x400DEE6: (within /lib/ld-2.7.so)
+==5218==    by 0x400E093: (within /lib/ld-2.7.so)
+==5218==    by 0x400A547: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3FD4: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F4047: __libc_dlsym (in /lib/libc-2.7.so)
+==5218==    by 0x900E685: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+==5218==    by 0x900623D: (within /lib/libc-2.7.so)
+==5218==    by 0x9004C44: (within /lib/libc-2.7.so)
+==5218==  Address 0xe0581a8 is 24 bytes inside a block of size 28 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x90F3F7F: (within /lib/libc-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x90F40E6: __libc_dlopen_mode (in /lib/libc-2.7.so)
+==5218==    by 0x900E638: (within /lib/libc-2.7.so)
+==5218==    by 0x900DB88: (within /lib/libc-2.7.so)
+==5218==    by 0x900E332: (within /lib/libc-2.7.so)
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Found - loading image to check for embedded profile...
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+done
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+DrawThumbnail - Obtain
+Launching render thread
+Subthread - about to obtain mutex
+ObtainThumbnail - Release
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+Generating high-res preview - Using tdev: 2
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Got imagesource - fitting and rendering
+finished - finalising
+Subthread waiting for main thread to finish drawing
+Preview drawn - sending sync to sub-thread
+Subthread releasing mutex and exiting
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+Checking effect:Desaturate
+Find - Obtain
+Find - Releasing
+Not Found
+Checking effect:Temperature
+Find - Obtain
+Find - Releasing
+Not Found
+Checking effect:UnsharpMask
+Find - Obtain
+Find - Releasing
+Not Found
+==5218== 
+==5218== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==5218==    at 0x90B68D3: writev (in /lib/libc-2.7.so)
+==5218==    by 0xBE3D365: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3D8EA: (within /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0xBE3E04F: xcb_send_request (in /usr/lib/libxcb.so.1.0.0)
+==5218==    by 0x8361F19: _XPutXCBBuffer (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x8362266: (within /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x8350503: XPutImage (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x66EB723: (within /usr/lib/libcairo.so.2.17.3)
+==5218==    by 0x66EB811: (within /usr/lib/libcairo.so.2.17.3)
+==5218==    by 0x66C0CE9: (within /usr/lib/libcairo.so.2.17.3)
+==5218==    by 0x66C57D9: (within /usr/lib/libcairo.so.2.17.3)
+==5218==    by 0x66C6A37: (within /usr/lib/libcairo.so.2.17.3)
+==5218==  Address 0xd856a83 is 27 bytes inside a block of size 16,384 alloc'd
+==5218==    at 0x4C220BC: calloc (vg_replace_malloc.c:397)
+==5218==    by 0x834BB15: XOpenDisplay (in /usr/lib/libX11.so.6.2.0)
+==5218==    by 0x5BBA448: gdk_display_open (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5B99AA3: gdk_display_open_default_libgtk_only (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56F4373: gtk_init_check (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x41C17A: main (photoprint.cpp:104)
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+In custom Obtain method - flushing preview...
+Now attempting to obtain exclusive lock...
+Current thread: 67406592
+Done
+DrawThumbnail - Obtain
+ObtainThumbnail - Release
+DrawThumbnail - Obtain
+Launching render thread
+Subthread - about to obtain mutex
+ObtainThumbnail - Release
+Generating high-res preview - Using tdev: 2
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Got imagesource - fitting and rendering
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015CF0: (within /lib/ld-2.7.so)
+==5218==    by 0x4011F31: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x122CC7CB: g_io_modules_load_all_in_directory (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218==  Address 0xec68320 is 32 bytes inside a block of size 36 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x122CC7CB: g_io_modules_load_all_in_directory (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122CC994: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D472A: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x6FB2DAD: g_once_impl (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x122D463F: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D4B8F: g_volume_monitor_get (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015CF0: (within /lib/ld-2.7.so)
+==5218==    by 0x400780A: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==  Address 0xec68320 is 32 bytes inside a block of size 36 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x122CC7CB: g_io_modules_load_all_in_directory (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122CC994: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D472A: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x6FB2DAD: g_once_impl (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x122D463F: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D4B8F: g_volume_monitor_get (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EB0: (within /lib/ld-2.7.so)
+==5218==    by 0x4007817: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==  Address 0xec68320 is 32 bytes inside a block of size 36 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x122CC7CB: g_io_modules_load_all_in_directory (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122CC994: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D472A: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x6FB2DAD: g_once_impl (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x122D463F: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D4B8F: g_volume_monitor_get (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EB0: (within /lib/ld-2.7.so)
+==5218==    by 0x400A99D: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==  Address 0xec68320 is 32 bytes inside a block of size 36 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51932: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x693883B: g_type_module_use (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x122CC7CB: g_io_modules_load_all_in_directory (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122CC994: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D472A: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x6FB2DAD: g_once_impl (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x122D463F: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==    by 0x122D4B8F: g_volume_monitor_get (in /usr/lib/libgio-2.0.so.0.0.0)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EB0: (within /lib/ld-2.7.so)
+==5218==    by 0x400AB93: (within /lib/ld-2.7.so)
+==5218==    by 0x40061E4: (within /lib/ld-2.7.so)
+==5218==    by 0x4008677: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==  Address 0xec68378 is 32 bytes inside a block of size 36 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EB0: (within /lib/ld-2.7.so)
+==5218==    by 0x400DEE6: (within /lib/ld-2.7.so)
+==5218==    by 0x400E093: (within /lib/ld-2.7.so)
+==5218==    by 0x400A547: (within /lib/ld-2.7.so)
+==5218==    by 0x90F42F3: (within /lib/libc-2.7.so)
+==5218==    by 0x6D540F3: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D540A9: dlsym (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51571: g_module_symbol (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x6B51BF1: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218==  Address 0xec68378 is 32 bytes inside a block of size 36 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x40085CE: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x122CCA76: (within /usr/lib/libgio-2.0.so.0.0.0)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x400522C: (within /lib/ld-2.7.so)
+==5218==    by 0x40079E5: (within /lib/ld-2.7.so)
+==5218==    by 0x40089D7: (within /lib/ld-2.7.so)
+==5218==    by 0x400BE0C: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x400C4D0: (within /lib/ld-2.7.so)
+==5218==    by 0x40120A8: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==  Address 0xec7f7c8 is 8 bytes inside a block of size 9 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x4007823: (within /lib/ld-2.7.so)
+==5218==    by 0x4007979: (within /lib/ld-2.7.so)
+==5218==    by 0x40089D7: (within /lib/ld-2.7.so)
+==5218==    by 0x400BE0C: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x400C4D0: (within /lib/ld-2.7.so)
+==5218==    by 0x40120A8: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+finished - finalising
+Subthread waiting for main thread to finish drawing
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015D6E: (within /lib/ld-2.7.so)
+==5218==    by 0x40085B1: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x5615FCA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615208: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xe71b3d0 is 16 bytes inside a block of size 22 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51AC4: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x5615FCA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615208: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56A1EB0: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691DF45: g_object_new_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691E170: g_object_new (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x56A66C8: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015EE4: (within /lib/ld-2.7.so)
+==5218==    by 0x40087D1: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x5615FCA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615208: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xe71b3d0 is 16 bytes inside a block of size 22 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51AC4: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x5615FCA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615208: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56A1EB0: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691DF45: g_object_new_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691E170: g_object_new (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x56A66C8: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015D33: (within /lib/ld-2.7.so)
+==5218==    by 0x40085B1: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x561592A: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615224: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xd48d788 is 8 bytes inside a block of size 15 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51AC4: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x561592A: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615224: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56A1EB0: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691DF45: g_object_new_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691E170: g_object_new (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x56A66C8: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218== 
+==5218== Invalid read of size 8
+==5218==    at 0x4015ECA: (within /lib/ld-2.7.so)
+==5218==    by 0x40087D1: (within /lib/ld-2.7.so)
+==5218==    by 0x4012048: (within /lib/ld-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x401191A: (within /lib/ld-2.7.so)
+==5218==    by 0x6D53F8A: (within /lib/libdl-2.7.so)
+==5218==    by 0x400DDF5: (within /lib/ld-2.7.so)
+==5218==    by 0x6D544EC: (within /lib/libdl-2.7.so)
+==5218==    by 0x6D53EF0: dlopen (in /lib/libdl-2.7.so)
+==5218==    by 0x6B51975: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x561592A: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615224: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==  Address 0xd48d788 is 8 bytes inside a block of size 15 alloc'd
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FACECE: g_strdup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6B51AC4: g_module_open (in /usr/lib/libgmodule-2.0.so.0.1600.3)
+==5218==    by 0x561592A: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x5615224: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x56A1EB0: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691DF45: g_object_new_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x691E170: g_object_new (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x56A66C8: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+Preview drawn - sending sync to sub-thread
+Subthread releasing mutex and exiting
+Page range: 1-
+Resolution: 72
+Using profile?: 0
+Exporting page 1 of 1
+To filename... /home/amr/exported.jpg
+Loading filename: /home/amr/ChristinesCard.bmp
+Extension: .bmp
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+File /home/amr/exported.jpg opened
+Building Carousel Layout
+Width: 595
+Height: 842
+Imageable area from GP: L: 0, R: 595, T: 0, B: 842
+Pagewidth: 595
+Pageheight: 842
+Imageable width: 595
+Imageable height: 842
+Left bleed: 0
+Right bleed: 0
+Top bleed: 0
+Bottom bleed: 0
+After reading papersize and margins: en_GB.UTF-8
+In custom Obtain method - flushing preview...
+Now attempting to obtain exclusive lock...
+Done
+Layout_ImageInfo successfully disposed
+Current thread: 67406592
+Width: 595
+Height: 842
+Imageable area from GP: L: 0, R: 595, T: 0, B: 842
+Pagewidth: 595
+Pageheight: 842
+Imageable width: 595
+Imageable height: 842
+Left bleed: 0
+Right bleed: 0
+Top bleed: 0
+Bottom bleed: 0
+After reading papersize and margins: en_GB.UTF-8
+Getting size limits...
+Comparing min and max width:
+No width adjustment possible...
+Comparing min and max height:
+No height adjustment possible...
+Getting thumbnail
+Thumbnail not cached - loading...
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Found - loading image to check for embedded profile...
+Loading filename: /home/amr/ChristinesCard.bmp
+Extension: .bmp
+done
+Getting thumbnail
+Thumbnail not cached - loading...
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Found - loading image to check for embedded profile...
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+done
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+Best segment: 1
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+Checking effect:Desaturate
+Find - Obtain
+Find - Releasing
+Not Found
+Checking effect:Temperature
+Find - Obtain
+Find - Releasing
+Not Found
+Checking effect:UnsharpMask
+Find - Obtain
+Find - Releasing
+Not Found
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+both source and target images have alpha
+Response: -5
+Page range: 1-
+Resolution: 240
+Using profile?: 0
+Exporting page 1 of 1
+To filename... /home/amr/exported.tif
+Loading filename: /home/amr/ChristinesCard.bmp
+Extension: .bmp
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+Loading filename: /home/amr/Babble/SammiJo/set056/DSC00381.jpg
+Extension: .jpg
+ApplyEffects - Obtain
+GetFirstEffect - Obtain
+GetFirstEffect - Release
+ApplyEffects - Release
+In custom Obtain method - flushing preview...
+Now attempting to obtain exclusive lock...
+Done
+Layout_ImageInfo successfully disposed
+Current thread: 67406592
+Disposing of printer queues
+
+Done
+==5218== 
+==5218== ERROR SUMMARY: 124 errors from 33 contexts (suppressed: 53 from 1)
+==5218== malloc/free: in use at exit: 10,286,795 bytes in 82,941 blocks.
+==5218== malloc/free: 839,677 allocs, 756,736 frees, 282,492,273 bytes allocated.
+==5218== For counts of detected errors, rerun with: -v
+==5218== searching for pointers to 82,941 not-freed blocks.
+==5218== checked 27,187,800 bytes.
+==5218== 
+==5218== 
+==5218== 28 bytes in 1 blocks are definitely lost in loss record 29 of 275
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x9060DD1: strdup (in /lib/libc-2.7.so)
+==5218==    by 0x445610: SearchPath::MakeRelative(char const*) (searchpath.cpp:245)
+==5218==    by 0x44DFDA: profileselector_set_filename (profileselector.cpp:347)
+==5218==    by 0x44E566: profileselector_changed(_GtkWidget*, void*) (profileselector.cpp:221)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x5719963: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x44E0AE: profileselector_set_filename (profileselector.cpp:365)
+==5218==    by 0x410AF9: ExportJPEG_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:681)
+==5218== 
+
+==5218== 
+==5218== 687 bytes in 25 blocks are definitely lost in loss record 160 of 275
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FAD9E8: g_strndup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F7A30D: g_locale_to_utf8 (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x44E0D4: profileselector_set_filename (profileselector.cpp:387)
+==5218==    by 0x44E566: profileselector_changed(_GtkWidget*, void*) (profileselector.cpp:221)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x5719963: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x44E0AE: profileselector_set_filename (profileselector.cpp:365)
+
+==5218== 645 (600 direct, 45 indirect) bytes in 1 blocks are definitely lost in loss record 265 of 275
+==5218==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==5218==    by 0x4186AE: Layout_NUp::PlaceImage(char const*, int, int, int, bool, PP_ROTATION) (layout_nup.cpp:135)
+==5218==    by 0x4192AA: Layout_NUp::AddImage(char const*, bool, PP_ROTATION) (layout_nup.cpp:217)
+==5218==    by 0x4258C3: get_dnd_data(_GtkWidget*, _GdkDragContext*, int, int, _GtkSelectionData*, unsigned, unsigned, void*) (pp_layout_nup_pageview.cpp:85)
+==5218==    by 0x56F6ABC: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D397: g_signal_emit_by_name (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x581F5AA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218== 
+==5218== LEAK SUMMARY:
+==5218==    definitely lost: 74,303 bytes in 375 blocks.
+==5218==    indirectly lost: 230,448 bytes in 3,671 blocks.
+==5218==      possibly lost: 371,936 bytes in 276 blocks.
+==5218==    still reachable: 9,610,108 bytes in 78,619 blocks.
+==5218==         suppressed: 0 bytes in 0 blocks.
+==5218== Reachable blocks (those to which a pointer was found) are not shown.
+==5218== To see them, rerun with: --leak-check=full --show-reachable=yes

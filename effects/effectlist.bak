@@ -1,0 +1,138 @@
+#include <iostream>
+
+#include "effectlist.h"
+
+#include "ppeffect.h"
+#include "ppeffect_temperature.h"
+#include "ppeffect_desaturate.h"
+
+#include "../config.h"
+#include "../gettext.h"
+#define _(x) gettext(x)
+#define N_(x) gettext_noop(x)
+
+using namespace std;
+
+enum EFFECT_PRIORITIES {PRIORITY_TEMPERATURE,PRIORITY_DESATURATE};
+
+struct entrysource
+{
+	const char *id,*name;
+	GdkPixbuf *(*geticon)();
+	PPEffect *(*createeffect)(PPEffectHeader &header);
+	GtkWidget *(*createwidget)();
+	void *effectdefaults;
+};
+
+
+// Specific to TempChange effect...
+
+static struct { int tempchange; } tempdefaults = { -1000 };
+
+
+static PPEffect *add_temp(PPEffectHeader &header)
+{
+	PPEffect_Temperature *result=new PPEffect_Temperature(header,PRIORITY_TEMPERATURE,PPEFFECT_PRESCALE);
+	result->SetTempChange(tempdefaults.tempchange);
+	return(result);
+};
+
+static GtkWidget *create_temp_widget()
+{
+	GtkWidget *result=NULL;
+	return(result);
+}
+
+
+// Specific to Desaturate effect...
+
+static PPEffect *add_desat(PPEffectHeader &header)
+{
+	PPEffect *result=new PPEffect_Desaturate(header,PRIORITY_DESATURATE,PPEFFECT_PRESCALE);
+	return(result);
+};
+
+
+// Table of effects...
+
+static struct entrysource effectlistsources[]=
+{
+	{PPEffect_Desaturate::ID,PPEffect_Desaturate::Name,
+		PPEffect_Desaturate::GetIcon_static,add_desat,
+		NULL,NULL},
+	{PPEffect_Temperature::ID,PPEffect_Temperature::Name,
+		PPEffect_Temperature::GetIcon_static,add_temp,
+		create_temp_widget,&tempdefaults},
+};
+
+#define SOURCECOUNT (sizeof(effectlistsources)/sizeof(entrysource))
+
+
+EffectListSource::EffectListSource()
+{
+}
+
+
+EffectListSource::~EffectListSource()
+{
+}
+
+
+int EffectListSource::EffectCount()
+{
+	return(SOURCECOUNT);
+}
+
+
+const char *EffectListSource::GetID(unsigned int effect)
+{
+	if((effect>=0) && (effect<SOURCECOUNT))
+		return(effectlistsources[effect].id);
+	return(NULL);
+}
+
+
+const char *EffectListSource::GetName(unsigned int effect)
+{
+	if((effect>=0) && (effect<SOURCECOUNT))
+		return(effectlistsources[effect].name);
+	return(NULL);
+}
+
+
+GdkPixbuf *EffectListSource::GetIcon(unsigned int effect)
+{
+	if((effect>=0) && (effect<SOURCECOUNT))
+		return(effectlistsources[effect].geticon());
+	return(NULL);
+}
+
+
+PPEffect *EffectListSource::CreateEffect(unsigned int effect,PPEffectHeader &header)
+{
+	if((effect>=0) && (effect<SOURCECOUNT))
+		return(effectlistsources[effect].createeffect(header));
+	return(NULL);
+}
+
+
+void EffectListSource::ApplyWidget(GtkWidget *widget,PPEffect *effect)
+{
+	const char *id=effect->GetID();
+	if(strcmp(PPEffect_Desaturate::ID,id)==0)
+	{
+	
+	}
+	else if(strcmp(PPEffect_Temperature::ID,id)==0)
+	{
+	
+	}
+}
+
+
+GtkWidget *EffectListSource::GetWidget(unsigned int effect)
+{
+	GtkWidget *result=NULL;
+	
+	return(result);
+}

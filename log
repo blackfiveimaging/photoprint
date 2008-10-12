@@ -1,0 +1,63 @@
+
+Done
+==5218== 
+==5218== ERROR SUMMARY: 124 errors from 33 contexts (suppressed: 53 from 1)
+==5218== malloc/free: in use at exit: 10,286,795 bytes in 82,941 blocks.
+==5218== malloc/free: 839,677 allocs, 756,736 frees, 282,492,273 bytes allocated.
+==5218== For counts of detected errors, rerun with: -v
+==5218== searching for pointers to 82,941 not-freed blocks.
+==5218== checked 27,187,800 bytes.
+==5218== 
+==5218== 
+==5218== 28 bytes in 1 blocks are definitely lost in loss record 29 of 275
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x9060DD1: strdup (in /lib/libc-2.7.so)
+==5218==    by 0x445610: SearchPath::MakeRelative(char const*) (searchpath.cpp:245)
+==5218==    by 0x44DFDA: profileselector_set_filename (profileselector.cpp:347)
+==5218==    by 0x44E566: profileselector_changed(_GtkWidget*, void*) (profileselector.cpp:221)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x5719963: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x44E0AE: profileselector_set_filename (profileselector.cpp:365)
+==5218==    by 0x410AF9: ExportJPEG_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:681)
+==5218== 
+
+==5218== 
+==5218== 687 bytes in 25 blocks are definitely lost in loss record 160 of 275
+==5218==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==5218==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6FAD9E8: g_strndup (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x6F7A30D: g_locale_to_utf8 (in /usr/lib/libglib-2.0.so.0.1600.3)
+==5218==    by 0x44E0D4: profileselector_set_filename (profileselector.cpp:387)
+==5218==    by 0x44E566: profileselector_changed(_GtkWidget*, void*) (profileselector.cpp:221)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x5719963: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x44E0AE: profileselector_set_filename (profileselector.cpp:365)
+
+==5218== 645 (600 direct, 45 indirect) bytes in 1 blocks are definitely lost in loss record 265 of 275
+==5218==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==5218==    by 0x4186AE: Layout_NUp::PlaceImage(char const*, int, int, int, bool, PP_ROTATION) (layout_nup.cpp:135)
+==5218==    by 0x4192AA: Layout_NUp::AddImage(char const*, bool, PP_ROTATION) (layout_nup.cpp:217)
+==5218==    by 0x4258C3: get_dnd_data(_GtkWidget*, _GdkDragContext*, int, int, _GtkSelectionData*, unsigned, unsigned, void*) (pp_layout_nup_pageview.cpp:85)
+==5218==    by 0x56F6ABC: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692D397: g_signal_emit_by_name (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x581F5AA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==5218==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==5218== 
+==5218== LEAK SUMMARY:
+==5218==    definitely lost: 74,303 bytes in 375 blocks.
+==5218==    indirectly lost: 230,448 bytes in 3,671 blocks.
+==5218==      possibly lost: 371,936 bytes in 276 blocks.
+==5218==    still reachable: 9,610,108 bytes in 78,619 blocks.
+==5218==         suppressed: 0 bytes in 0 blocks.
+==5218== Reachable blocks (those to which a pointer was found) are not shown.
+==5218== To see them, rerun with: --leak-check=full --show-reachable=yes

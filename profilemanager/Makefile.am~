@@ -1,0 +1,35 @@
+
+localedir=$(datadir)/locale
+
+AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I../imagesource/ -I../support/ $(LCMS_CFLAGS) $(GTK2_CFLAGS)
+
+noinst_LTLIBRARIES = libprofilemanager.la
+
+libprofilemanager_la_SOURCES =	\
+	lcmswrapper.cpp	\
+	lcmswrapper.h	\
+	md5.cpp	\
+	md5.h	\
+	profilemanager.cpp	\
+	profilemanager.h	\
+	profileselector.cpp	\
+	profileselector.h	\
+	intentselector.cpp	\
+	intentselector.h
+
+libprofilemanager_la_LDFLAGS = -static
+
+check_PROGRAMS = test uitest mkrgbprofile
+
+test_SOURCES = test.cpp
+test_DEPENDENCIES = libprofilemanager.la ../support/libsupport.la
+test_LDADD = -L. -lprofilemanager -L../support -lsupport $(LCMS_LIBS) $(GTK2_LIBS)
+
+mkrgbprofile_SOURCES = mkrgbprofile.cpp
+mkrgbprofile_DEPENDENCIES = libprofilemanager.la ../support/libsupport.la
+mkrgbprofile_LDADD = -L. -lprofilemanager -L../support -lsupport $(LCMS_LIBS) $(GTK2_LIBS)
+
+uitest_SOURCES = uitest.cpp
+uitest_DEPENDENCIES = libprofilemanager.la ../support/libsupport.la
+uitest_LDADD = -L. -lprofilemanager -L../support -lsupport -L../pixbufthumbnail -lpixbufthumbnail $(LCMS_LIBS) $(GTK2_LIBS)
+

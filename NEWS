@@ -1,0 +1,644 @@
+PhotoPrint-0.3.9
+
+  * Fixed a bug where vertical offsets and cropping were ignored when images
+    are downsampled.
+
+  * Threads code should now work on Win32
+
+  * SearchPath class renamed to avoid Win32 name clash
+
+  * Resolved a couple of other Win32 build issues
+
+  * Hopefully fixed custom page size bug for borderless mode
+
+  * Fixed a resolution bug in the TIFF loader - a decimal point in the wrong place!
+
+  * Hopefully fixed a papersize bug which afflicted papersizes not normally known
+    to Gutenprint, but specified within a PPD file.
+
+  * ProfileManager can now use the LCMS inbuilt sRGB profile.
+
+  * Added physical size and resolution information to the ImageInfo widget.
+
+  * Fixed a bug with high-res previews and rotation.
+
+  * Effects are now copied when duplicating images.
+
+
+PhotoPrint-0.3.8b
+
+  * Nasty exception-handling bug in the multi-threaded high-res previews fixed.
+
+  * Single layout supports fractional percentage scaling.
+
+
+PhotoPrint-0.3.8
+
+  * Fixed some minor errors causing compilation problems in some instances.
+    Thanks for Hubert Figuiere for pointing these out and supplying a patch.
+
+  * Fixed broken compilation if libcups-devel is missing.
+
+  * Configure script will now bail out if either libtiff or libjpeg is missing.
+
+  * Added ability to save 16-bit data to TIFFSaver and export.
+
+  * Reworked ProfileSelector to show Descriptive names rather than filenames,
+    and to use tooltips rather than a separate label box to show ancillary
+    information (i.e. the filename).
+
+  * Vastly improved implementation of the Downsample filter - no longer results
+    in dark edges when the reduction is slight, and no longer slightly darkens
+    the whole image.
+
+  * Fixed an FD leak in the ImageInfo widget that would lead to a crash after
+	several hundred refreshes of the Manual and Poster layouts.
+
+  * Added a pixbufview widget, which will be used to implement Print Preview.
+
+  * BMP Loader can now handle 32-bit RGBA BMP files.
+
+  * Print Setup dialog now hides inactive options, rather than merely greying
+    them out.
+
+  * Added copy constructor and better handling of virtual profiles to lcmswrapper
+
+  * Support for high-resolution previews.  The low-res previews are used initially
+	for speed, then a sub-thread renders a high-resolution preview.
+	Lots of "interesting" issues still to resolve with the introduction of
+	multi-threading!
+
+  * Created a new RWMutex similar to pthreads rwlocks but explicitly capable of
+    dealing with recursion, and mixing lock types.
+
+  * Effects are now properly applied to low-res previews before the final
+	colour management transform - thus images rendered grey by the Desaturate widget
+    now correctly mimic paper-white/grey in Simulate Print mode.
+
+  * Images can now be duplicated on the page - both singly and to fill the page.
+
+  * Improved performance of the high-resolution rendering thread system.
+
+  * Scaling routines are now split into separate horizontal and vertical stages
+    so the image processing engine can now use different filters for the
+    two dimensions.
+
+  * Previews with alpha channel now composite against the correct background colour
+    (only makes a difference in Paper-simulation mode).
+
+  * Support added to the Montage routine for RGBA colour space - needed to fix the
+    above for the Carousel preview.
+
+
+PhotoPrint-0.3.7
+
+  *	Hopefully fixed a papersize bug.
+  
+  * The Rotation and Allow Cropping settings are now stored in the preset
+    files, and are thus now usable in batch mode.
+
+  * Fixed a bug in the Dimension widgets when working in Points.
+
+  * JPEG Export dialog no longer suggests "exported.tif" as a suitable filename!
+
+  * JPEG Export dialog now contains a spin button for setting the export Quality.
+
+  * Started reorganising User Interface.  Layout controls are now more compact.
+    Frames have been replaced with expanders, to allow the right-hand pane to be
+    better used with image manipulation controls.
+
+  * The background image preview now works again.
+
+  * Added an ImageInfo widget which displays the filename, dimensions and applied
+    colour profile of a selected image.
+
+  * Now displays a dialog on preset loading if the printer queue specified in the
+    preset doesn't exist, allowing the user to change queues in this case without
+    resetting the printer settings.
+
+  * Fixed a segfault upon 180-degree rotation of large images.
+
+  * Fixed a problem with CMYK->RGB conversion in the thumbnail code.
+
+  * Re-worked the EffectSelector widget, and embedded it into the main control panel.
+
+  * Refactored a lot of the Effect-handling code, and created a new widget for
+    the Colour Temperature changer.
+
+  * Fixed a bug in the Carousel mode which sometimes prevented images being panned.
+
+  * Unavailable image operations are now correctly greyed out in the popup menu.
+  
+  * Added Unsharp Mask effect.
+
+  * Effects can now be applied to multiple images simultaneously.
+  
+  * Now uses CUPS, if available, to enumerate the available printer queues.
+
+
+PhotoPrint-0.3.6
+
+  * Fixed a segfault in the rotation routines.
+
+  * Fixed a problem with the TIFF Loader - it now loads the first page of multi-page
+    Images, instead of the second.  This was causing the thumbnail rather than the main
+    image to be used in some cases.
+
+  * Portuguese (Brazilian) translation added.  Many thanks for Krishnamurti Lelis Lima
+    Vieira Nunes for this.  Krishnamurti's translation will currently be used both by
+    Brazilian and European Portuguese locales - if anyone would like to adjust the
+    European translation to better suit the European style it would be much appreciated.
+
+  * Fixed a bug which caused a floating-point exception at startup if there was no
+    default.preset file.
+
+  * Spanish translation added.  Many thanks to Redy Rodriguez for this.
+
+
+PhotoPrint-0.3.5
+
+  * Can now fetch a profile attached to a display, using the _ICC_PROFILE atom
+    described by Ross Burton's XICC specification.   (X11 only - does anyone
+    know how to do the equivalent under Win32?)
+
+  * Embedded profiles in JPEG images are now used.
+
+  * First stab at an effects dialog, allowing various modifications to an image
+    on the page.  Currently implemented:
+    * Desaturate - replace each of RGB with (R+G+B)/3.
+    * Cool/Warm - uses LCMS virtual profiles to adjust the colour temperature
+      of an image.  Very useful for black-and-white photographs, if you wish to
+      print them cooler or warmer than your printer's neutral grey.
+    (Yes, I know this dialog sucks - it will be replaced with something better
+    in due course!)
+
+  * Migrated the menus to GtkUIManager for easier translation.  Menus are
+    now translated.
+  
+  * Custom media sizes and roll papers are now supported - but not
+    comprehensively tested.
+
+  * Fixed bug in queue selector - custom command entry now shows up if custom
+    command is the initial setting.
+
+  * Now sets the LC_ALL environment variable to "C" before building the queue
+    list, fixing a parsing problem of lpstat's output when localised.
+
+  * Fixed a unit-handling bug in the dimension widget.
+
+  * Full translations now included for Russian and French.  Many many thanks
+    to Alexandre Prokoudine and Séverin Lemaignan for their translation work.
+
+  * Reduced the memory usage of N-up mode during printing and export.
+
+  * Fixed 180-degree rotation bug
+
+  * PPD file now fetched using CUPS when a Postscript-based queue is selected.
+
+  * PrintingMode parameter now set to "Color" at print time. (Fixed segfault
+    with PS driver).
+
+  * Now includes a .desktop file (thanks to Alexandre Prokoudine) and icon.
+
+  * Fixed profile selector - no longer bombards the user with file dialogs if
+    no profiles are found on the system!
+
+
+PhotoPrint-0.3.4
+
+  * Now uses a high-quality DownSample filter when reducing images, unless
+    Nearest Neighbour is specified.
+
+  * Full print proofing is now possible - by way of a new option menu in 
+    the colour management dialog.
+    The options for "Display Mode" are "Normal" - i.e no proofing,
+    "Simulate Print" - a proofing transform, using Absolute Colorimetric, and
+    "Simulate Print, Adapt White" - proof using Relative Colorimetric.
+
+  * Fixed the call to wait() in stp_util/printerqueues_unix.c
+
+  * The queue handler can now capture output to a file; the unix version can
+    send the print data to a custom command.
+
+  * New, general purpose queue selector widget - allows the user to select
+	between the detected printer queues, and two special purpose queues -
+	<Print to file> and <Use custom print command> (UNIX only).  If the custom
+	command option is selected, the widget will make a text entry available
+	for entering the custom command.   No entry is made available for the
+	Print to File option - instead, a callback is used to fetch a filename at
+	run-time - which PhotoPrint links to a file chooser in save mode.
+
+  * Save dialog now prompts you to confirm before over-writing an existing file.
+  
+  * Fixed problem with inverted image masks!  Thanks to Joel Swartz for the
+    bug report.
+
+  * Added tooltips to the IntentSelector widget, to provide a short description
+    of each rendering intent.
+
+  * Print proofing mode now adjusts the "paper white" as well as the images.
+
+  * Internationalization support.  Just a partial Russian translation so far -
+	many, many thanks to Alexandre Prokoudine for this, and for prodding me
+	into implementing i18n - the infrastructure is now largely present, and
+	most of the strings are marked for translation.  I'm bound to have missed
+	some, though - so bug reports and more translations are *very* welcome!
+	Note that currently the menus are marked for translation, but will not
+	actually be translated.
+
+
+PhotoPrint-0.3.3
+
+  * Now builds and runs under Win32 (mingw)
+
+  * Added new printer queue management routines in a new stp_support library
+    This handles the unpleasant details of getting the raw data to the printer
+    and abstracts away the differences between UNIX and Windows queue handling.
+
+  * Modified the searchpath code to deal with Win32 path structure.
+
+  * Modified the thumbnail code to deal with Win32 absolute paths.
+
+  * Modified thumbnail code again - now uses g_path_is_absolute()
+	
+  * Created new routine to substitute the user's homedir into a path or filename.
+    Will be used throughout to improve Win32 support.
+
+  * Save Default menu item now stores the window geometry in the preset.
+
+  * Now uses new GtkFileChooser instead of GtkFileSel - and hence requires
+    GTK+ 2.4 or newer.
+
+  * TIFF export is now much more flexible.  There is now a dialog for setting
+    the range of pages to be printed, the resolution, and optional output colour
+    profile.
+
+  * Layout view is now colour-managed.
+  
+  * TIFF Export now embeds the colour profile in the generated file.
+
+  * Worked around a problem with the pipe-to-print-command code - should prevent
+    alternate print jobs failing on some systems.
+
+  * Can now tag images with a custom profile, and set the rendering intent
+    individually.
+
+
+PhotoPrint-0.3.2
+
+  * Improved the performance of the ProfileSelector widget.  The ProfileManager
+    now caches the list of files, so the directories only have to be scanned once
+    and the profiles only have to be opened once for filtering purposes, even
+    when a dialog contains several ProfileSelectors.
+
+  * Added preliminary support for PPDs when using the PostScript driver.
+
+  * Reversed the direction of mask rotation to match the "Auto" image rotation.
+
+  * Cancelling a print job no longer results in "Unable to generate print data"
+    error message.
+
+  * Cancelling a print job now actually *cancels* the job!
+
+  * Fixed bug in imagesource_promote - Greyscale->CMYK promotion now works!
+
+  * Cleaned up the Layouts' detection of the default colour space - used by
+    the colour-space BW/Grey->RGB/CMYK "promotion" code.
+
+  * Reverted loaders' black/white polarity, and reversed it in imagesource_promote.
+    Greyscale and B/W images are now always treated as MinIsWhite - to match CMYK.
+
+  * Hopefully fixed a segfault which showed up on some systems when there was
+    no .photoprint directory.
+
+  * Added support for "panning" cropped images - you can now click-and-drag a
+    cropped image to re-frame it.
+
+  * Added support to the n-up layout for a background image.
+
+  * Added a path selector for background images.
+
+  * pixbuf_from_imagesource() now supports CMYK images.
+
+  * The ImageSelector widget (used for borders and backgrounds) now supports
+    drag'n'dropping an image.
+
+
+Photoprint-0.3.1
+
+  * Fixed Greyscale BMPs printing in negative!
+
+  * Possibly fixed bug that sometimes causes prints to be offset by about 3mm
+
+  * Added a dedicated ProfileSelector widget
+
+  * Created a PathEditor widget
+
+  * Created an ImageSelector widget (used for selecting masks)
+
+  * Added a new "Paths" dialog for selecting profile and border paths.
+
+  * Batch mode works again
+  
+  * Reworked the ConfigFile code a little to ease the storing of paths.
+
+  * Moved some of the more general-purpose and reusable UI code into support/
+
+  * Cleaned up a minor signal-handling bug in the poster layout.
+
+  * Should now be able to do full-bleed printing when Borderless is selected
+    in the print options.
+
+  * pixbuf_from_imagesource can now cope with GreyScale images.
+
+
+PhotoPrint-0.3.0
+
+  * Fixed uncaught exception if a bad / non-existent mask filename is provided.
+
+  * Fixed a problem with detecting libpnm on systems that don't have it linked
+    to the math library.
+    
+  * Fixed a double-free in imagesource_lanczossinc.cpp.
+
+  * Added new ProfileManager class.
+
+  * Reworked all four layout classes to use the new ProfileManager.
+	Much tidier now.
+
+  * Added some much-needed comments to the hairier parts of the
+    ProfileManager.
+
+  * DeviceLink profiles are now supported.  If the printer's profile is 
+    a DeviceLink, then ordinarily the default profile is ignored; images
+    that have an embedded profile are transformed first to the default
+    profile and then the printer profile is applied.  Therefore, the default
+    profile should be the same one used as a source profile when the DeviceLink
+    was made.
+
+  * PhotoPrint's version is now encoded into the preset files.
+    The ProfileManager's parameters now have their own section within the
+    preset file; PhotoPrint will automatically transfer these parameters
+    from old presets, but newly-saved presets will now be incompatible with
+    previous versions.
+
+
+PhotoPrint-0.2.9
+
+  * JPEG loader doesn't now initialise the decompressor until the first row
+    is requested.  I'd hoped this would improve performance when querying image
+    dimensions and resolution, but it seems to make no appreciable difference.
+
+  * Layout::TransferImages now accepts a Progress object, and is cancellable.
+  
+  * Greyscale images are now "promoted" to RGB.
+  
+  * Multi-selection now works in N-Up mode, and "Remove Image", "Allow Cropping"
+    and "Allow Rotation" are correctly applied to all selected images.
+
+  * New "Image" menu - duplicating the functionality of the context menus; allows
+    settings to be applied en masse.
+
+  * Context menu is no longer handled by the individual pageview widgets; instead
+    they emit a "popupmenu" signal which the pp_layout_* widget propagates back to
+    the pp_mainwindow widget.
+
+  * Layouts now provide a bitwise mask defining their capabilities; this is used to
+    enable and disable entries in the menus.
+
+  * Layouts now support explicit rotation to 0, 90, 180 and 270 degrees, and also
+    support "Auto" rotation - similar to the old behaviour.
+
+  * Auto layout now supports shift-click multi-selection
+  
+  * Cleaned up multipage handling, which was failing to deal with the possibility
+    of removing more than a pagefull of images in one go.
+
+  * Added multi-selection to Carousel mode, plus selection highlighting.
+
+  * Fixed a page numbering problem with the Single layout.
+
+
+PhotoPrint-0.2.8
+
+  * Fixed an uninitialised variable that was wreaking havok in stpui_combo
+
+  * Created a search-path system for the ICC profiles.  The program will now use
+    the following search paths by default (in this order):
+    $HOME/.color/icc
+    $HOME/.photoprint/icc
+    /usr/share/color/icc
+    /usr/local/share/color/icc
+    When a profile is selected in the file selector, its path is checked to see
+    whether it's in any of the standard paths.  If so, the path component is removed.
+    The paths are checked one by one to locate the profile when it's needed.
+    (This makes sharing preset files much easier, since the path to the profile is
+    no longer absolute.)
+
+  * Added #include <math.h> to imagesource_segmentmask.cpp
+
+
+PhotoPrint-0.2.7
+
+  * Added (at last!) the ability to create the .photoprint directory if necessary.
+
+  * Splash screen no longer appears in batch mode.
+
+  * Fixed a problem with the "changed" signal not being caught after a layout change.
+
+  * Renamed and rearranged the layout names - Single is not useful except in
+    specific circumstances, so should be less "inviting".
+
+  * Can now cancel the adding of multiple images.
+
+  * The problem with previewing multiple pages in poster mode is fixed.
+
+  * The manual sizing mode now automatically shrinks newly-placed images if their
+    natural size would be too large to fit the page.
+
+  * Fixed some problems with the Carousel mode's UI.  Layout_Single was used as a
+    starting point for Layout_Carousel, and I'd missed a few references to
+    Layout_Single.
+
+
+PhotoPrint-0.2.6
+
+  * Fixed (I hope) the problem on some machines with the unit conversion
+    macros failing.  Something seems to be interfering with the use of round()
+
+  * Fixed a problem with the options system, which caused PhotoPrint's output to
+    be considerably darker than the print plugin's with the same settings.
+    WARNING: THIS WILL INVALIDATE ALL EXISTING PROFILES - but by vastly reducing
+    the gamma setting you should be able to reproduce the old behaviour!
+
+  * Added spin buttons to control number of segments and overlap for Carousel layout.
+
+  * Fixed double free error in the layouts (transformed preview)
+
+
+PhotoPrint-0.2.5
+
+  * Added a LayoutRectangle class, with a Fit() function.
+  
+  * Migrated all fitting functions to use the new LayoutRectangle class
+    (Went suspiciously smoothly!)
+
+  * Fixed major screwup in the poster-mode preview caused in
+    migrating to LayoutRectangle.
+
+  * Finally added support for physical dimensions in Print Setup.
+  
+  * Added dummy menu item for Print Preview
+
+  * New layout mode: Image Carousel (for CDs) - arranges the images in a circular
+    fashion and blends between images.
+    (It's done by placing half the images hard-masked to a segment shape, and
+    overlaying the other half with an alpha blend, so only works well for an
+    even number of images.)
+
+  * Fixed bug when loading a new preset of the same type as the current preset.
+    (Stale pointer to the stp_vars, which is flushed and replaced on preset load.)
+
+  * Added routines to calculate image bounds of Image Carousel segments
+    and to provide an imagesource with an appropriate mask applied.
+
+  * Moved thumbnail drawing (common between n-up and poster mode) into the
+    layout superclass, along with allowcropping and new allowrotation flags
+    to replace the old cropfit flag.
+
+  * Fixed misplaced semicolon in thumbnail "stealing" code.
+
+  * Layout_ImageInfo now generates a thumbnail in the constructor so that
+    unsupported file formats are caught earlier.
+
+  * Masking is now implemented for the n-up, single and poster layouts.
+
+  * "Retired" imagesource_signature.  It's too specific to belong in the general
+    imagesource library, and with imagesource_montage factored out, it was very
+    small anyway.  The functionality is now included in layout_nup.cpp, which
+    makes adding the masks much tidier.
+
+
+PhotoPrint-0.2.4
+
+  * Added a unit widget for physical dimensions
+  
+  * Added rounding to neat increments to the unit widget.
+
+  * Printer settings are now cleared before loading a preset.
+  
+  * Added Scaling Quality dialog.
+  
+  * The file selector now remembers the most recently added image.
+  
+  * Refactored the Montage imagesource.  Montage is now more general,
+    and the specific n-up layout is now handled by a subclass,
+    ImageSource_Signature.
+
+  * Added support for alpha channels to TIFF loader and compositing functions.
+  
+  * Added a PS/PDF loader that generates a temporary TIFF file using GhostScript
+  
+  * Fixed #ifndef in rotatepixbuf.h (Thanks to regisr for pointing this out)
+
+  * Removed dependency on ini.h in lcmswrapper.*, and created new types to
+    deal with whitepoint, primaries, etc.
+  
+  * Created new subdirectory, "support", containing non-photoprint specific routines.
+  
+  * Added a splashscreen, in "splashscreen" directory.
+  
+  * Eliminated several compiler warnings - should now compile cleanly with -Wall
+ 
+
+PhotoPrint-0.2.3
+
+  * Added support for CMYK images
+  
+  * Re-worked the colour-management dialog - invalidates old presets
+
+  * Optional parameters now have a check box to disable them
+
+  * Fixed resetting of margins with every print-setup operation.
+  
+  * Relative pathnames now work
+  
+  * Fixed a couple of compilation warnings regarding non-virtual destructors
+  
+  * Fixed a C++/C99 declaration in some C code.
+
+  * Created a Bilinear filter
+
+
+PhotoPrint-0.2.2
+
+  * Batch mode now implemented
+
+  * Infrastructure is in place for multiple layout types,
+    including swapping between them at runtime
+
+  * Single layout now implemented
+  
+  * Poster layout now implemented
+  
+  * Added a Lanczos-windowed Sinc interpolation filter
+    (currently used for scaling operations of more than 250% linear)
+  
+  * Infrastructure in place for selecting scaling type and
+    rendering resolution at runtime.  (GUI to follow).
+    Scaling strategy is currently automatically selected.
+
+  * BMP Loader now fetches the image resolution from the file.
+
+  * Should no longer segfault when fed a bad filename.
+  
+  * Layout controls are now in a scrollwindow widget, making the program
+    more usable with low screen resolutions.
+
+  * Window geometry is now saved with the preset.
+
+  * Now allows more friendly printer configuration; displays a list of
+    known printer queues, automatically generates suitable default commands,
+    and (if linked against libcups) can deduce the correct Gutenprint driver
+    to use.
+
+  * A nasty bug fixed in pp_signature.cpp, where a typo was wreaking havoc with
+    the sizegroup, due to a widget being added to it twice.
+
+
+PhotoPrint-0.2.1
+
+  * Now uses autotools for configuration.
+
+  * Added a context menu to the images, allowing removal and cropping.
+
+  * "Allow Cropping" menu item scales the image to fill the frame completely,
+    as opposed to the default method, which scales as large as possible while
+    still keeping the entire image within the frame.
+
+  * Added a "crop-fit" fitting method to the ImageSource_Montage class,
+    to support the "Allow Cropping" option.
+
+  * Refactored the Layout class into a super- and sub-class, which should
+	allow the relatively painless addition of alternative layout styles
+	in the future.
+
+  * Moved all the UI elements relating to the NUp layout into a composite
+    widget, which again should allow the addition of alternative layouts
+    in the future.
+
+  * Added an optional cancel button to the progress indicator.
+
+  * Both the TIFF saver and Printer now respect the cancel button.
+
+  * Fixed a string-freeing error in stpui_widgets/stpui_printerselector.c.
+
+
+PhotoPrint-0.2.0
+
+  * First GUI-based release
+
+
+PhotoPrint-0.1.0
+
+  * Initial command-line driven utility.

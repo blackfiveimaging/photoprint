@@ -1,0 +1,22 @@
+#ifndef IMAGESOURCE_DOWNSAMPLE_H
+#define IMAGESOURCE_DOWNSAMPLE_H
+
+#include "imagesource.h"
+
+class ImageSource_Downsample : public ImageSource
+{
+	public:
+	ImageSource_Downsample(ImageSource *source,int dstwidth,int dstheight);
+	~ImageSource_Downsample();
+	ISDataType *GetRow(int row);
+	private:
+	bool CalcCoefficients(int srcsize,int dstsize);
+	void DownsampleRow(ISDataType *src,int srcsize,int *dst,int dstsize,int rowfactor);
+	ImageSource *source;
+	float newxres,newyres;
+	float xscale,yscale;
+	int *coeff;
+	int *tmp;
+};
+
+#endif

@@ -1,0 +1,17 @@
+***************
+*** 39,45 ****
+  	int error;
+  };
+  
+- #elif defined HAVE_LIBPTHREAD
+  
+  struct Thread
+  {
+--- 39,45 ----
+  	int error;
+  };
+  
++ #elif defined HAVE_LIBPTHREAD || defined HAVE_LIBPTHREADGC2
+  
+  struct Thread
+  {

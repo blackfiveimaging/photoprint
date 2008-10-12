@@ -1,0 +1,13 @@
+Architecture:
+
+PPEffectHeader - maintains a list of active effects, which are defined by:
+PPEffect - superclass for the effects themselves.  Provides an Apply method
+  which chains the effect to a provided ImageSource.
+  
+EffectListSource - an accessor class for a static list of effect descriptions.
+  The static list of descriptions also includes any parameters needed by the
+  effect - these are used as defaults when either an effect or a widget is
+  created.
+  provides methods to get IDs, Translated names and Icons, as well as
+  methods for creating the effect itself, and for creating a widget.
+  Also a function to apply a widget's state to an effect.

@@ -1,0 +1,207 @@
+#include <iostream>
+#include <stdlib.h>
+#include <string.h>
+
+#include "imagesource_downsample.h"
+
+using namespace std;
+
+ImageSource_Downsample::~ImageSource_Downsample()
+{
+	if(source)
+		delete source;
+
+	if(tmp)
+		free(tmp);
+
+	if(coeff)
+		free(coeff);
+}
+
+
+bool ImageSource_Downsample::CalcCoefficients(int srcsize,int dstsize)
+{
+	double scalefactor;
+	int sptr;
+	double dptrf,dptrf2;
+	int dptri,dptri2;
+	int fact;
+	
+	if(!(coeff=(int *)malloc(sizeof(int)*srcsize*3)))
+		throw "Can't create coefficient buffer";
+
+	int *cf=coeff;
+		
+	scalefactor=srcsize; scalefactor/=dstsize;
+
+	for(sptr=0;sptr<srcsize;++sptr)
+	{
+		dptrf=sptr; dptrf/=scalefactor;
+		dptrf2=sptr+1; dptrf2/=scalefactor;
+
+		dptri=int(dptrf);
+		dptri2=int(dptrf2); // -0.0001);
+
+		if(dptri==dptri2)
+		{
+			fact=int(256*(dptrf2-dptrf));
+			*cf++=fact;
+			*cf++=0;
+		}
+		else
+		{
+			fact=int(256*(dptri2-dptrf));
+			*cf++=fact;
+			*cf++=1;
+			
+			fact=int(256*(dptrf2-dptri2));
+			*cf++=fact;
+		}
+	}
+
+	return(true);
+}
+
+
+void ImageSource_Downsample::DownsampleRow(ISDataType *src,int srcsize,int *dst,int dstsize,int rowfactor)
+{
+	int sptr;
+	unsigned int d[5];
+	int *cf=coeff;
+
+	for(int i=0;i<samplesperpixel;++i)
+		d[i]=0;
+
+	for(sptr=0;sptr<srcsize;++sptr)
+	{
+		for(int i=0;i<samplesperpixel;++i)
+		{
+			d[i]+=(*src++)*(cf[0]);
+			if(cf[1])
+			{
+				dst[i]+=(d[i]*rowfactor);
+	
+				d[i]=(*(src-1))*(cf[2]);
+			}
+		}
+		if(cf[1] || sptr==srcsize-1)
+		{
+			dst+=samplesperpixel;
+			cf+=3;
+		}
+		else
+			cf+=2;
+	}
+}
+
+#if 0
+void ImageSource_Downsample::DownsampleRow_32Bit(int *src,int srcsize,int *dst,int dstsize,int rowfactor)
+{
+	int sptr;
+	int d1=0;
+	int d2=0;
+	int d3=0;
+	int d4=0;
+	int *cf=coeff;
+
+	for(sptr=0;sptr<srcsize;++sptr)
+	{
+		int c=*cf++;
+		d1+=(*src++)*c;
+		d2+=(*src++)*c;
+		d3+=(*src++)*c;
+		d4+=(*src++)*c;
+		if(*cf++)
+		{
+			(*dst++)+=(d1*rowfactor);
+			(*dst++)+=(d2*rowfactor);
+			(*dst++)+=(d3*rowfactor);
+			(*dst++)+=(d4*rowfactor);
+			c=*cf++;
+			d1=(*(src-4))*c;
+			d2=(*(src-3))*c;
+			d3=(*(src-2))*c;
+			d4=(*(src-1))*c;
+		}
+	}
+}
+#endif
+
+
+ISDataType *ImageSource_Downsample::GetRow(int row)
+{
+	int i,srow,srow1,srow2;
+
+	if(row==currentrow)
+		return(rowbuffer);
+
+	for(i=0;i<(width*samplesperpixel);++i)
+		tmp[i]=0;
+
+	srow1=int(row*yscale);
+	srow2=int((row+1)*yscale-0.0001);
+	if(srow2>=source->height)
+		srow2=source->height-1;
+
+	for(srow=srow1;srow<=srow2;++srow)
+	{
+		ISDataType *srcrow=NULL;
+		int drowi,drowi2;
+		double drowf,drowf2;
+		double outfact;
+
+		srcrow=source->GetRow(srow);
+
+		drowf=srow; drowf/=yscale;
+		drowf2=srow+1; drowf2/=yscale;
+
+		drowi=int(drowf);
+		drowi2=int(drowf2);
+
+		if(drowi==drowi2)
+		{
+			outfact=drowf2; outfact-=drowf;
+			outfact*=255;
+			DownsampleRow(srcrow,source->width,tmp,width,int(outfact));
+		}
+		else
+		{
+			if(drowi<row)
+			{
+				outfact=drowf2; outfact-=drowi2;
+				outfact*=255;
+			}
+			else
+			{
+				outfact=drowi2; outfact-=drowf;
+				outfact*=255;
+			}
+			DownsampleRow(srcrow,source->width,tmp,width,int(outfact));
+		}
+	}
+	for(i=0;i<(width*samplesperpixel);++i)
+	{
+		rowbuffer[i]=tmp[i]>>16;
+	}
+	currentrow=row;
+	return(rowbuffer);
+}
+
+
+ImageSource_Downsample::ImageSource_Downsample(struct ImageSource *source,int width,int height)
+	: ImageSource(source), source(source), coeff(NULL)
+{
+	this->width=width;
+	this->height=height;
+
+	MakeRowBuffer();
+	tmp=(int *)malloc(sizeof(int)*samplesperpixel*width);
+
+	xscale=source->width; xscale/=width;
+	yscale=source->height; yscale/=height;
+
+	CalcCoefficients(source->width,width);
+
+	cerr << "width: " << width << ", height: " << height << endl;
+	cerr << "xscale: " << xscale << ", yscale: " << yscale << endl;
+}

@@ -1,0 +1,748 @@
+#include <string.h>
+
+#include <gtk/gtkframe.h>
+#include <gtk/gtksizegroup.h>
+#include <gtk/gtklabel.h>
+#include <gtk/gtkfilesel.h>
+#include <gtk/gtkfilechooser.h>
+#include <gtk/gtkfilechooserdialog.h>
+#include <gtk/gtkdialog.h>
+#include <gtk/gtkmenuitem.h>
+#include <gtk/gtkcheckmenuitem.h>
+#include <gtk/gtkimage.h>
+#include <gtk/gtkmain.h>
+#include <gtk/gtkuimanager.h>
+
+#include "stpui_widgets/stpui_combo.h"
+#include "support/progressbar.h"
+#include "support/tiffsave.h"
+#include "support/pathsupport.h"
+#include "layout.h"
+#include "dialogs.h"
+#include "support/generaldialogs.h"
+#include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
+#include "effects/effects_dialog.h"
+#include "pp_menu_file.h"
+#include "pp_menu_edit.h"
+#include "pp_menu_layout.h"
+#include "pp_menu_image.h"
+#include "pp_menu_options.h"
+#include "pp_menu_help.h"
+
+#include "config.h"
+#include "gettext.h"
+#define _(x) gettext(x)
+
+#include "pp_mainwindow.h"
+
+enum {
+	CHANGED_SIGNAL,
+	LAST_SIGNAL
+};
+
+static guint pp_mainwindow_signals[LAST_SIGNAL] = { 0 };
+
+static void pp_mainwindow_class_init (pp_MainWindowClass *klass);
+static void pp_mainwindow_init (pp_MainWindow *stpuicombo);
+static void layout_changed(GtkWidget *wid,gpointer *ob);
+
+
+
+// Functions invoked from the menus:
+
+
+static void savegeometry(pp_MainWindow *mw)
+{
+	gint x,y,w,h;
+	gtk_window_get_position(GTK_WINDOW(mw),&x,&y);
+	gtk_window_get_size(GTK_WINDOW(mw),&w,&h);
+
+	mw->state->SetInt("Win_X",x);
+	mw->state->SetInt("Win_Y",y);
+	mw->state->SetInt("Win_W",w);
+	mw->state->SetInt("Win_H",h);
+}
+
+
+static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+
+	pp_Menu *m=PP_MENU(mw->menu);
+	PP_ROTATION rotation=m->rotation;
+	bool allowcropping=m->allowcropping;
+	bool removeimage=true;
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	if(ii)
+	{
+		allowcropping=ii->allowcropping;
+		rotation=ii->rotation;
+	}
+	else
+		removeimage=false;
+
+	while(ii)
+	{
+		if(rotation!=ii->rotation)
+			rotation=PP_ROTATION_NONE;
+		allowcropping&=ii->allowcropping;
+		ii=mw->state->layout->NextSelected();
+	}
+
+	g_signal_handlers_block_matched (G_OBJECT(mw->menu),G_SIGNAL_MATCH_DATA,
+		0, 0, NULL, NULL, mw);
+	pp_menu_set_menu_state(m,allowcropping,rotation,removeimage);
+	g_signal_handlers_unblock_matched (G_OBJECT(mw->menu),G_SIGNAL_MATCH_DATA,
+		0, 0, NULL, NULL, mw);
+}
+
+
+static void layout_popupmenu(GtkWidget *wid,gpointer *ob)
+{
+	layout_selection_changed(NULL,ob);
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	pp_Menu *menu=PP_MENU(mw->menu);
+	gtk_menu_popup(GTK_MENU(menu->popupmenubar),NULL,NULL,NULL,NULL,3,gtk_get_current_event_time());
+}
+
+
+static void rebuild(pp_MainWindow *mw)
+{
+	try
+	{
+		ProgressBar p(_("Transferring images..."),true,GTK_WIDGET(mw));
+		if(mw->state->NewLayout(&p))
+		{
+			gtk_widget_destroy(mw->layout);
+	
+			if((mw->layout=mw->state->layout->CreateWidget()))
+			{
+				gtk_box_pack_start(GTK_BOX(mw->vbox),mw->layout,TRUE,TRUE,0);
+				gtk_widget_show(mw->layout);
+				g_signal_connect(G_OBJECT(mw->layout),"changed",G_CALLBACK(layout_changed),mw);
+				g_signal_connect(G_OBJECT(mw->layout),"popupmenu",G_CALLBACK(layout_popupmenu),mw);
+				g_signal_connect(G_OBJECT(mw->layout),"selection_changed",G_CALLBACK(layout_selection_changed),mw);
+			}
+			mw->state->layout->FlushThumbnails();
+		}
+		int caps=mw->state->layout->GetCapabilities();
+		pp_menu_set_layout_capabilities(PP_MENU(mw->menu),caps);
+		pp_mainwindow_refresh(mw);
+	}
+	catch(const char *err)
+	{
+		ErrorMessage_Dialog(err);
+	}
+}
+
+
+static void open_preset(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	char *filename=File_Dialog(_("Open preset..."),mw->state->filename);
+
+	if(filename)
+	{
+		mw->state->SetFilename(filename);
+		mw->state->ParseFile();
+		
+		g_free(filename);
+
+		rebuild(mw);
+	}
+}
+
+
+static void save_preset(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	savegeometry(mw);
+	mw->state->SaveFile();
+}
+
+
+static void save_as(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	savegeometry(mw);
+	char *filename=File_Save_Dialog(_("Save preset..."),mw->state->filename,GTK_WIDGET(&mw->window));
+
+	if(filename)
+	{
+		mw->state->SetFilename(filename);
+		mw->state->SaveFile();
+	
+		g_free(filename);
+	}
+}
+
+
+static void save_default(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	savegeometry(mw);
+	mw->state->SetDefaultFilename();
+	mw->state->SaveFile();
+}
+
+
+static void export_tiff(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+
+	ExportTiff_Dialog(GTK_WINDOW(mw),*mw->state);
+	return;
+}
+
+
+static void print_setup(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;	
+	PrintSetup_Dialog(GTK_WINDOW(mw),*mw->state);
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void do_paths(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;	
+	Paths_Dialog(GTK_WINDOW(mw),*mw->state);
+	pp_mainwindow_refresh(mw);
+}
+
+static void doprint(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	ProgressBar p(_("Generating print data..."),true,GTK_WIDGET(mw));
+
+	try
+	{
+		mw->state->layout->Print(&p);
+	}
+	catch (const char *err)
+	{
+		ErrorMessage_Dialog(err,GTK_WIDGET(mw));
+	}
+}
+
+
+static void colour_management(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;	
+	ColourManagement_Dialog(GTK_WINDOW(mw),*mw->state);
+	mw->state->layout->FlushThumbnails();
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void units(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	Units_Dialog(GTK_WINDOW(mw),*mw->state);
+	(mw->state->layout->SetUnitFunc())(mw->layout,mw->state->GetUnits());
+}
+
+
+static void scaling(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	Scaling_Dialog(GTK_WINDOW(mw),*mw->state);
+}
+
+
+// Preview widget for file-selector...
+
+static void updatepreview(GtkWidget *fc,void *ud)
+{
+	GtkWidget *preview=GTK_WIDGET(ud);
+	gchar *fn=gtk_file_chooser_get_preview_filename(GTK_FILE_CHOOSER(fc));
+	bool active=false;
+	if(fn)
+	{
+		GError *err=NULL;
+		GdkPixbuf *pb=egg_pixbuf_get_thumbnail_for_file(fn,EGG_PIXBUF_THUMBNAIL_NORMAL,&err);
+		if(pb)
+		{
+			gtk_image_set_from_pixbuf(GTK_IMAGE(preview),pb);
+			g_object_unref(pb);
+			active=true;		
+		}	
+	}
+	gtk_file_chooser_set_preview_widget_active(GTK_FILE_CHOOSER(fc),active);
+}
+
+
+static void add_image(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	PhotoPrint_State *state=mw->state;
+	GtkWidget *sel;
+
+	sel = gtk_file_chooser_dialog_new (_("Open File"),
+		GTK_WINDOW(GTK_WINDOW(&mw->window)),
+		GTK_FILE_CHOOSER_ACTION_OPEN,
+		GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+		GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+		NULL);
+
+	gtk_file_chooser_set_select_multiple(GTK_FILE_CHOOSER(sel),TRUE);
+	if(mw->prevfile)
+		gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(sel),mw->prevfile);
+	else
+	{
+#ifdef WIN32
+		char *dirname=substitute_homedir("$HOME\\My Documents\\My Pictures");
+#else
+		char *dirname=substitute_homedir("$HOME");
+#endif
+		gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(sel),dirname);	
+	}
+	g_free(mw->prevfile);
+	mw->prevfile=NULL;
+
+	GtkWidget *preview=gtk_image_new();
+	gtk_file_chooser_set_preview_widget(GTK_FILE_CHOOSER(sel),GTK_WIDGET(preview));
+	g_signal_connect(G_OBJECT(sel),"selection-changed",G_CALLBACK(updatepreview),preview);
+
+	if (gtk_dialog_run (GTK_DIALOG (sel)) == GTK_RESPONSE_ACCEPT)
+	{
+		GSList *filenames=gtk_file_chooser_get_filenames(GTK_FILE_CHOOSER(sel));
+		GSList *current=filenames;
+
+		if(filenames)
+		{
+			int count=0;
+			while(current)
+			{
+				++count;
+				current=g_slist_next(current);
+			}
+	
+			ProgressBar progress(_("Adding images..."),true,GTK_WIDGET(mw));
+	
+			current=filenames;
+			int i=0;
+			int lastpage=0;
+			while(current)
+			{
+				char *fn=(char *)current->data;
+	
+				pp_Menu *menu=PP_MENU(mw->menu);
+				lastpage=state->layout->AddImage(fn,menu->allowcropping,menu->rotation);
+	
+				if(!(progress.DoProgress(i,count)))
+					break;
+				++i;
+	
+				current=g_slist_next(current);
+				if(!current)
+					mw->prevfile=g_strdup(fn);
+				g_free(fn);
+			}
+			state->layout->SetCurrentPage(lastpage);
+			g_slist_free(filenames);
+		}
+	}
+	gtk_widget_destroy (sel);
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void clearlayout(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layout->Clear();
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void layoutsingle(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layoutdb.SetString("LayoutType","Single");
+	
+	if(mw->layout)
+		mw->state->layout->LayoutToDB(mw->state->layoutdb);
+
+	rebuild(mw);
+}
+
+
+static void layoutmultiple(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layoutdb.SetString("LayoutType","NUp");
+
+	if(mw->layout)
+		mw->state->layout->LayoutToDB(mw->state->layoutdb);
+
+	rebuild(mw);
+}
+
+
+static void layoutcarousel(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layoutdb.SetString("LayoutType","Carousel");
+
+	if(mw->layout)
+		mw->state->layout->LayoutToDB(mw->state->layoutdb);
+
+	rebuild(mw);
+}
+
+
+static void layoutposter(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layoutdb.SetString("LayoutType","Poster");
+
+	if(mw->layout)
+		mw->state->layout->LayoutToDB(mw->state->layoutdb);
+
+	rebuild(mw);
+}
+
+
+static void layout_changed(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+
+	if(mw->layout)
+		mw->state->layout->RefreshWidget(mw->layout);
+}
+
+
+static void layout_setbackground(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	static char *prevfile=NULL;
+	// Need to get existing filename...
+
+	char *bg=Background_Dialog(&mw->window,*mw->state,prevfile);
+
+	if(bg)
+		cerr << "Selected " << bg << endl;
+
+	mw->state->layout->SetBackground(bg);
+//	if(prevfile)
+//		free(prevfile);
+	prevfile=bg;
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void about(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	About_Dialog(GTK_WINDOW(mw));
+}
+
+
+static void image_remove(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	while(ii)
+	{
+		delete ii;
+		ii=mw->state->layout->FirstSelected();
+	}
+	mw->state->layout->Reflow();
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void image_allowcropping(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	pp_Menu *menu=PP_MENU(mw->menu);
+	bool checked=menu->allowcropping;
+	cerr << "Checked:" << checked << endl;
+
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	while(ii)
+	{
+		ii->allowcropping=checked;
+		ii=mw->state->layout->NextSelected();
+	}
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void image_rotation(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	pp_Menu *menu=PP_MENU(mw->menu);
+	enum PP_ROTATION rotation=menu->rotation;
+
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	while(ii)
+	{
+		ii->rotation=rotation;
+		ii=mw->state->layout->NextSelected();
+	}
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void image_setmask(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	static char *prevfile=NULL;
+	// Need to get existing filename...
+
+	char *mask=ImageMask_Dialog(&mw->window,*mw->state,prevfile);
+
+	if(mask)
+		cerr << "Selected " << mask << endl;
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	while(ii)
+	{
+		ii->SetMask(mask);
+		ii=mw->state->layout->NextSelected();
+	}
+//	if(prevfile)
+//		free(prevfile);
+	prevfile=mask;
+	pp_mainwindow_refresh(mw);
+}
+
+static void image_setcolourprofile(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	SetCustomProfileDialog(&mw->window,*mw->state,ii);
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void image_seteffects(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+
+	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+
+	if(ii)
+	{
+		EffectsDialog(*ii,GTK_WINDOW(mw),ii->GetThumbnailNoEffects());
+		ii->FlushThumbnail();
+	}
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void edit_selectall(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layout->SelectAll();
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void edit_selectnone(GtkWidget *wid,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	mw->state->layout->SelectNone();
+	pp_mainwindow_refresh(mw);
+}
+
+
+void pp_mainwindow_refresh(pp_MainWindow *ob)
+{
+	cerr << "Refreshing window" << endl;
+	if(ob->layout)
+		ob->state->layout->RefreshWidget(ob->layout);
+
+	if(ob->menu)
+	{
+		g_signal_handlers_block_matched (G_OBJECT(ob->menu),G_SIGNAL_MATCH_DATA,
+			0, 0, NULL, NULL, ob);
+		pp_menu_set_layout(PP_MENU(ob->menu),ob->state->layout->GetType());
+		pp_menu_refresh(PP_MENU(ob->menu));
+		g_signal_handlers_unblock_matched (G_OBJECT(ob->menu),G_SIGNAL_MATCH_DATA,
+			0, 0, NULL, NULL, ob);
+	}
+}
+
+
+GtkWidget*
+pp_mainwindow_new (PhotoPrint_State *state)
+{
+	pp_MainWindow *ob=PP_MAINWINDOW(g_object_new (pp_mainwindow_get_type (), NULL));
+
+	gtk_window_set_title (GTK_WINDOW (ob), PACKAGE_STRING);
+	gtk_window_set_default_size(GTK_WINDOW(ob),state->FindInt("Win_W"),state->FindInt("Win_H"));
+	gtk_window_move(GTK_WINDOW(ob),state->FindInt("Win_X"),state->FindInt("Win_Y"));
+	ob->state=state;
+
+	ob->vbox=gtk_vbox_new(FALSE,0);
+	gtk_container_add(GTK_CONTAINER(ob),ob->vbox);
+	gtk_widget_show(ob->vbox);
+
+
+
+	GtkWidget *menubar;
+	GtkUIManager *ui_manager;
+	GtkAccelGroup *accel_group;
+	ui_manager = gtk_ui_manager_new ();
+
+	BuildFileMenu(ob,ui_manager);
+	BuildEditMenu(ob,ui_manager);
+	BuildLayoutMenu(ob,ui_manager);
+	BuildImageMenu(ob,ui_manager);
+	BuildOptionsMenu(ob,ui_manager);
+	BuildHelpMenu(ob,ui_manager);
+	
+	accel_group = gtk_ui_manager_get_accel_group (ui_manager);
+	gtk_window_add_accel_group (GTK_WINDOW (ob), accel_group);
+	
+	GtkWidget *tmp;
+	tmp=gtk_ui_manager_get_widget(ui_manager,"/MainMenu/FileMenu/PrintPreview");
+	gtk_widget_set_sensitive(tmp,false);
+	tmp=gtk_ui_manager_get_widget(ui_manager,"/MainMenu/EditMenu/Cut");
+	gtk_widget_set_sensitive(tmp,false);
+	tmp=gtk_ui_manager_get_widget(ui_manager,"/MainMenu/EditMenu/Copy");
+	gtk_widget_set_sensitive(tmp,false);
+	tmp=gtk_ui_manager_get_widget(ui_manager,"/MainMenu/EditMenu/Paste");
+	gtk_widget_set_sensitive(tmp,false);
+
+	menubar = gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
+	gtk_box_pack_start(GTK_BOX(ob->vbox),menubar,FALSE,TRUE,0);
+	gtk_widget_show(menubar);
+
+
+	
+
+	ob->menu=pp_menu_new();
+	gtk_window_add_accel_group (GTK_WINDOW (ob), pp_menu_get_accels(PP_MENU(ob->menu)));
+	gtk_box_pack_start(GTK_BOX(ob->vbox),ob->menu,FALSE,TRUE,0);
+	gtk_widget_show(ob->menu);
+
+	g_signal_connect(G_OBJECT(ob->menu),"file_openpreset",G_CALLBACK(open_preset),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"file_savepreset",G_CALLBACK(save_preset),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"file_saveas",G_CALLBACK(save_as),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"file_savedefault",G_CALLBACK(save_default),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"file_exporttiff",G_CALLBACK(export_tiff),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"file_printsetup",G_CALLBACK(print_setup),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"file_print",G_CALLBACK(doprint),ob);
+
+	g_signal_connect(G_OBJECT(ob->menu),"edit_selectall",G_CALLBACK(edit_selectall),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"edit_selectnone",G_CALLBACK(edit_selectnone),ob);
+
+	g_signal_connect(G_OBJECT(ob->menu),"image_addimage",G_CALLBACK(add_image),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"image_clearlayout",G_CALLBACK(clearlayout),ob);
+
+	g_signal_connect(G_OBJECT(ob->menu),"layout_single",G_CALLBACK(layoutsingle),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"layout_multiple",G_CALLBACK(layoutmultiple),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"layout_carousel",G_CALLBACK(layoutcarousel),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"layout_poster",G_CALLBACK(layoutposter),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"layout_setbackground",G_CALLBACK(layout_setbackground),ob);
+
+	g_signal_connect(G_OBJECT(ob->menu),"image_remove",G_CALLBACK(image_remove),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"image_allowcropping",G_CALLBACK(image_allowcropping),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"image_rotation",G_CALLBACK(image_rotation),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"image_setmask",G_CALLBACK(image_setmask),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"image_seteffects",G_CALLBACK(image_seteffects),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"image_setcolourprofile",G_CALLBACK(image_setcolourprofile),ob);
+
+	g_signal_connect(G_OBJECT(ob->menu),"options_paths",G_CALLBACK(do_paths),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"options_colourmanagement",G_CALLBACK(colour_management),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"options_units",G_CALLBACK(units),ob);
+	g_signal_connect(G_OBJECT(ob->menu),"options_scaling",G_CALLBACK(scaling),ob);
+
+	g_signal_connect(G_OBJECT(ob->menu),"help_about",G_CALLBACK(about),ob);
+
+	if((ob->layout=state->layout->CreateWidget()))
+	{
+		gtk_box_pack_start(GTK_BOX(ob->vbox),ob->layout,TRUE,TRUE,0);
+		gtk_widget_show(ob->layout);
+		g_signal_connect(G_OBJECT(ob->layout),"changed",G_CALLBACK(layout_changed),ob);
+		g_signal_connect(G_OBJECT(ob->layout),"popupmenu",G_CALLBACK(layout_popupmenu),ob);
+		g_signal_connect(G_OBJECT(ob->layout),"selection_changed",G_CALLBACK(layout_selection_changed),ob);
+	}
+	int caps=ob->state->layout->GetCapabilities();
+	pp_menu_set_layout_capabilities(PP_MENU(ob->menu),caps);
+
+	pp_mainwindow_refresh(ob);
+
+	return(GTK_WIDGET(ob));
+}
+
+
+GType
+pp_mainwindow_get_type (void)
+{
+	static GType stpuic_type = 0;
+
+	if (!stpuic_type)
+	{
+		static const GTypeInfo pp_mainwindow_info =
+		{
+			sizeof (pp_MainWindowClass),
+			NULL, /* base_init */
+			NULL, /* base_finalize */
+			(GClassInitFunc) pp_mainwindow_class_init,
+			NULL, /* class_finalize */
+			NULL, /* class_data */
+			sizeof (pp_MainWindow),
+			0,
+			(GInstanceInitFunc) pp_mainwindow_init,
+		};
+		stpuic_type = g_type_register_static (GTK_TYPE_WINDOW, "pp_MainWindow", &pp_mainwindow_info, (GTypeFlags)0);
+	}
+	return stpuic_type;
+}
+
+
+static void
+pp_mainwindow_class_init (pp_MainWindowClass *klass)
+{
+	pp_mainwindow_signals[CHANGED_SIGNAL] =
+	g_signal_new ("changed",
+		G_TYPE_FROM_CLASS (klass),
+		GSignalFlags(G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION),
+		G_STRUCT_OFFSET (pp_MainWindowClass, changed),
+		NULL, NULL,
+		g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
+}
+
+
+static void
+pp_mainwindow_init (pp_MainWindow *ob)
+{
+	ob->state=NULL;
+	ob->layout=NULL;
+	ob->prevfile=NULL;
+}
+
+
+void pp_mainwindow_rebuild(pp_MainWindow *mw)
+{
+	try
+	{
+		ProgressBar p(_("Transferring images..."),true,GTK_WIDGET(mw));
+		if(mw->state->NewLayout(&p))
+		{
+			gtk_widget_destroy(mw->layout);
+	
+			if((mw->layout=mw->state->layout->CreateWidget()))
+			{
+				gtk_box_pack_start(GTK_BOX(mw->vbox),mw->layout,TRUE,TRUE,0);
+				gtk_widget_show(mw->layout);
+				g_signal_connect(G_OBJECT(mw->layout),"changed",G_CALLBACK(layout_changed),mw);
+				g_signal_connect(G_OBJECT(mw->layout),"popupmenu",G_CALLBACK(layout_popupmenu),mw);
+				g_signal_connect(G_OBJECT(mw->layout),"selection_changed",G_CALLBACK(layout_selection_changed),mw);
+			}
+			mw->state->layout->FlushThumbnails();
+		}
+		int caps=mw->state->layout->GetCapabilities();
+		pp_menu_set_layout_capabilities(PP_MENU(mw->menu),caps);
+		pp_mainwindow_refresh(mw);
+	}
+	catch(const char *err)
+	{
+		ErrorMessage_Dialog(err);
+	}
+}

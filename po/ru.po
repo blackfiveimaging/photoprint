@@ -1,0 +1,1234 @@
+# translation of Rawstudio to Russian
+# translation of ru.po to Russian
+# Copyright (C) YEAR Alastair M. Robinson
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexandre Prokoudine <alexandre.prokoudine@gmail.com>, 2006, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: ru\n"
+"Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
+"POT-Creation-Date: 2008-10-03 13:16+0100\n"
+"PO-Revision-Date: 2008-07-04 02:54+0300\n"
+"Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: dialogs.cpp:123
+msgid "Printer Setup"
+msgstr "Настройка принтера"
+
+#: dialogs.cpp:137
+msgid "Output"
+msgstr "Вывод"
+
+#: dialogs.cpp:174
+msgid "About"
+msgstr "О программе"
+
+#: dialogs.cpp:223
+msgid "Set paths..."
+msgstr "Указать расположение..."
+
+#: dialogs.cpp:248
+msgid "ICC Profiles"
+msgstr "ICC-профили"
+
+#: dialogs.cpp:280
+msgid "Borders"
+msgstr "Рамки"
+
+#: dialogs.cpp:311
+msgid "Backgrounds"
+msgstr "Фоновый рисунок"
+
+#: dialogs.cpp:339
+msgid "Select a border..."
+msgstr "Выберите рамку"
+
+#: dialogs.cpp:386
+msgid "Export TIFF..."
+msgstr "Экспорт в TIFF..."
+
+#: dialogs.cpp:412 dialogs.cpp:615
+msgid "Page range:"
+msgstr "Диапазон страниц:"
+
+#: dialogs.cpp:425 dialogs.cpp:625
+msgid "Resolution (dpi):"
+msgstr "Разрешение (dpi):"
+
+#: dialogs.cpp:433
+msgid "Save as 16-bit:"
+msgstr "16-разрядный:"
+
+#: dialogs.cpp:452 dialogs.cpp:660
+msgid "Output Profile:"
+msgstr "Профиль вывода:"
+
+#: dialogs.cpp:516 dialogs.cpp:756
+msgid "Please provide a filename."
+msgstr "Укажите имя файла."
+
+#: dialogs.cpp:547 dialogs.cpp:734
+msgid "Exporting..."
+msgstr "Производится экспорт..."
+
+#: dialogs.cpp:586
+msgid "Export JPEG..."
+msgstr "Экспорт в JPEG..."
+
+#: dialogs.cpp:644
+msgid "JPEG Quality:"
+msgstr "Качество JPEG"
+
+#: dialogs.cpp:773
+msgid "Select a background..."
+msgstr "Выберите фон..."
+
+#: dialogs.cpp:865
+msgid "Please select an image first!"
+msgstr "Сначала необходимо выбрать снимок!"
+
+#: dialogs.cpp:896
+msgid "Set Custom Profile..."
+msgstr "Укажите иной профиль..."
+
+#: dialogs.cpp:908
+msgid "Before:"
+msgstr "До:"
+
+#: dialogs.cpp:912
+msgid "After:"
+msgstr "После:"
+
+#: dialogs.cpp:926
+msgid ""
+"Can't show a colour managed\n"
+"preview unless you choose\n"
+"a Default RGB or Monitor profile\n"
+"in the Options->Colour Management\n"
+"dialog!"
+msgstr ""
+"Цветоуправляемый предпросмотр невозможен,\n"
+"пока вы не выберите профиль \"Default RGB\" \n"
+"или профиль монитора в диалоге \n"
+"«Параметры > Управление цветом...»."
+
+#: dialogs.cpp:951
+msgid ""
+"Warning: Image already has an embedded profile\n"
+"Assigning a new one will over-ride it!"
+msgstr ""
+"Предупреждение: в снимок уже встроен профиль.\n"
+"При назначении нового профиля старый будет удален!"
+
+#: dialogs.cpp:968
+msgid "Assign Profile:"
+msgstr "Назначить профиль:"
+
+#: dialogs.cpp:976 pp_cms.cpp:117
+msgid "Rendering intent:"
+msgstr "Цель цветопередачи:"
+
+#: effects/ppeffect_temperature.cpp:28
+msgid "Warm/Cool"
+msgstr ""
+
+#: effects/effectselector.cpp:228
+msgid "Active"
+msgstr "Активен"
+
+#: effects/effectselector.cpp:237
+msgid "Icon"
+msgstr "Значок"
+
+#: effects/effectselector.cpp:249
+msgid "Name"
+msgstr "Название"
+
+#: effects/ppeffect_desaturate.cpp:25
+msgid "Desaturate"
+msgstr "Обесцвечивание"
+
+#: effects/effectwidget_tempchange.cpp:55
+#, c-format
+msgid "%d degrees K"
+msgstr "%d°K"
+
+#: effects/ppeffect_unsharpmask.cpp:25
+msgid "Sharpen"
+msgstr "Повышение резкости"
+
+#: effects/effectwidget_unsharpmask.cpp:64
+#, c-format
+msgid "Radius: %1.2f"
+msgstr "Радиус: %1.2f"
+
+#: effects/effectwidget_unsharpmask.cpp:70
+#, c-format
+msgid "Amount: %1.2f"
+msgstr "Количество: %1.2f"
+
+#: menucheck.cpp:21 pp_menu_file.cpp:126
+msgid "_File"
+msgstr "_Файл"
+
+#: menucheck.cpp:23 pp_menu_file.cpp:128
+msgid "_Open Preset..."
+msgstr "_Открыть предустановку..."
+
+#: menucheck.cpp:23 pp_menu_file.cpp:128
+msgid "Open a preset"
+msgstr "Открыть предустановку"
+
+#: menucheck.cpp:24 pp_menu_file.cpp:129
+msgid "_Save Preset"
+msgstr "_Сохранить предустановку..."
+
+#: menucheck.cpp:24 pp_menu_file.cpp:129
+msgid "Save a preset"
+msgstr "Сохранить предустановку"
+
+#: menucheck.cpp:25 pp_menu_file.cpp:130
+msgid "Save _As..."
+msgstr "Сохранить _как..."
+
+#: menucheck.cpp:25 pp_menu_file.cpp:130
+msgid "Save preset with a new filename"
+msgstr "Сохранить предустановку под новым именем"
+
+#: menucheck.cpp:26 pp_menu_file.cpp:131
+msgid "Save _Default"
+msgstr "Сохранить параметры как _типовые"
+
+#: menucheck.cpp:26 pp_menu_file.cpp:131
+msgid "Save preset as the default"
+msgstr "Сохранить предустановку как стандартную"
+
+#: menucheck.cpp:27
+msgid "E_xport TIFF..."
+msgstr "_TIFF..."
+
+#: menucheck.cpp:27 pp_menu_file.cpp:133
+msgid "Export pages as TIFF files"
+msgstr "Экспортировать страницы как файлы TIFF"
+
+#: menucheck.cpp:28 pp_menu_file.cpp:135
+msgid "Print Pre_view..."
+msgstr "Прос_мотреть печать..."
+
+#: menucheck.cpp:28 pp_menu_file.cpp:135
+msgid "Preview how the printed page will look"
+msgstr "Просмотр страниц, которые будут напечатаны"
+
+#: menucheck.cpp:29 pp_menu_file.cpp:136
+msgid "Print S_etup..."
+msgstr "Настройка пр_интера..."
+
+#: menucheck.cpp:29 pp_menu_file.cpp:136
+msgid "Set printer driver and options"
+msgstr "Указать драйвер и параметры работы принтера"
+
+#: menucheck.cpp:30 pp_menu_file.cpp:137
+msgid "_Print"
+msgstr "На_печатать"
+
+#: menucheck.cpp:30 pp_menu_file.cpp:137
+msgid "Print pages"
+msgstr "Печать страниц"
+
+#: menucheck.cpp:31 pp_menu_file.cpp:138
+msgid "_Quit"
+msgstr "В_ыйти"
+
+#: menucheck.cpp:31 pp_menu_file.cpp:138
+msgid "Exit PhotoPrint"
+msgstr "Выйти из программы"
+
+#: menucheck.cpp:60 pp_menu_layout.cpp:122
+msgid "_Layout"
+msgstr "_Макет"
+
+#: menucheck.cpp:61 pp_menu_image.cpp:267
+msgid "_Image"
+msgstr "Сн_имок"
+
+#: menucheck.cpp:62 pp_menu_options.cpp:81
+msgid "_Options"
+msgstr "П_араметры"
+
+#: menucheck.cpp:63 pp_menu_help.cpp:29
+msgid "_Help"
+msgstr "_Справка"
+
+#: menucheck.cpp:65 pp_menu_layout.cpp:124
+msgid "_Clear Layout"
+msgstr "О_чистить макет"
+
+#: menucheck.cpp:65 pp_menu_layout.cpp:124
+msgid "Remove all images from the layout"
+msgstr "Убрать все изображения из макета"
+
+#: menucheck.cpp:66 pp_menu_layout.cpp:125
+msgid "Set _Background"
+msgstr "У_казать фоновый рисунок..."
+
+#: menucheck.cpp:66 pp_menu_layout.cpp:125
+msgid "Set a background image for the current layout"
+msgstr "Выбрать фоновый рисунок для текущего макета"
+
+#: menucheck.cpp:68 pp_menu_image.cpp:269
+msgid "_Add Image..."
+msgstr "_Добавить..."
+
+#: menucheck.cpp:68 pp_menu_image.cpp:269
+msgid "Add images to the current layout"
+msgstr "Добавить изображения в макет"
+
+#: menucheck.cpp:69 pp_menu_image.cpp:270
+msgid "_Remove Image"
+msgstr "_Удалить"
+
+#: menucheck.cpp:69 pp_menu_image.cpp:270
+msgid "Remove selected images from the layout"
+msgstr "Удалить выбранные изображения с макета"
+
+#: menucheck.cpp:71 pp_menu_image.cpp:274
+msgid "_Rotation"
+msgstr "_Вращение"
+
+#: menucheck.cpp:73 pp_menu_image.cpp:276
+msgid "Set Image _Mask..."
+msgstr "Установить _маску изображения..."
+
+#: menucheck.cpp:73 pp_menu_image.cpp:276
+msgid "Set a border mask for the selected image"
+msgstr "Установить маску рамки для выбранного изображения"
+
+#: menucheck.cpp:74
+msgid "_Effects..."
+msgstr "Э_ффекты..."
+
+#: menucheck.cpp:74
+msgid "Apply effects to the selected image"
+msgstr "Применить эффекты к выбранному изображения"
+
+#: menucheck.cpp:75 pp_menu_image.cpp:278
+msgid "Set Colour _Profile..."
+msgstr "_Назначить ICC-профиль..."
+
+#: menucheck.cpp:75 pp_menu_image.cpp:278
+msgid "Assign an ICC profile or custom rendering intent to the image"
+msgstr "Назначить ICC-профиль или изменить цель цветопередачи изображения"
+
+#: menucheck.cpp:77 pp_menu_options.cpp:83
+msgid "_Paths..."
+msgstr "_Расположение данных..."
+
+#: menucheck.cpp:77 pp_menu_options.cpp:83
+msgid "Set search paths for ICC profiles, borders, etc."
+msgstr "Указать пути поиска ICC-профилей, рамок и т.д."
+
+#: menucheck.cpp:78 pp_menu_options.cpp:84
+msgid "_Colour Management..."
+msgstr "_Управление цветом..."
+
+#: menucheck.cpp:78 pp_menu_options.cpp:84
+msgid "Set colour management options"
+msgstr "Настройка управления цветом"
+
+#: menucheck.cpp:79 pp_menu_options.cpp:85
+msgid "_Units..."
+msgstr "_Единицы измерения..."
+
+#: menucheck.cpp:79 pp_menu_options.cpp:85
+msgid "Select the units used throughout PhotoPrint"
+msgstr "Выбор единицы измерения, используемой в PhotoPrint"
+
+#: menucheck.cpp:80 pp_menu_options.cpp:86
+msgid "_Scaling..."
+msgstr "_Интерполяция..."
+
+#: menucheck.cpp:80 pp_menu_options.cpp:86
+msgid "Select the preferred scaling method."
+msgstr "Выбор типа интерполяции при масштабировании"
+
+#: menucheck.cpp:82 pp_menu_help.cpp:31
+msgid "About..."
+msgstr "О программе..."
+
+#: menucheck.cpp:82 pp_menu_help.cpp:31
+msgid "Some information about PhotoPrint"
+msgstr "Информация о PhotoPrint"
+
+#: menucheck.cpp:87 pp_menu_image.cpp:283
+msgid "Allow _Cropping"
+msgstr "_Без полей"
+
+#: menucheck.cpp:87 pp_menu_image.cpp:283
+msgid "Crop the selected images to fill the available space"
+msgstr "Обрезать выбранные изображения для заполнения доступной области"
+
+#: menucheck.cpp:92 pp_menu_layout.cpp:130
+msgid "_Auto Layout"
+msgstr "_Автомакет"
+
+#: menucheck.cpp:92 pp_menu_layout.cpp:130
+msgid "Automatically place images in a grid"
+msgstr "Автоматически разместить изображения в сетке"
+
+#: menucheck.cpp:93 pp_menu_layout.cpp:131
+msgid "_Poster"
+msgstr "_Плакат"
+
+#: menucheck.cpp:93 pp_menu_layout.cpp:131
+msgid "Print an image in multiple pages, to be assembled into a poster"
+msgstr "Напечатать изображение на нескольких страницах, собираемых в плакат"
+
+#: menucheck.cpp:94 pp_menu_layout.cpp:132
+msgid "_Carousel"
+msgstr "_Карусель"
+
+#: menucheck.cpp:94 pp_menu_layout.cpp:132
+msgid "Fade images into a circular 'carousel' - ideal for CD labels."
+msgstr "Поместить изображения на круговую карусель — идеально для обложек CD"
+
+#: menucheck.cpp:95 pp_menu_layout.cpp:133
+msgid "_Manual Size"
+msgstr "_Другой размер"
+
+#: menucheck.cpp:95 pp_menu_layout.cpp:133
+msgid "Print images on a single sheet, at a specified scale."
+msgstr "Напечатать снимки на одиночном листе с указанным масштабом"
+
+#: menucheck.cpp:99 pp_menu_image.cpp:288
+msgid "_Auto"
+msgstr "_Автоматическое"
+
+#: menucheck.cpp:99 pp_menu_image.cpp:288
+msgid "Automatically choose rotation to fit the available space."
+msgstr "Автоматически выбирать угол поворота для заполнения страницы"
+
+#: menucheck.cpp:100 pp_menu_image.cpp:289
+msgid "_None"
+msgstr "_Нет"
+
+#: menucheck.cpp:100 pp_menu_image.cpp:289
+msgid "No rotation."
+msgstr "Никакого вращения"
+
+#: menucheck.cpp:101 pp_menu_image.cpp:290
+msgid "_90 Degrees"
+msgstr "_90°"
+
+#: menucheck.cpp:101 pp_menu_image.cpp:290
+msgid "Rotate 90 degrees clockwise."
+msgstr "Повернуть на 90° по часовой стрелке"
+
+#: menucheck.cpp:102 pp_menu_image.cpp:291
+msgid "_180 Degrees"
+msgstr "_180°"
+
+#: menucheck.cpp:102 pp_menu_image.cpp:291
+msgid "Rotate 180 degrees."
+msgstr "Повернуть на 180° по часовой стрелке"
+
+#: menucheck.cpp:103 pp_menu_image.cpp:292
+msgid "_270 Degrees"
+msgstr "_270°"
+
+#: menucheck.cpp:103 pp_menu_image.cpp:292
+msgid "Rotate 90 degrees anticlockwise."
+msgstr "Повернуть на 90° против часовой стрелки"
+
+#: menucheck.cpp:227
+msgid "Dither Algorithm"
+msgstr "Алгоритм:"
+
+#: photoprint.cpp:122 photoprint.cpp:148 photoprint.cpp:152 photoprint.cpp:182
+#: photoprint.cpp:188 photoprint.cpp:205 photoprint.cpp:209
+msgid "Initializing..."
+msgstr "Инициализация..."
+
+#: photoprint.cpp:134
+msgid "Checking .photoprint directory..."
+msgstr "Проверяется каталог ~/.photoprint..."
+
+#: photoprint.cpp:139
+msgid "Loading preset..."
+msgstr "Загружается предустановка..."
+
+#: photoprint.cpp:144
+msgid "Creating layout..."
+msgstr "Создаётся макет..."
+
+#: photoprint.cpp:194
+msgid "Loading images..."
+msgstr "Загружаются изображения..."
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:349
+#, c-format
+msgid "Error creating directory `%s': %s"
+msgstr "Ошибка при создании каталога `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:463
+#, c-format
+msgid "Error opening `%s': %s"
+msgstr "Ошибка при открытии `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:481
+#, c-format
+msgid "Error reading `%s': file contains no data."
+msgstr "Ошибка при чтении `%s': в файле нет данных."
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:505
+#, c-format
+msgid "Error reading `%s': %s"
+msgstr "Ошибка при чтении `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:540
+#, c-format
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"Не удалось загрузить снимок «%s»: причина неизвестна, вероятно файл снимка "
+"испорчен"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:613
+#, c-format
+msgid "Error verifying `%s': %s"
+msgstr "Ошибка при проверке «%s»: %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:629
+#, c-format
+msgid "Error reading `%s': file is not a regular file or symbolic link."
+msgstr ""
+"Ошибка при чтении «%s»: файл не является ни обычным файлом, ни символической "
+"ссылкой"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:1071
+#, c-format
+msgid "Error creating temporary thumbnail file for `%s': %s"
+msgstr "Ошибка при создании временного эскизного файла для «%s»: %s"
+
+#: pp_cms.cpp:86
+msgid "Printer"
+msgstr "Принтер"
+
+#: pp_cms.cpp:101
+msgid "Printer Profile:"
+msgstr "Профиль принтера:"
+
+#: pp_cms.cpp:132
+msgid "Colour space:"
+msgstr "Цветовое пространство"
+
+#: pp_cms.cpp:155
+msgid "Monitor"
+msgstr "Монитор"
+
+#: pp_cms.cpp:168
+msgid "Monitor Profile:"
+msgstr "Профиль монитора:"
+
+#: pp_cms.cpp:182
+msgid "Display mode:"
+msgstr "Режим работы монитора:"
+
+#: pp_cms.cpp:190
+msgid "Normal"
+msgstr "Обычный"
+
+#: pp_cms.cpp:193
+msgid "Simulate Print"
+msgstr "Имитация принтера"
+
+#: pp_cms.cpp:196
+msgid "Simulate Print, Adapt White"
+msgstr "Имитация принтера, баланс белого по монитору"
+
+#: pp_cms.cpp:208
+msgid "Default Image Profiles"
+msgstr "Стандартные профили для изображений"
+
+#: pp_cms.cpp:223
+msgid "RGB Profile:"
+msgstr "Профиль RGB:"
+
+#: pp_cms.cpp:239
+msgid "CMYK Profile:"
+msgstr "Профиль CMYK:"
+
+#: pp_cms.cpp:432
+msgid "Colour Management"
+msgstr "Управление цветом"
+
+#: pp_imagecontrol.cpp:111
+msgid "Effects"
+msgstr "Эффекты"
+
+#: pp_imageinfo.cpp:99
+msgid "in"
+msgstr ""
+
+#: pp_imageinfo.cpp:102
+msgid "pt"
+msgstr ""
+
+#: pp_imageinfo.cpp:107
+msgid "cm"
+msgstr ""
+
+#: pp_imageinfo.cpp:112
+msgid "mm"
+msgstr ""
+
+#: pp_imageinfo.cpp:145
+msgid "Image Info"
+msgstr "Сводка по снимку"
+
+#: pp_imageinfo.cpp:166
+msgid "Filename:"
+msgstr "Имя файла:"
+
+#: pp_imageinfo.cpp:179
+msgid "Dimensions:"
+msgstr "Размеры:"
+
+#: pp_imageinfo.cpp:199
+#, fuzzy
+msgid "Resolution:"
+msgstr "Разрешение (dpi):"
+
+#: pp_imageinfo.cpp:212
+msgid "Profile:"
+msgstr "Профиль:"
+
+#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+msgid "pixels"
+msgstr "пикселов"
+
+#: pp_imageinfo.cpp:349
+msgid "Default"
+msgstr "По умолчанию"
+
+#: pp_layout_carousel.cpp:255 pp_layout_carousel.cpp:386 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:297 pp_layout_poster.cpp:462 pp_layout_single.cpp:224
+#: pp_layout_single.cpp:337
+msgid "Page:"
+msgstr "Страница:"
+
+#: pp_layout_carousel.cpp:283
+msgid "Carousel"
+msgstr "Карусель"
+
+#: pp_layout_carousel.cpp:298
+msgid "Segments:"
+msgstr "Сегментов:"
+
+#: pp_layout_carousel.cpp:313
+msgid "Overlap (%):"
+msgstr "Перекрытие (%):"
+
+#: pp_layout_carousel.cpp:328
+msgid "Starting angle:"
+msgstr "Начальный угол:"
+
+#: pp_layout_carousel.cpp:343
+msgid "Inner Radius:"
+msgstr "Внутренний радиус:"
+
+#: pp_layout_poster.cpp:339
+msgid "Poster Layout"
+msgstr "Макет плаката"
+
+#: pp_layout_poster.cpp:353
+msgid "Size"
+msgstr "Размер"
+
+#: pp_layout_poster.cpp:365 pp_layout_poster.cpp:389
+msgid "by"
+msgstr "по"
+
+#: pp_layout_poster.cpp:377
+msgid "Tiles"
+msgstr "Элементов:"
+
+#: pp_layout_poster.cpp:399
+msgid "Overlap"
+msgstr "Перекрытие"
+
+#: pp_layout_poster.cpp:412 pp_pageextent.cpp:251
+msgid "H:"
+msgstr "По горизонтали:"
+
+#: pp_layout_poster.cpp:424
+msgid "V:"
+msgstr "По вертикали:"
+
+#: pp_layout_single.cpp:268
+msgid "Manual scaling"
+msgstr "Масштабирование вручную"
+
+#: pp_layout_single.cpp:283
+msgid "H (%):"
+msgstr "Г (%):"
+
+#: pp_layout_single.cpp:297
+msgid "V (%):"
+msgstr "В (%):"
+
+#: pp_mainwindow.cpp:227
+msgid "Transferring images..."
+msgstr "Передаются изображения..."
+
+#: pp_menu_edit.cpp:37
+msgid "_Edit"
+msgstr "_Правка"
+
+#: pp_menu_edit.cpp:39
+msgid "Select _All"
+msgstr "В_ыделить всё"
+
+#: pp_menu_edit.cpp:39
+msgid "Select all images"
+msgstr "Выделить все изображения"
+
+#: pp_menu_edit.cpp:40
+msgid "Select _None"
+msgstr "С_нять выделение"
+
+#: pp_menu_edit.cpp:40
+msgid "Deselect all images"
+msgstr "Снять выделение со всех изображений"
+
+#: pp_menu_edit.cpp:41
+msgid "_Cut"
+msgstr "_Вырезать"
+
+#: pp_menu_edit.cpp:41
+msgid "Cut the current image to the clipboard"
+msgstr "Вырезать текущее изображение в буфер обмена"
+
+#: pp_menu_edit.cpp:42
+msgid "C_opy"
+msgstr "С_копировать"
+
+#: pp_menu_edit.cpp:42
+msgid "Copy the current image to the clipboard"
+msgstr "Скопировать текущее изображение в буфер обмена"
+
+#: pp_menu_edit.cpp:43
+msgid "_Paste"
+msgstr "Вст_авить"
+
+#: pp_menu_edit.cpp:43
+msgid "Paste the contents of the clipboard as a new image"
+msgstr "Вставить содержимое буфера обмена как новое изображение"
+
+#: pp_menu_file.cpp:36
+msgid "Open preset..."
+msgstr "Открытие предустановки"
+
+#: pp_menu_file.cpp:62
+msgid "Save preset..."
+msgstr "Сохранить предустановку..."
+
+#: pp_menu_file.cpp:106
+msgid "Generating print data..."
+msgstr "Создаются печатаемые данные"
+
+#: pp_menu_file.cpp:132
+msgid "E_xport"
+msgstr "_Экспорт..."
+
+#: pp_menu_file.cpp:133
+msgid "Export _TIFF..."
+msgstr "_TIFF..."
+
+#: pp_menu_file.cpp:134
+msgid "Export _JPEG..."
+msgstr "_JPEG..."
+
+#: pp_menu_file.cpp:134
+msgid "Export pages as JPEG files"
+msgstr "Экспортировать страницы как файлы JPEG"
+
+#: pp_menu_image.cpp:58
+msgid "Open File"
+msgstr "Открыть файл"
+
+#: pp_menu_image.cpp:98
+msgid "Adding images..."
+msgstr "Добавляются изображения..."
+
+#: pp_menu_image.cpp:176
+msgid "Page is already full!"
+msgstr "На странице не осталось места!"
+
+#: pp_menu_image.cpp:271
+msgid "_Duplicate Image"
+msgstr "_Продублировать"
+
+#: pp_menu_image.cpp:271
+msgid "Duplicate the currently selected image"
+msgstr "Продублировать выделенное изображение"
+
+#: pp_menu_image.cpp:272
+msgid "_Duplicate to Fill Page"
+msgstr "_Заполнить им страницу"
+
+#: pp_menu_image.cpp:272
+msgid "Fill the page with copies of the currently selected image"
+msgstr "Заполнить страницу копиями выбранного сейчас изображения"
+
+#: pp_menu_options.cpp:90
+msgid "High-res Previews"
+msgstr "Высококачественные эскизы"
+
+#: pp_menu_options.cpp:90
+msgid "Render high-resolution previews in the background"
+msgstr "Создавать высококачественные эскизы в фоновом режиме"
+
+#: pp_menu_options.cpp:94
+msgid "_Normal Display"
+msgstr "_Обычное отображение"
+
+#: pp_menu_options.cpp:94
+msgid "Display colours with no print simulation"
+msgstr "Не имитировать принтер при отображении цветов"
+
+#: pp_menu_options.cpp:95
+msgid "Simulate Prin_t"
+msgstr "_Имитация принтера"
+
+#: pp_menu_options.cpp:95
+msgid ""
+"Adjust colours on screen to imitate printed colours, including paper white"
+msgstr ""
+
+#: pp_menu_options.cpp:96
+msgid "Simulate Print, _Adapt White"
+msgstr "И_митация принтера, баланс белого по монитору"
+
+#: pp_menu_options.cpp:96
+msgid "Adjust colours to imitate printed colours, excluding paper white"
+msgstr ""
+
+#: pp_pageextent.cpp:217
+msgid "Page Size and Margins"
+msgstr "Размер и поля страницы"
+
+#: pp_pageextent.cpp:241
+msgid "W:"
+msgstr "Ш:"
+
+#: pp_pageextent.cpp:264
+msgid "Left:"
+msgstr "Левое: "
+
+#: pp_pageextent.cpp:280
+msgid "Right:"
+msgstr "Правое: "
+
+#: pp_pageextent.cpp:293
+msgid "Top:"
+msgstr "Верхнее: "
+
+#: pp_pageextent.cpp:304
+msgid "Bottom:"
+msgstr "Нижнее: "
+
+#: pp_printoutput.cpp:112
+msgid "Print Queue:"
+msgstr "Очередь на печать:"
+
+#: pp_printoutput.cpp:131
+msgid "Printer Model:"
+msgstr "Модель принтера:"
+
+#: pp_scaling.cpp:72
+msgid "Algorithm:"
+msgstr "Алгоритм:"
+
+#: pp_sigcontrol.cpp:106
+msgid "Layout"
+msgstr "Вид"
+
+#: pp_sigcontrol.cpp:115
+msgid "Columns:"
+msgstr "Столбцов:"
+
+#: pp_sigcontrol.cpp:129
+msgid "Rows:"
+msgstr "Строк:"
+
+#: pp_sigcontrol.cpp:147 pp_sigcontrol.cpp:160
+msgid "Gap:"
+msgstr "Интервал:"
+
+#: pp_units.cpp:60
+msgid "Units:"
+msgstr "Единица измерения:"
+
+#: pp_units.cpp:68
+msgid "Points"
+msgstr "Пункты"
+
+#: pp_units.cpp:71
+msgid "Inches"
+msgstr "Дюймы"
+
+#: pp_units.cpp:74
+msgid "Millimeters"
+msgstr "Миллиметры"
+
+#: pp_units.cpp:77
+msgid "Centimeters"
+msgstr "Сантиметры"
+
+#: pp_units.cpp:151
+msgid "Units"
+msgstr "Единицы измерения"
+
+#: profilemanager/lcmswrapper.cpp:524
+msgid "Perceptual"
+msgstr "Воспринимаемая"
+
+#: profilemanager/lcmswrapper.cpp:525
+msgid "Relative Colorimetric"
+msgstr "Относительная колориметрическая"
+
+#: profilemanager/lcmswrapper.cpp:526
+msgid "Relative Colorimetric with BPC"
+msgstr "Относительная колориметрическая с компенсацией чёрной точки"
+
+#: profilemanager/lcmswrapper.cpp:527
+msgid "Saturation"
+msgstr "Насыщенность"
+
+#: profilemanager/lcmswrapper.cpp:528
+msgid "Absolute Colorimetric"
+msgstr "Абсолютная колориметрическая"
+
+#: profilemanager/lcmswrapper.cpp:533
+msgid ""
+"Aims for pleasing photographic results by preserving relationships between "
+"colours, and avoiding clipping of unattainable colours"
+msgstr ""
+"Оптимально для печати фотографий, цвета сохраняются, вырезания недоступных "
+"цветов не происходит"
+
+#: profilemanager/lcmswrapper.cpp:534
+msgid ""
+"Attempts to preserve the original colours, relative to white-point "
+"differences."
+msgstr "Пытается сохранить исходные цвета относительно разницы с белой точкой."
+
+#: profilemanager/lcmswrapper.cpp:535
+msgid ""
+"Attempts to preserve the original colours, relative to white-point "
+"differences.  Uses Black Point Compensation to avoid clipping of highlights "
+"and shadows."
+msgstr ""
+"Пытается сохранить исходные цвета относительно разницы с белой точкой. "
+"Использует компенсацию чёрной точки во избежание обрезки ярких участков и "
+"теней."
+
+#: profilemanager/lcmswrapper.cpp:536
+msgid ""
+"Attempts to provide brighter, more saturated colours, at the expense of "
+"colour relationships."
+msgstr ""
+"Пытается обеспечить яркие, более насыщенные цвета ценой корректности "
+"цветопередачи"
+
+#: profilemanager/lcmswrapper.cpp:537
+msgid ""
+"Mimics the original colours (including white point) as closely as possible, "
+"for side-by-side comparisons.  Clips unattainable colours."
+msgstr ""
+"Наиболее приближение к исходным цветам (включая белую точку), недоступные "
+"цвета вырезаются."
+
+#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:393
+msgid "Other..."
+msgstr "Добавить из файла..."
+
+#: profilemanager/profileselector.cpp:359
+msgid "Please choose a valid ICC profile"
+msgstr "Выберите корректный профиль ICC"
+
+#: stpui_widgets/dimension.c:156
+msgid "points"
+msgstr "пункты"
+
+#: stpui_widgets/dimension.c:160
+msgid "inches"
+msgstr "дюймы"
+
+#: stpui_widgets/dimension.c:164
+msgid "millimeters"
+msgstr "миллиметры"
+
+#: stpui_widgets/dimension.c:168
+msgid "centimeters"
+msgstr "сантиметры"
+
+#: support/patheditor.cpp:53
+msgid "Select directory..."
+msgstr "Выберите каталог..."
+
+#: support/patheditor.cpp:98
+msgid "Path"
+msgstr "Расположение"
+
+#: support/patheditor.cpp:112
+msgid "Add..."
+msgstr "Добавить..."
+
+#: support/patheditor.cpp:117
+msgid "Remove"
+msgstr "Удалить"
+
+#: support/imageselector.cpp:372
+msgid "Image"
+msgstr "Снимок"
+
+#: support/progressbar.cpp:50
+msgid "Progress..."
+msgstr ""
+
+#~ msgid "Cool/Warm"
+#~ msgstr "Теплее/Холоднее"
+
+#~ msgid "Effects..."
+#~ msgstr "Эффекты..."
+
+#~ msgid "Change Colour Temperature..."
+#~ msgstr "Изменить температуру цвета..."
+
+#~ msgid "Available:"
+#~ msgstr "Доступные:"
+
+#~ msgid "Currently used:"
+#~ msgstr "Используемые:"
+
+#~ msgid "Add"
+#~ msgstr "Добавить"
+
+#~ msgid "Settings..."
+#~ msgstr "Параметры..."
+
+#, fuzzy
+#~ msgid "/_File"
+#~ msgstr "_Файл"
+
+#, fuzzy
+#~ msgid "/File/_Open Preset..."
+#~ msgstr "_Открыть предустановку..."
+
+#, fuzzy
+#~ msgid "/File/_Save Preset"
+#~ msgstr "_Сохранить предустановку..."
+
+#, fuzzy
+#~ msgid "/File/Save _As..."
+#~ msgstr "Сохранить _как..."
+
+#, fuzzy
+#~ msgid "/File/Save _Default"
+#~ msgstr "Сохранить стандартную"
+
+#, fuzzy
+#~ msgid "/File/E_xport TIFF..."
+#~ msgstr "Экспорт в TIFF..."
+
+#, fuzzy
+#~ msgid "/File/Print Pre_view..."
+#~ msgstr "Прос_мотреть печать..."
+
+#, fuzzy
+#~ msgid "/File/Print S_etup..."
+#~ msgstr "Настройка пр_интера..."
+
+#, fuzzy
+#~ msgid "/File/_Print"
+#~ msgstr "На_печатать"
+
+#, fuzzy
+#~ msgid "/File/_Quit"
+#~ msgstr "В_ыход"
+
+#, fuzzy
+#~ msgid "/Edit/Select _All"
+#~ msgstr "В_ыделить всё"
+
+#, fuzzy
+#~ msgid "/Edit/Select _None"
+#~ msgstr "С_нять выделение"
+
+#, fuzzy
+#~ msgid "/_Layout"
+#~ msgstr "_Макет"
+
+#, fuzzy
+#~ msgid "/Layout/_Clear Layout"
+#~ msgstr "О_чистить макет"
+
+#, fuzzy
+#~ msgid "/Layout/Set _Background"
+#~ msgstr "У_казать фоновый рисунок..."
+
+#, fuzzy
+#~ msgid "/Layout/sep"
+#~ msgstr "Вид"
+
+#, fuzzy
+#~ msgid "/Image/_Add Image"
+#~ msgstr "_Добавить..."
+
+#, fuzzy
+#~ msgid "/Image/_Remove Image"
+#~ msgstr "_Удалить изображение"
+
+#, fuzzy
+#~ msgid "/Image/sep"
+#~ msgstr "_Изображение"
+
+#, fuzzy
+#~ msgid "/Image/Allow _Cropping"
+#~ msgstr "Разрешить о_брезку"
+
+#, fuzzy
+#~ msgid "/Image/Rotation/_90 degrees"
+#~ msgstr "Повернуть на 180° по часовой стрелке"
+
+#, fuzzy
+#~ msgid "/Image/Rotation/_180 degrees"
+#~ msgstr "Повернуть на 180° по часовой стрелке"
+
+#, fuzzy
+#~ msgid "/Image/Set image _mask..."
+#~ msgstr "Установить _маску изображения..."
+
+#, fuzzy
+#~ msgid "/Image/_Effects..."
+#~ msgstr "Э_ффекты..."
+
+#, fuzzy
+#~ msgid "/Image/Set colour _profile..."
+#~ msgstr "_Назначить ICC-профиль..."
+
+#, fuzzy
+#~ msgid "/Layout/_Auto Layout"
+#~ msgstr "_Автомакет"
+
+#, fuzzy
+#~ msgid "/Layout/_Poster"
+#~ msgstr "_Плакат"
+
+#, fuzzy
+#~ msgid "/Layout/_Carousel"
+#~ msgstr "_Карусель"
+
+#, fuzzy
+#~ msgid "/Layout/_Manual Size"
+#~ msgstr "_Другой размер"
+
+#, fuzzy
+#~ msgid "/_Options"
+#~ msgstr "П_араметры"
+
+#, fuzzy
+#~ msgid "/Options/_Paths..."
+#~ msgstr "_Пути..."
+
+#, fuzzy
+#~ msgid "/Options/Colour _Management..."
+#~ msgstr "_Управление цветом..."
+
+#, fuzzy
+#~ msgid "/Options/_Units..."
+#~ msgstr "_Единицы измерения..."
+
+#, fuzzy
+#~ msgid "/Options/_Scaling..."
+#~ msgstr "_Интерполяция..."
+
+#, fuzzy
+#~ msgid "/_Help"
+#~ msgstr "_Справка"
+
+#, fuzzy
+#~ msgid "/_Remove Image"
+#~ msgstr "_Удалить изображение"
+
+#, fuzzy
+#~ msgid "/Allow _Cropping"
+#~ msgstr "Разрешить о_брезку"
+
+#, fuzzy
+#~ msgid "/Rotation/Auto"
+#~ msgstr "_Вращение"
+
+#, fuzzy
+#~ msgid "/Rotation/None"
+#~ msgstr "_Вращение"
+
+#, fuzzy
+#~ msgid "/Rotation/90 degrees"
+#~ msgstr "Повернуть на 180° по часовой стрелке"
+
+#, fuzzy
+#~ msgid "/Rotation/180 degrees"
+#~ msgstr "Повернуть на 180° по часовой стрелке"
+
+#, fuzzy
+#~ msgid "/Rotation/270 degrees"
+#~ msgstr "Повернуть на 180° по часовой стрелке"
+
+#, fuzzy
+#~ msgid "/Set image mask..."
+#~ msgstr "Установить _маску изображения..."
+
+#, fuzzy
+#~ msgid "/_Effects..."
+#~ msgstr "Э_ффекты..."
+
+#, fuzzy
+#~ msgid "/Set colour _profile..."
+#~ msgstr "_Назначить ICC-профиль..."
+
+#~ msgid "Poster Size:"
+#~ msgstr "Размер плаката:"
+
+#~ msgid "Width:"
+#~ msgstr "Ширина:"
+
+#~ msgid "Height:"
+#~ msgstr "Высота:"
+
+#~ msgid "Tiles high:"
+#~ msgstr "Ячеек в высоту:"
+
+#~ msgid "Scale"
+#~ msgstr "Масштаб:"
+
+#~ msgid "Margins"
+#~ msgstr "Поля"
+
+#~ msgid "Gutters"
+#~ msgstr "Интервалы"
+
+#~ msgid "Horizontal:"
+#~ msgstr "По горизонтали:"
+
+#~ msgid "Vertical:"
+#~ msgstr "По вертикали:"

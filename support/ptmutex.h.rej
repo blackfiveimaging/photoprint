@@ -1,0 +1,17 @@
+***************
+*** 21,27 ****
+  	friend class Thread;
+  };
+  
+- #elif defined HAVE_LIBPTHREAD
+  
+  #include <pthread.h>
+  
+--- 21,27 ----
+  	friend class Thread;
+  };
+  
++ #elif defined HAVE_LIBPTHREAD || defined HAVE_LIBPTHREADGC2
+  
+  #include <pthread.h>
+  

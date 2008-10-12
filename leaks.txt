@@ -1,0 +1,298 @@
+==7187== 
+==7187== ERROR SUMMARY: 224 errors from 29 contexts (suppressed: 51 from 1)
+==7187== malloc/free: in use at exit: 17,897,487 bytes in 80,809 blocks.
+==7187== malloc/free: 849,779 allocs, 768,970 frees, 371,807,081 bytes allocated.
+==7187== For counts of detected errors, rerun with: -v
+==7187== searching for pointers to 80,809 not-freed blocks.
+==7187== checked 307,752,288 bytes.
+==7187== 
+==7187== 
+==7187== 8 bytes in 1 blocks are definitely lost in loss record 8 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x430EFE: effectselector_new (effectselector.cpp:260)
+==7187==    by 0x41FF94: pp_imagecontrol_new (pp_imagecontrol.cpp:110)
+==7187==    by 0x425538: pp_layout_nup_new (pp_layout_nup.cpp:265)
+==7187==    by 0x4209B2: pp_mainwindow_new (pp_mainwindow.cpp:154)
+==7187==    by 0x41BF0E: main (photoprint.cpp:183)
+==7187== 
+==7187== 
+==7187== 32 bytes in 1 blocks are definitely lost in loss record 36 of 307
+==7187==    at 0x4C23082: realloc (vg_replace_malloc.c:429)
+==7187==    by 0x6F95BA8: g_realloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6FAE023: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6FAEBD1: g_string_insert_len (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6F801D3: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6F80398: g_build_filename (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x25A45BD0: beagle_util_get_socket_path (in /usr/lib/libbeagle.so.1.0.0)
+==7187==    by 0x25A45D2F: beagle_util_daemon_is_running (in /usr/lib/libbeagle.so.1.0.0)
+==7187==    by 0x56159C2: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x5615224: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56A1EB0: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 28,056 (40 direct, 28,016 indirect) bytes in 1 blocks are definitely lost in loss record 54 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x43ABB5: ImageSource_BMP::GetRow(int) (imagesource_bmp.cpp:137)
+==7187==    by 0x43BCCF: ImageSource_HDownsample::GetRow(int) (imagesource_downsample.cpp:65)
+==7187==    by 0x43BEE5: ImageSource_VDownsample::GetRow(int) (imagesource_downsample.cpp:156)
+==7187==    by 0x4348DC: ImageSource_Crop::GetRow(int) (imagesource_crop.cpp:37)
+==7187==    by 0x435BB6: ImageSource_Mask::GetRow(int) (imagesource_mask.cpp:37)
+==7187==    by 0x4363DC: ImageSource_Montage::GetRow(int) (imagesource_montage.cpp:182)
+==7187==    by 0x447DA4: TIFFSaver::Save() (tiffsave.cpp:65)
+==7187==    by 0x411571: ExportTiff_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:559)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 225,216 (600 direct, 224,616 indirect) bytes in 1 blocks are definitely lost in loss record 70 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x41867E: Layout_NUp::PlaceImage(char const*, int, int, int, bool, PP_ROTATION) (layout_nup.cpp:135)
+==7187==    by 0x41927A: Layout_NUp::AddImage(char const*, bool, PP_ROTATION) (layout_nup.cpp:217)
+==7187==    by 0x425893: get_dnd_data(_GtkWidget*, _GdkDragContext*, int, int, _GtkSelectionData*, unsigned, unsigned, void*) (pp_layout_nup_pageview.cpp:85)
+==7187==    by 0x56F6ABC: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D397: g_signal_emit_by_name (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x581F5AA: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 11,200 bytes in 35 blocks are possibly lost in loss record 74 of 307
+==7187==    at 0x4C220BC: calloc (vg_replace_malloc.c:397)
+==7187==    by 0x401132B: _dl_allocate_tls (in /lib/ld-2.7.so)
+==7187==    by 0x766CB87: pthread_create@@GLIBC_2.2.5 (in /lib/libpthread-2.7.so)
+==7187==    by 0x415CFE: Layout_ImageInfo::DrawThumbnail(_GtkWidget*, int, int, int, int) (layout_imageinfo.cpp:468)
+==7187==    by 0x4183F3: Layout_NUp_ImageInfo::DrawThumbnail(_GtkWidget*, int, int, int, int) (layout_nup.cpp:81)
+==7187==    by 0x412F46: Layout::DrawPreview(_GtkWidget*, int, int, int, int) (layout.cpp:360)
+==7187==    by 0x426264: pp_layout_nup_pageview_expose(_GtkWidget*, _GdkEventExpose*) (pp_layout_nup_pageview.cpp:306)
+==7187==    by 0x56F987E: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692BAA7: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692CDE5: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 361,488 bytes in 239 blocks are possibly lost in loss record 83 of 307
+==7187==    at 0x4C21F8F: memalign (vg_replace_malloc.c:460)
+==7187==    by 0x4C22028: posix_memalign (vg_replace_malloc.c:569)
+==7187==    by 0x6FA9079: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6FA9ED0: g_slice_alloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6FA9FC5: g_slice_alloc0 (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x56C3859: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56C41C4: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56C4089: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56C4089: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56C4FD1: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56C6600: gtk_icon_theme_has_icon (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x5622771: gtk_action_group_add_actions_full (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187== 
+==7187== 
+==7187== 3,296,016 (432 direct, 3,295,584 indirect) bytes in 9 blocks are definitely lost in loss record 88 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x44C485: ProfileManager::GetProfile(char const*) (profilemanager.cpp:92)
+==7187==    by 0x413F13: Layout::GetColourSpace(CMColourDevice) (layout.cpp:134)
+==7187==    by 0x4143F9: Layout_ImageInfo::GetImageSource(CMColourDevice, CMTransformFactory*) (layout_imageinfo.cpp:722)
+==7187==    by 0x416270: hr_payload::ThreadFunc(Thread*, void*) (layout_imageinfo.cpp:191)
+==7187==    by 0x4447A6: Thread::LaunchStub(void*) (thread.cpp:144)
+==7187==    by 0x766C3F6: start_thread (in /lib/libpthread-2.7.so)
+==7187==    by 0x90BDB2C: clone (in /lib/libc-2.7.so)
+==7187== 
+==7187== 
+==7187== 328,234 (40 direct, 328,194 indirect) bytes in 1 blocks are definitely lost in loss record 101 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x43F621: ImageSource_TIFF::GetStrip(int) (imagesource_tiff.cpp:181)
+==7187==    by 0x43F673: ImageSource_TIFF::GetRow(int) (imagesource_tiff.cpp:195)
+==7187==    by 0x43BCCF: ImageSource_HDownsample::GetRow(int) (imagesource_downsample.cpp:65)
+==7187==    by 0x43BEE5: ImageSource_VDownsample::GetRow(int) (imagesource_downsample.cpp:156)
+==7187==    by 0x4348DC: ImageSource_Crop::GetRow(int) (imagesource_crop.cpp:37)
+==7187==    by 0x435BB6: ImageSource_Mask::GetRow(int) (imagesource_mask.cpp:37)
+==7187==    by 0x4363DC: ImageSource_Montage::GetRow(int) (imagesource_montage.cpp:182)
+==7187==    by 0x447DA4: TIFFSaver::Save() (tiffsave.cpp:65)
+==7187==    by 0x411571: ExportTiff_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:559)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 49 bytes in 3 blocks are definitely lost in loss record 110 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x9060DD1: strdup (in /lib/libc-2.7.so)
+==7187==    by 0x42F4F0: PrinterQueues::PrinterQueueExists(char const*) (printerqueueswrapper.cpp:81)
+==7187==    by 0x42FAD1: PrintOutput::DBToQueues() (printoutput.cpp:107)
+==7187==    by 0x441471: ConfigFile::ParseConfigFile(char const*) (configdb.cpp:410)
+==7187==    by 0x41C9C7: PhotoPrint_State::ParseConfigFile() (photoprint_state.cpp:150)
+==7187==    by 0x41BD93: main (photoprint.cpp:140)
+==7187== 
+==7187== 
+==7187== 292 (52 direct, 240 indirect) bytes in 1 blocks are definitely lost in loss record 137 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x90CE240: (within /lib/libc-2.7.so)
+==7187==    by 0x90CEAFE: __nss_database_lookup (in /lib/libc-2.7.so)
+==7187==    by 0xD8D842F: ???
+==7187==    by 0xD8D9968: ???
+==7187==    by 0x9082A40: getpwnam_r (in /lib/libc-2.7.so)
+==7187==    by 0x6FBDCDF: (within /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6FBF444: g_get_home_dir (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x573AC9C: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x573DAEC: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56F4657: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6F9B6DD: g_option_context_parse (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 288 (256 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 184 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x7CD281B: (within /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0x7CD3105: (within /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0x7CD3219: (within /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0x7CD7C08: (within /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0xBA190E0: (within /usr/lib/libexpat.so.1.5.2)
+==7187==    by 0xBA19EE3: (within /usr/lib/libexpat.so.1.5.2)
+==7187==    by 0xBA1AC6C: (within /usr/lib/libexpat.so.1.5.2)
+==7187==    by 0xBA1BFEA: (within /usr/lib/libexpat.so.1.5.2)
+==7187==    by 0xBA13000: XML_ParseBuffer (in /usr/lib/libexpat.so.1.5.2)
+==7187==    by 0x7CD72B7: FcConfigParseAndLoad (in /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0x7CD7533: FcConfigParseAndLoad (in /usr/lib/libfontconfig.so.1.3.0)
+==7187== 
+==7187== 
+==7187== 909 bytes in 29 blocks are definitely lost in loss record 223 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x6F95C8B: g_malloc (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x6FAD932: g_strconcat (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x4561D0: egg_pixbuf_has_failed_thumbnail (egg-pixbuf-thumbnail.c:1155)
+==7187==    by 0x45716E: egg_pixbuf_get_thumbnail_for_file (egg-pixbuf-thumbnail.c:641)
+==7187==    by 0x414E0C: Layout_ImageInfo::GetThumbnail() (layout_imageinfo.cpp:574)
+==7187==    by 0x416904: Layout_Carousel::RenderPreview(int, int) (layout_carousel.cpp:378)
+==7187==    by 0x416ECF: Layout_Carousel::DrawPreview(_GtkWidget*, int, int, int, int) (layout_carousel.cpp:446)
+==7187==    by 0x4246EC: pp_layout_carousel_pageview_expose(_GtkWidget*, _GdkEventExpose*) (pp_layout_carousel_pageview.cpp:303)
+==7187==    by 0x56F987E: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692BAA7: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 169,600 (62,208 direct, 107,392 indirect) bytes in 105 blocks are definitely lost in loss record 228 of 307
+==7187==    at 0x4C23082: realloc (vg_replace_malloc.c:429)
+==7187==    by 0x7CD2792: (within /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0x7CD3105: (within /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0x7CCFFB5: FcFontRenderPrepare (in /usr/lib/libfontconfig.so.1.3.0)
+==7187==    by 0xA388283: (within /usr/lib/libpangoft2-1.0.so.0.2000.1)
+==7187==    by 0xA388514: (within /usr/lib/libpangoft2-1.0.so.0.2000.1)
+==7187==    by 0x647808A: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==7187==    by 0x6478455: pango_layout_line_get_extents (in /usr/lib/libpango-1.0.so.0.2000.1)
+==7187==    by 0x6478586: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==7187==    by 0x647C1B5: (within /usr/lib/libpango-1.0.so.0.2000.1)
+==7187==    by 0x56E6375: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917C9B: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 73,395 (1,008 direct, 72,387 indirect) bytes in 21 blocks are definitely lost in loss record 229 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x44C463: ProfileManager::GetProfile(char const*) (profilemanager.cpp:99)
+==7187==    by 0x44CEB4: CMTransformFactory::GetTransform(CMColourDevice, CMSProfile*, LCMSWrapper_Intent) (profilemanager.cpp:293)
+==7187==    by 0x44CF3C: CMTransformFactory::GetTransform(CMColourDevice, IS_TYPE, LCMSWrapper_Intent) (profilemanager.cpp:259)
+==7187==    by 0x41539E: Layout_ImageInfo::GetThumbnail() (layout_imageinfo.cpp:678)
+==7187==    by 0x416A88: Layout_Carousel::RenderPreview(int, int) (layout_carousel.cpp:406)
+==7187==    by 0x416ECF: Layout_Carousel::DrawPreview(_GtkWidget*, int, int, int, int) (layout_carousel.cpp:446)
+==7187==    by 0x4246EC: pp_layout_carousel_pageview_expose(_GtkWidget*, _GdkEventExpose*) (pp_layout_carousel_pageview.cpp:303)
+==7187==    by 0x56F987E: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692BAA7: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692CDE5: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 1,600 bytes in 20 blocks are possibly lost in loss record 242 of 307
+==7187==    at 0x4C220BC: calloc (vg_replace_malloc.c:397)
+==7187==    by 0x6F95C32: g_malloc0 (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x692F7EF: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692F93E: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x69334E5: g_type_register_fundamental (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x693CBDB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x693259A: g_type_init_with_debug_flags (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x5B99BBE: gdk_pre_parse_libgtk_only (in /usr/lib/libgdk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56F4716: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6F9B536: g_option_context_parse (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x56F430E: gtk_parse_args (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x56F4368: gtk_init_check (in /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187== 
+==7187== 
+==7187== 11,567 (3,176 direct, 8,391 indirect) bytes in 58 blocks are definitely lost in loss record 256 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x530B599: stp_malloc (in /usr/local/lib/libgutenprint.so.2.0.0)
+==7187==    by 0x530A0FA: stp_list_create (in /usr/local/lib/libgutenprint.so.2.0.0)
+==7187==    by 0x531BD55: stp_string_list_create (in /usr/local/lib/libgutenprint.so.2.0.0)
+==7187==    by 0x53075F3: stpi_describe_generic_parameter (in /usr/local/lib/libgutenprint.so.2.0.0)
+==7187==    by 0x53107C0: stp_describe_parameter (in /usr/local/lib/libgutenprint.so.2.0.0)
+==7187==    by 0x45382D: stputil_validate_parameters (stputil.c:17)
+==7187==    by 0x411EF9: GPrinterSettings::Validate() (gprintersettings.cpp:456)
+==7187==    by 0x41BD93: main (photoprint.cpp:140)
+==7187== 
+==7187== 
+==7187== 3,720 (3,560 direct, 160 indirect) bytes in 89 blocks are definitely lost in loss record 257 of 307
+==7187==    at 0x4C220BC: calloc (vg_replace_malloc.c:397)
+==7187==    by 0x6F95C32: g_malloc0 (in /usr/lib/libglib-2.0.so.0.1600.3)
+==7187==    by 0x2473F2FD: (within /usr/lib/gio/modules/libgiohal-volume-monitor.so)
+==7187==    by 0x6937542: g_type_create_instance (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x691CF4C: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x691D53F: g_object_newv (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x691E031: g_object_new_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x691E170: g_object_new (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x2473F54E: (within /usr/lib/gio/modules/libgiohal-volume-monitor.so)
+==7187==    by 0x2473FF78: (within /usr/lib/gio/modules/libgiohal-volume-monitor.so)
+==7187==    by 0x24748FDF: (within /usr/lib/gio/modules/libgiohal-volume-monitor.so)
+==7187==    by 0x24749008: (within /usr/lib/gio/modules/libgiohal-volume-monitor.so)
+==7187== 
+==7187== 
+==7187== 75,788 (80 direct, 75,708 indirect) bytes in 1 blocks are definitely lost in loss record 283 of 307
+==7187==    at 0x4C23809: operator new(unsigned long) (vg_replace_malloc.c:230)
+==7187==    by 0x417169: Layout_Carousel::GetImageSource(int, CMColourDevice, CMTransformFactory*, int) (layout_carousel.cpp:175)
+==7187==    by 0x411454: ExportTiff_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:544)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x561ED12: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 3,192 bytes in 1 blocks are possibly lost in loss record 295 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x434137: ImageSource::MakeRowBuffer() (imagesource.cpp:38)
+==7187==    by 0x434AC7: ImageSource_Crop::ImageSource_Crop(ImageSource*, int, int, int, int) (imagesource_crop.cpp:85)
+==7187==    by 0x417448: Layout_Carousel::GetImageSource(int, CMColourDevice, CMTransformFactory*, int) (layout_carousel.cpp:231)
+==7187==    by 0x411454: ExportTiff_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:544)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D0D4: g_signal_emit_valist (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692D482: g_signal_emit (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x561ED12: (within /usr/lib/libgtk-x11-2.0.so.0.1200.9)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== 
+==7187== 4,122,624 bytes in 1 blocks are possibly lost in loss record 307 of 307
+==7187==    at 0x4C22FAB: malloc (vg_replace_malloc.c:207)
+==7187==    by 0x43AA60: IS_BMPStrip::IS_BMPStrip(ImageSource_BMP*, int) (imagesource_bmp.cpp:83)
+==7187==    by 0x43ABC5: ImageSource_BMP::GetRow(int) (imagesource_bmp.cpp:137)
+==7187==    by 0x43BCCF: ImageSource_HDownsample::GetRow(int) (imagesource_downsample.cpp:65)
+==7187==    by 0x43BEE5: ImageSource_VDownsample::GetRow(int) (imagesource_downsample.cpp:156)
+==7187==    by 0x4348DC: ImageSource_Crop::GetRow(int) (imagesource_crop.cpp:37)
+==7187==    by 0x435BB6: ImageSource_Mask::GetRow(int) (imagesource_mask.cpp:37)
+==7187==    by 0x4363DC: ImageSource_Montage::GetRow(int) (imagesource_montage.cpp:182)
+==7187==    by 0x447DA4: TIFFSaver::Save() (tiffsave.cpp:65)
+==7187==    by 0x411571: ExportTiff_Dialog(_GtkWindow*, PhotoPrint_State&) (dialogs.cpp:559)
+==7187==    by 0x6917BCE: g_closure_invoke (in /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187==    by 0x692B6BB: (within /usr/lib/libgobject-2.0.so.0.1600.3)
+==7187== 
+==7187== LEAK SUMMARY:
+==7187==    definitely lost: 72,450 bytes in 322 blocks.
+==7187==    indirectly lost: 4,140,720 bytes in 3,801 blocks.
+==7187==      possibly lost: 4,500,104 bytes in 296 blocks.
+==7187==    still reachable: 9,184,213 bytes in 76,390 blocks.
+==7187==         suppressed: 0 bytes in 0 blocks.
+==7187== Reachable blocks (those to which a pointer was found) are not shown.
+==7187== To see them, rerun with: --leak-check=full --show-reachable=yes

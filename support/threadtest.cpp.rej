@@ -1,0 +1,40 @@
+***************
+*** 28,34 ****
+  	t->SendSync();
+  	for(int i=0;i<100;++i)
+  	{
+- 		usleep(20000);
+  		if(!p.DoProgress())
+  		{
+  			cerr << "Thread cancelled - exiting" << endl;
+--- 28,34 ----
+  	t->SendSync();
+  	for(int i=0;i<100;++i)
+  	{
++ 		Sleep(20);
+  		if(!p.DoProgress())
+  		{
+  			cerr << "Thread cancelled - exiting" << endl;
+***************
+*** 47,56 ****
+  	mutex->ReleaseMutex();
+  
+  	t->SendSync();
+- 	sleep(5);
+  	mutex->ReleaseMutex();
+  	cerr << "Thread finished sleeping - exiting" << endl;
+- 	cerr << "Sub-thread ID: " << pthread_self() << endl;
+  	return(0);
+  }
+  
+--- 47,56 ----
+  	mutex->ReleaseMutex();
+  
+  	t->SendSync();
++ 	Sleep(5000);
+  	mutex->ReleaseMutex();
+  	cerr << "Thread finished sleeping - exiting" << endl;
++ //	cerr << "Sub-thread ID: " << (long)pthread_self() << endl;
+  	return(0);
+  }
+  

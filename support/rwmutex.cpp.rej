@@ -1,0 +1,82 @@
+***************
+*** 10,16 ****
+  
+  using namespace std;
+  
+- #ifdef HAVE_LIBPTHREAD
+  
+  // pthreads-based implementation
+  
+--- 10,16 ----
+  
+  using namespace std;
+  
++ #if defined HAVE_LIBPTHREAD || defined HAVE_LIBPTHREADGC2
+  
+  // pthreads-based implementation
+  
+***************
+*** 148,155 ****
+  	// If the lockcount is greater than zero, then we have to
+  	// step through the thread table making sure that the
+  	// current thread is the only one holding locks.
+  	pthread_t current=pthread_self();
+- 	cerr << "Current thread: " << current << endl;
+  	for(int i=0;i<RWMUTEX_THREADS_MAX;++i)
+  	{
+  		// If any thread other than this one has count>0 return false;
+--- 148,159 ----
+  	// If the lockcount is greater than zero, then we have to
+  	// step through the thread table making sure that the
+  	// current thread is the only one holding locks.
++ #ifdef WIN32
++ 	void *current=pthread_self().p;
++ #else
+  	pthread_t current=pthread_self();
++ #endif
++ //	cerr << "Current thread: " << current << endl;
+  	for(int i=0;i<RWMUTEX_THREADS_MAX;++i)
+  	{
+  		// If any thread other than this one has count>0 return false;
+***************
+*** 172,178 ****
+  	if(exclusive)
+  		++exclusive;
+  	// Find the current thread in the table and increment its count
+  	pthread_t current=pthread_self();
+  //	cerr << "Increment - searching for thread: " << current << endl;
+  	for(int i=0;i<RWMUTEX_THREADS_MAX;++i)
+  	{
+--- 176,186 ----
+  	if(exclusive)
+  		++exclusive;
+  	// Find the current thread in the table and increment its count
++ #ifdef WIN32
++ 	void *current=pthread_self().p;
++ #else
+  	pthread_t current=pthread_self();
++ #endif
+  //	cerr << "Increment - searching for thread: " << current << endl;
+  	for(int i=0;i<RWMUTEX_THREADS_MAX;++i)
+  	{
+***************
+*** 210,216 ****
+  	--lockcount;
+  	if(exclusive)
+  		--exclusive;
+  	pthread_t current=pthread_self();
+  //	cerr << "Decrement - searching for thread: " << current << endl;
+  	for(int i=0;i<RWMUTEX_THREADS_MAX;++i)
+  	{
+--- 218,228 ----
+  	--lockcount;
+  	if(exclusive)
+  		--exclusive;
++ #ifdef WIN32
++ 	void *current=pthread_self().p;
++ #else
+  	pthread_t current=pthread_self();
++ #endif
+  //	cerr << "Decrement - searching for thread: " << current << endl;
+  	for(int i=0;i<RWMUTEX_THREADS_MAX;++i)
+  	{

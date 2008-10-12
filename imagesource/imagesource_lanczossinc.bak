@@ -1,0 +1,205 @@
+/*
+ * imagesource_lanczossinc.cpp - Interpolated scaling filter
+ * Implements Sinc interpolation with Lanczos Window:
+ * sin(pi*x)/(pi*x)*sample*sin(pi*x/windowsize)/(pi*x/windowsize)
+ *
+ * Supports Greyscale, RGB and CMYK data
+ * Doesn't (yet) support random access
+ *
+ * Copyright (c) 2004 by Alastair M. Robinson
+ * Distributed under the terms of the GNU General Public License -
+ * see the file named "COPYING" for more details.
+ *
+ */
+
+#include <iostream>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#include "imagesource_lanczossinc.h"
+
+using namespace std;
+
+#ifndef M_PI
+#define M_PI    3.14159265358979323846
+#endif
+
+// The row cache is just a simplistic ring-buffer type cache which handles
+// the details of tracking several rows of "support" data.
+
+class ISLanczosSinc_RowCache
+{
+	public:
+	ISLanczosSinc_RowCache(ImageSource_LanczosSinc *source);
+	~ISLanczosSinc_RowCache();
+	double *GetRow(int row);
+	double *GetCacheRow(int row);
+	private:
+	ImageSource_LanczosSinc *source;
+	double *cache;
+	double *rowbuffer;
+	int currentrow;
+};
+
+
+ISLanczosSinc_RowCache::~ISLanczosSinc_RowCache()
+{
+	if(cache)
+		free(cache);
+}
+
+
+ISLanczosSinc_RowCache::ISLanczosSinc_RowCache(ImageSource_LanczosSinc *source)
+	: source(source), currentrow(-1)
+{
+	cache=(double *)malloc(sizeof(double)*source->samplesperpixel*source->width*source->support);
+	rowbuffer=(double *)malloc(sizeof(double)*source->samplesperpixel*source->width);
+}
+
+
+double *ISLanczosSinc_RowCache::GetRow(int row)
+{
+	for(int i=0;i<source->width*source->samplesperpixel;++i)
+		rowbuffer[i]=0.0;
+
+	for(int i=0;i<source->support;++i)
+	{
+		int p=i-source->windowsize;
+		int sr=(row*source->source->height)/source->height;
+		double *src=GetCacheRow(sr+p);
+		double f=source->vcoeff[row*source->support+i];
+		for(int x=0;x<source->width*source->samplesperpixel;++x)
+		{
+			rowbuffer[x]+=f*src[x];
+		}
+	}
+	return(rowbuffer);
+}
+
+
+double *ISLanczosSinc_RowCache::GetCacheRow(int row)
+{
+	if(row<0)
+		row=0;
+	if(row>=source->source->height)
+		row=source->source->height-1;
+	int crow=row%source->support;
+	{
+		double *rowptr=cache+crow*source->samplesperpixel*source->width;
+		if(row>currentrow)
+		{
+			currentrow=row;
+			ISDataType *src=source->source->GetRow(row);
+			for(int x=0;x<source->width;++x)
+			{
+				int sx=(x*source->source->width)/source->width;
+				for(int s=0;s<source->samplesperpixel;++s)
+				{
+					double a=0.0;
+					for(int p=0;p<source->support;++p)
+					{
+						int lsx=sx+p-source->windowsize;
+						if(lsx<0) lsx=0;
+						if(lsx>=source->source->width) lsx=source->source->width-1;
+
+						a+=src[lsx*source->samplesperpixel+s]*source->hcoeff[x*source->support+p];
+					}
+					rowptr[x*source->samplesperpixel+s]=a;
+				}
+			}
+		}
+		return(rowptr);		
+	}
+}
+
+
+ImageSource_LanczosSinc::~ImageSource_LanczosSinc()
+{
+	if(cache)
+		delete cache;
+	if(source)
+		delete source;
+}
+
+
+ISDataType *ImageSource_LanczosSinc::GetRow(int row)
+{
+	int i;
+
+	if(row==currentrow)
+		return(rowbuffer);
+
+	double *srcdata=cache->GetRow(row);
+
+	for(i=0;i<width*samplesperpixel;++i)
+	{
+		double s=srcdata[i];
+		if(s<0.0) s=0.0;
+		if(s>IS_SAMPLEMAX) s=IS_SAMPLEMAX;
+		rowbuffer[i]=int(s);
+	}
+
+	currentrow=row;
+
+	return(rowbuffer);
+}
+
+
+static double sinc(double x)
+{
+	x*=M_PI;
+	if(x==0.0)
+		return(1.0);
+	else
+		return(sin(x)/x);
+}
+
+
+// Since Lanczos Sinc is a relatively expensive algorithm to compute in realtime
+// and the row / column coefficients are constant we precompute them here.
+
+void ImageSource_LanczosSinc::PreCalc()
+{
+	for(int x=0;x<width;++x)
+	{
+		double c=x*source->width; c/=width;
+		int ci=int(c);
+		double f=c-ci;
+		for(int i=0; i<support; ++i)
+		{
+			int p=i-windowsize;
+			double v=f-p;
+			hcoeff[support*x+i]=sinc(v)*sinc(v/windowsize);
+		}
+	}
+	for(int y=0;y<height;++y)
+	{
+		double c=y*source->height; c/=height;
+		int ci=int(c);
+		double f=c-ci;
+		for(int i=0; i<support; ++i)
+		{
+			int p=i-windowsize;
+			double v=f-p;
+			vcoeff[support*y+i]=sinc(v)*sinc(v/windowsize);
+		}
+	}
+}
+
+
+ImageSource_LanczosSinc::ImageSource_LanczosSinc(struct ImageSource *source,int width,int height,int windowsize)
+	: ImageSource(source), source(source), windowsize(windowsize)
+{
+	this->width=width; this->height=height;
+	xres=(source->xres*width); xres/=source->width;
+	yres=(source->yres*height); yres/=source->height;
+
+	support=windowsize*2+1;
+	hcoeff=(double *)malloc(sizeof(double)*width*support);
+	vcoeff=(double *)malloc(sizeof(double)*height*support);
+	PreCalc();
+	cache=new ISLanczosSinc_RowCache(this);
+	MakeRowBuffer();
+	randomaccess=false;
+}
