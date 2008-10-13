@@ -2,10 +2,10 @@ printerqueues.lo printerqueues.o: printerqueues.c /usr/include/stdio.h \
   /usr/include/features.h /usr/include/sys/cdefs.h \
   /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
   /usr/include/gnu/stubs-64.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stddef.h \
   /usr/include/bits/types.h /usr/include/bits/typesizes.h \
   /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stdarg.h \
   /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
   /usr/include/bits/stdio.h printerqueues.h ../config.h \
   printerqueues_unix.c /usr/include/stdlib.h /usr/include/sys/types.h \
@@ -27,8 +27,8 @@ printerqueues.lo printerqueues.o: printerqueues.c /usr/include/stdio.h \
   /usr/include/cups/http.h /usr/include/sys/time.h \
   /usr/include/sys/socket.h /usr/include/sys/uio.h \
   /usr/include/bits/uio.h /usr/include/bits/socket.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/syslimits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/syslimits.h \
   /usr/include/limits.h /usr/include/bits/posix1_lim.h \
   /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
   /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h \
@@ -55,7 +55,7 @@ printerqueues.lo printerqueues.o: printerqueues.c /usr/include/stdio.h \
 
 /usr/include/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stddef.h:
 
 /usr/include/bits/types.h:
 
@@ -67,7 +67,7 @@ printerqueues.lo printerqueues.o: printerqueues.c /usr/include/stdio.h \
 
 /usr/include/wchar.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stdarg.h:
 
 /usr/include/bits/stdio_lim.h:
 
@@ -163,9 +163,9 @@ printerqueues_unix.c:
 
 /usr/include/bits/socket.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/limits.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/limits.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/syslimits.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/syslimits.h:
 
 /usr/include/limits.h:
 

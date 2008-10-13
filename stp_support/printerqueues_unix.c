@@ -197,8 +197,6 @@ static void pqp_buildqueuelist(struct pqprivate *pp)
 		}
 		pclose(pfile);
 	}
-	printernode_create(pp,PRINTERQUEUE_CUSTOMCOMMAND);
-	printernode_create(pp,PRINTERQUEUE_SAVETOFILE);
 
 	if(old_lang)
 		setenv("LANG",old_lang,1);
