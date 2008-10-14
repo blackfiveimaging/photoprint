@@ -1,3 +1,9 @@
+PhotoPrint-0.4.0
+
+  * Fixed a bug which caused the Custom Command and File print queues to be
+    repeated when there were no CUPS queues detected.
+
+
 PhotoPrint-0.3.9
 
   * Fixed a bug where vertical offsets and cropping were ignored when images

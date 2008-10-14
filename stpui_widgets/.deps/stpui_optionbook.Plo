@@ -2,7 +2,7 @@ stpui_optionbook.lo stpui_optionbook.o: stpui_optionbook.c \
   /usr/include/string.h /usr/include/features.h /usr/include/sys/cdefs.h \
   /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
   /usr/include/gnu/stubs-64.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stddef.h \
   /usr/include/bits/string.h /usr/include/bits/string2.h \
   /usr/include/endian.h /usr/include/bits/endian.h \
   /usr/include/bits/types.h /usr/include/bits/typesizes.h \
@@ -16,18 +16,18 @@ stpui_optionbook.lo stpui_optionbook.o: stpui_optionbook.c \
   /usr/include/glib-2.0/glib/gtypes.h \
   /usr/lib/glib-2.0/include/glibconfig.h \
   /usr/include/glib-2.0/glib/gmacros.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/syslimits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/syslimits.h \
   /usr/include/limits.h /usr/include/bits/posix1_lim.h \
   /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
   /usr/include/bits/posix2_lim.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/float.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/float.h \
   /usr/include/glib-2.0/glib/garray.h \
   /usr/include/glib-2.0/glib/gasyncqueue.h \
   /usr/include/glib-2.0/glib/gthread.h \
   /usr/include/glib-2.0/glib/gerror.h /usr/include/glib-2.0/glib/gquark.h \
   /usr/include/glib-2.0/glib/gutils.h \
-  /usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stdarg.h \
   /usr/include/glib-2.0/glib/gatomic.h \
   /usr/include/glib-2.0/glib/gbacktrace.h \
   /usr/include/glib-2.0/glib/gbase64.h \
@@ -212,7 +212,7 @@ stpui_optionbook.lo stpui_optionbook.o: stpui_optionbook.c \
 
 /usr/include/gnu/stubs-64.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stddef.h:
 
 /usr/include/bits/string.h:
 
@@ -254,9 +254,9 @@ stpui_optionbook.lo stpui_optionbook.o: stpui_optionbook.c \
 
 /usr/include/glib-2.0/glib/gmacros.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/limits.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/limits.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/syslimits.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/syslimits.h:
 
 /usr/include/limits.h:
 
@@ -268,7 +268,7 @@ stpui_optionbook.lo stpui_optionbook.o: stpui_optionbook.c \
 
 /usr/include/bits/posix2_lim.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/float.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/float.h:
 
 /usr/include/glib-2.0/glib/garray.h:
 
@@ -282,7 +282,7 @@ stpui_optionbook.lo stpui_optionbook.o: stpui_optionbook.c \
 
 /usr/include/glib-2.0/glib/gutils.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/4.2.3/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.2.4/include/stdarg.h:
 
 /usr/include/glib-2.0/glib/gatomic.h:
 
