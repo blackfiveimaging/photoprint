@@ -56,7 +56,10 @@ libsupport_la_SOURCES =	\
 	jpegsave.cpp	\
 	jpegsave.h	\
 	tiffsave.cpp	\
-	tiffsave.h
+	tiffsave.h \
+	\
+	util.cpp \
+	util.h
 
 libsupport_la_LDFLAGS = -static
 

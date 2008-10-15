@@ -5,7 +5,8 @@ SUBDIRS = po support imagesource stpui_widgets stp_support pixbufthumbnail splas
 
 localedir=$(datadir)/locale
 
-AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./support/ -I./imagesource/ -I./splashscreen -I./profilemanager -I./effects $(GTK2_CFLAGS)
+AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./support/ -I./imagesource/ -I./splashscreen -I./profilemanager -I./effects \
+	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS)
 
 bin_PROGRAMS = photoprint
 
@@ -17,6 +18,8 @@ photoprint_SOURCES = 		\
 	layoutdb.h		\
 	layout.cpp		\
 	layout.h		\
+	layout_imageinfo.cpp \
+	layout_imageinfo.h \
 	layout_carousel.cpp	\
 	layout_carousel.h	\
 	layout_nup.cpp	\

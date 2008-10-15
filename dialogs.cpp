@@ -34,7 +34,7 @@
 #include "support/jpegsave.h"
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
-#include "util.h"
+#include "support/util.h"
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)

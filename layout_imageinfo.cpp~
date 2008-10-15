@@ -75,6 +75,7 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int pag
 	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
 	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL)
 {
+	// Effects are copied by the "PPEffectHeader(*ii) above
 	if(ii)
 	{
 		// We duplicate and reference the thumbnail and mask from the old image...
@@ -107,8 +108,6 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int pag
 		height=ii->height;
 		xres=ii->xres;
 		yres=ii->yres;
-
-		// Duplicate effects chain.
 	}
 }
 

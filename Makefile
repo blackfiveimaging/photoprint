@@ -89,8 +89,7 @@ am_photoprint_OBJECTS = dialogs.$(OBJEXT) gprintersettings.$(OBJEXT) \
 	pp_printoutput.$(OBJEXT) pp_scaling.$(OBJEXT) \
 	pp_sigcontrol.$(OBJEXT) pp_units.$(OBJEXT) \
 	pp_imageinfo.$(OBJEXT) print.$(OBJEXT) \
-	printerqueueswrapper.$(OBJEXT) printoutput.$(OBJEXT) \
-	util.$(OBJEXT)
+	printerqueueswrapper.$(OBJEXT) printoutput.$(OBJEXT)
 photoprint_OBJECTS = $(am_photoprint_OBJECTS)
 photoprint_DEPENDENCIES = effects/libppeffects.la \
 	imagesource/libimagesource.la support/libsupport.la \
@@ -164,7 +163,7 @@ AR = ar
 AUTOCONF = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run automake-1.10
-AWK = gawk
+AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -377,8 +376,6 @@ photoprint_SOURCES = \
 	printerqueueswrapper.h	\
 	printoutput.cpp		\
 	printoutput.h		\
-	util.cpp		\
-	util.h	\
 	gettext.h
 
 photoprint_LDADD = \
@@ -549,7 +546,6 @@ include ./$(DEPDIR)/pp_units.Po
 include ./$(DEPDIR)/print.Po
 include ./$(DEPDIR)/printerqueueswrapper.Po
 include ./$(DEPDIR)/printoutput.Po
-include ./$(DEPDIR)/util.Po
 
 .cpp.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

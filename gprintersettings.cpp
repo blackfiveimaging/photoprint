@@ -16,7 +16,7 @@
 
 #include "stpui_widgets/stputil.h"
 #include "gprintersettings.h"
-#include "util.h"
+#include "support/util.h"
 
 #include "support/generaldialogs.h"
 

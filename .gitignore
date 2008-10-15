@@ -1,0 +1,8 @@
+*.o
+*.Po
+*.Plo
+*.lo
+*.la
+*~
+*Makefile
+*.libs

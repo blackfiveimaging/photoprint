@@ -83,8 +83,6 @@ photoprint_SOURCES = 		\
 	printerqueueswrapper.h	\
 	printoutput.cpp		\
 	printoutput.h		\
-	util.cpp		\
-	util.h	\
 	gettext.h
 
 photoprint_LDADD = \

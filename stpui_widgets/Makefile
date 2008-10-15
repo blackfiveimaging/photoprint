@@ -92,7 +92,7 @@ AR = ar
 AUTOCONF = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run automake-1.10
-AWK = gawk
+AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2

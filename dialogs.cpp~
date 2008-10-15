@@ -199,11 +199,11 @@ void About_Dialog(GtkWindow *parent)
 }
 
 // FIXME!  Horrible hack to get around a symbol clash on Win32.
-#define SearchPathA SearchPath
+#define SearchPathHandlerA SearchPathHandler
 
 struct PathDialogData
 {
-	SearchPath sp;
+	SearchPathHandler sp;
 	ImageSelector *is;
 	PathEditor *pe;
 };
@@ -744,6 +744,7 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 								JPEGSaver ts(ftmp,is,quality);
 								ts.SetProgress(&p);
 								ts.Save();
+								delete is;
 							}
 							
 							free(ftmp);

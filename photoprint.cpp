@@ -31,7 +31,7 @@
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
 #include "support/patheditor.h"
-#include "util.h"
+#include "support/util.h"
 
 
 #define _(x) gettext(x)

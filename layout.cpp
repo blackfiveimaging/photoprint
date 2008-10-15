@@ -32,7 +32,7 @@
 
 #include "photoprint_state.h"
 #include "support/progress.h"
-#include "util.h"
+#include "support/util.h"
 #include "support/layoutrectangle.h"
 
 #include "layout.h"

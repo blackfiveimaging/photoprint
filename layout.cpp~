@@ -135,6 +135,7 @@ IS_TYPE Layout::GetColourSpace(CMColourDevice target)
 	if(profile)
 	{
 		colourspace=profile->GetColourSpace();
+		delete profile;
 	}
 	else
 	{

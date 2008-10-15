@@ -49,7 +49,7 @@ am_libsupport_la_OBJECTS = maskpixbuf.lo rotatepixbuf.lo consumer.lo \
 	configdb.lo generaldialogs.lo layoutrectangle.lo signature.lo \
 	circlemontage.lo pathsupport.lo pixbufview.lo progressbar.lo \
 	rangeparser.lo thread.lo ptmutex.lo rwmutex.lo searchpath.lo \
-	patheditor.lo imageselector.lo jpegsave.lo tiffsave.lo
+	patheditor.lo imageselector.lo jpegsave.lo tiffsave.lo util.lo
 libsupport_la_OBJECTS = $(am_libsupport_la_OBJECTS)
 libsupport_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -294,7 +294,10 @@ libsupport_la_SOURCES = \
 	jpegsave.cpp	\
 	jpegsave.h	\
 	tiffsave.cpp	\
-	tiffsave.h
+	tiffsave.h \
+	\
+	util.cpp \
+	util.h
 
 libsupport_la_LDFLAGS = -static
 pathcheck_SOURCES = pathcheck.cpp
@@ -402,6 +405,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/thread.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/threadtest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tiffsave.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/util.Plo@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
