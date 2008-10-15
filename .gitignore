@@ -6,3 +6,8 @@
 *~
 *Makefile
 *.libs
+photoprint
+photoprint*.gz
+po/remove-potcdate.sed
+config.log
+config.status.lineno
