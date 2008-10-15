@@ -12,3 +12,7 @@ po/remove-potcdate.sed
 config.log
 config.status.lineno
 autom4te.cache
+*test
+*check
+imagesource/composite
+profilemanager/mk*profile
