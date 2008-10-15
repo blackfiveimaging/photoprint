@@ -43,6 +43,8 @@ class ProfileManager : public ConfigDB, public SearchPathHandler
 	CMSProfile *GetDefaultProfile(IS_TYPE colourspace);
 	void SetProfile(CMColourDevice *target,const char *name);
 	void SetDefaultProfile(IS_TYPE colourspace,const char *name);
+	void SetProofMode(enum CMProofMode mode);
+
 	CMTransformFactory *GetTransformFactory();
 
 	// path handling - we override these functions from the SearchPathHandler

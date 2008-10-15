@@ -161,7 +161,7 @@ class ConfigFile
 	public:
 	ConfigFile();
 	virtual ~ConfigFile();
-	virtual void ParseConfigFile(const char *inifile);
+	virtual bool ParseConfigFile(const char *inifile);
 	virtual bool SaveConfigFile(const char *inifile);
 	private:
 	ConfigSectionHandler *FindHandler(const char *section);

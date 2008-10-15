@@ -3,6 +3,12 @@ PhotoPrint-0.4.0
   * Fixed a bug which caused the Custom Command and File print queues to be
     repeated when there were no CUPS queues detected.
 
+  * Hopefully fixed yet another crash-upon-start-with-no-preset bug - and the
+    random page-size behaviour if the default queue is a PostScript queue.
+
+  * Added some error messages if the user attempts to choose a proofing mode
+    without the requisite colour profiles set up.
+
 
 PhotoPrint-0.3.9
 

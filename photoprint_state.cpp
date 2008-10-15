@@ -147,7 +147,14 @@ void PhotoPrint_State::ParseConfigFile()
 	SetInt("PresetVersion",29);
 
 	printer.Reset();
-	ConfigFile::ParseConfigFile(filename);
+	if(!ConfigFile::ParseConfigFile(filename))
+	{
+		cerr << "Parsing of config file failed" << endl;
+		cerr << "Default queue is: " << printoutput.FindString("Queue") << endl;
+		cerr << "Default PPD is: " << printoutput.GetPPD() << endl;
+		cerr << "Setting default driver" << endl;
+		printer.SetDriver("ps2");
+	}
 
 	// Code to update older config files goes here...
 	int v=FindInt("PresetVersion");

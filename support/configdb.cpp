@@ -393,8 +393,9 @@ ConfigSectionHandler *ConfigFile::FindHandler(const char *section)
 }
 
 
-void ConfigFile::ParseConfigFile(const char *inifile)
+bool ConfigFile::ParseConfigFile(const char *inifile)
 {
+	bool result=false;
 	FILE *file;
 	if((file=fopen(inifile,"r")))
 	{
@@ -421,7 +422,9 @@ void ConfigFile::ParseConfigFile(const char *inifile)
 		if(current)
 			current->LeaveSection();
         fclose(file);
+		result=true;
 	}
+	return(result);
 }
 
 

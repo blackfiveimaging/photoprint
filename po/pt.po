@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-10-03 13:16+0100\n"
+"POT-Creation-Date: 2008-10-15 14:17+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -262,7 +262,7 @@ msgstr "_Layout"
 msgid "_Image"
 msgstr "_Imagem"
 
-#: menucheck.cpp:62 pp_menu_options.cpp:81
+#: menucheck.cpp:62 pp_menu_options.cpp:100
 msgid "_Options"
 msgstr "_Opções"
 
@@ -330,35 +330,35 @@ msgstr "Configurar _Perfil de Cor"
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Associa um perfil ICC ou rendering intent padrão à imagem"
 
-#: menucheck.cpp:77 pp_menu_options.cpp:83
+#: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "_Paths..."
 msgstr "C_aminhos"
 
-#: menucheck.cpp:77 pp_menu_options.cpp:83
+#: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "Set search paths for ICC profiles, borders, etc."
 msgstr "Define caminhos para busca de perfis ICC, bordas, etc."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:84
+#: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "_Colour Management..."
 msgstr "Gerenciamento de _Cor"
 
-#: menucheck.cpp:78 pp_menu_options.cpp:84
+#: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "Set colour management options"
 msgstr "Define opções para gerenciamento de cores"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:85
+#: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "_Units..."
 msgstr "_Uniddes"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:85
+#: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "Select the units used throughout PhotoPrint"
 msgstr "Seleciona as unidades usadas em todo o PhotoPrint"
 
-#: menucheck.cpp:80 pp_menu_options.cpp:86
+#: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "_Scaling..."
 msgstr "_Redimensionamento"
 
-#: menucheck.cpp:80 pp_menu_options.cpp:86
+#: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "Select the preferred scaling method."
 msgstr "Seleciona o método preferido para redimensionamento."
 
@@ -802,38 +802,38 @@ msgstr ""
 msgid "Fill the page with copies of the currently selected image"
 msgstr ""
 
-#: pp_menu_options.cpp:90
+#: pp_menu_options.cpp:109
 msgid "High-res Previews"
 msgstr ""
 
-#: pp_menu_options.cpp:90
+#: pp_menu_options.cpp:109
 msgid "Render high-resolution previews in the background"
 msgstr ""
 
-#: pp_menu_options.cpp:94
+#: pp_menu_options.cpp:113
 msgid "_Normal Display"
 msgstr ""
 
-#: pp_menu_options.cpp:94
+#: pp_menu_options.cpp:113
 msgid "Display colours with no print simulation"
 msgstr ""
 
-#: pp_menu_options.cpp:95
+#: pp_menu_options.cpp:114
 #, fuzzy
 msgid "Simulate Prin_t"
 msgstr "Simular impressão"
 
-#: pp_menu_options.cpp:95
+#: pp_menu_options.cpp:114
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr ""
 
-#: pp_menu_options.cpp:96
+#: pp_menu_options.cpp:115
 #, fuzzy
 msgid "Simulate Print, _Adapt White"
 msgstr "Simular impressão, Adapt White"
 
-#: pp_menu_options.cpp:96
+#: pp_menu_options.cpp:115
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 

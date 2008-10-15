@@ -26,10 +26,10 @@ using namespace std;
 
 ConfigTemplate ProfileManager::Template[]=
 {
- 	ConfigTemplate("DefaultRGBProfile","BUILTINSRGB_ESCAPESTRING>"),
+ 	ConfigTemplate("DefaultRGBProfile",BUILTINSRGB_ESCAPESTRING),
 	ConfigTemplate("DefaultRGBProfileActive",int(1)),
 	ConfigTemplate("DefaultCMYKProfile","USWebCoatedSWOP.icc"),
-	ConfigTemplate("DefaultCMYKProfileActive",int(1)),
+	ConfigTemplate("DefaultCMYKProfileActive",int(0)),
 	ConfigTemplate("DefaultGreyProfile",""),
 	ConfigTemplate("DefaultGreyProfileActive",int(0)),
 	ConfigTemplate("PrinterProfile",""),
@@ -194,10 +194,39 @@ CMSProfile *ProfileManager::GetDefaultProfile(IS_TYPE colourspace)
 }
 
 
+void ProfileManager::SetProofMode(enum CMProofMode mode)
+{
+	if(mode!=CM_PROOFMODE_NONE)
+	{
+		const char *err=NULL;
+		CMSProfile *t=NULL;
+
+		if((t=GetProfile(CM_COLOURDEVICE_PRINTER)))
+			delete t;
+		else
+			err=_("Can't do proofing without a valid Printer profile!");
+
+		if((t=GetProfile(CM_COLOURDEVICE_DISPLAY)))
+			delete t;
+		else
+			err=_("Can't do proofing without a valid Monitor profile!");
+
+		if((t=GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
+			delete t;
+		else
+			err=_("Can't do proofing without a valid Default RGB profile!");
+		if(err)
+			throw err;
+	}
+	SetInt("ProofMode",mode);
+}
+
+
 CMTransformFactory *ProfileManager::GetTransformFactory()
 {
 	return(new CMTransformFactory(*this));
 }
+
 
 
 // CMTransformFactory

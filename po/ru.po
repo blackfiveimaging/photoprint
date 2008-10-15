@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-10-03 13:16+0100\n"
+"POT-Creation-Date: 2008-10-15 14:17+0100\n"
 "PO-Revision-Date: 2008-07-04 02:54+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -259,7 +259,7 @@ msgstr "_Макет"
 msgid "_Image"
 msgstr "Сн_имок"
 
-#: menucheck.cpp:62 pp_menu_options.cpp:81
+#: menucheck.cpp:62 pp_menu_options.cpp:100
 msgid "_Options"
 msgstr "П_араметры"
 
@@ -327,35 +327,35 @@ msgstr "_Назначить ICC-профиль..."
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Назначить ICC-профиль или изменить цель цветопередачи изображения"
 
-#: menucheck.cpp:77 pp_menu_options.cpp:83
+#: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "_Paths..."
 msgstr "_Расположение данных..."
 
-#: menucheck.cpp:77 pp_menu_options.cpp:83
+#: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "Set search paths for ICC profiles, borders, etc."
 msgstr "Указать пути поиска ICC-профилей, рамок и т.д."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:84
+#: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "_Colour Management..."
 msgstr "_Управление цветом..."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:84
+#: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "Set colour management options"
 msgstr "Настройка управления цветом"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:85
+#: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "_Units..."
 msgstr "_Единицы измерения..."
 
-#: menucheck.cpp:79 pp_menu_options.cpp:85
+#: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "Select the units used throughout PhotoPrint"
 msgstr "Выбор единицы измерения, используемой в PhotoPrint"
 
-#: menucheck.cpp:80 pp_menu_options.cpp:86
+#: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "_Scaling..."
 msgstr "_Интерполяция..."
 
-#: menucheck.cpp:80 pp_menu_options.cpp:86
+#: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "Select the preferred scaling method."
 msgstr "Выбор типа интерполяции при масштабировании"
 
@@ -788,36 +788,36 @@ msgstr "_Заполнить им страницу"
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Заполнить страницу копиями выбранного сейчас изображения"
 
-#: pp_menu_options.cpp:90
+#: pp_menu_options.cpp:109
 msgid "High-res Previews"
 msgstr "Высококачественные эскизы"
 
-#: pp_menu_options.cpp:90
+#: pp_menu_options.cpp:109
 msgid "Render high-resolution previews in the background"
 msgstr "Создавать высококачественные эскизы в фоновом режиме"
 
-#: pp_menu_options.cpp:94
+#: pp_menu_options.cpp:113
 msgid "_Normal Display"
 msgstr "_Обычное отображение"
 
-#: pp_menu_options.cpp:94
+#: pp_menu_options.cpp:113
 msgid "Display colours with no print simulation"
 msgstr "Не имитировать принтер при отображении цветов"
 
-#: pp_menu_options.cpp:95
+#: pp_menu_options.cpp:114
 msgid "Simulate Prin_t"
 msgstr "_Имитация принтера"
 
-#: pp_menu_options.cpp:95
+#: pp_menu_options.cpp:114
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr ""
 
-#: pp_menu_options.cpp:96
+#: pp_menu_options.cpp:115
 msgid "Simulate Print, _Adapt White"
 msgstr "И_митация принтера, баланс белого по монитору"
 
-#: pp_menu_options.cpp:96
+#: pp_menu_options.cpp:115
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 

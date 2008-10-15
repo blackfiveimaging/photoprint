@@ -66,14 +66,33 @@ static void options_highres(GtkToggleAction *act,gpointer *ob)
 }
 
 
+static gboolean radioidlefunc(gpointer userdata)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)userdata;
+	cerr << "In Idle function - reverting menu item" << endl;
+	OptionsMenu_SetProofMode(mw->uim,CM_PROOFMODE_NONE);
+	cerr << "done" << endl;
+	return(FALSE);
+}
+
+
 static void optionsmenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	enum CMProofMode proofmode=CMProofMode(gtk_radio_action_get_current_value(ra));
 	cerr << "Proofmode set to: " << proofmode << endl;
-	mw->state->profilemanager.SetInt("ProofMode",proofmode);
-	mw->state->layout->FlushThumbnails();
-	pp_mainwindow_refresh(mw);
+	try
+	{
+		mw->state->profilemanager.SetProofMode(proofmode);
+		mw->state->layout->FlushThumbnails();
+		pp_mainwindow_refresh(mw);
+	}
+	catch(const char *err)
+	{
+		ErrorMessage_Dialog(err,GTK_WIDGET(mw));
+		cerr << "Dialog displayed - adding idle function..." << endl;
+		gtk_idle_add(radioidlefunc,mw);
+	}
 }
 
 
@@ -142,6 +161,7 @@ void OptionsMenu_SetHighresPreviews(GtkUIManager *ui_manager,int hrpreview)
 
 void OptionsMenu_SetProofMode(GtkUIManager *ui_manager,enum CMProofMode item)
 {
+	cerr << "Setting proof mode to " << item << endl;
 #if 0
 	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/OptionsMenu/NormalDisplay");
 	if(act)

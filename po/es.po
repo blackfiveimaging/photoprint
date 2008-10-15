@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-10-03 13:16+0100\n"
+"POT-Creation-Date: 2008-10-15 14:17+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -260,7 +260,7 @@ msgstr "_Disposición"
 msgid "_Image"
 msgstr "_Imágen"
 
-#: menucheck.cpp:62 pp_menu_options.cpp:81
+#: menucheck.cpp:62 pp_menu_options.cpp:100
 msgid "_Options"
 msgstr "_Opciones"
 
@@ -328,35 +328,35 @@ msgstr "Seleccionar _Perfil de color"
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr ""
 
-#: menucheck.cpp:77 pp_menu_options.cpp:83
+#: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "_Paths..."
 msgstr "_Rutas..."
 
-#: menucheck.cpp:77 pp_menu_options.cpp:83
+#: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "Set search paths for ICC profiles, borders, etc."
 msgstr "Establecer rutas de búsqueda de perfiles de color, marcos, etc..."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:84
+#: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "_Colour Management..."
 msgstr "Gestión de _color"
 
-#: menucheck.cpp:78 pp_menu_options.cpp:84
+#: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "Set colour management options"
 msgstr "Establecer opciones de gestión de color"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:85
+#: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "_Units..."
 msgstr "_Unidades"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:85
+#: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "Select the units used throughout PhotoPrint"
 msgstr ""
 
-#: menucheck.cpp:80 pp_menu_options.cpp:86
+#: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "_Scaling..."
 msgstr "E_scalado..."
 
-#: menucheck.cpp:80 pp_menu_options.cpp:86
+#: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "Select the preferred scaling method."
 msgstr ""
 
@@ -801,38 +801,38 @@ msgstr ""
 msgid "Fill the page with copies of the currently selected image"
 msgstr ""
 
-#: pp_menu_options.cpp:90
+#: pp_menu_options.cpp:109
 msgid "High-res Previews"
 msgstr ""
 
-#: pp_menu_options.cpp:90
+#: pp_menu_options.cpp:109
 msgid "Render high-resolution previews in the background"
 msgstr ""
 
-#: pp_menu_options.cpp:94
+#: pp_menu_options.cpp:113
 msgid "_Normal Display"
 msgstr ""
 
-#: pp_menu_options.cpp:94
+#: pp_menu_options.cpp:113
 msgid "Display colours with no print simulation"
 msgstr ""
 
-#: pp_menu_options.cpp:95
+#: pp_menu_options.cpp:114
 #, fuzzy
 msgid "Simulate Prin_t"
 msgstr "Simular·impresión"
 
-#: pp_menu_options.cpp:95
+#: pp_menu_options.cpp:114
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr ""
 
-#: pp_menu_options.cpp:96
+#: pp_menu_options.cpp:115
 #, fuzzy
 msgid "Simulate Print, _Adapt White"
 msgstr "Simular impresión,·Adaptar·Blanco"
 
-#: pp_menu_options.cpp:96
+#: pp_menu_options.cpp:115
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 
