@@ -12,7 +12,7 @@
 GETTEXT_MACRO_VERSION = 0.17
 
 PACKAGE = photoprint
-VERSION = 0.4.0-pre1
+VERSION = 0.4.0-pre2
 PACKAGE_BUGREPORT = blackfive@fakenhamweb.co.uk
 
 SHELL = /bin/sh
@@ -239,7 +239,7 @@ $(DOMAIN).pot-update: $(POTFILES) $(srcdir)/POTFILES.in remove-potcdate.sed
 	      --files-from=$(srcdir)/POTFILES.in \
 	      --copyright-holder='$(COPYRIGHT_HOLDER)' \
 	      --package-name="$${package_gnu}photoprint" \
-	      --package-version='0.4.0-pre1' \
+	      --package-version='0.4.0-pre2' \
 	      --msgid-bugs-address="$$msgid_bugs_address" \
 	    ;; \
 	esac

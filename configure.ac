@@ -2,9 +2,9 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT([photoprint], [0.4.0-pre1], [blackfive@fakenhamweb.co.uk])
+AC_INIT([photoprint], [0.4.0-pre2], [blackfive@fakenhamweb.co.uk])
 AC_CONFIG_AUX_DIR([scripts])
-AC_CONFIG_SRCDIR([util.cpp])
+AC_CONFIG_SRCDIR([photoprint.cpp])
 AM_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([1.9 foreign])
 
