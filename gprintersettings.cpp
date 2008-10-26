@@ -14,7 +14,7 @@
 #include <glib.h>
 #include <glib/gprintf.h>
 
-#include "stpui_widgets/stputil.h"
+#include "stp_support/stputil.h"
 #include "gprintersettings.h"
 #include "support/util.h"
 
