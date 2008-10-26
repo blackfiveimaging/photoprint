@@ -1,8 +1,0 @@
-#ifndef MASKPIXBUF_H
-#define MASKPIXBUF_H
-
-#include <gdk/gdkpixbuf.h>
-
-void maskpixbuf(GdkPixbuf *img,int xpos,int ypos,int width,int height,const GdkPixbuf *mask);
-
-#endif
