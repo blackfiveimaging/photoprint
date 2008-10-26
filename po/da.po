@@ -1,0 +1,1007 @@
+# Danish translation of PhotoPrint.
+# Copyright (C) 2008 Alastair M. Robinson
+# This file is distributed under the same license as the package.
+#
+# Mogens Jaeger <mogensjaeger@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: photoprint 0.3.8\n"
+"Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
+"POT-Creation-Date: 2008-10-24 17:28+0100\n"
+"PO-Revision-Date: 2008-10-25 13:25+0200\n"
+"Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: dialogs.cpp:123
+msgid "Printer Setup"
+msgstr "Indstil printer"
+
+#: dialogs.cpp:137
+msgid "Output"
+msgstr "Uddata"
+
+#: dialogs.cpp:174
+msgid "About"
+msgstr "Om"
+
+#: dialogs.cpp:223
+msgid "Set paths..."
+msgstr "Sæt stier..."
+
+#: dialogs.cpp:248
+msgid "ICC Profiles"
+msgstr "ICC profiler"
+
+#: dialogs.cpp:280
+msgid "Borders"
+msgstr "Rammer"
+
+#: dialogs.cpp:311
+msgid "Backgrounds"
+msgstr "Baggrunde"
+
+#: dialogs.cpp:339
+msgid "Select a border..."
+msgstr "Vælg en ramme..."
+
+#: dialogs.cpp:386
+msgid "Export TIFF..."
+msgstr "Eksportér TIFF..."
+
+#: dialogs.cpp:412 dialogs.cpp:615
+msgid "Page range:"
+msgstr "Sideområde:"
+
+#: dialogs.cpp:425 dialogs.cpp:625
+msgid "Resolution (dpi):"
+msgstr "Opløsning (dpi):"
+
+#: dialogs.cpp:433
+msgid "Save as 16-bit:"
+msgstr "Gem som 16-bit:"
+
+#: dialogs.cpp:452 dialogs.cpp:660
+msgid "Output Profile:"
+msgstr "Uddataprofil:"
+
+#: dialogs.cpp:516 dialogs.cpp:756
+msgid "Please provide a filename."
+msgstr "Angiv et filnavn."
+
+#: dialogs.cpp:547 dialogs.cpp:734
+msgid "Exporting..."
+msgstr "Eksporterer..."
+
+#: dialogs.cpp:586
+msgid "Export JPEG..."
+msgstr "Eksportér JPEG..."
+
+#: dialogs.cpp:644
+msgid "JPEG Quality:"
+msgstr "JPEG kalitet:"
+
+#: dialogs.cpp:773
+msgid "Select a background..."
+msgstr "Vælg en baggrund..."
+
+#: dialogs.cpp:865
+msgid "Please select an image first!"
+msgstr "Vælg et billede først!"
+
+#: dialogs.cpp:896
+msgid "Set Custom Profile..."
+msgstr "Sæt brugerprofil..."
+
+#: dialogs.cpp:908
+msgid "Before:"
+msgstr "Før:"
+
+#: dialogs.cpp:912
+msgid "After:"
+msgstr "Efter:"
+
+#: dialogs.cpp:926
+msgid ""
+"Can't show a colour managed\n"
+"preview unless you choose\n"
+"a Default RGB or Monitor profile\n"
+"in the Options->Colour Management\n"
+"dialog!"
+msgstr ""
+"Kan ikke vise en farvestyret\n"
+"forhåndsvisning før du har valgt\n"
+"en standard RGB- eller skærm-profil\n"
+"i Indstillinger->Farvestyring dialogen!"
+
+#: dialogs.cpp:951
+msgid ""
+"Warning: Image already has an embedded profile\n"
+"Assigning a new one will over-ride it!"
+msgstr ""
+"Advarsel: Billedet har allerede en indlejret profil\n"
+"Fastsættelse af en ny vil overskrive den!"
+
+#: dialogs.cpp:968
+msgid "Assign Profile:"
+msgstr "Fastsæt profil:"
+
+#: dialogs.cpp:976 pp_cms.cpp:117
+msgid "Rendering intent:"
+msgstr "Farvegengivelsesmåde:"
+
+#: effects/ppeffect_temperature.cpp:28
+msgid "Warm/Cool"
+msgstr "Varm/kold"
+
+#: effects/effectselector.cpp:228
+msgid "Active"
+msgstr "Aktiv"
+
+#: effects/effectselector.cpp:237
+msgid "Icon"
+msgstr "Ikon"
+
+#: effects/effectselector.cpp:249
+msgid "Name"
+msgstr "Navn"
+
+#: effects/ppeffect_desaturate.cpp:25
+msgid "Desaturate"
+msgstr "Afmætning"
+
+#: effects/effectwidget_tempchange.cpp:55
+#, c-format
+msgid "%d degrees K"
+msgstr "%d grader K"
+
+#: effects/ppeffect_unsharpmask.cpp:25
+msgid "Sharpen"
+msgstr "Skærpe"
+
+#: effects/effectwidget_unsharpmask.cpp:64
+#, c-format
+msgid "Radius: %1.2f"
+msgstr "Radius: %1.2f"
+
+#: effects/effectwidget_unsharpmask.cpp:70
+#, c-format
+msgid "Amount: %1.2f"
+msgstr "Mængde: %1.2f"
+
+#: menucheck.cpp:21 pp_menu_file.cpp:126
+msgid "_File"
+msgstr "_Fil"
+
+#: menucheck.cpp:23 pp_menu_file.cpp:128
+msgid "_Open Preset..."
+msgstr "Åben f_orudindstillet..."
+
+#: menucheck.cpp:23 pp_menu_file.cpp:128
+msgid "Open a preset"
+msgstr "Åbn et sæt af forudindstillinger"
+
+#: menucheck.cpp:24 pp_menu_file.cpp:129
+msgid "_Save Preset"
+msgstr "Gem forudind_stilling"
+
+#: menucheck.cpp:24 pp_menu_file.cpp:129
+msgid "Save a preset"
+msgstr "Gem et sæt af forudindstillinger"
+
+#: menucheck.cpp:25 pp_menu_file.cpp:130
+msgid "Save _As..."
+msgstr "_Gem som..."
+
+#: menucheck.cpp:25 pp_menu_file.cpp:130
+msgid "Save preset with a new filename"
+msgstr "Gem forudindstilling med et filnavn"
+
+#: menucheck.cpp:26 pp_menu_file.cpp:131
+msgid "Save _Default"
+msgstr "Gem stan_dard"
+
+#: menucheck.cpp:26 pp_menu_file.cpp:131
+msgid "Save preset as the default"
+msgstr "Gem forudindstillet som standard"
+
+#: menucheck.cpp:27
+msgid "E_xport TIFF..."
+msgstr "E_ksporter TIFF..."
+
+#: menucheck.cpp:27 pp_menu_file.cpp:133
+msgid "Export pages as TIFF files"
+msgstr "Eksporter sider som TIFF-filer"
+
+#: menucheck.cpp:28 pp_menu_file.cpp:135
+msgid "Print Pre_view..."
+msgstr "Udskriv forhånds_visning..."
+
+#: menucheck.cpp:28 pp_menu_file.cpp:135
+msgid "Preview how the printed page will look"
+msgstr "Se hvordan udskriften vil blive"
+
+#: menucheck.cpp:29 pp_menu_file.cpp:136
+msgid "Print S_etup..."
+msgstr "Udskrifts indstilling_er..."
+
+#: menucheck.cpp:29 pp_menu_file.cpp:136
+msgid "Set printer driver and options"
+msgstr "Indstil printerdrivere og indstillinger"
+
+#: menucheck.cpp:30 pp_menu_file.cpp:137
+msgid "_Print"
+msgstr "_Udskriv"
+
+#: menucheck.cpp:30 pp_menu_file.cpp:137
+msgid "Print pages"
+msgstr "Udskriv sider"
+
+#: menucheck.cpp:31 pp_menu_file.cpp:138
+msgid "_Quit"
+msgstr "_Afslut"
+
+#: menucheck.cpp:31 pp_menu_file.cpp:138
+msgid "Exit PhotoPrint"
+msgstr "Afslut PhotoPrint"
+
+#: menucheck.cpp:60 pp_menu_layout.cpp:122
+msgid "_Layout"
+msgstr "_Layout"
+
+#: menucheck.cpp:61 pp_menu_image.cpp:267
+msgid "_Image"
+msgstr "B_illede"
+
+#: menucheck.cpp:62 pp_menu_options.cpp:100
+msgid "_Options"
+msgstr "_Indstillinger"
+
+#: menucheck.cpp:63 pp_menu_help.cpp:29
+msgid "_Help"
+msgstr "_Hjælp"
+
+#: menucheck.cpp:65 pp_menu_layout.cpp:124
+msgid "_Clear Layout"
+msgstr "_Ryd layout"
+
+#: menucheck.cpp:65 pp_menu_layout.cpp:124
+msgid "Remove all images from the layout"
+msgstr "Fjer alle billeder fra layoutet"
+
+#: menucheck.cpp:66 pp_menu_layout.cpp:125
+msgid "Set _Background"
+msgstr "Vælg _baggrund"
+
+#: menucheck.cpp:66 pp_menu_layout.cpp:125
+msgid "Set a background image for the current layout"
+msgstr "Vælg et baggrundsbillede til det nuværende layout"
+
+#: menucheck.cpp:68 pp_menu_image.cpp:269
+msgid "_Add Image..."
+msgstr "_Tilføj billede..."
+
+#: menucheck.cpp:68 pp_menu_image.cpp:269
+msgid "Add images to the current layout"
+msgstr "Tilføj billeder til det nuværende layout"
+
+#: menucheck.cpp:69 pp_menu_image.cpp:270
+msgid "_Remove Image"
+msgstr "_Fjern billede"
+
+#: menucheck.cpp:69 pp_menu_image.cpp:270
+msgid "Remove selected images from the layout"
+msgstr "Fjern valgt billede fra layoutet"
+
+#: menucheck.cpp:71 pp_menu_image.cpp:274
+msgid "_Rotation"
+msgstr "_Rotation"
+
+#: menucheck.cpp:73 pp_menu_image.cpp:276
+msgid "Set Image _Mask..."
+msgstr "Vælg billedra_mmer..."
+
+#: menucheck.cpp:73 pp_menu_image.cpp:276
+msgid "Set a border mask for the selected image"
+msgstr "Vælg en ramme til det valgte billede"
+
+#: menucheck.cpp:74
+msgid "_Effects..."
+msgstr "_Effekter..."
+
+#: menucheck.cpp:74
+msgid "Apply effects to the selected image"
+msgstr "Tilføj effekter til det valgte billede"
+
+#: menucheck.cpp:75 pp_menu_image.cpp:278
+msgid "Set Colour _Profile..."
+msgstr "Vælg farve_profil..."
+
+#: menucheck.cpp:75 pp_menu_image.cpp:278
+msgid "Assign an ICC profile or custom rendering intent to the image"
+msgstr ""
+"Tilknyt en ICC-profil, eller en bruger farvegengivelsesmåde til billedet"
+
+#: menucheck.cpp:77 pp_menu_options.cpp:102
+msgid "_Paths..."
+msgstr "_Stier..."
+
+#: menucheck.cpp:77 pp_menu_options.cpp:102
+msgid "Set search paths for ICC profiles, borders, etc."
+msgstr "Sæt søgestier til ICC-profiler, rammer, m.m."
+
+#: menucheck.cpp:78 pp_menu_options.cpp:103
+msgid "_Colour Management..."
+msgstr "_Farvestyring..."
+
+#: menucheck.cpp:78 pp_menu_options.cpp:103
+msgid "Set colour management options"
+msgstr "Sæt farvestyrings indstillinger"
+
+#: menucheck.cpp:79 pp_menu_options.cpp:104
+msgid "_Units..."
+msgstr "_Enheder..."
+
+#: menucheck.cpp:79 pp_menu_options.cpp:104
+msgid "Select the units used throughout PhotoPrint"
+msgstr "Vælg enheder til brug i hele PhotoPrint"
+
+#: menucheck.cpp:80 pp_menu_options.cpp:105
+msgid "_Scaling..."
+msgstr "_Skalering..."
+
+#: menucheck.cpp:80 pp_menu_options.cpp:105
+msgid "Select the preferred scaling method."
+msgstr "Vælg foretrukket skaleringsmetode."
+
+#: menucheck.cpp:82 pp_menu_help.cpp:31
+msgid "About..."
+msgstr "Om..."
+
+#: menucheck.cpp:82 pp_menu_help.cpp:31
+msgid "Some information about PhotoPrint"
+msgstr "Nogle informationer om PhotoPrint"
+
+#: menucheck.cpp:87 pp_menu_image.cpp:283
+msgid "Allow _Cropping"
+msgstr "Tillad _beskæring"
+
+#: menucheck.cpp:87 pp_menu_image.cpp:283
+msgid "Crop the selected images to fill the available space"
+msgstr "Beskær det valgte billede, så det udfylder det tilgængelige område"
+
+#: menucheck.cpp:92 pp_menu_layout.cpp:130
+msgid "_Auto Layout"
+msgstr "_Auto layout"
+
+#: menucheck.cpp:92 pp_menu_layout.cpp:130
+msgid "Automatically place images in a grid"
+msgstr "Automatisk placere billeder i et gitter"
+
+#: menucheck.cpp:93 pp_menu_layout.cpp:131
+msgid "_Poster"
+msgstr "_Plakat"
+
+#: menucheck.cpp:93 pp_menu_layout.cpp:131
+msgid "Print an image in multiple pages, to be assembled into a poster"
+msgstr "Udskriv et billede på flere sider, så de kan samles til en plakat"
+
+#: menucheck.cpp:94 pp_menu_layout.cpp:132
+msgid "_Carousel"
+msgstr "_Karrusel"
+
+#: menucheck.cpp:94 pp_menu_layout.cpp:132
+msgid "Fade images into a circular 'carousel' - ideal for CD labels."
+msgstr "Udton billeder i en cirkulær 'karrusel' - ideelt til cd-labels."
+
+#: menucheck.cpp:95 pp_menu_layout.cpp:133
+msgid "_Manual Size"
+msgstr "_Manuel størrelse"
+
+#: menucheck.cpp:95 pp_menu_layout.cpp:133
+msgid "Print images on a single sheet, at a specified scale."
+msgstr "Udskriv billeder på et enkelt ark, i angivet skala."
+
+#: menucheck.cpp:99 pp_menu_image.cpp:288
+msgid "_Auto"
+msgstr "_Auto"
+
+#: menucheck.cpp:99 pp_menu_image.cpp:288
+msgid "Automatically choose rotation to fit the available space."
+msgstr "Automatisk valg af rotation til at passe ind i tilgængeligt område."
+
+#: menucheck.cpp:100 pp_menu_image.cpp:289
+msgid "_None"
+msgstr "_Ingen"
+
+#: menucheck.cpp:100 pp_menu_image.cpp:289
+msgid "No rotation."
+msgstr "Ingen rotation."
+
+#: menucheck.cpp:101 pp_menu_image.cpp:290
+msgid "_90 Degrees"
+msgstr "_90 grader"
+
+#: menucheck.cpp:101 pp_menu_image.cpp:290
+msgid "Rotate 90 degrees clockwise."
+msgstr "Rotér 90 grader med uret."
+
+#: menucheck.cpp:102 pp_menu_image.cpp:291
+msgid "_180 Degrees"
+msgstr "_180 grader"
+
+#: menucheck.cpp:102 pp_menu_image.cpp:291
+msgid "Rotate 180 degrees."
+msgstr "Rotér 180 grader"
+
+#: menucheck.cpp:103 pp_menu_image.cpp:292
+msgid "_270 Degrees"
+msgstr "_270 grader"
+
+#: menucheck.cpp:103 pp_menu_image.cpp:292
+msgid "Rotate 90 degrees anticlockwise."
+msgstr "Rotér 90 grader mod uret."
+
+#: menucheck.cpp:227
+msgid "Dither Algorithm"
+msgstr "Dither-algoritme"
+
+#: photoprint.cpp:122 photoprint.cpp:148 photoprint.cpp:152 photoprint.cpp:182
+#: photoprint.cpp:188 photoprint.cpp:205 photoprint.cpp:209
+msgid "Initializing..."
+msgstr "Initialisering..."
+
+#: photoprint.cpp:134
+msgid "Checking .photoprint directory..."
+msgstr "Kontrollerer photoprint biblioteker..."
+
+#: photoprint.cpp:139
+msgid "Loading preset..."
+msgstr "Indlæser forudindstillinger..."
+
+#: photoprint.cpp:144
+msgid "Creating layout..."
+msgstr "Danner layout..."
+
+#: photoprint.cpp:194
+msgid "Loading images..."
+msgstr "Indlæser billeder..."
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:349
+#, c-format
+msgid "Error creating directory `%s': %s"
+msgstr "Fejl ved dannelse af bibliotek `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:463
+#, c-format
+msgid "Error opening `%s': %s"
+msgstr "Fejl ved åbning af `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:481
+#, c-format
+msgid "Error reading `%s': file contains no data."
+msgstr "Fejl ved læsning af `%s': filen indeholder ingen data."
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:505
+#, c-format
+msgid "Error reading `%s': %s"
+msgstr "Fejl ved læsning af `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:540
+#, c-format
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"Fejlede ved indlæsning af billede `%s': ukendt fejl, måske en ødelagt "
+"billedfil"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:613
+#, c-format
+msgid "Error verifying `%s': %s"
+msgstr "Fejl ved verificering af `%s': %s"
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:629
+#, c-format
+msgid "Error reading `%s': file is not a regular file or symbolic link."
+msgstr ""
+"Fejl ved læsning af `%s': det er ikke en almindelig fil eller symbolsk link."
+
+#: pixbufthumbnail/egg-pixbuf-thumbnail.c:1071
+#, c-format
+msgid "Error creating temporary thumbnail file for `%s': %s"
+msgstr "Fejl ved dannelse af midlertidig miniaturefil for `%s': %s"
+
+#: pp_cms.cpp:86
+msgid "Printer"
+msgstr "Printer"
+
+#: pp_cms.cpp:101
+msgid "Printer Profile:"
+msgstr "Printerprofil:"
+
+#: pp_cms.cpp:132
+msgid "Colour space:"
+msgstr "Farverum:"
+
+#: pp_cms.cpp:155
+msgid "Monitor"
+msgstr "Skærm"
+
+#: pp_cms.cpp:168
+msgid "Monitor Profile:"
+msgstr "Skærmprofil:"
+
+#: pp_cms.cpp:182
+msgid "Display mode:"
+msgstr "Visningstilstand:"
+
+#: pp_cms.cpp:190
+msgid "Normal"
+msgstr "Normal"
+
+#: pp_cms.cpp:193
+msgid "Simulate Print"
+msgstr "Simuler udskrift"
+
+#: pp_cms.cpp:196
+msgid "Simulate Print, Adapt White"
+msgstr "Simuler udskrift, tilpasset hvid"
+
+#: pp_cms.cpp:208
+msgid "Default Image Profiles"
+msgstr "Standard-billed profiler"
+
+#: pp_cms.cpp:223
+msgid "RGB Profile:"
+msgstr "RGB profil:"
+
+#: pp_cms.cpp:239
+msgid "CMYK Profile:"
+msgstr "CMYK profil:"
+
+#: pp_cms.cpp:432
+msgid "Colour Management"
+msgstr "Farvestyring"
+
+#: pp_imagecontrol.cpp:111
+msgid "Effects"
+msgstr "Effekter"
+
+#: pp_imageinfo.cpp:99
+msgid "in"
+msgstr "tommer"
+
+#: pp_imageinfo.cpp:102
+msgid "pt"
+msgstr "punkter"
+
+#: pp_imageinfo.cpp:107
+msgid "cm"
+msgstr "cm"
+
+#: pp_imageinfo.cpp:112
+msgid "mm"
+msgstr "mm"
+
+#: pp_imageinfo.cpp:145
+msgid "Image Info"
+msgstr "Billed info"
+
+#: pp_imageinfo.cpp:166
+msgid "Filename:"
+msgstr "Filnavn:"
+
+#: pp_imageinfo.cpp:179
+msgid "Dimensions:"
+msgstr "Dimensioner:"
+
+#: pp_imageinfo.cpp:199
+msgid "Resolution:"
+msgstr "Opløsning:"
+
+#: pp_imageinfo.cpp:212
+msgid "Profile:"
+msgstr "Profil:"
+
+#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+msgid "pixels"
+msgstr "pixels"
+
+#: pp_imageinfo.cpp:349
+msgid "Default"
+msgstr "Standard"
+
+#: pp_layout_carousel.cpp:255 pp_layout_carousel.cpp:386 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:297 pp_layout_poster.cpp:462 pp_layout_single.cpp:224
+#: pp_layout_single.cpp:337
+msgid "Page:"
+msgstr "Side:"
+
+#: pp_layout_carousel.cpp:283
+msgid "Carousel"
+msgstr "Karrusel"
+
+#: pp_layout_carousel.cpp:298
+msgid "Segments:"
+msgstr "Udsnit:"
+
+#: pp_layout_carousel.cpp:313
+msgid "Overlap (%):"
+msgstr "Overlap (%):"
+
+#: pp_layout_carousel.cpp:328
+msgid "Starting angle:"
+msgstr "Startvinkel:"
+
+#: pp_layout_carousel.cpp:343
+msgid "Inner Radius:"
+msgstr "Indre radius:"
+
+#: pp_layout_poster.cpp:339
+msgid "Poster Layout"
+msgstr "Posterlayout"
+
+#: pp_layout_poster.cpp:353
+msgid "Size"
+msgstr "Størrelse"
+
+#: pp_layout_poster.cpp:365 pp_layout_poster.cpp:389
+msgid "by"
+msgstr "af"
+
+#: pp_layout_poster.cpp:377
+msgid "Tiles"
+msgstr "Dele"
+
+#: pp_layout_poster.cpp:399
+msgid "Overlap"
+msgstr "Overlapning"
+
+#: pp_layout_poster.cpp:412 pp_pageextent.cpp:251
+msgid "H:"
+msgstr "V:"
+
+#: pp_layout_poster.cpp:424
+msgid "V:"
+msgstr "L:"
+
+#: pp_layout_single.cpp:268
+msgid "Manual scaling"
+msgstr "Manuel skalering"
+
+#: pp_layout_single.cpp:283
+msgid "H (%):"
+msgstr "V (%):"
+
+#: pp_layout_single.cpp:297
+msgid "V (%):"
+msgstr "L (%):"
+
+#: pp_mainwindow.cpp:227
+msgid "Transferring images..."
+msgstr "Overfører billeder..."
+
+#: pp_menu_edit.cpp:37
+msgid "_Edit"
+msgstr "_Redigér"
+
+#: pp_menu_edit.cpp:39
+msgid "Select _All"
+msgstr "Vælg _alt"
+
+#: pp_menu_edit.cpp:39
+msgid "Select all images"
+msgstr "Vælg alle billeder"
+
+#: pp_menu_edit.cpp:40
+msgid "Select _None"
+msgstr "Ingen _valgt"
+
+#: pp_menu_edit.cpp:40
+msgid "Deselect all images"
+msgstr "Fravælg alle billeder"
+
+#: pp_menu_edit.cpp:41
+msgid "_Cut"
+msgstr "_Klip"
+
+#: pp_menu_edit.cpp:41
+msgid "Cut the current image to the clipboard"
+msgstr "Klip det valgte billede til klippebordet"
+
+#: pp_menu_edit.cpp:42
+msgid "C_opy"
+msgstr "K_opi"
+
+#: pp_menu_edit.cpp:42
+msgid "Copy the current image to the clipboard"
+msgstr "Kopiér det valgte billede til klippebordet"
+
+#: pp_menu_edit.cpp:43
+msgid "_Paste"
+msgstr "_Indsæt"
+
+#: pp_menu_edit.cpp:43
+msgid "Paste the contents of the clipboard as a new image"
+msgstr "Indsæt indholdet af klippebordet som et nyt billede"
+
+#: pp_menu_file.cpp:36
+msgid "Open preset..."
+msgstr "Åben forudindstillet..."
+
+#: pp_menu_file.cpp:62
+msgid "Save preset..."
+msgstr "Gem forudindstillet..."
+
+#: pp_menu_file.cpp:106
+msgid "Generating print data..."
+msgstr "Danner printerdata..."
+
+#: pp_menu_file.cpp:132
+msgid "E_xport"
+msgstr "E_xport"
+
+#: pp_menu_file.cpp:133
+msgid "Export _TIFF..."
+msgstr "Export _TIFF..."
+
+#: pp_menu_file.cpp:134
+msgid "Export _JPEG..."
+msgstr "Export _JPEG..."
+
+#: pp_menu_file.cpp:134
+msgid "Export pages as JPEG files"
+msgstr "Exporter sider som JPEG filer"
+
+#: pp_menu_image.cpp:58
+msgid "Open File"
+msgstr "Åbn fil"
+
+#: pp_menu_image.cpp:98
+msgid "Adding images..."
+msgstr "Tilføj billeder..."
+
+#: pp_menu_image.cpp:176
+msgid "Page is already full!"
+msgstr "Siden er allerede fuld!"
+
+#: pp_menu_image.cpp:271
+msgid "_Duplicate Image"
+msgstr "_Duplikere billede"
+
+#: pp_menu_image.cpp:271
+msgid "Duplicate the currently selected image"
+msgstr "Duplikér det valgte billede"
+
+#: pp_menu_image.cpp:272
+msgid "_Duplicate to Fill Page"
+msgstr "_Duplikér til fyld-side"
+
+#: pp_menu_image.cpp:272
+msgid "Fill the page with copies of the currently selected image"
+msgstr "Fyld siden med kopier af det valgte billede"
+
+#: pp_menu_options.cpp:109
+msgid "High-res Previews"
+msgstr "Højopløsnings-forhåndsvisning"
+
+#: pp_menu_options.cpp:109
+msgid "Render high-resolution previews in the background"
+msgstr "Dan højopløsnings-forhåndsvisninger i baggrunden"
+
+#: pp_menu_options.cpp:113
+msgid "_Normal Display"
+msgstr "_Standard visning"
+
+#: pp_menu_options.cpp:113
+msgid "Display colours with no print simulation"
+msgstr "Vis farver uden printer-simulering"
+
+#: pp_menu_options.cpp:114
+msgid "Simulate Prin_t"
+msgstr "Simulér prin_t"
+
+#: pp_menu_options.cpp:114
+msgid ""
+"Adjust colours on screen to imitate printed colours, including paper white"
+msgstr ""
+"Justér farverne på skærmen, så de imiterer farverne i udskriften, inklusiv "
+"papir-hvid"
+
+#: pp_menu_options.cpp:115
+msgid "Simulate Print, _Adapt White"
+msgstr "Simulér print, _inklusiv hvid"
+
+#: pp_menu_options.cpp:115
+msgid "Adjust colours to imitate printed colours, excluding paper white"
+msgstr ""
+"Justér farverne på skærmen, så de imiterer farverne i udskriften, uden papir-"
+"hvid"
+
+#: pp_pageextent.cpp:217
+msgid "Page Size and Margins"
+msgstr "Papirstørrelser og marginer"
+
+#: pp_pageextent.cpp:241
+msgid "W:"
+msgstr "B:"
+
+#: pp_pageextent.cpp:264
+msgid "Left:"
+msgstr "Venstre:"
+
+#: pp_pageextent.cpp:280
+msgid "Right:"
+msgstr "Højre:"
+
+#: pp_pageextent.cpp:293
+msgid "Top:"
+msgstr "Top:"
+
+#: pp_pageextent.cpp:304
+msgid "Bottom:"
+msgstr "Bund:"
+
+#: pp_printoutput.cpp:112
+msgid "Print Queue:"
+msgstr "Printerkø:"
+
+#: pp_printoutput.cpp:131
+msgid "Printer Model:"
+msgstr "Printer model:"
+
+#: pp_scaling.cpp:72
+msgid "Algorithm:"
+msgstr "Algoritme:"
+
+#: pp_sigcontrol.cpp:106
+msgid "Layout"
+msgstr "Layout"
+
+#: pp_sigcontrol.cpp:115
+msgid "Columns:"
+msgstr "Kolonne:"
+
+#: pp_sigcontrol.cpp:129
+msgid "Rows:"
+msgstr "Række:"
+
+#: pp_sigcontrol.cpp:147 pp_sigcontrol.cpp:160
+msgid "Gap:"
+msgstr "Mellemrum:"
+
+#: pp_units.cpp:60
+msgid "Units:"
+msgstr "Enheder:"
+
+#: pp_units.cpp:68
+msgid "Points"
+msgstr "Punkter"
+
+#: pp_units.cpp:71
+msgid "Inches"
+msgstr "Tommer"
+
+#: pp_units.cpp:74
+msgid "Millimeters"
+msgstr "Millimeter"
+
+#: pp_units.cpp:77
+msgid "Centimeters"
+msgstr "Centimeter"
+
+#: pp_units.cpp:151
+msgid "Units"
+msgstr "Enheder"
+
+#: profilemanager/lcmswrapper.cpp:524
+msgid "Perceptual"
+msgstr "Perceptuel"
+
+#: profilemanager/lcmswrapper.cpp:525
+msgid "Relative Colorimetric"
+msgstr "Relativ kolorimetrisk"
+
+#: profilemanager/lcmswrapper.cpp:526
+msgid "Relative Colorimetric with BPC"
+msgstr "Relativ kolorimetrisk med BPC"
+
+#: profilemanager/lcmswrapper.cpp:527
+msgid "Saturation"
+msgstr "Mætning"
+
+#: profilemanager/lcmswrapper.cpp:528
+msgid "Absolute Colorimetric"
+msgstr "Absolut kolorimetrisk"
+
+#: profilemanager/lcmswrapper.cpp:533
+msgid ""
+"Aims for pleasing photographic results by preserving relationships between "
+"colours, and avoiding clipping of unattainable colours"
+msgstr ""
+"Tilstræber et venligt fotografisk resultat, gennem bevaring af forholdet "
+"mellem farverne, og undgår klipning af uopnåelige farver"
+
+#: profilemanager/lcmswrapper.cpp:534
+msgid ""
+"Attempts to preserve the original colours, relative to white-point "
+"differences."
+msgstr ""
+"Forsøger at bevare de oprindelige farver, relativt til hvid-punkts afvigelse."
+
+#: profilemanager/lcmswrapper.cpp:535
+msgid ""
+"Attempts to preserve the original colours, relative to white-point "
+"differences.  Uses Black Point Compensation to avoid clipping of highlights "
+"and shadows."
+msgstr ""
+"Forsøger at bevare de oprindelige farver, relativt til hvid-punkts "
+"afvigelse. Anvender sort-punkts kompensation for at undgå klipning i højlys "
+"og skygger."
+
+#: profilemanager/lcmswrapper.cpp:536
+msgid ""
+"Attempts to provide brighter, more saturated colours, at the expense of "
+"colour relationships."
+msgstr ""
+"Forsøger at frembringe lysere, mere mættede farver, på bekostning af "
+"forholdet mellem farverne."
+
+#: profilemanager/lcmswrapper.cpp:537
+msgid ""
+"Mimics the original colours (including white point) as closely as possible, "
+"for side-by-side comparisons.  Clips unattainable colours."
+msgstr ""
+"Gengiver de originale farver (inklusive hvid-punkt) så godt som muligt, a.h."
+"t. sammenligning.  Klipper uopnåelige farver."
+
+#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:393
+msgid "Other..."
+msgstr "Andet..."
+
+#: profilemanager/profileselector.cpp:359
+msgid "Please choose a valid ICC profile"
+msgstr "Vælg en gyldig ICC-profil"
+
+#: stpui_widgets/dimension.c:156
+msgid "points"
+msgstr "punkter"
+
+#: stpui_widgets/dimension.c:160
+msgid "inches"
+msgstr "tommer"
+
+#: stpui_widgets/dimension.c:164
+msgid "millimeters"
+msgstr "millimetre"
+
+#: stpui_widgets/dimension.c:168
+msgid "centimeters"
+msgstr "centimetre"
+
+#: support/patheditor.cpp:53
+msgid "Select directory..."
+msgstr "Vælg bibliotek..."
+
+#: support/patheditor.cpp:98
+msgid "Path"
+msgstr "Sti"
+
+#: support/patheditor.cpp:112
+msgid "Add..."
+msgstr "Tilføj..."
+
+#: support/patheditor.cpp:117
+msgid "Remove"
+msgstr "Fjern"
+
+#: support/imageselector.cpp:372
+msgid "Image"
+msgstr "Billede"
+
+#: support/progressbar.cpp:50
+msgid "Progress..."
+msgstr "Fremgang..."
