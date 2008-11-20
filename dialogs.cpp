@@ -18,7 +18,7 @@
 
 #include <gtk/gtk.h>
 #include <gtk/gtknotebook.h>
-#include "gp_cppsupport/pp_printoutput.h"
+#include "gp_cppsupport/printoutputselector.h"
 #include "pp_cms.h"
 #include "pp_units.h"
 #include "pp_scaling.h"
@@ -103,7 +103,7 @@ static void driver_changed(GtkWidget *wid,gpointer data)
 		cerr << "Setting driver failed - reverting to default" << endl;
 		po->SetString("Driver",DEFAULT_PRINTER_DRIVER);
 		cbd->state->printer.SetDriver(po->FindString("Driver"));
-		pp_printoutput_refresh(PP_PRINTOUTPUT(cbd->printoutput));
+		printoutputselector_refresh(PRINTOUTPUTSELECTOR(cbd->printoutput));
 	}
 
 	stpui_optionbook_rebuild(STPUI_OPTIONBOOK(cbd->optionbook));	
@@ -129,7 +129,7 @@ void PrintSetup_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 
 	cerr << "Creating PrintOutput widget..." << endl;
 
-	dialogdata.printoutput=pp_printoutput_new(&state.printoutput);
+	dialogdata.printoutput=printoutputselector_new(&state.printoutput);
 	g_object_ref(G_OBJECT(dialogdata.printoutput));
 
 	cerr << "Created PrintOutput widget..." << endl;
