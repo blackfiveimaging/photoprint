@@ -9,7 +9,7 @@
 #include "support/circlemontage.h"
 #include "support/pageextent.h"
 #include "imagesource/imagesource.h"
-#include "print.h"
+#include "gp_cppsupport/gprinter.h"
 
 #include "layoutdb.h"
 #include "layout.h"

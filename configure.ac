@@ -91,6 +91,7 @@ AC_CONFIG_FILES([Makefile po/Makefile.in
                  effects/Makefile
                  stpui_widgets/Makefile
                  stp_support/Makefile
+                 gp_cppsupport/Makefile
                  splashscreen/Makefile])
 #                 colourcorrect/Makefile])
 AC_OUTPUT

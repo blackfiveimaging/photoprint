@@ -301,7 +301,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile po/Makefile.in imagesource/Makefile support/Makefile profilemanager/Makefile pixbufthumbnail/Makefile effects/Makefile stpui_widgets/Makefile stp_support/Makefile splashscreen/Makefile"
+config_files=" Makefile po/Makefile.in imagesource/Makefile support/Makefile profilemanager/Makefile pixbufthumbnail/Makefile effects/Makefile stpui_widgets/Makefile stp_support/Makefile gp_cppsupport/Makefile splashscreen/Makefile"
 config_headers=" config.h"
 config_commands=" po-directories depfiles"
 
@@ -454,6 +454,7 @@ do
     "effects/Makefile") CONFIG_FILES="$CONFIG_FILES effects/Makefile" ;;
     "stpui_widgets/Makefile") CONFIG_FILES="$CONFIG_FILES stpui_widgets/Makefile" ;;
     "stp_support/Makefile") CONFIG_FILES="$CONFIG_FILES stp_support/Makefile" ;;
+    "gp_cppsupport/Makefile") CONFIG_FILES="$CONFIG_FILES gp_cppsupport/Makefile" ;;
     "splashscreen/Makefile") CONFIG_FILES="$CONFIG_FILES splashscreen/Makefile" ;;
 
   *) { { echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5

@@ -8,7 +8,7 @@
 
 #include "imagesource/imagesource.h"
 #include "support/pageextent.h"
-#include "print.h"
+#include "gp_cppsupport/gprinter.h"
 
 #include "layoutdb.h"
 #include "layout.h"

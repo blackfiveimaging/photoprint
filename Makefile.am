@@ -1,7 +1,7 @@
 # Makefile.am
 # RL 28/11/04
 
-SUBDIRS = po support imagesource stpui_widgets stp_support pixbufthumbnail splashscreen profilemanager effects
+SUBDIRS = po support imagesource stpui_widgets stp_support gp_cppsupport pixbufthumbnail splashscreen profilemanager effects
 
 localedir=$(datadir)/locale
 
@@ -13,8 +13,6 @@ bin_PROGRAMS = photoprint
 photoprint_SOURCES = 		\
 	dialogs.cpp		\
 	dialogs.h		\
-	gprintersettings.cpp	\
-	gprintersettings.h	\
 	layoutdb.h		\
 	layout.cpp		\
 	layout.h		\
@@ -67,8 +65,6 @@ photoprint_SOURCES = 		\
 	pp_layout_single_pageview.h		\
 	pp_pageextent.cpp	\
 	pp_pageextent.h	\
-	pp_printoutput.cpp	\
-	pp_printoutput.h	\
 	pp_scaling.cpp	\
 	pp_scaling.h	\
 	pp_sigcontrol.cpp	\
@@ -77,12 +73,6 @@ photoprint_SOURCES = 		\
 	pp_units.h \
 	pp_imageinfo.cpp	\
 	pp_imageinfo.h	\
-	print.cpp		\
-	print.h			\
-	printerqueueswrapper.cpp	\
-	printerqueueswrapper.h	\
-	printoutput.cpp		\
-	printoutput.h		\
 	gettext.h
 
 photoprint_LDADD = \
@@ -90,6 +80,7 @@ photoprint_LDADD = \
 	imagesource/libimagesource.la	\
 	support/libsupport.la	\
 	profilemanager/libprofilemanager.la	\
+	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la	\
 	stp_support/libstp_support.la \
 	pixbufthumbnail/libpixbufthumbnail.la	\
@@ -131,6 +122,10 @@ stpui_widgets/libstpui_widgets.la:
 stp_support/libstp_support.la:
 	cd stp_support
 	$(MAKE) libstp_support.la
+
+gp_cppsupport/libgp_cppsupport.la:
+	cd gp_cppsupport
+	$(MAKE) libgp_cppsupport.la
 
 pixbufthumbnail/libpixbufthumbnail.la:
 	cd pixbufthumbnail

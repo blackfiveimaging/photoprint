@@ -18,7 +18,7 @@
 
 #include <gtk/gtk.h>
 #include <gtk/gtknotebook.h>
-#include "pp_printoutput.h"
+#include "gp_cppsupport/pp_printoutput.h"
 #include "pp_cms.h"
 #include "pp_units.h"
 #include "pp_scaling.h"
