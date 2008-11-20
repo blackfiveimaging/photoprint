@@ -824,7 +824,7 @@ static void refreshprofiledialog(GtkWidget *wid,gpointer obj)
 	bool profileactive=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(st->profenabled));
 
 	if(profile)
-		profile=st->state->profilemanager.Search(profile);
+		profile=st->state->profilemanager.SearchPaths(profile);
 
 	cerr << "Got profileactive: " << profileactive << endl;
 	if(profile)

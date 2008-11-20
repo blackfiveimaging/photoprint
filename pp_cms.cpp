@@ -310,7 +310,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	pf=db->profilemanager.FindString("PrinterProfile");
 	if(pf && strlen(pf))
 	{
-		if((pf2=db->profilemanager.Search(pf)))
+		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
 			cerr << "Setting printer profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->printerprof),pf2);
@@ -325,7 +325,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	cerr << "Default RGB Profile" << pf;
 	if(pf && strlen(pf))
 	{
-		if((pf2=db->profilemanager.Search(pf)))
+		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
 			cerr << "Setting RGB profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->rgbprof),pf2);
@@ -340,7 +340,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	cerr << "Default CMYK Profile" << pf;
 	if(pf && strlen(pf))
 	{
-		if((pf2=db->profilemanager.Search(pf)))
+		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
 			cerr << "Setting CMYK profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->cmykprof),pf2);
@@ -354,7 +354,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	pf=db->profilemanager.FindString("MonitorProfile");
 	if(pf && strlen(pf))
 	{
-		if((pf2=db->profilemanager.Search(pf)))
+		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
 			cerr << "Setting Monitor profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->monitorprof),pf2);
