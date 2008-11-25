@@ -24,7 +24,8 @@
      ../pp_menu_layout.cpp \
      ../pp_menu_options.cpp \
      ../pp_pageextent.cpp \
-     ../pp_printoutput.cpp \
+     ../gp_cppsupport/printoutputselector.cpp \
+     ../gp_cppsupport/gprinter.cpp \
      ../pp_scaling.cpp \
      ../pp_sigcontrol.cpp \
      ../pp_units.cpp \

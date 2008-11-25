@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-10-24 17:28+0100\n"
+"POT-Creation-Date: 2008-11-25 18:14+0000\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -850,13 +850,30 @@ msgstr "Haut :"
 msgid "Bottom:"
 msgstr "Bas :"
 
-#: pp_printoutput.cpp:112
+#: gp_cppsupport/printoutputselector.cpp:112
 msgid "Print Queue:"
 msgstr "Impressions en attente :"
 
-#: pp_printoutput.cpp:131
+#: gp_cppsupport/printoutputselector.cpp:131
 msgid "Printer Model:"
 msgstr "Modèle d'imprimante :"
+
+#: gp_cppsupport/printoutputselector.cpp:194
+#, c-format
+msgid ""
+"The printer queue %s\n"
+" is not found - please choose another"
+msgstr ""
+
+#: gp_cppsupport/printoutputselector.cpp:195
+#, fuzzy
+msgid "Printer queue not found"
+msgstr "Configuration de l'impression"
+
+#: gp_cppsupport/gprinter.cpp:333
+#, fuzzy
+msgid "Unable to generate print data"
+msgstr "Génération des données d'impression..."
 
 #: pp_scaling.cpp:72
 msgid "Algorithm:"
@@ -970,7 +987,7 @@ msgstr ""
 msgid "Other..."
 msgstr "Autre..."
 
-#: profilemanager/profileselector.cpp:359
+#: profilemanager/profileselector.cpp:368
 msgid "Please choose a valid ICC profile"
 msgstr ""
 
