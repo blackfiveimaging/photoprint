@@ -9,6 +9,13 @@ PhotoPrint-0.4.0
   * Added some error messages if the user attempts to choose a proofing mode
     without the requisite colour profiles set up.
 
+  * Moved non-PhotoPrint-specific Gutenprint infrastructure out to separate
+	gp_cppsupport library.
+
+  * ProfileSelector now catches and ignores corrupt profiles
+
+  * Fixed a possible segfault if source and destination profiles are the same
+
 
 PhotoPrint-0.3.9
 
