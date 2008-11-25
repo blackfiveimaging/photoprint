@@ -687,8 +687,8 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 						h=(src->height*256)/src->width;
 					}
 					src=ISScaleImageBySize(src,w,h,IS_SCALING_NEARESTNEIGHBOUR);
-					transform = layout.factory->GetTransform(target,emb,customintent);
-					src=new ImageSource_CMS(src,transform);
+					if((transform = layout.factory->GetTransform(target,emb,customintent)))
+						src=new ImageSource_CMS(src,transform);
 					thumbnail=pixbuf_from_imagesource(src);
 					delete src;
 					src=NULL;
