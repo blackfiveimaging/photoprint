@@ -233,10 +233,15 @@ static void imagemenu_setcolourprofile(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
-	ii->ObtainMutex();
-	SetCustomProfileDialog(&mw->window,*mw->state,ii);
-	ii->ReleaseMutex();
-	pp_mainwindow_refresh(mw);
+	if(ii)
+	{
+		ii->ObtainMutex();
+		SetCustomProfileDialog(&mw->window,*mw->state,ii);
+		ii->ReleaseMutex();
+		pp_mainwindow_refresh(mw);
+	}
+	else
+		ErrorMessage_Dialog(_("Please select an image first!"),GTK_WIDGET(mw));
 }
 
 

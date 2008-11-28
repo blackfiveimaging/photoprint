@@ -1,6 +1,11 @@
 URGENT:
 ~~~~~~~
 
+Fix image handling regressions - due to the DeviceN work?
+Alpha-related.  Make "sense" of alpha channel consistent throughout.
+
+Need to make Set Image Profile... grey out if there are no selected images.
+
 Fix left/top margin for Single layout...
 
 Fix margins in Carousel mode.
