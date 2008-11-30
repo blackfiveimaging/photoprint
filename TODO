@@ -1,10 +1,11 @@
 URGENT:
 ~~~~~~~
 
-Fix image handling regressions - due to the DeviceN work?
-Alpha-related.  Make "sense" of alpha channel consistent throughout.
+| Fix image handling regressions - due to the DeviceN work?
+| Alpha-related.  Make "sense" of alpha channel consistent throughout.
 
-Need to make Set Image Profile... grey out if there are no selected images.
+|Need to make Set Image Profile... grey out if there are no selected images.
+|Next best thing - a warning dialog
 
 Fix left/top margin for Single layout...
 

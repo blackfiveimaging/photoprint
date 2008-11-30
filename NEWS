@@ -19,6 +19,8 @@ PhotoPrint-0.4.0
   * Fixed a segfault if the user attemps to open the Image -> Set Colour Profile...
 	dialog with no images selected.
 
+  * Fixed another possible segfaul with default PPD file, in photoprint_state.cpp
+
 
 PhotoPrint-0.3.9
 

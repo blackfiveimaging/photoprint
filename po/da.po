@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-11-25 18:14+0000\n"
+"POT-Creation-Date: 2008-11-28 19:51+0000\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -88,7 +88,7 @@ msgstr "JPEG kalitet:"
 msgid "Select a background..."
 msgstr "Vælg en baggrund..."
 
-#: dialogs.cpp:865
+#: dialogs.cpp:865 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Vælg et billede først!"
 
@@ -252,7 +252,7 @@ msgstr "Afslut PhotoPrint"
 msgid "_Layout"
 msgstr "_Layout"
 
-#: menucheck.cpp:61 pp_menu_image.cpp:267
+#: menucheck.cpp:61 pp_menu_image.cpp:272
 msgid "_Image"
 msgstr "B_illede"
 
@@ -280,31 +280,31 @@ msgstr "Vælg _baggrund"
 msgid "Set a background image for the current layout"
 msgstr "Vælg et baggrundsbillede til det nuværende layout"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:269
+#: menucheck.cpp:68 pp_menu_image.cpp:274
 msgid "_Add Image..."
 msgstr "_Tilføj billede..."
 
-#: menucheck.cpp:68 pp_menu_image.cpp:269
+#: menucheck.cpp:68 pp_menu_image.cpp:274
 msgid "Add images to the current layout"
 msgstr "Tilføj billeder til det nuværende layout"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:270
+#: menucheck.cpp:69 pp_menu_image.cpp:275
 msgid "_Remove Image"
 msgstr "_Fjern billede"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:270
+#: menucheck.cpp:69 pp_menu_image.cpp:275
 msgid "Remove selected images from the layout"
 msgstr "Fjern valgt billede fra layoutet"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:274
+#: menucheck.cpp:71 pp_menu_image.cpp:279
 msgid "_Rotation"
 msgstr "_Rotation"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:276
+#: menucheck.cpp:73 pp_menu_image.cpp:281
 msgid "Set Image _Mask..."
 msgstr "Vælg billedra_mmer..."
 
-#: menucheck.cpp:73 pp_menu_image.cpp:276
+#: menucheck.cpp:73 pp_menu_image.cpp:281
 msgid "Set a border mask for the selected image"
 msgstr "Vælg en ramme til det valgte billede"
 
@@ -316,11 +316,11 @@ msgstr "_Effekter..."
 msgid "Apply effects to the selected image"
 msgstr "Tilføj effekter til det valgte billede"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:278
+#: menucheck.cpp:75 pp_menu_image.cpp:283
 msgid "Set Colour _Profile..."
 msgstr "Vælg farve_profil..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:278
+#: menucheck.cpp:75 pp_menu_image.cpp:283
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr ""
 "Tilknyt en ICC-profil, eller en bruger farvegengivelsesmåde til billedet"
@@ -365,11 +365,11 @@ msgstr "Om..."
 msgid "Some information about PhotoPrint"
 msgstr "Nogle informationer om PhotoPrint"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:283
+#: menucheck.cpp:87 pp_menu_image.cpp:288
 msgid "Allow _Cropping"
 msgstr "Tillad _beskæring"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:283
+#: menucheck.cpp:87 pp_menu_image.cpp:288
 msgid "Crop the selected images to fill the available space"
 msgstr "Beskær det valgte billede, så det udfylder det tilgængelige område"
 
@@ -405,43 +405,43 @@ msgstr "_Manuel størrelse"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Udskriv billeder på et enkelt ark, i angivet skala."
 
-#: menucheck.cpp:99 pp_menu_image.cpp:288
+#: menucheck.cpp:99 pp_menu_image.cpp:293
 msgid "_Auto"
 msgstr "_Auto"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:288
+#: menucheck.cpp:99 pp_menu_image.cpp:293
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Automatisk valg af rotation til at passe ind i tilgængeligt område."
 
-#: menucheck.cpp:100 pp_menu_image.cpp:289
+#: menucheck.cpp:100 pp_menu_image.cpp:294
 msgid "_None"
 msgstr "_Ingen"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:289
+#: menucheck.cpp:100 pp_menu_image.cpp:294
 msgid "No rotation."
 msgstr "Ingen rotation."
 
-#: menucheck.cpp:101 pp_menu_image.cpp:290
+#: menucheck.cpp:101 pp_menu_image.cpp:295
 msgid "_90 Degrees"
 msgstr "_90 grader"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:290
+#: menucheck.cpp:101 pp_menu_image.cpp:295
 msgid "Rotate 90 degrees clockwise."
 msgstr "Rotér 90 grader med uret."
 
-#: menucheck.cpp:102 pp_menu_image.cpp:291
+#: menucheck.cpp:102 pp_menu_image.cpp:296
 msgid "_180 Degrees"
 msgstr "_180 grader"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:291
+#: menucheck.cpp:102 pp_menu_image.cpp:296
 msgid "Rotate 180 degrees."
 msgstr "Rotér 180 grader"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:292
+#: menucheck.cpp:103 pp_menu_image.cpp:297
 msgid "_270 Degrees"
 msgstr "_270 grader"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:292
+#: menucheck.cpp:103 pp_menu_image.cpp:297
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Rotér 90 grader mod uret."
 
@@ -768,19 +768,19 @@ msgstr "Tilføj billeder..."
 msgid "Page is already full!"
 msgstr "Siden er allerede fuld!"
 
-#: pp_menu_image.cpp:271
+#: pp_menu_image.cpp:276
 msgid "_Duplicate Image"
 msgstr "_Duplikere billede"
 
-#: pp_menu_image.cpp:271
+#: pp_menu_image.cpp:276
 msgid "Duplicate the currently selected image"
 msgstr "Duplikér det valgte billede"
 
-#: pp_menu_image.cpp:272
+#: pp_menu_image.cpp:277
 msgid "_Duplicate to Fill Page"
 msgstr "_Duplikér til fyld-side"
 
-#: pp_menu_image.cpp:272
+#: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Fyld siden med kopier af det valgte billede"
 
@@ -865,7 +865,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Indstil printer"
 
-#: gp_cppsupport/gprinter.cpp:333
+#: gp_cppsupport/gprinter.cpp:334
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Danner printerdata..."

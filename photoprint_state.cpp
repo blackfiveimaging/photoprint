@@ -151,7 +151,8 @@ void PhotoPrint_State::ParseConfigFile()
 	{
 		cerr << "Parsing of config file failed" << endl;
 		cerr << "Default queue is: " << printoutput.FindString("Queue") << endl;
-		cerr << "Default PPD is: " << printoutput.GetPPD() << endl;
+		if(printoutput.GetPPD())
+			cerr << "Default PPD is: " << printoutput.GetPPD() << endl;
 		cerr << "Setting default driver" << endl;
 		printer.SetDriver("ps2");
 	}
