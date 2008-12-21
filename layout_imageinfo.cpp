@@ -29,6 +29,7 @@
 #include "imagesource/imagesource_mask.h"
 #include "imagesource/imagesource_rotate.h"
 #include "imagesource/imagesource_promote.h"
+#include "imagesource/imagesource_invert.h"
 
 #include "photoprint_state.h"
 #include "support/progress.h"
@@ -224,7 +225,7 @@ class hr_payload
 			// We create new Fit in the idle-function because the hpan/vpan may have changed.
 
 			ProgressThread prog(*t);
-			p->transformed=pixbuf_from_imagesource(is,255,255,255,&prog);
+			p->transformed=pixbuf_from_imagesource(is,p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8,&prog);
 
 			delete is;
 
@@ -806,6 +807,7 @@ ImageSource *Layout_ImageInfo::ApplyMask(ImageSource *is)
 //			cerr << "Rotating mask" << endl;
 		}
 		mask=ISScaleImageBySize(mask,is->width,is->height,IS_SCALING_AUTOMATIC);
+		mask=new ImageSource_Invert(mask);
 		is=new ImageSource_Mask(is,mask);
 	}
 	return(is);

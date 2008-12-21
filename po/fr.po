@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-11-28 19:51+0000\n"
+"POT-Creation-Date: 2008-12-13 19:22+0000\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -983,7 +983,7 @@ msgstr ""
 "permettre par exemple des comparaisons rigoureuses. Écarte les couleurs hors "
 "gamme."
 
-#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:393
+#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:407
 msgid "Other..."
 msgstr "Autre..."
 
@@ -1027,7 +1027,7 @@ msgstr "Ajouter..."
 msgid "Remove"
 msgstr "Supprimer"
 
-#: support/imageselector.cpp:372
+#: support/imageselector.cpp:386
 msgid "Image"
 msgstr "Image"
 

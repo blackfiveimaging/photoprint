@@ -382,8 +382,6 @@ void Layout_Carousel::RenderPreview(int width,int height)
 					target=c.GetSegmentExtent(s);
 
 					RectFit *fit=r.Fit(*target,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
-					if(fit->rotation)
-						source=new ImageSource_Rotate(source,270);
 
 					source=ISScaleImageBySize(source,fit->width,fit->height,IS_SCALING_NEARESTNEIGHBOUR);
 
@@ -410,8 +408,6 @@ void Layout_Carousel::RenderPreview(int width,int height)
 					target=c.GetSegmentExtent(s);
 			
 					RectFit *fit=r.Fit(*target,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
-					if(fit->rotation)
-						source=new ImageSource_Rotate(source,270);
 			
 					source=ISScaleImageBySize(source,fit->width,fit->height,IS_SCALING_NEARESTNEIGHBOUR);
 			

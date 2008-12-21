@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-11-28 19:51+0000\n"
+"POT-Creation-Date: 2008-12-13 19:22+0000\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -992,7 +992,7 @@ msgstr ""
 "Imita as cores originais (incluindo pontos brancos) o mais fielmente "
 "possível, para comparações lado-a-lado.  Clips unattainable colours."
 
-#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:393
+#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:407
 msgid "Other..."
 msgstr "Outro..."
 
@@ -1036,7 +1036,7 @@ msgstr "Adicionar..."
 msgid "Remove"
 msgstr "Remover"
 
-#: support/imageselector.cpp:372
+#: support/imageselector.cpp:386
 msgid "Image"
 msgstr "Imagem"
 

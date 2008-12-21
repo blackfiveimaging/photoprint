@@ -7,6 +7,8 @@ URGENT:
 |Need to make Set Image Profile... grey out if there are no selected images.
 |Next best thing - a warning dialog
 
+Fix path of NetPBM header
+
 Fix left/top margin for Single layout...
 
 Fix margins in Carousel mode.

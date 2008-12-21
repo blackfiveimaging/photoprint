@@ -37,7 +37,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = photoprint$(EXEEXT)
-check_PROGRAMS = menucheck$(EXEEXT)
+check_PROGRAMS = menucheck$(EXEEXT) carouselcheck$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -58,9 +58,22 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(desktopdir)" \
 	"$(DESTDIR)$(icondir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
+am_carouselcheck_OBJECTS = carouselcheck.$(OBJEXT)
+carouselcheck_OBJECTS = $(am_carouselcheck_OBJECTS)
+am__DEPENDENCIES_1 =
+carouselcheck_DEPENDENCIES = effects/libppeffects.la \
+	imagesource/libimagesource.la support/libsupport.la \
+	profilemanager/libprofilemanager.la \
+	stpui_widgets/libstpui_widgets.la \
+	stp_support/libstp_support.la \
+	pixbufthumbnail/libpixbufthumbnail.la \
+	splashscreen/libsplashscreen.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 am_menucheck_OBJECTS = menucheck.$(OBJEXT)
 menucheck_OBJECTS = $(am_menucheck_OBJECTS)
-am__DEPENDENCIES_1 =
 menucheck_DEPENDENCIES = effects/libppeffects.la \
 	imagesource/libimagesource.la support/libsupport.la \
 	profilemanager/libprofilemanager.la \
@@ -122,8 +135,10 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(menucheck_SOURCES) $(photoprint_SOURCES)
-DIST_SOURCES = $(menucheck_SOURCES) $(photoprint_SOURCES)
+SOURCES = $(carouselcheck_SOURCES) $(menucheck_SOURCES) \
+	$(photoprint_SOURCES)
+DIST_SOURCES = $(carouselcheck_SOURCES) $(menucheck_SOURCES) \
+	$(photoprint_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -391,6 +406,18 @@ menucheck_LDADD = \
 	splashscreen/libsplashscreen.la	\
 	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
 
+carouselcheck_SOURCES = carouselcheck.cpp
+carouselcheck_LDADD = \
+	effects/libppeffects.la	\
+	imagesource/libimagesource.la	\
+	support/libsupport.la	\
+	profilemanager/libprofilemanager.la	\
+	stpui_widgets/libstpui_widgets.la	\
+	stp_support/libstp_support.la \
+	pixbufthumbnail/libpixbufthumbnail.la	\
+	splashscreen/libsplashscreen.la	\
+	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
+
 desktopdir = $(datadir)/applications
 desktop_DATA = fotoprint.desktop
 icondir = $(datadir)/icons/hicolor/48x48/apps/
@@ -486,6 +513,9 @@ clean-checkPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
+carouselcheck$(EXEEXT): $(carouselcheck_OBJECTS) $(carouselcheck_DEPENDENCIES) 
+	@rm -f carouselcheck$(EXEEXT)
+	$(CXXLINK) $(carouselcheck_OBJECTS) $(carouselcheck_LDADD) $(LIBS)
 menucheck$(EXEEXT): $(menucheck_OBJECTS) $(menucheck_DEPENDENCIES) 
 	@rm -f menucheck$(EXEEXT)
 	$(CXXLINK) $(menucheck_OBJECTS) $(menucheck_LDADD) $(LIBS)
@@ -499,6 +529,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/carouselcheck.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dialogs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/layout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/layout_carousel.Po@am__quote@

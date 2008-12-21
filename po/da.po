@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-11-28 19:51+0000\n"
+"POT-Creation-Date: 2008-12-13 19:22+0000\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -975,7 +975,7 @@ msgstr ""
 "Gengiver de originale farver (inklusive hvid-punkt) så godt som muligt, a.h."
 "t. sammenligning.  Klipper uopnåelige farver."
 
-#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:393
+#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:407
 msgid "Other..."
 msgstr "Andet..."
 
@@ -1015,7 +1015,7 @@ msgstr "Tilføj..."
 msgid "Remove"
 msgstr "Fjern"
 
-#: support/imageselector.cpp:372
+#: support/imageselector.cpp:386
 msgid "Image"
 msgstr "Billede"
 

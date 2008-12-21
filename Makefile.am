@@ -87,11 +87,24 @@ photoprint_LDADD = \
 	splashscreen/libsplashscreen.la	\
 	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
 
-check_PROGRAMS = menucheck
+check_PROGRAMS = menucheck carouselcheck
 
 menucheck_SOURCES = menucheck.cpp
 
 menucheck_LDADD = \
+	effects/libppeffects.la	\
+	imagesource/libimagesource.la	\
+	support/libsupport.la	\
+	profilemanager/libprofilemanager.la	\
+	stpui_widgets/libstpui_widgets.la	\
+	stp_support/libstp_support.la \
+	pixbufthumbnail/libpixbufthumbnail.la	\
+	splashscreen/libsplashscreen.la	\
+	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
+
+carouselcheck_SOURCES = carouselcheck.cpp
+
+carouselcheck_LDADD = \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
 	support/libsupport.la	\
