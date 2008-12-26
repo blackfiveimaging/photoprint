@@ -39,7 +39,7 @@
 #define HAVE_LIBJPEG 1
 
 /* Define to 1 if you have the `netpbm' library (-lnetpbm). */
-#define HAVE_LIBNETPBM 1
+/* #undef HAVE_LIBNETPBM */
 
 /* Define to 1 if you have the `pnm' library (-lpnm). */
 /* #undef HAVE_LIBPNM */

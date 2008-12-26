@@ -177,7 +177,7 @@ AR = ar
 AUTOCONF = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run automake-1.10
-AWK = mawk
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -229,7 +229,7 @@ LIBICONV = -liconv
 LIBINTL = 
 LIBM_LIBS = -lm
 LIBOBJS = 
-LIBS = -lcups -lnsl -lpthread -ljpeg -lnetpbm 
+LIBS = -lcups -lnsl -lpthread -ljpeg 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBICONV = -liconv
