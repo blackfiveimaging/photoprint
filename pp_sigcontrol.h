@@ -30,10 +30,16 @@ struct Signature;
 struct _pp_SigControl
 {
 	GtkExpander box;
+	GtkWidget *vbox;
+	GtkWidget *combo;
+	GtkWidget *table;
 	GtkWidget *rows;
 	GtkWidget *cols;
 	GtkWidget *hgutter;
 	GtkWidget *vgutter;
+	GtkWidget *width;
+	GtkWidget *height;
+	enum Units unit;
 	Signature *sig;
 };
 
