@@ -24,6 +24,8 @@ PhotoPrint-0.4.0
   * More changes to mask routines, hopefully finally got min-is-white greyscale
     images and max-is-full-opacity alpha channels resolved.
 
+  * Updated Russian translation - thanks to Alexandre Prokoudine.
+
 
 PhotoPrint-0.3.9
 
