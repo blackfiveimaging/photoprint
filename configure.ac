@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT([photoprint], [0.4.0-pre4], [blackfive@fakenhamweb.co.uk])
+AC_INIT([photoprint], [0.4.0-pre5], [blackfive@fakenhamweb.co.uk])
 AC_CONFIG_AUX_DIR([scripts])
 AC_CONFIG_SRCDIR([photoprint.cpp])
 AM_CONFIG_HEADER([config.h])
@@ -85,6 +85,8 @@ AC_CHECK_FUNCS([memset mkdir strcasecmp strdup strncasecmp])
 
 AC_CONFIG_FILES([Makefile po/Makefile.in
                  imagesource/Makefile
+                 imageutils/Makefile
+                 miscwidgets/Makefile
                  support/Makefile
                  profilemanager/Makefile
                  pixbufthumbnail/Makefile

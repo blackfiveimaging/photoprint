@@ -11,7 +11,7 @@
 
 #include "pp_mainwindow.h"
 #include "dialogs.h"
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 #include "support/progressbar.h"
 #include "support/pathsupport.h"
 #include "support/layoutrectangle.h" // For rotation enums

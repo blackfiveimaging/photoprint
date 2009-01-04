@@ -7,7 +7,7 @@
 
 #include "stpui_widgets/dimension.h"
 #include "support/signature.h"
-#include "support/simplecombo.h"
+#include "miscwidgets/simplecombo.h"
 #include "pp_pageextent.h"
 
 #include "pp_sigcontrol.h"

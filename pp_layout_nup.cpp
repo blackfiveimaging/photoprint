@@ -25,7 +25,6 @@
 
 #include "pp_layout_nup.h"
 
-#include "support/tiffsave.h"
 #include "layout.h"
 #include "dialogs.h"
 

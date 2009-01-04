@@ -18,10 +18,10 @@
 #include <iostream>
 #include <string.h>
 
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 #include "dialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
-#include "support/rotatepixbuf.h"
+#include "imageutils/rotatepixbuf.h"
 #include "imagesource/imagesource_util.h"
 #include "imagesource/imagesource_cms.h"
 #include "imagesource/imagesource_scale.h"

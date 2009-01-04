@@ -25,7 +25,7 @@
 #include "config.h"
 #endif
 
-#include "generaldialogs.h"
+#include "../miscwidgets/generaldialogs.h"
 
 #include "ppeffect.h"
 #include "ppeffect_desaturate.h"

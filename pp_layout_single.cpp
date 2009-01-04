@@ -9,7 +9,6 @@
 #include <gtk/gtkexpander.h>
 
 #include "stpui_widgets/stpui_combo.h"
-#include "support/tiffsave.h"
 #include "layout.h"
 #include "dialogs.h"
 #include "pp_pageextent.h"

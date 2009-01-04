@@ -13,10 +13,10 @@
 #include <string.h>
 
 #include "support/layoutrectangle.h"
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 #include "dialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
-#include "support/rotatepixbuf.h"
+#include "imageutils/rotatepixbuf.h"
 #include "imagesource/imagesource_util.h"
 #include "imagesource/imagesource_crop.h"
 #include "imagesource/imagesource_rotate.h"

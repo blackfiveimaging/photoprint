@@ -32,7 +32,7 @@
 #include "support/searchpathdbhandler.h"
 #include "support/pathsupport.h"
 
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 
 #define DEFAULTPRESETVERSION 29
 #define CURRENTPRESETVERSION 40

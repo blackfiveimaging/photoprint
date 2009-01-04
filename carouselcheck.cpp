@@ -7,7 +7,7 @@
 #include "imagesource/imagesource_montage.h"
 #include "imagesource/imagesource_segmentmask.h"
 #include "imagesource/imagesource_mask.h"
-#include "pixbufview.h"
+#include "miscwidgets/pixbufview.h"
 
 #include "layout_carousel.h"
 

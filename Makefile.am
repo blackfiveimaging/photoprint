@@ -1,7 +1,7 @@
 # Makefile.am
 # RL 28/11/04
 
-SUBDIRS = po support imagesource stpui_widgets stp_support gp_cppsupport pixbufthumbnail splashscreen profilemanager effects
+SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail splashscreen profilemanager effects
 
 localedir=$(datadir)/locale
 
@@ -78,6 +78,8 @@ photoprint_SOURCES = 		\
 photoprint_LDADD = \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
+	imageutils/libimageutils.la	\
+	miscwidgets/libmiscwidgets.la	\
 	support/libsupport.la	\
 	profilemanager/libprofilemanager.la	\
 	gp_cppsupport/libgp_cppsupport.la \
@@ -108,6 +110,8 @@ carouselcheck_LDADD = \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
 	support/libsupport.la	\
+	imageutils/libimageutils.la	\
+	miscwidgets/libmiscwidgets.la	\
 	profilemanager/libprofilemanager.la	\
 	stpui_widgets/libstpui_widgets.la	\
 	stp_support/libstp_support.la \

@@ -26,11 +26,11 @@
 #include "support/progressbar.h"
 #include "support/progresstext.h"
 #include "dialogs.h"
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 #include "splashscreen/splashscreen.h"
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
-#include "support/patheditor.h"
+#include "miscwidgets/patheditor.h"
 #include "support/util.h"
 
 

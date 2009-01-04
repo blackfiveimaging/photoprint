@@ -15,11 +15,10 @@
 
 #include "stpui_widgets/stpui_combo.h"
 #include "support/progressbar.h"
-#include "support/tiffsave.h"
 #include "support/pathsupport.h"
 #include "layout.h"
 #include "dialogs.h"
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "effects/effects_dialog.h"
 #include "pp_menu_file.h"

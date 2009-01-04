@@ -14,11 +14,11 @@
 #include "config.h"
 
 #include "dialogs.h"
-#include "support/generaldialogs.h"
+#include "miscwidgets/generaldialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "imagesource/pixbuf_from_imagesource.h"
-#include "support/rotatepixbuf.h"
-#include "support/maskpixbuf.h"
+#include "imageutils/rotatepixbuf.h"
+#include "imageutils/maskpixbuf.h"
 #include "support/thread.h"
 #include "support/progressthread.h"
 

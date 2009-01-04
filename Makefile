@@ -63,6 +63,7 @@ carouselcheck_OBJECTS = $(am_carouselcheck_OBJECTS)
 am__DEPENDENCIES_1 =
 carouselcheck_DEPENDENCIES = effects/libppeffects.la \
 	imagesource/libimagesource.la support/libsupport.la \
+	imageutils/libimageutils.la miscwidgets/libmiscwidgets.la \
 	profilemanager/libprofilemanager.la \
 	stpui_widgets/libstpui_widgets.la \
 	stp_support/libstp_support.la \
@@ -103,7 +104,8 @@ am_photoprint_OBJECTS = dialogs.$(OBJEXT) layout.$(OBJEXT) \
 	pp_units.$(OBJEXT) pp_imageinfo.$(OBJEXT)
 photoprint_OBJECTS = $(am_photoprint_OBJECTS)
 photoprint_DEPENDENCIES = effects/libppeffects.la \
-	imagesource/libimagesource.la support/libsupport.la \
+	imagesource/libimagesource.la imageutils/libimageutils.la \
+	miscwidgets/libmiscwidgets.la support/libsupport.la \
 	profilemanager/libprofilemanager.la \
 	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la \
@@ -177,7 +179,7 @@ AR = ar
 AUTOCONF = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/amr/coding/photoprint/scripts/missing --run automake-1.10
-AWK = gawk
+AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -229,7 +231,7 @@ LIBICONV = -liconv
 LIBINTL = 
 LIBM_LIBS = -lm
 LIBOBJS = 
-LIBS = -lcups -lnsl -lpthread -ljpeg 
+LIBS = -lcups -lnsl -lpthread -ljpeg -lnetpbm 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBICONV = -liconv
@@ -245,9 +247,9 @@ OBJEXT = o
 PACKAGE = photoprint
 PACKAGE_BUGREPORT = blackfive@fakenhamweb.co.uk
 PACKAGE_NAME = photoprint
-PACKAGE_STRING = photoprint 0.4.0-pre4
+PACKAGE_STRING = photoprint 0.4.0-pre5
 PACKAGE_TARNAME = photoprint
-PACKAGE_VERSION = 0.4.0-pre4
+PACKAGE_VERSION = 0.4.0-pre5
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 POSUB = po
@@ -258,7 +260,7 @@ SHELL = /bin/bash
 STRIP = strip
 TIFF_LIBS = -ltiff
 USE_NLS = yes
-VERSION = 0.4.0-pre4
+VERSION = 0.4.0-pre5
 XGETTEXT = /usr/bin/xgettext
 XGETTEXT_015 = /usr/bin/xgettext
 XGETTEXT_EXTRA_OPTIONS = 
@@ -313,7 +315,7 @@ sysconfdir = ${prefix}/etc
 target_alias = 
 top_builddir = .
 top_srcdir = .
-SUBDIRS = po support imagesource stpui_widgets stp_support gp_cppsupport pixbufthumbnail splashscreen profilemanager effects
+SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail splashscreen profilemanager effects
 AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./support/ -I./imagesource/ -I./splashscreen -I./profilemanager -I./effects \
 	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS)
 
@@ -385,6 +387,8 @@ photoprint_SOURCES = \
 photoprint_LDADD = \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
+	imageutils/libimageutils.la	\
+	miscwidgets/libmiscwidgets.la	\
 	support/libsupport.la	\
 	profilemanager/libprofilemanager.la	\
 	gp_cppsupport/libgp_cppsupport.la \
@@ -411,6 +415,8 @@ carouselcheck_LDADD = \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
 	support/libsupport.la	\
+	imageutils/libimageutils.la	\
+	miscwidgets/libmiscwidgets.la	\
 	profilemanager/libprofilemanager.la	\
 	stpui_widgets/libstpui_widgets.la	\
 	stp_support/libstp_support.la \
