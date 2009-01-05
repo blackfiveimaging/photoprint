@@ -475,3 +475,11 @@ Layout_ImageInfo *Layout_Single::NextSelected()
 }
 
 
+// We override this to set the top/left margin
+void Layout_Single::Print(Progress *p)
+{
+	xoffset=leftmargin;
+	yoffset=topmargin;
+	Layout::Print(p);
+}
+

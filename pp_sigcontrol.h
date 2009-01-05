@@ -14,6 +14,8 @@
 
 #include "stpui_widgets/units.h"
 
+#include "layout_nup.h"
+
 G_BEGIN_DECLS
 
 #define PP_SIGCONTROL_TYPE			(pp_sigcontrol_get_type())
@@ -25,7 +27,6 @@ G_BEGIN_DECLS
 typedef struct _pp_SigControl pp_SigControl;
 typedef struct _pp_SigControlClass pp_SigControlClass;
 
-struct Signature;
 
 struct _pp_SigControl
 {
@@ -40,7 +41,7 @@ struct _pp_SigControl
 	GtkWidget *width;
 	GtkWidget *height;
 	enum Units unit;
-	Signature *sig;
+	Layout_NUp *sig;
 };
 
 
@@ -53,7 +54,7 @@ struct _pp_SigControlClass
 };
 
 GType pp_sigcontrol_get_type (void);
-GtkWidget* pp_sigcontrol_new (Signature *sig,enum Units unit=UNIT_POINTS);
+GtkWidget* pp_sigcontrol_new (Layout_NUp *sig,enum Units unit=UNIT_POINTS);
 void pp_sigcontrol_refresh(pp_SigControl *ob);
 void pp_sigcontrol_set_unit(pp_SigControl *ob,enum Units unit);
 

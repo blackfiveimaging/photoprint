@@ -148,7 +148,6 @@ void pp_layout_nup_refresh(pp_Layout_NUp *ob)
 	gtk_spin_button_set_range(GTK_SPIN_BUTTON(ob->page),1.0,pages);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->page),ob->state->layout->GetCurrentPage()+1);
 	pp_layout_nup_pageview_refresh(pv);
-	pp_sigcontrol_refresh(PP_SIGCONTROL(ob->sigcontrol));
 	pp_pageextent_refresh(PP_PAGEEXTENT(ob->pageextent));
 	pp_imagecontrol_refresh(PP_IMAGECONTROL(ob->imagecontrol));
 }

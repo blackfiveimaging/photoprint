@@ -26,6 +26,12 @@ PhotoPrint-0.4.0
 
   * Updated Russian translation - thanks to Alexandre Prokoudine.
 
+  * Added ability to specify cell size for n-up layout
+
+  * Added button to set the cell size to the natural size of the currently selected image
+
+  * Fixed left/top margin issue for single layout (at last).
+
 
 PhotoPrint-0.3.9
 

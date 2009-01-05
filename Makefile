@@ -37,7 +37,8 @@ POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
 bin_PROGRAMS = photoprint$(EXEEXT)
-check_PROGRAMS = menucheck$(EXEEXT) carouselcheck$(EXEEXT)
+check_PROGRAMS = menucheck$(EXEEXT) carouselcheck$(EXEEXT) \
+	misccheck$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -77,6 +78,20 @@ am_menucheck_OBJECTS = menucheck.$(OBJEXT)
 menucheck_OBJECTS = $(am_menucheck_OBJECTS)
 menucheck_DEPENDENCIES = effects/libppeffects.la \
 	imagesource/libimagesource.la support/libsupport.la \
+	profilemanager/libprofilemanager.la \
+	stpui_widgets/libstpui_widgets.la \
+	stp_support/libstp_support.la \
+	pixbufthumbnail/libpixbufthumbnail.la \
+	splashscreen/libsplashscreen.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+am_misccheck_OBJECTS = misccheck.$(OBJEXT) pp_sigcontrol.$(OBJEXT)
+misccheck_OBJECTS = $(am_misccheck_OBJECTS)
+misccheck_DEPENDENCIES = effects/libppeffects.la \
+	imagesource/libimagesource.la support/libsupport.la \
+	imageutils/libimageutils.la miscwidgets/libmiscwidgets.la \
 	profilemanager/libprofilemanager.la \
 	stpui_widgets/libstpui_widgets.la \
 	stp_support/libstp_support.la \
@@ -138,9 +153,9 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(carouselcheck_SOURCES) $(menucheck_SOURCES) \
-	$(photoprint_SOURCES)
+	$(misccheck_SOURCES) $(photoprint_SOURCES)
 DIST_SOURCES = $(carouselcheck_SOURCES) $(menucheck_SOURCES) \
-	$(photoprint_SOURCES)
+	$(misccheck_SOURCES) $(photoprint_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -424,6 +439,20 @@ carouselcheck_LDADD = \
 	splashscreen/libsplashscreen.la	\
 	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
 
+misccheck_SOURCES = misccheck.cpp pp_sigcontrol.cpp
+misccheck_LDADD = \
+	effects/libppeffects.la	\
+	imagesource/libimagesource.la	\
+	support/libsupport.la	\
+	imageutils/libimageutils.la	\
+	miscwidgets/libmiscwidgets.la	\
+	profilemanager/libprofilemanager.la	\
+	stpui_widgets/libstpui_widgets.la	\
+	stp_support/libstp_support.la \
+	pixbufthumbnail/libpixbufthumbnail.la	\
+	splashscreen/libsplashscreen.la	\
+	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
+
 desktopdir = $(datadir)/applications
 desktop_DATA = fotoprint.desktop
 icondir = $(datadir)/icons/hicolor/48x48/apps/
@@ -525,6 +554,9 @@ carouselcheck$(EXEEXT): $(carouselcheck_OBJECTS) $(carouselcheck_DEPENDENCIES)
 menucheck$(EXEEXT): $(menucheck_OBJECTS) $(menucheck_DEPENDENCIES) 
 	@rm -f menucheck$(EXEEXT)
 	$(CXXLINK) $(menucheck_OBJECTS) $(menucheck_LDADD) $(LIBS)
+misccheck$(EXEEXT): $(misccheck_OBJECTS) $(misccheck_DEPENDENCIES) 
+	@rm -f misccheck$(EXEEXT)
+	$(CXXLINK) $(misccheck_OBJECTS) $(misccheck_LDADD) $(LIBS)
 photoprint$(EXEEXT): $(photoprint_OBJECTS) $(photoprint_DEPENDENCIES) 
 	@rm -f photoprint$(EXEEXT)
 	$(CXXLINK) $(photoprint_OBJECTS) $(photoprint_LDADD) $(LIBS)
@@ -544,6 +576,7 @@ include ./$(DEPDIR)/layout_nup.Po
 include ./$(DEPDIR)/layout_poster.Po
 include ./$(DEPDIR)/layout_single.Po
 include ./$(DEPDIR)/menucheck.Po
+include ./$(DEPDIR)/misccheck.Po
 include ./$(DEPDIR)/photoprint.Po
 include ./$(DEPDIR)/photoprint_state.Po
 include ./$(DEPDIR)/pp_cms.Po

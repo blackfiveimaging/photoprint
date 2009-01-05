@@ -30,10 +30,12 @@ static void pp_sigcontrol_init (pp_SigControl *stpuicombo);
 
 static void rows_changed(GtkWidget *wid,gpointer ob)
 {
+	cerr << "In rows_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	GtkSpinButton *spin=GTK_SPIN_BUTTON(wid);
 	int v=gtk_spin_button_get_value_as_int(spin);
+	cerr << "  got value: " << v << endl;
 	sig->SetRows(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
@@ -42,10 +44,12 @@ static void rows_changed(GtkWidget *wid,gpointer ob)
 
 static void cols_changed(GtkWidget *wid,gpointer ob)
 {
+	cerr << "In cols_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	GtkSpinButton *spin=GTK_SPIN_BUTTON(wid);
 	int v=gtk_spin_button_get_value_as_int(spin);
+	cerr << "  got value: " << v << endl;
 	sig->SetColumns(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
@@ -54,20 +58,24 @@ static void cols_changed(GtkWidget *wid,gpointer ob)
 
 static void hgutter_changed(GtkWidget *wid,gpointer ob)
 {
+	cerr << "In hgutter_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
-	sig->SetGutters(v,sig->GetVGutter());
+	cerr << "  got value: " << v << endl;
+	sig->SetHGutter(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 }
 
 
 static void vgutter_changed(GtkWidget *wid,gpointer ob)
 {
+	cerr << "In vgutter_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
-	sig->SetGutters(sig->GetHGutter(),v);
+	cerr << "  got value: " << v << endl;
+	sig->SetVGutter(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 }
 
@@ -79,6 +87,7 @@ static void width_changed(GtkWidget *wid,gpointer ob)
 	int v=int(dimension_get_pt(DIMENSION(wid)));
 	sig->SetCellWidth(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
+	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
 }
 
 
@@ -87,22 +96,51 @@ static void height_changed(GtkWidget *wid,gpointer ob)
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
-	sig->SetCellHeight(sig->GetHGutter());
+	sig->SetCellHeight(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
+	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
+}
+
+
+static void getsizefromimage_clicked(GtkWidget *wid,gpointer ob)
+{
+	pp_SigControl *lo=(pp_SigControl *)ob;
+	Layout_NUp *sig=lo->sig;
+	Layout_ImageInfo *ii=sig->FirstSelected();
+	if(ii)
+	{
+		int w=(72.0*ii->GetWidth())/ii->GetXRes();
+		int h=(72.0*ii->GetHeight())/ii->GetYRes();
+		cerr << "Natural size is " << w << " x " << h << endl;
+		sig->SetCellWidth(w);
+		sig->SetCellHeight(h);
+		int t=sig->GetRows()*sig->GetColumns();
+		sig->SetCellWidth(h);
+		sig->SetCellHeight(w);
+		if(t>(sig->GetRows()*sig->GetColumns()))
+		{
+			sig->SetCellWidth(w);
+			sig->SetCellHeight(h);
+		}
+		pp_sigcontrol_refresh(lo);
+		g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
+		g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
+	}
 }
 
 
 void pp_sigcontrol_refresh(pp_SigControl *ob)
 {
-	ob->sig->ReCalc();
 	if(ob->rows)
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->rows),ob->sig->GetRows());
 	if(ob->cols)
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->cols),ob->sig->GetColumns());
+	cerr << "Refreshing gutters" << endl;
 	if(ob->hgutter)
 		dimension_set_pt(DIMENSION(ob->hgutter),ob->sig->GetHGutter());
 	if(ob->vgutter)
 		dimension_set_pt(DIMENSION(ob->vgutter),ob->sig->GetVGutter());
+	cerr << "Refresh done" << endl;
 	if(ob->width)
 		dimension_set_pt(DIMENSION(ob->width),ob->sig->GetCellWidth());
 	if(ob->height)
@@ -163,6 +201,7 @@ static void build_rowscols(pp_SigControl *ob)
 	gtk_widget_show(label);
 
 	ob->hgutter=dimension_new(0.0,200.0,ob->unit);
+	dimension_set_pt(DIMENSION(ob->hgutter),ob->sig->GetHGutter());
 	g_signal_connect(G_OBJECT(ob->hgutter),"value-changed",G_CALLBACK(hgutter_changed),ob);
 	gtk_widget_show(ob->hgutter);
 
@@ -176,6 +215,7 @@ static void build_rowscols(pp_SigControl *ob)
 	gtk_widget_show(label);
 
 	ob->vgutter=dimension_new(0.0,200.0,ob->unit);
+	dimension_set_pt(DIMENSION(ob->vgutter),ob->sig->GetVGutter());
 	g_signal_connect(G_OBJECT(ob->vgutter),"value-changed",G_CALLBACK(vgutter_changed),ob);
 	gtk_widget_show(ob->vgutter);
 
@@ -224,6 +264,7 @@ static void build_dimensions(pp_SigControl *ob)
 	gtk_table_attach_defaults(GTK_TABLE(ob->table),GTK_WIDGET(ob->height),3,4,0,1);
 
 	GtkWidget *tmp=gtk_button_new_with_label(_("From selected image"));
+	g_signal_connect(G_OBJECT(tmp),"clicked",G_CALLBACK(getsizefromimage_clicked),ob);
 	gtk_table_attach_defaults(GTK_TABLE(ob->table),GTK_WIDGET(tmp),0,4,1,2);
 	gtk_widget_show(tmp);
 
@@ -264,7 +305,7 @@ static SimpleComboOption comboopts[]=
 };
 
 GtkWidget*
-pp_sigcontrol_new (Signature *sig,enum Units unit)
+pp_sigcontrol_new (Layout_NUp *sig,enum Units unit)
 {
 	pp_SigControl *ob=PP_SIGCONTROL(g_object_new (pp_sigcontrol_get_type (), NULL));
 //	gtk_box_set_spacing(GTK_BOX(ob),5);

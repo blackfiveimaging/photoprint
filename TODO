@@ -7,6 +7,18 @@ URGENT:
 |Need to make Set Image Profile... grey out if there are no selected images.
 |Next best thing - a warning dialog
 
+| Add a way of specifying an absolute size in n-up mode.
+| Use a combobox to switch between modes
+| rows/cols mode is the existing mode
+| Specify size will automatically set the number of rows and columns
+| depending on the size chosen
+| The signature class will have to have an extra margin parameter for each
+| dimension - "padding"?  We don't want to have to overwrite the existing margins
+| simply to accommodate an image size that will only fit 1-up.
+| (Signature class could do with renaming - it has very little to do with
+| traditional book-page-layout signatures now!)
+Need to update when the page size and margin changes.
+
 Fix path of NetPBM header
 
 Fix left/top margin for Single layout...
@@ -17,7 +29,7 @@ Link X and Y scale in Manual Mode.
 
 Sort out form-length issue in roll-feed mode.
 
-Look into the consistency of the opaque/transparent scale of alpha channels
+| Look into the consistency of the opaque/transparent scale of alpha channels
 
 Add support for printing with black ink only.
 

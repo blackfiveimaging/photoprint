@@ -85,6 +85,9 @@ class Layout : public virtual PageExtent
 
 	protected:
 
+	// Xoffset and yoffset are the top left corner of the print.
+	// Some layouts will want to set this to the top/left margin
+	// The best way to do so is to override the print method.
 	int xoffset,yoffset;
 	int pages;
 	int currentpage;

@@ -31,6 +31,7 @@ class Layout_Single : public Layout
 	virtual void DBToLayout(LayoutDB &db);
 	virtual GtkWidget *CreateWidget();
 	virtual void RefreshWidget(GtkWidget *widget);
+	virtual void Print(Progress *p);	// Overridden so we can set the top/left position...
 	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
 	void UpdatePageSize();
 	virtual Layout_ImageInfo *FirstSelected();
