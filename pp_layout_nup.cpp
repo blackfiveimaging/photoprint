@@ -59,7 +59,6 @@ static void pe_changed(GtkWidget *wid,gpointer *ob)
 {
 	pp_Layout_NUp *lo=(pp_Layout_NUp *)ob;
 	Layout_NUp *l=(Layout_NUp*)lo->state->layout;
-	l->ReCalc();
 	l->FlushHRPreviews();
 	pp_Layout_NUp_PageView *pv=PP_LAYOUT_NUP_PAGEVIEW(lo->pageview);
 	pp_layout_nup_pageview_refresh(PP_LAYOUT_NUP_PAGEVIEW(pv));

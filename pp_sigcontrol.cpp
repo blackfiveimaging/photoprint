@@ -86,6 +86,9 @@ static void width_changed(GtkWidget *wid,gpointer ob)
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
 	sig->SetCellWidth(v);
+	// Must check the newly set width and adjust the widget if different
+	if(v!=sig->GetCellWidth())
+		dimension_set_pt(DIMENSION(wid),sig->GetCellWidth());
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
 }
@@ -97,6 +100,9 @@ static void height_changed(GtkWidget *wid,gpointer ob)
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
 	sig->SetCellHeight(v);
+	// Must check the newly set width and adjust the widget if different
+	if(v!=sig->GetCellHeight())
+		dimension_set_pt(DIMENSION(wid),sig->GetCellHeight());
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
 }
@@ -142,7 +148,10 @@ void pp_sigcontrol_refresh(pp_SigControl *ob)
 		dimension_set_pt(DIMENSION(ob->vgutter),ob->sig->GetVGutter());
 	cerr << "Refresh done" << endl;
 	if(ob->width)
+	{
+		ob->sig->ReCalcByCellSize();
 		dimension_set_pt(DIMENSION(ob->width),ob->sig->GetCellWidth());
+	}
 	if(ob->height)
 		dimension_set_pt(DIMENSION(ob->height),ob->sig->GetCellHeight());
 }
@@ -232,9 +241,6 @@ static void build_dimensions(pp_SigControl *ob)
 
 	gtk_box_pack_start(GTK_BOX(ob->vbox),ob->table,FALSE,FALSE,0);
 
-	int max=ob->sig->pagewidth;
-	if(ob->sig->pageheight>max)
-		max=ob->sig->pageheight;
 
 	// Width
 	GtkWidget *label=gtk_label_new(_("Width:"));
@@ -242,7 +248,7 @@ static void build_dimensions(pp_SigControl *ob)
 	gtk_table_attach_defaults(GTK_TABLE(ob->table),GTK_WIDGET(label),0,1,0,1);
 	gtk_widget_show(label);
 
-	ob->width=dimension_new(0.0,max,ob->unit);
+	ob->width=dimension_new(0.0,10000.0,ob->unit);
 	dimension_set_pt(DIMENSION(ob->width),ob->sig->GetCellWidth());
 	g_signal_connect(G_OBJECT(ob->width),"value-changed",G_CALLBACK(width_changed),ob);
 	gtk_widget_show(ob->width);
@@ -256,7 +262,7 @@ static void build_dimensions(pp_SigControl *ob)
 	gtk_table_attach_defaults(GTK_TABLE(ob->table),GTK_WIDGET(label),2,3,0,1);
 	gtk_widget_show(label);
 
-	ob->height=dimension_new(0.0,max,ob->unit);
+	ob->height=dimension_new(0.0,10000.0,ob->unit);
 	dimension_set_pt(DIMENSION(ob->height),ob->sig->GetCellHeight());
 	g_signal_connect(G_OBJECT(ob->height),"value-changed",G_CALLBACK(height_changed),ob);
 	gtk_widget_show(ob->height);

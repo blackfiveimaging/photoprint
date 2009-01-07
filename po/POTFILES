@@ -32,6 +32,6 @@
      ../profilemanager/lcmswrapper.cpp \
      ../profilemanager/profileselector.cpp \
      ../stpui_widgets/dimension.c \
-     ../support/patheditor.cpp \
-     ../support/imageselector.cpp \
+     ../miscwidgets/patheditor.cpp \
+     ../miscwidgets/imageselector.cpp \
      ../support/progressbar.cpp

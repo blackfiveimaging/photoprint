@@ -17,11 +17,13 @@ URGENT:
 | simply to accommodate an image size that will only fit 1-up.
 | (Signature class could do with renaming - it has very little to do with
 | traditional book-page-layout signatures now!)
-Need to update when the page size and margin changes.
+| Need to update when the page size and margin changes.  (Happens automatically - just need to call
+| the correct Recalc function!)
+| Need to check the new cellsize after setting it - if it's less than we asked for, we need to set the widget to the new size.
 
 Fix path of NetPBM header
 
-Fix left/top margin for Single layout...
+| Fix left/top margin for Single layout...
 
 Fix margins in Carousel mode.
 

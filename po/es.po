@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2008-12-13 19:22+0000\n"
+"POT-Creation-Date: 2009-01-07 21:48+0000\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -621,78 +621,78 @@ msgstr ""
 msgid "Default"
 msgstr "Guradar por _Defecto"
 
-#: pp_layout_carousel.cpp:255 pp_layout_carousel.cpp:386 pp_layout_nup.cpp:220
-#: pp_layout_poster.cpp:297 pp_layout_poster.cpp:462 pp_layout_single.cpp:224
-#: pp_layout_single.cpp:337
+#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:217
+#: pp_layout_poster.cpp:296 pp_layout_poster.cpp:461 pp_layout_single.cpp:223
+#: pp_layout_single.cpp:336
 msgid "Page:"
 msgstr "Página:"
 
-#: pp_layout_carousel.cpp:283
+#: pp_layout_carousel.cpp:282
 msgid "Carousel"
 msgstr "Ruleta"
 
-#: pp_layout_carousel.cpp:298
+#: pp_layout_carousel.cpp:297
 msgid "Segments:"
 msgstr "Segmentos:"
 
-#: pp_layout_carousel.cpp:313
+#: pp_layout_carousel.cpp:312
 msgid "Overlap (%):"
 msgstr "Solapamiento (%):"
 
-#: pp_layout_carousel.cpp:328
+#: pp_layout_carousel.cpp:327
 msgid "Starting angle:"
 msgstr "Ángulo de inicio:"
 
-#: pp_layout_carousel.cpp:343
+#: pp_layout_carousel.cpp:342
 msgid "Inner Radius:"
 msgstr "Radio central"
 
-#: pp_layout_poster.cpp:339
+#: pp_layout_poster.cpp:338
 #, fuzzy
 msgid "Poster Layout"
 msgstr "_Borrar·Disposición"
 
-#: pp_layout_poster.cpp:353
+#: pp_layout_poster.cpp:352
 #, fuzzy
 msgid "Size"
 msgstr "Tamaño de página"
 
-#: pp_layout_poster.cpp:365 pp_layout_poster.cpp:389
+#: pp_layout_poster.cpp:364 pp_layout_poster.cpp:388
 msgid "by"
 msgstr ""
 
-#: pp_layout_poster.cpp:377
+#: pp_layout_poster.cpp:376
 #, fuzzy
 msgid "Tiles"
 msgstr "Recuadros a lo ancho:"
 
-#: pp_layout_poster.cpp:399
+#: pp_layout_poster.cpp:398
 #, fuzzy
 msgid "Overlap"
 msgstr "Solapamiento:"
 
-#: pp_layout_poster.cpp:412 pp_pageextent.cpp:251
+#: pp_layout_poster.cpp:411 pp_pageextent.cpp:251
 msgid "H:"
 msgstr "H:"
 
-#: pp_layout_poster.cpp:424
+#: pp_layout_poster.cpp:423
 msgid "V:"
 msgstr "H:"
 
-#: pp_layout_single.cpp:268
+#: pp_layout_single.cpp:267
 #, fuzzy
 msgid "Manual scaling"
 msgstr "Tamaño _Manual"
 
-#: pp_layout_single.cpp:283
+#: pp_layout_single.cpp:282
 msgid "H (%):"
 msgstr "H:"
 
-#: pp_layout_single.cpp:297
+#: pp_layout_single.cpp:296
 msgid "V (%):"
 msgstr "H:"
 
-#: pp_mainwindow.cpp:227
+#: pp_mainwindow.cpp:226
 msgid "Transferring images..."
 msgstr "Transfiriendo imágenes..."
 
@@ -880,7 +880,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configurar impresora"
 
-#: gp_cppsupport/gprinter.cpp:334
+#: gp_cppsupport/gprinter.cpp:335
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Generando datos de impresión..."
@@ -889,21 +889,42 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
-#: pp_sigcontrol.cpp:106
-msgid "Layout"
-msgstr "Disposición"
-
-#: pp_sigcontrol.cpp:115
+#: pp_sigcontrol.cpp:179
 msgid "Columns:"
 msgstr "Columnas:"
 
-#: pp_sigcontrol.cpp:129
+#: pp_sigcontrol.cpp:193
 msgid "Rows:"
 msgstr "Filas:"
 
-#: pp_sigcontrol.cpp:147 pp_sigcontrol.cpp:160
+#: pp_sigcontrol.cpp:207 pp_sigcontrol.cpp:221
 msgid "Gap:"
 msgstr ""
+
+#: pp_sigcontrol.cpp:246
+msgid "Width:"
+msgstr "Ancho:"
+
+#: pp_sigcontrol.cpp:260
+msgid "Height:"
+msgstr "Alto:"
+
+#: pp_sigcontrol.cpp:272
+#, fuzzy
+msgid "From selected image"
+msgstr "Deselecionar todas las imágenes"
+
+#: pp_sigcontrol.cpp:308
+msgid "Specify rows/columns"
+msgstr ""
+
+#: pp_sigcontrol.cpp:309
+msgid "Specify image dimensions"
+msgstr ""
+
+#: pp_sigcontrol.cpp:331
+msgid "Layout"
+msgstr "Disposición"
 
 #: pp_units.cpp:60
 msgid "Units:"
@@ -980,7 +1001,7 @@ msgid ""
 "for side-by-side comparisons.  Clips unattainable colours."
 msgstr ""
 
-#: profilemanager/profileselector.cpp:38 support/imageselector.cpp:407
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:407
 msgid "Other..."
 msgstr "Otros..."
 
@@ -1008,23 +1029,23 @@ msgstr "Millímetros"
 msgid "centimeters"
 msgstr "Centímetros"
 
-#: support/patheditor.cpp:53
+#: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."
 msgstr "Elije directorio..."
 
-#: support/patheditor.cpp:98
+#: miscwidgets/patheditor.cpp:98
 msgid "Path"
 msgstr "Ruta"
 
-#: support/patheditor.cpp:112
+#: miscwidgets/patheditor.cpp:112
 msgid "Add..."
 msgstr "Añadir..."
 
-#: support/patheditor.cpp:117
+#: miscwidgets/patheditor.cpp:117
 msgid "Remove"
 msgstr "Quitar"
 
-#: support/imageselector.cpp:386
+#: miscwidgets/imageselector.cpp:386
 msgid "Image"
 msgstr "Imágen"
 
@@ -1232,12 +1253,6 @@ msgstr ""
 
 #~ msgid "Poster Size:"
 #~ msgstr "Tamaño del poster:"
-
-#~ msgid "Width:"
-#~ msgstr "Ancho:"
-
-#~ msgid "Height:"
-#~ msgstr "Alto:"
 
 #~ msgid "Tiles high:"
 #~ msgstr "Recuadros a lo alto:"
