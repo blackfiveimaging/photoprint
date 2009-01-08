@@ -32,6 +32,11 @@ PhotoPrint-0.4.0
 
   * Fixed left/top margin issue for single layout (at last).
 
+  * Fixed glitch in TIFF Loader - unitialized resolution variables if the image has no
+	resolution set.
+
+  * Fixed bug in .desktop file - now asks for Filenames (%F) not URIs (%U)
+
 
 PhotoPrint-0.3.9
 
