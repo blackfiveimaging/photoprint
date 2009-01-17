@@ -45,7 +45,6 @@ class Layout_Poster : public Layout
 	virtual void RefreshWidget(GtkWidget *widget);
 	virtual void SetCurrentPage(int page);
 	ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
-	void UpdatePageSize();
 	virtual Layout_ImageInfo *FirstSelected();
 	virtual Layout_ImageInfo *NextSelected();
 	Layout_Poster_ImageInfo *ImageAt(int page);

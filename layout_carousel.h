@@ -34,7 +34,6 @@ class Layout_Carousel : public Layout
 	virtual GtkWidget *CreateWidget();
 	virtual void RefreshWidget(GtkWidget *widget);
 	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
-	void UpdatePageSize();
 	Layout_Carousel_ImageInfo *ImageAt(int page, int segment);
 	Layout_ImageInfo *ImageAtCoord(int x,int y);
 	virtual void (*SetUnitFunc())(GtkWidget *wid,enum Units unit);

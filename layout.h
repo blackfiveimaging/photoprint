@@ -50,7 +50,7 @@ class Layout : public virtual PageExtent
 
 	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
 	virtual IS_TYPE GetColourSpace(CMColourDevice target);	// Do we still need this?
-	virtual void UpdatePageSize()=0;
+	virtual void UpdatePageSize();
 	virtual void LayoutToDB(LayoutDB &db);
 	virtual void DBToLayout(LayoutDB &db);
 

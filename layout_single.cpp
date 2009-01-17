@@ -432,11 +432,6 @@ const char *Layout_Single::GetType()
 }
 
 
-void Layout_Single::UpdatePageSize()
-{
-	SetPageExtent(state.printer);
-}
-
 void (*Layout_Single::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 {
 	return(pp_layout_single_set_unit);

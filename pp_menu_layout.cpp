@@ -32,6 +32,8 @@ static void layoutmenu_clearlayout(GtkAction *act,gpointer *ob)
 static void layoutmenu_single(gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	if(strcmp(mw->state->layoutdb.FindString("LayoutType"),"Single")==0)
+		return;
 	mw->state->layoutdb.SetString("LayoutType","Single");
 	
 	if(mw->layout)
@@ -44,6 +46,8 @@ static void layoutmenu_single(gpointer *ob)
 static void layoutmenu_nup(gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	if(strcmp(mw->state->layoutdb.FindString("LayoutType"),"NUp")==0)
+		return;
 	mw->state->layoutdb.SetString("LayoutType","NUp");
 
 	if(mw->layout)
@@ -56,6 +60,8 @@ static void layoutmenu_nup(gpointer *ob)
 static void layoutmenu_carousel(gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	if(strcmp(mw->state->layoutdb.FindString("LayoutType"),"Carousel")==0)
+		return;
 	mw->state->layoutdb.SetString("LayoutType","Carousel");
 
 	if(mw->layout)
@@ -68,6 +74,8 @@ static void layoutmenu_carousel(gpointer *ob)
 static void layoutmenu_poster(gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	if(strcmp(mw->state->layoutdb.FindString("LayoutType"),"Poster")==0)
+		return;
 	mw->state->layoutdb.SetString("LayoutType","Poster");
 
 	if(mw->layout)

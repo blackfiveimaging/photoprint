@@ -405,12 +405,6 @@ const char *Layout_NUp::GetType()
 	return("NUp");
 }
 
-void Layout_NUp::UpdatePageSize()
-{
-	int t=topmargin,l=leftmargin,r=rightmargin,b=bottommargin;
-	SetPageExtent(state.printer);
-	SetMargins(l,r,t,b);
-}
 
 void (*Layout_NUp::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 {

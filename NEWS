@@ -37,6 +37,8 @@ PhotoPrint-0.4.0
 
   * Fixed bug in .desktop file - now asks for Filenames (%F) not URIs (%U)
 
+  * Solved problem with margins not being saved in Single, Poster and Carousel modes
+
 
 PhotoPrint-0.3.9
 

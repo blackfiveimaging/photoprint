@@ -296,12 +296,6 @@ const char *Layout_Carousel::GetType()
 }
 
 
-void Layout_Carousel::UpdatePageSize()
-{
-	SetPageExtent(state.printer);
-}
-
-
 void (*Layout_Carousel::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 {
 	return(pp_layout_carousel_set_unit);

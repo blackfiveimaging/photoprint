@@ -399,12 +399,6 @@ void Layout_Poster::SetCurrentPage(int page)
 }
 
 
-void Layout_Poster::UpdatePageSize()
-{
-	SetPageExtent(state.printer);
-}
-
-
 void (*Layout_Poster::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 {
 	return(pp_layout_poster_set_unit);

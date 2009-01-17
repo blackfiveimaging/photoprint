@@ -181,9 +181,16 @@ void Layout::TransferImages(Layout *oldlayout,Progress *p)
 }
 
 
+void Layout::UpdatePageSize()
+{
+	int t=topmargin,l=leftmargin,r=rightmargin,b=bottommargin;
+	SetPageExtent(state.printer);
+	SetMargins(l,r,t,b);
+}
+
+
 void Layout::DBToLayout(LayoutDB &db)
 {
-//	state.printer.SetDriver(state.printoutput.FindString("Driver"));
 }
 
 
