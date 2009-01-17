@@ -21,11 +21,13 @@ URGENT:
 | the correct Recalc function!)
 | Need to check the new cellsize after setting it - if it's less than we asked for, we need to set the widget to the new size.
 
-Fix path of NetPBM header
+Fix path of NetPBM header (Which distros does this afflict?  Not needed for Ubuntu 8.10)
 
 | Fix left/top margin for Single layout...
 
 Fix margins in Carousel mode.
+Margins are not saved in Single or Poster layout
+They are saved in Carousel mode, but ignored!
 
 Link X and Y scale in Manual Mode.
 
@@ -34,6 +36,10 @@ Sort out form-length issue in roll-feed mode.
 | Look into the consistency of the opaque/transparent scale of alpha channels
 
 Add support for printing with black ink only.
+
+Support landscape view of the page.
+
+Allow printing of "cutting lines"
 
 Need to store collapsed/expanded states for each UI expander in the preset file.
 
