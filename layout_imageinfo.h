@@ -58,9 +58,16 @@ class Layout_ImageInfo : public PPEffectHeader
 
 	virtual GdkPixbuf *GetThumbnail();
 	virtual void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);
-	virtual void FlushThumbnail();
-	virtual void FlushHRPreview();
-	virtual void CancelRenderThread();
+
+	virtual void FlushThumbnail();	// Top-level flush routine - flushes low and high-res previews, and cancels render thread
+	virtual void FlushHRPreview();	// Flushes just the high-res preview, cancels thread
+	virtual void CancelRenderThread();	// Cancels rendering thread.
+
+										// WARNING - for efficiency, these routines may return before a rendering thread
+										// has actually finished running.  Thus, you should call ObtainMutex() on this
+										// before freeing anything on which the rendering thread may depend - such as the
+										// transform factory.
+
 	virtual void SetHRPreview(GdkPixbuf *preview); // Called by idle handler once render thread has completed.
 
 	int page;

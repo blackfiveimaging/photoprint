@@ -852,6 +852,16 @@ void Layout_ImageInfo::CancelRenderThread()
 	if(hrrenderthread)
 	{
 		hrrenderthread->Stop();
+
+		// Obtain the mutex - this won't succeed until the thread has finished whatever it's doing...
+		// We defer this so that, for instance, all threads can be cancelled before we start waiting...
+//		while(!PPEffectHeader::AttemptMutex())
+//		{
+//			cerr << "Can't get exclusive lock - performing main loop iteration" << endl;
+//			gtk_main_iteration();
+//		}
+//		ReleaseMutex();
+
 //		while(!hrrenderthread->TestFinished())
 //			gtk_main_iteration();
 //		delete hrrenderthread;

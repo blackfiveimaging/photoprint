@@ -535,6 +535,25 @@ void Layout::SetBackground(const char *filename)
 
 void Layout::FlushThumbnails()
 {
+	Layout_ImageInfo *ii=FirstImage();
+	while(ii)
+	{
+		ii->FlushThumbnail();
+		ii=NextImage();	
+	}
+
+	// We obtain the mutices to ensure the rendering threads have completed.
+	ii=FirstImage();
+	while(ii)
+	{
+		ii->ObtainMutex();
+		ii=NextImage();
+	}
+
+	// Can't delete this until after the thumbnails have been flushed,
+	// in case any rendering threads are still using a transform owned
+	// by the factory.
+
 	delete factory;
 	factory=new CMTransformFactory(state.profilemanager);
 
@@ -545,11 +564,12 @@ void Layout::FlushThumbnails()
 		g_object_unref(G_OBJECT(gc));
 	gc=NULL;
 
-	Layout_ImageInfo *ii=FirstImage();
+	// And now we release the mutices.
+	ii=FirstImage();
 	while(ii)
 	{
-		ii->FlushThumbnail();
-		ii=NextImage();	
+		ii->ReleaseMutex();
+		ii=NextImage();
 	}
 }
 

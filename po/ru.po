@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-01-07 21:48+0000\n"
+"POT-Creation-Date: 2009-02-01 13:22+0000\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -251,7 +251,7 @@ msgstr "В_ыйти"
 msgid "Exit PhotoPrint"
 msgstr "Выйти из программы"
 
-#: menucheck.cpp:60 pp_menu_layout.cpp:122
+#: menucheck.cpp:60 pp_menu_layout.cpp:130
 msgid "_Layout"
 msgstr "_Макет"
 
@@ -267,19 +267,19 @@ msgstr "П_араметры"
 msgid "_Help"
 msgstr "_Справка"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "_Clear Layout"
 msgstr "О_чистить макет"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "Remove all images from the layout"
 msgstr "Убрать все изображения из макета"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set _Background"
 msgstr "У_казать фоновый рисунок..."
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set a background image for the current layout"
 msgstr "Выбрать фоновый рисунок для текущего макета"
 
@@ -375,35 +375,35 @@ msgstr "_Без полей"
 msgid "Crop the selected images to fill the available space"
 msgstr "Обрезать выбранные изображения для заполнения доступной области"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "_Auto Layout"
 msgstr "_Автомакет"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "Automatically place images in a grid"
 msgstr "Автоматически разместить изображения в сетке"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "_Poster"
 msgstr "_Плакат"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "Print an image in multiple pages, to be assembled into a poster"
 msgstr "Напечатать изображение на нескольких страницах, собираемых в плакат"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "_Carousel"
 msgstr "_Карусель"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "Fade images into a circular 'carousel' - ideal for CD labels."
 msgstr "Поместить изображения на круговую карусель — идеально для обложек CD"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "_Manual Size"
 msgstr "_Другой размер"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Напечатать снимки на одиночном листе с указанным масштабом"
 
@@ -867,7 +867,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Очередь печати не найдена"
 
-#: gp_cppsupport/gprinter.cpp:335
+#: gp_cppsupport/gprinter.cpp:338
 msgid "Unable to generate print data"
 msgstr "Невозможно создать печатаемые данные"
 

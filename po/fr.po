@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-01-07 21:48+0000\n"
+"POT-Creation-Date: 2009-02-01 13:22+0000\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -246,7 +246,7 @@ msgstr "_Quitter"
 msgid "Exit PhotoPrint"
 msgstr ""
 
-#: menucheck.cpp:60 pp_menu_layout.cpp:122
+#: menucheck.cpp:60 pp_menu_layout.cpp:130
 msgid "_Layout"
 msgstr "_Mise en page"
 
@@ -262,19 +262,19 @@ msgstr "_Options"
 msgid "_Help"
 msgstr "_Aide"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "_Clear Layout"
 msgstr "_Effacer la mise en page"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "Remove all images from the layout"
 msgstr ""
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set _Background"
 msgstr "Définir un _arrière-plan"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set a background image for the current layout"
 msgstr ""
 
@@ -370,35 +370,35 @@ msgstr "Permettre le re_cadrage"
 msgid "Crop the selected images to fill the available space"
 msgstr ""
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "_Auto Layout"
 msgstr "Mise en page _automatique"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "Automatically place images in a grid"
 msgstr ""
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "_Poster"
 msgstr "_Poster"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "Print an image in multiple pages, to be assembled into a poster"
 msgstr ""
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "_Carousel"
 msgstr "Caroussel"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "Fade images into a circular 'carousel' - ideal for CD labels."
 msgstr ""
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "_Manual Size"
 msgstr "_Taille manuelle"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "Print images on a single sheet, at a specified scale."
 msgstr ""
 
@@ -870,7 +870,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configuration de l'impression"
 
-#: gp_cppsupport/gprinter.cpp:335
+#: gp_cppsupport/gprinter.cpp:338
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Génération des données d'impression..."

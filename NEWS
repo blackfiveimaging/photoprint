@@ -39,6 +39,8 @@ PhotoPrint-0.4.0
 
   * Solved problem with margins not being saved in Single, Poster and Carousel modes
 
+  * Fixed a threading bug which caused stale CMSTransforms to be used when changing proof mode
+
 
 PhotoPrint-0.3.9
 

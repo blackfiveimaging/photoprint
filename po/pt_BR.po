@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-01-07 21:48+0000\n"
+"POT-Creation-Date: 2009-02-01 13:22+0000\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -254,7 +254,7 @@ msgstr "Sai_r"
 msgid "Exit PhotoPrint"
 msgstr "Sai do PhotoPrint"
 
-#: menucheck.cpp:60 pp_menu_layout.cpp:122
+#: menucheck.cpp:60 pp_menu_layout.cpp:130
 msgid "_Layout"
 msgstr "_Layout"
 
@@ -270,19 +270,19 @@ msgstr "_Opções"
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "_Clear Layout"
 msgstr "L_impar Layout"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "Remove all images from the layout"
 msgstr "Remove todas as imagens do layout"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set _Background"
 msgstr "Selecionar _Background"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set a background image for the current layout"
 msgstr "Define um background para o layout atual"
 
@@ -378,35 +378,35 @@ msgstr "Permitir _Corte"
 msgid "Crop the selected images to fill the available space"
 msgstr "Corta as imagens selecionadas para caber no espaço disponível"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "_Auto Layout"
 msgstr "Layout _Automático"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "Automatically place images in a grid"
 msgstr "Posiciona as imagens em uma grade automaticamente"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "_Poster"
 msgstr "_Cartaz"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "Print an image in multiple pages, to be assembled into a poster"
 msgstr "Imprime uma imagem em várias páginas, para serem montadas em um cartaz"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "_Carousel"
 msgstr "_Roda"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "Fade images into a circular 'carousel' - ideal for CD labels."
 msgstr "Vai apagando a imagem em um círculo - ideal para rótulos de CDs."
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "_Manual Size"
 msgstr "Tamanho _Manual"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Imprime imagens em uma única página, com uma dimensão especificada"
 
@@ -881,7 +881,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configuração da Impressora "
 
-#: gp_cppsupport/gprinter.cpp:335
+#: gp_cppsupport/gprinter.cpp:338
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Gerando dados de impressão..."

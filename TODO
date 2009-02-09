@@ -1,6 +1,12 @@
 URGENT:
 ~~~~~~~
 
+| FIX segfault when swapping between print preview modes.  Stale CMSTransform
+| in high-res preview thread?
+
+On some systems the -oraw flag is being added to the print command even when
+using the Postscript driver.
+
 | Fix image handling regressions - due to the DeviceN work?
 | Alpha-related.  Make "sense" of alpha channel consistent throughout.
 

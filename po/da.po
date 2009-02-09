@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-01-07 21:48+0000\n"
+"POT-Creation-Date: 2009-02-01 13:22+0000\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -248,7 +248,7 @@ msgstr "_Afslut"
 msgid "Exit PhotoPrint"
 msgstr "Afslut PhotoPrint"
 
-#: menucheck.cpp:60 pp_menu_layout.cpp:122
+#: menucheck.cpp:60 pp_menu_layout.cpp:130
 msgid "_Layout"
 msgstr "_Layout"
 
@@ -264,19 +264,19 @@ msgstr "_Indstillinger"
 msgid "_Help"
 msgstr "_Hjælp"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "_Clear Layout"
 msgstr "_Ryd layout"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:124
+#: menucheck.cpp:65 pp_menu_layout.cpp:132
 msgid "Remove all images from the layout"
 msgstr "Fjer alle billeder fra layoutet"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set _Background"
 msgstr "Vælg _baggrund"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:125
+#: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set a background image for the current layout"
 msgstr "Vælg et baggrundsbillede til det nuværende layout"
 
@@ -373,35 +373,35 @@ msgstr "Tillad _beskæring"
 msgid "Crop the selected images to fill the available space"
 msgstr "Beskær det valgte billede, så det udfylder det tilgængelige område"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "_Auto Layout"
 msgstr "_Auto layout"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:130
+#: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "Automatically place images in a grid"
 msgstr "Automatisk placere billeder i et gitter"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "_Poster"
 msgstr "_Plakat"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:131
+#: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "Print an image in multiple pages, to be assembled into a poster"
 msgstr "Udskriv et billede på flere sider, så de kan samles til en plakat"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "_Carousel"
 msgstr "_Karrusel"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:132
+#: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "Fade images into a circular 'carousel' - ideal for CD labels."
 msgstr "Udton billeder i en cirkulær 'karrusel' - ideelt til cd-labels."
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "_Manual Size"
 msgstr "_Manuel størrelse"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:133
+#: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Udskriv billeder på et enkelt ark, i angivet skala."
 
@@ -865,7 +865,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Indstil printer"
 
-#: gp_cppsupport/gprinter.cpp:335
+#: gp_cppsupport/gprinter.cpp:338
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Danner printerdata..."
