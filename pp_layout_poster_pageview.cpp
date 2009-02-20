@@ -57,7 +57,8 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 				     GtkSelectionData *selection_data, guint info,
 				     guint time, gpointer data)
 {
-	gchar *urilist=g_strdup((const gchar *)selection_data->data);
+	gchar *uris=g_strdup((const gchar *)selection_data->data);
+	gchar *urilist=uris;
 	int lastpage=0;
 	pp_Layout_Poster_PageView *pv=PP_LAYOUT_POSTER_PAGEVIEW(widget);
 	ProgressBar progress("Adding images...",false);
@@ -65,14 +66,14 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 	{
 		if(strncmp(urilist,"file:",5))
 		{
-			g_print("Warning: only local files (file://) are currently supported\n");
 			while(*urilist && *urilist!='\n' && *urilist!='\r')
 				++urilist;
 			while(*urilist=='\n' || *urilist=='\r')
 				*urilist++;
 		}
 		else
-		{
+		{	
+			cerr << "URIList: " << urilist << endl;
 			gchar *uri=urilist;
 			while(*urilist && *urilist!='\n' && *urilist!='\r')
 				++urilist;
@@ -80,6 +81,9 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 			{
 				while(*urilist=='\n' || *urilist=='\r')
 					*urilist++=0;
+			}
+			if(*uri && *uri!='\n' && *uri!='\r')
+			{
 				gchar *filename=g_filename_from_uri(uri,NULL,NULL);
 				lastpage=pv->layout->AddImage(filename);
 				pp_layout_poster_pageview_refresh(pv);
@@ -88,9 +92,9 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 			}
 		}
 	}
-	pv->layout->SetCurrentPage(lastpage);
 	pp_layout_poster_pageview_set_page(pv,lastpage);
 	g_signal_emit_by_name (GTK_OBJECT (pv), "changed");
+	g_free(uris);
 }
 
 

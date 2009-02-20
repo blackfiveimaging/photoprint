@@ -41,6 +41,8 @@ PhotoPrint-0.4.0
 
   * Fixed a threading bug which caused stale CMSTransforms to be used when changing proof mode
 
+  * Fixed drag-and-drop problem with KDE4.
+
 
 PhotoPrint-0.3.9
 
