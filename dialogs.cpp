@@ -184,7 +184,7 @@ void About_Dialog(GtkWindow *parent)
 	
 	GtkWidget *label=gtk_label_new("PhotoPrint "
 	PACKAGE_VERSION
-	" - copyright (c) 2004-2008\n"
+	" - copyright (c) 2004-2009\n"
 	"by Alastair M. Robinson (amr@blackfiveservices.co.uk)\nDistributed under the terms\nof the GNU General Public Licence.\n"
 	"See the file 'COPYING' for more details.");
 	gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_CENTER);

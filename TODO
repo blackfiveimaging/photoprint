@@ -7,6 +7,13 @@ URGENT:
 On some systems the -oraw flag is being added to the print command even when
 using the Postscript driver.
 
+Have a segfault problem in certain circumstances - something to do with multiple pages,
+deleting images and the rendering threads?
+
+Can anything to be done to make rotation operations cancellable?  Add some kind of "TestCancel"
+callback function to the imagesource, perhaps?  It need only be used for lengthy operations
+such as rotation.
+
 | Fix image handling regressions - due to the DeviceN work?
 | Alpha-related.  Make "sense" of alpha channel consistent throughout.
 
@@ -34,6 +41,12 @@ Fix path of NetPBM header (Which distros does this afflict?  Not needed for Ubun
 Fix margins in Carousel mode.
 Margins are not saved in Single or Poster layout
 They are saved in Carousel mode, but ignored!
+
+Fix margins in export mode for n-up layout - currently right and bottom margins are ignored.
+
+If a background image is set, maybe save it in the preset file?
+
+Allow storage of settings from JPEG and TIFF export dialogs in the preset file.
 
 Link X and Y scale in Manual Mode.
 
