@@ -10,9 +10,9 @@ using the Postscript driver.
 Have a segfault problem in certain circumstances - something to do with multiple pages,
 deleting images and the rendering threads?
 
-Can anything to be done to make rotation operations cancellable?  Add some kind of "TestCancel"
-callback function to the imagesource, perhaps?  It need only be used for lengthy operations
-such as rotation.
+| Can anything to be done to make rotation operations cancellable?  Add some kind of "TestCancel"
+| callback function to the imagesource, perhaps?  It need only be used for lengthy operations
+| such as rotation.
 
 | Fix image handling regressions - due to the DeviceN work?
 | Alpha-related.  Make "sense" of alpha channel consistent throughout.

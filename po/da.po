@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-02-01 13:22+0000\n"
+"POT-Creation-Date: 2009-03-14 12:37+0000\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -874,41 +874,41 @@ msgstr "Danner printerdata..."
 msgid "Algorithm:"
 msgstr "Algoritme:"
 
-#: pp_sigcontrol.cpp:179
+#: pp_sigcontrol.cpp:180
 msgid "Columns:"
 msgstr "Kolonne:"
 
-#: pp_sigcontrol.cpp:193
+#: pp_sigcontrol.cpp:194
 msgid "Rows:"
 msgstr "Række:"
 
-#: pp_sigcontrol.cpp:207 pp_sigcontrol.cpp:221
+#: pp_sigcontrol.cpp:208 pp_sigcontrol.cpp:222
 msgid "Gap:"
 msgstr "Mellemrum:"
 
-#: pp_sigcontrol.cpp:246
+#: pp_sigcontrol.cpp:247
 msgid "Width:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:260
+#: pp_sigcontrol.cpp:261
 #, fuzzy
 msgid "Height:"
 msgstr "Højre:"
 
-#: pp_sigcontrol.cpp:272
+#: pp_sigcontrol.cpp:273
 #, fuzzy
 msgid "From selected image"
 msgstr "Fravælg alle billeder"
 
-#: pp_sigcontrol.cpp:308
+#: pp_sigcontrol.cpp:309
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:309
+#: pp_sigcontrol.cpp:310
 msgid "Specify image dimensions"
 msgstr ""
 
-#: pp_sigcontrol.cpp:331
+#: pp_sigcontrol.cpp:332
 msgid "Layout"
 msgstr "Layout"
 
@@ -1005,19 +1005,19 @@ msgstr "Andet..."
 msgid "Please choose a valid ICC profile"
 msgstr "Vælg en gyldig ICC-profil"
 
-#: stpui_widgets/dimension.c:156
+#: stpui_widgets/dimension.c:161
 msgid "points"
 msgstr "punkter"
 
-#: stpui_widgets/dimension.c:160
+#: stpui_widgets/dimension.c:165
 msgid "inches"
 msgstr "tommer"
 
-#: stpui_widgets/dimension.c:164
+#: stpui_widgets/dimension.c:169
 msgid "millimeters"
 msgstr "millimetre"
 
-#: stpui_widgets/dimension.c:168
+#: stpui_widgets/dimension.c:173
 msgid "centimeters"
 msgstr "centimetre"
 

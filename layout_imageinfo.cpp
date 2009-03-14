@@ -147,6 +147,11 @@ class hr_payload
 		if(thread)
 			delete thread;
 	}
+	static bool testbreakfunc(void *ud)
+	{
+		Thread *t=(Thread *)ud;
+		return(t->TestBreak());
+	}
 	static int ThreadFunc(Thread *t,void *ud)
 	{
 		hr_payload *p=(hr_payload *)ud;
@@ -219,7 +224,11 @@ class hr_payload
 			RectFit *fit=r.Fit(target,p->ii->allowcropping,p->ii->rotation,p->ii->crop_hpan,p->ii->crop_vpan);
 
 			if(fit->rotation)
-				is=new ImageSource_Rotate(is,fit->rotation);
+			{
+				ImageSource_Interruptible *ii=new ImageSource_Rotate(is,fit->rotation);
+				ii->SetTestBreak(testbreakfunc,t);
+				is=ii;
+			}
 			is=ISScaleImageBySize(is,fit->width,fit->height,IS_SCALING_AUTOMATIC);
 			delete fit;
 			// We create new Fit in the idle-function because the hpan/vpan may have changed.

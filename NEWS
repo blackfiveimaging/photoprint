@@ -43,6 +43,9 @@ PhotoPrint-0.4.0
 
   * Fixed drag-and-drop problem with KDE4.
 
+  * Added mechanism for interruption to lengthy ImageSource operations.  Added support for this
+    to rotation routines.  Improves the UI responsiveness in high-res-preview mode.
+
 
 PhotoPrint-0.3.9
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-02-01 13:22+0000\n"
+"POT-Creation-Date: 2009-03-14 12:37+0000\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -889,40 +889,40 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
-#: pp_sigcontrol.cpp:179
+#: pp_sigcontrol.cpp:180
 msgid "Columns:"
 msgstr "Columnas:"
 
-#: pp_sigcontrol.cpp:193
+#: pp_sigcontrol.cpp:194
 msgid "Rows:"
 msgstr "Filas:"
 
-#: pp_sigcontrol.cpp:207 pp_sigcontrol.cpp:221
+#: pp_sigcontrol.cpp:208 pp_sigcontrol.cpp:222
 msgid "Gap:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:246
+#: pp_sigcontrol.cpp:247
 msgid "Width:"
 msgstr "Ancho:"
 
-#: pp_sigcontrol.cpp:260
+#: pp_sigcontrol.cpp:261
 msgid "Height:"
 msgstr "Alto:"
 
-#: pp_sigcontrol.cpp:272
+#: pp_sigcontrol.cpp:273
 #, fuzzy
 msgid "From selected image"
 msgstr "Deselecionar todas las imágenes"
 
-#: pp_sigcontrol.cpp:308
+#: pp_sigcontrol.cpp:309
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:309
+#: pp_sigcontrol.cpp:310
 msgid "Specify image dimensions"
 msgstr ""
 
-#: pp_sigcontrol.cpp:331
+#: pp_sigcontrol.cpp:332
 msgid "Layout"
 msgstr "Disposición"
 
@@ -1009,22 +1009,22 @@ msgstr "Otros..."
 msgid "Please choose a valid ICC profile"
 msgstr ""
 
-#: stpui_widgets/dimension.c:156
+#: stpui_widgets/dimension.c:161
 #, fuzzy
 msgid "points"
 msgstr "Puntos"
 
-#: stpui_widgets/dimension.c:160
+#: stpui_widgets/dimension.c:165
 #, fuzzy
 msgid "inches"
 msgstr "Pulgadas"
 
-#: stpui_widgets/dimension.c:164
+#: stpui_widgets/dimension.c:169
 #, fuzzy
 msgid "millimeters"
 msgstr "Millímetros"
 
-#: stpui_widgets/dimension.c:168
+#: stpui_widgets/dimension.c:173
 #, fuzzy
 msgid "centimeters"
 msgstr "Centímetros"
