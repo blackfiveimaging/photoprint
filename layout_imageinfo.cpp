@@ -159,7 +159,28 @@ class hr_payload
 		p->thread=t;
 
 		cerr << "Subthread - about to obtain mutex" << endl;
-		p->ii->ObtainMutexShared();
+//		p->ii->ObtainMutexShared();
+		// To avoid a deadlock situation if, say, the Apply Profile dialog is open and GTK decides that
+		// now is a good time to redraw the window, we only attempt the mutex, and bail out if it fails.
+		int count=10;
+		while(!p->ii->AttemptMutexShared())
+		{
+			if(count==0)
+			{
+				cerr << "Giving up attempt on mutex - bailing out" << endl;
+				// The calling thread is waiting for us to acknowledge startup, so we have to send
+				// the Sync before bailing out.
+				t->SendSync();
+				g_timeout_add(1,hr_payload::CleanupFunc,p);
+				return(0);
+			}
+#ifdef WIN32
+			Sleep(50);
+#else
+			usleep(50000);
+#endif
+			--count;
+		}
 
 		t->SendSync();
 
@@ -277,13 +298,25 @@ class hr_payload
 		p->ii->ReleaseMutex();
 		return(0);
 	}
+
+	// CleanupFunc - runs on the main thread's context.
 	static gboolean CleanupFunc(gpointer ud)
 	{
 		hr_payload *p=(hr_payload *)ud;
 		p->thread->SendSync();
+
+		// We clear the renderthread pointer in the ImageInfo here before deleting it
+		// to avoid the main thread trying to cancel it after deletion.
+		// This should be safe since this function runs on the main thread's context.
+		if(p->ii->hrrenderthread==p->thread)
+			p->ii->hrrenderthread=NULL;
+
 		delete p;
 		return(FALSE);
 	}
+
+	// IdleFunc - runs on the main thread's context,
+	// thus, can safely render into the UI.
 	static gboolean IdleFunc(gpointer ud)
 	{
 		// Once control reaches here the subthread should have
