@@ -4,13 +4,13 @@ URGENT:
 | FIX segfault when swapping between print preview modes.  Stale CMSTransform
 | in high-res preview thread?
 
-DEADLOCK with high-res previews and Set Colour Profile dialog.
+| DEADLOCK with high-res previews and Set Colour Profile dialog.
 
 On some systems the -oraw flag is being added to the print command even when
 using the Postscript driver.
 
 Have a segfault problem in certain circumstances - something to do with multiple pages,
-deleting images and the rendering threads?
+deleting images and the rendering threads?  Possibly fixed by the deadlock fix above.
 
 | Can anything to be done to make rotation operations cancellable?  Add some kind of "TestCancel"
 | callback function to the imagesource, perhaps?  It need only be used for lengthy operations
@@ -19,8 +19,8 @@ deleting images and the rendering threads?
 | Fix image handling regressions - due to the DeviceN work?
 | Alpha-related.  Make "sense" of alpha channel consistent throughout.
 
-|Need to make Set Image Profile... grey out if there are no selected images.
-|Next best thing - a warning dialog
+| Need to make Set Image Profile... grey out if there are no selected images.
+| Next best thing - a warning dialog
 
 | Add a way of specifying an absolute size in n-up mode.
 | Use a combobox to switch between modes
