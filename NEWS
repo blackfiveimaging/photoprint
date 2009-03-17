@@ -1,3 +1,8 @@
+PhotoPrint-0.4.1
+
+  * Added Czech localization - thanks to Petr Kletecka
+
+
 PhotoPrint-0.4.0
 
   * Fixed a bug which caused the Custom Command and File print queues to be
