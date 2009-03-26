@@ -62,8 +62,14 @@ ConfigTemplate PhotoPrint_State::Template[]=
 	ConfigTemplate("MonitorProfileActive",int(0)),
 	ConfigTemplate("RenderingIntent",int(0)),
 	// End of obsolete items...
+#ifdef WIN32
+	// FIXME - where should these be installed under Win32?  $HOME is fine for a single user...
+	ConfigTemplate("BorderPath","$HOME/.photoprint/borders"),
+	ConfigTemplate("BackgroundPath","$HOME/.photoprint/backgrounds"),
+#else
 	ConfigTemplate("BorderPath","/usr/share/photoprint/borders" SEARCHPATH_DELIMITER_S "/usr/local/share/photoprint/borders" SEARCHPATH_DELIMITER_S "$HOME/.photoprint/borders"),
 	ConfigTemplate("BackgroundPath","/usr/share/photoprint/backgrounds" SEARCHPATH_DELIMITER_S "/usr/local/share/photoprint/backgrounds" SEARCHPATH_DELIMITER_S "$HOME/.photoprint/backgrounds"),
+#endif
 	ConfigTemplate()
 };
 
@@ -74,6 +80,8 @@ class PPPathDBHandler : public ConfigDBHandler
 	PPPathDBHandler(ConfigFile *file,const char *section,ConfigDB *db,PhotoPrint_State &state)
 		: ConfigDBHandler(file,section,db), db(db), state(state)
 	{
+		state.bordersearchpath.AddPath(db->FindString("BorderPath"));
+		state.backgroundsearchpath.AddPath(db->FindString("BackgroundPath"));
 	}
 	virtual ~PPPathDBHandler()
 	{
@@ -105,7 +113,7 @@ class PPPathDBHandler : public ConfigDBHandler
 
 PhotoPrint_State::PhotoPrint_State(bool batchmode)
 	: ConfigFile(), ConfigDB(Template), layout(NULL), filename(NULL), layoutdb(this,"[Layout]"), printoutput(this,"[Output]"),
-	printer(printoutput,this,"[Print]"), profilemanager(this,"[ColourManagement]"), bordersearchpath(), batchmode(batchmode)
+	printer(printoutput,this,"[Print]"), profilemanager(this,"[ColourManagement]"), bordersearchpath(), backgroundsearchpath(), batchmode(batchmode)
 {
 	cerr << "Creating PathDBHandler..." << endl;
 	new PPPathDBHandler(this,"[General]",this,*this);

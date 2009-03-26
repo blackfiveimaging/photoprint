@@ -1,6 +1,13 @@
 URGENT:
 ~~~~~~~
 
+Man page is not being installed at make install time.
+
+FIX behaviour if a bad file is dropped into PhotoPrint - the currently visible image vanishes and becomes
+unselectable until you flip to another page or adjust the layout.
+
+| FIX segfault if a file with .jpg filename isn't in fact a JPEG.
+
 | FIX segfault when swapping between print preview modes.  Stale CMSTransform
 | in high-res preview thread?
 

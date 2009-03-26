@@ -60,6 +60,8 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int pag
 		this->filename=strdup(filename);
 
 	ImageSource *is=ISLoadImage(this->filename);
+	if(!is)
+		throw "Can't open image!";
 	width=is->width;
 	height=is->height;
 	xres=is->xres;
