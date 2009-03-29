@@ -94,6 +94,6 @@ AC_CONFIG_FILES([Makefile po/Makefile.in
                  stpui_widgets/Makefile
                  stp_support/Makefile
                  gp_cppsupport/Makefile
-                 splashscreen/Makefile])
-#                 colourcorrect/Makefile])
+                 splashscreen/Makefile
+                 borders/Makefile])
 AC_OUTPUT

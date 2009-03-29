@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-14 12:37+0000\n"
+"POT-Creation-Date: 2009-03-28 19:26+0000\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -1049,7 +1049,7 @@ msgstr "Quitar"
 msgid "Image"
 msgstr "Imágen"
 
-#: support/progressbar.cpp:50
+#: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr ""
 

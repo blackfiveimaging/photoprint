@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-14 12:37+0000\n"
+"POT-Creation-Date: 2009-03-28 19:26+0000\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -1061,7 +1061,7 @@ msgstr "Remover"
 msgid "Image"
 msgstr "Imagem"
 
-#: support/progressbar.cpp:50
+#: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr ""
 

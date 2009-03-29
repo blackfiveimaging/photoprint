@@ -1,7 +1,8 @@
 # Makefile.am
 # RL 28/11/04
 
-SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail splashscreen profilemanager effects
+SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail \
+	splashscreen profilemanager effects borders
 
 localedir=$(datadir)/locale
 

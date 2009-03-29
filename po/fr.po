@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-14 12:37+0000\n"
+"POT-Creation-Date: 2009-03-28 19:26+0000\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -1052,7 +1052,7 @@ msgstr "Supprimer"
 msgid "Image"
 msgstr "Image"
 
-#: support/progressbar.cpp:50
+#: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr ""
 

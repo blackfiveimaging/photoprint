@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-14 12:37+0000\n"
+"POT-Creation-Date: 2009-03-28 19:26+0000\n"
 "PO-Revision-Date: 2009-03-14 12:37+0000\n"
 "Last-Translator: Petr Kletecka <kletecka@email.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1038,6 +1038,6 @@ msgstr "Odstranit"
 msgid "Image"
 msgstr "Obrázek"
 
-#: support/progressbar.cpp:50
+#: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Probíhá..."
