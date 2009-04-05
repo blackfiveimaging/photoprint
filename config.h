@@ -63,6 +63,9 @@
 /* Define to 1 if you have the `mkdir' function. */
 #define HAVE_MKDIR 1
 
+/* Define to 1 if you have the <netpbm/pam.h> header file. */
+#define HAVE_NETPBM_PAM_H 1
+
 /* Define to 1 if `stat' has the bug that it succeeds when given the
    zero-length file name argument. */
 /* #undef HAVE_STAT_EMPTY_STRING_BUG */
