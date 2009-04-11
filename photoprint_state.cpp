@@ -159,10 +159,12 @@ void PhotoPrint_State::ParseConfigFile()
 	{
 		cerr << "Parsing of config file failed" << endl;
 		cerr << "Default queue is: " << printoutput.FindString("Queue") << endl;
-		if(printoutput.GetPPD())
-			cerr << "Default PPD is: " << printoutput.GetPPD() << endl;
-		cerr << "Setting default driver" << endl;
-		printer.SetDriver("ps2");
+//	Shoudn't need to do this any more, since the GPrinterSettings class now ensures a sane
+//  default is set.
+//		if(printoutput.GetPPD())
+//			cerr << "Default PPD is: " << printoutput.GetPPD() << endl;
+//		cerr << "Setting default driver" << endl;
+//		printer.SetDriver("ps2");
 	}
 
 	// Code to update older config files goes here...

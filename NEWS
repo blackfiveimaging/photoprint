@@ -5,6 +5,10 @@ PhotoPrint-0.4.1
   * Fixed bug whereby the border and background paths are ignored if there's no
 	preset file.
 
+  * Fixed default driver bugs for when there's no preset.
+
+  * Borders pack is now part of the main PhotoPrint archive
+
 
 PhotoPrint-0.4.0
 
