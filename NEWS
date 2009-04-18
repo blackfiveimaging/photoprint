@@ -1,9 +1,13 @@
 PhotoPrint-0.4.1
 
-  * Added Czech localization - thanks to Petr Kletecka
+  * Added cs_CZ localization - thanks to Petr Kletecka
 
   * Fixed bug whereby the border and background paths are ignored if there's no
 	preset file.
+
+  * Added cs localization - thanks to Marek Černocký
+
+  * Added po localization - thanks to Artur Szymanski
 
 
 PhotoPrint-0.4.0
