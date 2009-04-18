@@ -36,6 +36,10 @@ AC_CHECK_LIB(m,pow, LIBM_LIBS="-lm")
 AC_SUBST([LIBM_LIBS])
 AC_CHECK_LIB([pnm], [pnm_readpaminit],,,[-lm])
 AC_CHECK_LIB([netpbm], [pnm_readpaminit],,,[-lm])
+
+# Some distributions have the pam.h header in a netpbm subfolder
+AC_CHECK_HEADERS([netpbm/pam.h])
+
 AC_CHECK_LIB([tiff], [TIFFOpen], [TIFF_LIBS="-ltiff"],
 	[unset ac_cv_lib_tiff_TIFFOpen
 		AC_CHECK_LIB([tiff], [TIFFOpen],[TIFF_LIBS="-ltiff"],

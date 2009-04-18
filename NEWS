@@ -5,9 +5,17 @@ PhotoPrint-0.4.1
   * Fixed bug whereby the border and background paths are ignored if there's no
 	preset file.
 
+<<<<<<< HEAD:NEWS
   * Added cs localization - thanks to Marek Černocký
+=======
+  * Fixed default driver bugs for when there's no preset.
+>>>>>>> 9001195a7a94af882441504b297f508543f32a5a:NEWS
 
+<<<<<<< HEAD:NEWS
   * Added po localization - thanks to Artur Szymanski
+=======
+  * Borders pack is now part of the main PhotoPrint archive
+>>>>>>> 9001195a7a94af882441504b297f508543f32a5a:NEWS
 
 
 PhotoPrint-0.4.0

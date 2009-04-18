@@ -203,7 +203,7 @@ CPPFLAGS =
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -pg
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -241,7 +241,7 @@ INTL_MACOSX_LIBS =
 JPEG_LIBS = 
 LCMS_CFLAGS =  
 LCMS_LIBS = -llcms  
-LDFLAGS = -pg
+LDFLAGS = 
 LIBICONV = -liconv
 LIBINTL = 
 LIBM_LIBS = -lm
