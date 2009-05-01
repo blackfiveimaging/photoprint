@@ -1,6 +1,8 @@
 URGENT:
 ~~~~~~~
 
+Job cancellation isn't working - what's been spooled so far is still being printed.
+
 Man page is not being installed at make install time.
 
 FIX behaviour if a bad file is dropped into PhotoPrint - the currently visible image vanishes and becomes

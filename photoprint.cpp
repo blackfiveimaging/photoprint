@@ -96,9 +96,6 @@ int main(int argc,char **argv)
 	gboolean have_gtk=false;
 	char *presetname=NULL;
 
-	stp_init();
-	cerr << "Initialized Gutenprint" << endl;
-
 	bool batchmode=ParseOptions(argc,argv,&presetname);
 	if(!batchmode)
 		have_gtk=gtk_init_check (&argc, &argv);
@@ -108,7 +105,6 @@ int main(int argc,char **argv)
 	else
 		setlocale(LC_ALL,"");
 
-	cerr << "Setting up gettext... " << PACKAGE << ", " << LOCALEDIR << endl;
 	bindtextdomain(PACKAGE,LOCALEDIR);
 	bind_textdomain_codeset(PACKAGE, "UTF-8");
 	textdomain(PACKAGE);
@@ -124,11 +120,8 @@ int main(int argc,char **argv)
 
 		PhotoPrint_State state(batchmode);
 
-		cerr << "State created..." << endl;
-
 		if(presetname)
 			state.SetFilename(presetname);
-		cerr << "Set initial filename" << endl;
 
 		if(have_gtk)
 			splash->SetMessage(_("Checking .photoprint directory..."));
@@ -145,11 +138,7 @@ int main(int argc,char **argv)
 			delete splash;
 		}
 
-		cerr << "Translation test: " << _("Initializing...") << endl;
-
 		state.NewLayout();
-
-		cerr << "Translation test: " << _("Initializing...") << endl;
 
 		if(batchmode)
 		{
@@ -179,14 +168,11 @@ int main(int argc,char **argv)
 			try
 			{
 				GtkWidget *mainwindow;
-		cerr << "Translation test: " << _("Initializing...") << endl;
 				mainwindow = pp_mainwindow_new(&state);
 				g_signal_connect (G_OBJECT (mainwindow), "destroy",
 					    G_CALLBACK (destroy), NULL);
 				gtk_widget_show (mainwindow);
 
-		cerr << "Translation test: " << _("Initializing...") << endl;
-		
 				if(argc>optind)
 				{
 					bool allowcropping=state.layoutdb.FindInt("AllowCropping");
@@ -202,12 +188,8 @@ int main(int argc,char **argv)
 					state.layout->SetCurrentPage(lastpage);
 				}
 	
-		cerr << "Translation test: " << _("Initializing...") << endl;
-
 				pp_mainwindow_refresh(PP_MAINWINDOW(mainwindow));
 
-		cerr << "Translation test: " << _("Initializing...") << endl;
-	
 				gtk_main ();
 			}
 			catch (const char *err)
