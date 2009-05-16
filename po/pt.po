@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-28 19:26+0000\n"
+"POT-Creation-Date: 2009-05-16 19:43+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -32,84 +32,84 @@ msgstr ""
 msgid "About"
 msgstr "Sobre"
 
-#: dialogs.cpp:223
+#: dialogs.cpp:224
 msgid "Set paths..."
 msgstr "Definir caminhos..."
 
-#: dialogs.cpp:248
+#: dialogs.cpp:249
 msgid "ICC Profiles"
 msgstr "Perfis ICC"
 
-#: dialogs.cpp:280
+#: dialogs.cpp:281
 msgid "Borders"
 msgstr "Bordas"
 
-#: dialogs.cpp:311
+#: dialogs.cpp:312
 msgid "Backgrounds"
 msgstr "Backgrounds"
 
-#: dialogs.cpp:339
+#: dialogs.cpp:340
 msgid "Select a border..."
 msgstr "Selecionar uma borda"
 
-#: dialogs.cpp:386
+#: dialogs.cpp:387
 msgid "Export TIFF..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:412 dialogs.cpp:615
+#: dialogs.cpp:413 dialogs.cpp:616
 msgid "Page range:"
 msgstr "Intervalo de páginas"
 
-#: dialogs.cpp:425 dialogs.cpp:625
+#: dialogs.cpp:426 dialogs.cpp:626
 msgid "Resolution (dpi):"
 msgstr "Resolução (dpi)"
 
-#: dialogs.cpp:433
+#: dialogs.cpp:434
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:452 dialogs.cpp:660
+#: dialogs.cpp:453 dialogs.cpp:661
 msgid "Output Profile:"
 msgstr "Arquivo de saída"
 
-#: dialogs.cpp:516 dialogs.cpp:756
+#: dialogs.cpp:517 dialogs.cpp:757
 msgid "Please provide a filename."
 msgstr "Por favor forneça um nome de arquivo"
 
-#: dialogs.cpp:547 dialogs.cpp:734
+#: dialogs.cpp:548 dialogs.cpp:735
 msgid "Exporting..."
 msgstr "Exportando..."
 
-#: dialogs.cpp:586
+#: dialogs.cpp:587
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:644
+#: dialogs.cpp:645
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:773
+#: dialogs.cpp:774
 msgid "Select a background..."
 msgstr "Selecione um background..."
 
-#: dialogs.cpp:865 pp_menu_image.cpp:244
+#: dialogs.cpp:866 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Por favor insira uma imagem primeiro! "
 
-#: dialogs.cpp:896
+#: dialogs.cpp:897
 msgid "Set Custom Profile..."
 msgstr "Defina perfil padrão"
 
-#: dialogs.cpp:908
+#: dialogs.cpp:909
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:912
+#: dialogs.cpp:913
 msgid "After:"
 msgstr "Depois:"
 
-#: dialogs.cpp:926
+#: dialogs.cpp:927
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -122,7 +122,7 @@ msgstr ""
 "um RGB padrão ou um perfil Monitor \n"
 "em Options->Gerenciamento de cor"
 
-#: dialogs.cpp:951
+#: dialogs.cpp:952
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -130,11 +130,11 @@ msgstr ""
 "Advertência: uma imagem já foi incluída no perfil\n"
 "Incluir outra vai sobrescrevê-la!"
 
-#: dialogs.cpp:968
+#: dialogs.cpp:969
 msgid "Assign Profile:"
 msgstr "Definir Perfil:"
 
-#: dialogs.cpp:976 pp_cms.cpp:117
+#: dialogs.cpp:977 pp_cms.cpp:117
 msgid "Rendering intent:"
 msgstr "Tentar Renderização:"
 
@@ -455,24 +455,23 @@ msgstr "Rotaciona 90 graus no sentido anti-horário."
 msgid "Dither Algorithm"
 msgstr "Algoritmo:"
 
-#: photoprint.cpp:122 photoprint.cpp:148 photoprint.cpp:152 photoprint.cpp:182
-#: photoprint.cpp:188 photoprint.cpp:205 photoprint.cpp:209
+#: photoprint.cpp:118
 msgid "Initializing..."
 msgstr "Iniciando..."
 
-#: photoprint.cpp:134
+#: photoprint.cpp:127
 msgid "Checking .photoprint directory..."
 msgstr "Verificando pasta .photoprint..."
 
-#: photoprint.cpp:139
+#: photoprint.cpp:132
 msgid "Loading preset..."
 msgstr "Carregando pré-seleções..."
 
-#: photoprint.cpp:144
+#: photoprint.cpp:137
 msgid "Creating layout..."
 msgstr "Criando layout..."
 
-#: photoprint.cpp:194
+#: photoprint.cpp:180
 msgid "Loading images..."
 msgstr "Carregando imagens..."
 
@@ -881,7 +880,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configuração da Impressora "
 
-#: gp_cppsupport/gprinter.cpp:338
+#: gp_cppsupport/gprinter.cpp:352
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Gerando dados de impressão..."

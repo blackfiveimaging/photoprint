@@ -1,21 +1,18 @@
 PhotoPrint-0.4.1
 
-  * Added cs_CZ localization - thanks to Petr Kletecka
+  * Added cs localization - thanks to Petr Kletecka
 
   * Fixed bug whereby the border and background paths are ignored if there's no
 	preset file.
 
-<<<<<<< HEAD:NEWS
-  * Added cs localization - thanks to Marek Černocký
-=======
   * Fixed default driver bugs for when there's no preset.
->>>>>>> 9001195a7a94af882441504b297f508543f32a5a:NEWS
 
-<<<<<<< HEAD:NEWS
   * Added po localization - thanks to Artur Szymanski
-=======
+
   * Borders pack is now part of the main PhotoPrint archive
->>>>>>> 9001195a7a94af882441504b297f508543f32a5a:NEWS
+
+  * Fixed bug with top margin in Single layout mode.  Hopefully this will now
+    *finally* work correctly.
 
 
 PhotoPrint-0.4.0

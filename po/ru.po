@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-28 19:26+0000\n"
+"POT-Creation-Date: 2009-05-16 19:43+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -31,83 +31,83 @@ msgstr "Вывод"
 msgid "About"
 msgstr "О программе"
 
-#: dialogs.cpp:223
+#: dialogs.cpp:224
 msgid "Set paths..."
 msgstr "Указать расположение..."
 
-#: dialogs.cpp:248
+#: dialogs.cpp:249
 msgid "ICC Profiles"
 msgstr "Профили ICC"
 
-#: dialogs.cpp:280
+#: dialogs.cpp:281
 msgid "Borders"
 msgstr "Рамки"
 
-#: dialogs.cpp:311
+#: dialogs.cpp:312
 msgid "Backgrounds"
 msgstr "Фоновый рисунок"
 
-#: dialogs.cpp:339
+#: dialogs.cpp:340
 msgid "Select a border..."
 msgstr "Выберите рамку"
 
-#: dialogs.cpp:386
+#: dialogs.cpp:387
 msgid "Export TIFF..."
 msgstr "Экспорт в TIFF..."
 
-#: dialogs.cpp:412 dialogs.cpp:615
+#: dialogs.cpp:413 dialogs.cpp:616
 msgid "Page range:"
 msgstr "Диапазон страниц:"
 
-#: dialogs.cpp:425 dialogs.cpp:625
+#: dialogs.cpp:426 dialogs.cpp:626
 msgid "Resolution (dpi):"
 msgstr "Разрешение (dpi):"
 
-#: dialogs.cpp:433
+#: dialogs.cpp:434
 msgid "Save as 16-bit:"
 msgstr "16-разрядный:"
 
-#: dialogs.cpp:452 dialogs.cpp:660
+#: dialogs.cpp:453 dialogs.cpp:661
 msgid "Output Profile:"
 msgstr "Профиль вывода:"
 
-#: dialogs.cpp:516 dialogs.cpp:756
+#: dialogs.cpp:517 dialogs.cpp:757
 msgid "Please provide a filename."
 msgstr "Укажите имя файла."
 
-#: dialogs.cpp:547 dialogs.cpp:734
+#: dialogs.cpp:548 dialogs.cpp:735
 msgid "Exporting..."
 msgstr "Производится экспорт..."
 
-#: dialogs.cpp:586
+#: dialogs.cpp:587
 msgid "Export JPEG..."
 msgstr "Экспорт в JPEG..."
 
-#: dialogs.cpp:644
+#: dialogs.cpp:645
 msgid "JPEG Quality:"
 msgstr "Качество JPEG"
 
-#: dialogs.cpp:773
+#: dialogs.cpp:774
 msgid "Select a background..."
 msgstr "Выберите фон..."
 
-#: dialogs.cpp:865 pp_menu_image.cpp:244
+#: dialogs.cpp:866 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Сначала необходимо выбрать снимок!"
 
-#: dialogs.cpp:896
+#: dialogs.cpp:897
 msgid "Set Custom Profile..."
 msgstr "Укажите иной профиль..."
 
-#: dialogs.cpp:908
+#: dialogs.cpp:909
 msgid "Before:"
 msgstr "До:"
 
-#: dialogs.cpp:912
+#: dialogs.cpp:913
 msgid "After:"
 msgstr "После:"
 
-#: dialogs.cpp:926
+#: dialogs.cpp:927
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -120,7 +120,7 @@ msgstr ""
 "или профиль монитора в диалоге \n"
 "«Параметры > Управление цветом...»."
 
-#: dialogs.cpp:951
+#: dialogs.cpp:952
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -128,11 +128,11 @@ msgstr ""
 "Предупреждение: в снимок уже встроен профиль.\n"
 "При назначении нового профиля старый будет удален!"
 
-#: dialogs.cpp:968
+#: dialogs.cpp:969
 msgid "Assign Profile:"
 msgstr "Назначить профиль:"
 
-#: dialogs.cpp:976 pp_cms.cpp:117
+#: dialogs.cpp:977 pp_cms.cpp:117
 msgid "Rendering intent:"
 msgstr "Цветопередача:"
 
@@ -451,24 +451,23 @@ msgstr "Повернуть на 90° против часовой стрелки"
 msgid "Dither Algorithm"
 msgstr "Алгоритм:"
 
-#: photoprint.cpp:122 photoprint.cpp:148 photoprint.cpp:152 photoprint.cpp:182
-#: photoprint.cpp:188 photoprint.cpp:205 photoprint.cpp:209
+#: photoprint.cpp:118
 msgid "Initializing..."
 msgstr "Инициализация..."
 
-#: photoprint.cpp:134
+#: photoprint.cpp:127
 msgid "Checking .photoprint directory..."
 msgstr "Проверяется каталог ~/.photoprint..."
 
-#: photoprint.cpp:139
+#: photoprint.cpp:132
 msgid "Loading preset..."
 msgstr "Загружается предустановка..."
 
-#: photoprint.cpp:144
+#: photoprint.cpp:137
 msgid "Creating layout..."
 msgstr "Создаётся макет..."
 
-#: photoprint.cpp:194
+#: photoprint.cpp:180
 msgid "Loading images..."
 msgstr "Загружаются изображения..."
 
@@ -867,7 +866,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Очередь печати не найдена"
 
-#: gp_cppsupport/gprinter.cpp:338
+#: gp_cppsupport/gprinter.cpp:352
 msgid "Unable to generate print data"
 msgstr "Невозможно создать печатаемые данные"
 

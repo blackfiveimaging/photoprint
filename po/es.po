@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-03-28 19:26+0000\n"
+"POT-Creation-Date: 2009-05-16 19:43+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -29,84 +29,84 @@ msgstr ""
 msgid "About"
 msgstr "Acerca de"
 
-#: dialogs.cpp:223
+#: dialogs.cpp:224
 msgid "Set paths..."
 msgstr "Establecer rutas"
 
-#: dialogs.cpp:248
+#: dialogs.cpp:249
 msgid "ICC Profiles"
 msgstr "Perfiles de color ICC"
 
-#: dialogs.cpp:280
+#: dialogs.cpp:281
 msgid "Borders"
 msgstr "Marcos"
 
-#: dialogs.cpp:311
+#: dialogs.cpp:312
 msgid "Backgrounds"
 msgstr "Fondos"
 
-#: dialogs.cpp:339
+#: dialogs.cpp:340
 msgid "Select a border..."
 msgstr "Elige un marco"
 
-#: dialogs.cpp:386
+#: dialogs.cpp:387
 msgid "Export TIFF..."
 msgstr "Exportar a TIFF"
 
-#: dialogs.cpp:412 dialogs.cpp:615
+#: dialogs.cpp:413 dialogs.cpp:616
 msgid "Page range:"
 msgstr "Rango de páginas"
 
-#: dialogs.cpp:425 dialogs.cpp:625
+#: dialogs.cpp:426 dialogs.cpp:626
 msgid "Resolution (dpi):"
 msgstr "Resolución (dpi):"
 
-#: dialogs.cpp:433
+#: dialogs.cpp:434
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:452 dialogs.cpp:660
+#: dialogs.cpp:453 dialogs.cpp:661
 msgid "Output Profile:"
 msgstr "Perfil de salida"
 
-#: dialogs.cpp:516 dialogs.cpp:756
+#: dialogs.cpp:517 dialogs.cpp:757
 msgid "Please provide a filename."
 msgstr "Por favor, indique un nombre de fichero."
 
-#: dialogs.cpp:547 dialogs.cpp:734
+#: dialogs.cpp:548 dialogs.cpp:735
 msgid "Exporting..."
 msgstr "Exportando..."
 
-#: dialogs.cpp:586
+#: dialogs.cpp:587
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exportar a TIFF"
 
-#: dialogs.cpp:644
+#: dialogs.cpp:645
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:773
+#: dialogs.cpp:774
 msgid "Select a background..."
 msgstr "Elija un fondo..."
 
-#: dialogs.cpp:865 pp_menu_image.cpp:244
+#: dialogs.cpp:866 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "¡Elija primero una imágen!"
 
-#: dialogs.cpp:896
+#: dialogs.cpp:897
 msgid "Set Custom Profile..."
 msgstr "Poner perfil-habitual"
 
-#: dialogs.cpp:908
+#: dialogs.cpp:909
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:912
+#: dialogs.cpp:913
 msgid "After:"
 msgstr "Después:"
 
-#: dialogs.cpp:926
+#: dialogs.cpp:927
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -120,7 +120,7 @@ msgstr ""
 "defecto en el diálogo de\n"
 "Opciones->Gsetión de color."
 
-#: dialogs.cpp:951
+#: dialogs.cpp:952
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -128,11 +128,11 @@ msgstr ""
 "Aviso:·La imagen tiene ya un perfil embebido.\n"
 "SI le asignas uno nuevo lo dejarás sin efecto."
 
-#: dialogs.cpp:968
+#: dialogs.cpp:969
 msgid "Assign Profile:"
 msgstr "Asignar perfil"
 
-#: dialogs.cpp:976 pp_cms.cpp:117
+#: dialogs.cpp:977 pp_cms.cpp:117
 msgid "Rendering intent:"
 msgstr ""
 
@@ -454,24 +454,23 @@ msgstr "Rotar 90 grados contra reloj."
 msgid "Dither Algorithm"
 msgstr "Algoritmo:"
 
-#: photoprint.cpp:122 photoprint.cpp:148 photoprint.cpp:152 photoprint.cpp:182
-#: photoprint.cpp:188 photoprint.cpp:205 photoprint.cpp:209
+#: photoprint.cpp:118
 msgid "Initializing..."
 msgstr "Inicializando..."
 
-#: photoprint.cpp:134
+#: photoprint.cpp:127
 msgid "Checking .photoprint directory..."
 msgstr "Comprobando directorio de photoprint..."
 
-#: photoprint.cpp:139
+#: photoprint.cpp:132
 msgid "Loading preset..."
 msgstr "Cargando preset..."
 
-#: photoprint.cpp:144
+#: photoprint.cpp:137
 msgid "Creating layout..."
 msgstr "Creando disposición"
 
-#: photoprint.cpp:194
+#: photoprint.cpp:180
 msgid "Loading images..."
 msgstr "Cargando imágenes"
 
@@ -880,7 +879,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configurar impresora"
 
-#: gp_cppsupport/gprinter.cpp:338
+#: gp_cppsupport/gprinter.cpp:352
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Generando datos de impresión..."
