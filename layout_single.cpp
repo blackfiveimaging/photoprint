@@ -343,7 +343,7 @@ ImageSource *Layout_Single::GetImageSource(int page,CMColourDevice target,CMTran
 						break;
 				}
 				xoffset=leftmargin;
-				yoffset=rightmargin;
+				yoffset=topmargin;
 				GetImageableArea();
 				int iw=int((imageablewidth*is->xres)/72.0);
 				int ih=int((imageableheight*is->yres)/72.0);
