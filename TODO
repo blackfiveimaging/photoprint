@@ -1,6 +1,10 @@
 URGENT:
 ~~~~~~~
 
+There's a problem with default print command selection and driver detection - especially
+if PhotoPrint's built without libCUPS.  The application will probably have to determine
+whether the raw flag's needed.
+
 Job cancellation isn't working - what's been spooled so far is still being printed.
 
 Man page is not being installed at make install time.
