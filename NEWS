@@ -1,6 +1,8 @@
 PhotoPrint-0.4.1
 
-  * Added cs localization - thanks to Petr Kletecka
+  * Added cs localization - thanks to Petr Kletecka.  Thanks also to Marek Černocký
+	and Frantisek Hanzlik who also supplied Czech localizations.  In the interests
+	of fairness I've used the first one I received!
 
   * Fixed bug whereby the border and background paths are ignored if there's no
 	preset file.
@@ -13,6 +15,10 @@ PhotoPrint-0.4.1
 
   * Fixed bug with top margin in Single layout mode.  Hopefully this will now
     *finally* work correctly.
+
+  * Reworked some of the printer subsystem - should fix problems people have been
+	experiencing with the -oraw flag, and should also be generally more robust.
+    Needs more testing.
 
 
 PhotoPrint-0.4.0

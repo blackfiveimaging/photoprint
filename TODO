@@ -1,9 +1,12 @@
 URGENT:
 ~~~~~~~
 
-There's a problem with default print command selection and driver detection - especially
-if PhotoPrint's built without libCUPS.  The application will probably have to determine
-whether the raw flag's needed.
+| There's a problem with default print command selection and driver detection - especially
+| if PhotoPrint's built without libCUPS.  The application will probably have to determine
+| whether the raw flag's needed.
+
+There's a problem with using the PostScript driver immediately after the Epson driver - certain parameters
+aren't being correctly defaulted.
 
 Job cancellation isn't working - what's been spooled so far is still being printed.
 
