@@ -25,7 +25,7 @@ class Layout_NUp : public Layout, public Signature
 	int GetCapabilities();
 	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
 	void CopyImage(Layout_ImageInfo *ii);
-	void PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate);
+	bool PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate);
 	void FindFirstFree(int &page,int &row,int &column);
 	int FreeSlots();
 	void Reflow();

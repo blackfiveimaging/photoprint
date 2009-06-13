@@ -20,6 +20,9 @@ PhotoPrint-0.4.1
 	experiencing with the -oraw flag, and should also be generally more robust.
     Needs more testing.
 
+  * Fixed bug where dropping a bad file into PhotoPrint caused the current image to
+    become unselectable until either page or layout was changed.
+
 
 PhotoPrint-0.4.0
 

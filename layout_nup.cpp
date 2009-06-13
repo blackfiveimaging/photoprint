@@ -132,7 +132,7 @@ void Layout_NUp::Reflow()
 }
 
 
-void Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate)
+bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate)
 {
 	Layout_NUp_ImageInfo *ii=NULL;
 	try
@@ -152,7 +152,10 @@ void Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bo
 		
 		if(page>=pages)
 			++pages;
+		cerr << "Bumped page numbers" << endl;
+		return(true);
 	}
+	return(false);
 }
 
 
@@ -219,8 +222,10 @@ int Layout_NUp::AddImage(const char *filename,bool allowcropping,PP_ROTATION rot
 	int page,row,column;
 	FindFirstFree(page,row,column);
 	cerr << "Placing image at " << page << ", " << row << ", " << column << endl;
-	PlaceImage(filename,page,row,column,allowcropping,rotation);
-	return(page);
+	if(PlaceImage(filename,page,row,column,allowcropping,rotation))
+		return(page);
+	else
+		return(currentpage);
 }
 
 
