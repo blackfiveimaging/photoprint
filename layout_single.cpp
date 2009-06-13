@@ -291,6 +291,8 @@ int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 		if(page>=pages)
 			++pages;
 	}
+	else
+		page=currentpage;
 	return(page);
 }
 

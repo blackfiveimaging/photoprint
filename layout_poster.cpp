@@ -132,9 +132,10 @@ int Layout_Poster::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 
 		if(page>=posters)
 			++posters;
+		pages=posters*htiles*vtiles;
+		return(page*htiles*vtiles);
 	}
-	pages=posters*htiles*vtiles;
-	return(page*htiles*vtiles);
+	return(currentpage);
 }
 
 
