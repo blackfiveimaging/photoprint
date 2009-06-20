@@ -14,6 +14,7 @@
 #include "support/thread.h"
 #include "effects/ppeffect.h"
 
+#include "histogram.h"
 #include "layoutdb.h"
 
 class Layout;
@@ -69,6 +70,7 @@ class Layout_ImageInfo : public PPEffectHeader
 										// transform factory.
 
 	virtual void SetHRPreview(GdkPixbuf *preview); // Called by idle handler once render thread has completed.
+	virtual PPHistogram &GetHistogram();
 
 	int page;
 	bool allowcropping;
@@ -88,6 +90,7 @@ class Layout_ImageInfo : public PPEffectHeader
 	char *customprofile;
 	LCMSWrapper_Intent customintent;
 	Thread *hrrenderthread;
+	PPHistogram histogram;
 	friend class Layout;
 	friend class hr_payload;
 };

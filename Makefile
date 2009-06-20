@@ -104,13 +104,13 @@ misccheck_DEPENDENCIES = effects/libppeffects.la \
 am_photoprint_OBJECTS = dialogs.$(OBJEXT) layout.$(OBJEXT) \
 	layout_imageinfo.$(OBJEXT) layout_carousel.$(OBJEXT) \
 	layout_nup.$(OBJEXT) layout_poster.$(OBJEXT) \
-	layout_single.$(OBJEXT) photoprint.$(OBJEXT) \
-	photoprint_state.$(OBJEXT) pp_cms.$(OBJEXT) \
-	pp_imagecontrol.$(OBJEXT) pp_mainwindow.$(OBJEXT) \
-	pp_menu_file.$(OBJEXT) pp_menu_edit.$(OBJEXT) \
-	pp_menu_layout.$(OBJEXT) pp_menu_image.$(OBJEXT) \
-	pp_menu_options.$(OBJEXT) pp_menu_help.$(OBJEXT) \
-	pp_layout_carousel.$(OBJEXT) \
+	layout_single.$(OBJEXT) histogram.$(OBJEXT) \
+	photoprint.$(OBJEXT) photoprint_state.$(OBJEXT) \
+	pp_cms.$(OBJEXT) pp_imagecontrol.$(OBJEXT) \
+	pp_mainwindow.$(OBJEXT) pp_menu_file.$(OBJEXT) \
+	pp_menu_edit.$(OBJEXT) pp_menu_layout.$(OBJEXT) \
+	pp_menu_image.$(OBJEXT) pp_menu_options.$(OBJEXT) \
+	pp_menu_help.$(OBJEXT) pp_layout_carousel.$(OBJEXT) \
 	pp_layout_carousel_pageview.$(OBJEXT) pp_layout_nup.$(OBJEXT) \
 	pp_layout_nup_pageview.$(OBJEXT) pp_layout_poster.$(OBJEXT) \
 	pp_layout_poster_pageview.$(OBJEXT) pp_layout_single.$(OBJEXT) \
@@ -246,7 +246,7 @@ LIBICONV = -liconv
 LIBINTL = 
 LIBM_LIBS = -lm
 LIBOBJS = 
-LIBS = -lcups -lnsl -lpthread -ljpeg 
+LIBS = -lcups -lnsl -lpthread -ljpeg -lnetpbm 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBICONV = -liconv
@@ -352,6 +352,8 @@ photoprint_SOURCES = \
 	layout_poster.h	\
 	layout_single.cpp	\
 	layout_single.h	\
+	histogram.cpp \
+	histogram.h	\
 	photoprint.cpp		\
 	photoprint_state.cpp	\
 	photoprint_state.h	\
@@ -571,6 +573,7 @@ distclean-compile:
 
 include ./$(DEPDIR)/carouselcheck.Po
 include ./$(DEPDIR)/dialogs.Po
+include ./$(DEPDIR)/histogram.Po
 include ./$(DEPDIR)/layout.Po
 include ./$(DEPDIR)/layout_carousel.Po
 include ./$(DEPDIR)/layout_imageinfo.Po

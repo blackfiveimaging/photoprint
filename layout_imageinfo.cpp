@@ -44,7 +44,8 @@ using namespace std;
 Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int page, bool allowcropping, PP_ROTATION rotation)
 	: PPEffectHeader(), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
 	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
-	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL)
+	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
+	histogram()
 {
 	bool relative=true;
 
@@ -76,7 +77,8 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int pag
 Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int page, bool allowcropping, PP_ROTATION rotation)
 	: PPEffectHeader(*ii), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
 	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
-	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL)
+	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
+	histogram()
 {
 	// Effects are copied by the "PPEffectHeader(*ii) above
 	if(ii)
@@ -137,7 +139,7 @@ Layout_ImageInfo::~Layout_ImageInfo()
 // an image, then defers to the main thread to perform the
 // actual rendering.
 
-class hr_payload
+class hr_payload : public PTMutex
 {
 	public:
 	hr_payload(ProfileManager *p,CMTransformFactory *f,Layout_ImageInfo *ii,GtkWidget *wid,int x,int y,int w,int h)
@@ -160,6 +162,8 @@ class hr_payload
 
 		p->thread=t;
 
+		p->ObtainMutex();	// We use this to avoid race conditions when cleaning up.
+
 		cerr << "Subthread - about to obtain mutex" << endl;
 //		p->ii->ObtainMutexShared();
 		// To avoid a deadlock situation if, say, the Apply Profile dialog is open and GTK decides that
@@ -174,6 +178,7 @@ class hr_payload
 				// the Sync before bailing out.
 				t->SendSync();
 				g_timeout_add(1,hr_payload::CleanupFunc,p);
+				p->ReleaseMutex();
 				return(0);
 			}
 #ifdef WIN32
@@ -201,6 +206,7 @@ class hr_payload
 				cerr << "Got break signal while pausing - Releasing" << endl;
 				p->ii->ReleaseMutex();
 				g_timeout_add(1,hr_payload::CleanupFunc,p);
+				p->ReleaseMutex();
 				return(0);
 			}
 		}
@@ -210,6 +216,7 @@ class hr_payload
 			cerr << "Subthread releasing mutex and cancelling" << endl;
 			p->ii->ReleaseMutex();
 			g_timeout_add(1,hr_payload::CleanupFunc,p);
+			p->ReleaseMutex();
 			return(0);
 		}
 
@@ -286,6 +293,7 @@ class hr_payload
 				cerr << "Thread cancelled" << endl;
 				g_timeout_add(1,hr_payload::CleanupFunc,p);
 				p->ii->ReleaseMutex();
+				p->ReleaseMutex();
 				return(0);
 			}
 		}
@@ -298,6 +306,7 @@ class hr_payload
 		p->thread->WaitSync();
 		cerr << "Subthread releasing mutex and exiting" << endl;
 		p->ii->ReleaseMutex();
+		p->ReleaseMutex();
 		return(0);
 	}
 
@@ -305,7 +314,18 @@ class hr_payload
 	static gboolean CleanupFunc(gpointer ud)
 	{
 		hr_payload *p=(hr_payload *)ud;
+		cerr << "Main thread sending sync signal" << endl;
 		p->thread->SendSync();
+
+		// There's a race condition here.  Once we send this signal the subthread will
+		// release the mutex - but it's possible this function will have deleted the object first.
+		// To avoid this, we obtain the mutex here, then release it again.
+
+		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread->GetThreadID() << endl;
+		p->ObtainMutex();
+		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
+		p->ReleaseMutex();
+		cerr << "Done" << endl;
 
 		// We clear the renderthread pointer in the ImageInfo here before deleting it
 		// to avoid the main thread trying to cancel it after deletion.
@@ -389,6 +409,24 @@ class hr_payload
 		}
 		cerr << "Preview drawn - sending sync to sub-thread" << endl;
 		p->thread->SendSync();
+
+		// There's a race condition here.  Once we send this signal the subthread will
+		// release the mutex - but it's possible this function will have deleted the object first.
+		// To avoid this, we obtain the mutex here, then release it again.
+		// We stipulate PPEffectHeader:: here because the Layout_ImageInfo:: class overrides
+		// ObtainMutex with a version which flushes the thread we're trying to clean up!
+
+		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread->GetThreadID() << endl;
+		p->ObtainMutex();
+		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
+		p->ReleaseMutex();
+		cerr << "Done" << endl;
+
+		// We clear the renderthread pointer in the ImageInfo here before deleting it
+		// to avoid the main thread trying to cancel it after deletion.
+		// This should be safe since this function runs on the main thread's context.
+		if(p->ii->hrrenderthread==p->thread)
+			p->ii->hrrenderthread=NULL;
 
 		delete p;
 
@@ -1003,3 +1041,8 @@ void Layout_ImageInfo::ObtainMutex()
 	cerr << "Done" << endl;
 }
 
+
+PPHistogram &Layout_ImageInfo::GetHistogram()
+{
+	return(histogram);
+}

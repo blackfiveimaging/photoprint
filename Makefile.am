@@ -27,6 +27,8 @@ photoprint_SOURCES = 		\
 	layout_poster.h	\
 	layout_single.cpp	\
 	layout_single.h	\
+	histogram.cpp \
+	histogram.h	\
 	photoprint.cpp		\
 	photoprint_state.cpp	\
 	photoprint_state.h	\
