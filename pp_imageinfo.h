@@ -34,7 +34,7 @@ struct _pp_ImageInfo
 	GtkWidget *resolution;
 	GtkWidget *profile;
 	GtkWidget *scrollwin;
-	Thread *thread;
+	ThreadFunction *thread;
 	Layout *layout;
 };
 

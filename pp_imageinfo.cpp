@@ -280,11 +280,11 @@ pp_imageinfo_init (pp_ImageInfo *ob)
 }
 
 
-class ii_payload
+class ii_payload : public ThreadFunction
 {
 	public:
 	ii_payload(const char *fn,pp_ImageInfo *ob,Layout_ImageInfo *ii)
-		: filename(NULL), dimensions(NULL), proffilename(NULL), profname(NULL), widget(NULL), imageinfo(NULL)
+		: filename(NULL), dimensions(NULL), proffilename(NULL), profname(NULL), widget(NULL), imageinfo(NULL), thread(this)
 	{
 		filename=strdup(fn);
 		widget=ob;
@@ -292,10 +292,13 @@ class ii_payload
 		const char *tmp;
 		if((tmp=ii->GetAssignedProfile()))
 			proffilename=strdup(tmp);
-		
+		thread.Start();
+		thread.WaitSync();		
 	}
 	~ii_payload()
 	{
+		thread.Stop();
+		thread.WaitFinished();
 		if(filename)
 			free(filename);
 		if(proffilename)
@@ -309,32 +312,31 @@ class ii_payload
 	{
 
 	}
-	static int ThreadFunc(Thread *t,void *ud)
+	virtual int Entry(Thread &t)
 	{
-		t->SendSync();
-		ii_payload *p=(ii_payload *)ud;
+		t.SendSync();
 
-		ImageSource *is=ISLoadImage(p->filename);
+		ImageSource *is=ISLoadImage(filename);
 		if(is)
 		{
-			p->dimensions=g_strdup_printf("%d x %d %s",p->imageinfo->GetWidth(),p->imageinfo->GetHeight(),_("pixels"));
+			dimensions=g_strdup_printf("%d x %d %s",imageinfo->GetWidth(),imageinfo->GetHeight(),_("pixels"));
 
 			// Embedded/Assigned Profile
 			CMSProfile *prof=NULL;
-			if(p->proffilename)
-				prof=new CMSProfile(p->proffilename);
+			if(proffilename)
+				prof=new CMSProfile(proffilename);
 			if(!prof)
 				prof=is->GetEmbeddedProfile();
 			if(prof)
 			{
 				const char *desc=prof->GetDescription();
-				p->profname=strdup(desc);
-				if(p->proffilename)	// Only delete the profile if we created it from a filename
+				profname=strdup(desc);
+				if(proffilename)	// Only delete the profile if we created it from a filename
 					delete prof;
 			}
 			delete is;
 		}
-		g_idle_add(ii_payload::IdleFunc,p);
+		g_idle_add(ii_payload::IdleFunc,this);
 		return(0);
 	}
 	static gboolean IdleFunc(gpointer ud)
@@ -357,6 +359,7 @@ class ii_payload
 	char *profname;
 	pp_ImageInfo *widget;
 	Layout_ImageInfo *imageinfo;
+	Thread thread;
 };
 
 
@@ -384,9 +387,9 @@ void pp_imageinfo_change_image(pp_ImageInfo *ob)
 				delete ob->thread;		// any previous iteration has completed.
 
 			ii_payload *p=new ii_payload(fn,ob,ii);
-			ob->thread=new Thread(ii_payload::ThreadFunc,p);
-			ob->thread->Start();
-			ob->thread->WaitSync();
+//			ob->thread=new Thread(ii_payload::ThreadFunc,p);
+//			ob->thread->Start();
+//			ob->thread->WaitSync();
 	#if 0
 			// Dimensions
 			ImageSource *is=ISLoadImage(fn);

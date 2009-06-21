@@ -139,46 +139,47 @@ Layout_ImageInfo::~Layout_ImageInfo()
 // an image, then defers to the main thread to perform the
 // actual rendering.
 
-class hr_payload : public PTMutex
+class hr_payload : public PTMutex, public ThreadFunction
 {
 	public:
 	hr_payload(ProfileManager *p,CMTransformFactory *f,Layout_ImageInfo *ii,GtkWidget *wid,int x,int y,int w,int h)
-		: profman(p), factory(f), ii(ii), widget(wid), xpos(x), ypos(y), width(w), height(h), transformed(NULL), thread(NULL)
+		: PTMutex(), ThreadFunction(), profman(p), factory(f), ii(ii), widget(wid),
+		xpos(x), ypos(y), width(w), height(h), transformed(NULL), thread(this)
 	{
+		thread.Start();
+		thread.WaitSync();
 	}
 	~hr_payload()
 	{
-		if(thread)
-			delete thread;
+//		if(thread)
+//			delete thread;
+	}
+	void Stop()
+	{
+		thread.Stop();
 	}
 	static bool testbreakfunc(void *ud)
 	{
 		Thread *t=(Thread *)ud;
 		return(t->TestBreak());
 	}
-	static int ThreadFunc(Thread *t,void *ud)
+	virtual int Entry(Thread &t)
 	{
-		hr_payload *p=(hr_payload *)ud;
+		ObtainMutex();	// We use this to avoid race conditions when cleaning up.
 
-		p->thread=t;
-
-		p->ObtainMutex();	// We use this to avoid race conditions when cleaning up.
-
-		cerr << "Subthread - about to obtain mutex" << endl;
-//		p->ii->ObtainMutexShared();
 		// To avoid a deadlock situation if, say, the Apply Profile dialog is open and GTK decides that
 		// now is a good time to redraw the window, we only attempt the mutex, and bail out if it fails.
 		int count=10;
-		while(!p->ii->AttemptMutexShared())
+		while(!ii->AttemptMutexShared())
 		{
 			if(count==0)
 			{
 				cerr << "Giving up attempt on mutex - bailing out" << endl;
 				// The calling thread is waiting for us to acknowledge startup, so we have to send
 				// the Sync before bailing out.
-				t->SendSync();
-				g_timeout_add(1,hr_payload::CleanupFunc,p);
-				p->ReleaseMutex();
+				t.SendSync();
+				g_timeout_add(1,hr_payload::CleanupFunc,this);
+				ReleaseMutex();
 				return(0);
 			}
 #ifdef WIN32
@@ -189,7 +190,7 @@ class hr_payload : public PTMutex
 			--count;
 		}
 
-		t->SendSync();
+		t.SendSync();
 
 		// We sleep briefly before doing anything time-intensive - that way we can bail out rapidly
 		// if the user's doing something heavily interactive, like panning an image, or resizing the window
@@ -201,22 +202,22 @@ class hr_payload : public PTMutex
 #else
 			usleep(10000);
 #endif
-			if(t->TestBreak())
+			if(t.TestBreak())
 			{
 				cerr << "Got break signal while pausing - Releasing" << endl;
-				p->ii->ReleaseMutex();
-				g_timeout_add(1,hr_payload::CleanupFunc,p);
-				p->ReleaseMutex();
+				ii->ReleaseMutex();
+				g_timeout_add(1,hr_payload::CleanupFunc,this);
+				ReleaseMutex();
 				return(0);
 			}
 		}
 
-		if(t->TestBreak())
+		if(t.TestBreak())
 		{
 			cerr << "Subthread releasing mutex and cancelling" << endl;
-			p->ii->ReleaseMutex();
-			g_timeout_add(1,hr_payload::CleanupFunc,p);
-			p->ReleaseMutex();
+			ii->ReleaseMutex();
+			g_timeout_add(1,hr_payload::CleanupFunc,this);
+			ReleaseMutex();
 			return(0);
 		}
 
@@ -225,59 +226,59 @@ class hr_payload : public PTMutex
 			CMSProfile *targetprof;
 
 			CMColourDevice tdev=CM_COLOURDEVICE_NONE;
-			if((targetprof=p->profman->GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
+			if((targetprof=profman->GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
 				tdev=CM_COLOURDEVICE_PRINTERPROOF;
-			else if((targetprof=p->profman->GetProfile(CM_COLOURDEVICE_DISPLAY)))
+			else if((targetprof=profman->GetProfile(CM_COLOURDEVICE_DISPLAY)))
 				tdev=CM_COLOURDEVICE_DISPLAY;
-			else if((targetprof=p->profman->GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
+			else if((targetprof=profman->GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
 				tdev=CM_COLOURDEVICE_DEFAULTRGB;
 			if(targetprof)
 				delete targetprof;
 
-			if(t->TestBreak())
+			if(t.TestBreak())
 			{
 				cerr << "Subthread releasing mutex and cancelling" << endl;
-				p->ii->ReleaseMutex();
-				g_timeout_add(1,hr_payload::CleanupFunc,p);
+				ii->ReleaseMutex();
+				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				return(0);
 			}
 
 			cerr << "Generating high-res preview - Using tdev: " << tdev << endl;
 
-			ImageSource *is=p->ii->GetImageSource(tdev,p->factory);
+			ImageSource *is=ii->GetImageSource(tdev,factory);
 
 			cerr << "Got imagesource - fitting and rendering" << endl;
 
 			LayoutRectangle r(is->width,is->height);
-			LayoutRectangle target(p->xpos,p->ypos,p->width,p->height);
+			LayoutRectangle target(xpos,ypos,width,height);
 
-			RectFit *fit=r.Fit(target,p->ii->allowcropping,p->ii->rotation,p->ii->crop_hpan,p->ii->crop_vpan);
+			RectFit *fit=r.Fit(target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
 
 			if(fit->rotation)
 			{
 				ImageSource_Interruptible *ii=new ImageSource_Rotate(is,fit->rotation);
-				ii->SetTestBreak(testbreakfunc,t);
+				ii->SetTestBreak(testbreakfunc,&t);
 				is=ii;
 			}
 			is=ISScaleImageBySize(is,fit->width,fit->height,IS_SCALING_AUTOMATIC);
 			delete fit;
 			// We create new Fit in the idle-function because the hpan/vpan may have changed.
 
-			ProgressThread prog(*t);
-			p->transformed=pixbuf_from_imagesource(is,p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8,&prog);
+			ProgressThread prog(t);
+			transformed=pixbuf_from_imagesource(is,ii->layout.bgcol.red>>8,ii->layout.bgcol.green>>8,ii->layout.bgcol.blue>>8,&prog);
 
 			delete is;
 
 			cerr << "finished - finalising" << endl;
 
-			if(p->transformed)
+			if(transformed)
 			{
 				// Now we defer to the main thread...
 				// We add this as a high-priority event because we want it to be
 				// run as soon as possible, and within a gtk_main_iteration() loop
 				// if necessary.
 	//			g_idle_add_full(G_PRIORITY_HIGH,hr_payload::IdleFunc,p,NULL);
-				g_timeout_add(1,hr_payload::IdleFunc,p);
+				g_timeout_add(1,hr_payload::IdleFunc,this);
 
 				// And wait for the main thread to have rendered the preview
 				// Because the rendering will be done via a GTK event callback, there's
@@ -291,22 +292,22 @@ class hr_payload : public PTMutex
 			else
 			{
 				cerr << "Thread cancelled" << endl;
-				g_timeout_add(1,hr_payload::CleanupFunc,p);
-				p->ii->ReleaseMutex();
-				p->ReleaseMutex();
+				g_timeout_add(1,hr_payload::CleanupFunc,this);
+				ii->ReleaseMutex();
+				ReleaseMutex();
 				return(0);
 			}
 		}
 		catch (const char *err)
 		{
 			cerr << "Subthread caught exception: " << err << endl;
-			g_timeout_add(1,hr_payload::CleanupFunc,p);
+			g_timeout_add(1,hr_payload::CleanupFunc,this);
 		}
 		cerr << "Subthread waiting for main thread to finish drawing" << endl;
-		p->thread->WaitSync();
+		thread.WaitSync();
 		cerr << "Subthread releasing mutex and exiting" << endl;
-		p->ii->ReleaseMutex();
-		p->ReleaseMutex();
+		ii->ReleaseMutex();
+		ReleaseMutex();
 		return(0);
 	}
 
@@ -315,13 +316,16 @@ class hr_payload : public PTMutex
 	{
 		hr_payload *p=(hr_payload *)ud;
 		cerr << "Main thread sending sync signal" << endl;
-		p->thread->SendSync();
+		p->thread.SendSync();
 
 		// There's a race condition here.  Once we send this signal the subthread will
 		// release the mutex - but it's possible this function will have deleted the object first.
 		// To avoid this, we obtain the mutex here, then release it again.
+		// (In actual fact this race condition should be avoided by the fact that
+		// this class's destructor deletes the thread - thus the subthread should be
+		// guaranteed to have exited before this class is deleted.)
 
-		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread->GetThreadID() << endl;
+		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
 		p->ObtainMutex();
 		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
 		p->ReleaseMutex();
@@ -330,7 +334,7 @@ class hr_payload : public PTMutex
 		// We clear the renderthread pointer in the ImageInfo here before deleting it
 		// to avoid the main thread trying to cancel it after deletion.
 		// This should be safe since this function runs on the main thread's context.
-		if(p->ii->hrrenderthread==p->thread)
+		if(p->ii->hrrenderthread==p)
 			p->ii->hrrenderthread=NULL;
 
 		delete p;
@@ -356,9 +360,9 @@ class hr_payload : public PTMutex
 		// This idle-function is responsible for disposing of the payload, which
 		// will also delete the thread.
 
-		if(!p->thread->TestBreak())
+		if(!p->thread.TestBreak())
 		{
-			if(p->ii->hrrenderthread==p->thread)
+			if(p->ii->hrrenderthread==p)
 				p->ii->hrrenderthread=NULL;
 
 			p->ii->SetHRPreview(p->transformed);
@@ -408,15 +412,16 @@ class hr_payload : public PTMutex
 			delete fit;
 		}
 		cerr << "Preview drawn - sending sync to sub-thread" << endl;
-		p->thread->SendSync();
+		p->thread.SendSync();
 
 		// There's a race condition here.  Once we send this signal the subthread will
 		// release the mutex - but it's possible this function will have deleted the object first.
 		// To avoid this, we obtain the mutex here, then release it again.
-		// We stipulate PPEffectHeader:: here because the Layout_ImageInfo:: class overrides
-		// ObtainMutex with a version which flushes the thread we're trying to clean up!
+		// (In actual fact this race condition should be avoided by the fact that
+		// this class's destructor deletes the thread - thus the subthread should be
+		// guaranteed to have exited before this class is deleted.)
 
-		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread->GetThreadID() << endl;
+		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
 		p->ObtainMutex();
 		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
 		p->ReleaseMutex();
@@ -425,7 +430,7 @@ class hr_payload : public PTMutex
 		// We clear the renderthread pointer in the ImageInfo here before deleting it
 		// to avoid the main thread trying to cancel it after deletion.
 		// This should be safe since this function runs on the main thread's context.
-		if(p->ii->hrrenderthread==p->thread)
+		if(p->ii->hrrenderthread==p)
 			p->ii->hrrenderthread=NULL;
 
 		delete p;
@@ -440,7 +445,7 @@ class hr_payload : public PTMutex
 	int xpos,ypos;
 	int width,height;
 	GdkPixbuf *transformed;
-	Thread *thread;
+	Thread thread;
 };
 
 
@@ -573,10 +578,10 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 			cerr << "Launching render thread" << endl;
 			if(width>192 && height>192) // Generating lots of thumbs simultaneously is expensive, and if the images are small,
 			{							// highres previews are of limited value anyway.
-				hr_payload *p=new hr_payload(&layout.state.profilemanager,layout.factory,this,widget,xpos,ypos,width,height);
-				hrrenderthread=new Thread(hr_payload::ThreadFunc,p);
-				hrrenderthread->Start();
-				hrrenderthread->WaitSync();
+				hrrenderthread=new hr_payload(&layout.state.profilemanager,layout.factory,this,widget,xpos,ypos,width,height);
+//				hrrenderthread=new Thread(hr_payload::ThreadFunc,p);
+//				hrrenderthread->Start();
+//				hrrenderthread->WaitSync();
 			}
 		}
 	}

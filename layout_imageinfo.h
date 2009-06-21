@@ -89,7 +89,7 @@ class Layout_ImageInfo : public PPEffectHeader
 	bool selected;
 	char *customprofile;
 	LCMSWrapper_Intent customintent;
-	Thread *hrrenderthread;
+	hr_payload *hrrenderthread;
 	PPHistogram histogram;
 	friend class Layout;
 	friend class hr_payload;
