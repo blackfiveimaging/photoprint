@@ -23,6 +23,12 @@ PhotoPrint-0.4.1
   * Fixed bug where dropping a bad file into PhotoPrint caused the current image to
     become unselectable until either page or layout was changed.
 
+  * Refactored much of the threading code.
+
+  * Added Histogram
+
+  * Expanders now remember their state between sessions
+
 
 PhotoPrint-0.4.0
 

@@ -16,37 +16,6 @@ how to handle notification of completion?
 Could be done using mutex - if the histogram display widget tries to obtain the histogram and
 fails, it could trigger an idle-handler or a timer, and when that's triggered it tries again.
 
-Need a robust general method of handing signalling between threads.
-Ideally I want to be able to "register" an interest in a signal, something like this:
-
-Wishlist:
-ThreadEvent class will generally be owned by the main thread.
-  - must track the ThreadID of its owner.
-ThreadEventHandlers can be owned by any thread.
-Upon receipt of a trigger the thread handler will dispatch the list of handlers, one by one.
-(Must take care to handle the possibility that an event will be deleted after it runs)
-
-Dispatching a handler will differ depending on which thread owns the handler.
-If the dispatcher is running from 
-
-// Subclass this with your own handler
-class ThreadEventHandler
-{
-	public:
-	ThreadEventHandler(ThreadEvent &event)
-	{
-		// Link into the event's list.
-	}
-	virtual ~ThreadEventHandler()
-	{
-		Detach from list, if linked.
-	}
-	virtual void Handler()
-	{
-		// Perform your own code here.
-	}
-}
-
 
 | There's a problem with using the PostScript driver immediately after the Epson driver - certain parameters
 | aren't being correctly defaulted.  (Should now be fixed)

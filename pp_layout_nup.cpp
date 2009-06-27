@@ -132,6 +132,14 @@ static void pageview_selection_changed(GtkWidget *wid,gpointer *ob)
 {
 	pp_Layout_NUp *lo=(pp_Layout_NUp *)ob;
 	pp_imagecontrol_set_image(PP_IMAGECONTROL(lo->imagecontrol));
+
+	// FIXME - in the absence of a better place to do so, store the UI's
+	// Expander state here...
+	int state=pp_sigcontrol_get_expander_state(PP_SIGCONTROL(lo->sigcontrol));
+	lo->state->layoutdb.SetInt("ExpanderState_SigControl",state);
+	state=pp_pageextent_get_expander_state(PP_PAGEEXTENT(lo->pageextent));
+	lo->state->layoutdb.SetInt("ExpanderState_PageExtent",state);
+
 	g_signal_emit(G_OBJECT (lo),pp_layout_nup_signals[SELECTIONCHANGED_SIGNAL], 0);
 }
 
@@ -265,7 +273,11 @@ pp_layout_nup_new (PhotoPrint_State *state)
 	gtk_widget_show(ob->imagecontrol);
 
 //  Need to store and retrieve this state information.
-//	pp_imagecontrol_set_expander_state(PP_IMAGECONTROL(ob->imagecontrol),0);	
+	int icstate=ob->state->FindInt("ExpanderState_SigControl");
+	pp_sigcontrol_set_expander_state(PP_SIGCONTROL(ob->sigcontrol),icstate);
+
+	icstate=ob->state->FindInt("ExpanderState_PageExtent");
+	pp_pageextent_set_expander_state(PP_PAGEEXTENT(ob->pageextent),icstate);
 
 	pp_layout_nup_refresh(ob);
 

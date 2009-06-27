@@ -12,6 +12,7 @@
 #include "support/pageextent.h"
 #include "support/layoutrectangle.h"
 #include "support/thread.h"
+#include "support/threadevent.h"
 #include "effects/ppeffect.h"
 
 #include "histogram.h"
@@ -90,6 +91,7 @@ class Layout_ImageInfo : public PPEffectHeader
 	char *customprofile;
 	LCMSWrapper_Intent customintent;
 	hr_payload *hrrenderthread;
+	ThreadEventHandler threadevents;
 	PPHistogram histogram;
 	friend class Layout;
 	friend class hr_payload;

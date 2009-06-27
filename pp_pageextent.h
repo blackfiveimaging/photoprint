@@ -56,6 +56,9 @@ GType pp_pageextent_get_type (void);
 GtkWidget* pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state);
 void pp_pageextent_refresh(pp_PageExtent *ob);
 void pp_pageextent_set_unit(pp_PageExtent *ob,enum Units unit);
+int pp_pageextent_get_expander_state(pp_PageExtent *ob);
+void pp_pageextent_set_expander_state(pp_PageExtent *ob,int state);
+
 G_END_DECLS
 
 #endif /* __PP_PAGEEXTENT_H__ */

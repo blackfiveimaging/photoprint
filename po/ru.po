@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-05-16 19:43+0100\n"
+"POT-Creation-Date: 2009-06-23 17:50+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -303,7 +303,7 @@ msgstr "Удалить выбранные изображения с макета
 msgid "_Rotation"
 msgstr "_Вращение"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73
 msgid "Set Image _Mask..."
 msgstr "Установить _маску изображения..."
 
@@ -608,11 +608,11 @@ msgstr "Разрешение:"
 msgid "Profile:"
 msgstr "Профиль:"
 
-#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+#: pp_imageinfo.cpp:322
 msgid "pixels"
 msgstr "пикселов"
 
-#: pp_imageinfo.cpp:349
+#: pp_imageinfo.cpp:351
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -779,12 +779,18 @@ msgid "Duplicate the currently selected image"
 msgstr "Продублировать выделенное изображение"
 
 #: pp_menu_image.cpp:277
-msgid "_Duplicate to Fill Page"
+#, fuzzy
+msgid "Duplicate to _Fill Page"
 msgstr "_Заполнить им страницу"
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Заполнить страницу копиями выбранного сейчас изображения"
+
+#: pp_menu_image.cpp:281
+#, fuzzy
+msgid "Set Image _Border..."
+msgstr "Выберите рамку"
 
 #: pp_menu_options.cpp:109
 msgid "High-res Previews"
@@ -1018,6 +1024,28 @@ msgstr "миллиметры"
 #: stpui_widgets/dimension.c:173
 msgid "centimeters"
 msgstr "сантиметры"
+
+#: stpui_widgets/stpui_optionbook.c:117
+msgid "General"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:120
+#, fuzzy
+msgid "Manual Settings"
+msgstr "Масштабирование вручную"
+
+#: stpui_widgets/stpui_optionbook.c:123
+#, fuzzy
+msgid "Colour (Basic)"
+msgstr "Цветовое пространство"
+
+#: stpui_widgets/stpui_optionbook.c:126
+msgid "Colour (Fine-tuning)"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:129
+msgid "Colour (Extra)"
+msgstr ""
 
 #: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."

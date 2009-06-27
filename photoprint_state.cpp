@@ -35,7 +35,7 @@
 #include "miscwidgets/generaldialogs.h"
 
 #define DEFAULTPRESETVERSION 29
-#define CURRENTPRESETVERSION 40
+#define CURRENTPRESETVERSION 41
 
 using namespace std;
 
@@ -51,6 +51,12 @@ ConfigTemplate PhotoPrint_State::Template[]=
 	ConfigTemplate("Win_W",int(0)),
 	ConfigTemplate("Win_H",int(0)),
 	ConfigTemplate("HighresPreviews",int(1)),
+	ConfigTemplate("ExpanderState_ImageControl",int(65535)),
+	ConfigTemplate("ExpanderState_SigControl",int(1)),
+	ConfigTemplate("ExpanderState_PageExtent",int(1)),
+	ConfigTemplate("ExpanderState_ImageInfo",int(1)),
+	ConfigTemplate("ExpanderState_Histogram",int(1)),
+	ConfigTemplate("ExpanderState_EffectSelector",int(1)),
 	// Now obsolete, left in for compatibility with pre-0.3.0 preset files.
 	ConfigTemplate("DefaultRGBProfile",""),
 	ConfigTemplate("DefaultRGBProfileActive",int(0)),

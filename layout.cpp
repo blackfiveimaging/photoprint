@@ -51,7 +51,7 @@ ConfigTemplate LayoutDB::Template[]=
 
 Layout::Layout(PhotoPrint_State &state,Layout *oldlayout)
 	: PageExtent(), xoffset(0), yoffset(0), pages(1), currentpage(0), backgroundfilename(NULL), background(NULL),
-	backgroundtransformed(NULL), state(state), imagelist(NULL), iterator(NULL), factory(NULL), gc(NULL)
+	state(state), backgroundtransformed(NULL), imagelist(NULL), iterator(NULL), factory(NULL), gc(NULL)
 {
 	factory=state.profilemanager.GetTransformFactory();
 }

@@ -394,3 +394,19 @@ pp_sigcontrol_init (pp_SigControl *ob)
 {
 	ob->sig=NULL;
 }
+
+
+int pp_sigcontrol_get_expander_state(pp_SigControl *ob)
+{
+	int result=0;
+	if(gtk_expander_get_expanded(GTK_EXPANDER(ob)))
+		result=1;
+	return(result);
+}
+
+
+void pp_sigcontrol_set_expander_state(pp_SigControl *ob,int state)
+{
+	gtk_expander_set_expanded(GTK_EXPANDER(ob),state!=0);
+}
+

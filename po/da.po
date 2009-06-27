@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-05-16 19:43+0100\n"
+"POT-Creation-Date: 2009-06-23 17:50+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -300,7 +300,7 @@ msgstr "Fjern valgt billede fra layoutet"
 msgid "_Rotation"
 msgstr "_Rotation"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73
 msgid "Set Image _Mask..."
 msgstr "Vælg billedra_mmer..."
 
@@ -605,11 +605,11 @@ msgstr "Opløsning:"
 msgid "Profile:"
 msgstr "Profil:"
 
-#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+#: pp_imageinfo.cpp:322
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:349
+#: pp_imageinfo.cpp:351
 msgid "Default"
 msgstr "Standard"
 
@@ -776,12 +776,18 @@ msgid "Duplicate the currently selected image"
 msgstr "Duplikér det valgte billede"
 
 #: pp_menu_image.cpp:277
-msgid "_Duplicate to Fill Page"
+#, fuzzy
+msgid "Duplicate to _Fill Page"
 msgstr "_Duplikér til fyld-side"
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Fyld siden med kopier af det valgte billede"
+
+#: pp_menu_image.cpp:281
+#, fuzzy
+msgid "Set Image _Border..."
+msgstr "Vælg en ramme..."
 
 #: pp_menu_options.cpp:109
 msgid "High-res Previews"
@@ -1019,6 +1025,28 @@ msgstr "millimetre"
 #: stpui_widgets/dimension.c:173
 msgid "centimeters"
 msgstr "centimetre"
+
+#: stpui_widgets/stpui_optionbook.c:117
+msgid "General"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:120
+#, fuzzy
+msgid "Manual Settings"
+msgstr "Manuel skalering"
+
+#: stpui_widgets/stpui_optionbook.c:123
+#, fuzzy
+msgid "Colour (Basic)"
+msgstr "Farverum:"
+
+#: stpui_widgets/stpui_optionbook.c:126
+msgid "Colour (Fine-tuning)"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:129
+msgid "Colour (Extra)"
+msgstr ""
 
 #: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."

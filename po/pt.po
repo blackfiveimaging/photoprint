@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-05-16 19:43+0100\n"
+"POT-Creation-Date: 2009-06-23 17:50+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -306,7 +306,7 @@ msgstr "Remove as imagens selecionadas do layout"
 msgid "_Rotation"
 msgstr "R_otação"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73
 msgid "Set Image _Mask..."
 msgstr "Selecionar _Máscara da Imagem..."
 
@@ -612,11 +612,11 @@ msgstr "Resolução (dpi)"
 msgid "Profile:"
 msgstr "Perfil RGB:"
 
-#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+#: pp_imageinfo.cpp:322
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:349
+#: pp_imageinfo.cpp:351
 #, fuzzy
 msgid "Default"
 msgstr "Salvar _Padrão"
@@ -794,12 +794,17 @@ msgid "Duplicate the currently selected image"
 msgstr "Aplica efeitos à imagem selecionada"
 
 #: pp_menu_image.cpp:277
-msgid "_Duplicate to Fill Page"
+msgid "Duplicate to _Fill Page"
 msgstr ""
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
 msgstr ""
+
+#: pp_menu_image.cpp:281
+#, fuzzy
+msgid "Set Image _Border..."
+msgstr "Selecionar uma borda"
 
 #: pp_menu_options.cpp:109
 msgid "High-res Previews"
@@ -1039,6 +1044,28 @@ msgstr "Milímetros"
 #, fuzzy
 msgid "centimeters"
 msgstr "Centímetros"
+
+#: stpui_widgets/stpui_optionbook.c:117
+msgid "General"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:120
+#, fuzzy
+msgid "Manual Settings"
+msgstr "Tamanho _Manual"
+
+#: stpui_widgets/stpui_optionbook.c:123
+#, fuzzy
+msgid "Colour (Basic)"
+msgstr "Espaço de cor:"
+
+#: stpui_widgets/stpui_optionbook.c:126
+msgid "Colour (Fine-tuning)"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:129
+msgid "Colour (Extra)"
+msgstr ""
 
 #: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."

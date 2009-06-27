@@ -41,11 +41,32 @@
 using namespace std;
 
 
+class PPIS_Histogram : public ImageSource
+{
+	public:
+	PPIS_Histogram(ImageSource *source,PPHistogram &hist) : ImageSource(source), source(source,hist), histogram(hist)
+	{
+		histogram.ObtainMutex();
+	}
+	virtual ~PPIS_Histogram()
+	{
+		histogram.ReleaseMutex();
+	}
+	virtual ISDataType *GetRow(int row)
+	{
+		return(source.GetRow(row));
+	}
+	protected:
+	ImageSource_Histogram source;
+	PPHistogram &histogram;
+};
+
+
 Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int page, bool allowcropping, PP_ROTATION rotation)
 	: PPEffectHeader(), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
 	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
 	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
-	histogram()
+	threadevents(), histogram(threadevents)
 {
 	bool relative=true;
 
@@ -78,7 +99,7 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int pag
 	: PPEffectHeader(*ii), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
 	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
 	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
-	histogram()
+	threadevents(), histogram(threadevents)
 {
 	// Effects are copied by the "PPEffectHeader(*ii) above
 	if(ii)
@@ -151,8 +172,6 @@ class hr_payload : public PTMutex, public ThreadFunction
 	}
 	~hr_payload()
 	{
-//		if(thread)
-//			delete thread;
 	}
 	void Stop()
 	{
@@ -204,7 +223,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 #endif
 			if(t.TestBreak())
 			{
-				cerr << "Got break signal while pausing - Releasing" << endl;
+//				cerr << "Got break signal while pausing - Releasing" << endl;
 				ii->ReleaseMutex();
 				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				ReleaseMutex();
@@ -214,7 +233,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 		if(t.TestBreak())
 		{
-			cerr << "Subthread releasing mutex and cancelling" << endl;
+//			cerr << "Subthread releasing mutex and cancelling" << endl;
 			ii->ReleaseMutex();
 			g_timeout_add(1,hr_payload::CleanupFunc,this);
 			ReleaseMutex();
@@ -237,17 +256,17 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 			if(t.TestBreak())
 			{
-				cerr << "Subthread releasing mutex and cancelling" << endl;
+//				cerr << "Subthread releasing mutex and cancelling" << endl;
 				ii->ReleaseMutex();
 				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				return(0);
 			}
 
-			cerr << "Generating high-res preview - Using tdev: " << tdev << endl;
+//			cerr << "Generating high-res preview - Using tdev: " << tdev << endl;
 
 			ImageSource *is=ii->GetImageSource(tdev,factory);
 
-			cerr << "Got imagesource - fitting and rendering" << endl;
+//			cerr << "Got imagesource - fitting and rendering" << endl;
 
 			LayoutRectangle r(is->width,is->height);
 			LayoutRectangle target(xpos,ypos,width,height);
@@ -269,7 +288,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 			delete is;
 
-			cerr << "finished - finalising" << endl;
+//			cerr << "finished - finalising" << endl;
 
 			if(transformed)
 			{
@@ -291,7 +310,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 			}
 			else
 			{
-				cerr << "Thread cancelled" << endl;
+//				cerr << "Thread cancelled" << endl;
 				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				ii->ReleaseMutex();
 				ReleaseMutex();
@@ -300,12 +319,12 @@ class hr_payload : public PTMutex, public ThreadFunction
 		}
 		catch (const char *err)
 		{
-			cerr << "Subthread caught exception: " << err << endl;
+//			cerr << "Subthread caught exception: " << err << endl;
 			g_timeout_add(1,hr_payload::CleanupFunc,this);
 		}
-		cerr << "Subthread waiting for main thread to finish drawing" << endl;
+//		cerr << "Subthread waiting for main thread to finish drawing" << endl;
 		thread.WaitSync();
-		cerr << "Subthread releasing mutex and exiting" << endl;
+//		cerr << "Subthread releasing mutex and exiting" << endl;
 		ii->ReleaseMutex();
 		ReleaseMutex();
 		return(0);
@@ -315,7 +334,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 	static gboolean CleanupFunc(gpointer ud)
 	{
 		hr_payload *p=(hr_payload *)ud;
-		cerr << "Main thread sending sync signal" << endl;
+//		cerr << "Main thread sending sync signal" << endl;
 		p->thread.SendSync();
 
 		// There's a race condition here.  Once we send this signal the subthread will
@@ -325,9 +344,9 @@ class hr_payload : public PTMutex, public ThreadFunction
 		// this class's destructor deletes the thread - thus the subthread should be
 		// guaranteed to have exited before this class is deleted.)
 
-		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
+//		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
 		p->ObtainMutex();
-		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
+//		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
 		p->ReleaseMutex();
 		cerr << "Done" << endl;
 
@@ -383,13 +402,11 @@ class hr_payload : public PTMutex, public ThreadFunction
 			
 			if(dw>gdk_pixbuf_get_width(p->transformed))
 			{
-				cerr << "DW too high" << endl;
 				dw=gdk_pixbuf_get_width(p->transformed);
 			}
 
 			if(dh>gdk_pixbuf_get_height(p->transformed))
 			{
-				cerr << "DH too high" << endl;
 				dh=gdk_pixbuf_get_height(p->transformed);
 			}
 
@@ -411,7 +428,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 			delete fit;
 		}
-		cerr << "Preview drawn - sending sync to sub-thread" << endl;
+//		cerr << "Preview drawn - sending sync to sub-thread" << endl;
 		p->thread.SendSync();
 
 		// There's a race condition here.  Once we send this signal the subthread will
@@ -421,11 +438,11 @@ class hr_payload : public PTMutex, public ThreadFunction
 		// this class's destructor deletes the thread - thus the subthread should be
 		// guaranteed to have exited before this class is deleted.)
 
-		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
+//		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
 		p->ObtainMutex();
-		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
+//		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
 		p->ReleaseMutex();
-		cerr << "Done" << endl;
+//		cerr << "Done" << endl;
 
 		// We clear the renderthread pointer in the ImageInfo here before deleting it
 		// to avoid the main thread trying to cancel it after deletion.
@@ -456,28 +473,6 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 	RectFit *fit=NULL;
 	int dw,dh;
 
-	// Since the thread (or rather, the idle function it triggers)
-	// is now responsible for its own demise, we no longer have to wait for it.
-	// Furthermore, if there's a thread running, we needn't cancel it here - instead
-	// we can allow it to continue.  Only changes which would lead to flushing the
-	// hi-res preview need to cancel the thread...
-//	cerr << "Cancelling previous thread" << endl;
-//	if(hrrenderthread)
-//		hrrenderthread->Stop();
-//	else
-//		cerr << "No thread" << endl;
-#if 0
-	if(hrrenderthread)
-	{
-		hrrenderthread->Stop();
-		while(!hrrenderthread->TestFinished())
-			gtk_main_iteration();
-		delete hrrenderthread;
-	}
-#endif
-//	hrrenderthread=NULL;
-
-	cerr << "DrawThumbnail - Obtain" << endl;
 	if(thumbnail)
 	{
 		LayoutRectangle r(gdk_pixbuf_get_width(thumbnail),gdk_pixbuf_get_height(thumbnail));
@@ -495,16 +490,11 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 			dh=height;
 		
 		if(dw>gdk_pixbuf_get_width(thumbnail))
-		{
-			cerr << "DW too high" << endl;
 			dw=gdk_pixbuf_get_width(thumbnail);
-		}
 
 		if(dh>gdk_pixbuf_get_height(thumbnail))
-		{
-			cerr << "DH too high" << endl;
 			dh=gdk_pixbuf_get_height(thumbnail);
-		}
+
 		if(mask)
 		{
 			transformed=gdk_pixbuf_copy(hrpreview);
@@ -555,16 +545,10 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 			dh=height;
 		
 		if(dw>gdk_pixbuf_get_width(transformed))
-		{
-			cerr << "DW too high" << endl;
 			dw=gdk_pixbuf_get_width(transformed);
-		}
 
 		if(dh>gdk_pixbuf_get_height(transformed))
-		{
-			cerr << "DH too high" << endl;
 			dh=gdk_pixbuf_get_height(transformed);
-		}
 
 		if(mask)
 			maskpixbuf(transformed,fit->xoffset,fit->yoffset,dw,dh,mask,
@@ -575,18 +559,12 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 		// and if high-res previews are enabled
 		if(hrrenderthread==NULL && layout.state.FindInt("HighresPreviews"))
 		{
-			cerr << "Launching render thread" << endl;
 			if(width>192 && height>192) // Generating lots of thumbs simultaneously is expensive, and if the images are small,
 			{							// highres previews are of limited value anyway.
 				hrrenderthread=new hr_payload(&layout.state.profilemanager,layout.factory,this,widget,xpos,ypos,width,height);
-//				hrrenderthread=new Thread(hr_payload::ThreadFunc,p);
-//				hrrenderthread->Start();
-//				hrrenderthread->WaitSync();
 			}
 		}
 	}
-	cerr << "ObtainThumbnail - Release" << endl;
-
 
 	gdk_draw_pixbuf(widget->window,NULL,thumbnail,
 		fit->xoffset,fit->yoffset,
@@ -596,13 +574,6 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 
 	if(transformed)
 		g_object_unref(transformed);
-
-//	cerr << "Waiting for sync" << endl;
-//	if(hrrenderthread)
-//		hrrenderthread->WaitSync();
-//	else
-//		cerr << "No thread" << endl;
-//	cerr << "Done" << endl;
 
 	delete fit;
 }
@@ -635,8 +606,6 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 
 	if(layout.state.batchmode)
 		return(NULL);
-
-	cerr << "Getting thumbnail" << endl;
 
 	if(maskfilename && !mask)
 	{
@@ -678,9 +647,6 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 			}
 		}
 	}
-
-//	if(thumbnail)
-//		return(thumbnail);
 
 	cerr << "Thumbnail not cached - loading..." << endl;
 
@@ -734,7 +700,6 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 	CMSProfile *targetprof;
 	CMColourDevice target=CM_COLOURDEVICE_NONE;
 	if((targetprof=layout.state.profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
-//		target=CM_COLOURDEVICE_DISPLAY;
 		target=CM_COLOURDEVICE_PRINTERPROOF;
 	else if((targetprof=layout.state.profilemanager.GetProfile(CM_COLOURDEVICE_DISPLAY)))
 		target=CM_COLOURDEVICE_DISPLAY;
@@ -745,7 +710,6 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 
 	if(target!=CM_COLOURDEVICE_NONE)
 	{
-		cerr << "Found - loading image to check for embedded profile..." << endl;
 		if(!src)
 		{
 			src=ISLoadImage(filename);
@@ -854,6 +818,8 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 	if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
 		is=new ImageSource_Promote(is,colourspace);
 
+	is=new PPIS_Histogram(is,histogram);
+
 	CMSTransform *transform=NULL;
 
 	if(factory)
@@ -938,20 +904,9 @@ void Layout_ImageInfo::CancelRenderThread()
 {
 	if(hrrenderthread)
 	{
-		hrrenderthread->Stop();
-
-		// Obtain the mutex - this won't succeed until the thread has finished whatever it's doing...
-		// We defer this so that, for instance, all threads can be cancelled before we start waiting...
-//		while(!PPEffectHeader::AttemptMutex())
-//		{
-//			cerr << "Can't get exclusive lock - performing main loop iteration" << endl;
-//			gtk_main_iteration();
-//		}
-//		ReleaseMutex();
-
-//		while(!hrrenderthread->TestFinished())
-//			gtk_main_iteration();
-//		delete hrrenderthread;
+		hrrenderthread->Stop();	// We don't actually delete it here - the thread is responsible for its own
+								// demise (by way of a GTK Idle function running on the main thread's context)
+								// but having signalled it to stop, we can discard this pointer to it.
 	}
 	hrrenderthread=NULL;
 }
@@ -982,10 +937,6 @@ void Layout_ImageInfo::AssignProfile(const char *filename)
 	customprofile=NULL;
 	if(filename)
 		customprofile=strdup(filename);
-//	if(customprofile)
-//		cerr << "AssignProfile:  Custom Profile now set to " << customprofile << endl;
-//	else
-//		cerr << "AssignProfile:  No custom profile set" << endl;
 	FlushThumbnail();
 }
 
@@ -1033,17 +984,22 @@ int Layout_ImageInfo::GetYRes()
 }
 
 
+// Because the only reason you would need to ObtainMutex() the ImageInfo (rather than ObtainShared())
+// is to make a write-change to it, we flush the high-res preview on the assumption that the change
+// will invalidate it.  Note, also, we won't be able to obtain the exclusive lock while the thread's
+// running.
+// FIXME - would be better to require an explicit flush() of some kind.
 void Layout_ImageInfo::ObtainMutex()
 {
-	cerr << "In custom Obtain method - flushing preview..." << endl;
+//	cerr << "In custom Obtain method - flushing preview..." << endl;
 	FlushHRPreview();
-	cerr << "Now attempting to obtain exclusive lock..." << endl;
+//	cerr << "Now attempting to obtain exclusive lock..." << endl;
 	while(!PPEffectHeader::AttemptMutex())
 	{
-		cerr << "Can't get exclusive lock - performing main loop iteration" << endl;
+//		cerr << "Can't get exclusive lock - performing main loop iteration" << endl;
 		gtk_main_iteration();
 	}
-	cerr << "Done" << endl;
+//	cerr << "Done" << endl;
 }
 
 

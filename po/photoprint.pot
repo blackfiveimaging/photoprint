@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-05-16 19:43+0100\n"
+"POT-Creation-Date: 2009-06-23 17:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,7 +294,7 @@ msgstr ""
 msgid "_Rotation"
 msgstr ""
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73
 msgid "Set Image _Mask..."
 msgstr ""
 
@@ -595,11 +595,11 @@ msgstr ""
 msgid "Profile:"
 msgstr ""
 
-#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+#: pp_imageinfo.cpp:322
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:349
+#: pp_imageinfo.cpp:351
 msgid "Default"
 msgstr ""
 
@@ -766,11 +766,15 @@ msgid "Duplicate the currently selected image"
 msgstr ""
 
 #: pp_menu_image.cpp:277
-msgid "_Duplicate to Fill Page"
+msgid "Duplicate to _Fill Page"
 msgstr ""
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
+msgstr ""
+
+#: pp_menu_image.cpp:281
+msgid "Set Image _Border..."
 msgstr ""
 
 #: pp_menu_options.cpp:109
@@ -990,6 +994,26 @@ msgstr ""
 
 #: stpui_widgets/dimension.c:173
 msgid "centimeters"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:117
+msgid "General"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:120
+msgid "Manual Settings"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:123
+msgid "Colour (Basic)"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:126
+msgid "Colour (Fine-tuning)"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:129
+msgid "Colour (Extra)"
 msgstr ""
 
 #: miscwidgets/patheditor.cpp:53

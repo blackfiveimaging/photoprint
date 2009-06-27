@@ -5,6 +5,7 @@
 #include <gtk/gtksizegroup.h>
 #include <gtk/gtklabel.h>
 #include <gtk/gtkscrolledwindow.h>
+#include <gtk/gtkimage.h>
 
 #include "config.h"
 
@@ -121,6 +122,14 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 				delete fit;
 			}
 		}
+		else
+		{
+			gtk_label_set_label(GTK_LABEL(ob->filename),"");
+			gtk_label_set_label(GTK_LABEL(ob->dimensions),"");
+			gtk_label_set_label(GTK_LABEL(ob->physicalsize),"");
+			gtk_label_set_label(GTK_LABEL(ob->resolution),"");
+			gtk_label_set_label(GTK_LABEL(ob->profile),"");
+		}
 	}
 }
 
@@ -128,6 +137,13 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 static void killshadow(GtkWidget *wid,gpointer data)
 {
 	gtk_viewport_set_shadow_type(GTK_VIEWPORT(wid),GTK_SHADOW_NONE);
+}
+
+
+static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
+{
+	pp_ImageInfo *ob=PP_IMAGEINFO(object);
+	ob->layout->state.SetInt("ExpanderState_ImageInfo",gtk_expander_get_expanded (GTK_EXPANDER(ob)));
 }
 
 
@@ -144,16 +160,22 @@ pp_imageinfo_new (Layout *layout)
 
 	gtk_expander_set_label(GTK_EXPANDER(ob),_("Image Info"));
 	gtk_expander_set_spacing(GTK_EXPANDER(ob),5);
-	gtk_expander_set_expanded(GTK_EXPANDER(ob),true);
+
+	gtk_expander_set_expanded(GTK_EXPANDER(ob),layout->state.FindInt("ExpanderState_ImageInfo"));
+	g_signal_connect(ob, "notify::expanded",G_CALLBACK (expander_callback),layout);
 
 //	gtk_box_pack_start(GTK_BOX(ob),frame,FALSE,FALSE,0);
 //	gtk_widget_show(frame);
+
+	GtkWidget *vbox=gtk_vbox_new(FALSE,0);
+	gtk_widget_show(vbox);
+	gtk_container_add(GTK_CONTAINER(ob),vbox);
 
 	ob->scrollwin=gtk_scrolled_window_new(NULL,NULL);
 	gtk_widget_show(ob->scrollwin);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (ob->scrollwin),
                                     GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
-	gtk_container_add(GTK_CONTAINER(ob),ob->scrollwin);
+	gtk_box_pack_start(GTK_BOX(vbox),ob->scrollwin,FALSE,FALSE,0);
 
 	ob->table=gtk_table_new(2,5,false);
 
@@ -387,37 +409,6 @@ void pp_imageinfo_change_image(pp_ImageInfo *ob)
 				delete ob->thread;		// any previous iteration has completed.
 
 			ii_payload *p=new ii_payload(fn,ob,ii);
-//			ob->thread=new Thread(ii_payload::ThreadFunc,p);
-//			ob->thread->Start();
-//			ob->thread->WaitSync();
-	#if 0
-			// Dimensions
-			ImageSource *is=ISLoadImage(fn);
-			if(is)
-			{
-				gchar *dim=g_strdup_printf("%d x %d %s",is->width,is->height,_("pixels"));
-				gtk_label_set_label(GTK_LABEL(ob->dimensions),dim);
-				g_free(dim);
-
-				// Embedded/Assigned Profile
-				CMSProfile *prof=NULL;
-				fn=ii->GetAssignedProfile();
-				if(fn)
-					prof=new CMSProfile(fn);
-				if(!prof)
-					prof=is->GetEmbeddedProfile();
-				if(prof)
-				{
-					const char *desc=prof->GetDescription();
-					gtk_label_set_text(GTK_LABEL(ob->profile),desc);
-					if(fn)	// Only delete the profile if we created it from a filename
-						delete prof;
-				}
-				else
-					gtk_label_set_text(GTK_LABEL(ob->profile),"Default");
-				delete is;
-			}
-	#endif
 			gtk_widget_set_sensitive(GTK_WIDGET(ob->scrollwin),true);	
 		}
 	}
@@ -429,3 +420,4 @@ void pp_imageinfo_change_image(pp_ImageInfo *ob)
 		gtk_widget_set_sensitive(GTK_WIDGET(ob->scrollwin),false);
 	}
 }
+

@@ -66,6 +66,8 @@ photoprint_SOURCES = 		\
 	pp_layout_single.h	\
 	pp_layout_single_pageview.cpp	\
 	pp_layout_single_pageview.h		\
+	pp_histogram.cpp \
+	pp_histogram.h \
 	pp_pageextent.cpp	\
 	pp_pageextent.h	\
 	pp_scaling.cpp	\

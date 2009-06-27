@@ -61,10 +61,10 @@ static Hist_Shades Hist_CMYKShades[]=
 
 
 // DrawHistogram() - renders a GdkPixbuf from a histogram.
-GdkPixbuf *DrawHistogram(ISHistogram &histogram)
+GdkPixbuf *PPHistogram::DrawHistogram(int width,int height)
 {
 	Hist_Shades *shades;
-	switch(histogram.GetType())
+	switch(GetType())
 	{
 		case IS_TYPE_RGB:
 		case IS_TYPE_RGBA:
@@ -79,25 +79,25 @@ GdkPixbuf *DrawHistogram(ISHistogram &histogram)
 			throw "Unknown histogram type";
 			break;
 	}
-	int channels=histogram.GetChannelCount();
-	int height=256;
-	GdkPixbuf *pb=gdk_pixbuf_new(GDK_COLORSPACE_RGB,FALSE,8,IS_HISTOGRAM_BUCKETS,height);
+	int channels=GetChannelCount();
+	GdkPixbuf *pb=gdk_pixbuf_new(GDK_COLORSPACE_RGB,FALSE,8,width,height);
 
 	if(pb)
 	{
 		int rowstride=gdk_pixbuf_get_rowstride(pb);
 		unsigned char *pixels=gdk_pixbuf_get_pixels(pb);
-		double max=histogram.GetMax();
+		double max=GetMax();
 
-		for(int x=0;x<IS_HISTOGRAM_BUCKETS;++x)
+		for(int x=0;x<width;++x)
 		{
+			int bucket=(x*IS_HISTOGRAM_BUCKETS)/width;
 			for(int y=0;y<height;++y)
 			{
 				int bit=1;
 				int ci=0;
 				for(int c=0;c<channels;++c)
 				{
-					double t=histogram[c][x];
+					double t=(*this)[c][bucket];
 					t/=max;
 					t=sqrt(t);
 					if((height-y)<(255.0*t))

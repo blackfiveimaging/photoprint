@@ -114,9 +114,10 @@ am_photoprint_OBJECTS = dialogs.$(OBJEXT) layout.$(OBJEXT) \
 	pp_layout_carousel_pageview.$(OBJEXT) pp_layout_nup.$(OBJEXT) \
 	pp_layout_nup_pageview.$(OBJEXT) pp_layout_poster.$(OBJEXT) \
 	pp_layout_poster_pageview.$(OBJEXT) pp_layout_single.$(OBJEXT) \
-	pp_layout_single_pageview.$(OBJEXT) pp_pageextent.$(OBJEXT) \
-	pp_scaling.$(OBJEXT) pp_sigcontrol.$(OBJEXT) \
-	pp_units.$(OBJEXT) pp_imageinfo.$(OBJEXT)
+	pp_layout_single_pageview.$(OBJEXT) pp_histogram.$(OBJEXT) \
+	pp_pageextent.$(OBJEXT) pp_scaling.$(OBJEXT) \
+	pp_sigcontrol.$(OBJEXT) pp_units.$(OBJEXT) \
+	pp_imageinfo.$(OBJEXT)
 photoprint_OBJECTS = $(am_photoprint_OBJECTS)
 photoprint_DEPENDENCIES = effects/libppeffects.la \
 	imagesource/libimagesource.la imageutils/libimageutils.la \
@@ -391,6 +392,8 @@ photoprint_SOURCES = \
 	pp_layout_single.h	\
 	pp_layout_single_pageview.cpp	\
 	pp_layout_single_pageview.h		\
+	pp_histogram.cpp \
+	pp_histogram.h \
 	pp_pageextent.cpp	\
 	pp_pageextent.h	\
 	pp_scaling.cpp	\
@@ -585,6 +588,7 @@ include ./$(DEPDIR)/misccheck.Po
 include ./$(DEPDIR)/photoprint.Po
 include ./$(DEPDIR)/photoprint_state.Po
 include ./$(DEPDIR)/pp_cms.Po
+include ./$(DEPDIR)/pp_histogram.Po
 include ./$(DEPDIR)/pp_imagecontrol.Po
 include ./$(DEPDIR)/pp_imageinfo.Po
 include ./$(DEPDIR)/pp_layout_carousel.Po

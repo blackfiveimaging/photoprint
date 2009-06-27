@@ -274,11 +274,11 @@ static GtkActionEntry imagemenu_entries[] = {
   { "AddImage", NULL, N_("_Add Image..."), "<control>I", N_("Add images to the current layout"), G_CALLBACK(imagemenu_addimage) },
   { "RemoveImage", NULL, N_("_Remove Image"), NULL, N_("Remove selected images from the layout"), G_CALLBACK(imagemenu_remove) },
   { "DuplicateImage", NULL, N_("_Duplicate Image"), NULL, N_("Duplicate the currently selected image"), G_CALLBACK(imagemenu_duplicate) },
-  { "DuplicateToFillPage", NULL, N_("_Duplicate to Fill Page"), NULL, N_("Fill the page with copies of the currently selected image"), G_CALLBACK(imagemenu_duplicatetofillpage) },
+  { "DuplicateToFillPage", NULL, N_("Duplicate to _Fill Page"), NULL, N_("Fill the page with copies of the currently selected image"), G_CALLBACK(imagemenu_duplicatetofillpage) },
 
   { "Rotation", NULL, N_("_Rotation") },
 
-  { "SetImageMask", NULL, N_("Set Image _Mask..."), NULL, N_("Set a border mask for the selected image"), G_CALLBACK(imagemenu_setmask) },
+  { "SetImageMask", NULL, N_("Set Image _Border..."), NULL, N_("Set a border mask for the selected image"), G_CALLBACK(imagemenu_setmask) },
 //  { "Effects", NULL, N_("_Effects..."), NULL, N_("Apply effects to the selected image"), G_CALLBACK(imagemenu_seteffects) },
   { "SetColourProfile", NULL, N_("Set Colour _Profile..."), NULL, N_("Assign an ICC profile or custom rendering intent to the image"), G_CALLBACK(imagemenu_setcolourprofile) },
 };

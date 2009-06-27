@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-05-16 19:43+0100\n"
+"POT-Creation-Date: 2009-06-23 17:50+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -299,7 +299,7 @@ msgstr "Usuwa zaznaczone obrazy z układu"
 msgid "_Rotation"
 msgstr "O_brót"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73
 msgid "Set Image _Mask..."
 msgstr "Ustaw _maskę obrazu"
 
@@ -605,11 +605,11 @@ msgstr "Rozdzielczość:"
 msgid "Profile:"
 msgstr "Profil:"
 
-#: pp_imageinfo.cpp:320 pp_imageinfo.cpp:395
+#: pp_imageinfo.cpp:322
 msgid "pixels"
 msgstr "pikseli"
 
-#: pp_imageinfo.cpp:349
+#: pp_imageinfo.cpp:351
 msgid "Default"
 msgstr "Domyślny"
 
@@ -776,12 +776,18 @@ msgid "Duplicate the currently selected image"
 msgstr "Tworzy kopię aktualnie zaznaczonego obrazu"
 
 #: pp_menu_image.cpp:277
-msgid "_Duplicate to Fill Page"
+#, fuzzy
+msgid "Duplicate to _Fill Page"
 msgstr "_Duplikuj wypełniając stronę "
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Wypełnia stronę kopiami aktualnie zaznaczonego obrazu"
+
+#: pp_menu_image.cpp:281
+#, fuzzy
+msgid "Set Image _Border..."
+msgstr "Wybór obramowania..."
 
 #: pp_menu_options.cpp:109
 msgid "High-res Previews"
@@ -1015,6 +1021,28 @@ msgstr "milimetry"
 #: stpui_widgets/dimension.c:173
 msgid "centimeters"
 msgstr "centymetry"
+
+#: stpui_widgets/stpui_optionbook.c:117
+msgid "General"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:120
+#, fuzzy
+msgid "Manual Settings"
+msgstr "Skalowanie ręczne"
+
+#: stpui_widgets/stpui_optionbook.c:123
+#, fuzzy
+msgid "Colour (Basic)"
+msgstr "Przestrzeń barw:"
+
+#: stpui_widgets/stpui_optionbook.c:126
+msgid "Colour (Fine-tuning)"
+msgstr ""
+
+#: stpui_widgets/stpui_optionbook.c:129
+msgid "Colour (Extra)"
+msgstr ""
 
 #: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."

@@ -6,10 +6,12 @@
 #include <gtk/gtklabel.h>
 
 #include "layout.h"
+#include "photoprint_state.h"
 
 #include "effects/ppeffect.h"
 #include "effects/effectselector.h"
 #include "pp_imageinfo.h"
+#include "pp_histogram.h"
 
 #include "pp_imagecontrol.h"
 
@@ -73,6 +75,7 @@ static void effectselector_removeeffect(GtkWidget *wid,gpointer *ob)
 void pp_imagecontrol_refresh(pp_ImageControl *ob)
 {
 	pp_imageinfo_refresh(PP_IMAGEINFO(ob->imageinfo));
+	pp_histogram_refresh(PP_HISTOGRAM(ob->histogram));
 }
 
 
@@ -82,6 +85,14 @@ void pp_imagecontrol_set_image(pp_ImageControl *ob)
 	pp_imageinfo_change_image(PP_IMAGEINFO(ob->imageinfo));
 	effectselector_set_current_list(EFFECTSELECTOR(ob->effectselector),ii);
 	pp_imageinfo_refresh(PP_IMAGEINFO(ob->imageinfo));
+	pp_histogram_refresh(PP_HISTOGRAM(ob->histogram));
+}
+
+
+static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
+{
+	pp_ImageControl *ob=PP_IMAGECONTROL(userdata);
+	ob->layout->state.layoutdb.SetInt("ExpanderState_EffectSelector",gtk_expander_get_expanded (GTK_EXPANDER(ob->expander1)));
 }
 
 
@@ -99,6 +110,9 @@ pp_imagecontrol_new (Layout *layout)
 	gtk_box_pack_start(GTK_BOX(ob),ob->imageinfo,FALSE,FALSE,0);
 	gtk_widget_show(ob->imageinfo);
 
+	ob->histogram=pp_histogram_new(layout);
+	gtk_box_pack_start(GTK_BOX(ob),ob->histogram,FALSE,FALSE,0);
+	gtk_widget_show(ob->histogram);
 
 	// FIXME add transformations here
 
@@ -109,7 +123,8 @@ pp_imagecontrol_new (Layout *layout)
 	// EffectSelector
 
 	ob->expander1=frame=gtk_expander_new(_("Effects"));
-	gtk_expander_set_expanded(GTK_EXPANDER(frame),true);
+	g_signal_connect(ob->expander1, "notify::expanded",G_CALLBACK (expander_callback), ob);
+	gtk_expander_set_expanded(GTK_EXPANDER(frame),layout->state.FindInt("ExpanderState_EffectSelector"));
 
 	gtk_box_pack_start(GTK_BOX(ob),frame,TRUE,TRUE,0);
 	gtk_widget_show(frame);
@@ -172,24 +187,3 @@ pp_imagecontrol_init (pp_ImageControl *ob)
 	ob->expander1=NULL;
 }
 
-
-#define IMAGEINFO_MASK 0x1
-#define EXPANDER1_MASK 0x2
-
-int pp_imagecontrol_get_expander_state(pp_ImageControl *ob)
-{
-	int result=0;
-	if(gtk_expander_get_expanded(GTK_EXPANDER(ob->imageinfo)))
-		result|=IMAGEINFO_MASK;
-	if(gtk_expander_get_expanded(GTK_EXPANDER(ob->expander2)))
-		result|=EXPANDER1_MASK;
-
-	return(result);
-}
-
-
-void pp_imagecontrol_set_expander_state(pp_ImageControl *ob,int state)
-{
-	gtk_expander_set_expanded(GTK_EXPANDER(ob->imageinfo),(state&IMAGEINFO_MASK)!=0);
-	gtk_expander_set_expanded(GTK_EXPANDER(ob->expander1),(state&EXPANDER1_MASK)!=0);
-}

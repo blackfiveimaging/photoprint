@@ -370,3 +370,19 @@ pp_pageextent_init (pp_PageExtent *ob)
 	ob->pe=NULL;
 	ob->blocksignals=false;
 }
+
+
+int pp_pageextent_get_expander_state(pp_PageExtent *ob)
+{
+	int result=0;
+	if(gtk_expander_get_expanded(GTK_EXPANDER(ob)))
+		result=1;
+	return(result);
+}
+
+
+void pp_pageextent_set_expander_state(pp_PageExtent *ob,int state)
+{
+	gtk_expander_set_expanded(GTK_EXPANDER(ob),state!=0);
+}
+

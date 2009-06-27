@@ -31,6 +31,7 @@ struct _pp_ImageControl
 	GtkVBox	box;
 	GtkWidget *imageinfo;
 	GtkWidget *effectselector;
+	GtkWidget *histogram;
 	GtkWidget *expander1;
 	GtkWidget *expander2;
 	Layout *layout;
@@ -48,8 +49,6 @@ GType pp_imagecontrol_get_type (void);
 GtkWidget* pp_imagecontrol_new (Layout *layout);
 void pp_imagecontrol_refresh(pp_ImageControl *ob);
 void pp_imagecontrol_set_image(pp_ImageControl *ob);
-int pp_imagecontrol_get_expander_state(pp_ImageControl *ob);
-void pp_imagecontrol_set_expander_state(pp_ImageControl *ob,int state);
 
 G_END_DECLS
 
