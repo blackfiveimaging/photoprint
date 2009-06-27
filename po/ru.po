@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-23 17:50+0100\n"
+"POT-Creation-Date: 2009-06-27 18:59+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -568,55 +568,55 @@ msgstr "Профиль CMYK:"
 msgid "Colour Management"
 msgstr "Управление цветом"
 
-#: pp_imagecontrol.cpp:111
+#: pp_imagecontrol.cpp:125
 msgid "Effects"
 msgstr "Эффекты"
 
-#: pp_imageinfo.cpp:99
+#: pp_imageinfo.cpp:100
 msgid "in"
 msgstr "in"
 
-#: pp_imageinfo.cpp:102
+#: pp_imageinfo.cpp:103
 msgid "pt"
 msgstr "pt"
 
-#: pp_imageinfo.cpp:107
+#: pp_imageinfo.cpp:108
 msgid "cm"
 msgstr "cm"
 
-#: pp_imageinfo.cpp:112
+#: pp_imageinfo.cpp:113
 msgid "mm"
 msgstr "mm"
 
-#: pp_imageinfo.cpp:145
+#: pp_imageinfo.cpp:161
 msgid "Image Info"
 msgstr "Сводка по снимку"
 
-#: pp_imageinfo.cpp:166
+#: pp_imageinfo.cpp:188
 msgid "Filename:"
 msgstr "Имя файла:"
 
-#: pp_imageinfo.cpp:179
+#: pp_imageinfo.cpp:201
 msgid "Dimensions:"
 msgstr "Размеры:"
 
-#: pp_imageinfo.cpp:199
+#: pp_imageinfo.cpp:221
 msgid "Resolution:"
 msgstr "Разрешение:"
 
-#: pp_imageinfo.cpp:212
+#: pp_imageinfo.cpp:234
 msgid "Profile:"
 msgstr "Профиль:"
 
-#: pp_imageinfo.cpp:322
+#: pp_imageinfo.cpp:344
 msgid "pixels"
 msgstr "пикселов"
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:373
 msgid "Default"
 msgstr "По умолчанию"
 
-#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:217
+#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:225
 #: pp_layout_poster.cpp:296 pp_layout_poster.cpp:461 pp_layout_single.cpp:223
 #: pp_layout_single.cpp:336
 msgid "Page:"

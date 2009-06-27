@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-23 17:50+0100\n"
+"POT-Creation-Date: 2009-06-27 18:59+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -567,60 +567,60 @@ msgstr "Perfil CMYK:"
 msgid "Colour Management"
 msgstr "Gestión de color"
 
-#: pp_imagecontrol.cpp:111
+#: pp_imagecontrol.cpp:125
 #, fuzzy
 msgid "Effects"
 msgstr "Efectos..."
 
-#: pp_imageinfo.cpp:99
+#: pp_imageinfo.cpp:100
 msgid "in"
 msgstr ""
 
-#: pp_imageinfo.cpp:102
+#: pp_imageinfo.cpp:103
 msgid "pt"
 msgstr ""
 
-#: pp_imageinfo.cpp:107
+#: pp_imageinfo.cpp:108
 msgid "cm"
 msgstr ""
 
-#: pp_imageinfo.cpp:112
+#: pp_imageinfo.cpp:113
 msgid "mm"
 msgstr ""
 
-#: pp_imageinfo.cpp:145
+#: pp_imageinfo.cpp:161
 #, fuzzy
 msgid "Image Info"
 msgstr "Imágen"
 
-#: pp_imageinfo.cpp:166
+#: pp_imageinfo.cpp:188
 msgid "Filename:"
 msgstr ""
 
-#: pp_imageinfo.cpp:179
+#: pp_imageinfo.cpp:201
 msgid "Dimensions:"
 msgstr ""
 
-#: pp_imageinfo.cpp:199
+#: pp_imageinfo.cpp:221
 #, fuzzy
 msgid "Resolution:"
 msgstr "Resolución (dpi):"
 
-#: pp_imageinfo.cpp:212
+#: pp_imageinfo.cpp:234
 #, fuzzy
 msgid "Profile:"
 msgstr "Perfil RGB:"
 
-#: pp_imageinfo.cpp:322
+#: pp_imageinfo.cpp:344
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:373
 #, fuzzy
 msgid "Default"
 msgstr "Guradar por _Defecto"
 
-#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:217
+#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:225
 #: pp_layout_poster.cpp:296 pp_layout_poster.cpp:461 pp_layout_single.cpp:223
 #: pp_layout_single.cpp:336
 msgid "Page:"

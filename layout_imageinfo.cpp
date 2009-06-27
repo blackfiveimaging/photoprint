@@ -818,7 +818,13 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 	if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
 		is=new ImageSource_Promote(is,colourspace);
 
-	is=new PPIS_Histogram(is,histogram);
+	// If this fails we don't bother with the histogram, since another thread has it
+	// locked for writing.
+	if(histogram.AttemptMutexShared())
+	{
+		is=new PPIS_Histogram(is,histogram);
+		histogram.ReleaseMutex();
+	}
 
 	CMSTransform *transform=NULL;
 

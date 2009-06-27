@@ -136,9 +136,9 @@ static void pageview_selection_changed(GtkWidget *wid,gpointer *ob)
 	// FIXME - in the absence of a better place to do so, store the UI's
 	// Expander state here...
 	int state=pp_sigcontrol_get_expander_state(PP_SIGCONTROL(lo->sigcontrol));
-	lo->state->layoutdb.SetInt("ExpanderState_SigControl",state);
+	lo->state->SetInt("ExpanderState_SigControl",state);
 	state=pp_pageextent_get_expander_state(PP_PAGEEXTENT(lo->pageextent));
-	lo->state->layoutdb.SetInt("ExpanderState_PageExtent",state);
+	lo->state->SetInt("ExpanderState_PageExtent",state);
 
 	g_signal_emit(G_OBJECT (lo),pp_layout_nup_signals[SELECTIONCHANGED_SIGNAL], 0);
 }

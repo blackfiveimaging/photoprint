@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-23 17:50+0100\n"
+"POT-Creation-Date: 2009-06-27 18:59+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -565,55 +565,55 @@ msgstr "CMYK profil:"
 msgid "Colour Management"
 msgstr "Farvestyring"
 
-#: pp_imagecontrol.cpp:111
+#: pp_imagecontrol.cpp:125
 msgid "Effects"
 msgstr "Effekter"
 
-#: pp_imageinfo.cpp:99
+#: pp_imageinfo.cpp:100
 msgid "in"
 msgstr "tommer"
 
-#: pp_imageinfo.cpp:102
+#: pp_imageinfo.cpp:103
 msgid "pt"
 msgstr "punkter"
 
-#: pp_imageinfo.cpp:107
+#: pp_imageinfo.cpp:108
 msgid "cm"
 msgstr "cm"
 
-#: pp_imageinfo.cpp:112
+#: pp_imageinfo.cpp:113
 msgid "mm"
 msgstr "mm"
 
-#: pp_imageinfo.cpp:145
+#: pp_imageinfo.cpp:161
 msgid "Image Info"
 msgstr "Billed info"
 
-#: pp_imageinfo.cpp:166
+#: pp_imageinfo.cpp:188
 msgid "Filename:"
 msgstr "Filnavn:"
 
-#: pp_imageinfo.cpp:179
+#: pp_imageinfo.cpp:201
 msgid "Dimensions:"
 msgstr "Dimensioner:"
 
-#: pp_imageinfo.cpp:199
+#: pp_imageinfo.cpp:221
 msgid "Resolution:"
 msgstr "Opløsning:"
 
-#: pp_imageinfo.cpp:212
+#: pp_imageinfo.cpp:234
 msgid "Profile:"
 msgstr "Profil:"
 
-#: pp_imageinfo.cpp:322
+#: pp_imageinfo.cpp:344
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:373
 msgid "Default"
 msgstr "Standard"
 
-#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:217
+#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:225
 #: pp_layout_poster.cpp:296 pp_layout_poster.cpp:461 pp_layout_single.cpp:223
 #: pp_layout_single.cpp:336
 msgid "Page:"

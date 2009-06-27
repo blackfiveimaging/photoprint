@@ -7,14 +7,18 @@ URGENT:
 
 | Add an ImageSource_Histogram class which will pass through the image data, but record a histogram
 | as it goes.
-The histogram itself will be a separate class owned by the application but passed by reference when
-the imagesource is created.
+| The histogram itself will be a separate class owned by the application but passed by reference when
+| the imagesource is created.
 
-Ideally will generate the histogram data while rendering a high-res preview - but
-how to handle notification of completion?
+| Ideally will generate the histogram data while rendering a high-res preview
+- but how to handle notification of completion?
 
 Could be done using mutex - if the histogram display widget tries to obtain the histogram and
 fails, it could trigger an idle-handler or a timer, and when that's triggered it tries again.
+
+Use the mutex in both the info widget and the rendering thread - if the rendering thread can't obtain it in
+shared mode, then another thread must be writing to it.
+Then if the histogram is empty the display widget can launch a thread to render it.
 
 
 | There's a problem with using the PostScript driver immediately after the Epson driver - certain parameters
