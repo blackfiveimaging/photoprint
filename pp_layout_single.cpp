@@ -176,6 +176,13 @@ void pp_layout_single_set_unit(GtkWidget *wid,enum Units unit)
 }
 
 
+static void expander_callback(GObject *object, GParamSpec *param_spec, gpointer userdata)
+{
+	pp_Layout_Single *ob=PP_LAYOUT_SINGLE(userdata);
+	ob->state->SetInt("ExpanderState_Single",gtk_expander_get_expanded (GTK_EXPANDER(object)));
+}
+
+
 GtkWidget*
 pp_layout_single_new (PhotoPrint_State *state)
 {
@@ -245,27 +252,12 @@ pp_layout_single_new (PhotoPrint_State *state)
 //	gtk_container_foreach(GTK_CONTAINER(scrollwin),killshadow,NULL);
 	gtk_widget_show (vbox);
 
-#if 0
-
-	GtkWidget *scrollwin=gtk_scrolled_window_new(NULL,NULL);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwin),
-                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-	GtkWidget *hbox2=gtk_hbox_new(FALSE,0);
-	gtk_widget_show (hbox2);
-	vbox = gtk_vbox_new (FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(hbox2),vbox,TRUE,TRUE,5);
-	
-	gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scrollwin), hbox2);
-	gtk_box_pack_start(GTK_BOX(&ob->hbox),scrollwin,FALSE,FALSE,0);
-	gtk_widget_show (vbox);
-	gtk_widget_show (scrollwin);
-#endif
-
 
 	// Scale
 
 	frame=gtk_expander_new(_("Manual scaling"));
-	gtk_expander_set_expanded(GTK_EXPANDER(frame),true);
+	gtk_expander_set_expanded(GTK_EXPANDER(frame),state->FindInt("ExpanderState_Single"));
+	g_signal_connect(frame, "notify::expanded",G_CALLBACK (expander_callback), ob);
 	gtk_box_pack_start(GTK_BOX(vbox),frame,FALSE,FALSE,0);
 	gtk_widget_show(frame);
 
@@ -320,34 +312,6 @@ pp_layout_single_new (PhotoPrint_State *state)
 	g_signal_connect(G_OBJECT(ob->imagecontrol),"changed",G_CALLBACK(ic_changed),ob);
 	gtk_widget_show(ob->imagecontrol);
 
-
-
-#if 0
-	// Spacer box
-
-	tmp=gtk_vbox_new(FALSE,0);
-	gtk_box_pack_start(GTK_BOX(vbox),tmp,TRUE,TRUE,0);
-	gtk_widget_show(tmp);
-
-
-	// Page number
-
-	hbox=gtk_hbox_new(FALSE,5);
-	label=gtk_label_new(_("Page:"));
-	gtk_misc_set_alignment(GTK_MISC(label),1.0,0.5);
-	gtk_box_pack_start(GTK_BOX(hbox),label,TRUE,TRUE,0);
-	gtk_widget_show(label);
-
-	ob->page=gtk_spin_button_new_with_range(1.0,2.0,1.0);
-	g_signal_connect(G_OBJECT(ob->page),"value-changed",G_CALLBACK(page_changed),ob);
-	gtk_widget_show(ob->page);
-
-	gtk_box_pack_start(GTK_BOX(hbox),ob->page,FALSE,FALSE,0);
-
-
-	gtk_box_pack_start(GTK_BOX(vbox),hbox,FALSE,FALSE,0);
-	gtk_widget_show(hbox);
-#endif
 
 	pp_layout_single_refresh(ob);
 

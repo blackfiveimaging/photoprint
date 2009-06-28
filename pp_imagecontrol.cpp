@@ -92,7 +92,7 @@ void pp_imagecontrol_set_image(pp_ImageControl *ob)
 static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
 {
 	pp_ImageControl *ob=PP_IMAGECONTROL(userdata);
-	ob->layout->state.layoutdb.SetInt("ExpanderState_EffectSelector",gtk_expander_get_expanded (GTK_EXPANDER(ob->expander1)));
+	ob->layout->state.SetInt("ExpanderState_EffectSelector",gtk_expander_get_expanded (GTK_EXPANDER(ob->expander1)));
 }
 
 

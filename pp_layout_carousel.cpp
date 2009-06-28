@@ -190,6 +190,13 @@ void pp_layout_carousel_set_unit(GtkWidget *wid,enum Units unit)
 }
 
 
+static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
+{
+	pp_Layout_Carousel *ob=PP_LAYOUT_CAROUSEL(userdata);
+	ob->state->SetInt("ExpanderState_Carousel",gtk_expander_get_expanded (GTK_EXPANDER(object)));
+}
+
+
 GtkWidget*
 pp_layout_carousel_new (PhotoPrint_State *state)
 {
@@ -217,22 +224,6 @@ pp_layout_carousel_new (PhotoPrint_State *state)
 
 	gtk_container_add (GTK_CONTAINER (frame), ob->pageview);
 	gtk_widget_show (ob->pageview);
-
-
-#if 0
-	GtkWidget *scrollwin=gtk_scrolled_window_new(NULL,NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwin),
-                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-	GtkWidget *hbox2=gtk_hbox_new(FALSE,0);
-	gtk_widget_show (hbox2);
-	vbox = gtk_vbox_new (FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(hbox2),vbox,TRUE,TRUE,5);
-	
-	gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scrollwin), hbox2);
-	gtk_box_pack_start(GTK_BOX(&ob->hbox),scrollwin,FALSE,FALSE,0);
-	gtk_widget_show (vbox);
-	gtk_widget_show (scrollwin);
-#endif
 
 
 	// Scroll Window
@@ -280,7 +271,8 @@ pp_layout_carousel_new (PhotoPrint_State *state)
 	// Carousel
 	
 	frame=gtk_expander_new(_("Carousel"));
-	gtk_expander_set_expanded(GTK_EXPANDER(frame),true);
+	gtk_expander_set_expanded(GTK_EXPANDER(frame),state->FindInt("ExpanderState_Carousel"));
+	g_signal_connect(frame, "notify::expanded",G_CALLBACK (expander_callback), ob);
 	gtk_box_pack_start(GTK_BOX(vbox),frame,FALSE,FALSE,0);
 	gtk_widget_show(frame);
 

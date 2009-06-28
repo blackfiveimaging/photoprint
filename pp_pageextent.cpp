@@ -194,6 +194,13 @@ void pp_pageextent_set_unit(pp_PageExtent *ob,enum Units unit)
 }
 
 
+static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
+{
+	pp_PageExtent *ob=PP_PAGEEXTENT(object);
+	ob->state->SetInt("ExpanderState_PageExtent",gtk_expander_get_expanded (GTK_EXPANDER(ob)));
+}
+
+
 GtkWidget*
 pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state)
 {
@@ -213,7 +220,9 @@ pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state)
 	// PageSize Selector
 
 //	frame=gtk_expander_new(_("Page Size and Margins"));
-	gtk_expander_set_expanded(GTK_EXPANDER(ob),true);
+	gtk_expander_set_expanded(GTK_EXPANDER(ob),state->FindInt("ExpanderState_PageExtent"));
+	g_signal_connect(ob, "notify::expanded",G_CALLBACK (expander_callback), NULL);
+
 	gtk_expander_set_label(GTK_EXPANDER(ob),_("Page Size and Margins"));
 //	gtk_box_pack_start(GTK_BOX(ob),frame,FALSE,FALSE,0);
 //	gtk_widget_show(frame);

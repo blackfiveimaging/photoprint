@@ -57,8 +57,6 @@ GType pp_sigcontrol_get_type (void);
 GtkWidget* pp_sigcontrol_new (Layout_NUp *sig,enum Units unit=UNIT_POINTS);
 void pp_sigcontrol_refresh(pp_SigControl *ob);
 void pp_sigcontrol_set_unit(pp_SigControl *ob,enum Units unit);
-int pp_sigcontrol_get_expander_state(pp_SigControl *ob);
-void pp_sigcontrol_set_expander_state(pp_SigControl *ob,int state);
 
 G_END_DECLS
 

@@ -9,6 +9,7 @@
 #include "support/signature.h"
 #include "miscwidgets/simplecombo.h"
 #include "pp_pageextent.h"
+#include "photoprint_state.h"
 
 #include "pp_sigcontrol.h"
 
@@ -311,6 +312,14 @@ static SimpleComboOption comboopts[]=
 	{NULL,NULL}
 };
 
+
+static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
+{
+	pp_SigControl *ob=PP_SIGCONTROL(object);
+	ob->sig->state.SetInt("ExpanderState_SigControl",gtk_expander_get_expanded (GTK_EXPANDER(ob)));
+}
+
+
 GtkWidget*
 pp_sigcontrol_new (Layout_NUp *sig,enum Units unit)
 {
@@ -328,7 +337,8 @@ pp_sigcontrol_new (Layout_NUp *sig,enum Units unit)
 
 	// Layout frame
 
-	gtk_expander_set_expanded(GTK_EXPANDER(ob),true);
+	gtk_expander_set_expanded(GTK_EXPANDER(ob),sig->state.FindInt("ExpanderState_SigControl"));
+	g_signal_connect(ob, "notify::expanded",G_CALLBACK (expander_callback), NULL);
 	gtk_expander_set_label(GTK_EXPANDER(ob),_("Layout"));
 
 	ob->combo=simplecombo_new(comboopts);
