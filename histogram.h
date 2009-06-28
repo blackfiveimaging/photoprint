@@ -10,7 +10,8 @@
 class PPHistogram : public ISHistogram, public RWMutex, public ThreadEvent
 {
 	public:
-	PPHistogram(ThreadEventHandler &header) : ISHistogram(), RWMutex(), ThreadEvent(header,"HistogramBuilt")
+	PPHistogram(ThreadEventHandler &header)
+		: ISHistogram(), RWMutex(), ThreadEvent(header,"HistogramBuilt")
 	{
 	}
 	~PPHistogram()

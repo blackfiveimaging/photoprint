@@ -78,16 +78,13 @@ void effectselector_apply(EffectSelector *sel,PPEffectHeader *target)
 {
 	if(target)
 	{
-		cerr << "Applying effect - obtaining mutex" << endl;
 		target->ObtainMutex(); // Exclusive
-		cerr << "Done" << endl;
 		int item=effectselector_get_selected(sel);
 		PPEffect *effect=target->Find(sel->available->GetID(item));
 		if(effect)
 		{
 			sel->available->WidgetToEffect(sel->effectwidget,effect);
 		}
-		cerr << "Effect updated - releasing mutex" << endl;
 		target->ReleaseMutex();
 	}
 }
@@ -102,17 +99,12 @@ static void selection_changed(GtkTreeSelection *select,gpointer user_data)
 		gtk_widget_destroy(pe->effectwidget);
 	pe->effectwidget=NULL;
 
-	cerr << "About to create widget for: " << pe->available->GetID(item) << endl;
 	PPEffect *effect=NULL;
-	cerr << "Searching for current effect" << endl;
 	if(pe->current)
 		effect=pe->current->Find(pe->available->GetID(item));
-	cerr << "Done - creating widget" << endl;
 	pe->effectwidget=pe->available->CreateWidget(item,effect);
-	cerr << "Done" << endl;
 	if(pe->effectwidget)
 	{
-		cerr << "Adding widget to window" << endl;
 		gtk_box_pack_start(GTK_BOX(pe),pe->effectwidget,FALSE,FALSE,0);
 		g_signal_connect (G_OBJECT (pe->effectwidget), "changed",
 			G_CALLBACK (effectwidget_changed),pe);
@@ -411,16 +403,13 @@ static gboolean set_current_list_foreach_func(GtkTreeModel *model,GtkTreePath *p
 	int i;
 	gtk_tree_model_get (model, iter, EFFECTINDEX_COLUMN, &i, -1);
 
-	cerr << "Checking effect:" << es->available->GetID(i) << endl;
 	PPEffect *pe=es->current->Find(es->available->GetID(i));
 	if(pe)
 	{
-		cerr << "Found" << endl;
 		gtk_tree_store_set (GTK_TREE_STORE (model), iter, ACTIVE_COLUMN, TRUE, -1);
 	}
 	else
 	{
-		cerr << "Not Found" << endl;
 		gtk_tree_store_set (GTK_TREE_STORE (model), iter, ACTIVE_COLUMN, FALSE, -1);
 	}
 
@@ -457,7 +446,6 @@ void effectselector_set_current_list(EffectSelector *es,PPEffectHeader *current)
 PPEffect *effectselector_add_selected_effect(EffectSelector *es,PPEffectHeader *chain)
 {
 	PPEffect *result=NULL;
-	cerr << "AddEffect: Obtaining Mutex" << endl;
 	chain->ObtainMutex(); // Exclusive
 	if(chain)
 	{
@@ -470,9 +458,7 @@ PPEffect *effectselector_add_selected_effect(EffectSelector *es,PPEffectHeader *
 			cerr << "Done" << endl;
 		}
 	}
-	cerr << "AddEffect: Releasing mutex" << endl;
 	chain->ReleaseMutex();
-	cerr << "Returning..." << endl;
 	return(result);
 }
 

@@ -46,10 +46,15 @@ class PPIS_Histogram : public ImageSource
 	public:
 	PPIS_Histogram(ImageSource *source,PPHistogram &hist) : ImageSource(source), source(source,hist), histogram(hist)
 	{
+		cerr << "PPIS_Histogram obtaining Histogram mutex in exclusive mode from " << long(Thread::GetThreadID()) << endl;
 		histogram.ObtainMutex();
+		cerr << "Histogram address: " << long(&histogram) << endl;
 	}
 	virtual ~PPIS_Histogram()
 	{
+		cerr << "PPIS_Histogram triggering complete signal" << endl;
+		histogram.Trigger();
+		cerr << "PPIS_Histogram releasing Histogram mutex from " << long(Thread::GetThreadID()) << endl;
 		histogram.ReleaseMutex();
 	}
 	virtual ISDataType *GetRow(int row)
@@ -823,7 +828,8 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 	if(histogram.AttemptMutexShared())
 	{
 		is=new PPIS_Histogram(is,histogram);
-		histogram.ReleaseMutex();
+		histogram.ReleaseMutexShared();	// ReleaseShared because the Histogram itself holds an exclusive lock
+										// and we don't want to cancel its exclusivity!
 	}
 
 	CMSTransform *transform=NULL;
