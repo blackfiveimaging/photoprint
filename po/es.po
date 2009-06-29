@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-27 18:59+0100\n"
+"POT-Creation-Date: 2009-06-28 23:07+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -140,15 +140,15 @@ msgstr ""
 msgid "Warm/Cool"
 msgstr ""
 
-#: effects/effectselector.cpp:228
+#: effects/effectselector.cpp:220
 msgid "Active"
 msgstr ""
 
-#: effects/effectselector.cpp:237
+#: effects/effectselector.cpp:229
 msgid "Icon"
 msgstr ""
 
-#: effects/effectselector.cpp:249
+#: effects/effectselector.cpp:241
 msgid "Name"
 msgstr ""
 
@@ -620,57 +620,56 @@ msgstr ""
 msgid "Default"
 msgstr "Guradar por _Defecto"
 
-#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:225
-#: pp_layout_poster.cpp:296 pp_layout_poster.cpp:461 pp_layout_single.cpp:223
-#: pp_layout_single.cpp:336
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:218
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:230
 msgid "Page:"
 msgstr "Página:"
 
-#: pp_layout_carousel.cpp:282
+#: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Ruleta"
 
-#: pp_layout_carousel.cpp:297
+#: pp_layout_carousel.cpp:289
 msgid "Segments:"
 msgstr "Segmentos:"
 
-#: pp_layout_carousel.cpp:312
+#: pp_layout_carousel.cpp:304
 msgid "Overlap (%):"
 msgstr "Solapamiento (%):"
 
-#: pp_layout_carousel.cpp:327
+#: pp_layout_carousel.cpp:319
 msgid "Starting angle:"
 msgstr "Ángulo de inicio:"
 
-#: pp_layout_carousel.cpp:342
+#: pp_layout_carousel.cpp:334
 msgid "Inner Radius:"
 msgstr "Radio central"
 
-#: pp_layout_poster.cpp:338
+#: pp_layout_poster.cpp:336
 #, fuzzy
 msgid "Poster Layout"
 msgstr "_Borrar·Disposición"
 
-#: pp_layout_poster.cpp:352
+#: pp_layout_poster.cpp:351
 #, fuzzy
 msgid "Size"
 msgstr "Tamaño de página"
 
-#: pp_layout_poster.cpp:364 pp_layout_poster.cpp:388
+#: pp_layout_poster.cpp:363 pp_layout_poster.cpp:387
 msgid "by"
 msgstr ""
 
-#: pp_layout_poster.cpp:376
+#: pp_layout_poster.cpp:375
 #, fuzzy
 msgid "Tiles"
 msgstr "Recuadros a lo ancho:"
 
-#: pp_layout_poster.cpp:398
+#: pp_layout_poster.cpp:397
 #, fuzzy
 msgid "Overlap"
 msgstr "Solapamiento:"
 
-#: pp_layout_poster.cpp:411 pp_pageextent.cpp:251
+#: pp_layout_poster.cpp:411 pp_pageextent.cpp:260
 msgid "H:"
 msgstr "H:"
 
@@ -678,16 +677,16 @@ msgstr "H:"
 msgid "V:"
 msgstr "H:"
 
-#: pp_layout_single.cpp:267
+#: pp_layout_single.cpp:258
 #, fuzzy
 msgid "Manual scaling"
 msgstr "Tamaño _Manual"
 
-#: pp_layout_single.cpp:282
+#: pp_layout_single.cpp:274
 msgid "H (%):"
 msgstr "H:"
 
-#: pp_layout_single.cpp:296
+#: pp_layout_single.cpp:288
 msgid "V (%):"
 msgstr "H:"
 
@@ -840,27 +839,27 @@ msgstr "Simular impresión,·Adaptar·Blanco"
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 
-#: pp_pageextent.cpp:217
+#: pp_pageextent.cpp:226
 msgid "Page Size and Margins"
 msgstr ""
 
-#: pp_pageextent.cpp:241
+#: pp_pageextent.cpp:250
 msgid "W:"
 msgstr ""
 
-#: pp_pageextent.cpp:264
+#: pp_pageextent.cpp:273
 msgid "Left:"
 msgstr "Izquierda:"
 
-#: pp_pageextent.cpp:280
+#: pp_pageextent.cpp:289
 msgid "Right:"
 msgstr "Derecha:"
 
-#: pp_pageextent.cpp:293
+#: pp_pageextent.cpp:302
 msgid "Top:"
 msgstr "Arriba:"
 
-#: pp_pageextent.cpp:304
+#: pp_pageextent.cpp:313
 msgid "Bottom:"
 msgstr "Abajo:"
 
@@ -893,40 +892,40 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
-#: pp_sigcontrol.cpp:180
+#: pp_sigcontrol.cpp:181
 msgid "Columns:"
 msgstr "Columnas:"
 
-#: pp_sigcontrol.cpp:194
+#: pp_sigcontrol.cpp:195
 msgid "Rows:"
 msgstr "Filas:"
 
-#: pp_sigcontrol.cpp:208 pp_sigcontrol.cpp:222
+#: pp_sigcontrol.cpp:209 pp_sigcontrol.cpp:223
 msgid "Gap:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:247
+#: pp_sigcontrol.cpp:248
 msgid "Width:"
 msgstr "Ancho:"
 
-#: pp_sigcontrol.cpp:261
+#: pp_sigcontrol.cpp:262
 msgid "Height:"
 msgstr "Alto:"
 
-#: pp_sigcontrol.cpp:273
+#: pp_sigcontrol.cpp:274
 #, fuzzy
 msgid "From selected image"
 msgstr "Deselecionar todas las imágenes"
 
-#: pp_sigcontrol.cpp:309
+#: pp_sigcontrol.cpp:310
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:310
+#: pp_sigcontrol.cpp:311
 msgid "Specify image dimensions"
 msgstr ""
 
-#: pp_sigcontrol.cpp:332
+#: pp_sigcontrol.cpp:342
 msgid "Layout"
 msgstr "Disposición"
 

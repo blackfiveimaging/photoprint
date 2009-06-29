@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-27 18:59+0100\n"
+"POT-Creation-Date: 2009-06-28 23:07+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -136,15 +136,15 @@ msgstr "Metoda konwersji kolorów:"
 msgid "Warm/Cool"
 msgstr "Ciepły/zimny"
 
-#: effects/effectselector.cpp:228
+#: effects/effectselector.cpp:220
 msgid "Active"
 msgstr "Aktywny"
 
-#: effects/effectselector.cpp:237
+#: effects/effectselector.cpp:229
 msgid "Icon"
 msgstr "Ikona"
 
-#: effects/effectselector.cpp:249
+#: effects/effectselector.cpp:241
 msgid "Name"
 msgstr "Nazwa"
 
@@ -613,53 +613,52 @@ msgstr "pikseli"
 msgid "Default"
 msgstr "Domyślny"
 
-#: pp_layout_carousel.cpp:254 pp_layout_carousel.cpp:385 pp_layout_nup.cpp:225
-#: pp_layout_poster.cpp:296 pp_layout_poster.cpp:461 pp_layout_single.cpp:223
-#: pp_layout_single.cpp:336
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:218
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:230
 msgid "Page:"
 msgstr "Strona:"
 
-#: pp_layout_carousel.cpp:282
+#: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Karuzela"
 
-#: pp_layout_carousel.cpp:297
+#: pp_layout_carousel.cpp:289
 msgid "Segments:"
 msgstr "Ilość części:"
 
-#: pp_layout_carousel.cpp:312
+#: pp_layout_carousel.cpp:304
 msgid "Overlap (%):"
 msgstr "Zachodzenie (%):"
 
-#: pp_layout_carousel.cpp:327
+#: pp_layout_carousel.cpp:319
 msgid "Starting angle:"
 msgstr "Kąt nachylenia:"
 
-#: pp_layout_carousel.cpp:342
+#: pp_layout_carousel.cpp:334
 msgid "Inner Radius:"
 msgstr "Promień środkowy:"
 
-#: pp_layout_poster.cpp:338
+#: pp_layout_poster.cpp:336
 msgid "Poster Layout"
 msgstr "Układ plakatu"
 
-#: pp_layout_poster.cpp:352
+#: pp_layout_poster.cpp:351
 msgid "Size"
 msgstr "Rozmiar"
 
-#: pp_layout_poster.cpp:364 pp_layout_poster.cpp:388
+#: pp_layout_poster.cpp:363 pp_layout_poster.cpp:387
 msgid "by"
 msgstr "na"
 
-#: pp_layout_poster.cpp:376
+#: pp_layout_poster.cpp:375
 msgid "Tiles"
 msgstr "Kafle"
 
-#: pp_layout_poster.cpp:398
+#: pp_layout_poster.cpp:397
 msgid "Overlap"
 msgstr "Zachodzenie:"
 
-#: pp_layout_poster.cpp:411 pp_pageextent.cpp:251
+#: pp_layout_poster.cpp:411 pp_pageextent.cpp:260
 msgid "H:"
 msgstr "H:"
 
@@ -667,15 +666,15 @@ msgstr "H:"
 msgid "V:"
 msgstr "V:"
 
-#: pp_layout_single.cpp:267
+#: pp_layout_single.cpp:258
 msgid "Manual scaling"
 msgstr "Skalowanie ręczne"
 
-#: pp_layout_single.cpp:282
+#: pp_layout_single.cpp:274
 msgid "H (%):"
 msgstr "H (%):"
 
-#: pp_layout_single.cpp:296
+#: pp_layout_single.cpp:288
 msgid "V (%):"
 msgstr "V (%):"
 
@@ -826,27 +825,27 @@ msgstr ""
 "Dopasowuje kolory widoczne na ekranie tak jak będą wyglądały na wydruku\n"
 "bez białego koloru papieru"
 
-#: pp_pageextent.cpp:217
+#: pp_pageextent.cpp:226
 msgid "Page Size and Margins"
 msgstr "Format papieru i marginesy"
 
-#: pp_pageextent.cpp:241
+#: pp_pageextent.cpp:250
 msgid "W:"
 msgstr "W:"
 
-#: pp_pageextent.cpp:264
+#: pp_pageextent.cpp:273
 msgid "Left:"
 msgstr "Lewy:"
 
-#: pp_pageextent.cpp:280
+#: pp_pageextent.cpp:289
 msgid "Right:"
 msgstr "Prawy:"
 
-#: pp_pageextent.cpp:293
+#: pp_pageextent.cpp:302
 msgid "Top:"
 msgstr "Górny:"
 
-#: pp_pageextent.cpp:304
+#: pp_pageextent.cpp:313
 msgid "Bottom:"
 msgstr "Dolny:"
 
@@ -879,39 +878,39 @@ msgstr "Nie można wygenerować danych do wydruku"
 msgid "Algorithm:"
 msgstr "Algorytm:"
 
-#: pp_sigcontrol.cpp:180
+#: pp_sigcontrol.cpp:181
 msgid "Columns:"
 msgstr "Kolumny:"
 
-#: pp_sigcontrol.cpp:194
+#: pp_sigcontrol.cpp:195
 msgid "Rows:"
 msgstr "Wiersze:"
 
-#: pp_sigcontrol.cpp:208 pp_sigcontrol.cpp:222
+#: pp_sigcontrol.cpp:209 pp_sigcontrol.cpp:223
 msgid "Gap:"
 msgstr "Przerwa:"
 
-#: pp_sigcontrol.cpp:247
+#: pp_sigcontrol.cpp:248
 msgid "Width:"
 msgstr "Szer.:"
 
-#: pp_sigcontrol.cpp:261
+#: pp_sigcontrol.cpp:262
 msgid "Height:"
 msgstr "Wys.:"
 
-#: pp_sigcontrol.cpp:273
+#: pp_sigcontrol.cpp:274
 msgid "From selected image"
 msgstr "Pobierz z zaznaczonego obrazu"
 
-#: pp_sigcontrol.cpp:309
+#: pp_sigcontrol.cpp:310
 msgid "Specify rows/columns"
 msgstr "Na podstawie kolumn/wierszy"
 
-#: pp_sigcontrol.cpp:310
+#: pp_sigcontrol.cpp:311
 msgid "Specify image dimensions"
 msgstr "Na podstawie wymiarów obrazu"
 
-#: pp_sigcontrol.cpp:332
+#: pp_sigcontrol.cpp:342
 msgid "Layout"
 msgstr "Układ"
 

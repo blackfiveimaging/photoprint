@@ -25,7 +25,7 @@ PhotoPrint-0.4.1
 
   * Refactored much of the threading code.
 
-  * Added Histogram
+  * Added Histogram display
 
   * Expanders now remember their state between sessions
 
