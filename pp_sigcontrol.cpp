@@ -305,14 +305,6 @@ static void combo_changed(GtkWidget *wid,gpointer userdata)
 }
 
 
-static SimpleComboOption comboopts[]=
-{
-	{"RowsCols",N_("Specify rows/columns")},
-	{"Dimensions",N_("Specify image dimensions")},
-	{NULL,NULL}
-};
-
-
 static void expander_callback (GObject *object, GParamSpec *param_spec, gpointer userdata)
 {
 	pp_SigControl *ob=PP_SIGCONTROL(object);
@@ -340,6 +332,10 @@ pp_sigcontrol_new (Layout_NUp *sig,enum Units unit)
 	gtk_expander_set_expanded(GTK_EXPANDER(ob),sig->state.FindInt("ExpanderState_SigControl"));
 	g_signal_connect(ob, "notify::expanded",G_CALLBACK (expander_callback), NULL);
 	gtk_expander_set_label(GTK_EXPANDER(ob),_("Layout"));
+
+	SimpleComboOptions comboopts;
+	comboopts.Add("RowsCols",_("Specify rows/columns"));
+	comboopts.Add("Dimensions",_("Specify image dimensions"));
 
 	ob->combo=simplecombo_new(comboopts);
 	gtk_box_pack_start(GTK_BOX(ob->vbox),ob->combo,FALSE,FALSE,8);
