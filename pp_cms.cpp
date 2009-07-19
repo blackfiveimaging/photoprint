@@ -21,6 +21,7 @@
 #include <gtk/gtkmenuitem.h>
 
 #include "pp_cms.h"
+#include "miscwidgets/simplecombo.h"
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
 #include "dialogs.h"
@@ -134,18 +135,13 @@ pp_cms_new (ProfileManager *pm)
 	gtk_box_pack_start(GTK_BOX(hbox),label,FALSE,FALSE,5);
 	gtk_widget_show(label);		
 
-	ob->colourspace = gtk_option_menu_new ();
-	GtkWidget *menu = gtk_menu_new ();
+	// Colourspace
 
-	GtkWidget *menu_item = gtk_menu_item_new_with_label ("RGB");
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
-	gtk_widget_show (menu_item);
-	menu_item = gtk_menu_item_new_with_label ("CMYK");
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
-	gtk_widget_show (menu_item);
-	
-	gtk_option_menu_set_menu (GTK_OPTION_MENU (ob->colourspace), menu);
-	
+	SimpleComboOptions csopts;
+	csopts.Add("RGB",_("RGB"),_("Send Red, Green and Blue data to the printer driver"));
+	csopts.Add("CMYK",_("CMYK"),_("Send Cyan, Magenta, Yellow and Black data to the printer driver"));
+
+	ob->colourspace=simplecombo_new(csopts);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->colourspace,TRUE,TRUE,5);
 	gtk_widget_show(ob->colourspace);
 
@@ -184,21 +180,16 @@ pp_cms_new (ProfileManager *pm)
 	gtk_box_pack_start(GTK_BOX(hbox),label,FALSE,FALSE,5);
 	gtk_widget_show(label);
 
-	ob->displaymode = gtk_option_menu_new ();
-	menu = gtk_menu_new ();
 
-	menu_item = gtk_menu_item_new_with_label (_("Normal"));
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
-	gtk_widget_show (menu_item);
-	menu_item = gtk_menu_item_new_with_label (_("Simulate Print"));
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
-	gtk_widget_show (menu_item);
-	menu_item = gtk_menu_item_new_with_label (_("Simulate Print, Adapt White"));
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
-	gtk_widget_show (menu_item);
+	// Proof mode
 
-	gtk_option_menu_set_menu (GTK_OPTION_MENU (ob->displaymode), menu);
-	
+	SimpleComboOptions pmopts;
+	pmopts.Add("Normal",_("Normal"),_("Displays images' original colours, transformed to suit the monitor"));
+	pmopts.Add("SimulatePrint",_("Simulate Print"),_("Simulates how colours will look when printed, imitating the paper's white point."));
+	pmopts.Add("SimulatePrintAdaptWhite",_("Simulate Print, Adapt White"),_("Simulates how colours will look when printed, adapting colours for the monitor's white point."));
+
+	ob->displaymode=simplecombo_new(pmopts);
+
 	gtk_box_pack_start(GTK_BOX(hbox),ob->displaymode,TRUE,TRUE,5);
 	gtk_widget_show(ob->displaymode);
 
@@ -366,15 +357,10 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 
 	intentselector_setintent(INTENTSELECTOR(ob->intent),LCMSWrapper_Intent(db->profilemanager.FindInt("RenderingIntent")));
 
-	gtk_option_menu_set_history(GTK_OPTION_MENU(ob->displaymode),db->profilemanager.FindInt("ProofMode"));
+	simplecombo_set_index(SIMPLECOMBO(ob->displaymode),db->profilemanager.FindInt("ProofMode"));
 
 	const char *cs=db->FindString("PrintColourSpace");
-	if(strcmp(cs,"RGB")==0)
-		gtk_option_menu_set_history(GTK_OPTION_MENU(ob->colourspace),0);
-	else if(strcmp(cs,"CMYK")==0)
-		gtk_option_menu_set_history(GTK_OPTION_MENU(ob->colourspace),1);
-	else
-		cerr << "Warning: invalid colour space" << endl;
+	simplecombo_set(SIMPLECOMBO(ob->colourspace),cs);
 }
 
 
@@ -412,18 +398,11 @@ void pp_cms_depopulate(pp_CMS *ob,PhotoPrint_State *db)
 
 	db->profilemanager.SetInt("RenderingIntent",intentselector_getintent(INTENTSELECTOR(ob->intent)));
 
-	db->profilemanager.SetInt("ProofMode",gtk_option_menu_get_history(GTK_OPTION_MENU(ob->displaymode)));
+	// FIXME - need a better way of handling integer keys
+	db->profilemanager.SetInt("ProofMode",simplecombo_get_index(SIMPLECOMBO(ob->displaymode)));
 
-	int cs=gtk_option_menu_get_history(GTK_OPTION_MENU(ob->colourspace));
-	switch(cs)
-	{
-		case 0:
-			db->SetString("PrintColourSpace","RGB");
-			break;
-		case 1:
-			db->SetString("PrintColourSpace","CMYK");
-			break;
-	}
+	const char *cs=simplecombo_get(SIMPLECOMBO(ob->colourspace));
+	db->SetString("PrintColourSpace",cs);
 }
 
 
