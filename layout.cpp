@@ -50,8 +50,8 @@ ConfigTemplate LayoutDB::Template[]=
 
 
 Layout::Layout(PhotoPrint_State &state,Layout *oldlayout)
-	: PageExtent(), xoffset(0), yoffset(0), pages(1), currentpage(0), backgroundfilename(NULL), background(NULL),
-	state(state), backgroundtransformed(NULL), imagelist(NULL), iterator(NULL), factory(NULL), gc(NULL)
+	: PageExtent(), state(state), xoffset(0), yoffset(0), pages(1), currentpage(0), backgroundfilename(NULL), background(NULL),
+	backgroundtransformed(NULL), imagelist(NULL), iterator(NULL), factory(NULL), gc(NULL)
 {
 	factory=state.profilemanager.GetTransformFactory();
 }
@@ -257,53 +257,85 @@ void (*Layout::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 }
 
 
+void Layout::MakeGC(GtkWidget *widget)
+{
+	bgcol.pixel=0;
+	bgcol.red=65535;
+	bgcol.green=65535;
+	bgcol.blue=65535;
+
+	bgcol2.pixel=0;
+	bgcol2.red=32767;
+	bgcol2.green=32767;
+	bgcol2.blue=32767;
+
+	// Use printer and monitor profiles to calculate "paper white".
+	// If there's no display profile, then we can use the Default RGB profile instead...
+//		cerr << "Checking for Display Profile..." << endl;
+	CMSProfile *targetprof;
+	CMColourDevice target=CM_COLOURDEVICE_NONE;
+	if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
+		target=CM_COLOURDEVICE_PRINTERPROOF;
+	else if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_DISPLAY)))
+		target=CM_COLOURDEVICE_DISPLAY;
+	else if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
+		target=CM_COLOURDEVICE_DEFAULTRGB;
+	if(targetprof)
+		delete targetprof;
+
+
+	if(target!=CM_COLOURDEVICE_NONE)
+	{
+		CMSTransform *transform=NULL;
+//			cerr << "Creating default->monitor transform..." << endl;
+		transform = factory->GetTransform(target,IS_TYPE_RGB,LCMSWRAPPER_INTENT_DEFAULT);
+		if(transform)
+		{
+//				cerr << "Applying transform..." << endl;
+
+			ISDataType rgbtriple[3];
+			rgbtriple[0]=bgcol.red;
+			rgbtriple[1]=bgcol.green;
+			rgbtriple[2]=bgcol.blue;
+			transform->Transform(rgbtriple,rgbtriple,1);
+			bgcol.red=rgbtriple[0];
+			bgcol.green=rgbtriple[1];
+			bgcol.blue=rgbtriple[2];
+
+			rgbtriple[0]=bgcol2.red;
+			rgbtriple[1]=bgcol2.green;
+			rgbtriple[2]=bgcol2.blue;
+			transform->Transform(rgbtriple,rgbtriple,1);
+			bgcol2.red=rgbtriple[0];
+			bgcol2.green=rgbtriple[1];
+			bgcol2.blue=rgbtriple[2];
+		}
+	}
+	gc=gdk_gc_new(widget->window);
+}
+
+
+void Layout::DrawPreviewBorder(GtkWidget *widget)
+{
+	if(!gc)
+		MakeGC(widget);
+
+	gdk_gc_set_rgb_fg_color(gc,&bgcol2);
+	gdk_draw_rectangle (widget->window,
+		gc,TRUE,
+		0,0,
+		widget->allocation.width,widget->allocation.height);
+}
+
+
 void Layout::DrawPreviewBG(GtkWidget *widget,int xpos,int ypos,int width,int height)
 {
 	if(!gc)
-	{
-		bgcol.pixel=0;
-		bgcol.red=65535;
-		bgcol.green=65535;
-		bgcol.blue=65535;
+		MakeGC(widget);
 
-		// Use printer and monitor profiles to calculate "paper white".
-		// If there's no display profile, then we can use the Default RGB profile instead...
-//		cerr << "Checking for Display Profile..." << endl;
-		CMSProfile *targetprof;
-		CMColourDevice target=CM_COLOURDEVICE_NONE;
-		if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
-			target=CM_COLOURDEVICE_PRINTERPROOF;
-		else if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_DISPLAY)))
-			target=CM_COLOURDEVICE_DISPLAY;
-		else if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
-			target=CM_COLOURDEVICE_DEFAULTRGB;
-		if(targetprof)
-			delete targetprof;
+	DrawPreviewBorder(widget);
 
-
-		if(target!=CM_COLOURDEVICE_NONE)
-		{
-			CMSTransform *transform=NULL;
-//			cerr << "Creating default->monitor transform..." << endl;
-			transform = factory->GetTransform(target,IS_TYPE_RGB,LCMSWRAPPER_INTENT_DEFAULT);
-			if(transform)
-			{
-//				cerr << "Applying transform..." << endl;
-
-				ISDataType rgbtriple[3];
-				rgbtriple[0]=bgcol.red;
-				rgbtriple[1]=bgcol.green;
-				rgbtriple[2]=bgcol.blue;
-				transform->Transform(rgbtriple,rgbtriple,1);
-				bgcol.red=rgbtriple[0];
-				bgcol.green=rgbtriple[1];
-				bgcol.blue=rgbtriple[2];
-			}
-		}
-
-		gc=gdk_gc_new(widget->window);
-		gdk_gc_set_rgb_fg_color(gc,&bgcol);
-	}
+	gdk_gc_set_rgb_fg_color(gc,&bgcol);
 	gdk_draw_rectangle (widget->window,
 		gc,TRUE,
 		xpos,ypos,
@@ -317,9 +349,9 @@ void Layout::DrawPreviewBG(GtkWidget *widget,int xpos,int ypos,int width,int hei
 	scale/=pagewidth;
 	sr.Scale(scale);
 
-	gdk_draw_rectangle (widget->window,
-		widget->style->mid_gc[widget->state],FALSE,
-		xpos+sr.x,ypos+sr.y,sr.w,sr.h);
+//	gdk_draw_rectangle (widget->window,
+//		widget->style->mid_gc[widget->state],FALSE,
+//		xpos+sr.x,ypos+sr.y,sr.w,sr.h);
 
 	if(background)
 	{

@@ -73,6 +73,7 @@ class Layout : public virtual PageExtent
 	virtual GtkWidget *CreateWidget();
 	virtual void RefreshWidget(GtkWidget *widget);
 	virtual void Print(Progress *p);
+	virtual void DrawPreviewBorder(GtkWidget *widget);
 	virtual void DrawPreviewBG(GtkWidget *widget,int xpos,int ypos,int width,int height);
 	virtual void DrawPreview(GtkWidget *widget,int xpos,int ypos,int width,int height);
 	virtual void SetBackground(const char *filename);
@@ -84,7 +85,7 @@ class Layout : public virtual PageExtent
 	PhotoPrint_State &state;
 
 	protected:
-
+	void MakeGC(GtkWidget *widget);
 	// Xoffset and yoffset are the top left corner of the print.
 	// Some layouts will want to set this to the top/left margin
 	// The best way to do so is to override the print method.
@@ -102,6 +103,7 @@ class Layout : public virtual PageExtent
 	CMTransformFactory *factory;
 	GdkGC *gc;
 	GdkColor bgcol;
+	GdkColor bgcol2;
 	friend class Layout_ImageInfo;
 	friend class hr_payload;
 };
