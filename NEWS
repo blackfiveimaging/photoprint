@@ -29,6 +29,12 @@ PhotoPrint-0.4.1
 
   * Expanders now remember their state between sessions
 
+  * Added nl localization - thanks to Lex Wernars.
+
+  * Reworked the SimpleCombo widget for friendlier option definitions.
+
+  * Fixed a deadlock problem with the histogram
+
 
 PhotoPrint-0.4.0
 

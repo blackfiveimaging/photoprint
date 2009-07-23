@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-28 23:07+0100\n"
+"POT-Creation-Date: 2009-07-23 22:44+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Assign Profile:"
 msgstr "Fastsæt profil:"
 
-#: dialogs.cpp:977 pp_cms.cpp:117
+#: dialogs.cpp:977 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Farvegengivelsesmåde:"
 
@@ -513,59 +513,91 @@ msgstr ""
 msgid "Error creating temporary thumbnail file for `%s': %s"
 msgstr "Fejl ved dannelse af midlertidig miniaturefil for `%s': %s"
 
-#: pp_cms.cpp:86
+#: pp_cms.cpp:87
 msgid "Printer"
 msgstr "Printer"
 
-#: pp_cms.cpp:101
+#: pp_cms.cpp:102
 msgid "Printer Profile:"
 msgstr "Printerprofil:"
 
-#: pp_cms.cpp:132
+#: pp_cms.cpp:133
 msgid "Colour space:"
 msgstr "Farverum:"
 
-#: pp_cms.cpp:155
+#: pp_cms.cpp:141
+msgid "RGB"
+msgstr ""
+
+#: pp_cms.cpp:141
+msgid "Send Red, Green and Blue data to the printer driver"
+msgstr ""
+
+#: pp_cms.cpp:142
+msgid "CMYK"
+msgstr ""
+
+#: pp_cms.cpp:142
+msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
+msgstr ""
+
+#: pp_cms.cpp:151
 msgid "Monitor"
 msgstr "Skærm"
 
-#: pp_cms.cpp:168
+#: pp_cms.cpp:164
 msgid "Monitor Profile:"
 msgstr "Skærmprofil:"
 
-#: pp_cms.cpp:182
+#: pp_cms.cpp:178
 msgid "Display mode:"
 msgstr "Visningstilstand:"
 
-#: pp_cms.cpp:190
+#: pp_cms.cpp:187
 msgid "Normal"
 msgstr "Normal"
 
-#: pp_cms.cpp:193
+#: pp_cms.cpp:187
+msgid "Displays images' original colours, transformed to suit the monitor"
+msgstr ""
+
+#: pp_cms.cpp:188
 msgid "Simulate Print"
 msgstr "Simuler udskrift"
 
-#: pp_cms.cpp:196
+#: pp_cms.cpp:188
+msgid ""
+"Simulates how colours will look when printed, imitating the paper's white "
+"point."
+msgstr ""
+
+#: pp_cms.cpp:189
 msgid "Simulate Print, Adapt White"
 msgstr "Simuler udskrift, tilpasset hvid"
 
-#: pp_cms.cpp:208
+#: pp_cms.cpp:189
+msgid ""
+"Simulates how colours will look when printed, adapting colours for the "
+"monitor's white point."
+msgstr ""
+
+#: pp_cms.cpp:199
 msgid "Default Image Profiles"
 msgstr "Standard-billed profiler"
 
-#: pp_cms.cpp:223
+#: pp_cms.cpp:214
 msgid "RGB Profile:"
 msgstr "RGB profil:"
 
-#: pp_cms.cpp:239
+#: pp_cms.cpp:230
 msgid "CMYK Profile:"
 msgstr "CMYK profil:"
 
-#: pp_cms.cpp:432
+#: pp_cms.cpp:411
 msgid "Colour Management"
 msgstr "Farvestyring"
 
-#: pp_imagecontrol.cpp:125
+#: pp_imagecontrol.cpp:128
 msgid "Effects"
 msgstr "Effekter"
 
@@ -904,17 +936,17 @@ msgstr "Højre:"
 msgid "From selected image"
 msgstr "Fravælg alle billeder"
 
-#: pp_sigcontrol.cpp:310
+#: pp_sigcontrol.cpp:334
+msgid "Layout"
+msgstr "Layout"
+
+#: pp_sigcontrol.cpp:337
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:311
+#: pp_sigcontrol.cpp:338
 msgid "Specify image dimensions"
 msgstr ""
-
-#: pp_sigcontrol.cpp:342
-msgid "Layout"
-msgstr "Layout"
 
 #: pp_units.cpp:60
 msgid "Units:"
@@ -1001,7 +1033,7 @@ msgstr ""
 "Gengiver de originale farver (inklusive hvid-punkt) så godt som muligt, a.h."
 "t. sammenligning.  Klipper uopnåelige farver."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:407
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:405
 msgid "Other..."
 msgstr "Andet..."
 
@@ -1063,7 +1095,7 @@ msgstr "Tilføj..."
 msgid "Remove"
 msgstr "Fjern"
 
-#: miscwidgets/imageselector.cpp:386
+#: miscwidgets/imageselector.cpp:384
 msgid "Image"
 msgstr "Billede"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-06-28 23:07+0100\n"
+"POT-Creation-Date: 2009-07-23 22:44+0100\n"
 "PO-Revision-Date: 2009-03-14 12:37+0000\n"
 "Last-Translator: Petr Kletecka <kletecka@email.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Assign Profile:"
 msgstr "Nastavený profil"
 
-#: dialogs.cpp:977 pp_cms.cpp:117
+#: dialogs.cpp:977 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Rendering intent:"
 
@@ -512,59 +512,91 @@ msgstr "Chyba ètení `%s': neobvyklý soubor nebo odkaz na soubor."
 msgid "Error creating temporary thumbnail file for `%s': %s"
 msgstr "Chyba vytváøení doèasného souboru s náhledem pro `%s': %s"
 
-#: pp_cms.cpp:86
+#: pp_cms.cpp:87
 msgid "Printer"
 msgstr "Tiskárna"
 
-#: pp_cms.cpp:101
+#: pp_cms.cpp:102
 msgid "Printer Profile:"
 msgstr "Profil tiskárny:"
 
-#: pp_cms.cpp:132
+#: pp_cms.cpp:133
 msgid "Colour space:"
 msgstr "Barevný prostor:"
 
-#: pp_cms.cpp:155
+#: pp_cms.cpp:141
+msgid "RGB"
+msgstr ""
+
+#: pp_cms.cpp:141
+msgid "Send Red, Green and Blue data to the printer driver"
+msgstr ""
+
+#: pp_cms.cpp:142
+msgid "CMYK"
+msgstr ""
+
+#: pp_cms.cpp:142
+msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
+msgstr ""
+
+#: pp_cms.cpp:151
 msgid "Monitor"
 msgstr "Monitor"
 
-#: pp_cms.cpp:168
+#: pp_cms.cpp:164
 msgid "Monitor Profile:"
 msgstr "Profil monitoru:"
 
-#: pp_cms.cpp:182
+#: pp_cms.cpp:178
 msgid "Display mode:"
 msgstr "Zpùsob zobrazení:"
 
-#: pp_cms.cpp:190
+#: pp_cms.cpp:187
 msgid "Normal"
 msgstr "Normální"
 
-#: pp_cms.cpp:193
+#: pp_cms.cpp:187
+msgid "Displays images' original colours, transformed to suit the monitor"
+msgstr ""
+
+#: pp_cms.cpp:188
 msgid "Simulate Print"
 msgstr "Zkou¹ka tisku"
 
-#: pp_cms.cpp:196
+#: pp_cms.cpp:188
+msgid ""
+"Simulates how colours will look when printed, imitating the paper's white "
+"point."
+msgstr ""
+
+#: pp_cms.cpp:189
 msgid "Simulate Print, Adapt White"
 msgstr "Zkou¹ka tisku, upravit bílou"
 
-#: pp_cms.cpp:208
+#: pp_cms.cpp:189
+msgid ""
+"Simulates how colours will look when printed, adapting colours for the "
+"monitor's white point."
+msgstr ""
+
+#: pp_cms.cpp:199
 msgid "Default Image Profiles"
 msgstr "Výchozí profil obrázku"
 
-#: pp_cms.cpp:223
+#: pp_cms.cpp:214
 msgid "RGB Profile:"
 msgstr "RGB profil:"
 
-#: pp_cms.cpp:239
+#: pp_cms.cpp:230
 msgid "CMYK Profile:"
 msgstr "CMYK profil:"
 
-#: pp_cms.cpp:432
+#: pp_cms.cpp:411
 msgid "Colour Management"
 msgstr "Správa barev"
 
-#: pp_imagecontrol.cpp:125
+#: pp_imagecontrol.cpp:128
 msgid "Effects"
 msgstr "Efekty"
 
@@ -900,17 +932,17 @@ msgstr "Vý¹ka"
 msgid "From selected image"
 msgstr "Z vybraného obrázku"
 
-#: pp_sigcontrol.cpp:310
+#: pp_sigcontrol.cpp:334
+msgid "Layout"
+msgstr "Rozlo¾ení"
+
+#: pp_sigcontrol.cpp:337
 msgid "Specify rows/columns"
 msgstr "Øádky/sloupce"
 
-#: pp_sigcontrol.cpp:311
+#: pp_sigcontrol.cpp:338
 msgid "Specify image dimensions"
 msgstr "Rozmìry obrázku"
-
-#: pp_sigcontrol.cpp:342
-msgid "Layout"
-msgstr "Rozlo¾ení"
 
 #: pp_units.cpp:60
 msgid "Units:"
@@ -998,7 +1030,7 @@ msgstr ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:407
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:405
 msgid "Other..."
 msgstr "Ostatní..."
 
@@ -1060,7 +1092,7 @@ msgstr "Pøidat..."
 msgid "Remove"
 msgstr "Odstranit"
 
-#: miscwidgets/imageselector.cpp:386
+#: miscwidgets/imageselector.cpp:384
 msgid "Image"
 msgstr "Obrázek"
 
