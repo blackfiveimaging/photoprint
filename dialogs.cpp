@@ -24,17 +24,24 @@
 #include "pp_scaling.h"
 #include "stpui_widgets/stpui_optionbook.h"
 #include "splashscreen/splashscreen.h"
+
 #include "miscwidgets/patheditor.h"
-#include "support/pathsupport.h"
 #include "miscwidgets/imageselector.h"
 #include "miscwidgets/generaldialogs.h"
+#include "miscwidgets/pixbufview.h"
+
+#include "support/pathsupport.h"
 #include "support/rangeparser.h"
 #include "support/progressbar.h"
+#include "support/util.h"
+
 #include "imageutils/tiffsave.h"
 #include "imageutils/jpegsave.h"
+#include "imagesource/pixbuf_from_imagesource.h"
+
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
-#include "support/util.h"
+
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
@@ -1007,3 +1014,54 @@ void SetCustomProfileDialog(GtkWindow *parent,PhotoPrint_State &state,Layout_Ima
 		free(oldcustomprofile);
 	gtk_widget_destroy(dialog);
 }
+
+
+class printpreviewdata
+{
+	public:
+	printpreviewdata(PhotoPrint_State &state) : state(state)
+	{
+		factory=state.profilemanager.GetTransformFactory();
+		window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+		gtk_window_fullscreen(GTK_WINDOW(window));
+
+		pview=pixbufview_new(NULL,false);
+		gtk_container_add(GTK_CONTAINER(window),pview);
+
+		gtk_widget_show_all(window);
+
+		DrawPage(0);
+	}
+	~printpreviewdata()
+	{
+		gtk_widget_destroy(window);
+		if(factory)
+			delete factory;
+	}
+	void DrawPage(int page)
+	{
+		ImageSource *is=state.layout->GetImageSource(page,CM_COLOURDEVICE_PRINTERPROOF,factory,180);
+		if(is)
+		{
+			GdkPixbuf *pb=pixbuf_from_imagesource(is);
+			delete is;
+
+			pixbufview_set_pixbuf(PIXBUFVIEW(pview),pb);
+			g_object_unref(G_OBJECT(pb));
+		}
+		else
+			cerr << "Failed to obtain imagesource for page" << page << endl;
+	}
+	protected:
+	PhotoPrint_State &state;
+	GtkWidget *window;
+	GtkWidget *pview;
+	CMTransformFactory *factory;
+};
+
+
+void PrintPreview_Dialog(GtkWindow *parent,PhotoPrint_State &state)
+{
+	new printpreviewdata(state);
+}
+

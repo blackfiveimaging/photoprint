@@ -100,6 +100,13 @@ static void file_print_setup(GtkAction *action,gpointer *ob)
 }
 
 
+static void file_print_preview(GtkAction *action,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;	
+	PrintPreview_Dialog(GTK_WINDOW(mw),*mw->state);
+}
+
+
 static void file_print(GtkAction *action,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
@@ -132,7 +139,7 @@ static GtkActionEntry filemenu_entries[] = {
   { "ExportMenu", NULL, N_("E_xport") },
   { "ExportTiff", NULL, N_("Export _TIFF..."), NULL, N_("Export pages as TIFF files"), G_CALLBACK(file_export_tiff) },
   { "ExportJPEG", NULL, N_("Export _JPEG..."), NULL, N_("Export pages as JPEG files"), G_CALLBACK(file_export_jpeg) },
-  { "PrintPreview", NULL, N_("Print Pre_view..."), NULL, N_("Preview how the printed page will look"), NULL },
+  { "PrintPreview", NULL, N_("Print Pre_view..."), NULL, N_("Preview how the printed page will look"), G_CALLBACK(file_print_preview) },
   { "PrintSetup", NULL, N_("Print S_etup..."), NULL, N_("Set printer driver and options"), G_CALLBACK(file_print_setup) },
   { "Print", GTK_STOCK_PRINT, N_("_Print"), "<control>P", N_("Print pages"), G_CALLBACK(file_print) },
   { "Quit", GTK_STOCK_QUIT, N_("_Quit"), "<control>Q", N_("Exit PhotoPrint"), G_CALLBACK(file_quit)},

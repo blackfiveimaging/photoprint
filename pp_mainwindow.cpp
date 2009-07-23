@@ -136,8 +136,8 @@ pp_mainwindow_new (PhotoPrint_State *state)
 	gtk_window_add_accel_group (GTK_WINDOW (ob), accel_group);
 	
 	GtkWidget *tmp;
-	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/FileMenu/PrintPreview");
-	gtk_widget_set_sensitive(tmp,false);
+//	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/FileMenu/PrintPreview");
+//	gtk_widget_set_sensitive(tmp,false);
 	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/EditMenu/Cut");
 	gtk_widget_set_sensitive(tmp,false);
 	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/EditMenu/Copy");
