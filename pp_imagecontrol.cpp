@@ -74,8 +74,11 @@ static void effectselector_removeeffect(GtkWidget *wid,gpointer *ob)
 
 void pp_imagecontrol_refresh(pp_ImageControl *ob)
 {
+	cerr << "pp_imagecontrol_refresh: refreshing imageinfo" << endl;
 	pp_imageinfo_refresh(PP_IMAGEINFO(ob->imageinfo));
+	cerr << "pp_imagecontrol_refresh: refreshing histogram" << endl;
 	pp_histogram_refresh(PP_HISTOGRAM(ob->histogram));
+	cerr << "pp_imagecontrol_refresh: done" << endl;
 }
 
 

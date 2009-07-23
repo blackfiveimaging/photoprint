@@ -1,6 +1,9 @@
 URGENT:
 ~~~~~~~
 
+Deadlock with high-res previews (or histogram?) and Poster View.
+(Affects n-up layout too)
+
 | There's a problem with default print command selection and driver detection - especially
 | if PhotoPrint's built without libCUPS.  The application will probably have to determine
 | whether the raw flag's needed.
