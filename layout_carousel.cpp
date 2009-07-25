@@ -23,6 +23,7 @@
 #include "imagesource/imagesource_crop.h"
 #include "imagesource/imagesource_mask.h"
 #include "imagesource/imagesource_gdkpixbuf.h"
+#include "imagesource/imagesource_solid.h"
 
 #include "imagesource/pixbuf_from_imagesource.h"
 
@@ -36,10 +37,10 @@ using namespace std;
 
 ConfigTemplate Layout_CarouselDB::Template[]=
 {
-	ConfigTemplate("LeftMargin",int(-1)),
-	ConfigTemplate("RightMargin",int(-1)),
-	ConfigTemplate("TopMargin",int(-1)),
-	ConfigTemplate("BottomMargin",int(-1)),
+	ConfigTemplate("LeftMargin",int(0)),
+	ConfigTemplate("RightMargin",int(0)),
+	ConfigTemplate("TopMargin",int(0)),
+	ConfigTemplate("BottomMargin",int(0)),
 	ConfigTemplate("InnerRadius",int(0)),
 	ConfigTemplate("Segments",int(4)),
 	ConfigTemplate("Overlap",int(30)),
@@ -159,7 +160,7 @@ void Layout_Carousel::CopyImage(Layout_ImageInfo *ii)
 }
 
 
-ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res)
+ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
 	ImageSource *result=NULL;
 	try
@@ -186,6 +187,8 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 			ImageSource *source=NULL;
 			ImageSource *mask=NULL;
 			CMSegment *targetseg=NULL;
+
+			cerr << "Layout_carousel: Left margin: " << leftmargin << endl;
 	
 			for(int s=0;s<segments;s+=2)
 			{
@@ -206,7 +209,7 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
 
 					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,targetseg->x,targetseg->y);
+					mon->Add(source,(leftmargin*res)/72+targetseg->x,(topmargin*res)/72+targetseg->y);
 
 					delete fit;
 				}
@@ -231,13 +234,32 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
 			
 					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,targetseg->x,targetseg->y);
+					mon->Add(source,(leftmargin*res)/72+targetseg->x,(topmargin*res)/72+targetseg->y);
 			
 					delete fit;
 				}
 			}
 
 			result=mon;
+
+			if(completepage)
+			{
+				// If the completepage flag is set we need to render a solid background.
+				// This will be used for print preview and TIFF/JPEG export.
+
+				IS_TYPE colourspace=GetColourSpace(target);
+				ISDataType white[5]={0,0,0,0,0};
+				if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
+					white[0]=white[1]=white[2]=IS_SAMPLEMAX;
+
+				if(factory)
+				{
+					CMSTransform *transform=factory->GetTransform(target,colourspace);
+					if(transform)
+						transform->Transform(white,white,1);
+				}
+				mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
+			}
 		}
 	}
 	catch (const char *msg)

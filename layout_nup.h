@@ -33,7 +33,8 @@ class Layout_NUp : public Layout, public Signature
 	virtual void DBToLayout(LayoutDB &db);
 	virtual GtkWidget *CreateWidget();
 	virtual void RefreshWidget(GtkWidget *widget);
-	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
+	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,
+		CMTransformFactory *factory=NULL,int res=0,bool completepage=false);
 	Layout_NUp_ImageInfo *ImageAt(int page, int row, int column);
 	virtual void (*SetUnitFunc())(GtkWidget *wid,enum Units unit);
 	virtual Layout_ImageInfo *ImageAtCoord(int x,int y);

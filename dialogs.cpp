@@ -549,7 +549,7 @@ void ExportTiff_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 								ftmp=strdup(outputfilename);
 							cerr << ftmp << endl;
 
-							ImageSource *is=state.layout->GetImageSource(p-1,CM_COLOURDEVICE_EXPORT,factory,res);
+							ImageSource *is=state.layout->GetImageSource(p-1,CM_COLOURDEVICE_EXPORT,factory,res,true);
 							if(is)
 							{
 								ProgressBar p(_("Exporting..."),true,GTK_WIDGET(parent));
@@ -736,7 +736,7 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 								ftmp=strdup(outputfilename);
 							cerr << ftmp << endl;
 
-							ImageSource *is=state.layout->GetImageSource(p-1,CM_COLOURDEVICE_EXPORT,factory,res);
+							ImageSource *is=state.layout->GetImageSource(p-1,CM_COLOURDEVICE_EXPORT,factory,res,true);
 							if(is)
 							{
 								ProgressBar p(_("Exporting..."),true,GTK_WIDGET(parent));
@@ -1021,16 +1021,45 @@ class printpreviewdata
 	public:
 	printpreviewdata(PhotoPrint_State &state) : state(state)
 	{
+#if 0
+		gtk_rc_parse_string("style \"default\" {"
+"  bg[NORMAL]			= \"#4be2d2\""
+"  bg[PRELIGHT]			= \"#4be2d2\""
+"  bg[ACTIVE]				= \"#4be2d2\""
+"  bg[SELECTED]			= \"#2cace8\""
+"  bg[INSENSITIVE]		= \"#4be2d2\" }"
+"  widget \"PrintPreview.*.*\" style \"default\""
+"  widget \"PrintPreview.*\" style \"default\""
+"  widget \"PrintPreview\" style \"default\"");
+#endif
+
 		factory=state.profilemanager.GetTransformFactory();
 		window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+		gtk_widget_set_name(GTK_WIDGET(window),"PrintPreview");
 		gtk_window_fullscreen(GTK_WINDOW(window));
 
-		pview=pixbufview_new(NULL,false);
-		gtk_container_add(GTK_CONTAINER(window),pview);
+		GtkWidget *vbox=gtk_vbox_new(FALSE,0);
+		gtk_container_add(GTK_CONTAINER(window),vbox);
 
+		GtkWidget *hbox=gtk_hbox_new(FALSE,0);
+		gtk_box_pack_start(GTK_BOX(vbox),hbox,FALSE,FALSE,8);
+
+		page=gtk_spin_button_new_with_range(1,state.layout->GetPages(),1);
+		g_signal_connect(G_OBJECT(page),"value-changed",G_CALLBACK(page_changed),this);
+		gtk_box_pack_start(GTK_BOX(hbox),page,FALSE,FALSE,8);
+
+		GtkWidget *tmp=gtk_hbox_new(FALSE,0);
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,TRUE,TRUE,8);
+
+		tmp=gtk_button_new_with_label(_("Close"));
+		g_signal_connect(G_OBJECT(tmp),"clicked",G_CALLBACK(close),this);
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,8);
+
+		pview=pixbufview_new(NULL,false);
+		gtk_box_pack_start(GTK_BOX(vbox),pview,TRUE,TRUE,0);
 		gtk_widget_show_all(window);
 
-		DrawPage(0);
+		DrawPage(1);
 	}
 	~printpreviewdata()
 	{
@@ -1040,7 +1069,7 @@ class printpreviewdata
 	}
 	void DrawPage(int page)
 	{
-		ImageSource *is=state.layout->GetImageSource(page,CM_COLOURDEVICE_PRINTERPROOF,factory,180);
+		ImageSource *is=state.layout->GetImageSource(page-1,CM_COLOURDEVICE_PRINTERPROOF,factory,180,true);
 		if(is)
 		{
 			GdkPixbuf *pb=pixbuf_from_imagesource(is);
@@ -1052,10 +1081,22 @@ class printpreviewdata
 		else
 			cerr << "Failed to obtain imagesource for page" << page << endl;
 	}
+	static void page_changed(GtkWidget *wid,gpointer userdata)
+	{
+		printpreviewdata *pv=(printpreviewdata *)userdata;
+		int page=gtk_spin_button_get_value(GTK_SPIN_BUTTON(pv->page));
+		pv->DrawPage(page);
+	}
+	static void close(GtkWidget *wid,gpointer userdata)
+	{
+		printpreviewdata *pv=(printpreviewdata *)userdata;
+		delete pv;
+	}
 	protected:
 	PhotoPrint_State &state;
 	GtkWidget *window;
 	GtkWidget *pview;
+	GtkWidget *page;
 	CMTransformFactory *factory;
 };
 

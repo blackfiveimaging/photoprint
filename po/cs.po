@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-23 22:44+0100\n"
+"POT-Creation-Date: 2009-07-24 00:55+0100\n"
 "PO-Revision-Date: 2009-03-14 12:37+0000\n"
 "Last-Translator: Petr Kletecka <kletecka@email.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,95 +16,95 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialogs.cpp:123
+#: dialogs.cpp:130
 msgid "Printer Setup"
 msgstr "Nastavení tiskárny"
 
-#: dialogs.cpp:137
+#: dialogs.cpp:144
 msgid "Output"
 msgstr "Výstup"
 
-#: dialogs.cpp:174
+#: dialogs.cpp:181
 msgid "About"
 msgstr "O programu"
 
-#: dialogs.cpp:224
+#: dialogs.cpp:231
 msgid "Set paths..."
 msgstr "Nastavit cesty..."
 
-#: dialogs.cpp:249
+#: dialogs.cpp:256
 msgid "ICC Profiles"
 msgstr "ICC profily"
 
-#: dialogs.cpp:281
+#: dialogs.cpp:288
 msgid "Borders"
 msgstr "Okraje"
 
-#: dialogs.cpp:312
+#: dialogs.cpp:319
 msgid "Backgrounds"
 msgstr "Pozadí"
 
-#: dialogs.cpp:340
+#: dialogs.cpp:347
 msgid "Select a border..."
 msgstr "Vybrat okraj..."
 
-#: dialogs.cpp:387
+#: dialogs.cpp:394
 msgid "Export TIFF..."
 msgstr "Ulo¾it jako TIFF..."
 
-#: dialogs.cpp:413 dialogs.cpp:616
+#: dialogs.cpp:420 dialogs.cpp:623
 msgid "Page range:"
 msgstr "Rozsah stránek"
 
-#: dialogs.cpp:426 dialogs.cpp:626
+#: dialogs.cpp:433 dialogs.cpp:633
 msgid "Resolution (dpi):"
 msgstr "Rozli¹ení (dpi):"
 
-#: dialogs.cpp:434
+#: dialogs.cpp:441
 msgid "Save as 16-bit:"
 msgstr "Ulo¾it jako 16-bit:"
 
-#: dialogs.cpp:453 dialogs.cpp:661
+#: dialogs.cpp:460 dialogs.cpp:668
 msgid "Output Profile:"
 msgstr "Výstupní profil"
 
-#: dialogs.cpp:517 dialogs.cpp:757
+#: dialogs.cpp:524 dialogs.cpp:764
 msgid "Please provide a filename."
 msgstr "Prosím, zadejte jméno souboru."
 
-#: dialogs.cpp:548 dialogs.cpp:735
+#: dialogs.cpp:555 dialogs.cpp:742
 msgid "Exporting..."
 msgstr "Ukládání..."
 
-#: dialogs.cpp:587
+#: dialogs.cpp:594
 msgid "Export JPEG..."
 msgstr "Ulo¾it jako JPEG..."
 
-#: dialogs.cpp:645
+#: dialogs.cpp:652
 msgid "JPEG Quality:"
 msgstr "Kvalita JPEG"
 
-#: dialogs.cpp:774
+#: dialogs.cpp:781
 msgid "Select a background..."
 msgstr "Vybrat pozadí..."
 
-#: dialogs.cpp:866 pp_menu_image.cpp:244
+#: dialogs.cpp:873 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Nejprve, prosím, vyberte obrázek."
 
-#: dialogs.cpp:897
+#: dialogs.cpp:904
 msgid "Set Custom Profile..."
 msgstr "Nastavit u¾ivatelský profil"
 
-#: dialogs.cpp:909
+#: dialogs.cpp:916
 msgid "Before:"
 msgstr "Pøed:"
 
-#: dialogs.cpp:913
+#: dialogs.cpp:920
 msgid "After:"
 msgstr "Po:"
 
-#: dialogs.cpp:927
+#: dialogs.cpp:934
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -118,7 +118,7 @@ msgstr ""
 "v Nastavení->Správa barev\n"
 "!"
 
-#: dialogs.cpp:952
+#: dialogs.cpp:959
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -126,11 +126,11 @@ msgstr ""
 "Varování: Obrázek obsahuje barevný profil\n"
 "Nastavením nového ho pøepí¹ete!"
 
-#: dialogs.cpp:969
+#: dialogs.cpp:976
 msgid "Assign Profile:"
 msgstr "Nastavený profil"
 
-#: dialogs.cpp:977 pp_cms.cpp:118
+#: dialogs.cpp:984 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Rendering intent:"
 
@@ -173,39 +173,39 @@ msgstr "Polomìr: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Mno¾ství: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:126
+#: menucheck.cpp:21 pp_menu_file.cpp:133
 msgid "_File"
 msgstr "_Soubor"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "_Open Preset..."
 msgstr "_Otevøít projekt..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "Open a preset"
 msgstr "Otevøít projekt"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "_Save Preset"
 msgstr "_Ulo¾it projekt"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "Save a preset"
 msgstr "Ulo¾it projekt"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save _As..."
 msgstr "Ulo¾it _jako..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save preset with a new filename"
 msgstr "Ulo¾it projekt s novým jménem"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save _Default"
 msgstr "Ulo¾it _výchozí"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save preset as the default"
 msgstr "Ulo¾it projekt jako výchozí"
 
@@ -213,39 +213,39 @@ msgstr "Ulo¾it projekt jako výchozí"
 msgid "E_xport TIFF..."
 msgstr "U_lo¾it jako TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:133
+#: menucheck.cpp:27 pp_menu_file.cpp:140
 msgid "Export pages as TIFF files"
 msgstr "Ulo¾it stránky jako soubory TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Print Pre_view..."
 msgstr "Tisknout náhl_ed..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Preview how the printed page will look"
 msgstr "Náhled jak bude vypadat vyti¹tìná stránky"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Print S_etup..."
 msgstr "Nastavení _tisku..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Set printer driver and options"
 msgstr "Nastavit ovladaè a vlastnosti tiskárny"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "_Print"
 msgstr "_Tisk"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "Print pages"
 msgstr "Tisknout stránky"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "_Quit"
 msgstr "_Konec"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "Exit PhotoPrint"
 msgstr "Ukonèit PhotoPrint"
 
@@ -766,23 +766,23 @@ msgstr "Otevøít projekt..."
 msgid "Save preset..."
 msgstr "Ulo¾it projekt..."
 
-#: pp_menu_file.cpp:106
+#: pp_menu_file.cpp:113
 msgid "Generating print data..."
 msgstr "Vytváøím data pro tisk..."
 
-#: pp_menu_file.cpp:132
+#: pp_menu_file.cpp:139
 msgid "E_xport"
 msgstr "E_xport"
 
-#: pp_menu_file.cpp:133
+#: pp_menu_file.cpp:140
 msgid "Export _TIFF..."
 msgstr "Ulo¾it jako _TIFF..."
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 msgid "Export _JPEG..."
 msgstr "Ulo¾it jako _JPEG..."
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 msgid "Export pages as JPEG files"
 msgstr "Ulo¾it stánky jako JPEG soubory"
 

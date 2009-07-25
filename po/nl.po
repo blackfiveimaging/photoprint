@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-23 22:44+0100\n"
+"POT-Creation-Date: 2009-07-24 00:55+0100\n"
 "PO-Revision-Date:  2009-07-21 21:07+0100\n"
 "Last-Translator: Lex Wernars <lex@theros.nl>\n"
 "Language-Team: Nederlands <lex@theros.nl>\n"
@@ -15,95 +15,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialogs.cpp:123
+#: dialogs.cpp:130
 msgid "Printer Setup"
 msgstr "Printer instellingen"
 
-#: dialogs.cpp:137
+#: dialogs.cpp:144
 msgid "Output"
 msgstr "Uitvoer"
 
-#: dialogs.cpp:174
+#: dialogs.cpp:181
 msgid "About"
 msgstr "Over"
 
-#: dialogs.cpp:224
+#: dialogs.cpp:231
 msgid "Set paths..."
 msgstr "Zet paden..."
 
-#: dialogs.cpp:249
+#: dialogs.cpp:256
 msgid "ICC Profiles"
 msgstr "ICC profielen"
 
-#: dialogs.cpp:281
+#: dialogs.cpp:288
 msgid "Borders"
 msgstr "Randen"
 
-#: dialogs.cpp:312
+#: dialogs.cpp:319
 msgid "Backgrounds"
 msgstr "Achtergronden"
 
-#: dialogs.cpp:340
+#: dialogs.cpp:347
 msgid "Select a border..."
 msgstr "Kies een rand..."
 
-#: dialogs.cpp:387
+#: dialogs.cpp:394
 msgid "Export TIFF..."
 msgstr "Exporteer naar TIFF..."
 
-#: dialogs.cpp:413 dialogs.cpp:616
+#: dialogs.cpp:420 dialogs.cpp:623
 msgid "Page range:"
 msgstr "Pagina bereik:"
 
-#: dialogs.cpp:426 dialogs.cpp:626
+#: dialogs.cpp:433 dialogs.cpp:633
 msgid "Resolution (dpi):"
 msgstr "Resolutie (dpi)"
 
-#: dialogs.cpp:434
+#: dialogs.cpp:441
 msgid "Save as 16-bit:"
 msgstr "Opslaan als 16-bit:"
 
-#: dialogs.cpp:453 dialogs.cpp:661
+#: dialogs.cpp:460 dialogs.cpp:668
 msgid "Output Profile:"
 msgstr "Uitvoer profiel:"
 
-#: dialogs.cpp:517 dialogs.cpp:757
+#: dialogs.cpp:524 dialogs.cpp:764
 msgid "Please provide a filename."
 msgstr "Geef een bestandsnaam op."
 
-#: dialogs.cpp:548 dialogs.cpp:735
+#: dialogs.cpp:555 dialogs.cpp:742
 msgid "Exporting..."
 msgstr "Exporteren..."
 
-#: dialogs.cpp:587
+#: dialogs.cpp:594
 msgid "Export JPEG..."
 msgstr "Exporteer JPEG..."
 
-#: dialogs.cpp:645
+#: dialogs.cpp:652
 msgid "JPEG Quality:"
 msgstr "JPEG kwaliteit:"
 
-#: dialogs.cpp:774
+#: dialogs.cpp:781
 msgid "Select a background..."
 msgstr "Kies een achtergrond"
 
-#: dialogs.cpp:866 pp_menu_image.cpp:244
+#: dialogs.cpp:873 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Kies eerst een afbeelding!"
 
-#: dialogs.cpp:897
+#: dialogs.cpp:904
 msgid "Set Custom Profile..."
 msgstr "Stel eigen profiel in..."
 
-#: dialogs.cpp:909
+#: dialogs.cpp:916
 msgid "Before:"
 msgstr "Voor:"
 
-#: dialogs.cpp:913
+#: dialogs.cpp:920
 msgid "After:"
 msgstr "Na:"
 
-#: dialogs.cpp:927
+#: dialogs.cpp:934
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -116,7 +116,7 @@ msgstr ""
 "een standaard RGB- of beeldschermprofiel\n"
 "in de Opties->Kleurbeheer-dialoog!"
 
-#: dialogs.cpp:952
+#: dialogs.cpp:959
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -124,11 +124,11 @@ msgstr ""
 "Waarschuwing: In de afbeeling zit al een kleurprofiel\n"
 "Een nieuwe kiezen zal de oude overschrijven!"
 
-#: dialogs.cpp:969
+#: dialogs.cpp:976
 msgid "Assign Profile:"
 msgstr "Kies kleurprofiel:"
 
-#: dialogs.cpp:977 pp_cms.cpp:118
+#: dialogs.cpp:984 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Gewenst resultaat:"
 
@@ -171,39 +171,39 @@ msgstr "Radius: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Hoeveelheid: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:126
+#: menucheck.cpp:21 pp_menu_file.cpp:133
 msgid "_File"
 msgstr "_Bestand"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "_Open Preset..."
 msgstr "_Open voorkeur"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "Open a preset"
 msgstr "Open een voorkeur"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "_Save Preset"
 msgstr "_Sla voorkeur op"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "Save a preset"
 msgstr "Sla een voorkeur op"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save _As..."
 msgstr "Opslaan als..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save preset with a new filename"
 msgstr "Sla een voorkeur op met een nieuwe bestandsnaam"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save _Default"
 msgstr "Opslaan stan_daard-instellingen"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save preset as the default"
 msgstr "Sla een voorkeur op als standaard"
 
@@ -211,39 +211,39 @@ msgstr "Sla een voorkeur op als standaard"
 msgid "E_xport TIFF..."
 msgstr "E_xporteer TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:133
+#: menucheck.cpp:27 pp_menu_file.cpp:140
 msgid "Export pages as TIFF files"
 msgstr "Exporteer pagina's als TIFF-bestanden"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Print Pre_view..."
 msgstr "Print _Voorbeeld"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Preview how the printed page will look"
 msgstr "Voorbeeld hoe de geprinte pagina eruit komt te zien"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Print S_etup..."
 msgstr "Print inst_ellingen"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Set printer driver and options"
 msgstr "Stel de printerdriver en opties in"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "_Print"
 msgstr "_Print"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "Print pages"
 msgstr "Print pagina's"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "_Quit"
 msgstr "_Sluiten"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "Exit PhotoPrint"
 msgstr "Afsluiten Photoprint"
 
@@ -765,23 +765,23 @@ msgstr "Open voorkeur..."
 msgid "Save preset..."
 msgstr "Opslaan voorkeur..."
 
-#: pp_menu_file.cpp:106
+#: pp_menu_file.cpp:113
 msgid "Generating print data..."
 msgstr "Geneneer print data..."
 
-#: pp_menu_file.cpp:132
+#: pp_menu_file.cpp:139
 msgid "E_xport"
 msgstr "E_xport"
 
-#: pp_menu_file.cpp:133
+#: pp_menu_file.cpp:140
 msgid "Export _TIFF..."
 msgstr "Export _TIFF..."
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 msgid "Export _JPEG..."
 msgstr "Export _JPEG..."
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 msgid "Export pages as JPEG files"
 msgstr "Export pagina's als JPEG bestanden"
 

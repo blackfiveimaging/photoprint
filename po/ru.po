@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-23 22:44+0100\n"
+"POT-Creation-Date: 2009-07-24 00:55+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -19,95 +19,95 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: dialogs.cpp:123
+#: dialogs.cpp:130
 msgid "Printer Setup"
 msgstr "Настройка принтера"
 
-#: dialogs.cpp:137
+#: dialogs.cpp:144
 msgid "Output"
 msgstr "Вывод"
 
-#: dialogs.cpp:174
+#: dialogs.cpp:181
 msgid "About"
 msgstr "О программе"
 
-#: dialogs.cpp:224
+#: dialogs.cpp:231
 msgid "Set paths..."
 msgstr "Указать расположение..."
 
-#: dialogs.cpp:249
+#: dialogs.cpp:256
 msgid "ICC Profiles"
 msgstr "Профили ICC"
 
-#: dialogs.cpp:281
+#: dialogs.cpp:288
 msgid "Borders"
 msgstr "Рамки"
 
-#: dialogs.cpp:312
+#: dialogs.cpp:319
 msgid "Backgrounds"
 msgstr "Фоновый рисунок"
 
-#: dialogs.cpp:340
+#: dialogs.cpp:347
 msgid "Select a border..."
 msgstr "Выберите рамку"
 
-#: dialogs.cpp:387
+#: dialogs.cpp:394
 msgid "Export TIFF..."
 msgstr "Экспорт в TIFF..."
 
-#: dialogs.cpp:413 dialogs.cpp:616
+#: dialogs.cpp:420 dialogs.cpp:623
 msgid "Page range:"
 msgstr "Диапазон страниц:"
 
-#: dialogs.cpp:426 dialogs.cpp:626
+#: dialogs.cpp:433 dialogs.cpp:633
 msgid "Resolution (dpi):"
 msgstr "Разрешение (dpi):"
 
-#: dialogs.cpp:434
+#: dialogs.cpp:441
 msgid "Save as 16-bit:"
 msgstr "16-разрядный:"
 
-#: dialogs.cpp:453 dialogs.cpp:661
+#: dialogs.cpp:460 dialogs.cpp:668
 msgid "Output Profile:"
 msgstr "Профиль вывода:"
 
-#: dialogs.cpp:517 dialogs.cpp:757
+#: dialogs.cpp:524 dialogs.cpp:764
 msgid "Please provide a filename."
 msgstr "Укажите имя файла."
 
-#: dialogs.cpp:548 dialogs.cpp:735
+#: dialogs.cpp:555 dialogs.cpp:742
 msgid "Exporting..."
 msgstr "Производится экспорт..."
 
-#: dialogs.cpp:587
+#: dialogs.cpp:594
 msgid "Export JPEG..."
 msgstr "Экспорт в JPEG..."
 
-#: dialogs.cpp:645
+#: dialogs.cpp:652
 msgid "JPEG Quality:"
 msgstr "Качество JPEG"
 
-#: dialogs.cpp:774
+#: dialogs.cpp:781
 msgid "Select a background..."
 msgstr "Выберите фон..."
 
-#: dialogs.cpp:866 pp_menu_image.cpp:244
+#: dialogs.cpp:873 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Сначала необходимо выбрать снимок!"
 
-#: dialogs.cpp:897
+#: dialogs.cpp:904
 msgid "Set Custom Profile..."
 msgstr "Укажите иной профиль..."
 
-#: dialogs.cpp:909
+#: dialogs.cpp:916
 msgid "Before:"
 msgstr "До:"
 
-#: dialogs.cpp:913
+#: dialogs.cpp:920
 msgid "After:"
 msgstr "После:"
 
-#: dialogs.cpp:927
+#: dialogs.cpp:934
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -120,7 +120,7 @@ msgstr ""
 "или профиль монитора в диалоге \n"
 "«Параметры > Управление цветом...»."
 
-#: dialogs.cpp:952
+#: dialogs.cpp:959
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -128,11 +128,11 @@ msgstr ""
 "Предупреждение: в снимок уже встроен профиль.\n"
 "При назначении нового профиля старый будет удален!"
 
-#: dialogs.cpp:969
+#: dialogs.cpp:976
 msgid "Assign Profile:"
 msgstr "Назначить профиль:"
 
-#: dialogs.cpp:977 pp_cms.cpp:118
+#: dialogs.cpp:984 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Цветопередача:"
 
@@ -175,39 +175,39 @@ msgstr "Радиус: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Количество: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:126
+#: menucheck.cpp:21 pp_menu_file.cpp:133
 msgid "_File"
 msgstr "_Файл"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "_Open Preset..."
 msgstr "_Открыть предустановку..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "Open a preset"
 msgstr "Открыть предустановку"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "_Save Preset"
 msgstr "_Сохранить предустановку..."
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "Save a preset"
 msgstr "Сохранить предустановку"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save _As..."
 msgstr "Сохранить _как..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save preset with a new filename"
 msgstr "Сохранить предустановку под новым именем"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save _Default"
 msgstr "Сохранить параметры как _типовые"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save preset as the default"
 msgstr "Сохранить предустановку как стандартную"
 
@@ -215,39 +215,39 @@ msgstr "Сохранить предустановку как стандартн�
 msgid "E_xport TIFF..."
 msgstr "_TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:133
+#: menucheck.cpp:27 pp_menu_file.cpp:140
 msgid "Export pages as TIFF files"
 msgstr "Экспортировать страницы как файлы TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Print Pre_view..."
 msgstr "Прос_мотреть печать..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Preview how the printed page will look"
 msgstr "Просмотр страниц, которые будут напечатаны"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Print S_etup..."
 msgstr "Настройка пр_интера..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Set printer driver and options"
 msgstr "Указать драйвер и параметры работы принтера"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "_Print"
 msgstr "На_печатать"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "Print pages"
 msgstr "Печать страниц"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "_Quit"
 msgstr "В_ыйти"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "Exit PhotoPrint"
 msgstr "Выйти из программы"
 
@@ -769,23 +769,23 @@ msgstr "Открытие предустановки"
 msgid "Save preset..."
 msgstr "Сохранить предустановку..."
 
-#: pp_menu_file.cpp:106
+#: pp_menu_file.cpp:113
 msgid "Generating print data..."
 msgstr "Создаются печатаемые данные"
 
-#: pp_menu_file.cpp:132
+#: pp_menu_file.cpp:139
 msgid "E_xport"
 msgstr "_Экспорт..."
 
-#: pp_menu_file.cpp:133
+#: pp_menu_file.cpp:140
 msgid "Export _TIFF..."
 msgstr "_TIFF..."
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 msgid "Export _JPEG..."
 msgstr "_JPEG..."
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 msgid "Export pages as JPEG files"
 msgstr "Экспортировать страницы как файлы JPEG"
 

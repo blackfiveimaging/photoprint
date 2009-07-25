@@ -48,7 +48,8 @@ class Layout : public virtual PageExtent
 	virtual int FreeSlots();	// Count the number of free slots on the current page
 	virtual void Reflow();
 
-	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
+	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,
+		CMTransformFactory *factory=NULL,int res=0,bool completepage=false);
 	virtual IS_TYPE GetColourSpace(CMColourDevice target);	// Do we still need this?
 	virtual void UpdatePageSize();
 	virtual void LayoutToDB(LayoutDB &db);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-23 22:44+0100\n"
+"POT-Creation-Date: 2009-07-24 00:55+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -20,96 +20,96 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n > 1);\n"
 
-#: dialogs.cpp:123
+#: dialogs.cpp:130
 msgid "Printer Setup"
 msgstr "Configuração da Impressora "
 
-#: dialogs.cpp:137
+#: dialogs.cpp:144
 msgid "Output"
 msgstr ""
 
-#: dialogs.cpp:174
+#: dialogs.cpp:181
 msgid "About"
 msgstr "Sobre"
 
-#: dialogs.cpp:224
+#: dialogs.cpp:231
 msgid "Set paths..."
 msgstr "Definir caminhos..."
 
-#: dialogs.cpp:249
+#: dialogs.cpp:256
 msgid "ICC Profiles"
 msgstr "Perfis ICC"
 
-#: dialogs.cpp:281
+#: dialogs.cpp:288
 msgid "Borders"
 msgstr "Bordas"
 
-#: dialogs.cpp:312
+#: dialogs.cpp:319
 msgid "Backgrounds"
 msgstr "Backgrounds"
 
-#: dialogs.cpp:340
+#: dialogs.cpp:347
 msgid "Select a border..."
 msgstr "Selecionar uma borda"
 
-#: dialogs.cpp:387
+#: dialogs.cpp:394
 msgid "Export TIFF..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:413 dialogs.cpp:616
+#: dialogs.cpp:420 dialogs.cpp:623
 msgid "Page range:"
 msgstr "Intervalo de páginas"
 
-#: dialogs.cpp:426 dialogs.cpp:626
+#: dialogs.cpp:433 dialogs.cpp:633
 msgid "Resolution (dpi):"
 msgstr "Resolução (dpi)"
 
-#: dialogs.cpp:434
+#: dialogs.cpp:441
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:453 dialogs.cpp:661
+#: dialogs.cpp:460 dialogs.cpp:668
 msgid "Output Profile:"
 msgstr "Arquivo de saída"
 
-#: dialogs.cpp:517 dialogs.cpp:757
+#: dialogs.cpp:524 dialogs.cpp:764
 msgid "Please provide a filename."
 msgstr "Por favor forneça um nome de arquivo"
 
-#: dialogs.cpp:548 dialogs.cpp:735
+#: dialogs.cpp:555 dialogs.cpp:742
 msgid "Exporting..."
 msgstr "Exportando..."
 
-#: dialogs.cpp:587
+#: dialogs.cpp:594
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:645
+#: dialogs.cpp:652
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:774
+#: dialogs.cpp:781
 msgid "Select a background..."
 msgstr "Selecione um background..."
 
-#: dialogs.cpp:866 pp_menu_image.cpp:244
+#: dialogs.cpp:873 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Por favor insira uma imagem primeiro! "
 
-#: dialogs.cpp:897
+#: dialogs.cpp:904
 msgid "Set Custom Profile..."
 msgstr "Defina perfil padrão"
 
-#: dialogs.cpp:909
+#: dialogs.cpp:916
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:913
+#: dialogs.cpp:920
 msgid "After:"
 msgstr "Depois:"
 
-#: dialogs.cpp:927
+#: dialogs.cpp:934
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -122,7 +122,7 @@ msgstr ""
 "um RGB padrão ou um perfil Monitor \n"
 "em Options->Gerenciamento de cor"
 
-#: dialogs.cpp:952
+#: dialogs.cpp:959
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -130,11 +130,11 @@ msgstr ""
 "Advertência: uma imagem já foi incluída no perfil\n"
 "Incluir outra vai sobrescrevê-la!"
 
-#: dialogs.cpp:969
+#: dialogs.cpp:976
 msgid "Assign Profile:"
 msgstr "Definir Perfil:"
 
-#: dialogs.cpp:977 pp_cms.cpp:118
+#: dialogs.cpp:984 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Tentar Renderização:"
 
@@ -177,39 +177,39 @@ msgstr ""
 msgid "Amount: %1.2f"
 msgstr ""
 
-#: menucheck.cpp:21 pp_menu_file.cpp:126
+#: menucheck.cpp:21 pp_menu_file.cpp:133
 msgid "_File"
 msgstr "_Arquivo"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "_Open Preset..."
 msgstr "A_brir Pré-seleção..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:128
+#: menucheck.cpp:23 pp_menu_file.cpp:135
 msgid "Open a preset"
 msgstr "Abre uma pré-seleção"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "_Save Preset"
 msgstr "_Salvar Pré-seleção"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:129
+#: menucheck.cpp:24 pp_menu_file.cpp:136
 msgid "Save a preset"
 msgstr "Salva uma pré-seleção"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save _As..."
 msgstr "Salvar _Como..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:130
+#: menucheck.cpp:25 pp_menu_file.cpp:137
 msgid "Save preset with a new filename"
 msgstr "Salva uma pré-seleção com um novo nome de arquivo"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save _Default"
 msgstr "Salvar _Padrão"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:131
+#: menucheck.cpp:26 pp_menu_file.cpp:138
 msgid "Save preset as the default"
 msgstr "Salva a pré-seleção como padrão"
 
@@ -218,39 +218,39 @@ msgstr "Salva a pré-seleção como padrão"
 msgid "E_xport TIFF..."
 msgstr "Exportar TIFF"
 
-#: menucheck.cpp:27 pp_menu_file.cpp:133
+#: menucheck.cpp:27 pp_menu_file.cpp:140
 msgid "Export pages as TIFF files"
 msgstr "Exporta páginas como arquivos TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Print Pre_view..."
 msgstr "Imprimir Pré-visualização"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:135
+#: menucheck.cpp:28 pp_menu_file.cpp:142
 msgid "Preview how the printed page will look"
 msgstr "Prevê a aparência da impressão da página"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Print S_etup..."
 msgstr "Configuração de Impr_essora"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:136
+#: menucheck.cpp:29 pp_menu_file.cpp:143
 msgid "Set printer driver and options"
 msgstr "Configura impressora e opções"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "_Print"
 msgstr "_Imprimir"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:137
+#: menucheck.cpp:30 pp_menu_file.cpp:144
 msgid "Print pages"
 msgstr "Imprime páginas"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "_Quit"
 msgstr "Sai_r"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:138
+#: menucheck.cpp:31 pp_menu_file.cpp:145
 msgid "Exit PhotoPrint"
 msgstr "Sai do PhotoPrint"
 
@@ -779,26 +779,26 @@ msgstr "Abrir pré-definição..."
 msgid "Save preset..."
 msgstr "Salvar pré-definições"
 
-#: pp_menu_file.cpp:106
+#: pp_menu_file.cpp:113
 msgid "Generating print data..."
 msgstr "Gerando dados de impressão..."
 
-#: pp_menu_file.cpp:132
+#: pp_menu_file.cpp:139
 #, fuzzy
 msgid "E_xport"
 msgstr "E_xportar TIFF..."
 
-#: pp_menu_file.cpp:133
+#: pp_menu_file.cpp:140
 #, fuzzy
 msgid "Export _TIFF..."
 msgstr "Exportar TIFF"
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 #, fuzzy
 msgid "Export _JPEG..."
 msgstr "Exportar TIFF"
 
-#: pp_menu_file.cpp:134
+#: pp_menu_file.cpp:141
 #, fuzzy
 msgid "Export pages as JPEG files"
 msgstr "Exporta páginas como arquivos TIFF"

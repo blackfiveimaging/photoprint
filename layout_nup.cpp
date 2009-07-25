@@ -29,6 +29,7 @@
 #include "imagesource/imagesource_crop.h"
 #include "imagesource/imagesource_promote.h"
 #include "imagesource/imagesource_montage.h"
+#include "imagesource/imagesource_solid.h"
 
 #include "photoprint_state.h"
 #include "pp_layout_nup.h"
@@ -240,7 +241,7 @@ void Layout_NUp::CopyImage(Layout_ImageInfo *ii)
 }
 
 
-ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res)
+ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
 	ImageSource *result=NULL;
 	if(imagelist)
@@ -342,6 +343,24 @@ ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransfo
 				is=new ImageSource_Rotate(is,90);
 			is=ISScaleImageBySize(is,(pagewidth*res)/72,(pageheight*res)/72,qual);
 			mon->Add(is,0,0);
+		}
+		else if(completepage)
+		{
+			// If the completepage flag is set we need to render a solid background.
+			// This will be used for print preview and TIFF/JPEG export.
+
+			IS_TYPE colourspace=GetColourSpace(target);
+			ISDataType white[5]={0,0,0,0,0};
+			if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
+				white[0]=white[1]=white[2]=IS_SAMPLEMAX;
+
+			if(factory)
+			{
+				CMSTransform *transform=factory->GetTransform(target,colourspace);
+				if(transform)
+					transform->Transform(white,white,1);
+			}
+			mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
 		}
 	}
 	return(result);

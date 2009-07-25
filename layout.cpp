@@ -121,7 +121,7 @@ void Layout::CopyImage(Layout_ImageInfo *ii)
 }
 
 
-ImageSource *Layout::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res)
+ImageSource *Layout::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
 	cerr << "GetImageSource: Dummy function - should be overridden" << endl;
 	return(NULL);

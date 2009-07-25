@@ -316,7 +316,7 @@ void Layout_Single::CopyImage(Layout_ImageInfo *ii)
 }
 
 
-ImageSource *Layout_Single::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res)
+ImageSource *Layout_Single::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
 	ImageSource *result=NULL;
 	try

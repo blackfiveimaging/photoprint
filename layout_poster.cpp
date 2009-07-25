@@ -22,6 +22,8 @@
 #include "imagesource/imagesource_rotate.h"
 #include "imagesource/imagesource_util.h"
 #include "imagesource/imagesource_flatten.h"
+#include "imagesource/imagesource_montage.h"
+#include "imagesource/imagesource_solid.h"
 #include "photoprint_state.h"
 #include "pp_layout_poster.h"
 
@@ -160,9 +162,9 @@ void Layout_Poster::CopyImage(Layout_ImageInfo *ii)
 
 // FIXME - this routine is *UGLY*.
 
-ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res)
+ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
-	ImageSource *result=NULL;
+	ImageSource *is=NULL;
 	try
 	{
 		if(imagelist)
@@ -184,7 +186,7 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 			{
 				GetImageableArea();
 
-				ImageSource *is=ii->GetImageSource(target,factory);
+				is=ii->GetImageSource(target,factory);
 				LayoutRectangle srcr(is->width,is->height);
 				LayoutRectangle target(posterwidth,posterheight);
 				
@@ -259,16 +261,36 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 				is=ISScaleImageByResolution(is,res,res,qual);
 
 				delete fit;
-
-				return(is);
 			}
+		}
+		if(completepage)
+		{
+			// If the completepage flag is set we need to render a solid background.
+			// This will be used for print preview and TIFF/JPEG export.
+
+			IS_TYPE colourspace=GetColourSpace(target);
+			ISDataType white[5]={0,0,0,0,0};
+			if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
+				white[0]=white[1]=white[2]=IS_SAMPLEMAX;
+
+			if(factory)
+			{
+				CMSTransform *transform=factory->GetTransform(target,colourspace);
+				if(transform)
+					transform->Transform(white,white,1);
+			}
+
+			ImageSource_Montage *mon=new ImageSource_Montage(colourspace,res);
+			mon->Add(is,(leftmargin*res)/72,(topmargin*res)/72);
+			mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
+			is=mon;
 		}
 	}
 	catch (const char *msg)
 	{
 		ErrorMessage_Dialog(msg);
 	}
-	return(result);
+	return(is);
 }
 
 

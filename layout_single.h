@@ -32,7 +32,8 @@ class Layout_Single : public Layout
 	virtual GtkWidget *CreateWidget();
 	virtual void RefreshWidget(GtkWidget *widget);
 	virtual void Print(Progress *p);	// Overridden so we can set the top/left position...
-	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,int res=0);
+	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,
+		CMTransformFactory *factory=NULL,int res=0,bool completepage=false);
 	virtual Layout_ImageInfo *FirstSelected();
 	virtual Layout_ImageInfo *NextSelected();
 	Layout_Single_ImageInfo *ImageAt(int page);
