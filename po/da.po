@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 01:35+0100\n"
+"POT-Creation-Date: 2009-07-25 14:36+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -16,95 +16,95 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: dialogs.cpp:130
+#: dialogs.cpp:132
 msgid "Printer Setup"
 msgstr "Indstil printer"
 
-#: dialogs.cpp:144
+#: dialogs.cpp:146
 msgid "Output"
 msgstr "Uddata"
 
-#: dialogs.cpp:181
+#: dialogs.cpp:183
 msgid "About"
 msgstr "Om"
 
-#: dialogs.cpp:231
+#: dialogs.cpp:233
 msgid "Set paths..."
 msgstr "Sæt stier..."
 
-#: dialogs.cpp:256
+#: dialogs.cpp:258
 msgid "ICC Profiles"
 msgstr "ICC profiler"
 
-#: dialogs.cpp:288
+#: dialogs.cpp:290
 msgid "Borders"
 msgstr "Rammer"
 
-#: dialogs.cpp:319
+#: dialogs.cpp:321
 msgid "Backgrounds"
 msgstr "Baggrunde"
 
-#: dialogs.cpp:347
+#: dialogs.cpp:349
 msgid "Select a border..."
 msgstr "Vælg en ramme..."
 
-#: dialogs.cpp:394
+#: dialogs.cpp:396
 msgid "Export TIFF..."
 msgstr "Eksportér TIFF..."
 
-#: dialogs.cpp:420 dialogs.cpp:623
+#: dialogs.cpp:422 dialogs.cpp:625
 msgid "Page range:"
 msgstr "Sideområde:"
 
-#: dialogs.cpp:433 dialogs.cpp:633
+#: dialogs.cpp:435 dialogs.cpp:635
 msgid "Resolution (dpi):"
 msgstr "Opløsning (dpi):"
 
-#: dialogs.cpp:441
+#: dialogs.cpp:443
 msgid "Save as 16-bit:"
 msgstr "Gem som 16-bit:"
 
-#: dialogs.cpp:460 dialogs.cpp:668
+#: dialogs.cpp:462 dialogs.cpp:670
 msgid "Output Profile:"
 msgstr "Uddataprofil:"
 
-#: dialogs.cpp:524 dialogs.cpp:764
+#: dialogs.cpp:526 dialogs.cpp:766
 msgid "Please provide a filename."
 msgstr "Angiv et filnavn."
 
-#: dialogs.cpp:555 dialogs.cpp:742
+#: dialogs.cpp:557 dialogs.cpp:744
 msgid "Exporting..."
 msgstr "Eksporterer..."
 
-#: dialogs.cpp:594
+#: dialogs.cpp:596
 msgid "Export JPEG..."
 msgstr "Eksportér JPEG..."
 
-#: dialogs.cpp:652
+#: dialogs.cpp:654
 msgid "JPEG Quality:"
 msgstr "JPEG kalitet:"
 
-#: dialogs.cpp:781
+#: dialogs.cpp:783
 msgid "Select a background..."
 msgstr "Vælg en baggrund..."
 
-#: dialogs.cpp:873 pp_menu_image.cpp:244
+#: dialogs.cpp:875 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Vælg et billede først!"
 
-#: dialogs.cpp:904
+#: dialogs.cpp:906
 msgid "Set Custom Profile..."
 msgstr "Sæt brugerprofil..."
 
-#: dialogs.cpp:916
+#: dialogs.cpp:918
 msgid "Before:"
 msgstr "Før:"
 
-#: dialogs.cpp:920
+#: dialogs.cpp:922
 msgid "After:"
 msgstr "Efter:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:936
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -117,7 +117,7 @@ msgstr ""
 "en standard RGB- eller skærm-profil\n"
 "i Indstillinger->Farvestyring dialogen!"
 
-#: dialogs.cpp:959
+#: dialogs.cpp:961
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -125,15 +125,21 @@ msgstr ""
 "Advarsel: Billedet har allerede en indlejret profil\n"
 "Fastsættelse af en ny vil overskrive den!"
 
-#: dialogs.cpp:976
+#: dialogs.cpp:978
 msgid "Assign Profile:"
 msgstr "Fastsæt profil:"
 
-#: dialogs.cpp:984 pp_cms.cpp:118
+#: dialogs.cpp:986 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Farvegengivelsesmåde:"
 
-#: dialogs.cpp:1054
+#: dialogs.cpp:1058 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
+#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: pp_layout_single.cpp:230
+msgid "Page:"
+msgstr "Side:"
+
+#: dialogs.cpp:1068
 #, fuzzy
 msgid "Close"
 msgstr "Karrusel"
@@ -649,11 +655,6 @@ msgstr "pixels"
 #: pp_imageinfo.cpp:373
 msgid "Default"
 msgstr "Standard"
-
-#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:218
-#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:230
-msgid "Page:"
-msgstr "Side:"
 
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"

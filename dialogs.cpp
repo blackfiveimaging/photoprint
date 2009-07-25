@@ -1018,27 +1018,94 @@ void SetCustomProfileDialog(GtkWindow *parent,PhotoPrint_State &state,Layout_Ima
 }
 
 
+class printpreviewprogress : public Progress
+{
+	public:
+	printpreviewprogress(const char *message,GtkWidget *parent)
+	: Progress(), message(NULL), label(NULL)
+	{
+		if(message)
+			this->message=strdup(message);
+		window=gtk_window_new(GTK_WINDOW_POPUP);
+		if(parent)
+			gtk_window_set_transient_for(GTK_WINDOW(window),GTK_WINDOW(parent));
+		gtk_window_set_default_size(GTK_WINDOW(window),150,30);
+		gtk_window_set_position(GTK_WINDOW(window),GTK_WIN_POS_CENTER_ON_PARENT);
+		gtk_widget_show(window);
+
+		gtk_container_set_border_width(GTK_CONTAINER(window),10);
+
+		GtkWidget *vbox=gtk_vbox_new(FALSE,0);
+		gtk_container_add(GTK_CONTAINER(window),vbox);
+		gtk_widget_show(vbox);
+		
+		if(this->message)
+		{
+			label=gtk_label_new(this->message);
+			gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_CENTER);
+			gtk_box_pack_start(GTK_BOX(vbox),label,FALSE,FALSE,0);
+			gtk_widget_show(label);
+		}
+		
+		progressbar=gtk_progress_bar_new();
+		gtk_box_pack_start(GTK_BOX(vbox),progressbar,FALSE,FALSE,0);
+		gtk_widget_show(progressbar);
+
+		DoProgress(0,1);
+	}
+	~printpreviewprogress()
+	{
+		if(message)
+			free(message);
+		gtk_widget_destroy(window);
+	}
+	bool DoProgress(int i,int maxi)
+	{
+		Progress::DoProgress(i,maxi);
+		if(maxi)
+		{
+			float v=i;
+			v/=maxi;
+			
+			gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progressbar),v);
+		}
+		else
+			gtk_progress_bar_pulse(GTK_PROGRESS_BAR(progressbar));
+
+		while(gtk_events_pending())
+			gtk_main_iteration_do(false);
+		return(true);
+	}
+	void SetMessage(const char *msg)
+	{
+		if(message)
+			free(message);
+		message=NULL;
+
+		if(msg)
+			message=strdup(msg);
+		if(label)
+			gtk_label_set_text(GTK_LABEL(label),message);
+	}
+	protected:
+	GtkWidget *window;
+	char *message;
+	GtkWidget *label;
+	GtkWidget *progressbar;
+};
+
+
 class printpreviewdata
 {
 	public:
 	printpreviewdata(PhotoPrint_State &state) : state(state)
 	{
-#if 0
-		gtk_rc_parse_string("style \"default\" {"
-"  bg[NORMAL]			= \"#4be2d2\""
-"  bg[PRELIGHT]			= \"#4be2d2\""
-"  bg[ACTIVE]				= \"#4be2d2\""
-"  bg[SELECTED]			= \"#2cace8\""
-"  bg[INSENSITIVE]		= \"#4be2d2\" }"
-"  widget \"PrintPreview.*.*\" style \"default\""
-"  widget \"PrintPreview.*\" style \"default\""
-"  widget \"PrintPreview\" style \"default\"");
-#endif
-
 		factory=state.profilemanager.GetTransformFactory();
 		window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+		gtk_window_set_default_size(GTK_WINDOW(window),800,600);
 		gtk_widget_set_name(GTK_WIDGET(window),"PrintPreview");
 		gtk_window_fullscreen(GTK_WINDOW(window));
+		g_signal_connect(G_OBJECT(window),"delete-event",G_CALLBACK(deleteevent),this);
 
 		pview=pixbufview_new(NULL,false);
 		gtk_container_add(GTK_CONTAINER(window),pview);
@@ -1049,6 +1116,7 @@ class printpreviewdata
 		gtk_window_set_transient_for(GTK_WINDOW(popup),GTK_WINDOW(window));
 		GtkWidget *vbox=gtk_vbox_new(FALSE,0);
 		gtk_container_add(GTK_CONTAINER(popup),vbox);
+		g_signal_connect(G_OBJECT(popup),"delete-event",G_CALLBACK(deleteevent),this);
 
 		GtkWidget *tmp;
 
@@ -1062,16 +1130,20 @@ class printpreviewdata
 		g_signal_connect(G_OBJECT(page),"value-changed",G_CALLBACK(page_changed),this);
 		gtk_box_pack_start(GTK_BOX(hbox),page,FALSE,FALSE,8);
 
-		tmp=gtk_hbox_new(FALSE,0);
+		tmp=gtk_label_new(_("Click-and-drag to pan around the preview.\nRight-click to toggle magnification."));
 		gtk_box_pack_start(GTK_BOX(hbox),tmp,TRUE,TRUE,8);
 
 		tmp=gtk_button_new_with_label(_("Close"));
-		g_signal_connect(G_OBJECT(tmp),"clicked",G_CALLBACK(close),this);
+		g_signal_connect(G_OBJECT(tmp),"clicked",G_CALLBACK(closeclicked),this);
 		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,8);
 //		gtk_widget_show_all(popup);
 
 		g_signal_connect(G_OBJECT(window),"key-press-event",G_CALLBACK(keypress),this);
 		g_signal_connect(G_OBJECT(window),"motion-notify-event",G_CALLBACK(mousemove),this);
+
+		SetBG();
+
+		drawing=close=false;
 
 		DrawPage(1);
 	}
@@ -1082,12 +1154,51 @@ class printpreviewdata
 		if(factory)
 			delete factory;
 	}
+	void SetBG()
+	{
+		GdkColor bgcol;
+		bgcol.pixel=0;
+		bgcol.red=32767;
+		bgcol.green=32767;
+		bgcol.blue=32767;
+
+		CMSProfile *targetprof;
+		CMColourDevice target=CM_COLOURDEVICE_NONE;
+		if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
+			target=CM_COLOURDEVICE_PRINTERPROOF;
+		else if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_DISPLAY)))
+			target=CM_COLOURDEVICE_DISPLAY;
+		else if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
+			target=CM_COLOURDEVICE_DEFAULTRGB;
+		if(targetprof)
+			delete targetprof;
+
+		if(target!=CM_COLOURDEVICE_NONE)
+		{
+			CMSTransform *transform=NULL;
+			transform = factory->GetTransform(target,IS_TYPE_RGB,LCMSWRAPPER_INTENT_DEFAULT);
+			if(transform)
+			{
+				ISDataType rgbtriple[3];
+				rgbtriple[0]=bgcol.red;
+				rgbtriple[1]=bgcol.green;
+				rgbtriple[2]=bgcol.blue;
+				transform->Transform(rgbtriple,rgbtriple,1);
+				bgcol.red=rgbtriple[0];
+				bgcol.green=rgbtriple[1];
+				bgcol.blue=rgbtriple[2];
+			}
+		}
+		gtk_widget_modify_bg(pview,GTK_STATE_NORMAL,&bgcol);
+	}
 	void DrawPage(int page)
 	{
-		ImageSource *is=state.layout->GetImageSource(page-1,CM_COLOURDEVICE_PRINTERPROOF,factory,180,true);
+		drawing=true;
+		printpreviewprogress prog(_("Drawing preview"),window);
+		ImageSource *is=state.layout->GetImageSource(page-1,CM_COLOURDEVICE_PRINTERPROOF,factory,360,true);
 		if(is)
 		{
-			GdkPixbuf *pb=pixbuf_from_imagesource(is);
+			GdkPixbuf *pb=pixbuf_from_imagesource(is,255,255,255,&prog);
 			delete is;
 
 			pixbufview_set_pixbuf(PIXBUFVIEW(pview),pb);
@@ -1095,6 +1206,9 @@ class printpreviewdata
 		}
 		else
 			cerr << "Failed to obtain imagesource for page" << page << endl;
+		drawing=false;
+		if(close)
+			delete this;
 	}
 	static void page_changed(GtkWidget *wid,gpointer userdata)
 	{
@@ -1102,10 +1216,20 @@ class printpreviewdata
 		int page=gtk_spin_button_get_value(GTK_SPIN_BUTTON(pv->page));
 		pv->DrawPage(page);
 	}
-	static void close(GtkWidget *wid,gpointer userdata)
+	static void closeclicked(GtkWidget *wid,gpointer userdata)
 	{
 		printpreviewdata *pv=(printpreviewdata *)userdata;
-		delete pv;
+		pv->close=true;
+		if(!pv->drawing)
+			delete pv;
+	}
+	static gboolean deleteevent(GtkWidget *wid,GdkEvent *ev,gpointer userdata)
+	{
+		printpreviewdata *pv=(printpreviewdata *)userdata;
+		pv->close=true;
+		if(!pv->drawing)
+			delete pv;
+		return(TRUE);	// Don't want the default deletion to happen as well!
 	}
 	static gboolean keypress(GtkWidget *widget,GdkEventKey *key, gpointer userdata)
 	{
@@ -1131,8 +1255,6 @@ class printpreviewdata
 		int w,h;
 		gtk_window_get_size(GTK_WINDOW(pv->window),&w,&h);
 
-		cerr << "Got mouse location " << x << ", " << y << endl;
-
 		if(pv->popupshown && y>(h/8))
 		{
 			gtk_widget_hide_all(pv->popup);
@@ -1155,6 +1277,8 @@ class printpreviewdata
 	GtkWidget *pview;
 	GtkWidget *page;
 	CMTransformFactory *factory;
+	bool drawing;
+	bool close;
 };
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 01:35+0100\n"
+"POT-Creation-Date: 2009-07-25 14:36+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -20,96 +20,96 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n > 1);\n"
 
-#: dialogs.cpp:130
+#: dialogs.cpp:132
 msgid "Printer Setup"
 msgstr "Configuração da Impressora "
 
-#: dialogs.cpp:144
+#: dialogs.cpp:146
 msgid "Output"
 msgstr ""
 
-#: dialogs.cpp:181
+#: dialogs.cpp:183
 msgid "About"
 msgstr "Sobre"
 
-#: dialogs.cpp:231
+#: dialogs.cpp:233
 msgid "Set paths..."
 msgstr "Definir caminhos..."
 
-#: dialogs.cpp:256
+#: dialogs.cpp:258
 msgid "ICC Profiles"
 msgstr "Perfis ICC"
 
-#: dialogs.cpp:288
+#: dialogs.cpp:290
 msgid "Borders"
 msgstr "Bordas"
 
-#: dialogs.cpp:319
+#: dialogs.cpp:321
 msgid "Backgrounds"
 msgstr "Backgrounds"
 
-#: dialogs.cpp:347
+#: dialogs.cpp:349
 msgid "Select a border..."
 msgstr "Selecionar uma borda"
 
-#: dialogs.cpp:394
+#: dialogs.cpp:396
 msgid "Export TIFF..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:420 dialogs.cpp:623
+#: dialogs.cpp:422 dialogs.cpp:625
 msgid "Page range:"
 msgstr "Intervalo de páginas"
 
-#: dialogs.cpp:433 dialogs.cpp:633
+#: dialogs.cpp:435 dialogs.cpp:635
 msgid "Resolution (dpi):"
 msgstr "Resolução (dpi)"
 
-#: dialogs.cpp:441
+#: dialogs.cpp:443
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:460 dialogs.cpp:668
+#: dialogs.cpp:462 dialogs.cpp:670
 msgid "Output Profile:"
 msgstr "Arquivo de saída"
 
-#: dialogs.cpp:524 dialogs.cpp:764
+#: dialogs.cpp:526 dialogs.cpp:766
 msgid "Please provide a filename."
 msgstr "Por favor forneça um nome de arquivo"
 
-#: dialogs.cpp:555 dialogs.cpp:742
+#: dialogs.cpp:557 dialogs.cpp:744
 msgid "Exporting..."
 msgstr "Exportando..."
 
-#: dialogs.cpp:594
+#: dialogs.cpp:596
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:652
+#: dialogs.cpp:654
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:781
+#: dialogs.cpp:783
 msgid "Select a background..."
 msgstr "Selecione um background..."
 
-#: dialogs.cpp:873 pp_menu_image.cpp:244
+#: dialogs.cpp:875 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Por favor insira uma imagem primeiro! "
 
-#: dialogs.cpp:904
+#: dialogs.cpp:906
 msgid "Set Custom Profile..."
 msgstr "Defina perfil padrão"
 
-#: dialogs.cpp:916
+#: dialogs.cpp:918
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:920
+#: dialogs.cpp:922
 msgid "After:"
 msgstr "Depois:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:936
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -122,7 +122,7 @@ msgstr ""
 "um RGB padrão ou um perfil Monitor \n"
 "em Options->Gerenciamento de cor"
 
-#: dialogs.cpp:959
+#: dialogs.cpp:961
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -130,15 +130,21 @@ msgstr ""
 "Advertência: uma imagem já foi incluída no perfil\n"
 "Incluir outra vai sobrescrevê-la!"
 
-#: dialogs.cpp:976
+#: dialogs.cpp:978
 msgid "Assign Profile:"
 msgstr "Definir Perfil:"
 
-#: dialogs.cpp:984 pp_cms.cpp:118
+#: dialogs.cpp:986 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Tentar Renderização:"
 
-#: dialogs.cpp:1054
+#: dialogs.cpp:1058 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
+#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: pp_layout_single.cpp:230
+msgid "Page:"
+msgstr "Página:"
+
+#: dialogs.cpp:1068
 #, fuzzy
 msgid "Close"
 msgstr "Roda"
@@ -657,11 +663,6 @@ msgstr ""
 #, fuzzy
 msgid "Default"
 msgstr "Salvar _Padrão"
-
-#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:218
-#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:230
-msgid "Page:"
-msgstr "Página:"
 
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"

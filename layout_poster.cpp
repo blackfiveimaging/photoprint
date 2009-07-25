@@ -281,7 +281,7 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 			}
 
 			ImageSource_Montage *mon=new ImageSource_Montage(colourspace,res);
-			mon->Add(is,(leftmargin*res)/72,(topmargin*res)/72);
+			mon->Add(is,(xoffset*res)/72,(yoffset*res)/72);
 			mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
 			is=mon;
 		}
