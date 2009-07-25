@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-24 00:55+0100\n"
+"POT-Creation-Date: 2009-07-25 01:35+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -132,6 +132,11 @@ msgstr "Fastsæt profil:"
 #: dialogs.cpp:984 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Farvegengivelsesmåde:"
+
+#: dialogs.cpp:1054
+#, fuzzy
+msgid "Close"
+msgstr "Karrusel"
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"

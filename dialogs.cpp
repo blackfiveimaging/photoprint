@@ -18,6 +18,8 @@
 
 #include <gtk/gtk.h>
 #include <gtk/gtknotebook.h>
+#include <gdk/gdkkeysyms.h>
+
 #include "gp_cppsupport/printoutputselector.h"
 #include "pp_cms.h"
 #include "pp_units.h"
@@ -1038,32 +1040,45 @@ class printpreviewdata
 		gtk_widget_set_name(GTK_WIDGET(window),"PrintPreview");
 		gtk_window_fullscreen(GTK_WINDOW(window));
 
+		pview=pixbufview_new(NULL,false);
+		gtk_container_add(GTK_CONTAINER(window),pview);
+		gtk_widget_show_all(window);
+
+		popupshown=false;
+		popup=gtk_window_new(GTK_WINDOW_POPUP);
+		gtk_window_set_transient_for(GTK_WINDOW(popup),GTK_WINDOW(window));
 		GtkWidget *vbox=gtk_vbox_new(FALSE,0);
-		gtk_container_add(GTK_CONTAINER(window),vbox);
+		gtk_container_add(GTK_CONTAINER(popup),vbox);
+
+		GtkWidget *tmp;
 
 		GtkWidget *hbox=gtk_hbox_new(FALSE,0);
 		gtk_box_pack_start(GTK_BOX(vbox),hbox,FALSE,FALSE,8);
+
+		tmp=gtk_label_new(_("Page:"));
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,8);
 
 		page=gtk_spin_button_new_with_range(1,state.layout->GetPages(),1);
 		g_signal_connect(G_OBJECT(page),"value-changed",G_CALLBACK(page_changed),this);
 		gtk_box_pack_start(GTK_BOX(hbox),page,FALSE,FALSE,8);
 
-		GtkWidget *tmp=gtk_hbox_new(FALSE,0);
+		tmp=gtk_hbox_new(FALSE,0);
 		gtk_box_pack_start(GTK_BOX(hbox),tmp,TRUE,TRUE,8);
 
 		tmp=gtk_button_new_with_label(_("Close"));
 		g_signal_connect(G_OBJECT(tmp),"clicked",G_CALLBACK(close),this);
 		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,8);
+//		gtk_widget_show_all(popup);
 
-		pview=pixbufview_new(NULL,false);
-		gtk_box_pack_start(GTK_BOX(vbox),pview,TRUE,TRUE,0);
-		gtk_widget_show_all(window);
+		g_signal_connect(G_OBJECT(window),"key-press-event",G_CALLBACK(keypress),this);
+		g_signal_connect(G_OBJECT(window),"motion-notify-event",G_CALLBACK(mousemove),this);
 
 		DrawPage(1);
 	}
 	~printpreviewdata()
 	{
 		gtk_widget_destroy(window);
+		gtk_widget_destroy(popup);
 		if(factory)
 			delete factory;
 	}
@@ -1092,9 +1107,51 @@ class printpreviewdata
 		printpreviewdata *pv=(printpreviewdata *)userdata;
 		delete pv;
 	}
+	static gboolean keypress(GtkWidget *widget,GdkEventKey *key, gpointer userdata)
+	{
+		printpreviewdata *pv=(printpreviewdata *)userdata;
+		if(key->type == GDK_KEY_PRESS)
+		{
+			switch(key->keyval)
+			{
+				case GDK_Escape:
+					delete pv;
+				break;
+			}
+		}
+		return FALSE;
+	}
+	static gboolean mousemove(GtkWidget *widget,GdkEventMotion *event, gpointer userdata)
+	{
+		printpreviewdata *pv=(printpreviewdata *)userdata;
+
+		int x,y;
+		GdkModifierType mods;
+		gdk_window_get_pointer (widget->window, &x, &y, &mods);
+		int w,h;
+		gtk_window_get_size(GTK_WINDOW(pv->window),&w,&h);
+
+		cerr << "Got mouse location " << x << ", " << y << endl;
+
+		if(pv->popupshown && y>(h/8))
+		{
+			gtk_widget_hide_all(pv->popup);
+			pv->popupshown=false;
+		}
+
+		if(!pv->popupshown && y<(h/8))
+		{
+			gtk_widget_show_all(pv->popup);
+			pv->popupshown=true;
+		}
+
+		return(FALSE);
+	}
 	protected:
 	PhotoPrint_State &state;
 	GtkWidget *window;
+	GtkWidget *popup;
+	bool popupshown;
 	GtkWidget *pview;
 	GtkWidget *page;
 	CMTransformFactory *factory;

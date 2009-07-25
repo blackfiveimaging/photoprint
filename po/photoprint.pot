@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-24 00:55+0100\n"
+"POT-Creation-Date: 2009-07-25 01:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,6 +125,10 @@ msgstr ""
 
 #: dialogs.cpp:984 pp_cms.cpp:118
 msgid "Rendering intent:"
+msgstr ""
+
+#: dialogs.cpp:1054
+msgid "Close"
 msgstr ""
 
 #: effects/ppeffect_temperature.cpp:28
