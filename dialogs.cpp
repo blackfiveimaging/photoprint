@@ -31,6 +31,7 @@
 #include "miscwidgets/imageselector.h"
 #include "miscwidgets/generaldialogs.h"
 #include "miscwidgets/pixbufview.h"
+#include "miscwidgets/simplecombo.h"
 
 #include "support/pathsupport.h"
 #include "support/rangeparser.h"
@@ -1115,27 +1116,40 @@ class printpreviewdata
 		popup=gtk_window_new(GTK_WINDOW_POPUP);
 		gtk_window_set_transient_for(GTK_WINDOW(popup),GTK_WINDOW(window));
 		GtkWidget *vbox=gtk_vbox_new(FALSE,0);
+		gtk_container_set_border_width(GTK_CONTAINER(popup),8);
 		gtk_container_add(GTK_CONTAINER(popup),vbox);
 		g_signal_connect(G_OBJECT(popup),"delete-event",G_CALLBACK(deleteevent),this);
 
 		GtkWidget *tmp;
 
 		GtkWidget *hbox=gtk_hbox_new(FALSE,0);
-		gtk_box_pack_start(GTK_BOX(vbox),hbox,FALSE,FALSE,8);
+		gtk_box_pack_start(GTK_BOX(vbox),hbox,FALSE,FALSE,0);
 
 		tmp=gtk_label_new(_("Page:"));
-		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,8);
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,0);
 
-		page=gtk_spin_button_new_with_range(1,state.layout->GetPages(),1);
-		g_signal_connect(G_OBJECT(page),"value-changed",G_CALLBACK(page_changed),this);
-		gtk_box_pack_start(GTK_BOX(hbox),page,FALSE,FALSE,8);
+		pagewidget=gtk_spin_button_new_with_range(1,state.layout->GetPages(),1);
+		g_signal_connect(G_OBJECT(pagewidget),"value-changed",G_CALLBACK(page_changed),this);
+		gtk_box_pack_start(GTK_BOX(hbox),pagewidget,FALSE,FALSE,8);
+
+		tmp=gtk_label_new(_("Preview resolution:"));
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,TRUE,TRUE,0);
+
+		SimpleComboOptions opts;
+		opts.Add("180",_("180 dots per inch"));
+		opts.Add("240",_("240 dots per inch"));
+		opts.Add("300",_("300 dots per inch"));
+		opts.Add("360",_("360 dots per inch"));
+		reswidget=simplecombo_new(opts);
+		g_signal_connect(G_OBJECT(reswidget),"changed",G_CALLBACK(res_changed),this);
+		gtk_box_pack_start(GTK_BOX(hbox),reswidget,FALSE,FALSE,8);
 
 		tmp=gtk_label_new(_("Click-and-drag to pan around the preview.\nRight-click to toggle magnification."));
-		gtk_box_pack_start(GTK_BOX(hbox),tmp,TRUE,TRUE,8);
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,TRUE,TRUE,24);
 
 		tmp=gtk_button_new_with_label(_("Close"));
 		g_signal_connect(G_OBJECT(tmp),"clicked",G_CALLBACK(closeclicked),this);
-		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,8);
+		gtk_box_pack_start(GTK_BOX(hbox),tmp,FALSE,FALSE,0);
 //		gtk_widget_show_all(popup);
 
 		g_signal_connect(G_OBJECT(window),"key-press-event",G_CALLBACK(keypress),this);
@@ -1145,7 +1159,7 @@ class printpreviewdata
 
 		drawing=close=false;
 
-		DrawPage(1);
+		DrawPage();
 	}
 	~printpreviewdata()
 	{
@@ -1191,11 +1205,18 @@ class printpreviewdata
 		}
 		gtk_widget_modify_bg(pview,GTK_STATE_NORMAL,&bgcol);
 	}
-	void DrawPage(int page)
+	void DrawPage()
 	{
+		gtk_widget_set_sensitive(this->popup,false);
 		drawing=true;
+
+		int page=gtk_spin_button_get_value(GTK_SPIN_BUTTON(pagewidget));
+		int resolutions[]={180,240,300,360};
+		int idx=simplecombo_get_index(SIMPLECOMBO(reswidget));
+		int res=resolutions[idx];
+
 		printpreviewprogress prog(_("Drawing preview"),window);
-		ImageSource *is=state.layout->GetImageSource(page-1,CM_COLOURDEVICE_PRINTERPROOF,factory,360,true);
+		ImageSource *is=state.layout->GetImageSource(page-1,CM_COLOURDEVICE_PRINTERPROOF,factory,res,true);
 		if(is)
 		{
 			GdkPixbuf *pb=pixbuf_from_imagesource(is,255,255,255,&prog);
@@ -1206,6 +1227,7 @@ class printpreviewdata
 		}
 		else
 			cerr << "Failed to obtain imagesource for page" << page << endl;
+		gtk_widget_set_sensitive(this->popup,true);
 		drawing=false;
 		if(close)
 			delete this;
@@ -1213,8 +1235,12 @@ class printpreviewdata
 	static void page_changed(GtkWidget *wid,gpointer userdata)
 	{
 		printpreviewdata *pv=(printpreviewdata *)userdata;
-		int page=gtk_spin_button_get_value(GTK_SPIN_BUTTON(pv->page));
-		pv->DrawPage(page);
+		pv->DrawPage();
+	}
+	static void res_changed(GtkWidget *wid,gpointer userdata)
+	{
+		printpreviewdata *pv=(printpreviewdata *)userdata;
+		pv->DrawPage();
 	}
 	static void closeclicked(GtkWidget *wid,gpointer userdata)
 	{
@@ -1275,7 +1301,8 @@ class printpreviewdata
 	GtkWidget *popup;
 	bool popupshown;
 	GtkWidget *pview;
-	GtkWidget *page;
+	GtkWidget *pagewidget;
+	GtkWidget *reswidget;
 	CMTransformFactory *factory;
 	bool drawing;
 	bool close;

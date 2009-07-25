@@ -499,6 +499,7 @@ pp_layout_carousel_pageview_button_release( GtkWidget      *widget,
 
 void pp_layout_carousel_pageview_refresh(pp_Layout_Carousel_PageView *pv)
 {
+	pv->layout->FlushPreview();
 	gtk_widget_queue_draw (GTK_WIDGET (pv));
 }
 

@@ -90,7 +90,10 @@ LayoutRectangle *Layout_Carousel_ImageInfo::GetBounds()
 	l->GetImageableArea();
 	CircleMontage c(l->imageablewidth,l->imageableheight);
 	c.SetSegments(l->segments,l->angleoffset,l->overlap);
-	return(c.GetSegmentExtent(segment));
+	LayoutRectangle *result=c.GetSegmentExtent(segment);
+	result->x+=layout.leftmargin;
+	result->y+=layout.topmargin;
+	return(result);
 }
 
 
@@ -376,10 +379,13 @@ void Layout_Carousel::RenderPreview(int width,int height)
 
 			GetImageableArea();
 
-			CircleMontage c(width,height);
+			CircleMontage c((width*imageablewidth)/pagewidth,(height*imageableheight)/pageheight);
 			c.SetSegments(segments,angleoffset,overlap);
-			int ir=(innerradius*width)/imageablewidth;
+			int ir=(innerradius*width)/pagewidth;
 			c.SetInnerRadius(ir);
+
+			int lm=(leftmargin*width)/pagewidth;
+			int tm=(topmargin*height)/pageheight;
 
 			ImageSource *source=NULL;
 			ImageSource *mask=NULL;
@@ -405,7 +411,7 @@ void Layout_Carousel::RenderPreview(int width,int height)
 					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
 	
 					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,target->x,target->y);
+					mon->Add(source,target->x+lm,target->y+tm);
 
 					delete fit;
 				}
@@ -431,7 +437,7 @@ void Layout_Carousel::RenderPreview(int width,int height)
 					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
 			
 					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,target->x,target->y);
+					mon->Add(source,target->x+lm,target->y+tm);
 			
 					delete fit;
 				}

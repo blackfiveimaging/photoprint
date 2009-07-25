@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 14:36+0100\n"
+"POT-Creation-Date: 2009-07-25 19:51+0100\n"
 "PO-Revision-Date:  2009-07-21 21:07+0100\n"
 "Last-Translator: Lex Wernars <lex@theros.nl>\n"
 "Language-Team: Nederlands <lex@theros.nl>\n"
@@ -15,95 +15,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialogs.cpp:132
+#: dialogs.cpp:133
 msgid "Printer Setup"
 msgstr "Printer instellingen"
 
-#: dialogs.cpp:146
+#: dialogs.cpp:147
 msgid "Output"
 msgstr "Uitvoer"
 
-#: dialogs.cpp:183
+#: dialogs.cpp:184
 msgid "About"
 msgstr "Over"
 
-#: dialogs.cpp:233
+#: dialogs.cpp:234
 msgid "Set paths..."
 msgstr "Zet paden..."
 
-#: dialogs.cpp:258
+#: dialogs.cpp:259
 msgid "ICC Profiles"
 msgstr "ICC profielen"
 
-#: dialogs.cpp:290
+#: dialogs.cpp:291
 msgid "Borders"
 msgstr "Randen"
 
-#: dialogs.cpp:321
+#: dialogs.cpp:322
 msgid "Backgrounds"
 msgstr "Achtergronden"
 
-#: dialogs.cpp:349
+#: dialogs.cpp:350
 msgid "Select a border..."
 msgstr "Kies een rand..."
 
-#: dialogs.cpp:396
+#: dialogs.cpp:397
 msgid "Export TIFF..."
 msgstr "Exporteer naar TIFF..."
 
-#: dialogs.cpp:422 dialogs.cpp:625
+#: dialogs.cpp:423 dialogs.cpp:626
 msgid "Page range:"
 msgstr "Pagina bereik:"
 
-#: dialogs.cpp:435 dialogs.cpp:635
+#: dialogs.cpp:436 dialogs.cpp:636
 msgid "Resolution (dpi):"
 msgstr "Resolutie (dpi)"
 
-#: dialogs.cpp:443
+#: dialogs.cpp:444
 msgid "Save as 16-bit:"
 msgstr "Opslaan als 16-bit:"
 
-#: dialogs.cpp:462 dialogs.cpp:670
+#: dialogs.cpp:463 dialogs.cpp:671
 msgid "Output Profile:"
 msgstr "Uitvoer profiel:"
 
-#: dialogs.cpp:526 dialogs.cpp:766
+#: dialogs.cpp:527 dialogs.cpp:767
 msgid "Please provide a filename."
 msgstr "Geef een bestandsnaam op."
 
-#: dialogs.cpp:557 dialogs.cpp:744
+#: dialogs.cpp:558 dialogs.cpp:745
 msgid "Exporting..."
 msgstr "Exporteren..."
 
-#: dialogs.cpp:596
+#: dialogs.cpp:597
 msgid "Export JPEG..."
 msgstr "Exporteer JPEG..."
 
-#: dialogs.cpp:654
+#: dialogs.cpp:655
 msgid "JPEG Quality:"
 msgstr "JPEG kwaliteit:"
 
-#: dialogs.cpp:783
+#: dialogs.cpp:784
 msgid "Select a background..."
 msgstr "Kies een achtergrond"
 
-#: dialogs.cpp:875 pp_menu_image.cpp:244
+#: dialogs.cpp:876 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Kies eerst een afbeelding!"
 
-#: dialogs.cpp:906
+#: dialogs.cpp:907
 msgid "Set Custom Profile..."
 msgstr "Stel eigen profiel in..."
 
-#: dialogs.cpp:918
+#: dialogs.cpp:919
 msgid "Before:"
 msgstr "Voor:"
 
-#: dialogs.cpp:922
+#: dialogs.cpp:923
 msgid "After:"
 msgstr "Na:"
 
-#: dialogs.cpp:936
+#: dialogs.cpp:937
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -116,7 +116,7 @@ msgstr ""
 "een standaard RGB- of beeldschermprofiel\n"
 "in de Opties->Kleurbeheer-dialoog!"
 
-#: dialogs.cpp:961
+#: dialogs.cpp:962
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -124,24 +124,56 @@ msgstr ""
 "Waarschuwing: In de afbeeling zit al een kleurprofiel\n"
 "Een nieuwe kiezen zal de oude overschrijven!"
 
-#: dialogs.cpp:978
+#: dialogs.cpp:979
 msgid "Assign Profile:"
 msgstr "Kies kleurprofiel:"
 
-#: dialogs.cpp:986 pp_cms.cpp:118
+#: dialogs.cpp:987 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Gewenst resultaat:"
 
-#: dialogs.cpp:1058 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
+#: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
 #: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:230
 msgid "Page:"
 msgstr "Pagina:"
 
-#: dialogs.cpp:1068
+#: dialogs.cpp:1135
+#, fuzzy
+msgid "Preview resolution:"
+msgstr "Resolutie:"
+
+#: dialogs.cpp:1139
+msgid "180 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1140
+msgid "240 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1141
+msgid "300 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1142
+msgid "360 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1147
+msgid ""
+"Click-and-drag to pan around the preview.\n"
+"Right-click to toggle magnification."
+msgstr ""
+
+#: dialogs.cpp:1150
 #, fuzzy
 msgid "Close"
 msgstr "Cirkel / CD-label"
+
+#: dialogs.cpp:1218
+#, fuzzy
+msgid "Drawing preview"
+msgstr "Print _Voorbeeld"
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"

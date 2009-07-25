@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 14:36+0100\n"
+"POT-Creation-Date: 2009-07-25 19:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,95 +16,95 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialogs.cpp:132
+#: dialogs.cpp:133
 msgid "Printer Setup"
 msgstr ""
 
-#: dialogs.cpp:146
+#: dialogs.cpp:147
 msgid "Output"
 msgstr ""
 
-#: dialogs.cpp:183
+#: dialogs.cpp:184
 msgid "About"
 msgstr ""
 
-#: dialogs.cpp:233
+#: dialogs.cpp:234
 msgid "Set paths..."
 msgstr ""
 
-#: dialogs.cpp:258
+#: dialogs.cpp:259
 msgid "ICC Profiles"
 msgstr ""
 
-#: dialogs.cpp:290
+#: dialogs.cpp:291
 msgid "Borders"
 msgstr ""
 
-#: dialogs.cpp:321
+#: dialogs.cpp:322
 msgid "Backgrounds"
 msgstr ""
 
-#: dialogs.cpp:349
+#: dialogs.cpp:350
 msgid "Select a border..."
 msgstr ""
 
-#: dialogs.cpp:396
+#: dialogs.cpp:397
 msgid "Export TIFF..."
 msgstr ""
 
-#: dialogs.cpp:422 dialogs.cpp:625
+#: dialogs.cpp:423 dialogs.cpp:626
 msgid "Page range:"
 msgstr ""
 
-#: dialogs.cpp:435 dialogs.cpp:635
+#: dialogs.cpp:436 dialogs.cpp:636
 msgid "Resolution (dpi):"
 msgstr ""
 
-#: dialogs.cpp:443
+#: dialogs.cpp:444
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:462 dialogs.cpp:670
+#: dialogs.cpp:463 dialogs.cpp:671
 msgid "Output Profile:"
 msgstr ""
 
-#: dialogs.cpp:526 dialogs.cpp:766
+#: dialogs.cpp:527 dialogs.cpp:767
 msgid "Please provide a filename."
 msgstr ""
 
-#: dialogs.cpp:557 dialogs.cpp:744
+#: dialogs.cpp:558 dialogs.cpp:745
 msgid "Exporting..."
 msgstr ""
 
-#: dialogs.cpp:596
+#: dialogs.cpp:597
 msgid "Export JPEG..."
 msgstr ""
 
-#: dialogs.cpp:654
+#: dialogs.cpp:655
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:783
+#: dialogs.cpp:784
 msgid "Select a background..."
 msgstr ""
 
-#: dialogs.cpp:875 pp_menu_image.cpp:244
+#: dialogs.cpp:876 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr ""
 
-#: dialogs.cpp:906
+#: dialogs.cpp:907
 msgid "Set Custom Profile..."
 msgstr ""
 
-#: dialogs.cpp:918
+#: dialogs.cpp:919
 msgid "Before:"
 msgstr ""
 
-#: dialogs.cpp:922
+#: dialogs.cpp:923
 msgid "After:"
 msgstr ""
 
-#: dialogs.cpp:936
+#: dialogs.cpp:937
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -113,28 +113,58 @@ msgid ""
 "dialog!"
 msgstr ""
 
-#: dialogs.cpp:961
+#: dialogs.cpp:962
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
 msgstr ""
 
-#: dialogs.cpp:978
+#: dialogs.cpp:979
 msgid "Assign Profile:"
 msgstr ""
 
-#: dialogs.cpp:986 pp_cms.cpp:118
+#: dialogs.cpp:987 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr ""
 
-#: dialogs.cpp:1058 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
+#: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
 #: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:230
 msgid "Page:"
 msgstr ""
 
-#: dialogs.cpp:1068
+#: dialogs.cpp:1135
+msgid "Preview resolution:"
+msgstr ""
+
+#: dialogs.cpp:1139
+msgid "180 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1140
+msgid "240 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1141
+msgid "300 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1142
+msgid "360 dots per inch"
+msgstr ""
+
+#: dialogs.cpp:1147
+msgid ""
+"Click-and-drag to pan around the preview.\n"
+"Right-click to toggle magnification."
+msgstr ""
+
+#: dialogs.cpp:1150
 msgid "Close"
+msgstr ""
+
+#: dialogs.cpp:1218
+msgid "Drawing preview"
 msgstr ""
 
 #: effects/ppeffect_temperature.cpp:28

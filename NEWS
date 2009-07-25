@@ -35,6 +35,11 @@ PhotoPrint-0.4.1
 
   * Fixed a deadlock problem with the histogram
 
+  * Print preview dialog implemented at last.  This is done as a full-screen window
+    with auto-hiding control-panel.  The reason for this is that when evaluating
+    colours, especially in print simulation mode, UI elements can throw off your
+    perception of colour.
+
 
 PhotoPrint-0.4.0
 
