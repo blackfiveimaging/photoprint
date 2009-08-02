@@ -1,8 +1,8 @@
 URGENT:
 ~~~~~~~
 
-Deadlock with high-res previews (or histogram?) and Poster View.
-(Affects n-up layout too)
+| Deadlock with high-res previews (or histogram?) and Poster View.
+| (Affects n-up layout too)
 
 | There's a problem with default print command selection and driver detection - especially
 | if PhotoPrint's built without libCUPS.  The application will probably have to determine
@@ -16,12 +16,8 @@ Deadlock with high-res previews (or histogram?) and Poster View.
 | Ideally will generate the histogram data while rendering a high-res preview
 - but how to handle notification of completion?
 
-Could be done using mutex - if the histogram display widget tries to obtain the histogram and
-fails, it could trigger an idle-handler or a timer, and when that's triggered it tries again.
-
-Use the mutex in both the info widget and the rendering thread - if the rendering thread can't obtain it in
-shared mode, then another thread must be writing to it.
-Then if the histogram is empty the display widget can launch a thread to render it.
+| Could be done using mutex - if the histogram display widget tries to obtain the histogram and
+| fails, it could trigger an idle-handler or a timer, and when that's triggered it tries again.
 
 
 | There's a problem with using the PostScript driver immediately after the Epson driver - certain parameters
@@ -75,11 +71,11 @@ deleting images and the rendering threads?  Possibly fixed by the deadlock fix a
 
 | Fix left/top margin for Single layout...
 
-Fix margins in Carousel mode.
+| Fix margins in Carousel mode.
 | Margins are not saved in Single or Poster layout
-They are saved in Carousel mode, but ignored!
+| They are saved in Carousel mode, but ignored!
 
-Fix margins in export mode for n-up layout - currently right and bottom margins are ignored.
+| Fix margins in export mode for n-up layout - currently right and bottom margins are ignored.
 
 If a background image is set, maybe save it in the preset file?
 
@@ -97,7 +93,7 @@ Support landscape view of the page.
 
 Allow printing of "cutting lines"
 
-Need to store collapsed/expanded states for each UI expander in the preset file.
+| Need to store collapsed/expanded states for each UI expander in the preset file.
 
 Use a CMS Transform to convert CMYK -> RGB in pixbuf_from_imagesource().
 
