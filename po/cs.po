@@ -1,104 +1,110 @@
-# Czech localization of photoprint.
-# Copyright (C) YEAR Alastair M. Robinson
-# This file is distributed under the same license as the photoprint package.
-# Petr Kletecka <kletecka@email.cz>, YEAR.
+# Czech translations for photoprint package.
+# Copyright (C) 2009 Alastair M. Robinson
+# This file is distributed under the same license as the PACKAGE package.
+# Marek ÄŒernockÃ½ <marek@manet.cz>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 19:51+0100\n"
-"PO-Revision-Date: 2009-03-14 12:37+0000\n"
-"Last-Translator: Petr Kletecka <kletecka@email.cz>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2009-07-25 19:57+0100\n"
+"PO-Revision-Date: 2009-08-01 10:35+0100\n"
+"Last-Translator: Marek ÄŒernockÃ½ <marek@manet.cz>\n"
+"Language-Team: Czech <ubuntu-l10n-cs@lists.ubuntu.cz>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: dialogs.cpp:133
 msgid "Printer Setup"
-msgstr "Nastavení tiskárny"
+msgstr "NastavenÃ­ tiskÃ¡rny"
 
 #: dialogs.cpp:147
 msgid "Output"
-msgstr "Vıstup"
+msgstr "VÃ½stup"
 
 #: dialogs.cpp:184
 msgid "About"
-msgstr "O programu"
+msgstr "O aplikaci"
 
 #: dialogs.cpp:234
 msgid "Set paths..."
-msgstr "Nastavit cesty..."
+msgstr "NastavenÃ­ cest..."
 
 #: dialogs.cpp:259
 msgid "ICC Profiles"
-msgstr "ICC profily"
+msgstr "Profily ICC"
 
 #: dialogs.cpp:291
 msgid "Borders"
-msgstr "Okraje"
+msgstr "Masky"
 
 #: dialogs.cpp:322
 msgid "Backgrounds"
-msgstr "Pozadí"
+msgstr "PozadÃ­"
 
 #: dialogs.cpp:350
 msgid "Select a border..."
-msgstr "Vybrat okraj..."
+msgstr "Volba masky..."
 
 #: dialogs.cpp:397
 msgid "Export TIFF..."
-msgstr "Ulo¾it jako TIFF..."
+msgstr "ExportovÃ¡nÃ­ TIFF..."
 
-#: dialogs.cpp:423 dialogs.cpp:626
+#: dialogs.cpp:423
+#: dialogs.cpp:626
 msgid "Page range:"
-msgstr "Rozsah stránek"
+msgstr "Rozsah strÃ¡nek:"
 
-#: dialogs.cpp:436 dialogs.cpp:636
+#: dialogs.cpp:436
+#: dialogs.cpp:636
 msgid "Resolution (dpi):"
-msgstr "Rozli¹ení (dpi):"
+msgstr "RozliÅ¡enÃ­ (dpi):"
 
 #: dialogs.cpp:444
 msgid "Save as 16-bit:"
-msgstr "Ulo¾it jako 16-bit:"
+msgstr "UloÅ¾it 16bitovÄ›:"
 
-#: dialogs.cpp:463 dialogs.cpp:671
+#: dialogs.cpp:463
+#: dialogs.cpp:671
 msgid "Output Profile:"
-msgstr "Vıstupní profil"
+msgstr "VÃ½stupnÃ­ profil:"
 
-#: dialogs.cpp:527 dialogs.cpp:767
+#: dialogs.cpp:527
+#: dialogs.cpp:767
 msgid "Please provide a filename."
-msgstr "Prosím, zadejte jméno souboru."
+msgstr "Zadejte prosÃ­m nÃ¡zev souboru."
 
-#: dialogs.cpp:558 dialogs.cpp:745
+#: dialogs.cpp:558
+#: dialogs.cpp:745
 msgid "Exporting..."
-msgstr "Ukládání..."
+msgstr "ProbÃ­hÃ¡ export..."
 
 #: dialogs.cpp:597
 msgid "Export JPEG..."
-msgstr "Ulo¾it jako JPEG..."
+msgstr "ExportovÃ¡nÃ­ JPEG..."
 
 #: dialogs.cpp:655
 msgid "JPEG Quality:"
-msgstr "Kvalita JPEG"
+msgstr "Kvalita JPEG:"
 
 #: dialogs.cpp:784
 msgid "Select a background..."
-msgstr "Vybrat pozadí..."
+msgstr "Volba pozadÃ­..."
 
-#: dialogs.cpp:876 pp_menu_image.cpp:244
+#: dialogs.cpp:876
+#: pp_menu_image.cpp:244
 msgid "Please select an image first!"
-msgstr "Nejprve, prosím, vyberte obrázek."
+msgstr "NejdÅ™Ã­ve prosÃ­m zvolte obrÃ¡zek!"
 
 #: dialogs.cpp:907
 msgid "Set Custom Profile..."
-msgstr "Nastavit u¾ivatelskı profil"
+msgstr "NastavenÃ­ uÅ¾ivatelskÃ©ho profilu..."
 
 #: dialogs.cpp:919
 msgid "Before:"
-msgstr "Pøed:"
+msgstr "PÅ™ed:"
 
 #: dialogs.cpp:923
 msgid "After:"
@@ -112,79 +118,81 @@ msgid ""
 "in the Options->Colour Management\n"
 "dialog!"
 msgstr ""
-"Nemohu zobrazit barevnı náhled\n"
-"dokud nevyberete\n"
-"vıchozí RGB nebo profil monitor\n"
-"v Nastavení->Správa barev\n"
-"!"
+"Nelze zobrazit nÃ¡hled s pouÅ¾itÃ­m\n"
+"sprÃ¡vy barev dokud nevyberete\n"
+"vÃ½chozÃ­ profil RGB nebo obrazovky\n"
+"v dialogu Volby->SprÃ¡va barev!"
 
 #: dialogs.cpp:962
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
 msgstr ""
-"Varování: Obrázek obsahuje barevnı profil\n"
-"Nastavením nového ho pøepí¹ete!"
+"VarovÃ¡nÃ­: ObrÃ¡zek jiÅ¾ obsahuje uloÅ¾enÃ½ profil.\n"
+"PÅ™iÅ™azenÃ­m novÃ©ho pÅ¯vodnÃ­ potlaÄÃ­te."
 
 #: dialogs.cpp:979
 msgid "Assign Profile:"
-msgstr "Nastavenı profil"
+msgstr "PÅ™iÅ™adit profil:"
 
-#: dialogs.cpp:987 pp_cms.cpp:118
+#: dialogs.cpp:987
+#: pp_cms.cpp:118
 msgid "Rendering intent:"
-msgstr "Rendering intent:"
+msgstr "CÃ­l vykreslovÃ¡nÃ­:"
 
-#: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: dialogs.cpp:1128
+#: pp_layout_carousel.cpp:245
+#: pp_layout_carousel.cpp:377
+#: pp_layout_nup.cpp:218
+#: pp_layout_poster.cpp:309
+#: pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:230
-#, fuzzy
 msgid "Page:"
-msgstr "Rozsah stránek"
+msgstr "StrÃ¡nka:"
 
 #: dialogs.cpp:1135
-#, fuzzy
 msgid "Preview resolution:"
-msgstr "Rozli¹ení"
+msgstr "RozliÅ¡enÃ­ nÃ¡hledu:"
 
 #: dialogs.cpp:1139
 msgid "180 dots per inch"
-msgstr ""
+msgstr "180 bodÅ¯ na palec"
 
 #: dialogs.cpp:1140
 msgid "240 dots per inch"
-msgstr ""
+msgstr "240 bodÅ¯ na palec"
 
 #: dialogs.cpp:1141
 msgid "300 dots per inch"
-msgstr ""
+msgstr "300 bodÅ¯ na palec"
 
 #: dialogs.cpp:1142
 msgid "360 dots per inch"
-msgstr ""
+msgstr "360 bodÅ¯ na palec"
 
 #: dialogs.cpp:1147
 msgid ""
 "Click-and-drag to pan around the preview.\n"
 "Right-click to toggle magnification."
 msgstr ""
+"ZmÃ¡ÄknÄ›te tlaÄÃ­tko myÅ¡i a posouvejte zÃ¡bÄ›r nÃ¡hledu.\n"
+"KliknutÃ­m pravÃ½m tlaÄÃ­tkem mÄ›nÃ­te zvÄ›tÅ¡enÃ­."
 
 #: dialogs.cpp:1150
-#, fuzzy
 msgid "Close"
-msgstr "©títek na CD/DVD"
+msgstr "ZavÅ™Ã­t"
 
 #: dialogs.cpp:1218
-#, fuzzy
 msgid "Drawing preview"
-msgstr "Tisknout náhl_ed..."
+msgstr "Vykresluje se nÃ¡hled"
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"
-msgstr "Horkı/Studenı"
+msgstr "TeplÃ½/StudenÃ½"
 
 #: effects/effectselector.cpp:220
 msgid "Active"
-msgstr "Aktivní"
+msgstr "AktivnÃ­"
 
 #: effects/effectselector.cpp:229
 msgid "Icon"
@@ -192,166 +200,198 @@ msgstr "Ikona"
 
 #: effects/effectselector.cpp:241
 msgid "Name"
-msgstr "Jméno"
+msgstr "NÃ¡zev"
 
 #: effects/ppeffect_desaturate.cpp:25
 msgid "Desaturate"
-msgstr "Desaturate"
+msgstr "Odbarvit"
 
 #: effects/effectwidget_tempchange.cpp:55
 #, c-format
 msgid "%d degrees K"
-msgstr "%d stupòù K"
+msgstr "%d stupÅˆÅ¯ K"
 
 #: effects/ppeffect_unsharpmask.cpp:25
 msgid "Sharpen"
-msgstr "Zaostøit"
+msgstr "OstÅ™enÃ­"
 
 #: effects/effectwidget_unsharpmask.cpp:64
 #, c-format
 msgid "Radius: %1.2f"
-msgstr "Polomìr: %1.2f"
+msgstr "PolomÄ›r: %1.2f"
 
 #: effects/effectwidget_unsharpmask.cpp:70
 #, c-format
 msgid "Amount: %1.2f"
-msgstr "Mno¾ství: %1.2f"
+msgstr "Hodnota: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:133
+#: menucheck.cpp:21
+#: pp_menu_file.cpp:133
 msgid "_File"
 msgstr "_Soubor"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:135
+#: menucheck.cpp:23
+#: pp_menu_file.cpp:135
 msgid "_Open Preset..."
-msgstr "_Otevøít projekt..."
+msgstr "_OtevÅ™Ã­t nastavenÃ­..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:135
+#: menucheck.cpp:23
+#: pp_menu_file.cpp:135
 msgid "Open a preset"
-msgstr "Otevøít projekt"
+msgstr "OtevÅ™e nastavenÃ­"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:136
+#: menucheck.cpp:24
+#: pp_menu_file.cpp:136
 msgid "_Save Preset"
-msgstr "_Ulo¾it projekt"
+msgstr "_UloÅ¾it nastavenÃ­"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:136
+#: menucheck.cpp:24
+#: pp_menu_file.cpp:136
 msgid "Save a preset"
-msgstr "Ulo¾it projekt"
+msgstr "UloÅ¾Ã­ nastavenÃ­"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:137
+#: menucheck.cpp:25
+#: pp_menu_file.cpp:137
 msgid "Save _As..."
-msgstr "Ulo¾it _jako..."
+msgstr "UloÅ¾it _jako..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:137
+#: menucheck.cpp:25
+#: pp_menu_file.cpp:137
 msgid "Save preset with a new filename"
-msgstr "Ulo¾it projekt s novım jménem"
+msgstr "UloÅ¾Ã­ nastavenÃ­ do novÃ©ho souboru"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:138
+#: menucheck.cpp:26
+#: pp_menu_file.cpp:138
 msgid "Save _Default"
-msgstr "Ulo¾it _vıchozí"
+msgstr "UloÅ¾it _vÃ½chozÃ­"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:138
+#: menucheck.cpp:26
+#: pp_menu_file.cpp:138
 msgid "Save preset as the default"
-msgstr "Ulo¾it projekt jako vıchozí"
+msgstr "UloÅ¾Ã­ nastavenÃ­ jako vÃ½chozÃ­"
 
 #: menucheck.cpp:27
 msgid "E_xport TIFF..."
-msgstr "U_lo¾it jako TIFF..."
+msgstr "E_xportovat TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:140
+#: menucheck.cpp:27
+#: pp_menu_file.cpp:140
 msgid "Export pages as TIFF files"
-msgstr "Ulo¾it stránky jako soubory TIFF"
+msgstr "Exportuje strÃ¡nky jako soubory TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:142
+#: menucheck.cpp:28
+#: pp_menu_file.cpp:142
 msgid "Print Pre_view..."
-msgstr "Tisknout náhl_ed..."
+msgstr "_NÃ¡hled pÅ™ed tiskem..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:142
+#: menucheck.cpp:28
+#: pp_menu_file.cpp:142
 msgid "Preview how the printed page will look"
-msgstr "Náhled jak bude vypadat vyti¹tìná stránky"
+msgstr "NÃ¡hled jak bude vypadat tiskovÃ¡ strÃ¡nka"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:143
+#: menucheck.cpp:29
+#: pp_menu_file.cpp:143
 msgid "Print S_etup..."
-msgstr "Nastavení _tisku..."
+msgstr "NastavenÃ­ t_isku..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:143
+#: menucheck.cpp:29
+#: pp_menu_file.cpp:143
 msgid "Set printer driver and options"
-msgstr "Nastavit ovladaè a vlastnosti tiskárny"
+msgstr "NastavenÃ­ tiskovÃ½ch zaÅ™Ã­zenÃ­ a voleb"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:144
+#: menucheck.cpp:30
+#: pp_menu_file.cpp:144
 msgid "_Print"
 msgstr "_Tisk"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:144
+#: menucheck.cpp:30
+#: pp_menu_file.cpp:144
 msgid "Print pages"
-msgstr "Tisknout stránky"
+msgstr "Tisk strÃ¡nek"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:145
+#: menucheck.cpp:31
+#: pp_menu_file.cpp:145
 msgid "_Quit"
-msgstr "_Konec"
+msgstr "U_konÄit"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:145
+#: menucheck.cpp:31
+#: pp_menu_file.cpp:145
 msgid "Exit PhotoPrint"
-msgstr "Ukonèit PhotoPrint"
+msgstr "UkonÄÃ­ PhotoPrint"
 
-#: menucheck.cpp:60 pp_menu_layout.cpp:130
+#: menucheck.cpp:60
+#: pp_menu_layout.cpp:130
 msgid "_Layout"
-msgstr "_Rozlo¾ení"
+msgstr "NÃ¡v_rh"
 
-#: menucheck.cpp:61 pp_menu_image.cpp:272
+#: menucheck.cpp:61
+#: pp_menu_image.cpp:272
 msgid "_Image"
-msgstr "_Obrázek"
+msgstr "_ObrÃ¡zek"
 
-#: menucheck.cpp:62 pp_menu_options.cpp:100
+#: menucheck.cpp:62
+#: pp_menu_options.cpp:100
 msgid "_Options"
-msgstr "_Nastavení"
+msgstr "_Volby"
 
-#: menucheck.cpp:63 pp_menu_help.cpp:29
+#: menucheck.cpp:63
+#: pp_menu_help.cpp:29
 msgid "_Help"
-msgstr "Ná_povìda"
+msgstr "_NÃ¡povÄ›da"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:132
+#: menucheck.cpp:65
+#: pp_menu_layout.cpp:132
 msgid "_Clear Layout"
-msgstr "_Vyèistit rozlo¾ení"
+msgstr "_Vymazat nÃ¡vrh"
 
-#: menucheck.cpp:65 pp_menu_layout.cpp:132
+#: menucheck.cpp:65
+#: pp_menu_layout.cpp:132
 msgid "Remove all images from the layout"
-msgstr "Smazat v¹echny obrázky z rozlo¾ení"
+msgstr "OdstranÃ­ z nÃ¡vrhu vÅ¡echny obrÃ¡zky"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:133
+#: menucheck.cpp:66
+#: pp_menu_layout.cpp:133
 msgid "Set _Background"
-msgstr "Nastavit _pozadí"
+msgstr "Nastavit po_zadÃ­"
 
-#: menucheck.cpp:66 pp_menu_layout.cpp:133
+#: menucheck.cpp:66
+#: pp_menu_layout.cpp:133
 msgid "Set a background image for the current layout"
-msgstr "Nastavit obrázek pozadí pro aktuální rozlo¾ení"
+msgstr "NastavÃ­ obrÃ¡zek na pozadÃ­ pro aktuÃ¡lnÃ­ nÃ¡vrh"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68
+#: pp_menu_image.cpp:274
 msgid "_Add Image..."
-msgstr "_Pøidat obrázek..."
+msgstr "_PÅ™idat obrÃ¡zek..."
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68
+#: pp_menu_image.cpp:274
 msgid "Add images to the current layout"
-msgstr "Pøidat obrázky do aktuálního rozlo¾ení"
+msgstr "PÅ™idÃ¡ obrÃ¡zky do aktuÃ¡lnÃ­ho nÃ¡vrhu"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69
+#: pp_menu_image.cpp:275
 msgid "_Remove Image"
-msgstr "_Odstranit obrázek"
+msgstr "_Odebrat obrÃ¡zek"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69
+#: pp_menu_image.cpp:275
 msgid "Remove selected images from the layout"
-msgstr "Odstranit vybrané obrázky z rozlo¾ení"
+msgstr "OdstranÃ­ vybranÃ© obrÃ¡zky z aktuÃ¡lnÃ­ho nÃ¡vrhu"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:279
+#: menucheck.cpp:71
+#: pp_menu_image.cpp:279
 msgid "_Rotation"
-msgstr "O_táèení"
+msgstr "O_toÄenÃ­"
 
 #: menucheck.cpp:73
 msgid "Set Image _Mask..."
-msgstr "Ulo¾it _masku obrázku..."
+msgstr "Nastavit _masku obrÃ¡zku..."
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73
+#: pp_menu_image.cpp:281
 msgid "Set a border mask for the selected image"
-msgstr "Nastavit okrajovou masku pro vybrané obrázky"
+msgstr "NastavÃ­ omezujÃ­cÃ­ masku pro vybranÃ½ obrÃ¡zek"
 
 #: menucheck.cpp:74
 msgid "_Effects..."
@@ -359,286 +399,311 @@ msgstr "_Efekty..."
 
 #: menucheck.cpp:74
 msgid "Apply effects to the selected image"
-msgstr "Pou¾ít efekty pro vybrané obrázky"
+msgstr "Aplikuje efekty na vybranÃ½ obrÃ¡zek"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75
+#: pp_menu_image.cpp:283
 msgid "Set Colour _Profile..."
-msgstr "Nastavit barevnı pro_fil..."
+msgstr "Nastavit barevnÃ½ pro_fil..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75
+#: pp_menu_image.cpp:283
 msgid "Assign an ICC profile or custom rendering intent to the image"
-msgstr "Nastavit ICC profil nebo u¾ivatelské vykreslování na obrázek"
+msgstr "PÅ™iÅ™adÃ­ obrÃ¡zku profil ICC nebo upÅ™ednostÅˆovanÃ½ vÃ½sledek vykreslovÃ¡nÃ­"
 
-#: menucheck.cpp:77 pp_menu_options.cpp:102
+#: menucheck.cpp:77
+#: pp_menu_options.cpp:102
 msgid "_Paths..."
 msgstr "_Cesty..."
 
-#: menucheck.cpp:77 pp_menu_options.cpp:102
+#: menucheck.cpp:77
+#: pp_menu_options.cpp:102
 msgid "Set search paths for ICC profiles, borders, etc."
-msgstr "Nastavit cesty hledání ICC profilu, ohranièení, atd."
+msgstr "NastavenÃ­ prohledÃ¡vanÃ½ch cest pro profily ICC, masky, atd."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:103
+#: menucheck.cpp:78
+#: pp_menu_options.cpp:103
 msgid "_Colour Management..."
-msgstr "Správa _barev..."
+msgstr "SprÃ¡va _barev..."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:103
+#: menucheck.cpp:78
+#: pp_menu_options.cpp:103
 msgid "Set colour management options"
-msgstr "Nastavení správy barev"
+msgstr "NastavenÃ­ voleb pro sprÃ¡vu barev"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:104
+#: menucheck.cpp:79
+#: pp_menu_options.cpp:104
 msgid "_Units..."
-msgstr "_Jednotky"
+msgstr "_Jednotky..."
 
-#: menucheck.cpp:79 pp_menu_options.cpp:104
+#: menucheck.cpp:79
+#: pp_menu_options.cpp:104
 msgid "Select the units used throughout PhotoPrint"
-msgstr "Nastavení jednotek pou¾ívanıch v PhotoPrintu"
+msgstr "VÃ½bÄ›r jednotek, kterÃ© mÃ¡ PhotoPrint pouÅ¾Ã­vat"
 
-#: menucheck.cpp:80 pp_menu_options.cpp:105
+#: menucheck.cpp:80
+#: pp_menu_options.cpp:105
 msgid "_Scaling..."
-msgstr "_Zmìna velikosti"
+msgstr "ZmÄ›na _velikosti..."
 
-#: menucheck.cpp:80 pp_menu_options.cpp:105
+#: menucheck.cpp:80
+#: pp_menu_options.cpp:105
 msgid "Select the preferred scaling method."
-msgstr "Vıbìr zpùsobu zmìny velikosti"
+msgstr "VÃ½bÄ›r upÅ™ednostÅˆovanÃ© metody pro zmÄ›nu velikosti"
 
-#: menucheck.cpp:82 pp_menu_help.cpp:31
+#: menucheck.cpp:82
+#: pp_menu_help.cpp:31
 msgid "About..."
-msgstr "O programu..."
+msgstr "O aplikaci..."
 
-#: menucheck.cpp:82 pp_menu_help.cpp:31
+#: menucheck.cpp:82
+#: pp_menu_help.cpp:31
 msgid "Some information about PhotoPrint"
-msgstr "Informace o programu PhotoPrint"
+msgstr "PÃ¡r informacÃ­ o aplikaci PhotoPrint"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87
+#: pp_menu_image.cpp:288
 msgid "Allow _Cropping"
-msgstr "Povolit _oøezávání"
+msgstr "Povolit oÅ™_ezÃ¡vÃ¡nÃ­"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87
+#: pp_menu_image.cpp:288
 msgid "Crop the selected images to fill the available space"
-msgstr "Oøíznout vybrané obrázky tak aby vyplnily dostupnı prostor"
+msgstr "OÅ™ezÃ¡nÃ­ vybranÃ½ch obrÃ¡zkÅ¯ tak, aby vyplnily celou dostupnou plochu"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:138
+#: menucheck.cpp:92
+#: pp_menu_layout.cpp:138
 msgid "_Auto Layout"
-msgstr "_Automatické rozlo¾ení"
+msgstr "_AutomatickÃ½ nÃ¡vrh"
 
-#: menucheck.cpp:92 pp_menu_layout.cpp:138
+#: menucheck.cpp:92
+#: pp_menu_layout.cpp:138
 msgid "Automatically place images in a grid"
-msgstr ""
+msgstr "Automaticky umÃ­stÃ­ obrÃ¡zky do mÅ™Ã­Å¾ky"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:139
+#: menucheck.cpp:93
+#: pp_menu_layout.cpp:139
 msgid "_Poster"
-msgstr "_Plakát"
+msgstr "_PlakÃ¡t"
 
-#: menucheck.cpp:93 pp_menu_layout.cpp:139
+#: menucheck.cpp:93
+#: pp_menu_layout.cpp:139
 msgid "Print an image in multiple pages, to be assembled into a poster"
-msgstr "Tisknout obrázek na více stránek. Slou¾í k sestavení velkého plakátu."
+msgstr "Vytiskne jeden obrÃ¡zek na vÃ­ce strÃ¡nek tak, Å¾e jej mÅ¯Å¾ete slepit jako plakÃ¡t"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:140
+#: menucheck.cpp:94
+#: pp_menu_layout.cpp:140
 msgid "_Carousel"
-msgstr "_©títek na CD/DVD"
+msgstr "_KolÃ¡Ä"
 
-#: menucheck.cpp:94 pp_menu_layout.cpp:140
+#: menucheck.cpp:94
+#: pp_menu_layout.cpp:140
 msgid "Fade images into a circular 'carousel' - ideal for CD labels."
-msgstr "Sestavit obrázky do kruhu - pou¾itelné pro nálepky na CD."
+msgstr "Prolne obrÃ¡zky do kruhovÃ©ho â€kolÃ¡Äeâ€œ - ideÃ¡lnÃ­ pro Å¡tÃ­tky na CD"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:141
+#: menucheck.cpp:95
+#: pp_menu_layout.cpp:141
 msgid "_Manual Size"
-msgstr "_Ruèní velikost"
+msgstr "_RuÄnÃ­ rozmÄ›ry"
 
-#: menucheck.cpp:95 pp_menu_layout.cpp:141
+#: menucheck.cpp:95
+#: pp_menu_layout.cpp:141
 msgid "Print images on a single sheet, at a specified scale."
-msgstr "Tisknout obrázky na jeden list v zadaném mìøítku."
+msgstr "Vytiskne obrÃ¡zky na jednotlivÃ© listy se zadanÃ½m zmenÅ¡enÃ­m/zvÄ›tÅ¡enÃ­m"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99
+#: pp_menu_image.cpp:293
 msgid "_Auto"
 msgstr "_Automaticky"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99
+#: pp_menu_image.cpp:293
 msgid "Automatically choose rotation to fit the available space."
-msgstr "Automaticky otoèit obrázek."
+msgstr "Automaticky zvolÃ­ otoÄenÃ­ tak, aby se vyplnila dostupnÃ¡ plocha"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100
+#: pp_menu_image.cpp:294
 msgid "_None"
-msgstr "_Nic"
+msgstr "Å½Ã¡_dnÃ©"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100
+#: pp_menu_image.cpp:294
 msgid "No rotation."
-msgstr "Neotáèet obrázek"
+msgstr "Bez otoÄenÃ­"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101
+#: pp_menu_image.cpp:295
 msgid "_90 Degrees"
-msgstr "_90 stupòù"
+msgstr "_90 stupÅˆÅ¯"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101
+#: pp_menu_image.cpp:295
 msgid "Rotate 90 degrees clockwise."
-msgstr "Otoèit o 90 stupòù po smìru hodinovıch ruèièek."
+msgstr "OtoÄenÃ­ o 90 stupÅˆÅ¯ proti smÄ›ru hodinovÃ½ch ruÄiÄek"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102
+#: pp_menu_image.cpp:296
 msgid "_180 Degrees"
-msgstr "_180 stupòù"
+msgstr "_180 stupÅˆÅ¯"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102
+#: pp_menu_image.cpp:296
 msgid "Rotate 180 degrees."
-msgstr "Otoèit o 180 stupòù."
+msgstr "OtoÄenÃ­ o 180 stupÅˆÅ¯"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103
+#: pp_menu_image.cpp:297
 msgid "_270 Degrees"
-msgstr "_270 stupòù"
+msgstr "_270 stupÅˆÅ¯"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103
+#: pp_menu_image.cpp:297
 msgid "Rotate 90 degrees anticlockwise."
-msgstr "Otoèit o 90 stupòù proti smìru hodinovıch ruèièek."
+msgstr "OtoÄenÃ­ o 90 stupÅˆÅ¯ ve smÄ›ru hodinovÃ½ch ruÄiÄek"
 
 #: menucheck.cpp:227
 msgid "Dither Algorithm"
-msgstr "Zpùsob prokládání"
+msgstr "Algoritmus rozptylu barvy"
 
 #: photoprint.cpp:118
 msgid "Initializing..."
-msgstr "Nastavení poèáteèních hodnot..."
+msgstr "Inicializuje se..."
 
 #: photoprint.cpp:127
 msgid "Checking .photoprint directory..."
-msgstr "Kontrola adresáøe .photoprint..."
+msgstr "Kontroluje se sloÅ¾ka .photoprint..."
 
 #: photoprint.cpp:132
 msgid "Loading preset..."
-msgstr "Nahrávání projektu..."
+msgstr "NaÄÃ­tÃ¡ se nastavenÃ­..."
 
 #: photoprint.cpp:137
 msgid "Creating layout..."
-msgstr "Vytváøím rozlo¾ení..."
+msgstr "VytvÃ¡Å™Ã­ se nÃ¡vrh..."
 
 #: photoprint.cpp:180
 msgid "Loading images..."
-msgstr "Nahrávám obrázky..."
+msgstr "NaÄÃ­tajÃ­ se obrÃ¡zky..."
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:349
 #, c-format
 msgid "Error creating directory `%s': %s"
-msgstr "Chyba pøi vytváøení adresáøe`%s': %s"
+msgstr "Chyba pÅ™i vytvÃ¡Å™enÃ­ sloÅ¾ky â€%sâ€œ: %s"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:463
 #, c-format
 msgid "Error opening `%s': %s"
-msgstr "Chyba pøi otevírání `%s': %s"
+msgstr "Chyba pÅ™i otevÃ­rÃ¡nÃ­ â€%sâ€œ: %s"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:481
 #, c-format
 msgid "Error reading `%s': file contains no data."
-msgstr "Chyba ètení `%s': soubor neobsahuje ¾ádná data."
+msgstr "Chyba pÅ™i ÄtenÃ­ â€%sâ€œ: soubor neobsahuje Å¾Ã¡dnÃ¡ data."
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:505
 #, c-format
 msgid "Error reading `%s': %s"
-msgstr "Chyba ètení `%s': %s"
+msgstr "Chyba pÅ™i ÄtenÃ­ â€%sâ€œ: %s"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:540
 #, c-format
-msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"Chyba nahrávání obrázku '%s': dùvod není znám. Soubor je pravdìpodobnì "
-"po¹kozen."
+msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr "Selhalo naÄtenÃ­ obrÃ¡zku â€%sâ€œ: neznÃ¡mÃ½ dÅ¯vod, pravdÄ›podobnÄ› poÅ¡kozenÃ½ soubor"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:613
 #, c-format
 msgid "Error verifying `%s': %s"
-msgstr "Chyba ovìøování `%s': %s"
+msgstr "Chyba pÅ™i ovÄ›Å™ovÃ¡nÃ­ â€%sâ€œ: %s"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:629
 #, c-format
 msgid "Error reading `%s': file is not a regular file or symbolic link."
-msgstr "Chyba ètení `%s': neobvyklı soubor nebo odkaz na soubor."
+msgstr "Chyba pÅ™i ÄtenÃ­ â€%sâ€œ: soubor nenÃ­ normÃ¡lnÃ­ soubor ani symbolickÃ½ odkaz."
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:1071
 #, c-format
 msgid "Error creating temporary thumbnail file for `%s': %s"
-msgstr "Chyba vytváøení doèasného souboru s náhledem pro `%s': %s"
+msgstr "Chyba pÅ™i vytvÃ¡Å™enÃ­ doÄasnÃ©ho souboru s nÃ¡hledem pro â€%sâ€œ: %s"
 
 #: pp_cms.cpp:87
 msgid "Printer"
-msgstr "Tiskárna"
+msgstr "TiskÃ¡rna"
 
 #: pp_cms.cpp:102
 msgid "Printer Profile:"
-msgstr "Profil tiskárny:"
+msgstr "Profil tiskÃ¡rny:"
 
 #: pp_cms.cpp:133
 msgid "Colour space:"
-msgstr "Barevnı prostor:"
+msgstr "BarevnÃ½ prostor:"
 
 #: pp_cms.cpp:141
 msgid "RGB"
-msgstr ""
+msgstr "RGB"
 
 #: pp_cms.cpp:141
 msgid "Send Red, Green and Blue data to the printer driver"
-msgstr ""
+msgstr "Odeslat do tiskovÃ©ho ovladaÄe Ãºdaje o ÄervenÃ©, zelenÃ© a modrÃ©"
 
 #: pp_cms.cpp:142
 msgid "CMYK"
-msgstr ""
+msgstr "CMYK"
 
 #: pp_cms.cpp:142
 msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
-msgstr ""
+msgstr "Odeslat do tiskovÃ©ho ovladaÄe Ãºdaje o azurovÃ©, purpurovÃ©, Å¾lutÃ© a ÄernÃ©"
 
 #: pp_cms.cpp:151
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Obrazovka"
 
 #: pp_cms.cpp:164
 msgid "Monitor Profile:"
-msgstr "Profil monitoru:"
+msgstr "Profil obrazovky:"
 
 #: pp_cms.cpp:178
 msgid "Display mode:"
-msgstr "Zpùsob zobrazení:"
+msgstr "ReÅ¾im zobrazenÃ­:"
 
 #: pp_cms.cpp:187
 msgid "Normal"
-msgstr "Normální"
+msgstr "NormÃ¡lnÃ­"
 
 #: pp_cms.cpp:187
 msgid "Displays images' original colours, transformed to suit the monitor"
-msgstr ""
+msgstr "ZobrazÃ­ originÃ¡lnÃ­ barvy obrÃ¡zku, pÅ™izpÅ¯sobenÃ© vybavenÃ­ monitoru."
 
 #: pp_cms.cpp:188
 msgid "Simulate Print"
-msgstr "Zkou¹ka tisku"
+msgstr "Simulace tisku"
 
 #: pp_cms.cpp:188
-msgid ""
-"Simulates how colours will look when printed, imitating the paper's white "
-"point."
-msgstr ""
+msgid "Simulates how colours will look when printed, imitating the paper's white point."
+msgstr "Simuluje, jak budou barvy vypadat po vytisknutÃ­, pÅ™iÄemÅ¾ napodobuje bÃ­lou barvu papÃ­ru."
 
 #: pp_cms.cpp:189
 msgid "Simulate Print, Adapt White"
-msgstr "Zkou¹ka tisku, upravit bílou"
+msgstr "Simulace tisku, pÅ™izpÅ¯sobenÃ­ bÃ­lÃ©"
 
 #: pp_cms.cpp:189
-msgid ""
-"Simulates how colours will look when printed, adapting colours for the "
-"monitor's white point."
-msgstr ""
+msgid "Simulates how colours will look when printed, adapting colours for the monitor's white point."
+msgstr "Simuluje, jak budou barvy vypadat po vytisknutÃ­, pÅ™iÄemÅ¾ pÅ™izpÅ¯sobuje barvy pro bÃ­lou barvu monitoru."
 
 #: pp_cms.cpp:199
 msgid "Default Image Profiles"
-msgstr "Vıchozí profil obrázku"
+msgstr "VÃ½chozÃ­ profily obrÃ¡zkÅ¯"
 
 #: pp_cms.cpp:214
 msgid "RGB Profile:"
-msgstr "RGB profil:"
+msgstr "Profil RGB:"
 
 #: pp_cms.cpp:230
 msgid "CMYK Profile:"
-msgstr "CMYK profil:"
+msgstr "Profil CMYK:"
 
 #: pp_cms.cpp:411
 msgid "Colour Management"
-msgstr "Správa barev"
+msgstr "SprÃ¡va barev"
 
 #: pp_imagecontrol.cpp:128
 msgid "Effects"
@@ -646,7 +711,7 @@ msgstr "Efekty"
 
 #: pp_imageinfo.cpp:100
 msgid "in"
-msgstr "v"
+msgstr "in"
 
 #: pp_imageinfo.cpp:103
 msgid "pt"
@@ -662,19 +727,19 @@ msgstr "mm"
 
 #: pp_imageinfo.cpp:161
 msgid "Image Info"
-msgstr "Informace o obrázku"
+msgstr "Informace o obrÃ¡zku"
 
 #: pp_imageinfo.cpp:188
 msgid "Filename:"
-msgstr "Jméno souboru:"
+msgstr "NÃ¡zev souboru:"
 
 #: pp_imageinfo.cpp:201
 msgid "Dimensions:"
-msgstr "Rozmìry"
+msgstr "RozmÄ›ry:"
 
 #: pp_imageinfo.cpp:221
 msgid "Resolution:"
-msgstr "Rozli¹ení"
+msgstr "RozliÅ¡enÃ­:"
 
 #: pp_imageinfo.cpp:234
 msgid "Profile:"
@@ -682,75 +747,77 @@ msgstr "Profil:"
 
 #: pp_imageinfo.cpp:344
 msgid "pixels"
-msgstr "pixely"
+msgstr "pixelÅ¯"
 
 #: pp_imageinfo.cpp:373
 msgid "Default"
-msgstr "Vıchozí"
+msgstr "VÃ½chozÃ­"
 
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"
-msgstr "©títek na CD/DVD"
+msgstr "KolÃ¡Ä"
 
 #: pp_layout_carousel.cpp:289
 msgid "Segments:"
-msgstr "Díly:"
+msgstr "PoÄet segmentÅ¯:"
 
 #: pp_layout_carousel.cpp:304
 msgid "Overlap (%):"
-msgstr "Pøesah (%):"
+msgstr "PÅ™ekrytÃ­ (%):"
 
 #: pp_layout_carousel.cpp:319
 msgid "Starting angle:"
-msgstr "Zaèít na úhlu:"
+msgstr "PoÄÃ¡teÄnÃ­ Ãºhel:"
 
 #: pp_layout_carousel.cpp:334
 msgid "Inner Radius:"
-msgstr "Vnitøní polomìr:"
+msgstr "PolomÄ›r vnitÅ™ku:"
 
 #: pp_layout_poster.cpp:336
 msgid "Poster Layout"
-msgstr "Rozlo¾ení plakátu"
+msgstr "PlakÃ¡t"
 
 #: pp_layout_poster.cpp:351
 msgid "Size"
-msgstr "Velikost"
+msgstr "RozmÄ›r"
 
-#: pp_layout_poster.cpp:363 pp_layout_poster.cpp:387
+#: pp_layout_poster.cpp:363
+#: pp_layout_poster.cpp:387
 msgid "by"
-msgstr "na"
+msgstr "x"
 
 #: pp_layout_poster.cpp:375
 msgid "Tiles"
-msgstr "Dla¾dice"
+msgstr "DÄ›lenÃ­"
 
 #: pp_layout_poster.cpp:397
 msgid "Overlap"
-msgstr "Pøesah"
+msgstr "PÅ™esah"
 
-#: pp_layout_poster.cpp:411 pp_pageextent.cpp:260
+#: pp_layout_poster.cpp:411
+#: pp_pageextent.cpp:260
 msgid "H:"
-msgstr "H:"
+msgstr "V:"
 
 #: pp_layout_poster.cpp:423
 msgid "V:"
-msgstr "V:"
+msgstr "S:"
 
 #: pp_layout_single.cpp:258
 msgid "Manual scaling"
-msgstr "Ruèní mìøítko"
+msgstr "RuÄnÃ­ velikost"
 
 #: pp_layout_single.cpp:274
 msgid "H (%):"
-msgstr "H (%):"
+msgstr "VodorovnÄ› (%):"
 
 #: pp_layout_single.cpp:288
 msgid "V (%):"
-msgstr "V (%):"
+msgstr "Svisle (%):"
 
 #: pp_mainwindow.cpp:226
 msgid "Transferring images..."
-msgstr "Pøenos obrázkù..."
+msgstr "PÅ™enÃ¡Å¡ejÃ­ se obrÃ¡zky..."
 
 #: pp_menu_edit.cpp:37
 msgid "_Edit"
@@ -758,19 +825,19 @@ msgstr "_Upravit"
 
 #: pp_menu_edit.cpp:39
 msgid "Select _All"
-msgstr "Vybrat _v¹e"
+msgstr "Vybr_at vÅ¡e"
 
 #: pp_menu_edit.cpp:39
 msgid "Select all images"
-msgstr "Vybrat v¹echny obrázky"
+msgstr "OznaÄÃ­ vÅ¡echny obrÃ¡zky jako vybranÃ©"
 
 #: pp_menu_edit.cpp:40
 msgid "Select _None"
-msgstr "Zru¹it _vıbìr"
+msgstr "_ZruÅ¡it vÃ½bÄ›r"
 
 #: pp_menu_edit.cpp:40
 msgid "Deselect all images"
-msgstr "Zru¹it vıbìr v¹ech obrázkù"
+msgstr "ZruÅ¡Ã­ oznaÄenÃ­ vÅ¡ech vybranÃ½ch obrÃ¡zkÅ¯"
 
 #: pp_menu_edit.cpp:41
 msgid "_Cut"
@@ -778,152 +845,147 @@ msgstr "_Vyjmout"
 
 #: pp_menu_edit.cpp:41
 msgid "Cut the current image to the clipboard"
-msgstr "Umístit aktuální obrázek do schránky"
+msgstr "PÅ™esune aktuÃ¡lnÃ­ obrÃ¡zek do schrÃ¡nky"
 
 #: pp_menu_edit.cpp:42
 msgid "C_opy"
-msgstr "K_opírovat"
+msgstr "_KopÃ­rovat"
 
 #: pp_menu_edit.cpp:42
 msgid "Copy the current image to the clipboard"
-msgstr "Zkopírovat aktuální obrázek do schránky"
+msgstr "KopÃ­ruje aktuÃ¡lnÃ­ obrÃ¡zek do schrÃ¡nky"
 
 #: pp_menu_edit.cpp:43
 msgid "_Paste"
-msgstr "Vl_o¾it"
+msgstr "V_loÅ¾it"
 
 #: pp_menu_edit.cpp:43
 msgid "Paste the contents of the clipboard as a new image"
-msgstr "Vlo¾it obsah schránky jako novı obrázek"
+msgstr "VloÅ¾Ã­ obsah schrÃ¡nky jako novÃ½ obrÃ¡zek"
 
 #: pp_menu_file.cpp:36
 msgid "Open preset..."
-msgstr "Otevøít projekt..."
+msgstr "OtevÅ™enÃ­ nastavenÃ­..."
 
 #: pp_menu_file.cpp:62
 msgid "Save preset..."
-msgstr "Ulo¾it projekt..."
+msgstr "UloÅ¾enÃ­ nastavenÃ­..."
 
 #: pp_menu_file.cpp:113
 msgid "Generating print data..."
-msgstr "Vytváøím data pro tisk..."
+msgstr "VytvÃ¡Å™Ã­m tiskovÃ¡ data..."
 
 #: pp_menu_file.cpp:139
 msgid "E_xport"
-msgstr "E_xport"
+msgstr "E_xportovat"
 
 #: pp_menu_file.cpp:140
 msgid "Export _TIFF..."
-msgstr "Ulo¾it jako _TIFF..."
+msgstr "Exportovat _TIFF..."
 
 #: pp_menu_file.cpp:141
 msgid "Export _JPEG..."
-msgstr "Ulo¾it jako _JPEG..."
+msgstr "Exportovat _JPEG..."
 
 #: pp_menu_file.cpp:141
 msgid "Export pages as JPEG files"
-msgstr "Ulo¾it stánky jako JPEG soubory"
+msgstr "Exportovat strÃ¡nky jako JPEG soubory"
 
 #: pp_menu_image.cpp:58
 msgid "Open File"
-msgstr "Otevøít soubor"
+msgstr "OtevÅ™enÃ­ souboru"
 
 #: pp_menu_image.cpp:98
 msgid "Adding images..."
-msgstr "Pøidávám obrázky..."
+msgstr "PÅ™idÃ¡vÃ¡m obrÃ¡zky..."
 
 #: pp_menu_image.cpp:176
 msgid "Page is already full!"
-msgstr "Stránka u¾ je zaplnìná!"
+msgstr "StrÃ¡nka je jiÅ¾ plnÃ¡!"
 
 #: pp_menu_image.cpp:276
 msgid "_Duplicate Image"
-msgstr "_Zkopírovat obrázek"
+msgstr "_Duplikovat obrÃ¡zek"
 
 #: pp_menu_image.cpp:276
 msgid "Duplicate the currently selected image"
-msgstr "Zkopírovat vybrané obrázky"
+msgstr "VytvoÅ™Ã­ kopii aktuÃ¡lnÄ› vybranÃ©ho obrÃ¡zku"
 
 #: pp_menu_image.cpp:277
-#, fuzzy
 msgid "Duplicate to _Fill Page"
-msgstr "_Zkopírovat k vyplnìní stránky"
+msgstr "_Vyplnit strÃ¡nku kopiemi"
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
-msgstr "Vyplnit stránku vybranım obrázkem"
+msgstr "VyplnÃ­ strÃ¡nku kopiemi aktuÃ¡lnÄ› vybranÃ©ho obrÃ¡zku"
 
 #: pp_menu_image.cpp:281
-#, fuzzy
 msgid "Set Image _Border..."
-msgstr "Vybrat okraj..."
+msgstr "Nastavit okraj o_brÃ¡zku..."
 
 #: pp_menu_options.cpp:109
 msgid "High-res Previews"
-msgstr "Pìkné náhledy"
+msgstr "NÃ¡hledy ve vysokÃ©m rozliÅ¡enÃ­"
 
 #: pp_menu_options.cpp:109
 msgid "Render high-resolution previews in the background"
-msgstr "Vytvoøí pìkné náhledy na pozadí"
+msgstr "Na pozadÃ­ vytvÃ¡Å™et nÃ¡hledy ve vysokÃ©m rozliÅ¡enÃ­"
 
 #: pp_menu_options.cpp:113
 msgid "_Normal Display"
-msgstr "O_byèejnı monitor"
+msgstr "NormÃ¡lnÃ­ zobrazenÃ­"
 
 #: pp_menu_options.cpp:113
 msgid "Display colours with no print simulation"
-msgstr "Zobrazí barvy bez simulace tisku"
+msgstr "ZobrazÃ­ barvy bez simulace tisku"
 
 #: pp_menu_options.cpp:114
 msgid "Simulate Prin_t"
-msgstr "Náhled _tisku"
+msgstr "Simulovat _tisk"
 
 #: pp_menu_options.cpp:114
-msgid ""
-"Adjust colours on screen to imitate printed colours, including paper white"
-msgstr ""
-"Upravit barvy na obrazovce k napodobení tisku. Vèetnì bílé barvy papíru."
+msgid "Adjust colours on screen to imitate printed colours, including paper white"
+msgstr "PÅ™izpÅ¯sobÃ­ barvy na obrazovce napodobenÃ­ tiskovÃ½ch barev mimo bÃ­lÃ©ho papÃ­ru"
 
 #: pp_menu_options.cpp:115
 msgid "Simulate Print, _Adapt White"
-msgstr "Náhled tisku, pøizpùsobit bílou"
+msgstr "Simulovat tisk, pÅ™izpÅ¯sobit bÃ­_lou"
 
 #: pp_menu_options.cpp:115
 msgid "Adjust colours to imitate printed colours, excluding paper white"
-msgstr ""
-"Upravit barvy na obrazovce k napodobení tisku. Vynechá bílou barvu papíru."
+msgstr "PÅ™izpÅ¯sobÃ­ barvy na obrazovce napodobenÃ­ tiskovÃ½ch barev mimo bÃ­lÃ©ho papÃ­ru"
 
 #: pp_pageextent.cpp:226
 msgid "Page Size and Margins"
-msgstr "Velikost stránky a okraje"
+msgstr "Velikost strÃ¡nky a okrajÅ¯"
 
 #: pp_pageextent.cpp:250
 msgid "W:"
-msgstr "W:"
+msgstr "Å :"
 
 #: pp_pageextent.cpp:273
 msgid "Left:"
-msgstr "Levı okraj:"
+msgstr "LevÃ½:"
 
 #: pp_pageextent.cpp:289
 msgid "Right:"
-msgstr "Pravı okraj:"
+msgstr "PravÃ½:"
 
 #: pp_pageextent.cpp:302
 msgid "Top:"
-msgstr "Horní okraj:"
+msgstr "HornÃ­:"
 
 #: pp_pageextent.cpp:313
 msgid "Bottom:"
-msgstr "Dolní okraj:"
+msgstr "DolnÃ­:"
 
 #: gp_cppsupport/printoutputselector.cpp:112
 msgid "Print Queue:"
-msgstr "Tisková fronta:"
+msgstr "TiskovÃ¡ fronta:"
 
 #: gp_cppsupport/printoutputselector.cpp:131
 msgid "Printer Model:"
-msgstr "Typ tiskárny:"
+msgstr "Model tiskÃ¡rny:"
 
 #: gp_cppsupport/printoutputselector.cpp:194
 #, c-format
@@ -931,56 +993,57 @@ msgid ""
 "The printer queue %s\n"
 " is not found - please choose another"
 msgstr ""
-"Tisková fronta %s\n"
-" nenalezena - prosím vyberte jinou"
+"TiskovÃ¡ fronta %s\n"
+" nebyla nalezena - vyberte prosÃ­m jinou"
 
 #: gp_cppsupport/printoutputselector.cpp:195
 msgid "Printer queue not found"
-msgstr "Tisková fronta nenalezena"
+msgstr "TiskovÃ¡ fronta nebyla nalezena"
 
 #: gp_cppsupport/gprinter.cpp:352
 msgid "Unable to generate print data"
-msgstr "Nelze vytvoøit data pro tisk"
+msgstr "Nelze vygenerovat tiskovÃ¡ data"
 
 #: pp_scaling.cpp:72
 msgid "Algorithm:"
-msgstr "Algoritmus"
+msgstr "Algoritmus:"
 
 #: pp_sigcontrol.cpp:181
 msgid "Columns:"
-msgstr "Sloupce:"
+msgstr "SloupcÅ¯:"
 
 #: pp_sigcontrol.cpp:195
 msgid "Rows:"
-msgstr "Øady"
+msgstr "Å˜Ã¡dkÅ¯:"
 
-#: pp_sigcontrol.cpp:209 pp_sigcontrol.cpp:223
+#: pp_sigcontrol.cpp:209
+#: pp_sigcontrol.cpp:223
 msgid "Gap:"
 msgstr "Mezera:"
 
 #: pp_sigcontrol.cpp:248
 msgid "Width:"
-msgstr "©íøka"
+msgstr "Å Ã­Å™ka:"
 
 #: pp_sigcontrol.cpp:262
 msgid "Height:"
-msgstr "Vı¹ka"
+msgstr "VÃ½Å¡ka:"
 
 #: pp_sigcontrol.cpp:274
 msgid "From selected image"
-msgstr "Z vybraného obrázku"
+msgstr "Podle vybranÃ©ho obrÃ¡zku"
 
 #: pp_sigcontrol.cpp:334
 msgid "Layout"
-msgstr "Rozlo¾ení"
+msgstr "RozvrÅ¾enÃ­"
 
 #: pp_sigcontrol.cpp:337
 msgid "Specify rows/columns"
-msgstr "Øádky/sloupce"
+msgstr "UrÄit poÄet Å™Ã¡dkÅ¯/sloupcÅ¯"
 
 #: pp_sigcontrol.cpp:338
 msgid "Specify image dimensions"
-msgstr "Rozmìry obrázku"
+msgstr "UrÄit rozmÄ›ry obrÃ¡zku"
 
 #: pp_units.cpp:60
 msgid "Units:"
@@ -1008,73 +1071,52 @@ msgstr "Jednotky"
 
 #: profilemanager/lcmswrapper.cpp:524
 msgid "Perceptual"
-msgstr "Perceptual"
+msgstr "VizuÃ¡lnÃ­ vjem"
 
 #: profilemanager/lcmswrapper.cpp:525
 msgid "Relative Colorimetric"
-msgstr "Relative Colorimetric"
+msgstr "RelativnÃ­ kolorimetrie"
 
 #: profilemanager/lcmswrapper.cpp:526
 msgid "Relative Colorimetric with BPC"
-msgstr "Relative Colorimetric s BPC"
+msgstr "RelativnÃ­ kolorimetrie s BPC"
 
 #: profilemanager/lcmswrapper.cpp:527
 msgid "Saturation"
-msgstr "Nasycení"
+msgstr "Sytost barev"
 
 #: profilemanager/lcmswrapper.cpp:528
 msgid "Absolute Colorimetric"
-msgstr "Absolute Colorimetric"
+msgstr "AbsolutnÃ­ kolorimetrie"
 
 #: profilemanager/lcmswrapper.cpp:533
-msgid ""
-"Aims for pleasing photographic results by preserving relationships between "
-"colours, and avoiding clipping of unattainable colours"
-msgstr ""
-"Aims for pleasing photographic results by preserving relationships between "
-"colours, and avoiding clipping of unattainable colours"
+msgid "Aims for pleasing photographic results by preserving relationships between colours, and avoiding clipping of unattainable colours"
+msgstr "PokusÃ­ se o pÅ™Ã­jemnÃ½ fotografickÃ½ vÃ½sledek pomocÃ­ zachovÃ¡nÃ­ vztahÅ¯ mezi barvami a zabrÃ¡nÄ›nÃ­ oÅ™ezÃ¡nÃ­ nedostupnÃ½ch barev."
 
 #: profilemanager/lcmswrapper.cpp:534
-msgid ""
-"Attempts to preserve the original colours, relative to white-point "
-"differences."
-msgstr ""
-"Attempts to preserve the original colours, relative to white-point "
-"differences."
+msgid "Attempts to preserve the original colours, relative to white-point differences."
+msgstr "PokusÃ­ se zachovat originÃ¡lnÃ­ barvy relativnÄ› k rozdÃ­lÅ¯m bÃ­lÃ©ho bodu."
 
 #: profilemanager/lcmswrapper.cpp:535
-msgid ""
-"Attempts to preserve the original colours, relative to white-point "
-"differences.  Uses Black Point Compensation to avoid clipping of highlights "
-"and shadows."
-msgstr ""
-"Attempts to preserve the original colours, relative to white-point "
-"differences.  Uses Black Point Compensation to avoid clipping of highlights "
-"and shadows."
+msgid "Attempts to preserve the original colours, relative to white-point differences.  Uses Black Point Compensation to avoid clipping of highlights and shadows."
+msgstr "PokusÃ­ se zachovat originÃ¡lnÃ­ barvy relativnÄ› k rozdÃ­lÅ¯m bÃ­lÃ©ho bodu. PouÅ¾ijekompenzaci ÄernÃ©ho bodu (BPC), aby se zabrÃ¡nilo oÅ™ezÃ¡nÃ­ jasÅ¯ a stÃ­nÅ¯."
 
 #: profilemanager/lcmswrapper.cpp:536
-msgid ""
-"Attempts to provide brighter, more saturated colours, at the expense of "
-"colour relationships."
-msgstr ""
-"Attempts to provide brighter, more saturated colours, at the expense of "
-"colour relationships."
+msgid "Attempts to provide brighter, more saturated colours, at the expense of colour relationships."
+msgstr "PokusÃ­ se poskytnout jasnÄ›jÅ¡Ã­ a sytÄ›jÅ¡Ã­ barvy na ÃºÄet vztahÅ¯ mezi barvami."
 
 #: profilemanager/lcmswrapper.cpp:537
-msgid ""
-"Mimics the original colours (including white point) as closely as possible, "
-"for side-by-side comparisons.  Clips unattainable colours."
-msgstr ""
-"Mimics the original colours (including white point) as closely as possible, "
-"for side-by-side comparisons.  Clips unattainable colours."
+msgid "Mimics the original colours (including white point) as closely as possible, for side-by-side comparisons.  Clips unattainable colours."
+msgstr "NapodobÃ­ originÃ¡lnÃ­ barvy (vÄetnÄ› bÃ­lÃ©ho bodu) jak nejlÃ©pe to pÅ¯jde pÅ™ivzÃ¡jemnÃ©m porovnÃ¡nÃ­. OÅ™Ã­zne nedostupnÃ© barvy."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:405
+#: profilemanager/profileselector.cpp:38
+#: miscwidgets/imageselector.cpp:405
 msgid "Other..."
-msgstr "Ostatní..."
+msgstr "DalÅ¡Ã­..."
 
 #: profilemanager/profileselector.cpp:368
 msgid "Please choose a valid ICC profile"
-msgstr "Prosím, vyberte platnı ICC profil"
+msgstr "Zvolte prosÃ­m platnÃ½ profil ICC"
 
 #: stpui_widgets/dimension.c:161
 msgid "points"
@@ -1094,29 +1136,27 @@ msgstr "centimetry"
 
 #: stpui_widgets/stpui_optionbook.c:117
 msgid "General"
-msgstr ""
+msgstr "ObecnÃ©"
 
 #: stpui_widgets/stpui_optionbook.c:120
-#, fuzzy
 msgid "Manual Settings"
-msgstr "Ruèní mìøítko"
+msgstr "RuÄnÃ­ nastavenÃ­"
 
 #: stpui_widgets/stpui_optionbook.c:123
-#, fuzzy
 msgid "Colour (Basic)"
-msgstr "Barevnı prostor:"
+msgstr "Barvy (zÃ¡klad)"
 
 #: stpui_widgets/stpui_optionbook.c:126
 msgid "Colour (Fine-tuning)"
-msgstr ""
+msgstr "Barvy (detaily)"
 
 #: stpui_widgets/stpui_optionbook.c:129
 msgid "Colour (Extra)"
-msgstr ""
+msgstr "Barvy (extra)"
 
 #: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."
-msgstr "Vybrat adresáø..."
+msgstr "Volba sloÅ¾ky..."
 
 #: miscwidgets/patheditor.cpp:98
 msgid "Path"
@@ -1124,7 +1164,7 @@ msgstr "Cesta"
 
 #: miscwidgets/patheditor.cpp:112
 msgid "Add..."
-msgstr "Pøidat..."
+msgstr "PÅ™idat..."
 
 #: miscwidgets/patheditor.cpp:117
 msgid "Remove"
@@ -1132,8 +1172,9 @@ msgstr "Odstranit"
 
 #: miscwidgets/imageselector.cpp:384
 msgid "Image"
-msgstr "Obrázek"
+msgstr "ObrÃ¡zek"
 
 #: support/progressbar.cpp:51
 msgid "Progress..."
-msgstr "Probíhá..."
+msgstr "PrÅ¯bÄ›h..."
+
