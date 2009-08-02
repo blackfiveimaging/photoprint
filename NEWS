@@ -40,6 +40,10 @@ PhotoPrint-0.4.1
     colours, especially in print simulation mode, UI elements can throw off your
     perception of colour.
 
+  * Updated cs translation - thanks to Marek Černocký.
+
+  * About dialog text and "Default" entry for rendering intent are now translated.
+
 
 PhotoPrint-0.4.0
 

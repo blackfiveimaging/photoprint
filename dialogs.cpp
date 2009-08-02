@@ -192,12 +192,12 @@ void About_Dialog(GtkWindow *parent)
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),image,FALSE,FALSE,0);
 	gtk_widget_show(image);
 	
-	GtkWidget *label=gtk_label_new("PhotoPrint "
+	GtkWidget *label=gtk_label_new(_("PhotoPrint "
 	PACKAGE_VERSION
 	" - copyright (c) 2004-2009\n"
 	"by Alastair M. Robinson (amr@blackfiveservices.co.uk)\nDistributed under the terms\nof the GNU General Public Licence.\n"
 	"See the file 'COPYING' for more details.\n"
-	"The borders pack is released under the Creative Commons\nAttribution 2.0 UK: England & Wales Licence");
+	"The borders pack is released under the Creative Commons\nAttribution 2.0 UK: England & Wales Licence"));
 	gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_CENTER);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),label,TRUE,FALSE,5);
 	gtk_widget_show(label);
