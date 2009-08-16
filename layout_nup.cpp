@@ -320,22 +320,9 @@ ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransfo
 			if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
 				is=new ImageSource_Promote(is,colourspace);
 
-			CMSTransform *transform=NULL;
-
 			if(factory)
 			{
-				CMSProfile *emb=is->GetEmbeddedProfile();
-				if(emb)
-				{
-					cerr << "Has embedded profile..." << endl;
-					transform=factory->GetTransform(target,emb);
-				}
-				else
-				{
-					cerr << "No embedded profile - using default" << endl;
-					transform=factory->GetTransform(target,IS_TYPE(STRIP_ALPHA(is->type)));
-				}
-
+				CMSTransform *transform=factory->GetTransform(target,is);
 				if(transform)
 					is=new ImageSource_CMS(is,transform);
 			}
