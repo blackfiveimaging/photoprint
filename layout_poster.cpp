@@ -52,8 +52,8 @@ Layout_Poster_ImageInfo::Layout_Poster_ImageInfo(Layout_Poster &layout, const ch
 }
 
 
-Layout_Poster_ImageInfo::Layout_Poster_ImageInfo(Layout_Poster &layout, Layout_ImageInfo *ii,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,ii,page,allowcropping,rotation)
+Layout_Poster_ImageInfo::Layout_Poster_ImageInfo(Layout_Poster &layout, Layout_ImageInfo *ii,int page)
+	: Layout_ImageInfo((Layout &)layout,ii,page)
 {
 }
 

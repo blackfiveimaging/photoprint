@@ -158,6 +158,13 @@ void PhotoPrint_State::SetDefaultFilename()
 }
 
 
+void PhotoPrint_State::ParseSupplementaryConfig(const char *filename)
+{
+	printoutput.QueuesToDB();
+	ConfigFile::ParseConfigFile(filename);
+}
+
+
 void PhotoPrint_State::ParseConfigFile()
 {
 	// Config files from newer than 0.2.9 will override this

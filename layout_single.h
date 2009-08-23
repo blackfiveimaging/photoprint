@@ -46,7 +46,7 @@ class Layout_Single_ImageInfo : public Layout_ImageInfo
 {
 	public:
 	Layout_Single_ImageInfo(Layout_Single &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
-	Layout_Single_ImageInfo(Layout_Single &layout,Layout_ImageInfo *ii,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_Single_ImageInfo(Layout_Single &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Single_ImageInfo();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);
 	virtual ImageSource *GetImageSource(CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL);

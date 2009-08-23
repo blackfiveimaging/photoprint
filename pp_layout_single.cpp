@@ -155,6 +155,9 @@ void pp_layout_single_refresh(pp_Layout_Single *ob)
 	gtk_widget_set_sensitive(ob->vscale,ii!=0);
 	if(ii)
 	{
+		l->SelectNone();
+		ii->SetSelected(true);
+		pp_imagecontrol_set_image(PP_IMAGECONTROL(ob->imagecontrol));
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->hscale),ii->hscale);
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->vscale),ii->vscale);
 	}

@@ -66,7 +66,7 @@ class Layout_Carousel_ImageInfo : public Layout_ImageInfo
 {
 	public:
 	Layout_Carousel_ImageInfo(Layout_Carousel &layout,const char *filename,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO);
-	Layout_Carousel_ImageInfo(Layout_Carousel &layout,Layout_ImageInfo *ii,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_Carousel_ImageInfo(Layout_Carousel &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Carousel_ImageInfo();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);
 	void FlushThumbnail();

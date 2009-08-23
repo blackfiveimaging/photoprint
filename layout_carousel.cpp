@@ -55,8 +55,8 @@ Layout_Carousel_ImageInfo::Layout_Carousel_ImageInfo(Layout_Carousel &layout, co
 }
 
 
-Layout_Carousel_ImageInfo::Layout_Carousel_ImageInfo(Layout_Carousel &layout, Layout_ImageInfo *ii,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,ii,page,allowcropping,rotation)
+Layout_Carousel_ImageInfo::Layout_Carousel_ImageInfo(Layout_Carousel &layout, Layout_ImageInfo *ii,int page)
+	: Layout_ImageInfo((Layout &)layout,ii,page)
 {
 }
 

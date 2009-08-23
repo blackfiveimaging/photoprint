@@ -87,8 +87,8 @@ Layout_Single_ImageInfo::Layout_Single_ImageInfo(Layout_Single &layout, const ch
 }
 
 
-Layout_Single_ImageInfo::Layout_Single_ImageInfo(Layout_Single &layout, Layout_ImageInfo *ii,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,ii,page,allowcropping,rotation), hscale(100), vscale(100)
+Layout_Single_ImageInfo::Layout_Single_ImageInfo(Layout_Single &layout, Layout_ImageInfo *ii,int page)
+	: Layout_ImageInfo((Layout &)layout,ii,page), hscale(100), vscale(100)
 {
 	Init();
 }

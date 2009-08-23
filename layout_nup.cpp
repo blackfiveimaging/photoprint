@@ -60,8 +60,8 @@ Layout_NUp_ImageInfo::Layout_NUp_ImageInfo(Layout_NUp &layout, const char *filen
 }
 
 
-Layout_NUp_ImageInfo::Layout_NUp_ImageInfo(Layout_NUp &layout, Layout_ImageInfo *ii,int row,int column,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,ii,page,allowcropping,rotation),
+Layout_NUp_ImageInfo::Layout_NUp_ImageInfo(Layout_NUp &layout, Layout_ImageInfo *ii,int row,int column,int page)
+	: Layout_ImageInfo((Layout &)layout,ii,page),
 	row(row), column(column)
 {
 }
@@ -234,7 +234,7 @@ void Layout_NUp::CopyImage(Layout_ImageInfo *ii)
 {
 	int page,row,column;
 	FindFirstFree(page,row,column);
-	ii=new Layout_NUp_ImageInfo(*this,ii,row,column,page,ii->allowcropping,ii->rotation);
+	ii=new Layout_NUp_ImageInfo(*this,ii,row,column,page);
 	imagelist=g_list_append(imagelist,ii);
 	if(page>=pages)
 		++pages;

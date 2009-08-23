@@ -46,7 +46,7 @@ class Layout_NUp_ImageInfo : public Layout_ImageInfo
 {
 	public:
 	Layout_NUp_ImageInfo(Layout_NUp &layout,const char *filename,int row,int column,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO);
-	Layout_NUp_ImageInfo(Layout_NUp &layout,Layout_ImageInfo *ii,int row,int column,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_NUp_ImageInfo(Layout_NUp &layout,Layout_ImageInfo *ii,int row,int column,int page);
 	virtual ~Layout_NUp_ImageInfo();
 	virtual LayoutRectangle *GetBounds();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);

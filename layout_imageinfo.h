@@ -27,7 +27,7 @@ class Layout_ImageInfo : public PPEffectHeader
 {
 	public:
 	Layout_ImageInfo(Layout &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
-	Layout_ImageInfo(Layout &layout,Layout_ImageInfo *oldii,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_ImageInfo(Layout &layout,Layout_ImageInfo *oldii,int page);
 
 	// Housekeeping
 

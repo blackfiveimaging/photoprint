@@ -18,6 +18,11 @@ class PhotoPrint_State : public ConfigFile, public ConfigDB
 	void SetFilename(const char *file);
 	void SetDefaultFilename();
 	void ParseConfigFile();
+
+	// Parses a file but doesn't update filename or reset printer
+	// used to apply supplementary options, such as layout or profiling modes.
+	void ParseSupplementaryConfig(const char *filename);
+
 	bool SaveConfigFile();
 	bool NewLayout(Progress *p=NULL);
 	void SetUnits(enum Units unit);

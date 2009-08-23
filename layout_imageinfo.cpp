@@ -100,9 +100,9 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int pag
 }
 
 
-Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int page, bool allowcropping, PP_ROTATION rotation)
-	: PPEffectHeader(*ii), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
-	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
+Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int page)
+	: PPEffectHeader(*ii), page(page), allowcropping(false), crop_hpan(CENTRE), crop_vpan(CENTRE),
+	rotation(PP_ROTATION_AUTO), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
 	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
 	threadevents(), histogram(threadevents)
 {

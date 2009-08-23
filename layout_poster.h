@@ -64,7 +64,7 @@ class Layout_Poster_ImageInfo : public Layout_ImageInfo
 {
 	public:
 	Layout_Poster_ImageInfo(Layout_Poster &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
-	Layout_Poster_ImageInfo(Layout_Poster &layout,Layout_ImageInfo *ii,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_Poster_ImageInfo(Layout_Poster &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Poster_ImageInfo();
 	virtual LayoutRectangle *GetBounds();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);

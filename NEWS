@@ -44,6 +44,10 @@ PhotoPrint-0.4.1
 
   * About dialog text and "Default" entry for rendering intent are now translated.
 
+  * ImageInfo and Effects now work in Single Layout.
+
+  * Added "Supplementary Preset" capability.
+
 
 PhotoPrint-0.4.0
 

@@ -1,6 +1,17 @@
 URGENT:
 ~~~~~~~
 
+Allow "supplementary" presets to be loaded without resetting everything - this would allow, for instance,
+a special-purpose preset to be loaded for specific layouts, or for profiling.
+
+Create a menu for this purpose - perhaps even make it dynamic.
+
+Need to install supplementary presets in a folder somewhere, and have another searchpath for finding them.
+
+Need to sort out resource locations on Win32
+
+Win32 installer?
+
 | Deadlock with high-res previews (or histogram?) and Poster View.
 | (Affects n-up layout too)
 
