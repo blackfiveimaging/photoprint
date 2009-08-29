@@ -2,7 +2,7 @@
 # RL 28/11/04
 
 SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail \
-	splashscreen profilemanager effects borders
+	splashscreen profilemanager effects borders shortcuts
 
 localedir=$(datadir)/locale
 
@@ -48,6 +48,8 @@ photoprint_SOURCES = 		\
 	pp_menu_image.h	\
 	pp_menu_options.cpp	\
 	pp_menu_options.h	\
+	pp_menu_shortcuts.cpp	\
+	pp_menu_shortcuts.h	\
 	pp_menu_help.cpp	\
 	pp_menu_help.h	\
 	pp_layout_carousel.cpp	\

@@ -26,6 +26,7 @@
 #include "pp_menu_layout.h"
 #include "pp_menu_image.h"
 #include "pp_menu_options.h"
+#include "pp_menu_shortcuts.h"
 #include "pp_menu_help.h"
 
 #include "config.h"
@@ -130,14 +131,13 @@ pp_mainwindow_new (PhotoPrint_State *state)
 	BuildLayoutMenu(ob,ob->uim);
 	BuildImageMenu(ob,ob->uim);
 	BuildOptionsMenu(ob,ob->uim);
+	BuildShortcutsMenu(ob,ob->uim);
 	BuildHelpMenu(ob,ob->uim);
 	
 	accel_group = gtk_ui_manager_get_accel_group (ob->uim);
 	gtk_window_add_accel_group (GTK_WINDOW (ob), accel_group);
 	
 	GtkWidget *tmp;
-//	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/FileMenu/PrintPreview");
-//	gtk_widget_set_sensitive(tmp,false);
 	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/EditMenu/Cut");
 	gtk_widget_set_sensitive(tmp,false);
 	tmp=gtk_ui_manager_get_widget(ob->uim,"/MainMenu/EditMenu/Copy");

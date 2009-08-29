@@ -19,6 +19,7 @@
      ../pp_mainwindow.cpp \
      ../pp_menu_edit.cpp \
      ../pp_menu_file.cpp \
+     ../pp_menu_shortcuts.cpp \
      ../pp_menu_help.cpp \
      ../pp_menu_image.cpp \
      ../pp_menu_layout.cpp \

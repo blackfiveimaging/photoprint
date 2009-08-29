@@ -81,16 +81,6 @@ static void file_save_default(GtkWidget *wid,gpointer *ob)
 }
 
 
-static void file_profiling_mode(GtkAction *action,gpointer *ob)
-{
-	pp_MainWindow *mw=(pp_MainWindow *)ob;	
-	char *fn=substitute_homedir("$HOME" SEARCHPATH_SEPARATOR_S ".photoprint" SEARCHPATH_SEPARATOR_S "profiling.preset");
-	mw->state->ParseSupplementaryConfig(fn);
-	free(fn);
-	pp_mainwindow_rebuild(mw);
-}
-
-
 static void file_export_tiff(GtkAction *action,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
@@ -147,7 +137,6 @@ static GtkActionEntry filemenu_entries[] = {
   { "SavePreset", GTK_STOCK_SAVE, N_("_Save Preset"), "<control>S", N_("Save a preset"), G_CALLBACK(file_save_preset) },
   { "SaveAs", NULL, N_("Save _As..."), NULL, N_("Save preset with a new filename"), G_CALLBACK(file_save_as) },
   { "SaveDefault", NULL, N_("Save _Default"), NULL, N_("Save preset as the default"), G_CALLBACK(file_save_default) },
-  { "ProfilingMode", GTK_STOCK_OPEN, N_("Pro_filing Mode"), "<control>F", N_("Profiling mode"), G_CALLBACK(file_profiling_mode) },
   { "ExportMenu", NULL, N_("E_xport") },
   { "ExportTiff", NULL, N_("Export _TIFF..."), NULL, N_("Export pages as TIFF files"), G_CALLBACK(file_export_tiff) },
   { "ExportJPEG", NULL, N_("Export _JPEG..."), NULL, N_("Export pages as JPEG files"), G_CALLBACK(file_export_jpeg) },
@@ -165,7 +154,6 @@ static const char *filemenu_ui_description =
 "      <menuitem action='SavePreset'/>"
 "      <menuitem action='SaveAs'/>"
 "      <menuitem action='SaveDefault'/>"
-"      <menuitem action='ProfilingMode'/>"
 "      <separator/>"
 "      <menu action='ExportMenu'>"
 "        <menuitem action='ExportTiff'/>"

@@ -110,7 +110,8 @@ am_photoprint_OBJECTS = dialogs.$(OBJEXT) layout.$(OBJEXT) \
 	pp_mainwindow.$(OBJEXT) pp_menu_file.$(OBJEXT) \
 	pp_menu_edit.$(OBJEXT) pp_menu_layout.$(OBJEXT) \
 	pp_menu_image.$(OBJEXT) pp_menu_options.$(OBJEXT) \
-	pp_menu_help.$(OBJEXT) pp_layout_carousel.$(OBJEXT) \
+	pp_menu_shortcuts.$(OBJEXT) pp_menu_help.$(OBJEXT) \
+	pp_layout_carousel.$(OBJEXT) \
 	pp_layout_carousel_pageview.$(OBJEXT) pp_layout_nup.$(OBJEXT) \
 	pp_layout_nup_pageview.$(OBJEXT) pp_layout_poster.$(OBJEXT) \
 	pp_layout_poster_pageview.$(OBJEXT) pp_layout_single.$(OBJEXT) \
@@ -247,7 +248,7 @@ LIBICONV = -liconv
 LIBINTL = 
 LIBM_LIBS = -lm
 LIBOBJS = 
-LIBS = -lcups -lnsl -lpthread -ljpeg 
+LIBS = -lcups -lnsl -lpthread -ljpeg -lnetpbm 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBICONV = -liconv
@@ -263,9 +264,9 @@ OBJEXT = o
 PACKAGE = photoprint
 PACKAGE_BUGREPORT = blackfive@fakenhamweb.co.uk
 PACKAGE_NAME = photoprint
-PACKAGE_STRING = photoprint 0.4.1-pre2
+PACKAGE_STRING = photoprint 0.4.1-pre3
 PACKAGE_TARNAME = photoprint
-PACKAGE_VERSION = 0.4.1-pre2
+PACKAGE_VERSION = 0.4.1-pre3
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 POSUB = po
@@ -276,7 +277,7 @@ SHELL = /bin/bash
 STRIP = strip
 TIFF_LIBS = -ltiff
 USE_NLS = yes
-VERSION = 0.4.1-pre2
+VERSION = 0.4.1-pre3
 XGETTEXT = /usr/bin/xgettext
 XGETTEXT_015 = /usr/bin/xgettext
 XGETTEXT_EXTRA_OPTIONS = 
@@ -332,7 +333,7 @@ target_alias =
 top_builddir = .
 top_srcdir = .
 SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail \
-	splashscreen profilemanager effects borders
+	splashscreen profilemanager effects borders shortcuts
 
 AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./support/ -I./imagesource/ -I./splashscreen -I./profilemanager -I./effects \
 	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS)
@@ -374,6 +375,8 @@ photoprint_SOURCES = \
 	pp_menu_image.h	\
 	pp_menu_options.cpp	\
 	pp_menu_options.h	\
+	pp_menu_shortcuts.cpp	\
+	pp_menu_shortcuts.h	\
 	pp_menu_help.cpp	\
 	pp_menu_help.h	\
 	pp_layout_carousel.cpp	\
@@ -606,6 +609,7 @@ include ./$(DEPDIR)/pp_menu_help.Po
 include ./$(DEPDIR)/pp_menu_image.Po
 include ./$(DEPDIR)/pp_menu_layout.Po
 include ./$(DEPDIR)/pp_menu_options.Po
+include ./$(DEPDIR)/pp_menu_shortcuts.Po
 include ./$(DEPDIR)/pp_pageextent.Po
 include ./$(DEPDIR)/pp_scaling.Po
 include ./$(DEPDIR)/pp_sigcontrol.Po

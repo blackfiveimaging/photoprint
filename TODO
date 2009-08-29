@@ -1,6 +1,9 @@
 URGENT:
 ~~~~~~~
 
+Add support for the -o options sideband with CUPS lpr.  Add some kind of warning that options relying
+on that sideband are unavailable on Win32.
+
 Allow "supplementary" presets to be loaded without resetting everything - this would allow, for instance,
 a special-purpose preset to be loaded for specific layouts, or for profiling.
 

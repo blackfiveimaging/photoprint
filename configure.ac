@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT([photoprint], [0.4.1-pre2], [blackfive@fakenhamweb.co.uk])
+AC_INIT([photoprint], [0.4.1-pre3], [blackfive@fakenhamweb.co.uk])
 AC_CONFIG_AUX_DIR([scripts])
 AC_CONFIG_SRCDIR([photoprint.cpp])
 AM_CONFIG_HEADER([config.h])
@@ -99,5 +99,6 @@ AC_CONFIG_FILES([Makefile po/Makefile.in
                  stp_support/Makefile
                  gp_cppsupport/Makefile
                  splashscreen/Makefile
+                 shortcuts/Makefile
                  borders/Makefile])
 AC_OUTPUT
