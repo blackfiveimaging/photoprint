@@ -111,6 +111,7 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 		// For each path in turn we scan for files...
 		DirTreeWalker dtw(path);
 		DirTreeWalker *dir=dtw.NextDirectory();
+		bool separator=false;
 		while(dir)
 		{
 			vector<string> strlist;
@@ -124,6 +125,11 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 			vector<string>::const_iterator it;
 			for(it=strlist.begin(); it!=strlist.end(); ++it)
 			{
+				if(separator)
+				{
+					uidesc+="<separator/>\n";
+					separator=false;
+				}
 				// Now we have a list of files in alphabetical order, extract display names
 				// and construct menu items...
 				ShortcutMenuItem *item=new ShortcutMenuItem(*it,action_group,mw);
@@ -131,7 +137,7 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 				uidesc+=item->FindString("DisplayName");
 				uidesc+="'/>\n";
 			}
-
+			separator=true;
 			dir=dir->NextDirectory();
 		}
 	}
