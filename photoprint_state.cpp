@@ -71,14 +71,19 @@ ConfigTemplate PhotoPrint_State::Template[]=
 	ConfigTemplate("MonitorProfileActive",int(0)),
 	ConfigTemplate("RenderingIntent",int(0)),
 	// End of obsolete items...
+
 #ifdef WIN32
 	// FIXME - where should these be installed under Win32?  $HOME is fine for a single user...
 	ConfigTemplate("BorderPath","$HOME/.photoprint/borders"),
 	ConfigTemplate("BackgroundPath","$HOME/.photoprint/backgrounds"),
+	ConfigTemplate("ShortcutsPath","$HOME/.photoprint/shortcuts"),
 #else
 	ConfigTemplate("BorderPath","/usr/share/photoprint/borders" SEARCHPATH_DELIMITER_S "/usr/local/share/photoprint/borders" SEARCHPATH_DELIMITER_S "$HOME/.photoprint/borders"),
 	ConfigTemplate("BackgroundPath","/usr/share/photoprint/backgrounds" SEARCHPATH_DELIMITER_S "/usr/local/share/photoprint/backgrounds" SEARCHPATH_DELIMITER_S "$HOME/.photoprint/backgrounds"),
+	ConfigTemplate("ShortcutsPath","/usr/share/photoprint/shortcuts" SEARCHPATH_DELIMITER_S "/usr/local/share/photoprint/shortcuts" SEARCHPATH_DELIMITER_S "$HOME/.photoprint/shortcuts"),
 #endif
+
+	// Null-terminated
 	ConfigTemplate()
 };
 

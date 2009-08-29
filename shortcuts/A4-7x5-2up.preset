@@ -1,3 +1,6 @@
+[Shortcut]
+#_("A4 - 7x5, 2-up")
+DisplayName=A4 - 7x5, 2-up
 
 [Layout_NUp]
 Rows=2

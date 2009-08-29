@@ -1,3 +1,6 @@
+[Shortcut]
+#_("Letter - 8x6, 1-up")
+DisplayName=Letter - 8x6, 1-up
 
 [Layout_NUp]
 Rows=1
