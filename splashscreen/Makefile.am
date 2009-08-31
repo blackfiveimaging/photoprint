@@ -13,3 +13,5 @@ libsplashscreen_la_LDFLAGS = -static
 
 splashscreendata.cpp:
 	gdk-pixbuf-csource >splashscreendata.cpp SplashScreen.tif
+
+EXTRA_DIST = splashscreendata.cpp

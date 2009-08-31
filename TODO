@@ -1,8 +1,13 @@
 URGENT:
 ~~~~~~~
 
+FIX segfault when gutenprint data files aren't found.
+
 Add support for the -o options sideband with CUPS lpr.  Add some kind of warning that options relying
 on that sideband are unavailable on Win32.
+
+Add a global "Panic" system which will be used instead of throw/catch for global initialisers.
+(Be careful with initialization though - initialize on first use.)
 
 | DONE Allow "supplementary" presets to be loaded without resetting everything - this would allow, for instance,
 | a special-purpose preset to be loaded for specific layouts, or for profiling.

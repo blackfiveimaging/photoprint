@@ -225,6 +225,7 @@ libsplashscreen_la_SOURCES = \
 
 BUILT_SOURCES = splashscreendata.cpp
 libsplashscreen_la_LDFLAGS = -static
+EXTRA_DIST = splashscreendata.cpp
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

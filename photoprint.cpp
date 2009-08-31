@@ -200,6 +200,8 @@ int main(int argc,char **argv)
 	}
 	catch(const char *err)
 	{
+		if(have_gtk)
+			ErrorMessage_Dialog(err);
 		cerr << "Error: " << err << endl;
 	}
 	catch(int retcode)

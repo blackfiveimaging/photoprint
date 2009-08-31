@@ -30,6 +30,7 @@ gp_cppsupport/gprinter.cpp
 pp_scaling.cpp
 pp_sigcontrol.cpp
 pp_units.cpp
+gp_cppsupport/gprintersettings.cpp
 profilemanager/lcmswrapper.cpp
 profilemanager/profileselector.cpp
 stpui_widgets/dimension.c
