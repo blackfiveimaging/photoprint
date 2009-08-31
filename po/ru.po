@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-29 20:07+0100\n"
+"POT-Creation-Date: 2009-08-31 19:03+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Очередь печати не найдена"
 
-#: gp_cppsupport/gprinter.cpp:349
+#: gp_cppsupport/gprinter.cpp:353
 msgid "Unable to generate print data"
 msgstr "Невозможно создать печатаемые данные"
 
@@ -1018,6 +1018,12 @@ msgstr "Сантиметр"
 #: pp_units.cpp:151
 msgid "Units"
 msgstr "Единицы измерения"
+
+#: gp_cppsupport/gprintersettings.cpp:411
+msgid ""
+"Can't obtain printer from Gutenprint\n"
+"Check STP_DATA_PATH and Gutenprint version!"
+msgstr ""
 
 #: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-29 20:07+0100\n"
+"POT-Creation-Date: 2009-08-31 19:03+0100\n"
 "PO-Revision-Date: 2009-08-01 10:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <ubuntu-l10n-cs@lists.ubuntu.cz>\n"
@@ -948,7 +948,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Tisková fronta nebyla nalezena"
 
-#: gp_cppsupport/gprinter.cpp:349
+#: gp_cppsupport/gprinter.cpp:353
 msgid "Unable to generate print data"
 msgstr "Nelze vygenerovat tisková data"
 
@@ -1015,6 +1015,12 @@ msgstr "Centimetry"
 #: pp_units.cpp:151
 msgid "Units"
 msgstr "Jednotky"
+
+#: gp_cppsupport/gprintersettings.cpp:411
+msgid ""
+"Can't obtain printer from Gutenprint\n"
+"Check STP_DATA_PATH and Gutenprint version!"
+msgstr ""
 
 #: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"

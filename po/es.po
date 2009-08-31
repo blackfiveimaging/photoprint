@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-29 20:07+0100\n"
+"POT-Creation-Date: 2009-08-31 19:03+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -962,7 +962,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configurar impresora"
 
-#: gp_cppsupport/gprinter.cpp:349
+#: gp_cppsupport/gprinter.cpp:353
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Generando datos de impresión..."
@@ -1031,6 +1031,12 @@ msgstr "Centímetros"
 #: pp_units.cpp:151
 msgid "Units"
 msgstr "Unidades"
+
+#: gp_cppsupport/gprintersettings.cpp:411
+msgid ""
+"Can't obtain printer from Gutenprint\n"
+"Check STP_DATA_PATH and Gutenprint version!"
+msgstr ""
 
 #: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"

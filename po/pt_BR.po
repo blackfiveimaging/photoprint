@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-29 20:07+0100\n"
+"POT-Creation-Date: 2009-08-31 19:03+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -963,7 +963,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configuração da Impressora "
 
-#: gp_cppsupport/gprinter.cpp:349
+#: gp_cppsupport/gprinter.cpp:353
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Gerando dados de impressão..."
@@ -1032,6 +1032,12 @@ msgstr "Centímetros"
 #: pp_units.cpp:151
 msgid "Units"
 msgstr "Unidades"
+
+#: gp_cppsupport/gprintersettings.cpp:411
+msgid ""
+"Can't obtain printer from Gutenprint\n"
+"Check STP_DATA_PATH and Gutenprint version!"
+msgstr ""
 
 #: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"
