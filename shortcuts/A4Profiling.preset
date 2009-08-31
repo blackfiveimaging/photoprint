@@ -1,6 +1,8 @@
 [Shortcut]
 #_("Profiling Defaults - A4")
 DisplayName=Profiling Defaults - A4
+#_("Disables borderless mode, sets Colour Correction to 'Uncorrected', disabled existing printer profile and set single layout with zero margins."
+ToolTip="Disables borderless mode, sets Colour Correction to 'Uncorrected', disabled existing printer profile and set single layout with zero margins."
 
 [Layout_Single]
 LeftMargin=0

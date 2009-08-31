@@ -5,17 +5,18 @@ DisplayName=A4 - 10x8, 1-up
 [Layout_NUp]
 Rows=1
 Columns=1
-HGutter=9
-VGutter=64
-LeftMargin=16
-RightMargin=16
-TopMargin=16
-BottomMargin=16
+HGutter=0
+VGutter=36
+LeftMargin=14
+RightMargin=14
+TopMargin=14
+BottomMargin=36
+CellWidth=576
+CellHeight=720
+AbsoluteMode=1
 
 [Layout]
 LayoutType=NUp
-AllowCropping=0
-Rotation=0
 
 [Print]
 PageSize=A4

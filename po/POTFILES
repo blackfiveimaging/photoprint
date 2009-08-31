@@ -36,4 +36,12 @@
      ../stpui_widgets/stpui_optionbook.c \
      ../miscwidgets/patheditor.cpp \
      ../miscwidgets/imageselector.cpp \
-     ../support/progressbar.cpp
+     ../support/progressbar.cpp \
+     ../shortcuts/A4-10x8-1up.preset \
+     ../shortcuts/A4Profiling.preset \
+     ../shortcuts/Letter-8x6-1up.preset \
+     ../shortcuts/A4-7x5-2up.preset \
+     ../shortcuts/Letter-10x8-1up.preset \
+     ../shortcuts/LetterProfiling.preset \
+     ../shortcuts/A4-8x6-1up.preset \
+     ../shortcuts/Letter-7x5-2up.preset 

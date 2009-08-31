@@ -49,6 +49,9 @@ ConfigTemplate Layout_NUpDB::Template[]=
 	ConfigTemplate("RightMargin",int(-1)),
 	ConfigTemplate("TopMargin",int(-1)),
 	ConfigTemplate("BottomMargin",int(-1)),
+	ConfigTemplate("CellWidth",int(0)),
+	ConfigTemplate("CellHeight",int(0)),
+	ConfigTemplate("AbsoluteMode",int(0)),
 	ConfigTemplate()
 };
 
@@ -364,6 +367,11 @@ void Layout_NUp::DBToLayout(LayoutDB &db)
 	SetGutters(db.nupdb.FindInt("HGutter"),db.nupdb.FindInt("VGutter"));
 	SetMargins(db.nupdb.FindInt("LeftMargin"),db.nupdb.FindInt("RightMargin"),
 		db.nupdb.FindInt("TopMargin"),db.nupdb.FindInt("BottomMargin"));
+	if(db.nupdb.FindInt("AbsoluteMode"))
+	{
+		SetCellWidth(db.nupdb.FindInt("CellWidth"));
+		SetCellHeight(db.nupdb.FindInt("CellHeight"));
+	}
 }
 
 
@@ -379,6 +387,9 @@ void Layout_NUp::LayoutToDB(LayoutDB &db)
 	db.nupdb.SetInt("RightMargin",rightmargin);
 	db.nupdb.SetInt("TopMargin",topmargin);
 	db.nupdb.SetInt("BottomMargin",bottommargin);
+	db.nupdb.SetInt("CellWidth",GetCellWidth());
+	db.nupdb.SetInt("CellHeight",GetCellHeight());
+	db.nupdb.SetInt("AbsoluteMode",absolutemode);
 }
 
 

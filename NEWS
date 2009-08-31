@@ -46,7 +46,13 @@ PhotoPrint-0.4.1
 
   * ImageInfo and Effects now work in Single Layout.
 
-  * Added "Supplementary Preset" capability.
+  * Added "Supplementary Preset" (Shortcut) capability.
+
+  * Added shortcuts for Profiling on Letter and A4 paper, and for a few standard
+    photo sizes, also on Letter and A4 paper.
+
+  * Nup control box now correctly updates if the units are changed while in 
+    "Specify size" mode.
 
 
 PhotoPrint-0.4.0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 19:57+0100\n"
+"POT-Creation-Date: 2009-08-29 20:07+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -27,6 +27,11 @@ msgstr "Uddata"
 #: dialogs.cpp:184
 msgid "About"
 msgstr "Om"
+
+#: dialogs.cpp:195
+#, fuzzy
+msgid "PhotoPrint "
+msgstr "Afslut PhotoPrint"
 
 #: dialogs.cpp:234
 msgid "Set paths..."
@@ -135,7 +140,7 @@ msgstr "Farvegengivelsesmåde:"
 
 #: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
 #: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:230
+#: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Side:"
 
@@ -215,39 +220,39 @@ msgstr "Radius: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Mængde: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:133
+#: menucheck.cpp:21 pp_menu_file.cpp:134
 msgid "_File"
 msgstr "_Fil"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:135
+#: menucheck.cpp:23 pp_menu_file.cpp:136
 msgid "_Open Preset..."
 msgstr "Åben f_orudindstillet..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:135
+#: menucheck.cpp:23 pp_menu_file.cpp:136
 msgid "Open a preset"
 msgstr "Åbn et sæt af forudindstillinger"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:136
+#: menucheck.cpp:24 pp_menu_file.cpp:137
 msgid "_Save Preset"
 msgstr "Gem forudind_stilling"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:136
+#: menucheck.cpp:24 pp_menu_file.cpp:137
 msgid "Save a preset"
 msgstr "Gem et sæt af forudindstillinger"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:137
+#: menucheck.cpp:25 pp_menu_file.cpp:138
 msgid "Save _As..."
 msgstr "_Gem som..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:137
+#: menucheck.cpp:25 pp_menu_file.cpp:138
 msgid "Save preset with a new filename"
 msgstr "Gem forudindstilling med et filnavn"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:138
+#: menucheck.cpp:26 pp_menu_file.cpp:139
 msgid "Save _Default"
 msgstr "Gem stan_dard"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:138
+#: menucheck.cpp:26 pp_menu_file.cpp:139
 msgid "Save preset as the default"
 msgstr "Gem forudindstillet som standard"
 
@@ -255,39 +260,39 @@ msgstr "Gem forudindstillet som standard"
 msgid "E_xport TIFF..."
 msgstr "E_ksporter TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:140
+#: menucheck.cpp:27 pp_menu_file.cpp:141
 msgid "Export pages as TIFF files"
 msgstr "Eksporter sider som TIFF-filer"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:142
+#: menucheck.cpp:28 pp_menu_file.cpp:143
 msgid "Print Pre_view..."
 msgstr "Udskriv forhånds_visning..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:142
+#: menucheck.cpp:28 pp_menu_file.cpp:143
 msgid "Preview how the printed page will look"
 msgstr "Se hvordan udskriften vil blive"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:143
+#: menucheck.cpp:29 pp_menu_file.cpp:144
 msgid "Print S_etup..."
 msgstr "Udskrifts indstilling_er..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:143
+#: menucheck.cpp:29 pp_menu_file.cpp:144
 msgid "Set printer driver and options"
 msgstr "Indstil printerdrivere og indstillinger"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:144
+#: menucheck.cpp:30 pp_menu_file.cpp:145
 msgid "_Print"
 msgstr "_Udskriv"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:144
+#: menucheck.cpp:30 pp_menu_file.cpp:145
 msgid "Print pages"
 msgstr "Udskriv sider"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:145
+#: menucheck.cpp:31 pp_menu_file.cpp:146
 msgid "_Quit"
 msgstr "_Afslut"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:145
+#: menucheck.cpp:31 pp_menu_file.cpp:146
 msgid "Exit PhotoPrint"
 msgstr "Afslut PhotoPrint"
 
@@ -736,15 +741,15 @@ msgstr "V:"
 msgid "V:"
 msgstr "L:"
 
-#: pp_layout_single.cpp:258
+#: pp_layout_single.cpp:261
 msgid "Manual scaling"
 msgstr "Manuel skalering"
 
-#: pp_layout_single.cpp:274
+#: pp_layout_single.cpp:277
 msgid "H (%):"
 msgstr "V (%):"
 
-#: pp_layout_single.cpp:288
+#: pp_layout_single.cpp:291
 msgid "V (%):"
 msgstr "L (%):"
 
@@ -796,33 +801,37 @@ msgstr "_Indsæt"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Indsæt indholdet af klippebordet som et nyt billede"
 
-#: pp_menu_file.cpp:36
+#: pp_menu_file.cpp:37
 msgid "Open preset..."
 msgstr "Åben forudindstillet..."
 
-#: pp_menu_file.cpp:62
+#: pp_menu_file.cpp:63
 msgid "Save preset..."
 msgstr "Gem forudindstillet..."
 
-#: pp_menu_file.cpp:113
+#: pp_menu_file.cpp:114
 msgid "Generating print data..."
 msgstr "Danner printerdata..."
 
-#: pp_menu_file.cpp:139
+#: pp_menu_file.cpp:140
 msgid "E_xport"
 msgstr "E_xport"
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 msgid "Export _TIFF..."
 msgstr "Export _TIFF..."
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 msgid "Export _JPEG..."
 msgstr "Export _JPEG..."
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 msgid "Export pages as JPEG files"
 msgstr "Exporter sider som JPEG filer"
+
+#: pp_menu_shortcuts.cpp:87
+msgid "_Shortcuts"
+msgstr ""
 
 #: pp_menu_image.cpp:58
 msgid "Open File"
@@ -939,7 +948,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Indstil printer"
 
-#: gp_cppsupport/gprinter.cpp:352
+#: gp_cppsupport/gprinter.cpp:349
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Danner printerdata..."
@@ -948,41 +957,41 @@ msgstr "Danner printerdata..."
 msgid "Algorithm:"
 msgstr "Algoritme:"
 
-#: pp_sigcontrol.cpp:181
+#: pp_sigcontrol.cpp:185
 msgid "Columns:"
 msgstr "Kolonne:"
 
-#: pp_sigcontrol.cpp:195
+#: pp_sigcontrol.cpp:199
 msgid "Rows:"
 msgstr "Række:"
 
-#: pp_sigcontrol.cpp:209 pp_sigcontrol.cpp:223
+#: pp_sigcontrol.cpp:213 pp_sigcontrol.cpp:227
 msgid "Gap:"
 msgstr "Mellemrum:"
 
-#: pp_sigcontrol.cpp:248
+#: pp_sigcontrol.cpp:252
 msgid "Width:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:262
+#: pp_sigcontrol.cpp:266
 #, fuzzy
 msgid "Height:"
 msgstr "Højre:"
 
-#: pp_sigcontrol.cpp:274
+#: pp_sigcontrol.cpp:278
 #, fuzzy
 msgid "From selected image"
 msgstr "Fravælg alle billeder"
 
-#: pp_sigcontrol.cpp:334
+#: pp_sigcontrol.cpp:338
 msgid "Layout"
 msgstr "Layout"
 
-#: pp_sigcontrol.cpp:337
+#: pp_sigcontrol.cpp:341
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:342
 msgid "Specify image dimensions"
 msgstr ""
 
@@ -1010,27 +1019,27 @@ msgstr "Centimeter"
 msgid "Units"
 msgstr "Enheder"
 
-#: profilemanager/lcmswrapper.cpp:524
+#: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"
 msgstr "Perceptuel"
 
-#: profilemanager/lcmswrapper.cpp:525
+#: profilemanager/lcmswrapper.cpp:534
 msgid "Relative Colorimetric"
 msgstr "Relativ kolorimetrisk"
 
-#: profilemanager/lcmswrapper.cpp:526
+#: profilemanager/lcmswrapper.cpp:535
 msgid "Relative Colorimetric with BPC"
 msgstr "Relativ kolorimetrisk med BPC"
 
-#: profilemanager/lcmswrapper.cpp:527
+#: profilemanager/lcmswrapper.cpp:536
 msgid "Saturation"
 msgstr "Mætning"
 
-#: profilemanager/lcmswrapper.cpp:528
+#: profilemanager/lcmswrapper.cpp:537
 msgid "Absolute Colorimetric"
 msgstr "Absolut kolorimetrisk"
 
-#: profilemanager/lcmswrapper.cpp:533
+#: profilemanager/lcmswrapper.cpp:542
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
@@ -1038,14 +1047,14 @@ msgstr ""
 "Tilstræber et venligt fotografisk resultat, gennem bevaring af forholdet "
 "mellem farverne, og undgår klipning af uopnåelige farver"
 
-#: profilemanager/lcmswrapper.cpp:534
+#: profilemanager/lcmswrapper.cpp:543
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr ""
 "Forsøger at bevare de oprindelige farver, relativt til hvid-punkts afvigelse."
 
-#: profilemanager/lcmswrapper.cpp:535
+#: profilemanager/lcmswrapper.cpp:544
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
@@ -1055,7 +1064,7 @@ msgstr ""
 "afvigelse. Anvender sort-punkts kompensation for at undgå klipning i højlys "
 "og skygger."
 
-#: profilemanager/lcmswrapper.cpp:536
+#: profilemanager/lcmswrapper.cpp:545
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
@@ -1063,7 +1072,7 @@ msgstr ""
 "Forsøger at frembringe lysere, mere mættede farver, på bekostning af "
 "forholdet mellem farverne."
 
-#: profilemanager/lcmswrapper.cpp:537
+#: profilemanager/lcmswrapper.cpp:546
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1071,7 +1080,7 @@ msgstr ""
 "Gengiver de originale farver (inklusive hvid-punkt) så godt som muligt, a.h."
 "t. sammenligning.  Klipper uopnåelige farver."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:405
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
 msgid "Other..."
 msgstr "Andet..."
 
@@ -1133,7 +1142,7 @@ msgstr "Tilføj..."
 msgid "Remove"
 msgstr "Fjern"
 
-#: miscwidgets/imageselector.cpp:384
+#: miscwidgets/imageselector.cpp:391
 msgid "Image"
 msgstr "Billede"
 

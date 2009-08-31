@@ -6,16 +6,17 @@ DisplayName=A4 - 7x5, 2-up
 Rows=2
 Columns=1
 HGutter=0
-VGutter=64
-LeftMargin=43
-RightMargin=43
-TopMargin=29
-BottomMargin=29
+VGutter=36
+LeftMargin=45
+RightMargin=45
+TopMargin=43
+BottomMargin=43
+CellWidth=504
+CellHeight=360
+AbsoluteMode=1
 
 [Layout]
 LayoutType=NUp
-AllowCropping=0
-Rotation=0
 
 [Print]
 PageSize=A4

@@ -13,14 +13,26 @@ on that sideband are unavailable on Win32.
 | Need to install supplementary presets in a folder somewhere, and have another searchpath for finding them.
 
 
-Need to sort out resource locations on Win32
+Need to sort out resource locations on Win32.  Perhaps abstract away the $HOME/.photoprint to something
+platform specific.
+
+Thus instead of specifying "$HOME/.photoprint" as a path, we could use
+"$PHOTOPRINT_HOME" instead.
+
+Add support to the SearchPathHandler for substituting from a list of prefixes.
+
+searchpath.AddPrefix("$PHOTOPRINT_HOME","$HOME/.photoprint");
+
+Make SearchPathHandler scan recursively.
+
+Need to provide an easy way to install a profile - ideally from the Colour Management dialog.
+(Resource management in general?)
 
 Win32 installer?
 
 
-Need to fix saving of N-up layouts - currently if you set the cell size and save, when you reload the layout comes back in
-rows/cols mode and the cells lose their precise size
-
+| DONE Need to fix saving of N-up layouts - currently if you set the cell size and save, when you reload the layout comes back in
+| rows/cols mode and the cells lose their precise size.  Need to save the Absolute Mode flag, and padding.
 
 
 | Deadlock with high-res previews (or histogram?) and Poster View.
@@ -32,15 +44,15 @@ rows/cols mode and the cells lose their precise size
 
 Need to detect Gutenprint driver from Foomatic PPDs as well as Gutenprint ones.
 
-| Add an ImageSource_Histogram class which will pass through the image data, but record a histogram
+| DONE Add an ImageSource_Histogram class which will pass through the image data, but record a histogram
 | as it goes.
 | The histogram itself will be a separate class owned by the application but passed by reference when
 | the imagesource is created.
 
-| Ideally will generate the histogram data while rendering a high-res preview
-- but how to handle notification of completion?
+| DONE Ideally will generate the histogram data while rendering a high-res preview
+| - but how to handle notification of completion?
 
-| Could be done using mutex - if the histogram display widget tries to obtain the histogram and
+| DONE Could be done using mutex - if the histogram display widget tries to obtain the histogram and
 | fails, it could trigger an idle-handler or a timer, and when that's triggered it tries again.
 
 
@@ -51,15 +63,15 @@ Job cancellation isn't working - what's been spooled so far is still being print
 
 Man page is not being installed at make install time.
 
-| FIX behaviour if a bad file is dropped into PhotoPrint - the currently visible image vanishes and becomes
+| FIXED behaviour if a bad file is dropped into PhotoPrint - the currently visible image vanishes and becomes
 | unselectable until you flip to another page or adjust the layout.
 
-| FIX segfault if a file with .jpg filename isn't in fact a JPEG.
+| FIXED segfault if a file with .jpg filename isn't in fact a JPEG.
 
-| FIX segfault when swapping between print preview modes.  Stale CMSTransform
+| FIXED segfault when swapping between print preview modes.  Stale CMSTransform
 | in high-res preview thread?
 
-| DEADLOCK with high-res previews and Set Colour Profile dialog.
+| FIXED DEADLOCK with high-res previews and Set Colour Profile dialog.
 
 | On some systems the -oraw flag is being added to the print command even when
 | using the Postscript driver.  -  Should now be fixed.
@@ -67,7 +79,7 @@ Man page is not being installed at make install time.
 Have a segfault problem in certain circumstances - something to do with multiple pages,
 deleting images and the rendering threads?  Possibly fixed by the deadlock fix above.
 
-| Can anything to be done to make rotation operations cancellable?  Add some kind of "TestCancel"
+| DONE Can anything to be done to make rotation operations cancellable?  Add some kind of "TestCancel"
 | callback function to the imagesource, perhaps?  It need only be used for lengthy operations
 | such as rotation.
 

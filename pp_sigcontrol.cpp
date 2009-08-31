@@ -166,6 +166,10 @@ void pp_sigcontrol_set_unit(pp_SigControl *ob,enum Units unit)
 		dimension_set_unit(DIMENSION(ob->hgutter),unit);
 	if(ob->vgutter)
 		dimension_set_unit(DIMENSION(ob->vgutter),unit);
+	if(ob->width)
+		dimension_set_unit(DIMENSION(ob->width),unit);
+	if(ob->height)
+		dimension_set_unit(DIMENSION(ob->height),unit);
 }
 
 
@@ -338,6 +342,8 @@ pp_sigcontrol_new (Layout_NUp *sig,enum Units unit)
 	comboopts.Add("Dimensions",_("Specify image dimensions"));
 
 	ob->combo=simplecombo_new(comboopts);
+	if(sig->GetAbsolute())
+		simplecombo_set(SIMPLECOMBO(ob->combo),"Dimensions");
 	gtk_box_pack_start(GTK_BOX(ob->vbox),ob->combo,FALSE,FALSE,8);
 	g_signal_connect(G_OBJECT(ob->combo),"changed",G_CALLBACK(combo_changed),ob);
 	gtk_widget_show(ob->combo);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-07-25 19:57+0100\n"
+"POT-Creation-Date: 2009-08-29 20:07+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -28,6 +28,11 @@ msgstr ""
 #: dialogs.cpp:184
 msgid "About"
 msgstr "Acerca de"
+
+#: dialogs.cpp:195
+#, fuzzy
+msgid "PhotoPrint "
+msgstr "Salir de Photoprint"
 
 #: dialogs.cpp:234
 msgid "Set paths..."
@@ -138,7 +143,7 @@ msgstr ""
 
 #: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
 #: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:230
+#: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Página:"
 
@@ -218,39 +223,39 @@ msgstr ""
 msgid "Amount: %1.2f"
 msgstr ""
 
-#: menucheck.cpp:21 pp_menu_file.cpp:133
+#: menucheck.cpp:21 pp_menu_file.cpp:134
 msgid "_File"
 msgstr "_Fichero"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:135
+#: menucheck.cpp:23 pp_menu_file.cpp:136
 msgid "_Open Preset..."
 msgstr "_Abrir Preset"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:135
+#: menucheck.cpp:23 pp_menu_file.cpp:136
 msgid "Open a preset"
 msgstr "Abrir un preset"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:136
+#: menucheck.cpp:24 pp_menu_file.cpp:137
 msgid "_Save Preset"
 msgstr "_Guardar Preset"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:136
+#: menucheck.cpp:24 pp_menu_file.cpp:137
 msgid "Save a preset"
 msgstr "Grabar un preset"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:137
+#: menucheck.cpp:25 pp_menu_file.cpp:138
 msgid "Save _As..."
 msgstr "Guardar _como"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:137
+#: menucheck.cpp:25 pp_menu_file.cpp:138
 msgid "Save preset with a new filename"
 msgstr "Guardar preset con un nuevo nombre"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:138
+#: menucheck.cpp:26 pp_menu_file.cpp:139
 msgid "Save _Default"
 msgstr "Guradar por _Defecto"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:138
+#: menucheck.cpp:26 pp_menu_file.cpp:139
 msgid "Save preset as the default"
 msgstr "Guardar como preset por defecto"
 
@@ -259,39 +264,39 @@ msgstr "Guardar como preset por defecto"
 msgid "E_xport TIFF..."
 msgstr "Exportar a TIFF"
 
-#: menucheck.cpp:27 pp_menu_file.cpp:140
+#: menucheck.cpp:27 pp_menu_file.cpp:141
 msgid "Export pages as TIFF files"
 msgstr "Exportar páginas como ficheros TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:142
+#: menucheck.cpp:28 pp_menu_file.cpp:143
 msgid "Print Pre_view..."
 msgstr "Pre_visualizar..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:142
+#: menucheck.cpp:28 pp_menu_file.cpp:143
 msgid "Preview how the printed page will look"
 msgstr "Previsualizar el aspecto de la impresión."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:143
+#: menucheck.cpp:29 pp_menu_file.cpp:144
 msgid "Print S_etup..."
 msgstr "C_onfigurar Impresora..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:143
+#: menucheck.cpp:29 pp_menu_file.cpp:144
 msgid "Set printer driver and options"
 msgstr "Configurar opciones de impresión"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:144
+#: menucheck.cpp:30 pp_menu_file.cpp:145
 msgid "_Print"
 msgstr "Im_primir"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:144
+#: menucheck.cpp:30 pp_menu_file.cpp:145
 msgid "Print pages"
 msgstr "Imprimir páginas"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:145
+#: menucheck.cpp:31 pp_menu_file.cpp:146
 msgid "_Quit"
 msgstr "_Salir"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:145
+#: menucheck.cpp:31 pp_menu_file.cpp:146
 msgid "Exit PhotoPrint"
 msgstr "Salir de Photoprint"
 
@@ -747,16 +752,16 @@ msgstr "H:"
 msgid "V:"
 msgstr "H:"
 
-#: pp_layout_single.cpp:258
+#: pp_layout_single.cpp:261
 #, fuzzy
 msgid "Manual scaling"
 msgstr "Tamaño _Manual"
 
-#: pp_layout_single.cpp:274
+#: pp_layout_single.cpp:277
 msgid "H (%):"
 msgstr "H:"
 
-#: pp_layout_single.cpp:288
+#: pp_layout_single.cpp:291
 msgid "V (%):"
 msgstr "H:"
 
@@ -808,37 +813,41 @@ msgstr "_Pegar"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Pegar el portapapeles como imagen"
 
-#: pp_menu_file.cpp:36
+#: pp_menu_file.cpp:37
 msgid "Open preset..."
 msgstr "Abrir preset"
 
-#: pp_menu_file.cpp:62
+#: pp_menu_file.cpp:63
 msgid "Save preset..."
 msgstr "Guardar preset..."
 
-#: pp_menu_file.cpp:113
+#: pp_menu_file.cpp:114
 msgid "Generating print data..."
 msgstr "Generando datos de impresión..."
 
-#: pp_menu_file.cpp:139
+#: pp_menu_file.cpp:140
 #, fuzzy
 msgid "E_xport"
 msgstr "E_xportar Tiff"
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 #, fuzzy
 msgid "Export _TIFF..."
 msgstr "Exportar a TIFF"
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 #, fuzzy
 msgid "Export _JPEG..."
 msgstr "Exportar a TIFF"
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 #, fuzzy
 msgid "Export pages as JPEG files"
 msgstr "Exportar páginas como ficheros TIFF"
+
+#: pp_menu_shortcuts.cpp:87
+msgid "_Shortcuts"
+msgstr ""
 
 #: pp_menu_image.cpp:58
 msgid "Open File"
@@ -953,7 +962,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configurar impresora"
 
-#: gp_cppsupport/gprinter.cpp:352
+#: gp_cppsupport/gprinter.cpp:349
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Generando datos de impresión..."
@@ -962,40 +971,40 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
-#: pp_sigcontrol.cpp:181
+#: pp_sigcontrol.cpp:185
 msgid "Columns:"
 msgstr "Columnas:"
 
-#: pp_sigcontrol.cpp:195
+#: pp_sigcontrol.cpp:199
 msgid "Rows:"
 msgstr "Filas:"
 
-#: pp_sigcontrol.cpp:209 pp_sigcontrol.cpp:223
+#: pp_sigcontrol.cpp:213 pp_sigcontrol.cpp:227
 msgid "Gap:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:248
+#: pp_sigcontrol.cpp:252
 msgid "Width:"
 msgstr "Ancho:"
 
-#: pp_sigcontrol.cpp:262
+#: pp_sigcontrol.cpp:266
 msgid "Height:"
 msgstr "Alto:"
 
-#: pp_sigcontrol.cpp:274
+#: pp_sigcontrol.cpp:278
 #, fuzzy
 msgid "From selected image"
 msgstr "Deselecionar todas las imágenes"
 
-#: pp_sigcontrol.cpp:334
+#: pp_sigcontrol.cpp:338
 msgid "Layout"
 msgstr "Disposición"
 
-#: pp_sigcontrol.cpp:337
+#: pp_sigcontrol.cpp:341
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:342
 msgid "Specify image dimensions"
 msgstr ""
 
@@ -1023,58 +1032,58 @@ msgstr "Centímetros"
 msgid "Units"
 msgstr "Unidades"
 
-#: profilemanager/lcmswrapper.cpp:524
+#: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:525
+#: profilemanager/lcmswrapper.cpp:534
 msgid "Relative Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:526
+#: profilemanager/lcmswrapper.cpp:535
 msgid "Relative Colorimetric with BPC"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:527
+#: profilemanager/lcmswrapper.cpp:536
 msgid "Saturation"
 msgstr "Saturación"
 
-#: profilemanager/lcmswrapper.cpp:528
+#: profilemanager/lcmswrapper.cpp:537
 msgid "Absolute Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:533
+#: profilemanager/lcmswrapper.cpp:542
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:534
+#: profilemanager/lcmswrapper.cpp:543
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:535
+#: profilemanager/lcmswrapper.cpp:544
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
 "and shadows."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:536
+#: profilemanager/lcmswrapper.cpp:545
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:537
+#: profilemanager/lcmswrapper.cpp:546
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
 msgstr ""
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:405
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
 msgid "Other..."
 msgstr "Otros..."
 
@@ -1140,7 +1149,7 @@ msgstr "Añadir..."
 msgid "Remove"
 msgstr "Quitar"
 
-#: miscwidgets/imageselector.cpp:384
+#: miscwidgets/imageselector.cpp:391
 msgid "Image"
 msgstr "Imágen"
 

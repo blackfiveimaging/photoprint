@@ -37,7 +37,7 @@ class ShortcutMenuItem : public ConfigFile, public ConfigDB
 		action.name=action.label=FindString("DisplayName");
 		action.stock_id=NULL;
 		action.accelerator=NULL;
-		action.tooltip=FindString("DisplayName");
+		action.tooltip=FindString("ToolTip");
 		action.callback=G_CALLBACK(selected);
 
 		gtk_action_group_add_actions_full(group,&action,1,this,destroy);
