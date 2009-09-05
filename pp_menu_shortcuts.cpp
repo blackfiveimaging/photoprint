@@ -75,7 +75,7 @@ ConfigTemplate ShortcutMenuItem::Template[]=
 
 static void file_profiling_mode(GtkAction *action,gpointer *ob)
 {
-	pp_MainWindow *mw=(pp_MainWindow *)ob;	
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	char *fn=substitute_homedir("$HOME" SEARCHPATH_SEPARATOR_S ".photoprint" SEARCHPATH_SEPARATOR_S "profiling.preset");
 	mw->state->ParseSupplementaryConfig(fn);
 	free(fn);
