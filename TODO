@@ -1,7 +1,11 @@
 URGENT:
 ~~~~~~~
 
-FIX segfault when gutenprint data files aren't found.
+| FIX segfault when gutenprint data files aren't found.
+
+Add support for more detailed cropping rectangle.
+
+Sort out problems with certain strings not being collected into the message catalogues.
 
 Add support for the -o options sideband with CUPS lpr.  Add some kind of warning that options relying
 on that sideband are unavailable on Win32.
@@ -33,7 +37,7 @@ Make SearchPathHandler scan recursively.
 Need to provide an easy way to install a profile - ideally from the Colour Management dialog.
 (Resource management in general?)
 
-Win32 installer?
+| Win32 installer?  Using InstallJammer for now
 
 
 | DONE Need to fix saving of N-up layouts - currently if you set the cell size and save, when you reload the layout comes back in

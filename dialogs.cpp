@@ -280,7 +280,7 @@ void Paths_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 	gtk_box_pack_start(GTK_BOX(hbox),borderpath,TRUE,TRUE,0);
 	gtk_widget_show(borderpath);
 
-	GtkWidget *imagesel=imageselector_new(&dd.sp,false);
+	GtkWidget *imagesel=imageselector_new(&dd.sp,GTK_SELECTION_NONE);
 	dd.is=IMAGESELECTOR(imagesel);
 	g_signal_connect(imagesel,"changed",G_CALLBACK(paths_changed),&dd);
 	gtk_box_pack_start(GTK_BOX(hbox),imagesel,FALSE,FALSE,0);
@@ -311,7 +311,7 @@ void Paths_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 	gtk_box_pack_start(GTK_BOX(hbox),bgpath,TRUE,TRUE,0);
 	gtk_widget_show(bgpath);
 
-	imagesel=imageselector_new(&bgdd.sp,false);
+	imagesel=imageselector_new(&bgdd.sp,GTK_SELECTION_NONE);
 	bgdd.is=IMAGESELECTOR(imagesel);
 	g_signal_connect(imagesel,"changed",G_CALLBACK(paths_changed),&bgdd);
 	gtk_box_pack_start(GTK_BOX(hbox),imagesel,FALSE,FALSE,0);
@@ -354,7 +354,7 @@ char *ImageMask_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
 		NULL);
 	gtk_window_set_default_size(GTK_WINDOW(dialog),250,350);
 
-	GtkWidget *imagesel=imageselector_new(&state.bordersearchpath,true);
+	GtkWidget *imagesel=imageselector_new(&state.bordersearchpath,GTK_SELECTION_SINGLE);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),imagesel,TRUE,TRUE,0);
 	gtk_widget_show(imagesel);
 
@@ -788,7 +788,7 @@ char *Background_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
 		NULL);
 	gtk_window_set_default_size(GTK_WINDOW(dialog),250,350);
 
-	GtkWidget *imagesel=imageselector_new(&state.backgroundsearchpath,true);
+	GtkWidget *imagesel=imageselector_new(&state.backgroundsearchpath,GTK_SELECTION_SINGLE);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),imagesel,TRUE,TRUE,0);
 	gtk_widget_show(imagesel);
 

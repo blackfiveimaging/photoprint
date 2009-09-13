@@ -10,6 +10,7 @@ menucheck.cpp
 photoprint.cpp
 pixbufthumbnail/egg-pixbuf-thumbnail.c
 pp_cms.cpp
+pp_histogram.cpp
 pp_imagecontrol.cpp
 pp_imageinfo.cpp
 pp_layout_carousel.cpp
