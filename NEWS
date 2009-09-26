@@ -54,6 +54,8 @@ PhotoPrint-0.4.1
   * Nup control box now correctly updates if the units are changed while in 
     "Specify size" mode.
 
+  * Added de localization - thanks to Heinrich Schwietering
+
 
 PhotoPrint-0.4.0
 
