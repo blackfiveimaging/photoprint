@@ -1,6 +1,8 @@
 URGENT:
 ~~~~~~~
 
+| FIX defaulting of printer options when changing to "Print to file" mode.
+
 | FIX segfault when gutenprint data files aren't found.
 
 Add support for more detailed cropping rectangle.

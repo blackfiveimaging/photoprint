@@ -56,6 +56,9 @@ PhotoPrint-0.4.1
 
   * Added de localization - thanks to Heinrich Schwietering
 
+  * Fixed missing "else" which resulted in settings being reset on queue change even
+    if the driver hadn't changed.
+
 
 PhotoPrint-0.4.0
 
