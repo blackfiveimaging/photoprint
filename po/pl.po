@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-31 19:03+0100\n"
+"POT-Creation-Date: 2009-10-02 00:51+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -645,6 +645,10 @@ msgstr "Profil CMYK:"
 msgid "Colour Management"
 msgstr "Zarządzanie kolorem"
 
+#: pp_histogram.cpp:279
+msgid "Histogram"
+msgstr ""
+
 #: pp_imagecontrol.cpp:128
 msgid "Effects"
 msgstr "Efekty"
@@ -1082,7 +1086,7 @@ msgstr ""
 "Imituje oryginalne kolory (wraz z punktem bieli) tak dokładnie jak to "
 "możliwe. Obcina kolory spoza zakresu."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:468
 msgid "Other..."
 msgstr "Inne..."
 
@@ -1144,7 +1148,7 @@ msgstr "Dodaj..."
 msgid "Remove"
 msgstr "Usuń"
 
-#: miscwidgets/imageselector.cpp:391
+#: miscwidgets/imageselector.cpp:448
 msgid "Image"
 msgstr "Obraz"
 

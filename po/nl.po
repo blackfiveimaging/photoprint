@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-31 19:03+0100\n"
+"POT-Creation-Date: 2009-10-02 00:51+0100\n"
 "PO-Revision-Date:  2009-07-21 21:07+0100\n"
 "Last-Translator: Lex Wernars <lex@theros.nl>\n"
 "Language-Team: Nederlands <lex@theros.nl>\n"
@@ -644,6 +644,10 @@ msgstr "CMYK-profiel"
 msgid "Colour Management"
 msgstr "Kleurbeheer"
 
+#: pp_histogram.cpp:279
+msgid "Histogram"
+msgstr ""
+
 #: pp_imagecontrol.cpp:128
 msgid "Effects"
 msgstr "Effecten"
@@ -1082,7 +1086,7 @@ msgstr ""
 "Toon de orginele kleuren (inclusief witbalans) zo goed mogelijk, voor "
 "directe vergelijkingen. Filtert onbekende kleuren."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:468
 msgid "Other..."
 msgstr "Anders..."
 
@@ -1142,7 +1146,7 @@ msgstr "Toevoegen"
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: miscwidgets/imageselector.cpp:391
+#: miscwidgets/imageselector.cpp:448
 msgid "Image"
 msgstr "Afbeelding"
 

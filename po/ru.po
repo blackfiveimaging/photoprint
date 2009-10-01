@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-31 19:03+0100\n"
+"POT-Creation-Date: 2009-10-02 00:51+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -648,6 +648,10 @@ msgstr "Профиль CMYK:"
 msgid "Colour Management"
 msgstr "Управление цветом"
 
+#: pp_histogram.cpp:279
+msgid "Histogram"
+msgstr ""
+
 #: pp_imagecontrol.cpp:128
 msgid "Effects"
 msgstr "Эффекты"
@@ -1085,7 +1089,7 @@ msgstr ""
 "Наиболее приближение к исходным цветам (включая белую точку), недоступные "
 "цвета вырезаются."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:468
 msgid "Other..."
 msgstr "Добавить из файла..."
 
@@ -1147,7 +1151,7 @@ msgstr "Добавить..."
 msgid "Remove"
 msgstr "Удалить"
 
-#: miscwidgets/imageselector.cpp:391
+#: miscwidgets/imageselector.cpp:448
 msgid "Image"
 msgstr "Снимок"
 

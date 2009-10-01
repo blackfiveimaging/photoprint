@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-31 19:03+0100\n"
+"POT-Creation-Date: 2009-10-02 00:51+0100\n"
 "PO-Revision-Date: 2009-08-01 10:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <ubuntu-l10n-cs@lists.ubuntu.cz>\n"
@@ -648,6 +648,10 @@ msgstr "Profil CMYK:"
 msgid "Colour Management"
 msgstr "Správa barev"
 
+#: pp_histogram.cpp:279
+msgid "Histogram"
+msgstr ""
+
 #: pp_imagecontrol.cpp:128
 msgid "Effects"
 msgstr "Efekty"
@@ -1080,7 +1084,7 @@ msgstr ""
 "Napodobí originální barvy (včetně bílého bodu) jak nejlépe to půjde "
 "přivzájemném porovnání. Ořízne nedostupné barvy."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:468
 msgid "Other..."
 msgstr "Další..."
 
@@ -1140,7 +1144,7 @@ msgstr "Přidat..."
 msgid "Remove"
 msgstr "Odstranit"
 
-#: miscwidgets/imageselector.cpp:391
+#: miscwidgets/imageselector.cpp:448
 msgid "Image"
 msgstr "Obrázek"
 

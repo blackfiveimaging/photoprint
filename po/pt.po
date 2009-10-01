@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-31 19:03+0100\n"
+"POT-Creation-Date: 2009-10-02 00:51+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -648,6 +648,10 @@ msgstr "Perfil CMYK:"
 msgid "Colour Management"
 msgstr "Gerenciamento de cor"
 
+#: pp_histogram.cpp:279
+msgid "Histogram"
+msgstr ""
+
 #: pp_imagecontrol.cpp:128
 #, fuzzy
 msgid "Effects"
@@ -1101,7 +1105,7 @@ msgstr ""
 "Imita as cores originais (incluindo pontos brancos) o mais fielmente "
 "possível, para comparações lado-a-lado.  Clips unattainable colours."
 
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:468
 msgid "Other..."
 msgstr "Outro..."
 
@@ -1167,7 +1171,7 @@ msgstr "Adicionar..."
 msgid "Remove"
 msgstr "Remover"
 
-#: miscwidgets/imageselector.cpp:391
+#: miscwidgets/imageselector.cpp:448
 msgid "Image"
 msgstr "Imagem"
 

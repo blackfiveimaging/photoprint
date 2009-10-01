@@ -101,12 +101,13 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 	const char *path=mw->state->FindString("ShortcutsPath");
 	SearchPathHandler sp;
 	sp.AddPath(path);
+	SearchPathIterator spi(sp);
 
 	string uidesc="<ui><menubar name='MainMenu'><menu action='ShortcutsMenu'>\n";
 	gtk_action_group_add_actions (action_group, shortcutsmenu_entries, G_N_ELEMENTS (shortcutsmenu_entries), userdata);
 
 	path=NULL;
-	while((path=sp.GetNextPath(path)))
+	while((path=spi.GetNextPath(path)))
 	{
 		// For each path in turn we scan for files...
 		DirTreeWalker dtw(path);

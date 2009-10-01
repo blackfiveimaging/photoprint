@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre3\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-08-31 19:03+0100\n"
+"POT-Creation-Date: 2009-10-02 00:51+0100\n"
 "PO-Revision-Date: 2009-09-18 08:42+0200\n"
 "Last-Translator: Heinrich Schwietering <hankschwie@web.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Ausgabe"
 
 #: dialogs.cpp:184
 msgid "About"
-msgstr "Über"
+msgstr "ber"
 
 #: dialogs.cpp:195
 msgid "PhotoPrint "
@@ -42,15 +42,15 @@ msgstr "ICC-Profile"
 
 #: dialogs.cpp:291
 msgid "Borders"
-msgstr "Ränder"
+msgstr "Rnder"
 
 #: dialogs.cpp:322
 msgid "Backgrounds"
-msgstr "Hintergründe"
+msgstr "Hintergrnde"
 
 #: dialogs.cpp:350
 msgid "Select a border..."
-msgstr "Wähle einen Rand..."
+msgstr "Whle einen Rand..."
 
 #: dialogs.cpp:397
 msgid "Export TIFF..."
@@ -58,11 +58,11 @@ msgstr "Als TIFF exportieren..."
 
 #: dialogs.cpp:423 dialogs.cpp:626
 msgid "Page range:"
-msgstr "Seitenmaß:"
+msgstr "Seitenma:"
 
 #: dialogs.cpp:436 dialogs.cpp:636
 msgid "Resolution (dpi):"
-msgstr "Auflösung (dpi):"
+msgstr "Auflsung (dpi):"
 
 #: dialogs.cpp:444
 msgid "Save as 16-bit:"
@@ -86,15 +86,15 @@ msgstr "Exportiere JPEG..."
 
 #: dialogs.cpp:655
 msgid "JPEG Quality:"
-msgstr "JPEG-Qualität:"
+msgstr "JPEG-Qualitt:"
 
 #: dialogs.cpp:784
 msgid "Select a background..."
-msgstr "Wähle einen Hintergrund..."
+msgstr "Whle einen Hintergrund..."
 
 #: dialogs.cpp:876 pp_menu_image.cpp:244
 msgid "Please select an image first!"
-msgstr "Bitte erst ein Bild auswählen!"
+msgstr "Bitte erst ein Bild auswhlen!"
 
 #: dialogs.cpp:907
 msgid "Set Custom Profile..."
@@ -120,14 +120,16 @@ msgstr ""
 "kann nur angezeigt werden, wenn\n"
 "im Dialog Optionen -> Farbmanagement\n"
 "ein Standard-RGB- oder Bildschirm-Profil\n"
-"ausgewählt ist!"
+"ausgewhlt ist!"
+
 #: dialogs.cpp:962
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
 msgstr ""
 "Warnung: Das Bild hat bereits ein integriertes Profil.\n"
-"Eine Neuzuweisung wird diese überschreiben!"
+"Eine Neuzuweisung wird diese berschreiben!"
+
 #: dialogs.cpp:979
 msgid "Assign Profile:"
 msgstr "Profil zuweisen:"
@@ -144,7 +146,7 @@ msgstr "Seite:"
 
 #: dialogs.cpp:1135
 msgid "Preview resolution:"
-msgstr "Vorschau-Auflösung:"
+msgstr "Vorschau-Auflsung:"
 
 #: dialogs.cpp:1139
 msgid "180 dots per inch"
@@ -168,11 +170,11 @@ msgid ""
 "Right-click to toggle magnification."
 msgstr ""
 "Zum Bewegen die Vorschau anklicken und ziehen.\n"
-"Rechtsklick zum Wechsel der Vergrößerung."
+"Rechtsklick zum Wechsel der Vergrerung."
 
 #: dialogs.cpp:1150
 msgid "Close"
-msgstr "Schließen"
+msgstr "Schlieen"
 
 #: dialogs.cpp:1218
 msgid "Drawing preview"
@@ -196,7 +198,7 @@ msgstr "Name"
 
 #: effects/ppeffect_desaturate.cpp:25
 msgid "Desaturate"
-msgstr "Entsättigen"
+msgstr "Entsttigen"
 
 #: effects/effectwidget_tempchange.cpp:55
 #, c-format
@@ -205,7 +207,7 @@ msgstr "%d Grad in K"
 
 #: effects/ppeffect_unsharpmask.cpp:25
 msgid "Sharpen"
-msgstr "Schärfen"
+msgstr "Schrfen"
 
 #: effects/effectwidget_unsharpmask.cpp:64
 #, c-format
@@ -215,7 +217,7 @@ msgstr "Radius: %1.2f"
 #: effects/effectwidget_unsharpmask.cpp:70
 #, c-format
 msgid "Amount: %1.2f"
-msgstr "Stärke: %1.2f"
+msgstr "Strke: %1.2f"
 
 #: menucheck.cpp:21 pp_menu_file.cpp:134
 msgid "_File"
@@ -223,11 +225,11 @@ msgstr "_Datei"
 
 #: menucheck.cpp:23 pp_menu_file.cpp:136
 msgid "_Open Preset..."
-msgstr "V_orlage öffnen"
+msgstr "V_orlage ffnen"
 
 #: menucheck.cpp:23 pp_menu_file.cpp:136
 msgid "Open a preset"
-msgstr "Öffne eine Vorlage"
+msgstr "ffne eine Vorlage"
 
 #: menucheck.cpp:24 pp_menu_file.cpp:137
 msgid "_Save Preset"
@@ -323,15 +325,15 @@ msgstr "Richte _Hintergrund ein"
 
 #: menucheck.cpp:66 pp_menu_layout.cpp:133
 msgid "Set a background image for the current layout"
-msgstr "Richte einen Hintergrund für das derzeitige Layout ein"
+msgstr "Richte einen Hintergrund fr das derzeitige Layout ein"
 
 #: menucheck.cpp:68 pp_menu_image.cpp:274
 msgid "_Add Image..."
-msgstr "Bild hin_zufügen..."
+msgstr "Bild hin_zufgen..."
 
 #: menucheck.cpp:68 pp_menu_image.cpp:274
 msgid "Add images to the current layout"
-msgstr "Füge dem Layout Bilder hinzu"
+msgstr "Fge dem Layout Bilder hinzu"
 
 #: menucheck.cpp:69 pp_menu_image.cpp:275
 msgid "_Remove Image"
@@ -339,7 +341,7 @@ msgstr "Entfe_rne Bild"
 
 #: menucheck.cpp:69 pp_menu_image.cpp:275
 msgid "Remove selected images from the layout"
-msgstr "Entferne die ausgewählten Bilder aus dem Layout"
+msgstr "Entferne die ausgewhlten Bilder aus dem Layout"
 
 #: menucheck.cpp:71 pp_menu_image.cpp:279
 msgid "_Rotation"
@@ -351,7 +353,7 @@ msgstr "Richte Bilderrah_men ein"
 
 #: menucheck.cpp:73 pp_menu_image.cpp:281
 msgid "Set a border mask for the selected image"
-msgstr "Richte einen Bilderrahmen für das ausgewählte Bild ein"
+msgstr "Richte einen Bilderrahmen fr das ausgewhlte Bild ein"
 
 #: menucheck.cpp:74
 msgid "_Effects..."
@@ -359,7 +361,7 @@ msgstr "_Effekte..."
 
 #: menucheck.cpp:74
 msgid "Apply effects to the selected image"
-msgstr "Wende Effekte auf das ausgewählte Bild an"
+msgstr "Wende Effekte auf das ausgewhlte Bild an"
 
 #: menucheck.cpp:75 pp_menu_image.cpp:283
 msgid "Set Colour _Profile..."
@@ -375,7 +377,7 @@ msgstr "_Pfade..."
 
 #: menucheck.cpp:77 pp_menu_options.cpp:102
 msgid "Set search paths for ICC profiles, borders, etc."
-msgstr "Richte Suchpfade für ICC-Profile, Bilderrahmen usw. ein"
+msgstr "Richte Suchpfade fr ICC-Profile, Bilderrahmen usw. ein"
 
 #: menucheck.cpp:78 pp_menu_options.cpp:103
 msgid "_Colour Management..."
@@ -391,7 +393,7 @@ msgstr "_Einheiten..."
 
 #: menucheck.cpp:79 pp_menu_options.cpp:104
 msgid "Select the units used throughout PhotoPrint"
-msgstr "Wähle diese Einheit durchgängig für PhotoPrint"
+msgstr "Whle diese Einheit durchgngig fr PhotoPrint"
 
 #: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "_Scaling..."
@@ -399,11 +401,11 @@ msgstr "_Skalierung..."
 
 #: menucheck.cpp:80 pp_menu_options.cpp:105
 msgid "Select the preferred scaling method."
-msgstr "Wähle die gewünschte Skalierungs-Methode."
+msgstr "Whle die gewnschte Skalierungs-Methode."
 
 #: menucheck.cpp:82 pp_menu_help.cpp:31
 msgid "About..."
-msgstr "Über..."
+msgstr "ber..."
 
 #: menucheck.cpp:82 pp_menu_help.cpp:31
 msgid "Some information about PhotoPrint"
@@ -411,13 +413,12 @@ msgstr "Einige Informationen zu PhotoPrint"
 
 #: menucheck.cpp:87 pp_menu_image.cpp:288
 msgid "Allow _Cropping"
-msgstr "Ermögliche Zus_chnitt"
+msgstr "Ermgliche Zus_chnitt"
 
 #: menucheck.cpp:87 pp_menu_image.cpp:288
 msgid "Crop the selected images to fill the available space"
 msgstr ""
-"Schneide das ausgewählte Bild so zu, "
-"dass der verfügbare Platz ausgefüllt wird"
+"Schneide das ausgewhlte Bild so zu, dass der verfgbare Platz ausgefllt wird"
 
 #: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "_Auto Layout"
@@ -425,7 +426,7 @@ msgstr "_Automatisches Layout"
 
 #: menucheck.cpp:92 pp_menu_layout.cpp:138
 msgid "Automatically place images in a grid"
-msgstr "Füge Bilder automatisch in ein Raster ein"
+msgstr "Fge Bilder automatisch in ein Raster ein"
 
 #: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "_Poster"
@@ -433,7 +434,8 @@ msgstr "_Poster"
 
 #: menucheck.cpp:93 pp_menu_layout.cpp:139
 msgid "Print an image in multiple pages, to be assembled into a poster"
-msgstr "Drucke ein Bild über mehrere Seiten aus, um daraus ein Poster zusammenzufügen"
+msgstr ""
+"Drucke ein Bild ber mehrere Seiten aus, um daraus ein Poster zusammenzufgen"
 
 #: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "_Carousel"
@@ -441,11 +443,11 @@ msgstr "_Karussell"
 
 #: menucheck.cpp:94 pp_menu_layout.cpp:140
 msgid "Fade images into a circular 'carousel' - ideal for CD labels."
-msgstr "Überblende Bilder in einem runden 'Karussell' - ideal zum CD-Druck"
+msgstr "berblende Bilder in einem runden 'Karussell' - ideal zum CD-Druck"
 
 #: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "_Manual Size"
-msgstr "_Manuelle Größeneinstellung"
+msgstr "_Manuelle Greneinstellung"
 
 #: menucheck.cpp:95 pp_menu_layout.cpp:141
 msgid "Print images on a single sheet, at a specified scale."
@@ -457,7 +459,7 @@ msgstr "_Auto"
 
 #: menucheck.cpp:99 pp_menu_image.cpp:293
 msgid "Automatically choose rotation to fit the available space."
-msgstr "Wähle Drehung automatisch, dem verfügbaren Platz angepasst."
+msgstr "Whle Drehung automatisch, dem verfgbaren Platz angepasst."
 
 #: menucheck.cpp:100 pp_menu_image.cpp:294
 msgid "_None"
@@ -501,7 +503,7 @@ msgstr "Initialisierung..."
 
 #: photoprint.cpp:127
 msgid "Checking .photoprint directory..."
-msgstr "Überprüfe .photoprint-Ordner..."
+msgstr "berprfe .photoprint-Ordner..."
 
 #: photoprint.cpp:132
 msgid "Loading preset..."
@@ -523,12 +525,12 @@ msgstr "Fehler bein Erstellen des Ordners `%s': %s"
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:463
 #, c-format
 msgid "Error opening `%s': %s"
-msgstr "Fehler beim Öffnen von `%s': %s"
+msgstr "Fehler beim ffnen von `%s': %s"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:481
 #, c-format
 msgid "Error reading `%s': file contains no data."
-msgstr "Fehler beim Lesen von `%s': Datei enthält keine Daten."
+msgstr "Fehler beim Lesen von `%s': Datei enthlt keine Daten."
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:505
 #, c-format
@@ -540,7 +542,8 @@ msgstr "Fehler beim Lesen von `%s': %s"
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
-"Laden des Bildes '%s' nicht möglich: Grund unbekannt, ggf. defekte Bilddatei"
+"Laden des Bildes '%s' nicht mglich: Grund unbekannt, ggf. defekte Bilddatei"
+
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:613
 #, c-format
 msgid "Error verifying `%s': %s"
@@ -549,12 +552,14 @@ msgstr "Fehler beim Verifizieren von `%s': %s"
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:629
 #, c-format
 msgid "Error reading `%s': file is not a regular file or symbolic link."
-msgstr "Fehler beim Lesen von `%s': Datei ist keine reguläre Datei oder symbolische Verknüpfung"
+msgstr ""
+"Fehler beim Lesen von `%s': Datei ist keine regulre Datei oder symbolische "
+"Verknpfung"
 
 #: pixbufthumbnail/egg-pixbuf-thumbnail.c:1071
 #, c-format
 msgid "Error creating temporary thumbnail file for `%s': %s"
-msgstr "Fehler beim Erstellen der temporären Vorschau für `%s': %s"
+msgstr "Fehler beim Erstellen der temporren Vorschau fr `%s': %s"
 
 #: pp_cms.cpp:87
 msgid "Printer"
@@ -574,7 +579,7 @@ msgstr "RGB"
 
 #: pp_cms.cpp:141
 msgid "Send Red, Green and Blue data to the printer driver"
-msgstr "Sende Rot-, Grün- und Blau-Daten an den Druckertreiber"
+msgstr "Sende Rot-, Grn- und Blau-Daten an den Druckertreiber"
 
 #: pp_cms.cpp:142
 msgid "CMYK"
@@ -612,19 +617,18 @@ msgstr "Simuliere Ausdruck"
 msgid ""
 "Simulates how colours will look when printed, imitating the paper's white "
 "point."
-msgstr ""
-"Simuliere die Farben im Ausdruck, angepasst an das Weiß des Papiers" 
+msgstr "Simuliere die Farben im Ausdruck, angepasst an das Wei des Papiers"
+
 #: pp_cms.cpp:189
 msgid "Simulate Print, Adapt White"
-msgstr "Simuliere Ausdruck mit Weißabgleich"
+msgstr "Simuliere Ausdruck mit Weiabgleich"
 
 #: pp_cms.cpp:189
 msgid ""
 "Simulates how colours will look when printed, adapting colours for the "
 "monitor's white point."
 msgstr ""
-"Simuliere die Farben im Ausdruck, angepasst an den " 
-"Weißpunkt des Bildschirms" 
+"Simuliere die Farben im Ausdruck, angepasst an den Weipunkt des Bildschirms"
 
 #: pp_cms.cpp:199
 msgid "Default Image Profiles"
@@ -641,6 +645,10 @@ msgstr "CMYK-Profil:"
 #: pp_cms.cpp:411
 msgid "Colour Management"
 msgstr "Farbmanagement"
+
+#: pp_histogram.cpp:279
+msgid "Histogram"
+msgstr ""
 
 #: pp_imagecontrol.cpp:128
 msgid "Effects"
@@ -672,11 +680,11 @@ msgstr "Dateiname:"
 
 #: pp_imageinfo.cpp:201
 msgid "Dimensions:"
-msgstr "Ausmaß:"
+msgstr "Ausma:"
 
 #: pp_imageinfo.cpp:221
 msgid "Resolution:"
-msgstr "Auflösung:"
+msgstr "Auflsung:"
 
 #: pp_imageinfo.cpp:234
 msgid "Profile:"
@@ -700,7 +708,7 @@ msgstr "Segmente:"
 
 #: pp_layout_carousel.cpp:304
 msgid "Overlap (%):"
-msgstr "Überlappung (%):"
+msgstr "berlappung (%):"
 
 #: pp_layout_carousel.cpp:319
 msgid "Starting angle:"
@@ -716,7 +724,7 @@ msgstr "Poster-Layout"
 
 #: pp_layout_poster.cpp:351
 msgid "Size"
-msgstr "Größe"
+msgstr "Gre"
 
 #: pp_layout_poster.cpp:363 pp_layout_poster.cpp:387
 msgid "by"
@@ -728,7 +736,7 @@ msgstr "Einzelteile"
 
 #: pp_layout_poster.cpp:397
 msgid "Overlap"
-msgstr "Überlappung"
+msgstr "berlappung"
 
 #: pp_layout_poster.cpp:411 pp_pageextent.cpp:260
 msgid "H:"
@@ -752,7 +760,7 @@ msgstr "senkrecht (%):"
 
 #: pp_mainwindow.cpp:226
 msgid "Transferring images..."
-msgstr "Übertrage Bilder..."
+msgstr "bertrage Bilder..."
 
 #: pp_menu_edit.cpp:37
 msgid "_Edit"
@@ -760,11 +768,11 @@ msgstr "_Bearbeiten"
 
 #: pp_menu_edit.cpp:39
 msgid "Select _All"
-msgstr "Wähle _alle aus"
+msgstr "Whle _alle aus"
 
 #: pp_menu_edit.cpp:39
 msgid "Select all images"
-msgstr "Wähle alle Bilder aus"
+msgstr "Whle alle Bilder aus"
 
 #: pp_menu_edit.cpp:40
 msgid "Select _None"
@@ -792,15 +800,15 @@ msgstr "Kopiere das derzeitige Bild in die Zwischenablage"
 
 #: pp_menu_edit.cpp:43
 msgid "_Paste"
-msgstr "_Einfügen"
+msgstr "_Einfgen"
 
 #: pp_menu_edit.cpp:43
 msgid "Paste the contents of the clipboard as a new image"
-msgstr "Füge den Inhalt der Zwischenablage als neues Bild ein"
+msgstr "Fge den Inhalt der Zwischenablage als neues Bild ein"
 
 #: pp_menu_file.cpp:37
 msgid "Open preset..."
-msgstr "Öffne Vorlage..."
+msgstr "ffne Vorlage..."
 
 #: pp_menu_file.cpp:63
 msgid "Save preset..."
@@ -828,19 +836,19 @@ msgstr "Exportiere Seiten als JPEG-Dateien"
 
 #: pp_menu_shortcuts.cpp:87
 msgid "_Shortcuts"
-msgstr "_Kürzel"
+msgstr "_Krzel"
 
 #: pp_menu_image.cpp:58
 msgid "Open File"
-msgstr "Öffne Datei"
+msgstr "ffne Datei"
 
 #: pp_menu_image.cpp:98
 msgid "Adding images..."
-msgstr "Füge Bilder hinzu..."
+msgstr "Fge Bilder hinzu..."
 
 #: pp_menu_image.cpp:176
 msgid "Page is already full!"
-msgstr "Seite ist bereits gefüllt!"
+msgstr "Seite ist bereits gefllt!"
 
 #: pp_menu_image.cpp:276
 msgid "_Duplicate Image"
@@ -848,15 +856,15 @@ msgstr "_Dupliziere Bild"
 
 #: pp_menu_image.cpp:276
 msgid "Duplicate the currently selected image"
-msgstr "Dupliziere das derzeit ausgewählte Bild"
+msgstr "Dupliziere das derzeit ausgewhlte Bild"
 
 #: pp_menu_image.cpp:277
 msgid "Duplicate to _Fill Page"
-msgstr "Dupliziere, bis Seite ge_füllt ist"
+msgstr "Dupliziere, bis Seite ge_fllt ist"
 
 #: pp_menu_image.cpp:277
 msgid "Fill the page with copies of the currently selected image"
-msgstr "Fülle die Seite mit Kopien des derzeit ausgewählten Bildes"
+msgstr "Flle die Seite mit Kopien des derzeit ausgewhlten Bildes"
 
 #: pp_menu_image.cpp:281
 msgid "Set Image _Border..."
@@ -864,11 +872,11 @@ msgstr "Richte _Bilderrahmen ein"
 
 #: pp_menu_options.cpp:109
 msgid "High-res Previews"
-msgstr "Hochauflösende Vorschau"
+msgstr "Hochauflsende Vorschau"
 
 #: pp_menu_options.cpp:109
 msgid "Render high-resolution previews in the background"
-msgstr "Bearbeite hochauflösende Vorschauen im Hintergrund"
+msgstr "Bearbeite hochauflsende Vorschauen im Hintergrund"
 
 #: pp_menu_options.cpp:113
 msgid "_Normal Display"
@@ -886,18 +894,22 @@ msgstr "Simuliere Aus_druck"
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr ""
-"Passe Bildschirmfarben unter Einbeziehung des Papierweiß an, um Ausdruckfarben zu simulieren"
+"Passe Bildschirmfarben unter Einbeziehung des Papierwei an, um "
+"Ausdruckfarben zu simulieren"
+
 #: pp_menu_options.cpp:115
 msgid "Simulate Print, _Adapt White"
-msgstr "Simuliere Ausdruck, Weiß_abgleich"
+msgstr "Simuliere Ausdruck, Wei_abgleich"
 
 #: pp_menu_options.cpp:115
 msgid "Adjust colours to imitate printed colours, excluding paper white"
-msgstr "Passe Bildschirmfarben ohne Einbeziehung der Papierweiß an, um Ausdruck zu simulieren"
+msgstr ""
+"Passe Bildschirmfarben ohne Einbeziehung der Papierwei an, um Ausdruck zu "
+"simulieren"
 
 #: pp_pageextent.cpp:226
 msgid "Page Size and Margins"
-msgstr "Seitengröße und -ränder"
+msgstr "Seitengre und -rnder"
 
 #: pp_pageextent.cpp:250
 msgid "W:"
@@ -934,14 +946,15 @@ msgid ""
 " is not found - please choose another"
 msgstr ""
 "Druckerwarteschleife %s nicht auffindbar\n"
-"Bitte eine andere auswählen"
+"Bitte eine andere auswhlen"
+
 #: gp_cppsupport/printoutputselector.cpp:195
 msgid "Printer queue not found"
 msgstr "Druckerwarteschleife nicht auffindbar"
 
 #: gp_cppsupport/gprinter.cpp:353
 msgid "Unable to generate print data"
-msgstr "Erstellen der Druckdaten nicht möglich"
+msgstr "Erstellen der Druckdaten nicht mglich"
 
 #: pp_scaling.cpp:72
 msgid "Algorithm:"
@@ -965,11 +978,11 @@ msgstr "Breite:"
 
 #: pp_sigcontrol.cpp:266
 msgid "Height:"
-msgstr "Höhe:"
+msgstr "Hhe:"
 
 #: pp_sigcontrol.cpp:278
 msgid "From selected image"
-msgstr "Vom ausgewählten Bild"
+msgstr "Vom ausgewhlten Bild"
 
 #: pp_sigcontrol.cpp:338
 msgid "Layout"
@@ -981,7 +994,7 @@ msgstr "Reihen/Spalten festlegen"
 
 #: pp_sigcontrol.cpp:342
 msgid "Specify image dimensions"
-msgstr "Bildmaße festlegen"
+msgstr "Bildmae festlegen"
 
 #: pp_units.cpp:60
 msgid "Units:"
@@ -1013,7 +1026,8 @@ msgid ""
 "Check STP_DATA_PATH and Gutenprint version!"
 msgstr ""
 "Kann keinen Gutenprint-Drucker erreichen\n"
-"Bitte STP_DATA_PATH und Gutenberg-Version überprüfen!"
+"Bitte STP_DATA_PATH und Gutenberg-Version berprfen!"
+
 #: profilemanager/lcmswrapper.cpp:533
 msgid "Perceptual"
 msgstr "Sichtbar"
@@ -1028,7 +1042,7 @@ msgstr "Relatives Colorimetric mit Schwarz-Punkt-Kompensation"
 
 #: profilemanager/lcmswrapper.cpp:536
 msgid "Saturation"
-msgstr "Sättigung"
+msgstr "Sttigung"
 
 #: profilemanager/lcmswrapper.cpp:537
 msgid "Absolute Colorimetric"
@@ -1039,45 +1053,51 @@ msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
 msgstr ""
-"Zielt darauf ab, ansprechende fotgrafische Ergebnisse durch Bewahrung der Verhältnisse "
-"zwischen den Farben zu erreichen, vermeidet das Filtern nichtdarstellbarer Farben"
+"Zielt darauf ab, ansprechende fotgrafische Ergebnisse durch Bewahrung der "
+"Verhltnisse zwischen den Farben zu erreichen, vermeidet das Filtern "
+"nichtdarstellbarer Farben"
+
 #: profilemanager/lcmswrapper.cpp:543
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr ""
-"Versucht die Originalfarben im Verhältnis zu den Weißpunkt-Abweichungen "
-"zu bewahren."
+"Versucht die Originalfarben im Verhltnis zu den Weipunkt-Abweichungen zu "
+"bewahren."
+
 #: profilemanager/lcmswrapper.cpp:544
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
 "and shadows."
 msgstr ""
-"Versucht die Originalfarben im Verhältnis zu den Weißpunkt-Abweichungen "
-"zu bewahren. Verwendet Schwarzpunkt-Kompensation um Filterung in den Highlights "
-" und Schatten zu vermeiden"
+"Versucht die Originalfarben im Verhltnis zu den Weipunkt-Abweichungen zu "
+"bewahren. Verwendet Schwarzpunkt-Kompensation um Filterung in den "
+"Highlights  und Schatten zu vermeiden"
+
 #: profilemanager/lcmswrapper.cpp:545
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
-"Versucht strahlendere, gesättigtere Farben zu erzielen; auf Kosten"
-"der Farbverhältnisse"
+"Versucht strahlendere, gesttigtere Farben zu erzielen; auf Kostender "
+"Farbverhltnisse"
+
 #: profilemanager/lcmswrapper.cpp:546
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
 msgstr ""
-"Imitiert die Originalfarben (einschlieblich des Weißpunktes) so gut wie möglich;"
-"für direkte Vergleiche. Filtert nichtdarstellbare Farben."
-#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:414
+"Imitiert die Originalfarben (einschlieblich des Weipunktes) so gut wie "
+"mglich;fr direkte Vergleiche. Filtert nichtdarstellbare Farben."
+
+#: profilemanager/profileselector.cpp:38 miscwidgets/imageselector.cpp:468
 msgid "Other..."
 msgstr "Andere..."
 
 #: profilemanager/profileselector.cpp:368
 msgid "Please choose a valid ICC profile"
-msgstr "Bitte ein gültiges ICC-Profil auswählen"
+msgstr "Bitte ein gltiges ICC-Profil auswhlen"
 
 #: stpui_widgets/dimension.c:161
 msgid "points"
@@ -1117,7 +1137,7 @@ msgstr "Farbe (Extras)"
 
 #: miscwidgets/patheditor.cpp:53
 msgid "Select directory..."
-msgstr "Wähle Verzeichnis..."
+msgstr "Whle Verzeichnis..."
 
 #: miscwidgets/patheditor.cpp:98
 msgid "Path"
@@ -1125,13 +1145,13 @@ msgstr "Pfad"
 
 #: miscwidgets/patheditor.cpp:112
 msgid "Add..."
-msgstr "Hinzufügen..."
+msgstr "Hinzufgen..."
 
 #: miscwidgets/patheditor.cpp:117
 msgid "Remove"
 msgstr "Entfernen"
 
-#: miscwidgets/imageselector.cpp:391
+#: miscwidgets/imageselector.cpp:448
 msgid "Image"
 msgstr "Bild"
 
