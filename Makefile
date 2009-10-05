@@ -61,11 +61,13 @@ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_carouselcheck_OBJECTS = carouselcheck.$(OBJEXT)
 carouselcheck_OBJECTS = $(am_carouselcheck_OBJECTS)
+carouselcheck_LDADD = $(LDADD)
 am__DEPENDENCIES_1 =
 carouselcheck_DEPENDENCIES = effects/libppeffects.la \
-	imagesource/libimagesource.la support/libsupport.la \
-	imageutils/libimageutils.la miscwidgets/libmiscwidgets.la \
-	profilemanager/libprofilemanager.la \
+	imagesource/libimagesource.la imageutils/libimageutils.la \
+	miscwidgets/libmiscwidgets.la \
+	profilemanager/libprofilemanager.la support/libsupport.la \
+	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la \
 	stp_support/libstp_support.la \
 	pixbufthumbnail/libpixbufthumbnail.la \
@@ -76,9 +78,12 @@ carouselcheck_DEPENDENCIES = effects/libppeffects.la \
 	$(am__DEPENDENCIES_1)
 am_menucheck_OBJECTS = menucheck.$(OBJEXT)
 menucheck_OBJECTS = $(am_menucheck_OBJECTS)
+menucheck_LDADD = $(LDADD)
 menucheck_DEPENDENCIES = effects/libppeffects.la \
-	imagesource/libimagesource.la support/libsupport.la \
-	profilemanager/libprofilemanager.la \
+	imagesource/libimagesource.la imageutils/libimageutils.la \
+	miscwidgets/libmiscwidgets.la \
+	profilemanager/libprofilemanager.la support/libsupport.la \
+	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la \
 	stp_support/libstp_support.la \
 	pixbufthumbnail/libpixbufthumbnail.la \
@@ -89,10 +94,12 @@ menucheck_DEPENDENCIES = effects/libppeffects.la \
 	$(am__DEPENDENCIES_1)
 am_misccheck_OBJECTS = misccheck.$(OBJEXT) pp_sigcontrol.$(OBJEXT)
 misccheck_OBJECTS = $(am_misccheck_OBJECTS)
+misccheck_LDADD = $(LDADD)
 misccheck_DEPENDENCIES = effects/libppeffects.la \
-	imagesource/libimagesource.la support/libsupport.la \
-	imageutils/libimageutils.la miscwidgets/libmiscwidgets.la \
-	profilemanager/libprofilemanager.la \
+	imagesource/libimagesource.la imageutils/libimageutils.la \
+	miscwidgets/libmiscwidgets.la \
+	profilemanager/libprofilemanager.la support/libsupport.la \
+	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la \
 	stp_support/libstp_support.la \
 	pixbufthumbnail/libpixbufthumbnail.la \
@@ -120,10 +127,11 @@ am_photoprint_OBJECTS = dialogs.$(OBJEXT) layout.$(OBJEXT) \
 	pp_sigcontrol.$(OBJEXT) pp_units.$(OBJEXT) \
 	pp_imageinfo.$(OBJEXT)
 photoprint_OBJECTS = $(am_photoprint_OBJECTS)
+photoprint_LDADD = $(LDADD)
 photoprint_DEPENDENCIES = effects/libppeffects.la \
 	imagesource/libimagesource.la imageutils/libimageutils.la \
-	miscwidgets/libmiscwidgets.la support/libsupport.la \
-	profilemanager/libprofilemanager.la \
+	miscwidgets/libmiscwidgets.la \
+	profilemanager/libprofilemanager.la support/libsupport.la \
 	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la \
 	stp_support/libstp_support.la \
@@ -409,13 +417,13 @@ photoprint_SOURCES = \
 	pp_imageinfo.h	\
 	gettext.h
 
-photoprint_LDADD = \
+LDADD = \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
 	imageutils/libimageutils.la	\
 	miscwidgets/libmiscwidgets.la	\
-	support/libsupport.la	\
 	profilemanager/libprofilemanager.la	\
+	support/libsupport.la	\
 	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la	\
 	stp_support/libstp_support.la \
@@ -424,45 +432,8 @@ photoprint_LDADD = \
 	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
 
 menucheck_SOURCES = menucheck.cpp
-menucheck_LDADD = \
-	effects/libppeffects.la	\
-	imagesource/libimagesource.la	\
-	support/libsupport.la	\
-	profilemanager/libprofilemanager.la	\
-	stpui_widgets/libstpui_widgets.la	\
-	stp_support/libstp_support.la \
-	pixbufthumbnail/libpixbufthumbnail.la	\
-	splashscreen/libsplashscreen.la	\
-	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
-
 carouselcheck_SOURCES = carouselcheck.cpp
-carouselcheck_LDADD = \
-	effects/libppeffects.la	\
-	imagesource/libimagesource.la	\
-	support/libsupport.la	\
-	imageutils/libimageutils.la	\
-	miscwidgets/libmiscwidgets.la	\
-	profilemanager/libprofilemanager.la	\
-	stpui_widgets/libstpui_widgets.la	\
-	stp_support/libstp_support.la \
-	pixbufthumbnail/libpixbufthumbnail.la	\
-	splashscreen/libsplashscreen.la	\
-	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
-
 misccheck_SOURCES = misccheck.cpp pp_sigcontrol.cpp
-misccheck_LDADD = \
-	effects/libppeffects.la	\
-	imagesource/libimagesource.la	\
-	support/libsupport.la	\
-	imageutils/libimageutils.la	\
-	miscwidgets/libmiscwidgets.la	\
-	profilemanager/libprofilemanager.la	\
-	stpui_widgets/libstpui_widgets.la	\
-	stp_support/libstp_support.la \
-	pixbufthumbnail/libpixbufthumbnail.la	\
-	splashscreen/libsplashscreen.la	\
-	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
-
 desktopdir = $(datadir)/applications
 desktop_DATA = fotoprint.desktop
 icondir = $(datadir)/icons/hicolor/48x48/apps/
