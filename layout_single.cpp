@@ -228,6 +228,7 @@ RectFit *Layout_Single_ImageInfo::GetFit(double scale)
 	result->width=r->w;
 	result->height=r->h;
 	result->scale=1.0;
+	result->rotation=PP_ROTATION_NONE;
 	delete r;
 	return(result);
 }

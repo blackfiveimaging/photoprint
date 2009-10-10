@@ -61,6 +61,10 @@ PhotoPrint-0.4.1
 
   * Rotation now support the general case.
 
+  * Migrated image list from GList to STL list, and a separate Iterator in the process.
+
+  * Fixed bugs with crop and rotation menu items.
+
 
 PhotoPrint-0.4.0
 

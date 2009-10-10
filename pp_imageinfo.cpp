@@ -48,8 +48,10 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 			if(fit)
 			{
 				double w=fit->width;
+				cerr << "Got width"<< endl;
 				double h=fit->height;
-				float t;
+				cerr << "Got height"<< endl;
+				double t;
 				switch(fit->rotation)
 				{
 					case 90:
@@ -63,7 +65,9 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 						break;
 				}
 
+				cerr << "Getting bounds..." << endl;
 				LayoutRectangle *bounds=ii->GetBounds();
+				cerr << "Checking bounds..." << endl;
 				if(bounds)
 				{
 					if(w>bounds->w)
