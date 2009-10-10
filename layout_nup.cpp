@@ -111,7 +111,9 @@ void Layout_NUp::Reflow()
 
 	CancelRenderThreads();
 
-	for(unsigned int i=0;i<g_list_length(imagelist);++i)
+	LayoutIterator it(*this);
+	Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)it.FirstImage();
+	while(ii)
 	{
 		++column;
 		if(column>=GetColumns())
@@ -124,11 +126,10 @@ void Layout_NUp::Reflow()
 				++page;
 			}
 		}		
-		GList *element=g_list_nth(imagelist,i);
-		Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)element->data;
 		ii->row=row;
 		ii->column=column;
 		ii->page=page;
+		ii=(Layout_NUp_ImageInfo *)it.NextImage();
 	}
 	pages=page+1;
 	if(currentpage>page)
@@ -152,7 +153,7 @@ bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bo
 	}
 	if(ii)
 	{
-		imagelist=g_list_append(imagelist,ii);
+		imagelist.push_back(ii);
 		
 		if(page>=pages)
 			++pages;
@@ -167,13 +168,14 @@ int Layout_NUp::FreeSlots()
 {
 	int totalslots=GetRows()*GetColumns();
 	int count=0;
-	int c=g_list_length(imagelist);
-	for(int i=0;i<c;++i)
+
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
+	while(ii)
 	{
-		GList *element=g_list_nth(imagelist,i);
-		Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)element->data;
 		if(ii->page==currentpage)
 			++count;
+		ii=it.NextImage();
 	}
 	return(totalslots-count);
 }
@@ -184,11 +186,11 @@ void Layout_NUp::FindFirstFree(int &page,int &row,int &column)
 	page=0;
 	row=0;
 	column=-1;
-	int count=g_list_length(imagelist);
-	for(int i=0;i<count;++i)
+
+	LayoutIterator it(*this);
+	Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)it.FirstImage();
+	while(ii)
 	{
-		GList *element=g_list_nth(imagelist,i);
-		Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)element->data;
 		if(ii->page>=page)
 		{
 			if(ii->page>page)
@@ -206,6 +208,7 @@ void Layout_NUp::FindFirstFree(int &page,int &row,int &column)
 					column=ii->column;				
 			}
 		}
+		ii=(Layout_NUp_ImageInfo *)it.NextImage();
 	}
 	++column;
 	if(column>=GetColumns())
@@ -238,7 +241,7 @@ void Layout_NUp::CopyImage(Layout_ImageInfo *ii)
 	int page,row,column;
 	FindFirstFree(page,row,column);
 	ii=new Layout_NUp_ImageInfo(*this,ii,row,column,page);
-	imagelist=g_list_append(imagelist,ii);
+	imagelist.push_back(ii);
 	if(page>=pages)
 		++pages;
 }
@@ -247,111 +250,109 @@ void Layout_NUp::CopyImage(Layout_ImageInfo *ii)
 ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
 	ImageSource *result=NULL;
-	if(imagelist)
+	enum IS_TYPE colourspace=GetColourSpace(target);
+
+	IS_ScalingQuality qual=IS_ScalingQuality(state.FindInt("ScalingQuality"));
+	if(!res)
+		res=state.FindInt("RenderingResolution");
+
+	ImageSource_Montage *mon=new ImageSource_Montage(colourspace,res);
+
+	LayoutIterator it(*this);
+	Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)it.FirstImage();
+	while(ii)
 	{
-		enum IS_TYPE colourspace=GetColourSpace(target);
-
-		IS_ScalingQuality qual=IS_ScalingQuality(state.FindInt("ScalingQuality"));
-		if(!res)
-			res=state.FindInt("RenderingResolution");
-
-		ImageSource_Montage *mon=new ImageSource_Montage(colourspace,res);
-
-		Layout_NUp_ImageInfo *ii=(Layout_NUp_ImageInfo *)FirstImage();
-		while(ii)
+		if(ii->page==page)
 		{
-			if(ii->page==page)
+			ImageSource *img=ii->GetImageSource(target,factory);
+			if(img)
 			{
-				ImageSource *img=ii->GetImageSource(target,factory);
-				if(img)
+				LayoutRectangle r(img->width,img->height);
+				LayoutRectangle *target=ii->GetBounds();
+				double scale=res;
+				scale/=72.0;
+				target->Scale(scale);
+				
+				RectFit *fit=r.Fit(*target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
+
+				if(fit->rotation)
+					img=new ImageSource_Rotate(img,fit->rotation);
+				
+				img=ISScaleImageBySize(img,fit->width,fit->height,qual);
+				img->SetResolution(res,res);
+				
+				if(fit->width>target->w)
+					fit->width=target->w;
+				if(fit->height>target->h)
+					fit->height=target->h;
+
+				if(img->width<fit->width)
+					fit->width=img->width;
+				if(img->height<fit->height)
+					fit->height=img->height;
+
+				cerr << "xoffset: " << fit->xoffset << endl;
+				cerr << "yoffset: " << fit->yoffset << endl;
+
+				if(ii->allowcropping)
 				{
-					LayoutRectangle r(img->width,img->height);
-					LayoutRectangle *target=ii->GetBounds();
-					double scale=res;
-					scale/=72.0;
-					target->Scale(scale);
-					
-					RectFit *fit=r.Fit(*target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
-
-					if(fit->rotation)
-						img=new ImageSource_Rotate(img,fit->rotation);
-					
-					img=ISScaleImageBySize(img,fit->width,fit->height,qual);
-					img->SetResolution(res,res);
-					
-					if(fit->width>target->w)
-						fit->width=target->w;
-					if(fit->height>target->h)
-						fit->height=target->h;
-
-					if(img->width<fit->width)
-						fit->width=img->width;
-					if(img->height<fit->height)
-						fit->height=img->height;
-
-					cerr << "xoffset: " << fit->xoffset << endl;
-					cerr << "yoffset: " << fit->yoffset << endl;
-
-					if(ii->allowcropping)
-					{
-						cerr << "Cropping" << endl;
-						img=new ImageSource_Crop(img,fit->xoffset,fit->yoffset,fit->width,fit->height);
-					}
-					else
-						cerr << "Not cropping" << endl;
-
-					img=ii->ApplyMask(img);
-
-					mon->Add(img,fit->xpos,fit->ypos);
-					delete fit;
+					cerr << "Cropping" << endl;
+					img=new ImageSource_Crop(img,fit->xoffset,fit->yoffset,fit->width,fit->height);
 				}
-			}
-			ii=(Layout_NUp_ImageInfo *)NextImage();
-		}
-		result=mon;
+				else
+					cerr << "Not cropping" << endl;
 
-		// Load background image, if present...
-		if(backgroundfilename)
+				img=ii->ApplyMask(img);
+
+				mon->Add(img,fit->xpos,fit->ypos);
+				delete fit;
+			}
+		}
+		ii=(Layout_NUp_ImageInfo *)it.NextImage();
+	}
+	result=mon;
+
+	// Load background image, if present...
+	if(backgroundfilename)
+	{
+		ImageSource *is=ISLoadImage(backgroundfilename);
+
+		IS_TYPE colourspace=GetColourSpace(target);
+
+		if(STRIP_ALPHA(is->type)==IS_TYPE_GREY)
+			is=new ImageSource_Promote(is,colourspace);
+
+		if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
+			is=new ImageSource_Promote(is,colourspace);
+
+		if(factory)
 		{
-			ImageSource *is=ISLoadImage(backgroundfilename);
-
-			IS_TYPE colourspace=GetColourSpace(target);
-
-			if(STRIP_ALPHA(is->type)==IS_TYPE_GREY)
-				is=new ImageSource_Promote(is,colourspace);
-
-			if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
-				is=new ImageSource_Promote(is,colourspace);
-
-			if(factory)
-			{
-				CMSTransform *transform=factory->GetTransform(target,is);
-				if(transform)
-					is=new ImageSource_CMS(is,transform);
-			}
-			if((is->width<is->height)^(pagewidth<pageheight))
-				is=new ImageSource_Rotate(is,90);
-			is=ISScaleImageBySize(is,(pagewidth*res)/72,(pageheight*res)/72,qual);
-			mon->Add(is,0,0);
+			CMSTransform *transform=factory->GetTransform(target,is);
+			if(transform)
+				is=new ImageSource_CMS(is,transform);
 		}
-		else if(completepage)
+		if((is->width<is->height)^(pagewidth<pageheight))
+			is=new ImageSource_Rotate(is,90);
+		is=ISScaleImageBySize(is,(pagewidth*res)/72,(pageheight*res)/72,qual);
+		mon->Add(is,0,0);
+	}
+	else if(completepage)
+	{
+		// If the completepage flag is set we need to render a solid background.
+		// This will be used for print preview and TIFF/JPEG export.
+
+		IS_TYPE colourspace=GetColourSpace(target);
+		ISDataType white[5]={0,0,0,0,0};
+		if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
+			white[0]=white[1]=white[2]=IS_SAMPLEMAX;
+
+		if(factory)
 		{
-			// If the completepage flag is set we need to render a solid background.
-			// This will be used for print preview and TIFF/JPEG export.
-
-			IS_TYPE colourspace=GetColourSpace(target);
-			ISDataType white[5]={0,0,0,0,0};
-			if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
-				white[0]=white[1]=white[2]=IS_SAMPLEMAX;
-
-			if(factory)
-			{
-				CMSTransform *transform=factory->GetTransform(target,colourspace);
-				if(transform)
-					transform->Transform(white,white,1);
-			}
-			mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
+			CMSTransform *transform=factory->GetTransform(target,colourspace);
+			if(transform)
+				transform->Transform(white,white,1);
 		}
+		mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
 	}
 	return(result);
 }
@@ -396,7 +397,8 @@ void Layout_NUp::LayoutToDB(LayoutDB &db)
 Layout_NUp_ImageInfo *Layout_NUp::ImageAt(int page, int row, int column)
 {
 	Layout_NUp_ImageInfo *result=NULL;
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		Layout_NUp_ImageInfo *nii=(Layout_NUp_ImageInfo *)ii;
@@ -404,7 +406,7 @@ Layout_NUp_ImageInfo *Layout_NUp::ImageAt(int page, int row, int column)
 		{
 			result=nii;
 		}
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 	return(result);
 }

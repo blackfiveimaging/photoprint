@@ -59,6 +59,8 @@ PhotoPrint-0.4.1
   * Fixed missing "else" which resulted in settings being reset on queue change even
     if the driver hadn't changed.
 
+  * Rotation now support the general case.
+
 
 PhotoPrint-0.4.0
 

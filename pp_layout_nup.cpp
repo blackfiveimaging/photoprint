@@ -75,15 +75,17 @@ static void ic_changed(GtkWidget *wid,gpointer *ob)
 
 	// Loop through twice for performance reasons - firstly to cancel the
 	// thread, secondly to wait for thread exit, and delete the preview.
-	Layout_ImageInfo *ii=l->FirstSelected();
+
+	LayoutIterator it(*l);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	{
 		ii->CancelRenderThread();
-		ii=l->NextSelected();
+		ii=it.NextSelected();
 	}
-	ii=l->FirstSelected();
+	ii=it.FirstSelected();
 	{
 		ii->FlushHRPreview();
-		ii=l->NextSelected();
+		ii=it.NextSelected();
 	}
 		
 	pp_layout_nup_pageview_refresh(PP_LAYOUT_NUP_PAGEVIEW(pv));

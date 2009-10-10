@@ -26,6 +26,11 @@
 
 using namespace std;
 
+// Yuk - but it's a royal pain to do this any other way.
+// Can't easily get signal connection IDs from the automatically-built menus
+
+static bool blocksignals=false;
+
 
 // Preview widget for file chooser
 
@@ -128,11 +133,13 @@ static void imagemenu_addimage(GtkAction *act,gpointer *ob)
 static void imagemenu_remove(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		delete ii;
-		ii=mw->state->layout->FirstSelected();
+		ii=it.FirstSelected();
 	}
 	mw->state->layout->Reflow();
 	pp_mainwindow_refresh(mw);
@@ -142,11 +149,12 @@ static void imagemenu_remove(GtkAction *act,gpointer *ob)
 static void imagemenu_duplicate(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		mw->state->layout->CopyImage(ii);
-		ii=mw->state->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 	pp_mainwindow_refresh(mw);
 }
@@ -163,11 +171,12 @@ static void imagemenu_duplicatetofillpage(GtkAction *act,gpointer *ob)
 		{
 			for(int i=0;i<c;)
 			{
-				Layout_ImageInfo *ii=mw->state->layout->FirstSelected();	
+				LayoutIterator it(*mw->state->layout);
+				Layout_ImageInfo *ii=it.FirstSelected();
 				while(ii && i<c)
 				{
 					mw->state->layout->CopyImage(ii);
-					ii=mw->state->layout->NextSelected();
+					ii=it.NextSelected();
 					++i;
 				}
 			}
@@ -181,11 +190,16 @@ static void imagemenu_duplicatetofillpage(GtkAction *act,gpointer *ob)
 
 static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 {
+	if(blocksignals)
+		return;
+
+	cerr << "Responding to AllowCropping..." << endl;
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 
 	bool checked=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
 
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	if(!ii)
 		mw->state->layoutdb.SetInt("AllowCropping",checked);
 	while(ii)
@@ -198,7 +212,7 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 			ii->ReleaseMutex();
 		}
 		ii->ReleaseMutex();
-		ii=mw->state->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 	pp_mainwindow_refresh(mw);
 }
@@ -214,13 +228,15 @@ static void imagemenu_setmask(GtkAction *act,gpointer *ob)
 
 	if(mask)
 		cerr << "Selected " << mask << endl;
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		ii->ObtainMutex();
 		ii->SetMask(mask);
 		ii->ReleaseMutex();
-		ii=mw->state->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 //	if(prevfile)
 //		free(prevfile);
@@ -232,7 +248,9 @@ static void imagemenu_setmask(GtkAction *act,gpointer *ob)
 static void imagemenu_setcolourprofile(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	if(ii)
 	{
 		ii->ObtainMutex();
@@ -247,9 +265,14 @@ static void imagemenu_setcolourprofile(GtkAction *act,gpointer *ob)
 
 static void imagemenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointer *ob)
 {
+	if(blocksignals)
+		return;
+
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	enum PP_ROTATION rotation=PP_ROTATION(gtk_radio_action_get_current_value(ra));
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	if(!ii)
 		mw->state->layoutdb.SetInt("Rotation",rotation);
 	while(ii)
@@ -262,7 +285,7 @@ static void imagemenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointer 
 			ii->ReleaseMutex();
 		}
 		ii->ReleaseMutex();
-		ii=mw->state->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 	pp_mainwindow_refresh(mw);
 }
@@ -375,9 +398,11 @@ bool ImageMenu_GetCropFlag(GtkUIManager *ui_manager)
 
 void ImageMenu_SetCropFlag(GtkUIManager *ui_manager,bool active)
 {
+	blocksignals=true;
 	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/AllowCropping");
 	if(act)
 		gtk_toggle_action_set_active(GTK_TOGGLE_ACTION(act),active);
+	blocksignals=false;
 }
 
 
@@ -393,6 +418,7 @@ enum PP_ROTATION ImageMenu_GetRotation(GtkUIManager *ui_manager)
 
 void ImageMenu_SetRotation(GtkUIManager *ui_manager,enum PP_ROTATION rotation)
 {
+	blocksignals=true;
 #if 0
 	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/Rotation/RotationAuto");
 	if(act)
@@ -416,6 +442,7 @@ void ImageMenu_SetRotation(GtkUIManager *ui_manager,enum PP_ROTATION rotation)
 			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(w),PP_ROTATION(i)==rotation);
 	}
 #endif
+	blocksignals=false;
 }
 
 void ImageMenu_SetLayoutCapabilities(GtkUIManager *ui_manager,int features)

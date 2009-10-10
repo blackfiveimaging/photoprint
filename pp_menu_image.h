@@ -3,6 +3,7 @@
 #include <gtk/gtkwidget.h>
 #include <gtk/gtkuimanager.h>
 #include "support/layoutrectangle.h"
+#include "pp_mainwindow.h"
 
 void BuildImageMenu(void *userdata,GtkUIManager *ui_manager);
 bool ImageMenu_GetCropFlag(GtkUIManager *ui_manager);

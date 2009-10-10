@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-02 00:51+0100\n"
+"POT-Creation-Date: 2009-10-08 00:18+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -19,100 +19,100 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: dialogs.cpp:133
+#: dialogs.cpp:144
 msgid "Printer Setup"
 msgstr "Настройка принтера"
 
-#: dialogs.cpp:147
+#: dialogs.cpp:158
 msgid "Output"
 msgstr "Вывод"
 
-#: dialogs.cpp:184
+#: dialogs.cpp:195
 msgid "About"
 msgstr "О программе"
 
-#: dialogs.cpp:195
+#: dialogs.cpp:206
 #, fuzzy
 msgid "PhotoPrint "
 msgstr "Выйти из программы"
 
-#: dialogs.cpp:234
+#: dialogs.cpp:245
 msgid "Set paths..."
 msgstr "Указать расположение..."
 
-#: dialogs.cpp:259
+#: dialogs.cpp:270
 msgid "ICC Profiles"
 msgstr "Профили ICC"
 
-#: dialogs.cpp:291
+#: dialogs.cpp:302
 msgid "Borders"
 msgstr "Рамки"
 
-#: dialogs.cpp:322
+#: dialogs.cpp:333
 msgid "Backgrounds"
 msgstr "Фоновый рисунок"
 
-#: dialogs.cpp:350
+#: dialogs.cpp:361
 msgid "Select a border..."
 msgstr "Выберите рамку"
 
-#: dialogs.cpp:397
+#: dialogs.cpp:408
 msgid "Export TIFF..."
 msgstr "Экспорт в TIFF..."
 
-#: dialogs.cpp:423 dialogs.cpp:626
+#: dialogs.cpp:434 dialogs.cpp:637
 msgid "Page range:"
 msgstr "Диапазон страниц:"
 
-#: dialogs.cpp:436 dialogs.cpp:636
+#: dialogs.cpp:447 dialogs.cpp:647
 msgid "Resolution (dpi):"
 msgstr "Разрешение (dpi):"
 
-#: dialogs.cpp:444
+#: dialogs.cpp:455
 msgid "Save as 16-bit:"
 msgstr "16-разрядный:"
 
-#: dialogs.cpp:463 dialogs.cpp:671
+#: dialogs.cpp:474 dialogs.cpp:682
 msgid "Output Profile:"
 msgstr "Профиль вывода:"
 
-#: dialogs.cpp:527 dialogs.cpp:767
+#: dialogs.cpp:538 dialogs.cpp:778
 msgid "Please provide a filename."
 msgstr "Укажите имя файла."
 
-#: dialogs.cpp:558 dialogs.cpp:745
+#: dialogs.cpp:569 dialogs.cpp:756
 msgid "Exporting..."
 msgstr "Производится экспорт..."
 
-#: dialogs.cpp:597
+#: dialogs.cpp:608
 msgid "Export JPEG..."
 msgstr "Экспорт в JPEG..."
 
-#: dialogs.cpp:655
+#: dialogs.cpp:666
 msgid "JPEG Quality:"
 msgstr "Качество JPEG"
 
-#: dialogs.cpp:784
+#: dialogs.cpp:795
 msgid "Select a background..."
 msgstr "Выберите фон..."
 
-#: dialogs.cpp:876 pp_menu_image.cpp:244
+#: dialogs.cpp:887 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Сначала необходимо выбрать снимок!"
 
-#: dialogs.cpp:907
+#: dialogs.cpp:918
 msgid "Set Custom Profile..."
 msgstr "Укажите иной профиль..."
 
-#: dialogs.cpp:919
+#: dialogs.cpp:930
 msgid "Before:"
 msgstr "До:"
 
-#: dialogs.cpp:923
+#: dialogs.cpp:934
 msgid "After:"
 msgstr "После:"
 
-#: dialogs.cpp:937
+#: dialogs.cpp:948
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -125,7 +125,7 @@ msgstr ""
 "или профиль монитора в диалоге \n"
 "«Параметры > Управление цветом...»."
 
-#: dialogs.cpp:962
+#: dialogs.cpp:973
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -133,53 +133,53 @@ msgstr ""
 "Предупреждение: в снимок уже встроен профиль.\n"
 "При назначении нового профиля старый будет удален!"
 
-#: dialogs.cpp:979
+#: dialogs.cpp:990
 msgid "Assign Profile:"
 msgstr "Назначить профиль:"
 
-#: dialogs.cpp:987 pp_cms.cpp:118
+#: dialogs.cpp:998 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Цветопередача:"
 
-#: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
+#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
 #: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Страница:"
 
-#: dialogs.cpp:1135
+#: dialogs.cpp:1146
 #, fuzzy
 msgid "Preview resolution:"
 msgstr "Разрешение:"
 
-#: dialogs.cpp:1139
+#: dialogs.cpp:1150
 msgid "180 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1140
+#: dialogs.cpp:1151
 msgid "240 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1141
+#: dialogs.cpp:1152
 msgid "300 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1142
+#: dialogs.cpp:1153
 msgid "360 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1147
+#: dialogs.cpp:1158
 msgid ""
 "Click-and-drag to pan around the preview.\n"
 "Right-click to toggle magnification."
 msgstr ""
 
-#: dialogs.cpp:1150
+#: dialogs.cpp:1161
 #, fuzzy
 msgid "Close"
 msgstr "Карусель"
 
-#: dialogs.cpp:1218
+#: dialogs.cpp:1229
 #, fuzzy
 msgid "Drawing preview"
 msgstr "Прос_мотреть печать..."
@@ -307,7 +307,7 @@ msgstr "_Макет"
 msgid "_Image"
 msgstr "Сн_имок"
 
-#: menucheck.cpp:62 pp_menu_options.cpp:100
+#: menucheck.cpp:62 pp_menu_options.cpp:107
 msgid "_Options"
 msgstr "П_араметры"
 
@@ -375,35 +375,35 @@ msgstr "_Назначить профиль ICC..."
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Назначить профиль ICC или изменить конечную цветопередачу изображения"
 
-#: menucheck.cpp:77 pp_menu_options.cpp:102
+#: menucheck.cpp:77 pp_menu_options.cpp:109
 msgid "_Paths..."
 msgstr "_Расположение данных..."
 
-#: menucheck.cpp:77 pp_menu_options.cpp:102
+#: menucheck.cpp:77 pp_menu_options.cpp:109
 msgid "Set search paths for ICC profiles, borders, etc."
 msgstr "Указать пути поиска профилей ICC, рамок и т.д."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:103
+#: menucheck.cpp:78 pp_menu_options.cpp:110
 msgid "_Colour Management..."
 msgstr "_Управление цветом..."
 
-#: menucheck.cpp:78 pp_menu_options.cpp:103
+#: menucheck.cpp:78 pp_menu_options.cpp:110
 msgid "Set colour management options"
 msgstr "Настройка управления цветом"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:104
+#: menucheck.cpp:79 pp_menu_options.cpp:112
 msgid "_Units..."
 msgstr "_Единицы измерения..."
 
-#: menucheck.cpp:79 pp_menu_options.cpp:104
+#: menucheck.cpp:79 pp_menu_options.cpp:112
 msgid "Select the units used throughout PhotoPrint"
 msgstr "Выбор единицы измерения, используемой в PhotoPrint"
 
-#: menucheck.cpp:80 pp_menu_options.cpp:105
+#: menucheck.cpp:80 pp_menu_options.cpp:113
 msgid "_Scaling..."
 msgstr "_Интерполяция..."
 
-#: menucheck.cpp:80 pp_menu_options.cpp:105
+#: menucheck.cpp:80 pp_menu_options.cpp:113
 msgid "Select the preferred scaling method."
 msgstr "Выбор типа интерполяции при масштабировании"
 
@@ -874,36 +874,45 @@ msgstr "Заполнить страницу копиями выбранного 
 msgid "Set Image _Border..."
 msgstr "Выберите рамку"
 
-#: pp_menu_options.cpp:109
+#: pp_menu_options.cpp:111
+#, fuzzy
+msgid "_Colour Response Tag..."
+msgstr "_Управление цветом..."
+
+#: pp_menu_options.cpp:111
+msgid "Create a tag for verifying printer settings"
+msgstr ""
+
+#: pp_menu_options.cpp:117
 msgid "High-res Previews"
 msgstr "Высококачественные эскизы"
 
-#: pp_menu_options.cpp:109
+#: pp_menu_options.cpp:117
 msgid "Render high-resolution previews in the background"
 msgstr "Создавать высококачественные эскизы в фоновом режиме"
 
-#: pp_menu_options.cpp:113
+#: pp_menu_options.cpp:121
 msgid "_Normal Display"
 msgstr "_Обычное отображение"
 
-#: pp_menu_options.cpp:113
+#: pp_menu_options.cpp:121
 msgid "Display colours with no print simulation"
 msgstr "Не имитировать принтер при отображении цветов"
 
-#: pp_menu_options.cpp:114
+#: pp_menu_options.cpp:122
 msgid "Simulate Prin_t"
 msgstr "_Имитация принтера"
 
-#: pp_menu_options.cpp:114
+#: pp_menu_options.cpp:122
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr "Скорректировать цвета на экране для имитации оттиска на белой бумаге"
 
-#: pp_menu_options.cpp:115
+#: pp_menu_options.cpp:123
 msgid "Simulate Print, _Adapt White"
 msgstr "И_митация принтера, баланс белого по монитору"
 
-#: pp_menu_options.cpp:115
+#: pp_menu_options.cpp:123
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 "Скорректировать цвета на экране для имитации оттиска без имитации белой "
@@ -954,7 +963,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Очередь печати не найдена"
 
-#: gp_cppsupport/gprinter.cpp:353
+#: gp_cppsupport/gprinter.cpp:354
 msgid "Unable to generate print data"
 msgstr "Невозможно создать печатаемые данные"
 

@@ -58,7 +58,9 @@ static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
 	PP_ROTATION rotation=ImageMenu_GetRotation(mw->uim);
 	bool allowcropping=ImageMenu_GetCropFlag(mw->uim);
 	bool removeimage=true;
-	Layout_ImageInfo *ii=mw->state->layout->FirstSelected();
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	if(ii)
 	{
 		allowcropping=ii->allowcropping;
@@ -72,7 +74,7 @@ static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
 		if(rotation!=ii->rotation)
 			rotation=PP_ROTATION_NONE;
 		allowcropping&=ii->allowcropping;
-		ii=mw->state->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 
 	ImageMenu_SetCropFlag(mw->uim,allowcropping);

@@ -46,8 +46,6 @@ class Layout_Poster : public Layout
 	virtual void SetCurrentPage(int page);
 	ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,
 		CMTransformFactory *factory=NULL,int res=0,bool completepage=false);
-	virtual Layout_ImageInfo *FirstSelected();
-	virtual Layout_ImageInfo *NextSelected();
 	Layout_Poster_ImageInfo *ImageAt(int page);
 	void DrawPreview(GtkWidget *widget,int xpos,int ypos,int width,int height);
 	virtual void (*SetUnitFunc())(GtkWidget *wid,enum Units unit);
@@ -67,6 +65,7 @@ class Layout_Poster_ImageInfo : public Layout_ImageInfo
 	Layout_Poster_ImageInfo(Layout_Poster &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Poster_ImageInfo();
 	virtual LayoutRectangle *GetBounds();
+	virtual bool GetSelected();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);
 //	ImageSource *GetImageSource();
 //	int rotation;

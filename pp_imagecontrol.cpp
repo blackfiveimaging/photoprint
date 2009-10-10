@@ -33,12 +33,13 @@ static void pp_imagecontrol_init (pp_ImageControl *stpuicombo);
 static void effectselector_changed(GtkWidget *wid,gpointer *ob)
 {
 	pp_ImageControl *ic=(pp_ImageControl *)ob;
-	Layout_ImageInfo *ii=ic->layout->FirstSelected();
+	LayoutIterator it(*ic->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		effectselector_apply(EFFECTSELECTOR(ic->effectselector),ii);
 		ii->FlushThumbnail();
-		ii=ic->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 	g_signal_emit(G_OBJECT (ic),pp_imagecontrol_signals[CHANGED_SIGNAL], 0);
 }
@@ -48,11 +49,12 @@ static void effectselector_addeffect(GtkWidget *wid,gpointer *ob)
 {
 	cerr << "Acting on addeffect signal" << endl;
 	pp_ImageControl *ic=(pp_ImageControl *)ob;
-	Layout_ImageInfo *ii=ic->layout->FirstSelected();
+	LayoutIterator it(*ic->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		effectselector_add_selected_effect(EFFECTSELECTOR(ic->effectselector),ii);
-		ii=ic->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 	g_signal_emit(G_OBJECT (ic),pp_imagecontrol_signals[CHANGED_SIGNAL], 0);
 }
@@ -62,11 +64,12 @@ static void effectselector_removeeffect(GtkWidget *wid,gpointer *ob)
 {
 	cerr << "Acting on removeeffect signal" << endl;
 	pp_ImageControl *ic=(pp_ImageControl *)ob;
-	Layout_ImageInfo *ii=ic->layout->FirstSelected();
+	LayoutIterator it(*ic->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		effectselector_remove_selected_effect(EFFECTSELECTOR(ic->effectselector),ii);
-		ii=ic->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 	g_signal_emit(G_OBJECT (ic),pp_imagecontrol_signals[CHANGED_SIGNAL], 0);
 }
@@ -84,7 +87,8 @@ void pp_imagecontrol_refresh(pp_ImageControl *ob)
 
 void pp_imagecontrol_set_image(pp_ImageControl *ob)
 {
-	Layout_ImageInfo *ii=ob->layout->FirstSelected();
+	LayoutIterator it(*ob->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	pp_imageinfo_change_image(PP_IMAGEINFO(ob->imageinfo));
 	effectselector_set_current_list(EFFECTSELECTOR(ob->effectselector),ii);
 	pp_imageinfo_refresh(PP_IMAGEINFO(ob->imageinfo));

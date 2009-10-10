@@ -95,11 +95,12 @@ Layout_Poster::~Layout_Poster()
 void Layout_Poster::Reflow()
 {
 	int page=0;
-	Layout_Poster_ImageInfo *ii=(Layout_Poster_ImageInfo *)FirstImage();
+	LayoutIterator it(*this);
+	Layout_Poster_ImageInfo *ii=(Layout_Poster_ImageInfo *)it.FirstImage();
 	while(ii)
 	{
 		ii->page=page;
-		ii=(Layout_Poster_ImageInfo *)NextImage();
+		ii=(Layout_Poster_ImageInfo *)it.NextImage();
 		posters=page;
 		++page;
 	}
@@ -130,7 +131,7 @@ int Layout_Poster::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 	}
 	if(ii)
 	{
-		imagelist=g_list_append(imagelist,ii);
+		imagelist.push_back(ii);
 
 		if(page>=posters)
 			++posters;
@@ -153,7 +154,7 @@ void Layout_Poster::CopyImage(Layout_ImageInfo *ii)
 		}
 	}
 	ii=new Layout_Poster_ImageInfo(*this,ii,page);
-	imagelist=g_list_append(imagelist,ii);
+	imagelist.push_back(ii);
 	if(page>=posters)
 		++posters;
 	pages=posters*htiles*vtiles;
@@ -167,101 +168,95 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 	ImageSource *is=NULL;
 	try
 	{
-		if(imagelist)
+		int p=page/(htiles*vtiles);
+		int r=page-htiles*vtiles*p;
+		int vt=r/htiles;
+		int ht=r-(htiles*vt);
+
+		cerr << "HT: " << ht << endl;
+		cerr << "VT: " << vt << endl;
+
+		Layout_Poster_ImageInfo *ii=(Layout_Poster_ImageInfo *)ImageAt(p);
+		
+		if(ii)
 		{
-//			GetDefaultRGBTransform();
-//			GetDefaultCMYKTransform();
+			GetImageableArea();
 
-			int p=page/(htiles*vtiles);
-			int r=page-htiles*vtiles*p;
-			int vt=r/htiles;
-			int ht=r-(htiles*vt);
-
-			cerr << "HT: " << ht << endl;
-			cerr << "VT: " << vt << endl;
-
-			Layout_Poster_ImageInfo *ii=(Layout_Poster_ImageInfo *)ImageAt(p);
+			is=ii->GetImageSource(target,factory);
+			LayoutRectangle srcr(is->width,is->height);
+			LayoutRectangle target(posterwidth,posterheight);
 			
-			if(ii)
+			RectFit *fit=srcr.Fit(target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
+
+			if(fit->rotation)
+				is=new ImageSource_Rotate(is,fit->rotation);
+
+			int l=ht*(imageablewidth-hoverlap);
+			int r=(ht+1)*imageablewidth-ht*hoverlap;
+			int t=vt*(imageableheight-voverlap);
+			int b=(vt+1)*imageableheight-vt*voverlap;
+
+			cerr << "Left: " << l << ", Right: " << r << endl;
+			cerr << "Top: " << t << ", Bottom: " << b << endl;
+
+			xoffset=leftmargin;
+			yoffset=topmargin;
+
+			l-=fit->xpos;
+			r-=fit->xpos;
+			t-=fit->ypos;
+			b-=fit->ypos;
+
+			cerr << "Left: " << l << ", Right: " << r << endl;
+			cerr << "Top: " << t << ", Bottom: " << b << endl;
+
+			if(l<0)
 			{
-				GetImageableArea();
-
-				is=ii->GetImageSource(target,factory);
-				LayoutRectangle srcr(is->width,is->height);
-				LayoutRectangle target(posterwidth,posterheight);
-				
-				RectFit *fit=srcr.Fit(target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
-
-				if(fit->rotation)
-					is=new ImageSource_Rotate(is,fit->rotation);
-
-				int l=ht*(imageablewidth-hoverlap);
-				int r=(ht+1)*imageablewidth-ht*hoverlap;
-				int t=vt*(imageableheight-voverlap);
-				int b=(vt+1)*imageableheight-vt*voverlap;
-
-				cerr << "Left: " << l << ", Right: " << r << endl;
-				cerr << "Top: " << t << ", Bottom: " << b << endl;
-
-				xoffset=leftmargin;
-				yoffset=topmargin;
-
-				l-=fit->xpos;
-				r-=fit->xpos;
-				t-=fit->ypos;
-				b-=fit->ypos;
-
-				cerr << "Left: " << l << ", Right: " << r << endl;
-				cerr << "Top: " << t << ", Bottom: " << b << endl;
-
-				if(l<0)
-				{
-					l=0;
-					xoffset+=fit->xpos;
-				}
-				
-				if(t<0)
-				{
-					t=0;
-					yoffset+=fit->ypos;
-				}
-				
-				if(r>fit->width) r=fit->width;
-				if(b>fit->height) b=fit->height;
-
-				l+=fit->xoffset;
-				r+=fit->xoffset;
-				t+=fit->yoffset;
-				b+=fit->yoffset;
-				
-				cerr << "Left: " << l << ", Right: " << r << endl;
-				cerr << "Top: " << t << ", Bottom: " << b << endl;
-
-				l=(is->width*l)/fit->width;
-				r=(is->width*r)/fit->width;
-				t=(is->height*t)/fit->height;
-				b=(is->height*b)/fit->height;
-
-				cerr << "Left: " << l << ", Right: " << r << endl;
-				cerr << "Top: " << t << ", Bottom: " << b << endl;
-
-				is=ii->ApplyMask(is);
-				is=new ImageSource_Flatten(is);
-
-				cerr << "Old resolution: " << is->xres << " x " << is->yres << " dpi" << endl;
-				is->SetResolution(72.0/fit->scale,72.0/fit->scale);
-
-				is=new ImageSource_Crop(is,l,t,r-l,b-t);
-
-
-				IS_ScalingQuality qual=IS_ScalingQuality(state.FindInt("ScalingQuality"));
-				if(!res)
-					res=state.FindInt("RenderingResolution");
-
-				is=ISScaleImageByResolution(is,res,res,qual);
-
-				delete fit;
+				l=0;
+				xoffset+=fit->xpos;
 			}
+			
+			if(t<0)
+			{
+				t=0;
+				yoffset+=fit->ypos;
+			}
+			
+			if(r>fit->width) r=fit->width;
+			if(b>fit->height) b=fit->height;
+
+			l+=fit->xoffset;
+			r+=fit->xoffset;
+			t+=fit->yoffset;
+			b+=fit->yoffset;
+			
+			cerr << "Left: " << l << ", Right: " << r << endl;
+			cerr << "Top: " << t << ", Bottom: " << b << endl;
+
+			l=(is->width*l)/fit->width;
+			r=(is->width*r)/fit->width;
+			t=(is->height*t)/fit->height;
+			b=(is->height*b)/fit->height;
+
+			cerr << "Left: " << l << ", Right: " << r << endl;
+			cerr << "Top: " << t << ", Bottom: " << b << endl;
+
+			is=ii->ApplyMask(is);
+			is=new ImageSource_Flatten(is);
+
+			cerr << "Old resolution: " << is->xres << " x " << is->yres << " dpi" << endl;
+			is->SetResolution(72.0/fit->scale,72.0/fit->scale);
+
+			is=new ImageSource_Crop(is,l,t,r-l,b-t);
+
+
+			IS_ScalingQuality qual=IS_ScalingQuality(state.FindInt("ScalingQuality"));
+			if(!res)
+				res=state.FindInt("RenderingResolution");
+
+			is=ISScaleImageByResolution(is,res,res,qual);
+
+			delete fit;
 		}
 		if(completepage)
 		{
@@ -383,7 +378,8 @@ void Layout_Poster::LayoutToDB(LayoutDB &db)
 Layout_Poster_ImageInfo *Layout_Poster::ImageAt(int page)
 {
 	Layout_Poster_ImageInfo *result=NULL;
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		Layout_Poster_ImageInfo *nii=(Layout_Poster_ImageInfo *)ii;
@@ -391,7 +387,7 @@ Layout_Poster_ImageInfo *Layout_Poster::ImageAt(int page)
 		{
 			result=nii;
 		}
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 	return(result);
 }
@@ -432,7 +428,8 @@ void Layout_Poster::DrawPreview(GtkWidget *widget,int xpos,int ypos,int width,in
 {
 	DrawPreviewBG(widget,xpos,ypos,width,height);
 
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	int cp=currentpage/(htiles*vtiles);
 
 	while(ii)
@@ -441,7 +438,7 @@ void Layout_Poster::DrawPreview(GtkWidget *widget,int xpos,int ypos,int width,in
 		{
 			ii->DrawThumbnail(widget,xpos,ypos,width,height);
 		}
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 }
 
@@ -452,14 +449,22 @@ int Layout_Poster::GetCapabilities()
 }
 
 
+bool Layout_Poster_ImageInfo::GetSelected()
+{
+	Layout_Poster *l=(Layout_Poster *)&layout;
+	return(page==l->currentposter);
+}
+
+#if 0
 Layout_ImageInfo *Layout_Poster::FirstSelected()
 {
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		if(ii->page==currentposter)
 			return(ii);
-		ii=NextSelected();
+		ii=it.NextSelected();
 	}
 	return(NULL);
 }
@@ -467,12 +472,15 @@ Layout_ImageInfo *Layout_Poster::FirstSelected()
 
 Layout_ImageInfo *Layout_Poster::NextSelected()
 {
-	Layout_ImageInfo *ii=NextImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.NextImage();
 	while(ii)
 	{
 		if(ii->page==currentposter)
 			return(ii);
-		ii=NextSelected();
+		ii=it.NextSelected();
 	}
 	return(NULL);
 }
+#endif
+

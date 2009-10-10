@@ -49,9 +49,60 @@ ConfigTemplate LayoutDB::Template[]=
 };
 
 
+LayoutIterator::LayoutIterator(Layout &header) : header(header)
+{
+}
+
+LayoutIterator::~LayoutIterator()
+{
+}
+
+Layout_ImageInfo *LayoutIterator::FirstImage()
+{
+	iterator=header.imagelist.begin();
+	if(iterator==header.imagelist.end())
+		return(NULL);
+	return(*iterator);
+}
+
+Layout_ImageInfo *LayoutIterator::NextImage()
+{
+	if(iterator==header.imagelist.end())
+		return(NULL);
+	++iterator;
+	if(iterator==header.imagelist.end())
+		return(NULL);
+	return(*iterator);
+}
+
+Layout_ImageInfo *LayoutIterator::FirstSelected()
+{
+	Layout_ImageInfo *ii=FirstImage();
+	while(ii)
+	{
+		if(ii->GetSelected())
+			return(ii);
+		ii=NextSelected();
+	}
+	return(NULL);
+}
+
+Layout_ImageInfo *LayoutIterator::NextSelected()
+{
+	Layout_ImageInfo *ii=NextImage();
+	while(ii)
+	{
+		if(ii->GetSelected())
+			return(ii);
+		ii=NextSelected();
+	}
+	return(NULL);
+}
+
+
 Layout::Layout(PhotoPrint_State &state,Layout *oldlayout)
 	: PageExtent(), state(state), xoffset(0), yoffset(0), pages(1), currentpage(0), backgroundfilename(NULL), background(NULL),
-	backgroundtransformed(NULL), imagelist(NULL), iterator(NULL), factory(NULL), gc(NULL)
+	backgroundtransformed(NULL), imagelist(NULL), factory(NULL), gc(NULL)
 {
 	factory=state.profilemanager.GetTransformFactory();
 }
@@ -59,16 +110,14 @@ Layout::Layout(PhotoPrint_State &state,Layout *oldlayout)
 
 Layout::~Layout()
 {
-	if(imagelist)
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
+	while(ii)
 	{
-		for(unsigned int i=0;i<g_list_length(imagelist);++i)
-		{
-			GList *element=g_list_nth(imagelist,i);
-			Layout_ImageInfo *ii=(Layout_ImageInfo *)element->data;
-			delete ii;
-		}
+		delete ii;
+		ii=it.FirstImage();
 	}
-	g_list_free(imagelist);
+
 	if(gc)
 		g_object_unref(G_OBJECT(gc));
 	if(factory)
@@ -91,17 +140,14 @@ void Layout::Clear()
 {
 	SetBackground(NULL);
 	FlushHRPreviews();
-	if(imagelist)
+
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
+	while(ii)
 	{
-		for(unsigned int i=0;i<g_list_length(imagelist);++i)
-		{
-			GList *element=g_list_nth(imagelist,i);
-			Layout_ImageInfo *ii=(Layout_ImageInfo *)element->data;
-			delete ii;
-		}
+		delete ii;
+		ii=it.NextImage();
 	}
-	g_list_free(imagelist);
-	imagelist=NULL;
 	pages=1;
 }
 
@@ -153,27 +199,23 @@ IS_TYPE Layout::GetColourSpace(CMColourDevice target)
 
 void Layout::TransferImages(Layout *oldlayout,Progress *p)
 {
-	if(currentpage>=pages);
 	if(oldlayout)
 	{
-		int count=0,img=0;
-		Layout_ImageInfo *ii=oldlayout->FirstImage();
+		int count=oldlayout->imagelist.size();
+
+		LayoutIterator it(*oldlayout);
+		Layout_ImageInfo *ii=it.FirstImage();
+		int img=0;
 		while(ii)
 		{
-			++count;
-			ii=oldlayout->NextImage();
-		}
-		ii=oldlayout->FirstImage();
-		while(ii)
-		{
-			++img;
 			CopyImage(ii);
-			ii=oldlayout->NextImage();
+			ii=it.NextImage();
 			if(p)
 			{
 				if(!(p->DoProgress(img,count)))
 					ii=NULL;
 			}
+			++img;
 		}
 	}
 	if(currentpage>=pages)
@@ -392,35 +434,15 @@ void Layout::DrawPreview(GtkWidget *widget,int xpos,int ypos,int width,int heigh
 {
 	DrawPreviewBG(widget,xpos,ypos,width,height);
 
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 
 	while(ii)
 	{
 		if(currentpage==ii->page)
 			ii->DrawThumbnail(widget,xpos,ypos,width,height);
-		ii=NextImage();
+		ii=it.NextImage();
 	}
-}
-
-
-Layout_ImageInfo *Layout::FirstImage()
-{
-	iterator=imagelist;
-	if(iterator)
-		return((Layout_ImageInfo *)iterator->data);
-	else
-		return(NULL);
-}
-
-
-Layout_ImageInfo *Layout::NextImage()
-{
-	if(iterator)
-		iterator=g_list_next(iterator);
-	if(iterator)
-		return((Layout_ImageInfo *)iterator->data);
-	else
-		return(NULL);
 }
 
 
@@ -430,40 +452,16 @@ int Layout::GetPages()
 }
 
 
-Layout_ImageInfo *Layout::FirstSelected()
-{
-	Layout_ImageInfo *ii=FirstImage();
-	while(ii)
-	{
-		if(ii->GetSelected())
-			return(ii);
-		ii=NextSelected();
-	}
-	return(NULL);
-}
-
-
-Layout_ImageInfo *Layout::NextSelected()
-{
-	Layout_ImageInfo *ii=NextImage();
-	while(ii)
-	{
-		if(ii->GetSelected())
-			return(ii);
-		ii=NextSelected();
-	}
-	return(NULL);
-}
-
-
 int Layout::CountSelected()
 {
 	int count=0;
-	Layout_ImageInfo *ii=FirstSelected();
+
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		++count;
-		ii=NextSelected();
+		ii=it.NextSelected();
 	}
 	return(count);
 }
@@ -471,22 +469,24 @@ int Layout::CountSelected()
 
 void Layout::SelectAll()
 {
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		ii->SetSelected(true);
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 }
 
 
 void Layout::SelectNone()
 {
-	Layout_ImageInfo *ii=FirstSelected();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		ii->SetSelected(false);
-		ii=NextSelected();
+		ii=it.NextSelected();
 	}
 }
 
@@ -567,19 +567,20 @@ void Layout::SetBackground(const char *filename)
 
 void Layout::FlushThumbnails()
 {
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		ii->FlushThumbnail();
-		ii=NextImage();	
+		ii=it.NextImage();	
 	}
 
 	// We obtain the mutices to ensure the rendering threads have completed.
-	ii=FirstImage();
+	ii=it.FirstImage();
 	while(ii)
 	{
 		ii->ObtainMutex();
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 
 	// Can't delete this until after the thumbnails have been flushed,
@@ -597,11 +598,11 @@ void Layout::FlushThumbnails()
 	gc=NULL;
 
 	// And now we release the mutices.
-	ii=FirstImage();
+	ii=it.FirstImage();
 	while(ii)
 	{
 		ii->ReleaseMutex();
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 }
 
@@ -613,21 +614,26 @@ void Layout::FlushHRPreviews()
 	// to exit - then wait for them in turn while we flush
 	// the previews.  Quicker than signal / wait / signal / wait / etc.
 	CancelRenderThreads();
-	Layout_ImageInfo *ii=FirstImage();
+
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		ii->FlushHRPreview();
-		ii=NextImage();	
+		ii=it.NextImage();	
 	}
 }
 
 
 void Layout::CancelRenderThreads()
 {
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		ii->CancelRenderThread();
-		ii=NextImage();	
+		ii=it.NextImage();	
 	}
 }
+
+

@@ -36,7 +36,8 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 	cerr << "Refreshing imageinfo" << endl;
 	if(ob->layout)
 	{
-		Layout_ImageInfo *ii=ob->layout->FirstSelected();
+		LayoutIterator it(*ob->layout);
+		Layout_ImageInfo *ii=it.FirstSelected();
 		if(ii)
 		{
 			float pixelwidth=ii->GetWidth();
@@ -389,7 +390,8 @@ void pp_imageinfo_change_image(pp_ImageInfo *ob)
 {
 	if(ob->layout)
 	{
-		Layout_ImageInfo *ii=ob->layout->FirstSelected();
+		LayoutIterator it(*ob->layout);
+		Layout_ImageInfo *ii=it.FirstSelected();
 		if(ii)
 		{
 			// Remove path leaving just the file part of the filename,

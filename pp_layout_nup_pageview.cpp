@@ -388,7 +388,8 @@ pp_layout_nup_pageview_button_press( GtkWidget      *widget,
 					{
 						if(prevselected)
 						{
-							Layout_ImageInfo *ii=pageview->layout->FirstImage();
+							LayoutIterator it(*pageview->layout);
+							Layout_ImageInfo *ii=it.FirstImage();
 							bool selecting=false;
 							while(ii)
 							{
@@ -400,7 +401,7 @@ pp_layout_nup_pageview_button_press( GtkWidget      *widget,
 								}
 								if(selecting)
 									ii->SetSelected(true);
-								ii=pageview->layout->NextImage();
+								ii=it.NextImage();
 							}
 						}
 						else

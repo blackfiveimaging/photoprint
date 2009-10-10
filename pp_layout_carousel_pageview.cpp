@@ -308,7 +308,8 @@ pp_layout_carousel_pageview_expose( GtkWidget      *widget,
 
 	pageview->layout->DrawPreview(widget,pageview->left,pageview->top,pageview->width,pageview->height);
 
-	Layout_ImageInfo *ii=pageview->layout->FirstSelected();
+	LayoutIterator it(*pageview->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
 		if(ii->page==pageview->layout->GetCurrentPage())
@@ -324,7 +325,7 @@ pp_layout_carousel_pageview_expose( GtkWidget      *widget,
 				pageview->left+s->x-1,pageview->top+s->y-1,s->w+2,s->h+2);
 			delete s;
 		}
-		ii=pageview->layout->NextSelected();
+		ii=it.NextSelected();
 	}
 
 
@@ -381,7 +382,8 @@ pp_layout_carousel_pageview_button_press( GtkWidget      *widget,
 					{
 						if(prevselected)
 						{
-							Layout_ImageInfo *ii=pageview->layout->FirstImage();
+							LayoutIterator it(*pageview->layout);
+							Layout_ImageInfo *ii=it.FirstImage();
 							bool selecting=false;
 							while(ii)
 							{
@@ -393,7 +395,7 @@ pp_layout_carousel_pageview_button_press( GtkWidget      *widget,
 								}
 								if(selecting)
 									ii->SetSelected(true);
-								ii=pageview->layout->NextImage();
+								ii=it.NextImage();
 							}
 						}
 						else

@@ -247,11 +247,12 @@ Layout_Single::~Layout_Single()
 void Layout_Single::Reflow()
 {
 	int page=0;
-	Layout_Single_ImageInfo *ii=(Layout_Single_ImageInfo *)FirstImage();
+	LayoutIterator it(*this);
+	Layout_Single_ImageInfo *ii=(Layout_Single_ImageInfo *)it.FirstImage();
 	while(ii)
 	{
 		ii->page=page;
-		ii=(Layout_Single_ImageInfo *)NextImage();
+		ii=(Layout_Single_ImageInfo *)it.NextImage();
 		++page;
 	}
 	if(page<1)
@@ -286,7 +287,7 @@ int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 	}
 	if(ii)
 	{
-		imagelist=g_list_append(imagelist,ii);
+		imagelist.push_back(ii);
 
 		if(page>=pages)
 			++pages;
@@ -310,7 +311,7 @@ void Layout_Single::CopyImage(Layout_ImageInfo *ii)
 		}
 	}
 	ii=new Layout_Single_ImageInfo(*this,ii,page);
-	imagelist=g_list_append(imagelist,ii);
+	imagelist.push_back(ii);
 	if(page>=pages)
 		++pages;
 }
@@ -321,40 +322,34 @@ ImageSource *Layout_Single::GetImageSource(int page,CMColourDevice target,CMTran
 	ImageSource *result=NULL;
 	try
 	{
-		if(imagelist)
+		Layout_Single_ImageInfo *ii=(Layout_Single_ImageInfo *)ImageAt(page);
+		if(ii)
 		{
-//			GetDefaultRGBTransform();
-//			GetDefaultCMYKTransform();
-
-			Layout_Single_ImageInfo *ii=(Layout_Single_ImageInfo *)ImageAt(page);
-			if(ii)
+			ImageSource *is=ii->GetImageSource(target,factory);
+			switch(ii->rotation)
 			{
-				ImageSource *is=ii->GetImageSource(target,factory);
-				switch(ii->rotation)
-				{
-					case PP_ROTATION_90:
-						is=new ImageSource_Rotate(is,90);
-						break;
-					case PP_ROTATION_180:
-						is=new ImageSource_Rotate(is,180);
-						break;
-					case PP_ROTATION_270:
-						is=new ImageSource_Rotate(is,270);
-						break;
-					default:
-						break;
-				}
-				xoffset=leftmargin;
-				yoffset=topmargin;
-				GetImageableArea();
-				int iw=int((imageablewidth*is->xres)/72.0);
-				int ih=int((imageableheight*is->yres)/72.0);
-				if((iw<is->width) || (ih<is->height))
-				{
-					is=new ImageSource_Crop(is,0,0,iw,ih);
-				}
-				return(is);
+				case PP_ROTATION_90:
+					is=new ImageSource_Rotate(is,90);
+					break;
+				case PP_ROTATION_180:
+					is=new ImageSource_Rotate(is,180);
+					break;
+				case PP_ROTATION_270:
+					is=new ImageSource_Rotate(is,270);
+					break;
+				default:
+					break;
 			}
+			xoffset=leftmargin;
+			yoffset=topmargin;
+			GetImageableArea();
+			int iw=int((imageablewidth*is->xres)/72.0);
+			int ih=int((imageableheight*is->yres)/72.0);
+			if((iw<is->width) || (ih<is->height))
+			{
+				is=new ImageSource_Crop(is,0,0,iw,ih);
+			}
+			return(is);
 		}
 	}
 	catch (const char *msg)
@@ -402,7 +397,8 @@ void Layout_Single::LayoutToDB(LayoutDB &db)
 Layout_Single_ImageInfo *Layout_Single::ImageAt(int page)
 {
 	Layout_Single_ImageInfo *result=NULL;
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		Layout_Single_ImageInfo *nii=(Layout_Single_ImageInfo *)ii;
@@ -410,7 +406,7 @@ Layout_Single_ImageInfo *Layout_Single::ImageAt(int page)
 		{
 			result=nii;
 		}
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 	return(result);
 }
@@ -446,6 +442,64 @@ int Layout_Single::GetCapabilities()
 }
 
 
+// We override this to set the top/left margin
+void Layout_Single::Print(Progress *p)
+{
+	xoffset=leftmargin;
+	yoffset=topmargin;
+	Layout::Print(p);
+}
+
+
+bool Layout_Single_ImageInfo::GetSelected()
+{
+	Layout_Single *l=(Layout_Single *)&layout;
+	return(page==l->currentpage);
+}
+
+
+#if 0
+class LayoutIterator_Single : public LayoutIterator
+{
+	LayoutIterator_Single(Layout_Single &header) : LayoutIterator(header)
+	{
+	}
+	virtual ~LayoutIterator_Single()
+	{
+	}
+	virtual Layout_ImageInfo *FirstSelected()
+	{
+		Layout_ImageInfo *ii=FirstImage();
+		while(ii)
+		{
+			if(ii->page==header.currentpage)
+				return(ii);
+			ii=NextSelected();
+		}
+		return(NULL);
+	}
+	virtual Layout_ImageInfo *NextSelected()
+	{
+		Layout_ImageInfo *ii=NextImage();
+		while(ii)
+		{
+			if(ii->page==header.currentpage)
+				return(ii);
+			ii=NextSelected();
+		}
+		return(NULL);
+	}
+};
+
+LayoutIterator Layout_Single::GetIterator()
+{
+	return(LayoutIterator_Single(*this));
+}
+#endif
+
+#if 0
+// Re-implement this with a subclass of LayoutIterator
+
 Layout_ImageInfo *Layout_Single::FirstSelected()
 {
 	Layout_ImageInfo *ii=FirstImage();
@@ -471,12 +525,4 @@ Layout_ImageInfo *Layout_Single::NextSelected()
 	return(NULL);
 }
 
-
-// We override this to set the top/left margin
-void Layout_Single::Print(Progress *p)
-{
-	xoffset=leftmargin;
-	yoffset=topmargin;
-	Layout::Print(p);
-}
-
+#endif

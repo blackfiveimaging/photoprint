@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-02 00:51+0100\n"
+"POT-Creation-Date: 2009-10-08 00:18+0100\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -11,100 +11,100 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: French\n"
 
-#: dialogs.cpp:133
+#: dialogs.cpp:144
 msgid "Printer Setup"
 msgstr "Configuration de l'impression"
 
-#: dialogs.cpp:147
+#: dialogs.cpp:158
 msgid "Output"
 msgstr ""
 
-#: dialogs.cpp:184
+#: dialogs.cpp:195
 msgid "About"
 msgstr "À propos"
 
-#: dialogs.cpp:195
+#: dialogs.cpp:206
 msgid "PhotoPrint "
 msgstr ""
 
-#: dialogs.cpp:234
+#: dialogs.cpp:245
 msgid "Set paths..."
 msgstr "Définir les chemins..."
 
-#: dialogs.cpp:259
+#: dialogs.cpp:270
 msgid "ICC Profiles"
 msgstr "Profils ICC"
 
-#: dialogs.cpp:291
+#: dialogs.cpp:302
 msgid "Borders"
 msgstr "Bordures"
 
-#: dialogs.cpp:322
+#: dialogs.cpp:333
 msgid "Backgrounds"
 msgstr "Arrière-plans"
 
-#: dialogs.cpp:350
+#: dialogs.cpp:361
 msgid "Select a border..."
 msgstr "Choisir une bordure..."
 
-#: dialogs.cpp:397
+#: dialogs.cpp:408
 msgid "Export TIFF..."
 msgstr "Exporter au format TIFF..."
 
-#: dialogs.cpp:423 dialogs.cpp:626
+#: dialogs.cpp:434 dialogs.cpp:637
 msgid "Page range:"
 msgstr "Ensemble de pages :"
 
-#: dialogs.cpp:436 dialogs.cpp:636
+#: dialogs.cpp:447 dialogs.cpp:647
 msgid "Resolution (dpi):"
 msgstr "Résolution (ppp) :"
 
-#: dialogs.cpp:444
+#: dialogs.cpp:455
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:463 dialogs.cpp:671
+#: dialogs.cpp:474 dialogs.cpp:682
 msgid "Output Profile:"
 msgstr "Profil de sortie :"
 
-#: dialogs.cpp:527 dialogs.cpp:767
+#: dialogs.cpp:538 dialogs.cpp:778
 msgid "Please provide a filename."
 msgstr "Il faut spécifier un nom de fichier !"
 
-#: dialogs.cpp:558 dialogs.cpp:745
+#: dialogs.cpp:569 dialogs.cpp:756
 msgid "Exporting..."
 msgstr "Exportation en cours..."
 
-#: dialogs.cpp:597
+#: dialogs.cpp:608
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exporter au format TIFF..."
 
-#: dialogs.cpp:655
+#: dialogs.cpp:666
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:784
+#: dialogs.cpp:795
 msgid "Select a background..."
 msgstr "Choisir un arrière-plan..."
 
-#: dialogs.cpp:876 pp_menu_image.cpp:244
+#: dialogs.cpp:887 pp_menu_image.cpp:244
 msgid "Please select an image first!"
 msgstr "Il faut d'abord choisir une image !"
 
-#: dialogs.cpp:907
+#: dialogs.cpp:918
 msgid "Set Custom Profile..."
 msgstr "Choisir un profil personnalisé..."
 
-#: dialogs.cpp:919
+#: dialogs.cpp:930
 msgid "Before:"
 msgstr "Avant :"
 
-#: dialogs.cpp:923
+#: dialogs.cpp:934
 msgid "After:"
 msgstr "Après :"
 
-#: dialogs.cpp:937
+#: dialogs.cpp:948
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -118,7 +118,7 @@ msgstr ""
 "de moniteur ou RVB par défaut dans\n"
 "le menu Options->Gestion des couleurs"
 
-#: dialogs.cpp:962
+#: dialogs.cpp:973
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -126,53 +126,53 @@ msgstr ""
 "Attention : cette image est déjà accompagnée d'un profil\n"
 "En définir un nouveau écrasera le précédent !"
 
-#: dialogs.cpp:979
+#: dialogs.cpp:990
 msgid "Assign Profile:"
 msgstr "Définir le profil :"
 
-#: dialogs.cpp:987 pp_cms.cpp:118
+#: dialogs.cpp:998 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Rendu désiré :"
 
-#: dialogs.cpp:1128 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
+#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
 #: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Page :"
 
-#: dialogs.cpp:1135
+#: dialogs.cpp:1146
 #, fuzzy
 msgid "Preview resolution:"
 msgstr "Résolution (ppp) :"
 
-#: dialogs.cpp:1139
+#: dialogs.cpp:1150
 msgid "180 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1140
+#: dialogs.cpp:1151
 msgid "240 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1141
+#: dialogs.cpp:1152
 msgid "300 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1142
+#: dialogs.cpp:1153
 msgid "360 dots per inch"
 msgstr ""
 
-#: dialogs.cpp:1147
+#: dialogs.cpp:1158
 msgid ""
 "Click-and-drag to pan around the preview.\n"
 "Right-click to toggle magnification."
 msgstr ""
 
-#: dialogs.cpp:1150
+#: dialogs.cpp:1161
 #, fuzzy
 msgid "Close"
 msgstr "Caroussel"
 
-#: dialogs.cpp:1218
+#: dialogs.cpp:1229
 #, fuzzy
 msgid "Drawing preview"
 msgstr "Impression de l'a_perçu"
@@ -301,7 +301,7 @@ msgstr "_Mise en page"
 msgid "_Image"
 msgstr "_Image"
 
-#: menucheck.cpp:62 pp_menu_options.cpp:100
+#: menucheck.cpp:62 pp_menu_options.cpp:107
 msgid "_Options"
 msgstr "_Options"
 
@@ -369,35 +369,35 @@ msgstr "Définir un _profil de couleurs..."
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr ""
 
-#: menucheck.cpp:77 pp_menu_options.cpp:102
+#: menucheck.cpp:77 pp_menu_options.cpp:109
 msgid "_Paths..."
 msgstr "Définir les chemins..."
 
-#: menucheck.cpp:77 pp_menu_options.cpp:102
+#: menucheck.cpp:77 pp_menu_options.cpp:109
 msgid "Set search paths for ICC profiles, borders, etc."
 msgstr ""
 
-#: menucheck.cpp:78 pp_menu_options.cpp:103
+#: menucheck.cpp:78 pp_menu_options.cpp:110
 msgid "_Colour Management..."
 msgstr "Gestion des couleurs"
 
-#: menucheck.cpp:78 pp_menu_options.cpp:103
+#: menucheck.cpp:78 pp_menu_options.cpp:110
 msgid "Set colour management options"
 msgstr "Gestion des couleurs"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:104
+#: menucheck.cpp:79 pp_menu_options.cpp:112
 msgid "_Units..."
 msgstr "Unités"
 
-#: menucheck.cpp:79 pp_menu_options.cpp:104
+#: menucheck.cpp:79 pp_menu_options.cpp:112
 msgid "Select the units used throughout PhotoPrint"
 msgstr ""
 
-#: menucheck.cpp:80 pp_menu_options.cpp:105
+#: menucheck.cpp:80 pp_menu_options.cpp:113
 msgid "_Scaling..."
 msgstr "Mise à l'échelle..."
 
-#: menucheck.cpp:80 pp_menu_options.cpp:105
+#: menucheck.cpp:80 pp_menu_options.cpp:113
 msgid "Select the preferred scaling method."
 msgstr ""
 
@@ -876,38 +876,47 @@ msgstr ""
 msgid "Set Image _Border..."
 msgstr "Choisir une bordure..."
 
-#: pp_menu_options.cpp:109
+#: pp_menu_options.cpp:111
+#, fuzzy
+msgid "_Colour Response Tag..."
+msgstr "Gestion des couleurs"
+
+#: pp_menu_options.cpp:111
+msgid "Create a tag for verifying printer settings"
+msgstr ""
+
+#: pp_menu_options.cpp:117
 msgid "High-res Previews"
 msgstr ""
 
-#: pp_menu_options.cpp:109
+#: pp_menu_options.cpp:117
 msgid "Render high-resolution previews in the background"
 msgstr ""
 
-#: pp_menu_options.cpp:113
+#: pp_menu_options.cpp:121
 msgid "_Normal Display"
 msgstr ""
 
-#: pp_menu_options.cpp:113
+#: pp_menu_options.cpp:121
 msgid "Display colours with no print simulation"
 msgstr ""
 
-#: pp_menu_options.cpp:114
+#: pp_menu_options.cpp:122
 #, fuzzy
 msgid "Simulate Prin_t"
 msgstr "Simuler une impression"
 
-#: pp_menu_options.cpp:114
+#: pp_menu_options.cpp:122
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr ""
 
-#: pp_menu_options.cpp:115
+#: pp_menu_options.cpp:123
 #, fuzzy
 msgid "Simulate Print, _Adapt White"
 msgstr "Simuler une impression en adaptant les blancs"
 
-#: pp_menu_options.cpp:115
+#: pp_menu_options.cpp:123
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 
@@ -955,7 +964,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configuration de l'impression"
 
-#: gp_cppsupport/gprinter.cpp:353
+#: gp_cppsupport/gprinter.cpp:354
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Génération des données d'impression..."

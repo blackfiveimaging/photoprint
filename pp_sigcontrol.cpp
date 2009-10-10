@@ -114,7 +114,8 @@ static void getsizefromimage_clicked(GtkWidget *wid,gpointer ob)
 {
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Layout_NUp *sig=lo->sig;
-	Layout_ImageInfo *ii=sig->FirstSelected();
+	LayoutIterator it(*sig);
+	Layout_ImageInfo *ii=it.FirstSelected();
 	if(ii)
 	{
 		int w=(72.0*ii->GetWidth())/ii->GetXRes();

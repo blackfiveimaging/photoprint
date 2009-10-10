@@ -152,7 +152,9 @@ Layout_ImageInfo::~Layout_ImageInfo()
 		g_object_unref(thumbnail);
 	if(mask)
 		g_object_unref(mask);
-	layout.imagelist=g_list_remove(layout.imagelist,this);
+
+	layout.imagelist.remove(this);
+
 	if(customprofile)
 		free(customprofile);
 	free(filename);

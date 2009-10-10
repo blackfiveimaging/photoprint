@@ -114,12 +114,13 @@ void Layout_Carousel::Reflow()
 {
 	int page=0;
 	int segment=0;
-	Layout_Carousel_ImageInfo *ii=(Layout_Carousel_ImageInfo *)FirstImage();
+	LayoutIterator it(*this);
+	Layout_Carousel_ImageInfo *ii=(Layout_Carousel_ImageInfo *)it.FirstImage();
 	while(ii)
 	{
 		ii->page=page;
 		ii->segment=segment;
-		ii=(Layout_Carousel_ImageInfo *)NextImage();
+		ii=(Layout_Carousel_ImageInfo *)it.NextImage();
 		++segment;
 	}
 	pages=1;
@@ -132,7 +133,9 @@ int Layout_Carousel::AddImage(const char *filename,bool allowcropping,PP_ROTATIO
 	// AllowRotation is ignored - rotation is never allowed.
 	int page=0;
 	Layout_Carousel_ImageInfo *ii=new Layout_Carousel_ImageInfo(*this,filename,page,true,PP_ROTATION_NONE);
-	imagelist=g_list_append(imagelist,ii);
+
+	imagelist.push_back(ii);
+
 	if(page>=pages)
 		++pages;
 	FlushPreview();
@@ -150,7 +153,9 @@ void Layout_Carousel::CopyImage(Layout_ImageInfo *ii)
 {
 	int page=0;
 	Layout_Carousel_ImageInfo *cii=new Layout_Carousel_ImageInfo(*this,ii,page);
-	imagelist=g_list_append(imagelist,cii);
+
+	imagelist.push_back(cii);
+
 	if(page>=pages)
 		++pages;
 
@@ -168,101 +173,98 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 	ImageSource *result=NULL;
 	try
 	{
-		if(imagelist)
+		enum IS_TYPE colourspace=GetColourSpace(target);
+
+		IS_ScalingQuality qual=IS_ScalingQuality(state.FindInt("ScalingQuality"));
+		if(!res)
+			res=state.FindInt("RenderingResolution");
+
+		ImageSource_Montage *mon=new ImageSource_Montage(colourspace,res);
+
+		GetImageableArea();
+		int w=(imageablewidth*res)/72;
+		int h=(imageableheight*res)/72;
+		int ir=(innerradius*res)/72;
+
+		CircleMontage c(w,h);
+		c.SetSegments(segments,angleoffset,overlap);
+		c.SetInnerRadius(ir);
+
+		ImageSource *source=NULL;
+		ImageSource *mask=NULL;
+		CMSegment *targetseg=NULL;
+
+		cerr << "Layout_carousel: Left margin: " << leftmargin << endl;
+
+		for(int s=0;s<segments;s+=2)
 		{
-			enum IS_TYPE colourspace=GetColourSpace(target);
+			Layout_ImageInfo *img=GetNthImage(page,s);
 
-			IS_ScalingQuality qual=IS_ScalingQuality(state.FindInt("ScalingQuality"));
-			if(!res)
-				res=state.FindInt("RenderingResolution");
-
-			ImageSource_Montage *mon=new ImageSource_Montage(colourspace,res);
-
-			GetImageableArea();
-			int w=(imageablewidth*res)/72;
-			int h=(imageableheight*res)/72;
-			int ir=(innerradius*res)/72;
-
-			CircleMontage c(w,h);
-			c.SetSegments(segments,angleoffset,overlap);
-			c.SetInnerRadius(ir);
-
-			ImageSource *source=NULL;
-			ImageSource *mask=NULL;
-			CMSegment *targetseg=NULL;
-
-			cerr << "Layout_carousel: Left margin: " << leftmargin << endl;
-	
-			for(int s=0;s<segments;s+=2)
+			if(img)
 			{
-				Layout_ImageInfo *img=GetNthImage(page,s);
+				source=img->GetImageSource(target,factory);
+				LayoutRectangle r(source->width,source->height);
 
-				if(img)
-				{
-					source=img->GetImageSource(target,factory);
-					LayoutRectangle r(source->width,source->height);
-	
-					targetseg=c.GetSegmentExtent(s);
-			
-					RectFit *fit=r.Fit(*targetseg,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
-			
-					source=ISScaleImageBySize(source,fit->width,fit->height,qual);
-	
-					mask=new ImageSource_SegmentMask(targetseg,true);
-					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
+				targetseg=c.GetSegmentExtent(s);
+		
+				RectFit *fit=r.Fit(*targetseg,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
+		
+				source=ISScaleImageBySize(source,fit->width,fit->height,qual);
 
-					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,(leftmargin*res)/72+targetseg->x,(topmargin*res)/72+targetseg->y);
+				mask=new ImageSource_SegmentMask(targetseg,true);
+				source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
 
-					delete fit;
-				}
+				source=new ImageSource_Mask(source,mask);
+				mon->Add(source,(leftmargin*res)/72+targetseg->x,(topmargin*res)/72+targetseg->y);
+
+				delete fit;
 			}
-	
-			for(int s=1;s<segments;s+=2)
+		}
+
+		for(int s=1;s<segments;s+=2)
+		{
+			Layout_ImageInfo *img=GetNthImage(page,s);
+
+			if(img)
 			{
-				Layout_ImageInfo *img=GetNthImage(page,s);
+				source=img->GetImageSource(target,factory);
+				LayoutRectangle r(source->width,source->height);
 
-				if(img)
-				{
-					source=img->GetImageSource(target,factory);
-					LayoutRectangle r(source->width,source->height);
-	
-					targetseg=c.GetSegmentExtent(s);
-			
-					RectFit *fit=r.Fit(*targetseg,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
-			
-					source=ISScaleImageBySize(source,fit->width,fit->height,qual);
-			
-					mask=new ImageSource_SegmentMask(targetseg,false);
-					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
-			
-					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,(leftmargin*res)/72+targetseg->x,(topmargin*res)/72+targetseg->y);
-			
-					delete fit;
-				}
+				targetseg=c.GetSegmentExtent(s);
+		
+				RectFit *fit=r.Fit(*targetseg,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
+		
+				source=ISScaleImageBySize(source,fit->width,fit->height,qual);
+		
+				mask=new ImageSource_SegmentMask(targetseg,false);
+				source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
+		
+				source=new ImageSource_Mask(source,mask);
+				mon->Add(source,(leftmargin*res)/72+targetseg->x,(topmargin*res)/72+targetseg->y);
+		
+				delete fit;
 			}
+		}
 
-			result=mon;
+		result=mon;
 
-			if(completepage)
+		if(completepage)
+		{
+			// If the completepage flag is set we need to render a solid background.
+			// This will be used for print preview and TIFF/JPEG export.
+
+			IS_TYPE colourspace=GetColourSpace(target);
+			ISDataType white[5]={0,0,0,0,0};
+			if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
+				white[0]=white[1]=white[2]=IS_SAMPLEMAX;
+
+			if(factory)
 			{
-				// If the completepage flag is set we need to render a solid background.
-				// This will be used for print preview and TIFF/JPEG export.
-
-				IS_TYPE colourspace=GetColourSpace(target);
-				ISDataType white[5]={0,0,0,0,0};
-				if(STRIP_ALPHA(colourspace)==IS_TYPE_RGB)
-					white[0]=white[1]=white[2]=IS_SAMPLEMAX;
-
-				if(factory)
-				{
-					CMSTransform *transform=factory->GetTransform(target,colourspace);
-					if(transform)
-						transform->Transform(white,white,1);
-				}
-				mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
+				CMSTransform *transform=factory->GetTransform(target,colourspace);
+				if(transform)
+					transform->Transform(white,white,1);
 			}
+			mon->Add(new ImageSource_Solid(colourspace,(pagewidth*res)/72,(pageheight*res)/72,white),0,0);
 		}
 	}
 	catch (const char *msg)
@@ -330,12 +332,13 @@ void (*Layout_Carousel::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 int Layout_Carousel::CountImages(int page)
 {
 	int result=0;
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		if(ii->page==page)
 			++result;
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 	return(result);
 }
@@ -345,7 +348,8 @@ Layout_Carousel_ImageInfo *Layout_Carousel::GetNthImage(int page,int n)
 {
 	Layout_Carousel_ImageInfo *result=NULL;
 
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		if(ii->page==page)
@@ -355,7 +359,7 @@ Layout_Carousel_ImageInfo *Layout_Carousel::GetNthImage(int page,int n)
 			--n;
 		}
 
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 	return(result);
 }
@@ -373,79 +377,76 @@ void Layout_Carousel::RenderPreview(int width,int height)
 {
 	try
 	{
-		if(imagelist)
+		ImageSource_Montage *mon=new ImageSource_Montage(IS_TYPE_RGBA,72);
+
+		GetImageableArea();
+
+		CircleMontage c((width*imageablewidth)/pagewidth,(height*imageableheight)/pageheight);
+		c.SetSegments(segments,angleoffset,overlap);
+		int ir=(innerradius*width)/pagewidth;
+		c.SetInnerRadius(ir);
+
+		int lm=(leftmargin*width)/pagewidth;
+		int tm=(topmargin*height)/pageheight;
+
+		ImageSource *source=NULL;
+		ImageSource *mask=NULL;
+		CMSegment *target=NULL;
+
+		for(int s=0;s<segments;s+=2)
 		{
-			ImageSource_Montage *mon=new ImageSource_Montage(IS_TYPE_RGBA,72);
+			Layout_ImageInfo *img=GetNthImage(currentpage,s);
 
-			GetImageableArea();
-
-			CircleMontage c((width*imageablewidth)/pagewidth,(height*imageableheight)/pageheight);
-			c.SetSegments(segments,angleoffset,overlap);
-			int ir=(innerradius*width)/pagewidth;
-			c.SetInnerRadius(ir);
-
-			int lm=(leftmargin*width)/pagewidth;
-			int tm=(topmargin*height)/pageheight;
-
-			ImageSource *source=NULL;
-			ImageSource *mask=NULL;
-			CMSegment *target=NULL;
-
-			for(int s=0;s<segments;s+=2)
+			if(img)
 			{
-				Layout_ImageInfo *img=GetNthImage(currentpage,s);
+				GdkPixbuf *thumbnail=img->GetThumbnail();
+				source=new ImageSource_GdkPixbuf(thumbnail);
+				LayoutRectangle r(source->width,source->height);
 
-				if(img)
-				{
-					GdkPixbuf *thumbnail=img->GetThumbnail();
-					source=new ImageSource_GdkPixbuf(thumbnail);
-					LayoutRectangle r(source->width,source->height);
+				target=c.GetSegmentExtent(s);
 
-					target=c.GetSegmentExtent(s);
+				RectFit *fit=r.Fit(*target,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
 
-					RectFit *fit=r.Fit(*target,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
+				source=ISScaleImageBySize(source,fit->width,fit->height,IS_SCALING_NEARESTNEIGHBOUR);
 
-					source=ISScaleImageBySize(source,fit->width,fit->height,IS_SCALING_NEARESTNEIGHBOUR);
+				mask=new ImageSource_SegmentMask(target,true);
+				source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
 
-					mask=new ImageSource_SegmentMask(target,true);
-					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
-	
-					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,target->x+lm,target->y+tm);
+				source=new ImageSource_Mask(source,mask);
+				mon->Add(source,target->x+lm,target->y+tm);
 
-					delete fit;
-				}
+				delete fit;
 			}
-	
-			for(int s=1;s<segments;s+=2)
-			{
-				Layout_ImageInfo *img=GetNthImage(currentpage,s);
-
-				if(img)
-				{
-					GdkPixbuf *thumbnail=img->GetThumbnail();
-					source=new ImageSource_GdkPixbuf(thumbnail);
-					LayoutRectangle r(source->width,source->height);
-	
-					target=c.GetSegmentExtent(s);
-			
-					RectFit *fit=r.Fit(*target,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
-			
-					source=ISScaleImageBySize(source,fit->width,fit->height,IS_SCALING_NEARESTNEIGHBOUR);
-			
-					mask=new ImageSource_SegmentMask(target,false);
-					source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
-			
-					source=new ImageSource_Mask(source,mask);
-					mon->Add(source,target->x+lm,target->y+tm);
-			
-					delete fit;
-				}
-			}
-
-			preview=pixbuf_from_imagesource(mon,bgcol.red>>8,bgcol.green>>8,bgcol.blue>>8);
-			delete mon;
 		}
+
+		for(int s=1;s<segments;s+=2)
+		{
+			Layout_ImageInfo *img=GetNthImage(currentpage,s);
+
+			if(img)
+			{
+				GdkPixbuf *thumbnail=img->GetThumbnail();
+				source=new ImageSource_GdkPixbuf(thumbnail);
+				LayoutRectangle r(source->width,source->height);
+
+				target=c.GetSegmentExtent(s);
+		
+				RectFit *fit=r.Fit(*target,true,PP_ROTATION_NONE,img->crop_hpan,img->crop_vpan);
+		
+				source=ISScaleImageBySize(source,fit->width,fit->height,IS_SCALING_NEARESTNEIGHBOUR);
+		
+				mask=new ImageSource_SegmentMask(target,false);
+				source=new ImageSource_Crop(source,fit->xoffset,fit->yoffset,mask->width,mask->height);
+		
+				source=new ImageSource_Mask(source,mask);
+				mon->Add(source,target->x+lm,target->y+tm);
+		
+				delete fit;
+			}
+		}
+
+		preview=pixbuf_from_imagesource(mon,bgcol.red>>8,bgcol.green>>8,bgcol.blue>>8);
+		delete mon;
 	}
 	catch (const char *msg)
 	{
@@ -544,24 +545,16 @@ int Layout_Carousel::GetInnerRadius()
 
 int Layout_Carousel::FreeSlots()
 {
-	int totalslots=segments;
-	int count=0;
-	int c=g_list_length(imagelist);
-	for(int i=0;i<c;++i)
-	{
-		GList *element=g_list_nth(imagelist,i);
-		Layout_Carousel_ImageInfo *ii=(Layout_Carousel_ImageInfo *)element->data;
-		if(ii->page==currentpage)
-			++count;
-	}
-	return(totalslots-count);
+	int totalslots=segments-CountImages(currentpage);
+	return(totalslots);
 }
 
 
 Layout_Carousel_ImageInfo *Layout_Carousel::ImageAt(int page,int segment)
 {
 	Layout_Carousel_ImageInfo *result=NULL;
-	Layout_ImageInfo *ii=FirstImage();
+	LayoutIterator it(*this);
+	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
 		Layout_Carousel_ImageInfo *nii=(Layout_Carousel_ImageInfo *)ii;
@@ -570,7 +563,7 @@ Layout_Carousel_ImageInfo *Layout_Carousel::ImageAt(int page,int segment)
 			if(!--segment)
 				result=nii;
 		}
-		ii=NextImage();
+		ii=it.NextImage();
 	}
 	return(result);
 }

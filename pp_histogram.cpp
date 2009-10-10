@@ -208,9 +208,10 @@ class BuildHistogramThread : public ThreadFunction
 void pp_histogram_refresh(pp_Histogram *ob)
 {
 	cerr << "Main thread: Refreshing histogram" << endl;
-	if(ob->layout)
+	if(ob && ob->layout)
 	{
-		Layout_ImageInfo *ii=ob->layout->FirstSelected();
+		LayoutIterator it(*ob->layout);
+		Layout_ImageInfo *ii=it.FirstSelected();
 		if(ii)
 		{
 			// Histogram

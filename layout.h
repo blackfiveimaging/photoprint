@@ -1,6 +1,7 @@
 #ifndef LAYOUT_H
 #define LAYOUT_H
 
+#include <list>
 #include <stdio.h>
 #include <glib.h>
 #include <gtk/gtkwidget.h>
@@ -30,6 +31,21 @@ class Progress;
 #define PPLAYOUT_DUPLICATE 64
 
 
+class LayoutIterator
+{
+	public:
+	LayoutIterator(Layout &header);
+	~LayoutIterator();
+	Layout_ImageInfo *FirstImage();
+	Layout_ImageInfo *NextImage();
+	Layout_ImageInfo *FirstSelected();
+	Layout_ImageInfo *NextSelected();
+	protected:
+	Layout &header;
+	std::list<Layout_ImageInfo *>::iterator iterator;
+};
+
+
 class Layout : public virtual PageExtent
 {
 	public:
@@ -57,17 +73,12 @@ class Layout : public virtual PageExtent
 
 	// Image list / selections
 
-	virtual Layout_ImageInfo *FirstImage();
-	virtual Layout_ImageInfo *NextImage();
-	virtual Layout_ImageInfo *FirstSelected();
-	virtual Layout_ImageInfo *NextSelected();
 	virtual int CountSelected();
 	virtual void SelectAll();
 	virtual void SelectNone();
 	virtual Layout_ImageInfo *ImageAtCoord(int x,int y);
 	virtual int GetCurrentPage();
 	virtual void SetCurrentPage(int page);
-
 
 	// UI-related
 
@@ -97,9 +108,12 @@ class Layout : public virtual PageExtent
 	char *backgroundfilename;
 	GdkPixbuf *background;
 	GdkPixbuf *backgroundtransformed;
+
 	// Housekeeping
-	GList *imagelist;
-	GList *iterator;
+//	GList *imagelist;
+//	GList *iterator;
+	list<Layout_ImageInfo *> imagelist;
+
 	// For thumbnails and preview...
 	CMTransformFactory *factory;
 	GdkGC *gc;
@@ -107,6 +121,7 @@ class Layout : public virtual PageExtent
 	GdkColor bgcol2;
 	friend class Layout_ImageInfo;
 	friend class hr_payload;
+	friend class LayoutIterator;
 };
 
 

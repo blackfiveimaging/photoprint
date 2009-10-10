@@ -40,6 +40,13 @@ static void options_colourmanagement(GtkAction *act,gpointer *ob)
 }
 
 
+static void options_colourresponsetag(GtkAction *act,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;	
+	ColourResponseTag_Dialog(GTK_WIDGET(mw),*mw->state);
+}
+
+
 static void options_units(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
@@ -101,6 +108,7 @@ static GtkActionEntry optionsmenu_entries[] = {
 
   { "Paths", NULL, N_("_Paths..."), NULL, N_("Set search paths for ICC profiles, borders, etc."), G_CALLBACK(options_paths) },
   { "ColourManagement", NULL, N_("_Colour Management..."), NULL, N_("Set colour management options"), G_CALLBACK(options_colourmanagement) },
+  { "ColourResponseTag", NULL, N_("_Colour Response Tag..."), NULL, N_("Create a tag for verifying printer settings"), G_CALLBACK(options_colourresponsetag) },
   { "Units", NULL, N_("_Units..."), NULL, N_("Select the units used throughout PhotoPrint"), G_CALLBACK(options_units) },
   { "Scaling", NULL, N_("_Scaling..."), NULL, N_("Select the preferred scaling method."), G_CALLBACK(options_scaling) },
 };
@@ -124,6 +132,7 @@ static const char *optionsmenu_ui_description =
 "      <menuitem action='Units'/>"
 "      <menuitem action='Scaling'/>"
 "      <menuitem action='ColourManagement'/>"
+"      <menuitem action='ColourResponseTag'/>"
 "      <separator/>"
 "      <menuitem action='NormalDisplay'/>"
 "      <menuitem action='SimulatePrint'/>"

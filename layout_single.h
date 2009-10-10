@@ -14,6 +14,7 @@
 #include "layout.h"
 
 class Layout_Single_ImageInfo;
+class LayoutIterator_Single;
 class PhotoPrint_State;
 
 class Layout_Single : public Layout
@@ -34,11 +35,10 @@ class Layout_Single : public Layout
 	virtual void Print(Progress *p);	// Overridden so we can set the top/left position...
 	virtual ImageSource *GetImageSource(int page,CMColourDevice target=CM_COLOURDEVICE_PRINTER,
 		CMTransformFactory *factory=NULL,int res=0,bool completepage=false);
-	virtual Layout_ImageInfo *FirstSelected();
-	virtual Layout_ImageInfo *NextSelected();
 	Layout_Single_ImageInfo *ImageAt(int page);
 	virtual void (*SetUnitFunc())(GtkWidget *wid,enum Units unit);
 	friend class Layout_Single_ImageInfo;
+	friend class LayoutIterator_Single;
 };
 
 
@@ -52,11 +52,13 @@ class Layout_Single_ImageInfo : public Layout_ImageInfo
 	virtual ImageSource *GetImageSource(CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL);
 	virtual LayoutRectangle *GetBounds();	// The dimensions of the image's "slot".
 	virtual RectFit *GetFit(double scale);	// Details of the image's size after fitting to its slot.
+	virtual bool GetSelected();
 	float hscale;
 	float vscale;
 	private:
 	void Init();
 	friend class Layout_Single;
+	friend class LayoutIterator_Single;
 };
 
 

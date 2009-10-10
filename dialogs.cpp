@@ -11,6 +11,7 @@
 
 
 #include <iostream>
+#include <string>
 
 #include <sys/stat.h>
 
@@ -56,16 +57,26 @@ using namespace std;
 
 // Colour Management
 
+#if 0
 struct colourmanagementdata
 {
 	PhotoPrint_State *state;
 	GtkWidget *dialog;
 };
+#endif
 
 void ColourManagement_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 {
 	pp_cms_run_dialog(&state,parent);
 }
+
+
+void ColourResponseTag_Dialog(GtkWidget *parent,PhotoPrint_State &state)
+{
+	string tag=state.printer.GetResponseHash();
+	ErrorMessage_Dialog(tag.c_str(),parent);
+}
+
 
 void Units_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 {
