@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-10 18:24+0100\n"
+"POT-Creation-Date: 2009-10-11 13:53+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -16,100 +16,148 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: dialogs.cpp:144
+#: dialogs.cpp:81
+#, fuzzy
+msgid "Colour Response Hash"
+msgstr "_Farvestyring..."
+
+#: dialogs.cpp:107
+msgid "Current hash:"
+msgstr ""
+
+#: dialogs.cpp:111
+#, fuzzy
+msgid "Stored in preset:"
+msgstr "Gem et sæt af forudindstillinger"
+
+#: dialogs.cpp:117
+msgid "No hash stored yet"
+msgstr ""
+
+#: dialogs.cpp:126
+msgid ""
+"Calculating hash of printer response\n"
+"with current driver settings"
+msgstr ""
+
+#: dialogs.cpp:131
+#, fuzzy
+msgid "Store in preset"
+msgstr "Gem et sæt af forudindstillinger"
+
+#: dialogs.cpp:155
+msgid ""
+"MATCH - No changes in driver\n"
+"or printer settings detected"
+msgstr ""
+
+#: dialogs.cpp:161
+msgid ""
+"This hash can be used to detect changes\n"
+"in printer settings or driver versions\n"
+"that might invalidate colour profiles"
+msgstr ""
+
+#: dialogs.cpp:163
+msgid ""
+"MISMATCH - change detected in printer response!\n"
+"Printer's colour profile might no longer be accurate."
+msgstr ""
+
+#: dialogs.cpp:285
 msgid "Printer Setup"
 msgstr "Indstil printer"
 
-#: dialogs.cpp:158
+#: dialogs.cpp:299
 msgid "Output"
 msgstr "Uddata"
 
-#: dialogs.cpp:195
+#: dialogs.cpp:336
 msgid "About"
 msgstr "Om"
 
-#: dialogs.cpp:206
+#: dialogs.cpp:347
 #, fuzzy
 msgid "PhotoPrint "
 msgstr "Afslut PhotoPrint"
 
-#: dialogs.cpp:245
+#: dialogs.cpp:386
 msgid "Set paths..."
 msgstr "Sæt stier..."
 
-#: dialogs.cpp:270
+#: dialogs.cpp:411
 msgid "ICC Profiles"
 msgstr "ICC profiler"
 
-#: dialogs.cpp:302
+#: dialogs.cpp:443
 msgid "Borders"
 msgstr "Rammer"
 
-#: dialogs.cpp:333
+#: dialogs.cpp:474
 msgid "Backgrounds"
 msgstr "Baggrunde"
 
-#: dialogs.cpp:361
+#: dialogs.cpp:502
 msgid "Select a border..."
 msgstr "Vælg en ramme..."
 
-#: dialogs.cpp:408
+#: dialogs.cpp:549
 msgid "Export TIFF..."
 msgstr "Eksportér TIFF..."
 
-#: dialogs.cpp:434 dialogs.cpp:637
+#: dialogs.cpp:575 dialogs.cpp:778
 msgid "Page range:"
 msgstr "Sideområde:"
 
-#: dialogs.cpp:447 dialogs.cpp:647
+#: dialogs.cpp:588 dialogs.cpp:788
 msgid "Resolution (dpi):"
 msgstr "Opløsning (dpi):"
 
-#: dialogs.cpp:455
+#: dialogs.cpp:596
 msgid "Save as 16-bit:"
 msgstr "Gem som 16-bit:"
 
-#: dialogs.cpp:474 dialogs.cpp:682
+#: dialogs.cpp:615 dialogs.cpp:823
 msgid "Output Profile:"
 msgstr "Uddataprofil:"
 
-#: dialogs.cpp:538 dialogs.cpp:778
+#: dialogs.cpp:679 dialogs.cpp:919
 msgid "Please provide a filename."
 msgstr "Angiv et filnavn."
 
-#: dialogs.cpp:569 dialogs.cpp:756
+#: dialogs.cpp:710 dialogs.cpp:897
 msgid "Exporting..."
 msgstr "Eksporterer..."
 
-#: dialogs.cpp:608
+#: dialogs.cpp:749
 msgid "Export JPEG..."
 msgstr "Eksportér JPEG..."
 
-#: dialogs.cpp:666
+#: dialogs.cpp:807
 msgid "JPEG Quality:"
 msgstr "JPEG kalitet:"
 
-#: dialogs.cpp:795
+#: dialogs.cpp:936
 msgid "Select a background..."
 msgstr "Vælg en baggrund..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:262
+#: dialogs.cpp:1028 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Vælg et billede først!"
 
-#: dialogs.cpp:918
+#: dialogs.cpp:1059
 msgid "Set Custom Profile..."
 msgstr "Sæt brugerprofil..."
 
-#: dialogs.cpp:930
+#: dialogs.cpp:1071
 msgid "Before:"
 msgstr "Før:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:1075
 msgid "After:"
 msgstr "Efter:"
 
-#: dialogs.cpp:948
+#: dialogs.cpp:1089
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -122,7 +170,7 @@ msgstr ""
 "en standard RGB- eller skærm-profil\n"
 "i Indstillinger->Farvestyring dialogen!"
 
-#: dialogs.cpp:973
+#: dialogs.cpp:1114
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -130,56 +178,13 @@ msgstr ""
 "Advarsel: Billedet har allerede en indlejret profil\n"
 "Fastsættelse af en ny vil overskrive den!"
 
-#: dialogs.cpp:990
+#: dialogs.cpp:1131
 msgid "Assign Profile:"
 msgstr "Fastsæt profil:"
 
-#: dialogs.cpp:998 pp_cms.cpp:118
+#: dialogs.cpp:1139 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Farvegengivelsesmåde:"
-
-#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:233
-msgid "Page:"
-msgstr "Side:"
-
-#: dialogs.cpp:1146
-#, fuzzy
-msgid "Preview resolution:"
-msgstr "Opløsning:"
-
-#: dialogs.cpp:1150
-msgid "180 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1151
-msgid "240 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1152
-msgid "300 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1153
-msgid "360 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1158
-msgid ""
-"Click-and-drag to pan around the preview.\n"
-"Right-click to toggle magnification."
-msgstr ""
-
-#: dialogs.cpp:1161
-#, fuzzy
-msgid "Close"
-msgstr "Karrusel"
-
-#: dialogs.cpp:1229
-#, fuzzy
-msgid "Drawing preview"
-msgstr "Udskriv forhånds_visning..."
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"
@@ -220,39 +225,39 @@ msgstr "Radius: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Mængde: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:134
+#: menucheck.cpp:21 pp_menu_file.cpp:135
 msgid "_File"
 msgstr "_Fil"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "_Open Preset..."
 msgstr "Åben f_orudindstillet..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "Open a preset"
 msgstr "Åbn et sæt af forudindstillinger"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "_Save Preset"
 msgstr "Gem forudind_stilling"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "Save a preset"
 msgstr "Gem et sæt af forudindstillinger"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save _As..."
 msgstr "_Gem som..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save preset with a new filename"
 msgstr "Gem forudindstilling med et filnavn"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save _Default"
 msgstr "Gem stan_dard"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save preset as the default"
 msgstr "Gem forudindstillet som standard"
 
@@ -260,39 +265,39 @@ msgstr "Gem forudindstillet som standard"
 msgid "E_xport TIFF..."
 msgstr "E_ksporter TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:141
+#: menucheck.cpp:27 pp_menu_file.cpp:142
 msgid "Export pages as TIFF files"
 msgstr "Eksporter sider som TIFF-filer"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Print Pre_view..."
 msgstr "Udskriv forhånds_visning..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Preview how the printed page will look"
 msgstr "Se hvordan udskriften vil blive"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Print S_etup..."
 msgstr "Udskrifts indstilling_er..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Set printer driver and options"
 msgstr "Indstil printerdrivere og indstillinger"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "_Print"
 msgstr "_Udskriv"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "Print pages"
 msgstr "Udskriv sider"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "_Quit"
 msgstr "_Afslut"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "Exit PhotoPrint"
 msgstr "Afslut PhotoPrint"
 
@@ -697,6 +702,11 @@ msgstr "pixels"
 msgid "Default"
 msgstr "Standard"
 
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:233
+msgid "Page:"
+msgstr "Side:"
+
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Karrusel"
@@ -805,31 +815,31 @@ msgstr "_Indsæt"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Indsæt indholdet af klippebordet som et nyt billede"
 
-#: pp_menu_file.cpp:37
+#: pp_menu_file.cpp:38
 msgid "Open preset..."
 msgstr "Åben forudindstillet..."
 
-#: pp_menu_file.cpp:63
+#: pp_menu_file.cpp:64
 msgid "Save preset..."
 msgstr "Gem forudindstillet..."
 
-#: pp_menu_file.cpp:114
+#: pp_menu_file.cpp:115
 msgid "Generating print data..."
 msgstr "Danner printerdata..."
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 msgid "E_xport"
 msgstr "E_xport"
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 msgid "Export _TIFF..."
 msgstr "Export _TIFF..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export _JPEG..."
 msgstr "Export _JPEG..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export pages as JPEG files"
 msgstr "Exporter sider som JPEG filer"
 
@@ -873,11 +883,11 @@ msgstr "Vælg en ramme..."
 
 #: pp_menu_options.cpp:111
 #, fuzzy
-msgid "_Colour Response Tag..."
+msgid "_Colour Response Hash..."
 msgstr "_Farvestyring..."
 
 #: pp_menu_options.cpp:111
-msgid "Create a tag for verifying printer settings"
+msgid "Create a hash for verifying printer settings"
 msgstr ""
 
 #: pp_menu_options.cpp:117
@@ -1168,3 +1178,15 @@ msgstr "Billede"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Fremgang..."
+
+#, fuzzy
+#~ msgid "Preview resolution:"
+#~ msgstr "Opløsning:"
+
+#, fuzzy
+#~ msgid "Close"
+#~ msgstr "Karrusel"
+
+#, fuzzy
+#~ msgid "Drawing preview"
+#~ msgstr "Udskriv forhånds_visning..."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-10 18:24+0100\n"
+"POT-Creation-Date: 2009-10-11 13:53+0100\n"
 "PO-Revision-Date: 2009-08-01 10:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <ubuntu-l10n-cs@lists.ubuntu.cz>\n"
@@ -16,100 +16,148 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: dialogs.cpp:144
+#: dialogs.cpp:81
+#, fuzzy
+msgid "Colour Response Hash"
+msgstr "Správa _barev..."
+
+#: dialogs.cpp:107
+msgid "Current hash:"
+msgstr ""
+
+#: dialogs.cpp:111
+#, fuzzy
+msgid "Stored in preset:"
+msgstr "Uloží nastavení"
+
+#: dialogs.cpp:117
+msgid "No hash stored yet"
+msgstr ""
+
+#: dialogs.cpp:126
+msgid ""
+"Calculating hash of printer response\n"
+"with current driver settings"
+msgstr ""
+
+#: dialogs.cpp:131
+#, fuzzy
+msgid "Store in preset"
+msgstr "Uloží nastavení"
+
+#: dialogs.cpp:155
+msgid ""
+"MATCH - No changes in driver\n"
+"or printer settings detected"
+msgstr ""
+
+#: dialogs.cpp:161
+msgid ""
+"This hash can be used to detect changes\n"
+"in printer settings or driver versions\n"
+"that might invalidate colour profiles"
+msgstr ""
+
+#: dialogs.cpp:163
+msgid ""
+"MISMATCH - change detected in printer response!\n"
+"Printer's colour profile might no longer be accurate."
+msgstr ""
+
+#: dialogs.cpp:285
 msgid "Printer Setup"
 msgstr "Nastavení tiskárny"
 
-#: dialogs.cpp:158
+#: dialogs.cpp:299
 msgid "Output"
 msgstr "Výstup"
 
-#: dialogs.cpp:195
+#: dialogs.cpp:336
 msgid "About"
 msgstr "O aplikaci"
 
-#: dialogs.cpp:206
+#: dialogs.cpp:347
 #, fuzzy
 msgid "PhotoPrint "
 msgstr "Ukončí PhotoPrint"
 
-#: dialogs.cpp:245
+#: dialogs.cpp:386
 msgid "Set paths..."
 msgstr "Nastavení cest..."
 
-#: dialogs.cpp:270
+#: dialogs.cpp:411
 msgid "ICC Profiles"
 msgstr "Profily ICC"
 
-#: dialogs.cpp:302
+#: dialogs.cpp:443
 msgid "Borders"
 msgstr "Masky"
 
-#: dialogs.cpp:333
+#: dialogs.cpp:474
 msgid "Backgrounds"
 msgstr "Pozadí"
 
-#: dialogs.cpp:361
+#: dialogs.cpp:502
 msgid "Select a border..."
 msgstr "Volba masky..."
 
-#: dialogs.cpp:408
+#: dialogs.cpp:549
 msgid "Export TIFF..."
 msgstr "Exportování TIFF..."
 
-#: dialogs.cpp:434 dialogs.cpp:637
+#: dialogs.cpp:575 dialogs.cpp:778
 msgid "Page range:"
 msgstr "Rozsah stránek:"
 
-#: dialogs.cpp:447 dialogs.cpp:647
+#: dialogs.cpp:588 dialogs.cpp:788
 msgid "Resolution (dpi):"
 msgstr "Rozlišení (dpi):"
 
-#: dialogs.cpp:455
+#: dialogs.cpp:596
 msgid "Save as 16-bit:"
 msgstr "Uložit 16bitově:"
 
-#: dialogs.cpp:474 dialogs.cpp:682
+#: dialogs.cpp:615 dialogs.cpp:823
 msgid "Output Profile:"
 msgstr "Výstupní profil:"
 
-#: dialogs.cpp:538 dialogs.cpp:778
+#: dialogs.cpp:679 dialogs.cpp:919
 msgid "Please provide a filename."
 msgstr "Zadejte prosím název souboru."
 
-#: dialogs.cpp:569 dialogs.cpp:756
+#: dialogs.cpp:710 dialogs.cpp:897
 msgid "Exporting..."
 msgstr "Probíhá export..."
 
-#: dialogs.cpp:608
+#: dialogs.cpp:749
 msgid "Export JPEG..."
 msgstr "Exportování JPEG..."
 
-#: dialogs.cpp:666
+#: dialogs.cpp:807
 msgid "JPEG Quality:"
 msgstr "Kvalita JPEG:"
 
-#: dialogs.cpp:795
+#: dialogs.cpp:936
 msgid "Select a background..."
 msgstr "Volba pozadí..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:262
+#: dialogs.cpp:1028 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Nejdříve prosím zvolte obrázek!"
 
-#: dialogs.cpp:918
+#: dialogs.cpp:1059
 msgid "Set Custom Profile..."
 msgstr "Nastavení uživatelského profilu..."
 
-#: dialogs.cpp:930
+#: dialogs.cpp:1071
 msgid "Before:"
 msgstr "Před:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:1075
 msgid "After:"
 msgstr "Po:"
 
-#: dialogs.cpp:948
+#: dialogs.cpp:1089
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -122,7 +170,7 @@ msgstr ""
 "výchozí profil RGB nebo obrazovky\n"
 "v dialogu Volby->Správa barev!"
 
-#: dialogs.cpp:973
+#: dialogs.cpp:1114
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -130,55 +178,13 @@ msgstr ""
 "Varování: Obrázek již obsahuje uložený profil.\n"
 "Přiřazením nového původní potlačíte."
 
-#: dialogs.cpp:990
+#: dialogs.cpp:1131
 msgid "Assign Profile:"
 msgstr "Přiřadit profil:"
 
-#: dialogs.cpp:998 pp_cms.cpp:118
+#: dialogs.cpp:1139 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Cíl vykreslování:"
-
-#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:233
-msgid "Page:"
-msgstr "Stránka:"
-
-#: dialogs.cpp:1146
-msgid "Preview resolution:"
-msgstr "Rozlišení náhledu:"
-
-#: dialogs.cpp:1150
-msgid "180 dots per inch"
-msgstr "180 bodů na palec"
-
-#: dialogs.cpp:1151
-msgid "240 dots per inch"
-msgstr "240 bodů na palec"
-
-#: dialogs.cpp:1152
-msgid "300 dots per inch"
-msgstr "300 bodů na palec"
-
-#: dialogs.cpp:1153
-msgid "360 dots per inch"
-msgstr "360 bodů na palec"
-
-#: dialogs.cpp:1158
-msgid ""
-"Click-and-drag to pan around the preview.\n"
-"Right-click to toggle magnification."
-msgstr ""
-"Zmáčkněte tlačítko myši a posouvejte záběr náhledu.\n"
-"Kliknutím pravým tlačítkem měníte zvětšení."
-
-#: dialogs.cpp:1161
-msgid "Close"
-msgstr "Zavřít"
-
-#: dialogs.cpp:1229
-msgid "Drawing preview"
-msgstr "Vykresluje se náhled"
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"
@@ -219,39 +225,39 @@ msgstr "Poloměr: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Hodnota: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:134
+#: menucheck.cpp:21 pp_menu_file.cpp:135
 msgid "_File"
 msgstr "_Soubor"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "_Open Preset..."
 msgstr "_Otevřít nastavení..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "Open a preset"
 msgstr "Otevře nastavení"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "_Save Preset"
 msgstr "_Uložit nastavení"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "Save a preset"
 msgstr "Uloží nastavení"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save _As..."
 msgstr "Uložit _jako..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save preset with a new filename"
 msgstr "Uloží nastavení do nového souboru"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save _Default"
 msgstr "Uložit _výchozí"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save preset as the default"
 msgstr "Uloží nastavení jako výchozí"
 
@@ -259,39 +265,39 @@ msgstr "Uloží nastavení jako výchozí"
 msgid "E_xport TIFF..."
 msgstr "E_xportovat TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:141
+#: menucheck.cpp:27 pp_menu_file.cpp:142
 msgid "Export pages as TIFF files"
 msgstr "Exportuje stránky jako soubory TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Print Pre_view..."
 msgstr "_Náhled před tiskem..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Preview how the printed page will look"
 msgstr "Náhled jak bude vypadat tisková stránka"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Print S_etup..."
 msgstr "Nastavení t_isku..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Set printer driver and options"
 msgstr "Nastavení tiskových zařízení a voleb"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "_Print"
 msgstr "_Tisk"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "Print pages"
 msgstr "Tisk stránek"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "_Quit"
 msgstr "U_končit"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "Exit PhotoPrint"
 msgstr "Ukončí PhotoPrint"
 
@@ -700,6 +706,11 @@ msgstr "pixelů"
 msgid "Default"
 msgstr "Výchozí"
 
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:233
+msgid "Page:"
+msgstr "Stránka:"
+
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Koláč"
@@ -808,31 +819,31 @@ msgstr "V_ložit"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Vloží obsah schránky jako nový obrázek"
 
-#: pp_menu_file.cpp:37
+#: pp_menu_file.cpp:38
 msgid "Open preset..."
 msgstr "Otevření nastavení..."
 
-#: pp_menu_file.cpp:63
+#: pp_menu_file.cpp:64
 msgid "Save preset..."
 msgstr "Uložení nastavení..."
 
-#: pp_menu_file.cpp:114
+#: pp_menu_file.cpp:115
 msgid "Generating print data..."
 msgstr "Vytvářím tisková data..."
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 msgid "E_xport"
 msgstr "E_xportovat"
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 msgid "Export _TIFF..."
 msgstr "Exportovat _TIFF..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export _JPEG..."
 msgstr "Exportovat _JPEG..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export pages as JPEG files"
 msgstr "Exportovat stránky jako JPEG soubory"
 
@@ -874,11 +885,11 @@ msgstr "Nastavit okraj o_brázku..."
 
 #: pp_menu_options.cpp:111
 #, fuzzy
-msgid "_Colour Response Tag..."
+msgid "_Colour Response Hash..."
 msgstr "Správa _barev..."
 
 #: pp_menu_options.cpp:111
-msgid "Create a tag for verifying printer settings"
+msgid "Create a hash for verifying printer settings"
 msgstr ""
 
 #: pp_menu_options.cpp:117
@@ -1160,3 +1171,31 @@ msgstr "Obrázek"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Průběh..."
+
+#~ msgid "Preview resolution:"
+#~ msgstr "Rozlišení náhledu:"
+
+#~ msgid "180 dots per inch"
+#~ msgstr "180 bodů na palec"
+
+#~ msgid "240 dots per inch"
+#~ msgstr "240 bodů na palec"
+
+#~ msgid "300 dots per inch"
+#~ msgstr "300 bodů na palec"
+
+#~ msgid "360 dots per inch"
+#~ msgstr "360 bodů na palec"
+
+#~ msgid ""
+#~ "Click-and-drag to pan around the preview.\n"
+#~ "Right-click to toggle magnification."
+#~ msgstr ""
+#~ "Zmáčkněte tlačítko myši a posouvejte záběr náhledu.\n"
+#~ "Kliknutím pravým tlačítkem měníte zvětšení."
+
+#~ msgid "Close"
+#~ msgstr "Zavřít"
+
+#~ msgid "Drawing preview"
+#~ msgstr "Vykresluje se náhled"

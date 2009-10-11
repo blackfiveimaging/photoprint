@@ -65,6 +65,9 @@ PhotoPrint-0.4.1
 
   * Fixed bugs with crop and rotation menu items.
 
+  * Added a "Printer Response Hash", which runs a simple image through the printer driver
+    and generates an MD5 hash of the printer data so generated.
+
 
 PhotoPrint-0.4.0
 

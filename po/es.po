@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-10 18:24+0100\n"
+"POT-Creation-Date: 2009-10-11 13:53+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -17,101 +17,150 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: dialogs.cpp:144
+#: dialogs.cpp:81
+#, fuzzy
+msgid "Colour Response Hash"
+msgstr "Gestión de _color"
+
+#: dialogs.cpp:107
+#, fuzzy
+msgid "Current hash:"
+msgstr "Usado actualmente:"
+
+#: dialogs.cpp:111
+#, fuzzy
+msgid "Stored in preset:"
+msgstr "Grabar un preset"
+
+#: dialogs.cpp:117
+msgid "No hash stored yet"
+msgstr ""
+
+#: dialogs.cpp:126
+msgid ""
+"Calculating hash of printer response\n"
+"with current driver settings"
+msgstr ""
+
+#: dialogs.cpp:131
+#, fuzzy
+msgid "Store in preset"
+msgstr "Grabar un preset"
+
+#: dialogs.cpp:155
+msgid ""
+"MATCH - No changes in driver\n"
+"or printer settings detected"
+msgstr ""
+
+#: dialogs.cpp:161
+msgid ""
+"This hash can be used to detect changes\n"
+"in printer settings or driver versions\n"
+"that might invalidate colour profiles"
+msgstr ""
+
+#: dialogs.cpp:163
+msgid ""
+"MISMATCH - change detected in printer response!\n"
+"Printer's colour profile might no longer be accurate."
+msgstr ""
+
+#: dialogs.cpp:285
 msgid "Printer Setup"
 msgstr "Configurar impresora"
 
-#: dialogs.cpp:158
+#: dialogs.cpp:299
 msgid "Output"
 msgstr ""
 
-#: dialogs.cpp:195
+#: dialogs.cpp:336
 msgid "About"
 msgstr "Acerca de"
 
-#: dialogs.cpp:206
+#: dialogs.cpp:347
 #, fuzzy
 msgid "PhotoPrint "
 msgstr "Salir de Photoprint"
 
-#: dialogs.cpp:245
+#: dialogs.cpp:386
 msgid "Set paths..."
 msgstr "Establecer rutas"
 
-#: dialogs.cpp:270
+#: dialogs.cpp:411
 msgid "ICC Profiles"
 msgstr "Perfiles de color ICC"
 
-#: dialogs.cpp:302
+#: dialogs.cpp:443
 msgid "Borders"
 msgstr "Marcos"
 
-#: dialogs.cpp:333
+#: dialogs.cpp:474
 msgid "Backgrounds"
 msgstr "Fondos"
 
-#: dialogs.cpp:361
+#: dialogs.cpp:502
 msgid "Select a border..."
 msgstr "Elige un marco"
 
-#: dialogs.cpp:408
+#: dialogs.cpp:549
 msgid "Export TIFF..."
 msgstr "Exportar a TIFF"
 
-#: dialogs.cpp:434 dialogs.cpp:637
+#: dialogs.cpp:575 dialogs.cpp:778
 msgid "Page range:"
 msgstr "Rango de páginas"
 
-#: dialogs.cpp:447 dialogs.cpp:647
+#: dialogs.cpp:588 dialogs.cpp:788
 msgid "Resolution (dpi):"
 msgstr "Resolución (dpi):"
 
-#: dialogs.cpp:455
+#: dialogs.cpp:596
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:474 dialogs.cpp:682
+#: dialogs.cpp:615 dialogs.cpp:823
 msgid "Output Profile:"
 msgstr "Perfil de salida"
 
-#: dialogs.cpp:538 dialogs.cpp:778
+#: dialogs.cpp:679 dialogs.cpp:919
 msgid "Please provide a filename."
 msgstr "Por favor, indique un nombre de fichero."
 
-#: dialogs.cpp:569 dialogs.cpp:756
+#: dialogs.cpp:710 dialogs.cpp:897
 msgid "Exporting..."
 msgstr "Exportando..."
 
-#: dialogs.cpp:608
+#: dialogs.cpp:749
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exportar a TIFF"
 
-#: dialogs.cpp:666
+#: dialogs.cpp:807
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:795
+#: dialogs.cpp:936
 msgid "Select a background..."
 msgstr "Elija un fondo..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:262
+#: dialogs.cpp:1028 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "¡Elija primero una imágen!"
 
-#: dialogs.cpp:918
+#: dialogs.cpp:1059
 msgid "Set Custom Profile..."
 msgstr "Poner perfil-habitual"
 
-#: dialogs.cpp:930
+#: dialogs.cpp:1071
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:1075
 msgid "After:"
 msgstr "Después:"
 
-#: dialogs.cpp:948
+#: dialogs.cpp:1089
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -125,7 +174,7 @@ msgstr ""
 "defecto en el diálogo de\n"
 "Opciones->Gsetión de color."
 
-#: dialogs.cpp:973
+#: dialogs.cpp:1114
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -133,56 +182,13 @@ msgstr ""
 "Aviso:·La imagen tiene ya un perfil embebido.\n"
 "SI le asignas uno nuevo lo dejarás sin efecto."
 
-#: dialogs.cpp:990
+#: dialogs.cpp:1131
 msgid "Assign Profile:"
 msgstr "Asignar perfil"
 
-#: dialogs.cpp:998 pp_cms.cpp:118
+#: dialogs.cpp:1139 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr ""
-
-#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:233
-msgid "Page:"
-msgstr "Página:"
-
-#: dialogs.cpp:1146
-#, fuzzy
-msgid "Preview resolution:"
-msgstr "Resolución (dpi):"
-
-#: dialogs.cpp:1150
-msgid "180 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1151
-msgid "240 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1152
-msgid "300 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1153
-msgid "360 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1158
-msgid ""
-"Click-and-drag to pan around the preview.\n"
-"Right-click to toggle magnification."
-msgstr ""
-
-#: dialogs.cpp:1161
-#, fuzzy
-msgid "Close"
-msgstr "Ruleta"
-
-#: dialogs.cpp:1229
-#, fuzzy
-msgid "Drawing preview"
-msgstr "Pre_visualizar..."
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"
@@ -223,39 +229,39 @@ msgstr ""
 msgid "Amount: %1.2f"
 msgstr ""
 
-#: menucheck.cpp:21 pp_menu_file.cpp:134
+#: menucheck.cpp:21 pp_menu_file.cpp:135
 msgid "_File"
 msgstr "_Fichero"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "_Open Preset..."
 msgstr "_Abrir Preset"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "Open a preset"
 msgstr "Abrir un preset"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "_Save Preset"
 msgstr "_Guardar Preset"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "Save a preset"
 msgstr "Grabar un preset"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save _As..."
 msgstr "Guardar _como"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save preset with a new filename"
 msgstr "Guardar preset con un nuevo nombre"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save _Default"
 msgstr "Guradar por _Defecto"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save preset as the default"
 msgstr "Guardar como preset por defecto"
 
@@ -264,39 +270,39 @@ msgstr "Guardar como preset por defecto"
 msgid "E_xport TIFF..."
 msgstr "Exportar a TIFF"
 
-#: menucheck.cpp:27 pp_menu_file.cpp:141
+#: menucheck.cpp:27 pp_menu_file.cpp:142
 msgid "Export pages as TIFF files"
 msgstr "Exportar páginas como ficheros TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Print Pre_view..."
 msgstr "Pre_visualizar..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Preview how the printed page will look"
 msgstr "Previsualizar el aspecto de la impresión."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Print S_etup..."
 msgstr "C_onfigurar Impresora..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Set printer driver and options"
 msgstr "Configurar opciones de impresión"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "_Print"
 msgstr "Im_primir"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "Print pages"
 msgstr "Imprimir páginas"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "_Quit"
 msgstr "_Salir"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "Exit PhotoPrint"
 msgstr "Salir de Photoprint"
 
@@ -704,6 +710,11 @@ msgstr ""
 msgid "Default"
 msgstr "Guradar por _Defecto"
 
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:233
+msgid "Page:"
+msgstr "Página:"
+
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Ruleta"
@@ -817,34 +828,34 @@ msgstr "_Pegar"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Pegar el portapapeles como imagen"
 
-#: pp_menu_file.cpp:37
+#: pp_menu_file.cpp:38
 msgid "Open preset..."
 msgstr "Abrir preset"
 
-#: pp_menu_file.cpp:63
+#: pp_menu_file.cpp:64
 msgid "Save preset..."
 msgstr "Guardar preset..."
 
-#: pp_menu_file.cpp:114
+#: pp_menu_file.cpp:115
 msgid "Generating print data..."
 msgstr "Generando datos de impresión..."
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 #, fuzzy
 msgid "E_xport"
 msgstr "E_xportar Tiff"
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 #, fuzzy
 msgid "Export _TIFF..."
 msgstr "Exportar a TIFF"
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 #, fuzzy
 msgid "Export _JPEG..."
 msgstr "Exportar a TIFF"
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 #, fuzzy
 msgid "Export pages as JPEG files"
 msgstr "Exportar páginas como ficheros TIFF"
@@ -889,11 +900,11 @@ msgstr "Elige un marco"
 
 #: pp_menu_options.cpp:111
 #, fuzzy
-msgid "_Colour Response Tag..."
+msgid "_Colour Response Hash..."
 msgstr "Gestión de _color"
 
 #: pp_menu_options.cpp:111
-msgid "Create a tag for verifying printer settings"
+msgid "Create a hash for verifying printer settings"
 msgstr ""
 
 #: pp_menu_options.cpp:117
@@ -1176,6 +1187,18 @@ msgstr "Imágen"
 msgid "Progress..."
 msgstr ""
 
+#, fuzzy
+#~ msgid "Preview resolution:"
+#~ msgstr "Resolución (dpi):"
+
+#, fuzzy
+#~ msgid "Close"
+#~ msgstr "Ruleta"
+
+#, fuzzy
+#~ msgid "Drawing preview"
+#~ msgstr "Pre_visualizar..."
+
 #~ msgid "Change Colour Temperature..."
 #~ msgstr "Cambiar temperatura de color..."
 
@@ -1184,9 +1207,6 @@ msgstr ""
 
 #~ msgid "Available:"
 #~ msgstr "Disponible:"
-
-#~ msgid "Currently used:"
-#~ msgstr "Usado actualmente:"
 
 #~ msgid "Add"
 #~ msgstr "Añadir"

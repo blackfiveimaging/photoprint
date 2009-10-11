@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-10 18:24+0100\n"
+"POT-Creation-Date: 2009-10-11 13:53+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -15,100 +15,148 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialogs.cpp:144
+#: dialogs.cpp:81
+#, fuzzy
+msgid "Colour Response Hash"
+msgstr "Z_arządzanie kolorami"
+
+#: dialogs.cpp:107
+msgid "Current hash:"
+msgstr ""
+
+#: dialogs.cpp:111
+#, fuzzy
+msgid "Stored in preset:"
+msgstr "Zapisuje wzorzec"
+
+#: dialogs.cpp:117
+msgid "No hash stored yet"
+msgstr ""
+
+#: dialogs.cpp:126
+msgid ""
+"Calculating hash of printer response\n"
+"with current driver settings"
+msgstr ""
+
+#: dialogs.cpp:131
+#, fuzzy
+msgid "Store in preset"
+msgstr "Zapisuje wzorzec"
+
+#: dialogs.cpp:155
+msgid ""
+"MATCH - No changes in driver\n"
+"or printer settings detected"
+msgstr ""
+
+#: dialogs.cpp:161
+msgid ""
+"This hash can be used to detect changes\n"
+"in printer settings or driver versions\n"
+"that might invalidate colour profiles"
+msgstr ""
+
+#: dialogs.cpp:163
+msgid ""
+"MISMATCH - change detected in printer response!\n"
+"Printer's colour profile might no longer be accurate."
+msgstr ""
+
+#: dialogs.cpp:285
 msgid "Printer Setup"
 msgstr "Ustawienia drukarki"
 
-#: dialogs.cpp:158
+#: dialogs.cpp:299
 msgid "Output"
 msgstr "Urządzenie"
 
-#: dialogs.cpp:195
+#: dialogs.cpp:336
 msgid "About"
 msgstr "O programie"
 
-#: dialogs.cpp:206
+#: dialogs.cpp:347
 #, fuzzy
 msgid "PhotoPrint "
 msgstr "Wychodzi z programu PhotoPrint"
 
-#: dialogs.cpp:245
+#: dialogs.cpp:386
 msgid "Set paths..."
 msgstr "Ustawienia ścieżek..."
 
-#: dialogs.cpp:270
+#: dialogs.cpp:411
 msgid "ICC Profiles"
 msgstr "Profile ICC"
 
-#: dialogs.cpp:302
+#: dialogs.cpp:443
 msgid "Borders"
 msgstr "Obramowania"
 
-#: dialogs.cpp:333
+#: dialogs.cpp:474
 msgid "Backgrounds"
 msgstr "Tło"
 
-#: dialogs.cpp:361
+#: dialogs.cpp:502
 msgid "Select a border..."
 msgstr "Wybór obramowania..."
 
-#: dialogs.cpp:408
+#: dialogs.cpp:549
 msgid "Export TIFF..."
 msgstr "Eksport do TIFF..."
 
-#: dialogs.cpp:434 dialogs.cpp:637
+#: dialogs.cpp:575 dialogs.cpp:778
 msgid "Page range:"
 msgstr "Zakres stron:"
 
-#: dialogs.cpp:447 dialogs.cpp:647
+#: dialogs.cpp:588 dialogs.cpp:788
 msgid "Resolution (dpi):"
 msgstr "Rozdzielczość (dpi):"
 
-#: dialogs.cpp:455
+#: dialogs.cpp:596
 msgid "Save as 16-bit:"
 msgstr "Zapisz w 16-bit:"
 
-#: dialogs.cpp:474 dialogs.cpp:682
+#: dialogs.cpp:615 dialogs.cpp:823
 msgid "Output Profile:"
 msgstr "Profil wyjściowy:"
 
-#: dialogs.cpp:538 dialogs.cpp:778
+#: dialogs.cpp:679 dialogs.cpp:919
 msgid "Please provide a filename."
 msgstr "Proszę wpisać nazwę pliku."
 
-#: dialogs.cpp:569 dialogs.cpp:756
+#: dialogs.cpp:710 dialogs.cpp:897
 msgid "Exporting..."
 msgstr "Eksportowanie..."
 
-#: dialogs.cpp:608
+#: dialogs.cpp:749
 msgid "Export JPEG..."
 msgstr "Eksport do JPEG..."
 
-#: dialogs.cpp:666
+#: dialogs.cpp:807
 msgid "JPEG Quality:"
 msgstr "Jakość JPEG:"
 
-#: dialogs.cpp:795
+#: dialogs.cpp:936
 msgid "Select a background..."
 msgstr "Wybór tła..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:262
+#: dialogs.cpp:1028 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Najpierw należy wybrać obraz!"
 
-#: dialogs.cpp:918
+#: dialogs.cpp:1059
 msgid "Set Custom Profile..."
 msgstr "Własne ustawienia profilu..."
 
-#: dialogs.cpp:930
+#: dialogs.cpp:1071
 msgid "Before:"
 msgstr "Przed:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:1075
 msgid "After:"
 msgstr "Po:"
 
-#: dialogs.cpp:948
+#: dialogs.cpp:1089
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -121,7 +169,7 @@ msgstr ""
 "profil RGB lub monitora w menu\n"
 "Opcje->Zarządzanie kolorami!"
 
-#: dialogs.cpp:973
+#: dialogs.cpp:1114
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -129,56 +177,13 @@ msgstr ""
 "Ostrzeżenie: Obraz posiada już wbudowany profil\n"
 "Przypisanie nowego spowoduje nadpisanie starego!"
 
-#: dialogs.cpp:990
+#: dialogs.cpp:1131
 msgid "Assign Profile:"
 msgstr "Przypisz profil:"
 
-#: dialogs.cpp:998 pp_cms.cpp:118
+#: dialogs.cpp:1139 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Metoda konwersji kolorów:"
-
-#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:233
-msgid "Page:"
-msgstr "Strona:"
-
-#: dialogs.cpp:1146
-#, fuzzy
-msgid "Preview resolution:"
-msgstr "Rozdzielczość:"
-
-#: dialogs.cpp:1150
-msgid "180 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1151
-msgid "240 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1152
-msgid "300 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1153
-msgid "360 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1158
-msgid ""
-"Click-and-drag to pan around the preview.\n"
-"Right-click to toggle magnification."
-msgstr ""
-
-#: dialogs.cpp:1161
-#, fuzzy
-msgid "Close"
-msgstr "Karuzela"
-
-#: dialogs.cpp:1229
-#, fuzzy
-msgid "Drawing preview"
-msgstr "_Podgląd wydruku..."
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"
@@ -219,39 +224,39 @@ msgstr "Promień: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Rozmiar: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:134
+#: menucheck.cpp:21 pp_menu_file.cpp:135
 msgid "_File"
 msgstr "_Plik"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "_Open Preset..."
 msgstr "_Otwórz wzorzec"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "Open a preset"
 msgstr "Otwiera wzorzec"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "_Save Preset"
 msgstr "Zapi_sz wzorzec"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "Save a preset"
 msgstr "Zapisuje wzorzec"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save _As..."
 msgstr "Z_apisz jako..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save preset with a new filename"
 msgstr "Zapisuje wzorzec pod nową nazwą"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save _Default"
 msgstr "Zapisz _domyślne"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save preset as the default"
 msgstr "Zapisuje wzorzec jako domyślny"
 
@@ -259,39 +264,39 @@ msgstr "Zapisuje wzorzec jako domyślny"
 msgid "E_xport TIFF..."
 msgstr "_Eksportuj jako TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:141
+#: menucheck.cpp:27 pp_menu_file.cpp:142
 msgid "Export pages as TIFF files"
 msgstr "Eksportuje strony do formatu TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Print Pre_view..."
 msgstr "_Podgląd wydruku..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Preview how the printed page will look"
 msgstr "Wyświetla jak będzie wyglądał wydruk"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Print S_etup..."
 msgstr "Ustawi_enia drukarki..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Set printer driver and options"
 msgstr "Ustawienia sterownika drukarki i opcje"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "_Print"
 msgstr "_Drukuj"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "Print pages"
 msgstr "Drukuje strony"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "_Quit"
 msgstr "_Zakończ"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "Exit PhotoPrint"
 msgstr "Wychodzi z programu PhotoPrint"
 
@@ -697,6 +702,11 @@ msgstr "pikseli"
 msgid "Default"
 msgstr "Domyślny"
 
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:233
+msgid "Page:"
+msgstr "Strona:"
+
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Karuzela"
@@ -805,31 +815,31 @@ msgstr "W_klej"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Wkleja zawartość schowka jako nowy obraz"
 
-#: pp_menu_file.cpp:37
+#: pp_menu_file.cpp:38
 msgid "Open preset..."
 msgstr "Otwórz wzorzec..."
 
-#: pp_menu_file.cpp:63
+#: pp_menu_file.cpp:64
 msgid "Save preset..."
 msgstr "Zapisz wzorzec..."
 
-#: pp_menu_file.cpp:114
+#: pp_menu_file.cpp:115
 msgid "Generating print data..."
 msgstr "Tworzenie danych wydruku..."
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 msgid "E_xport"
 msgstr "E_ksport"
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 msgid "Export _TIFF..."
 msgstr "Eksportuj jako _TIFF..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export _JPEG..."
 msgstr "Eksportuj jako _JPEG..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export pages as JPEG files"
 msgstr "Eksportuje strony do formatu JPEG"
 
@@ -873,11 +883,11 @@ msgstr "Wybór obramowania..."
 
 #: pp_menu_options.cpp:111
 #, fuzzy
-msgid "_Colour Response Tag..."
+msgid "_Colour Response Hash..."
 msgstr "Z_arządzanie kolorami"
 
 #: pp_menu_options.cpp:111
-msgid "Create a tag for verifying printer settings"
+msgid "Create a hash for verifying printer settings"
 msgstr ""
 
 #: pp_menu_options.cpp:117
@@ -1164,3 +1174,15 @@ msgstr "Obraz"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Przetwarzanie..."
+
+#, fuzzy
+#~ msgid "Preview resolution:"
+#~ msgstr "Rozdzielczość:"
+
+#, fuzzy
+#~ msgid "Close"
+#~ msgstr "Karuzela"
+
+#, fuzzy
+#~ msgid "Drawing preview"
+#~ msgstr "_Podgląd wydruku..."

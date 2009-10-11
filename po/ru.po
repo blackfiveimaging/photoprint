@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-10 18:24+0100\n"
+"POT-Creation-Date: 2009-10-11 13:53+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -19,100 +19,149 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: dialogs.cpp:144
+#: dialogs.cpp:81
+#, fuzzy
+msgid "Colour Response Hash"
+msgstr "_Управление цветом..."
+
+#: dialogs.cpp:107
+#, fuzzy
+msgid "Current hash:"
+msgstr "Используемые:"
+
+#: dialogs.cpp:111
+#, fuzzy
+msgid "Stored in preset:"
+msgstr "Сохранить предустановку"
+
+#: dialogs.cpp:117
+msgid "No hash stored yet"
+msgstr ""
+
+#: dialogs.cpp:126
+msgid ""
+"Calculating hash of printer response\n"
+"with current driver settings"
+msgstr ""
+
+#: dialogs.cpp:131
+#, fuzzy
+msgid "Store in preset"
+msgstr "Сохранить предустановку"
+
+#: dialogs.cpp:155
+msgid ""
+"MATCH - No changes in driver\n"
+"or printer settings detected"
+msgstr ""
+
+#: dialogs.cpp:161
+msgid ""
+"This hash can be used to detect changes\n"
+"in printer settings or driver versions\n"
+"that might invalidate colour profiles"
+msgstr ""
+
+#: dialogs.cpp:163
+msgid ""
+"MISMATCH - change detected in printer response!\n"
+"Printer's colour profile might no longer be accurate."
+msgstr ""
+
+#: dialogs.cpp:285
 msgid "Printer Setup"
 msgstr "Настройка принтера"
 
-#: dialogs.cpp:158
+#: dialogs.cpp:299
 msgid "Output"
 msgstr "Вывод"
 
-#: dialogs.cpp:195
+#: dialogs.cpp:336
 msgid "About"
 msgstr "О программе"
 
-#: dialogs.cpp:206
+#: dialogs.cpp:347
 #, fuzzy
 msgid "PhotoPrint "
 msgstr "Выйти из программы"
 
-#: dialogs.cpp:245
+#: dialogs.cpp:386
 msgid "Set paths..."
 msgstr "Указать расположение..."
 
-#: dialogs.cpp:270
+#: dialogs.cpp:411
 msgid "ICC Profiles"
 msgstr "Профили ICC"
 
-#: dialogs.cpp:302
+#: dialogs.cpp:443
 msgid "Borders"
 msgstr "Рамки"
 
-#: dialogs.cpp:333
+#: dialogs.cpp:474
 msgid "Backgrounds"
 msgstr "Фоновый рисунок"
 
-#: dialogs.cpp:361
+#: dialogs.cpp:502
 msgid "Select a border..."
 msgstr "Выберите рамку"
 
-#: dialogs.cpp:408
+#: dialogs.cpp:549
 msgid "Export TIFF..."
 msgstr "Экспорт в TIFF..."
 
-#: dialogs.cpp:434 dialogs.cpp:637
+#: dialogs.cpp:575 dialogs.cpp:778
 msgid "Page range:"
 msgstr "Диапазон страниц:"
 
-#: dialogs.cpp:447 dialogs.cpp:647
+#: dialogs.cpp:588 dialogs.cpp:788
 msgid "Resolution (dpi):"
 msgstr "Разрешение (dpi):"
 
-#: dialogs.cpp:455
+#: dialogs.cpp:596
 msgid "Save as 16-bit:"
 msgstr "16-разрядный:"
 
-#: dialogs.cpp:474 dialogs.cpp:682
+#: dialogs.cpp:615 dialogs.cpp:823
 msgid "Output Profile:"
 msgstr "Профиль вывода:"
 
-#: dialogs.cpp:538 dialogs.cpp:778
+#: dialogs.cpp:679 dialogs.cpp:919
 msgid "Please provide a filename."
 msgstr "Укажите имя файла."
 
-#: dialogs.cpp:569 dialogs.cpp:756
+#: dialogs.cpp:710 dialogs.cpp:897
 msgid "Exporting..."
 msgstr "Производится экспорт..."
 
-#: dialogs.cpp:608
+#: dialogs.cpp:749
 msgid "Export JPEG..."
 msgstr "Экспорт в JPEG..."
 
-#: dialogs.cpp:666
+#: dialogs.cpp:807
 msgid "JPEG Quality:"
 msgstr "Качество JPEG"
 
-#: dialogs.cpp:795
+#: dialogs.cpp:936
 msgid "Select a background..."
 msgstr "Выберите фон..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:262
+#: dialogs.cpp:1028 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Сначала необходимо выбрать снимок!"
 
-#: dialogs.cpp:918
+#: dialogs.cpp:1059
 msgid "Set Custom Profile..."
 msgstr "Укажите иной профиль..."
 
-#: dialogs.cpp:930
+#: dialogs.cpp:1071
 msgid "Before:"
 msgstr "До:"
 
-#: dialogs.cpp:934
+#: dialogs.cpp:1075
 msgid "After:"
 msgstr "После:"
 
-#: dialogs.cpp:948
+#: dialogs.cpp:1089
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -125,7 +174,7 @@ msgstr ""
 "или профиль монитора в диалоге \n"
 "«Параметры > Управление цветом...»."
 
-#: dialogs.cpp:973
+#: dialogs.cpp:1114
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -133,56 +182,13 @@ msgstr ""
 "Предупреждение: в снимок уже встроен профиль.\n"
 "При назначении нового профиля старый будет удален!"
 
-#: dialogs.cpp:990
+#: dialogs.cpp:1131
 msgid "Assign Profile:"
 msgstr "Назначить профиль:"
 
-#: dialogs.cpp:998 pp_cms.cpp:118
+#: dialogs.cpp:1139 pp_cms.cpp:118
 msgid "Rendering intent:"
 msgstr "Цветопередача:"
-
-#: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
-#: pp_layout_single.cpp:233
-msgid "Page:"
-msgstr "Страница:"
-
-#: dialogs.cpp:1146
-#, fuzzy
-msgid "Preview resolution:"
-msgstr "Разрешение:"
-
-#: dialogs.cpp:1150
-msgid "180 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1151
-msgid "240 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1152
-msgid "300 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1153
-msgid "360 dots per inch"
-msgstr ""
-
-#: dialogs.cpp:1158
-msgid ""
-"Click-and-drag to pan around the preview.\n"
-"Right-click to toggle magnification."
-msgstr ""
-
-#: dialogs.cpp:1161
-#, fuzzy
-msgid "Close"
-msgstr "Карусель"
-
-#: dialogs.cpp:1229
-#, fuzzy
-msgid "Drawing preview"
-msgstr "Прос_мотреть печать..."
 
 #: effects/ppeffect_temperature.cpp:28
 msgid "Warm/Cool"
@@ -223,39 +229,39 @@ msgstr "Радиус: %1.2f"
 msgid "Amount: %1.2f"
 msgstr "Количество: %1.2f"
 
-#: menucheck.cpp:21 pp_menu_file.cpp:134
+#: menucheck.cpp:21 pp_menu_file.cpp:135
 msgid "_File"
 msgstr "_Файл"
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "_Open Preset..."
 msgstr "_Открыть предустановку..."
 
-#: menucheck.cpp:23 pp_menu_file.cpp:136
+#: menucheck.cpp:23 pp_menu_file.cpp:137
 msgid "Open a preset"
 msgstr "Открыть предустановку"
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "_Save Preset"
 msgstr "_Сохранить предустановку..."
 
-#: menucheck.cpp:24 pp_menu_file.cpp:137
+#: menucheck.cpp:24 pp_menu_file.cpp:138
 msgid "Save a preset"
 msgstr "Сохранить предустановку"
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save _As..."
 msgstr "Сохранить _как..."
 
-#: menucheck.cpp:25 pp_menu_file.cpp:138
+#: menucheck.cpp:25 pp_menu_file.cpp:139
 msgid "Save preset with a new filename"
 msgstr "Сохранить предустановку под новым именем"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save _Default"
 msgstr "Сохранить параметры как _типовые"
 
-#: menucheck.cpp:26 pp_menu_file.cpp:139
+#: menucheck.cpp:26 pp_menu_file.cpp:140
 msgid "Save preset as the default"
 msgstr "Сохранить предустановку как стандартную"
 
@@ -263,39 +269,39 @@ msgstr "Сохранить предустановку как стандартн�
 msgid "E_xport TIFF..."
 msgstr "_TIFF..."
 
-#: menucheck.cpp:27 pp_menu_file.cpp:141
+#: menucheck.cpp:27 pp_menu_file.cpp:142
 msgid "Export pages as TIFF files"
 msgstr "Экспортировать страницы как файлы TIFF"
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Print Pre_view..."
 msgstr "Прос_мотреть печать..."
 
-#: menucheck.cpp:28 pp_menu_file.cpp:143
+#: menucheck.cpp:28 pp_menu_file.cpp:144
 msgid "Preview how the printed page will look"
 msgstr "Просмотр страниц, которые будут напечатаны"
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Print S_etup..."
 msgstr "Настройка пр_интера..."
 
-#: menucheck.cpp:29 pp_menu_file.cpp:144
+#: menucheck.cpp:29 pp_menu_file.cpp:145
 msgid "Set printer driver and options"
 msgstr "Указать драйвер и параметры работы принтера"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "_Print"
 msgstr "На_печатать"
 
-#: menucheck.cpp:30 pp_menu_file.cpp:145
+#: menucheck.cpp:30 pp_menu_file.cpp:146
 msgid "Print pages"
 msgstr "Печать страниц"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "_Quit"
 msgstr "В_ыйти"
 
-#: menucheck.cpp:31 pp_menu_file.cpp:146
+#: menucheck.cpp:31 pp_menu_file.cpp:147
 msgid "Exit PhotoPrint"
 msgstr "Выйти из программы"
 
@@ -700,6 +706,11 @@ msgstr "пикселов"
 msgid "Default"
 msgstr "По умолчанию"
 
+#: pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377 pp_layout_nup.cpp:220
+#: pp_layout_poster.cpp:309 pp_layout_poster.cpp:461 pp_layout_single.cpp:233
+msgid "Page:"
+msgstr "Страница:"
+
 #: pp_layout_carousel.cpp:273
 msgid "Carousel"
 msgstr "Карусель"
@@ -808,31 +819,31 @@ msgstr "Вст_авить"
 msgid "Paste the contents of the clipboard as a new image"
 msgstr "Вставить содержимое буфера обмена как новое изображение"
 
-#: pp_menu_file.cpp:37
+#: pp_menu_file.cpp:38
 msgid "Open preset..."
 msgstr "Открытие предустановки"
 
-#: pp_menu_file.cpp:63
+#: pp_menu_file.cpp:64
 msgid "Save preset..."
 msgstr "Сохранить предустановку..."
 
-#: pp_menu_file.cpp:114
+#: pp_menu_file.cpp:115
 msgid "Generating print data..."
 msgstr "Создаются печатаемые данные"
 
-#: pp_menu_file.cpp:140
+#: pp_menu_file.cpp:141
 msgid "E_xport"
 msgstr "_Экспорт..."
 
-#: pp_menu_file.cpp:141
+#: pp_menu_file.cpp:142
 msgid "Export _TIFF..."
 msgstr "_TIFF..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export _JPEG..."
 msgstr "_JPEG..."
 
-#: pp_menu_file.cpp:142
+#: pp_menu_file.cpp:143
 msgid "Export pages as JPEG files"
 msgstr "Экспортировать страницы как файлы JPEG"
 
@@ -876,11 +887,11 @@ msgstr "Выберите рамку"
 
 #: pp_menu_options.cpp:111
 #, fuzzy
-msgid "_Colour Response Tag..."
+msgid "_Colour Response Hash..."
 msgstr "_Управление цветом..."
 
 #: pp_menu_options.cpp:111
-msgid "Create a tag for verifying printer settings"
+msgid "Create a hash for verifying printer settings"
 msgstr ""
 
 #: pp_menu_options.cpp:117
@@ -1168,6 +1179,18 @@ msgstr "Снимок"
 msgid "Progress..."
 msgstr "Прогресс..."
 
+#, fuzzy
+#~ msgid "Preview resolution:"
+#~ msgstr "Разрешение:"
+
+#, fuzzy
+#~ msgid "Close"
+#~ msgstr "Карусель"
+
+#, fuzzy
+#~ msgid "Drawing preview"
+#~ msgstr "Прос_мотреть печать..."
+
 #~ msgid "Cool/Warm"
 #~ msgstr "Теплее/Холоднее"
 
@@ -1179,9 +1202,6 @@ msgstr "Прогресс..."
 
 #~ msgid "Available:"
 #~ msgstr "Доступные:"
-
-#~ msgid "Currently used:"
-#~ msgstr "Используемые:"
 
 #~ msgid "Add"
 #~ msgstr "Добавить"
