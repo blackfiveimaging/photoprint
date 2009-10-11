@@ -13,6 +13,8 @@
 #include <iostream>
 #include <string>
 
+#include <cstring>
+
 #include <sys/stat.h>
 
 #include <gutenprint/vars.h>
@@ -74,9 +76,9 @@ class crt_dialog : public Progress
 {
 	public:
 	crt_dialog(GtkWindow *parent,PhotoPrint_State &state)
-	: Progress(), label(NULL)
+	: Progress(), state(state), storedlabel(NULL), resultlabel(NULL), progressbar(NULL), button(NULL), image(NULL), existing(NULL)
 	{
-		window=gtk_dialog_new_with_buttons(_("Colour Response Tag"),
+		window=gtk_dialog_new_with_buttons(_("Colour Response Hash"),
 			parent,GtkDialogFlags(0),
 			GTK_STOCK_OK,GTK_RESPONSE_OK,
 			NULL);
@@ -88,15 +90,50 @@ class crt_dialog : public Progress
 		gtk_box_pack_start(GTK_BOX(vbox),hbox,FALSE,FALSE,8);
 		gtk_widget_show(hbox);
 
-		GtkWidget *table=gtk_table_new(2,2,FALSE);
-		gtk_table_set_col_spacings(GTK_TABLE(table),12);
-		gtk_box_pack_start(GTK_BOX(hbox),table,TRUE,TRUE,8);
+		GtkWidget *table=gtk_table_new(2,6,FALSE);
+		gtk_table_set_col_spacing(GTK_TABLE(table),0,12);
+		gtk_table_set_col_spacing(GTK_TABLE(table),1,12);
+		gtk_table_set_row_spacings(GTK_TABLE(table),12);
+		gtk_box_pack_start(GTK_BOX(hbox),table,TRUE,TRUE,12);
 		gtk_widget_show(table);
-		
+
+
+		image=gtk_image_new_from_stock(GTK_STOCK_DIALOG_QUESTION,GTK_ICON_SIZE_DIALOG);
+		gtk_table_attach_defaults(GTK_TABLE(table),image,2,3,0,2);
+		gtk_widget_show(image);
+
+				
 		GtkWidget *tmp;
 		tmp=gtk_label_new(_("Current hash:"));
 		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,1,0,1);
 		gtk_widget_show(tmp);
+
+		tmp=gtk_label_new(_("Stored in preset:"));
+		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,1,1,2);
+		gtk_widget_show(tmp);
+
+		existing=state.printoutput.FindString("ResponseHash");
+		if(strlen(existing)==0)
+			storedlabel=gtk_label_new(_("No hash stored yet"));
+		else
+			storedlabel=gtk_label_new(existing);
+
+		gtk_label_set_selectable(GTK_LABEL(storedlabel),TRUE);
+		gtk_table_attach_defaults(GTK_TABLE(table),storedlabel,1,2,1,2);
+		gtk_widget_show(storedlabel);
+
+
+		resultlabel=gtk_label_new(_("Calculating hash of printer response\nwith current driver settings"));
+		gtk_table_attach_defaults(GTK_TABLE(table),resultlabel,1,3,3,6);
+		gtk_widget_show(resultlabel);
+
+
+		button=gtk_button_new_with_label(_("Store in preset"));
+		g_signal_connect(G_OBJECT(button),"clicked",G_CALLBACK(clicked),this);
+		gtk_table_attach_defaults(GTK_TABLE(table),button,0,1,4,5);
+		gtk_widget_set_sensitive(button,FALSE);
+		gtk_widget_show(button);
+
 
 		progressbar=gtk_progress_bar_new();
 		gtk_table_attach_defaults(GTK_TABLE(table),progressbar,1,2,0,1);
@@ -108,14 +145,38 @@ class crt_dialog : public Progress
 		progressbar=NULL;
 
 		tmp=gtk_label_new(responsetag.c_str());
+		gtk_label_set_selectable(GTK_LABEL(tmp),TRUE);
 		gtk_table_attach_defaults(GTK_TABLE(table),tmp,1,2,0,1);
 		gtk_widget_show(tmp);
+
+
+		if(strcmp(existing,responsetag.c_str())==0)
+		{
+			gtk_label_set_text(GTK_LABEL(resultlabel),_("MATCH - No changes in driver\nor printer settings detected"));
+			gtk_image_set_from_stock(GTK_IMAGE(image),GTK_STOCK_YES,GTK_ICON_SIZE_DIALOG);
+		}
+		else
+		{
+			if(strlen(existing)==0)
+				gtk_label_set_text(GTK_LABEL(resultlabel),_("This hash can be used to detect changes\nin printer settings or driver versions\nthat might invalidate colour profiles"));
+			else
+				gtk_label_set_text(GTK_LABEL(resultlabel),_("MISMATCH - change detected in printer response!\nPrinter's colour profile might no longer be accurate."));
+			gtk_widget_set_sensitive(button,TRUE);
+			gtk_image_set_from_stock(GTK_IMAGE(image),GTK_STOCK_DIALOG_WARNING,GTK_ICON_SIZE_DIALOG);
+		}
 
 		gtk_dialog_run(GTK_DIALOG(window));
 	}
 	~crt_dialog()
 	{
 		gtk_widget_destroy(window);
+	}
+	static void clicked(GtkWidget *wid,gpointer userdata)
+	{
+		crt_dialog *c=(crt_dialog *)userdata;
+		c->state.printoutput.SetString("ResponseHash",c->responsetag.c_str());
+		c->existing=c->responsetag.c_str();
+		gtk_label_set_text(GTK_LABEL(c->storedlabel),c->existing);
 	}
 	bool DoProgress(int i,int maxi)
 	{
@@ -140,9 +201,14 @@ class crt_dialog : public Progress
 	{
 	}
 	protected:
+	PhotoPrint_State &state;
 	GtkWidget *window;
-	GtkWidget *label;
+	GtkWidget *storedlabel;
+	GtkWidget *resultlabel;
 	GtkWidget *progressbar;
+	GtkWidget *button;
+	GtkWidget *image;
+	const char *existing;
 	string responsetag;
 };
 

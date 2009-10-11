@@ -60,6 +60,7 @@ void SplashScreen::SetMessage(const char *msg)
 {
 	if(message)
 		gtk_label_set_text(GTK_LABEL(message),msg);
+	gtk_label_set_selectable(GTK_LABEL(message),TRUE);
 
 	while(gtk_events_pending())
 		gtk_main_iteration_do(false);
