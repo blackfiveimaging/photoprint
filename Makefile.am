@@ -80,6 +80,8 @@ photoprint_SOURCES = 		\
 	pp_units.h \
 	pp_imageinfo.cpp	\
 	pp_imageinfo.h	\
+	printpreview.cpp	\
+	printpreview.h	\
 	gettext.h
 
 LDADD = \

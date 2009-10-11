@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-08 00:18+0100\n"
+"POT-Creation-Date: 2009-10-10 18:24+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -96,7 +96,7 @@ msgstr "Качество JPEG"
 msgid "Select a background..."
 msgstr "Выберите фон..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:244
+#: dialogs.cpp:887 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Сначала необходимо выбрать снимок!"
 
@@ -142,7 +142,7 @@ msgid "Rendering intent:"
 msgstr "Цветопередача:"
 
 #: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Страница:"
@@ -303,7 +303,7 @@ msgstr "Выйти из программы"
 msgid "_Layout"
 msgstr "_Макет"
 
-#: menucheck.cpp:61 pp_menu_image.cpp:272
+#: menucheck.cpp:61 pp_menu_image.cpp:295
 msgid "_Image"
 msgstr "Сн_имок"
 
@@ -331,23 +331,23 @@ msgstr "У_казать фоновый рисунок..."
 msgid "Set a background image for the current layout"
 msgstr "Выбрать фоновый рисунок для текущего макета"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "_Add Image..."
 msgstr "_Добавить..."
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "Add images to the current layout"
 msgstr "Добавить изображения в макет"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "_Remove Image"
 msgstr "_Удалить"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "Remove selected images from the layout"
 msgstr "Удалить выбранные изображения с макета"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:279
+#: menucheck.cpp:71 pp_menu_image.cpp:302
 msgid "_Rotation"
 msgstr "_Вращение"
 
@@ -355,7 +355,7 @@ msgstr "_Вращение"
 msgid "Set Image _Mask..."
 msgstr "Установить _маску изображения..."
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73 pp_menu_image.cpp:304
 msgid "Set a border mask for the selected image"
 msgstr "Установить маску рамки для выбранного изображения"
 
@@ -367,11 +367,11 @@ msgstr "Э_ффекты..."
 msgid "Apply effects to the selected image"
 msgstr "Применить эффекты к выбранному изображения"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Set Colour _Profile..."
 msgstr "_Назначить профиль ICC..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Назначить профиль ICC или изменить конечную цветопередачу изображения"
 
@@ -415,11 +415,11 @@ msgstr "О программе..."
 msgid "Some information about PhotoPrint"
 msgstr "Информация о PhotoPrint"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Allow _Cropping"
 msgstr "_Без полей"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Crop the selected images to fill the available space"
 msgstr "Обрезать выбранные изображения для заполнения доступной области"
 
@@ -455,43 +455,43 @@ msgstr "_Другой размер"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Напечатать снимки на одиночном листе с указанным масштабом"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "_Auto"
 msgstr "_Автоматическое"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Автоматически выбирать угол поворота для заполнения страницы"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "_None"
 msgstr "_Нет"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "No rotation."
 msgstr "Никакого вращения"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "_90 Degrees"
 msgstr "_90°"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "Rotate 90 degrees clockwise."
 msgstr "Повернуть на 90° по часовой стрелке"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "_180 Degrees"
 msgstr "_180°"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "Rotate 180 degrees."
 msgstr "Повернуть на 180° по часовой стрелке"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "_270 Degrees"
 msgstr "_270°"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Повернуть на 90° против часовой стрелки"
 
@@ -648,55 +648,55 @@ msgstr "Профиль CMYK:"
 msgid "Colour Management"
 msgstr "Управление цветом"
 
-#: pp_histogram.cpp:279
+#: pp_histogram.cpp:280
 msgid "Histogram"
 msgstr ""
 
-#: pp_imagecontrol.cpp:128
+#: pp_imagecontrol.cpp:132
 msgid "Effects"
 msgstr "Эффекты"
 
-#: pp_imageinfo.cpp:100
+#: pp_imageinfo.cpp:105
 msgid "in"
 msgstr "in"
 
-#: pp_imageinfo.cpp:103
+#: pp_imageinfo.cpp:108
 msgid "pt"
 msgstr "pt"
 
-#: pp_imageinfo.cpp:108
+#: pp_imageinfo.cpp:113
 msgid "cm"
 msgstr "cm"
 
-#: pp_imageinfo.cpp:113
+#: pp_imageinfo.cpp:118
 msgid "mm"
 msgstr "mm"
 
-#: pp_imageinfo.cpp:161
+#: pp_imageinfo.cpp:166
 msgid "Image Info"
 msgstr "Сводка по снимку"
 
-#: pp_imageinfo.cpp:188
+#: pp_imageinfo.cpp:193
 msgid "Filename:"
 msgstr "Имя файла:"
 
-#: pp_imageinfo.cpp:201
+#: pp_imageinfo.cpp:206
 msgid "Dimensions:"
 msgstr "Размеры:"
 
-#: pp_imageinfo.cpp:221
+#: pp_imageinfo.cpp:226
 msgid "Resolution:"
 msgstr "Разрешение:"
 
-#: pp_imageinfo.cpp:234
+#: pp_imageinfo.cpp:239
 msgid "Profile:"
 msgstr "Профиль:"
 
-#: pp_imageinfo.cpp:344
+#: pp_imageinfo.cpp:349
 msgid "pixels"
 msgstr "пикселов"
 
-#: pp_imageinfo.cpp:373
+#: pp_imageinfo.cpp:378
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -760,7 +760,7 @@ msgstr "Г (%):"
 msgid "V (%):"
 msgstr "В (%):"
 
-#: pp_mainwindow.cpp:226
+#: pp_mainwindow.cpp:228
 msgid "Transferring images..."
 msgstr "Передаются изображения..."
 
@@ -840,36 +840,36 @@ msgstr "Экспортировать страницы как файлы JPEG"
 msgid "_Shortcuts"
 msgstr ""
 
-#: pp_menu_image.cpp:58
+#: pp_menu_image.cpp:63
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: pp_menu_image.cpp:98
+#: pp_menu_image.cpp:103
 msgid "Adding images..."
 msgstr "Добавляются изображения..."
 
-#: pp_menu_image.cpp:176
+#: pp_menu_image.cpp:185
 msgid "Page is already full!"
 msgstr "На странице не осталось места!"
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "_Duplicate Image"
 msgstr "_Продублировать"
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "Duplicate the currently selected image"
 msgstr "Продублировать выделенное изображение"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 #, fuzzy
 msgid "Duplicate to _Fill Page"
 msgstr "_Заполнить им страницу"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Заполнить страницу копиями выбранного сейчас изображения"
 
-#: pp_menu_image.cpp:281
+#: pp_menu_image.cpp:304
 #, fuzzy
 msgid "Set Image _Border..."
 msgstr "Выберите рамку"
@@ -971,40 +971,40 @@ msgstr "Невозможно создать печатаемые данные"
 msgid "Algorithm:"
 msgstr "Алгоритм:"
 
-#: pp_sigcontrol.cpp:185
+#: pp_sigcontrol.cpp:186
 msgid "Columns:"
 msgstr "Столбцов:"
 
-#: pp_sigcontrol.cpp:199
+#: pp_sigcontrol.cpp:200
 msgid "Rows:"
 msgstr "Строк:"
 
-#: pp_sigcontrol.cpp:213 pp_sigcontrol.cpp:227
+#: pp_sigcontrol.cpp:214 pp_sigcontrol.cpp:228
 msgid "Gap:"
 msgstr "Интервал:"
 
-#: pp_sigcontrol.cpp:252
+#: pp_sigcontrol.cpp:253
 msgid "Width:"
 msgstr "Ширина:"
 
-#: pp_sigcontrol.cpp:266
+#: pp_sigcontrol.cpp:267
 msgid "Height:"
 msgstr "Высота:"
 
-#: pp_sigcontrol.cpp:278
+#: pp_sigcontrol.cpp:279
 #, fuzzy
 msgid "From selected image"
 msgstr "Снять выделение со всех изображений"
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:339
 msgid "Layout"
 msgstr "Вид"
 
-#: pp_sigcontrol.cpp:341
+#: pp_sigcontrol.cpp:342
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:342
+#: pp_sigcontrol.cpp:343
 msgid "Specify image dimensions"
 msgstr ""
 

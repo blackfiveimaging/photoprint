@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-08 00:18+0100\n"
+"POT-Creation-Date: 2009-10-10 18:24+0100\n"
 "PO-Revision-Date:  2009-07-21 21:07+0100\n"
 "Last-Translator: Lex Wernars <lex@theros.nl>\n"
 "Language-Team: Nederlands <lex@theros.nl>\n"
@@ -92,7 +92,7 @@ msgstr "JPEG kwaliteit:"
 msgid "Select a background..."
 msgstr "Kies een achtergrond"
 
-#: dialogs.cpp:887 pp_menu_image.cpp:244
+#: dialogs.cpp:887 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Kies eerst een afbeelding!"
 
@@ -138,7 +138,7 @@ msgid "Rendering intent:"
 msgstr "Gewenst resultaat:"
 
 #: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Pagina:"
@@ -299,7 +299,7 @@ msgstr "Afsluiten Photoprint"
 msgid "_Layout"
 msgstr "_Layout"
 
-#: menucheck.cpp:61 pp_menu_image.cpp:272
+#: menucheck.cpp:61 pp_menu_image.cpp:295
 msgid "_Image"
 msgstr "Afbeeld_ing"
 
@@ -327,23 +327,23 @@ msgstr "Stel _Achtergrond in"
 msgid "Set a background image for the current layout"
 msgstr "Stel een achtergrongafbeelding in voor de huidige layout"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "_Add Image..."
 msgstr "_Afbeelding toevoegen"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "Add images to the current layout"
 msgstr "_Afbeeldingen toevoegen aan de huidige layout"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "_Remove Image"
 msgstr "Verwijde_r afbeeldingen"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "Remove selected images from the layout"
 msgstr "Verwijder de gekozen afbeeldingen van de layout"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:279
+#: menucheck.cpp:71 pp_menu_image.cpp:302
 msgid "_Rotation"
 msgstr "_Rotatie"
 
@@ -351,7 +351,7 @@ msgstr "_Rotatie"
 msgid "Set Image _Mask..."
 msgstr "Stel afbeeldingsmasker in..."
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73 pp_menu_image.cpp:304
 msgid "Set a border mask for the selected image"
 msgstr "Stel een randmasker in voor de gekozen afbeelding"
 
@@ -363,11 +363,11 @@ msgstr "_Effecten"
 msgid "Apply effects to the selected image"
 msgstr "Voer de effecten door op de gekozen afbeelding"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Set Colour _Profile..."
 msgstr "Stel kleurprofiel in..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Ken een ICC-profiel of een ander profiel toe aan de afbeelding"
 
@@ -411,11 +411,11 @@ msgstr "Over..."
 msgid "Some information about PhotoPrint"
 msgstr "Wat informatie over PhotoPrint"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Allow _Cropping"
 msgstr "_Snijden toestaan"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Crop the selected images to fill the available space"
 msgstr "Snij de afbeelding om de beschikbare ruimte te vullen"
 
@@ -453,43 +453,43 @@ msgstr "Hand_matige grootte"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Print de afbeeldingen op een enkele pagina, op een bepaalde schaal."
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "_Auto"
 msgstr "_Auto"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Automatisch rotatie laten kiezen om de beschikbare ruimte te vullen."
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "_None"
 msgstr "Gee_n"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "No rotation."
 msgstr "Geen rotatie"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "_90 Degrees"
 msgstr "_90 graden"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "Rotate 90 degrees clockwise."
 msgstr "Roteer 90 graden met de klok mee."
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "_180 Degrees"
 msgstr "_180 graden"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "Rotate 180 degrees."
 msgstr "Roteer 180 graden."
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "_270 Degrees"
 msgstr "_270 graden"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Roteer 90 graden tegen de klok in."
 
@@ -644,55 +644,55 @@ msgstr "CMYK-profiel"
 msgid "Colour Management"
 msgstr "Kleurbeheer"
 
-#: pp_histogram.cpp:279
+#: pp_histogram.cpp:280
 msgid "Histogram"
 msgstr ""
 
-#: pp_imagecontrol.cpp:128
+#: pp_imagecontrol.cpp:132
 msgid "Effects"
 msgstr "Effecten"
 
-#: pp_imageinfo.cpp:100
+#: pp_imageinfo.cpp:105
 msgid "in"
 msgstr "in"
 
-#: pp_imageinfo.cpp:103
+#: pp_imageinfo.cpp:108
 msgid "pt"
 msgstr "pt"
 
-#: pp_imageinfo.cpp:108
+#: pp_imageinfo.cpp:113
 msgid "cm"
 msgstr "cm"
 
-#: pp_imageinfo.cpp:113
+#: pp_imageinfo.cpp:118
 msgid "mm"
 msgstr "mm"
 
-#: pp_imageinfo.cpp:161
+#: pp_imageinfo.cpp:166
 msgid "Image Info"
 msgstr "Afbeeldingsinformatie"
 
-#: pp_imageinfo.cpp:188
+#: pp_imageinfo.cpp:193
 msgid "Filename:"
 msgstr "Bestandsnaam:"
 
-#: pp_imageinfo.cpp:201
+#: pp_imageinfo.cpp:206
 msgid "Dimensions:"
 msgstr "Grootte:"
 
-#: pp_imageinfo.cpp:221
+#: pp_imageinfo.cpp:226
 msgid "Resolution:"
 msgstr "Resolutie:"
 
-#: pp_imageinfo.cpp:234
+#: pp_imageinfo.cpp:239
 msgid "Profile:"
 msgstr "Profiel:"
 
-#: pp_imageinfo.cpp:344
+#: pp_imageinfo.cpp:349
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:373
+#: pp_imageinfo.cpp:378
 msgid "Default"
 msgstr "Standaard"
 
@@ -756,7 +756,7 @@ msgstr "H (%):"
 msgid "V (%):"
 msgstr "V (%):"
 
-#: pp_mainwindow.cpp:226
+#: pp_mainwindow.cpp:228
 msgid "Transferring images..."
 msgstr "Overzetten van afbeeldingen..."
 
@@ -836,35 +836,35 @@ msgstr "Export pagina's als JPEG bestanden"
 msgid "_Shortcuts"
 msgstr ""
 
-#: pp_menu_image.cpp:58
+#: pp_menu_image.cpp:63
 msgid "Open File"
 msgstr "Open bestand"
 
-#: pp_menu_image.cpp:98
+#: pp_menu_image.cpp:103
 msgid "Adding images..."
 msgstr "Afbeeldineg toevoegen..."
 
-#: pp_menu_image.cpp:176
+#: pp_menu_image.cpp:185
 msgid "Page is already full!"
 msgstr "Pagina is al vol!"
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "_Duplicate Image"
 msgstr "_Dupliceer afbeelding"
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "Duplicate the currently selected image"
 msgstr "Dupliceer de huidige, gekozen afbeelding"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Duplicate to _Fill Page"
 msgstr "Dupliceer om de pagina te _vullen"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Vul de pagina met duplicaten van de huidige afbeelding"
 
-#: pp_menu_image.cpp:281
+#: pp_menu_image.cpp:304
 msgid "Set Image _Border..."
 msgstr "Stel afbeeldingsrand in..."
 
@@ -967,39 +967,39 @@ msgstr "Niet mogelijk om print-data te genereren"
 msgid "Algorithm:"
 msgstr "Algoritme:"
 
-#: pp_sigcontrol.cpp:185
+#: pp_sigcontrol.cpp:186
 msgid "Columns:"
 msgstr "Kolommen:"
 
-#: pp_sigcontrol.cpp:199
+#: pp_sigcontrol.cpp:200
 msgid "Rows:"
 msgstr "Rijen:"
 
-#: pp_sigcontrol.cpp:213 pp_sigcontrol.cpp:227
+#: pp_sigcontrol.cpp:214 pp_sigcontrol.cpp:228
 msgid "Gap:"
 msgstr "Ruimte:"
 
-#: pp_sigcontrol.cpp:252
+#: pp_sigcontrol.cpp:253
 msgid "Width:"
 msgstr "Breedte:"
 
-#: pp_sigcontrol.cpp:266
+#: pp_sigcontrol.cpp:267
 msgid "Height:"
 msgstr "Hoogte:"
 
-#: pp_sigcontrol.cpp:278
+#: pp_sigcontrol.cpp:279
 msgid "From selected image"
 msgstr "Van gekozen afbeelding"
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:339
 msgid "Layout"
 msgstr "Layout"
 
-#: pp_sigcontrol.cpp:341
+#: pp_sigcontrol.cpp:342
 msgid "Specify rows/columns"
 msgstr "Geef rijen/kolommen op"
 
-#: pp_sigcontrol.cpp:342
+#: pp_sigcontrol.cpp:343
 msgid "Specify image dimensions"
 msgstr "Geef afbeeldingsgrootte op"
 

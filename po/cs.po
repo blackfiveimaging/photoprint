@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-08 00:18+0100\n"
+"POT-Creation-Date: 2009-10-10 18:24+0100\n"
 "PO-Revision-Date: 2009-08-01 10:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <ubuntu-l10n-cs@lists.ubuntu.cz>\n"
@@ -93,7 +93,7 @@ msgstr "Kvalita JPEG:"
 msgid "Select a background..."
 msgstr "Volba pozadí..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:244
+#: dialogs.cpp:887 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "Nejdříve prosím zvolte obrázek!"
 
@@ -139,7 +139,7 @@ msgid "Rendering intent:"
 msgstr "Cíl vykreslování:"
 
 #: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Stránka:"
@@ -299,7 +299,7 @@ msgstr "Ukončí PhotoPrint"
 msgid "_Layout"
 msgstr "Náv_rh"
 
-#: menucheck.cpp:61 pp_menu_image.cpp:272
+#: menucheck.cpp:61 pp_menu_image.cpp:295
 msgid "_Image"
 msgstr "_Obrázek"
 
@@ -327,23 +327,23 @@ msgstr "Nastavit po_zadí"
 msgid "Set a background image for the current layout"
 msgstr "Nastaví obrázek na pozadí pro aktuální návrh"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "_Add Image..."
 msgstr "_Přidat obrázek..."
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "Add images to the current layout"
 msgstr "Přidá obrázky do aktuálního návrhu"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "_Remove Image"
 msgstr "_Odebrat obrázek"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "Remove selected images from the layout"
 msgstr "Odstraní vybrané obrázky z aktuálního návrhu"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:279
+#: menucheck.cpp:71 pp_menu_image.cpp:302
 msgid "_Rotation"
 msgstr "O_točení"
 
@@ -351,7 +351,7 @@ msgstr "O_točení"
 msgid "Set Image _Mask..."
 msgstr "Nastavit _masku obrázku..."
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73 pp_menu_image.cpp:304
 msgid "Set a border mask for the selected image"
 msgstr "Nastaví omezující masku pro vybraný obrázek"
 
@@ -363,11 +363,11 @@ msgstr "_Efekty..."
 msgid "Apply effects to the selected image"
 msgstr "Aplikuje efekty na vybraný obrázek"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Set Colour _Profile..."
 msgstr "Nastavit barevný pro_fil..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Přiřadí obrázku profil ICC nebo upřednostňovaný výsledek vykreslování"
 
@@ -411,11 +411,11 @@ msgstr "O aplikaci..."
 msgid "Some information about PhotoPrint"
 msgstr "Pár informací o aplikaci PhotoPrint"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Allow _Cropping"
 msgstr "Povolit oř_ezávání"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Crop the selected images to fill the available space"
 msgstr "Ořezání vybraných obrázků tak, aby vyplnily celou dostupnou plochu"
 
@@ -452,43 +452,43 @@ msgstr "_Ruční rozměry"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Vytiskne obrázky na jednotlivé listy se zadaným zmenšením/zvětšením"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "_Auto"
 msgstr "_Automaticky"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Automaticky zvolí otočení tak, aby se vyplnila dostupná plocha"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "_None"
 msgstr "Žá_dné"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "No rotation."
 msgstr "Bez otočení"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "_90 Degrees"
 msgstr "_90 stupňů"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "Rotate 90 degrees clockwise."
 msgstr "Otočení o 90 stupňů proti směru hodinových ručiček"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "_180 Degrees"
 msgstr "_180 stupňů"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "Rotate 180 degrees."
 msgstr "Otočení o 180 stupňů"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "_270 Degrees"
 msgstr "_270 stupňů"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Otočení o 90 stupňů ve směru hodinových ručiček"
 
@@ -648,55 +648,55 @@ msgstr "Profil CMYK:"
 msgid "Colour Management"
 msgstr "Správa barev"
 
-#: pp_histogram.cpp:279
+#: pp_histogram.cpp:280
 msgid "Histogram"
 msgstr ""
 
-#: pp_imagecontrol.cpp:128
+#: pp_imagecontrol.cpp:132
 msgid "Effects"
 msgstr "Efekty"
 
-#: pp_imageinfo.cpp:100
+#: pp_imageinfo.cpp:105
 msgid "in"
 msgstr "in"
 
-#: pp_imageinfo.cpp:103
+#: pp_imageinfo.cpp:108
 msgid "pt"
 msgstr "pt"
 
-#: pp_imageinfo.cpp:108
+#: pp_imageinfo.cpp:113
 msgid "cm"
 msgstr "cm"
 
-#: pp_imageinfo.cpp:113
+#: pp_imageinfo.cpp:118
 msgid "mm"
 msgstr "mm"
 
-#: pp_imageinfo.cpp:161
+#: pp_imageinfo.cpp:166
 msgid "Image Info"
 msgstr "Informace o obrázku"
 
-#: pp_imageinfo.cpp:188
+#: pp_imageinfo.cpp:193
 msgid "Filename:"
 msgstr "Název souboru:"
 
-#: pp_imageinfo.cpp:201
+#: pp_imageinfo.cpp:206
 msgid "Dimensions:"
 msgstr "Rozměry:"
 
-#: pp_imageinfo.cpp:221
+#: pp_imageinfo.cpp:226
 msgid "Resolution:"
 msgstr "Rozlišení:"
 
-#: pp_imageinfo.cpp:234
+#: pp_imageinfo.cpp:239
 msgid "Profile:"
 msgstr "Profil:"
 
-#: pp_imageinfo.cpp:344
+#: pp_imageinfo.cpp:349
 msgid "pixels"
 msgstr "pixelů"
 
-#: pp_imageinfo.cpp:373
+#: pp_imageinfo.cpp:378
 msgid "Default"
 msgstr "Výchozí"
 
@@ -760,7 +760,7 @@ msgstr "Vodorovně (%):"
 msgid "V (%):"
 msgstr "Svisle (%):"
 
-#: pp_mainwindow.cpp:226
+#: pp_mainwindow.cpp:228
 msgid "Transferring images..."
 msgstr "Přenášejí se obrázky..."
 
@@ -840,35 +840,35 @@ msgstr "Exportovat stránky jako JPEG soubory"
 msgid "_Shortcuts"
 msgstr ""
 
-#: pp_menu_image.cpp:58
+#: pp_menu_image.cpp:63
 msgid "Open File"
 msgstr "Otevření souboru"
 
-#: pp_menu_image.cpp:98
+#: pp_menu_image.cpp:103
 msgid "Adding images..."
 msgstr "Přidávám obrázky..."
 
-#: pp_menu_image.cpp:176
+#: pp_menu_image.cpp:185
 msgid "Page is already full!"
 msgstr "Stránka je již plná!"
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "_Duplicate Image"
 msgstr "_Duplikovat obrázek"
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "Duplicate the currently selected image"
 msgstr "Vytvoří kopii aktuálně vybraného obrázku"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Duplicate to _Fill Page"
 msgstr "_Vyplnit stránku kopiemi"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Vyplní stránku kopiemi aktuálně vybraného obrázku"
 
-#: pp_menu_image.cpp:281
+#: pp_menu_image.cpp:304
 msgid "Set Image _Border..."
 msgstr "Nastavit okraj o_brázku..."
 
@@ -969,39 +969,39 @@ msgstr "Nelze vygenerovat tisková data"
 msgid "Algorithm:"
 msgstr "Algoritmus:"
 
-#: pp_sigcontrol.cpp:185
+#: pp_sigcontrol.cpp:186
 msgid "Columns:"
 msgstr "Sloupců:"
 
-#: pp_sigcontrol.cpp:199
+#: pp_sigcontrol.cpp:200
 msgid "Rows:"
 msgstr "Řádků:"
 
-#: pp_sigcontrol.cpp:213 pp_sigcontrol.cpp:227
+#: pp_sigcontrol.cpp:214 pp_sigcontrol.cpp:228
 msgid "Gap:"
 msgstr "Mezera:"
 
-#: pp_sigcontrol.cpp:252
+#: pp_sigcontrol.cpp:253
 msgid "Width:"
 msgstr "Šířka:"
 
-#: pp_sigcontrol.cpp:266
+#: pp_sigcontrol.cpp:267
 msgid "Height:"
 msgstr "Výška:"
 
-#: pp_sigcontrol.cpp:278
+#: pp_sigcontrol.cpp:279
 msgid "From selected image"
 msgstr "Podle vybraného obrázku"
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:339
 msgid "Layout"
 msgstr "Rozvržení"
 
-#: pp_sigcontrol.cpp:341
+#: pp_sigcontrol.cpp:342
 msgid "Specify rows/columns"
 msgstr "Určit počet řádků/sloupců"
 
-#: pp_sigcontrol.cpp:342
+#: pp_sigcontrol.cpp:343
 msgid "Specify image dimensions"
 msgstr "Určit rozměry obrázku"
 

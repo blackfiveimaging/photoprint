@@ -6,6 +6,7 @@
 #include "pp_menu_file.h"
 #include "pp_mainwindow.h"
 #include "dialogs.h"
+#include "printpreview.h"
 #include "miscwidgets/generaldialogs.h"
 #include "support/progressbar.h"
 #include "support/pathsupport.h"

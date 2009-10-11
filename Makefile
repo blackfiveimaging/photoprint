@@ -125,7 +125,7 @@ am_photoprint_OBJECTS = dialogs.$(OBJEXT) layout.$(OBJEXT) \
 	pp_layout_single_pageview.$(OBJEXT) pp_histogram.$(OBJEXT) \
 	pp_pageextent.$(OBJEXT) pp_scaling.$(OBJEXT) \
 	pp_sigcontrol.$(OBJEXT) pp_units.$(OBJEXT) \
-	pp_imageinfo.$(OBJEXT)
+	pp_imageinfo.$(OBJEXT) printpreview.$(OBJEXT)
 photoprint_OBJECTS = $(am_photoprint_OBJECTS)
 photoprint_LDADD = $(LDADD)
 photoprint_DEPENDENCIES = effects/libppeffects.la \
@@ -415,6 +415,8 @@ photoprint_SOURCES = \
 	pp_units.h \
 	pp_imageinfo.cpp	\
 	pp_imageinfo.h	\
+	printpreview.cpp	\
+	printpreview.h	\
 	gettext.h
 
 LDADD = \
@@ -585,6 +587,7 @@ include ./$(DEPDIR)/pp_pageextent.Po
 include ./$(DEPDIR)/pp_scaling.Po
 include ./$(DEPDIR)/pp_sigcontrol.Po
 include ./$(DEPDIR)/pp_units.Po
+include ./$(DEPDIR)/printpreview.Po
 
 .cpp.o:
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

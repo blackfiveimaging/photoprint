@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-08 00:18+0100\n"
+"POT-Creation-Date: 2009-10-10 18:24+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Select a background..."
 msgstr "Elija un fondo..."
 
-#: dialogs.cpp:887 pp_menu_image.cpp:244
+#: dialogs.cpp:887 pp_menu_image.cpp:262
 msgid "Please select an image first!"
 msgstr "¡Elija primero una imágen!"
 
@@ -142,7 +142,7 @@ msgid "Rendering intent:"
 msgstr ""
 
 #: dialogs.cpp:1139 pp_layout_carousel.cpp:245 pp_layout_carousel.cpp:377
-#: pp_layout_nup.cpp:218 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
+#: pp_layout_nup.cpp:220 pp_layout_poster.cpp:309 pp_layout_poster.cpp:461
 #: pp_layout_single.cpp:233
 msgid "Page:"
 msgstr "Página:"
@@ -304,7 +304,7 @@ msgstr "Salir de Photoprint"
 msgid "_Layout"
 msgstr "_Disposición"
 
-#: menucheck.cpp:61 pp_menu_image.cpp:272
+#: menucheck.cpp:61 pp_menu_image.cpp:295
 msgid "_Image"
 msgstr "_Imágen"
 
@@ -332,23 +332,23 @@ msgstr "Poner _Fondo"
 msgid "Set a background image for the current layout"
 msgstr "Poner imágen de fondo para la disposición actual"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "_Add Image..."
 msgstr "_Añadir imágen"
 
-#: menucheck.cpp:68 pp_menu_image.cpp:274
+#: menucheck.cpp:68 pp_menu_image.cpp:297
 msgid "Add images to the current layout"
 msgstr "Añadir imágenes a esta disposición"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "_Remove Image"
 msgstr "El_iminar imágen"
 
-#: menucheck.cpp:69 pp_menu_image.cpp:275
+#: menucheck.cpp:69 pp_menu_image.cpp:298
 msgid "Remove selected images from the layout"
 msgstr "Quitar imágenes de la disposición"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:279
+#: menucheck.cpp:71 pp_menu_image.cpp:302
 msgid "_Rotation"
 msgstr "_Rotación"
 
@@ -356,7 +356,7 @@ msgstr "_Rotación"
 msgid "Set Image _Mask..."
 msgstr "Establecer _Máscara de imagen..."
 
-#: menucheck.cpp:73 pp_menu_image.cpp:281
+#: menucheck.cpp:73 pp_menu_image.cpp:304
 msgid "Set a border mask for the selected image"
 msgstr "Establecer una máscara para la imágen seleccionada"
 
@@ -368,11 +368,11 @@ msgstr "_Efectos"
 msgid "Apply effects to the selected image"
 msgstr "Aplicar efectos a la imagen seleccionada"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Set Colour _Profile..."
 msgstr "Seleccionar _Perfil de color"
 
-#: menucheck.cpp:75 pp_menu_image.cpp:283
+#: menucheck.cpp:75 pp_menu_image.cpp:306
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr ""
 
@@ -416,11 +416,11 @@ msgstr "Acerca de..."
 msgid "Some information about PhotoPrint"
 msgstr "Alguna información sobre·PhotoPrint"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Allow _Cropping"
 msgstr "Permitir re_corte"
 
-#: menucheck.cpp:87 pp_menu_image.cpp:288
+#: menucheck.cpp:87 pp_menu_image.cpp:311
 msgid "Crop the selected images to fill the available space"
 msgstr ""
 "Recortar las imágenes seleccionadas hasta rellenar el espacio disponible"
@@ -457,43 +457,43 @@ msgstr "Tamaño _Manual"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Imprime imágenes en una única hoja a una escala especificada."
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "_Auto"
 msgstr "_Auto"
 
-#: menucheck.cpp:99 pp_menu_image.cpp:293
+#: menucheck.cpp:99 pp_menu_image.cpp:316
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Rotar automáticamente para ajustarse al espacio disponible."
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "_None"
 msgstr "_Ninguna"
 
-#: menucheck.cpp:100 pp_menu_image.cpp:294
+#: menucheck.cpp:100 pp_menu_image.cpp:317
 msgid "No rotation."
 msgstr "Sin rotación"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "_90 Degrees"
 msgstr "_90·grados"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:295
+#: menucheck.cpp:101 pp_menu_image.cpp:318
 msgid "Rotate 90 degrees clockwise."
 msgstr "Rotar 90 grados en el sentido del reloj."
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "_180 Degrees"
 msgstr "_180·grados"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:296
+#: menucheck.cpp:102 pp_menu_image.cpp:319
 msgid "Rotate 180 degrees."
 msgstr "Rotar 180 grados"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "_270 Degrees"
 msgstr "_270 grados"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:297
+#: menucheck.cpp:103 pp_menu_image.cpp:320
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Rotar 90 grados contra reloj."
 
@@ -647,59 +647,59 @@ msgstr "Perfil CMYK:"
 msgid "Colour Management"
 msgstr "Gestión de color"
 
-#: pp_histogram.cpp:279
+#: pp_histogram.cpp:280
 msgid "Histogram"
 msgstr ""
 
-#: pp_imagecontrol.cpp:128
+#: pp_imagecontrol.cpp:132
 #, fuzzy
 msgid "Effects"
 msgstr "Efectos..."
 
-#: pp_imageinfo.cpp:100
+#: pp_imageinfo.cpp:105
 msgid "in"
 msgstr ""
 
-#: pp_imageinfo.cpp:103
+#: pp_imageinfo.cpp:108
 msgid "pt"
 msgstr ""
 
-#: pp_imageinfo.cpp:108
+#: pp_imageinfo.cpp:113
 msgid "cm"
 msgstr ""
 
-#: pp_imageinfo.cpp:113
+#: pp_imageinfo.cpp:118
 msgid "mm"
 msgstr ""
 
-#: pp_imageinfo.cpp:161
+#: pp_imageinfo.cpp:166
 #, fuzzy
 msgid "Image Info"
 msgstr "Imágen"
 
-#: pp_imageinfo.cpp:188
+#: pp_imageinfo.cpp:193
 msgid "Filename:"
 msgstr ""
 
-#: pp_imageinfo.cpp:201
+#: pp_imageinfo.cpp:206
 msgid "Dimensions:"
 msgstr ""
 
-#: pp_imageinfo.cpp:221
+#: pp_imageinfo.cpp:226
 #, fuzzy
 msgid "Resolution:"
 msgstr "Resolución (dpi):"
 
-#: pp_imageinfo.cpp:234
+#: pp_imageinfo.cpp:239
 #, fuzzy
 msgid "Profile:"
 msgstr "Perfil RGB:"
 
-#: pp_imageinfo.cpp:344
+#: pp_imageinfo.cpp:349
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:373
+#: pp_imageinfo.cpp:378
 #, fuzzy
 msgid "Default"
 msgstr "Guradar por _Defecto"
@@ -769,7 +769,7 @@ msgstr "H:"
 msgid "V (%):"
 msgstr "H:"
 
-#: pp_mainwindow.cpp:226
+#: pp_mainwindow.cpp:228
 msgid "Transferring images..."
 msgstr "Transfiriendo imágenes..."
 
@@ -853,36 +853,36 @@ msgstr "Exportar páginas como ficheros TIFF"
 msgid "_Shortcuts"
 msgstr ""
 
-#: pp_menu_image.cpp:58
+#: pp_menu_image.cpp:63
 msgid "Open File"
 msgstr "Abrir fichero"
 
-#: pp_menu_image.cpp:98
+#: pp_menu_image.cpp:103
 msgid "Adding images..."
 msgstr "Añadiendo imágenes..."
 
-#: pp_menu_image.cpp:176
+#: pp_menu_image.cpp:185
 msgid "Page is already full!"
 msgstr ""
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 msgid "_Duplicate Image"
 msgstr ""
 
-#: pp_menu_image.cpp:276
+#: pp_menu_image.cpp:299
 #, fuzzy
 msgid "Duplicate the currently selected image"
 msgstr "Aplicar efectos a la imagen seleccionada"
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Duplicate to _Fill Page"
 msgstr ""
 
-#: pp_menu_image.cpp:277
+#: pp_menu_image.cpp:300
 msgid "Fill the page with copies of the currently selected image"
 msgstr ""
 
-#: pp_menu_image.cpp:281
+#: pp_menu_image.cpp:304
 #, fuzzy
 msgid "Set Image _Border..."
 msgstr "Elige un marco"
@@ -984,40 +984,40 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
-#: pp_sigcontrol.cpp:185
+#: pp_sigcontrol.cpp:186
 msgid "Columns:"
 msgstr "Columnas:"
 
-#: pp_sigcontrol.cpp:199
+#: pp_sigcontrol.cpp:200
 msgid "Rows:"
 msgstr "Filas:"
 
-#: pp_sigcontrol.cpp:213 pp_sigcontrol.cpp:227
+#: pp_sigcontrol.cpp:214 pp_sigcontrol.cpp:228
 msgid "Gap:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:252
+#: pp_sigcontrol.cpp:253
 msgid "Width:"
 msgstr "Ancho:"
 
-#: pp_sigcontrol.cpp:266
+#: pp_sigcontrol.cpp:267
 msgid "Height:"
 msgstr "Alto:"
 
-#: pp_sigcontrol.cpp:278
+#: pp_sigcontrol.cpp:279
 #, fuzzy
 msgid "From selected image"
 msgstr "Deselecionar todas las imágenes"
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:339
 msgid "Layout"
 msgstr "Disposición"
 
-#: pp_sigcontrol.cpp:341
+#: pp_sigcontrol.cpp:342
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:342
+#: pp_sigcontrol.cpp:343
 msgid "Specify image dimensions"
 msgstr ""
 
