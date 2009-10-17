@@ -31,6 +31,8 @@
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
 #include "miscwidgets/patheditor.h"
+
+#include "support/pathsupport.h"
 #include "support/util.h"
 
 

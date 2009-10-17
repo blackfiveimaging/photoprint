@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-17 18:30+0100\n"
+"POT-Creation-Date: 2009-10-17 19:01+0100\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -512,23 +512,23 @@ msgstr "Повернуть на 90° против часовой стрелки"
 msgid "Dither Algorithm"
 msgstr "Алгоритм:"
 
-#: photoprint.cpp:123
+#: photoprint.cpp:130
 msgid "Initializing..."
 msgstr "Инициализация..."
 
-#: photoprint.cpp:132
+#: photoprint.cpp:139
 msgid "Checking .photoprint directory..."
 msgstr "Проверяется каталог ~/.photoprint..."
 
-#: photoprint.cpp:137
+#: photoprint.cpp:144
 msgid "Loading preset..."
 msgstr "Загружается предустановка..."
 
-#: photoprint.cpp:142
+#: photoprint.cpp:149
 msgid "Creating layout..."
 msgstr "Создаётся макет..."
 
-#: photoprint.cpp:185
+#: photoprint.cpp:192
 msgid "Loading images..."
 msgstr "Загружаются изображения..."
 
