@@ -102,7 +102,7 @@ check_PROGRAMS = menucheck carouselcheck misccheck
 
 menucheck_SOURCES = menucheck.cpp
 carouselcheck_SOURCES = carouselcheck.cpp
-misccheck_SOURCES = misccheck.cpp pp_sigcontrol.cpp
+misccheck_SOURCES = misccheck.cpp
 
 imagesource/libimagesource.la:
 	cd imagesource

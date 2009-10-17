@@ -12,7 +12,6 @@
 #include "support/debug.h"
 #include "support/signature.h"
 #include "stpui_widgets/units.h"
-#include "pp_sigcontrol.h"
 
 #include "config.h"
 #include "gettext.h"

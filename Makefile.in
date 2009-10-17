@@ -92,7 +92,7 @@ menucheck_DEPENDENCIES = effects/libppeffects.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
-am_misccheck_OBJECTS = misccheck.$(OBJEXT) pp_sigcontrol.$(OBJEXT)
+am_misccheck_OBJECTS = misccheck.$(OBJEXT)
 misccheck_OBJECTS = $(am_misccheck_OBJECTS)
 misccheck_LDADD = $(LDADD)
 misccheck_DEPENDENCIES = effects/libppeffects.la \
@@ -435,7 +435,7 @@ LDADD = \
 
 menucheck_SOURCES = menucheck.cpp
 carouselcheck_SOURCES = carouselcheck.cpp
-misccheck_SOURCES = misccheck.cpp pp_sigcontrol.cpp
+misccheck_SOURCES = misccheck.cpp
 desktopdir = $(datadir)/applications
 desktop_DATA = fotoprint.desktop
 icondir = $(datadir)/icons/hicolor/48x48/apps/

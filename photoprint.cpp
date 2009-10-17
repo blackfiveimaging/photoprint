@@ -66,7 +66,7 @@ bool ParseOptions(int argc,char *argv[],char **presetname)
 				printf("\t -v --version\t\tdisplay version\n");
 				printf("\t -p --preset\t\tread a specific preset file\n");
 				printf("\t -b --batch\t\trun without user interface\n");
-				printf("\t -d --debug\t\tset debugging level - 0 for silent, 5 for verbose");
+				printf("\t -d --debug\t\tset debugging level - 0 for silent, 4 for verbose");
 				throw 0;
 				break;
 			case 'v':
@@ -100,6 +100,13 @@ int main(int argc,char **argv)
 	Debug[TRACE] << "Photoprint starting..." << endl;
 	gboolean have_gtk=false;
 	char *presetname=NULL;
+
+	Debug.SetLevel(WARN);
+#ifdef WIN32
+	char *logname=substitute_homedir("$HOME" SEARCHPATH_SEPARATOR_S ".photoprint_errorlog");
+	Debug.SetLogFile(logname);
+	delete logname;
+#endif
 
 	bool batchmode=ParseOptions(argc,argv,&presetname);
 	if(!batchmode)
