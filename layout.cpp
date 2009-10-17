@@ -31,6 +31,8 @@
 #include "imagesource/imagesource_promote.h"
 
 #include "photoprint_state.h"
+
+#include "support/debug.h"
 #include "support/progress.h"
 #include "support/util.h"
 #include "support/layoutrectangle.h"
@@ -155,7 +157,7 @@ void Layout::Clear()
 // DUMMY FUNCTION - should be overridden by subclasses
 int Layout::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation)
 {
-	cerr << "AddImage: Dummy function - should be overridden" << endl;
+	Debug[ERROR] << "AddImage: Dummy function - should be overridden" << endl;
 	return(0);
 }
 
@@ -163,13 +165,13 @@ int Layout::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotatio
 // DUMMY FUNCTION - should be overridden by subclasses
 void Layout::CopyImage(Layout_ImageInfo *ii)
 {
-	cerr << "CopyImage: Dummy function - should be overridden" << endl;
+	Debug[ERROR] << "CopyImage: Dummy function - should be overridden" << endl;
 }
 
 
 ImageSource *Layout::GetImageSource(int page,CMColourDevice target,CMTransformFactory *factory,int res,bool completepage)
 {
-	cerr << "GetImageSource: Dummy function - should be overridden" << endl;
+	Debug[ERROR] << "GetImageSource: Dummy function - should be overridden" << endl;
 	return(NULL);
 }
 
@@ -191,7 +193,7 @@ IS_TYPE Layout::GetColourSpace(CMColourDevice target)
 		else if(strcmp(cs,"CMYK")==0)
 			colourspace=IS_TYPE_CMYK;
 		else
-			cerr << "PrintColourSpace is set to an unknown colour space!" << endl;
+			Debug[WARN] << "PrintColourSpace is set to an unknown colour space!" << endl;
 	}
 	return(colourspace);
 }
@@ -294,7 +296,7 @@ void Layout::Print(Progress *p)
 
 void (*Layout::SetUnitFunc())(GtkWidget *wid,enum Units unit)
 {
-	cerr << "This function should be overridden" << endl;
+	Debug[ERROR] << "This function should be overridden" << endl;
 	return(NULL);
 }
 
@@ -313,7 +315,7 @@ void Layout::MakeGC(GtkWidget *widget)
 
 	// Use printer and monitor profiles to calculate "paper white".
 	// If there's no display profile, then we can use the Default RGB profile instead...
-//		cerr << "Checking for Display Profile..." << endl;
+//		Debug[TRACE] << "Checking for Display Profile..." << endl;
 	CMSProfile *targetprof;
 	CMColourDevice target=CM_COLOURDEVICE_NONE;
 	if((targetprof=state.profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
@@ -329,11 +331,11 @@ void Layout::MakeGC(GtkWidget *widget)
 	if(target!=CM_COLOURDEVICE_NONE)
 	{
 		CMSTransform *transform=NULL;
-//			cerr << "Creating default->monitor transform..." << endl;
+//			Debug[TRACE] << "Creating default->monitor transform..." << endl;
 		transform = factory->GetTransform(target,IS_TYPE_RGB,LCMSWRAPPER_INTENT_DEFAULT);
 		if(transform)
 		{
-//				cerr << "Applying transform..." << endl;
+//				Debug[TRACE] << "Applying transform..." << endl;
 
 			ISDataType rgbtriple[3];
 			rgbtriple[0]=bgcol.red;
@@ -517,18 +519,18 @@ void Layout::SetBackground(const char *filename)
 		free(backgroundfilename);
 	backgroundfilename=NULL;
 	
-//	cerr << "Setting background..." << endl;
+//	Debug[TRACE] << "Setting background..." << endl;
 	if(filename && strlen(filename)>0)
 	{
 		GError *err=NULL;
 
 		backgroundfilename=strdup(filename);
 
-//		cerr << "Attempting to load background from: " << backgroundfilename << endl;
+//		Debug[TRACE] << "Attempting to load background from: " << backgroundfilename << endl;
 		background=egg_pixbuf_get_thumbnail_for_file (backgroundfilename, EGG_PIXBUF_THUMBNAIL_LARGE, &err);
 		if(!background)
 		{
-//			cerr << "Failed." << endl;
+//			Debug[TRACE] << "Failed." << endl;
 			try
 			{
 				ImageSource *src=ISLoadImage(backgroundfilename);
@@ -549,14 +551,14 @@ void Layout::SetBackground(const char *filename)
 			}
 			catch(const char *err)
 			{
-				cerr << "Error: " << err << endl;
+				Debug[ERROR] << "Error: " << err << endl;
 			}	
 			if(!background)
 			{
 				if(err && err->message)
-					cerr << "Error: " << err->message << endl;
+					Debug[ERROR] << "Error: " << err->message << endl;
 				else
-					cerr << "Can't get mask thumbnail" << endl;
+					Debug[ERROR] << "Can't get mask thumbnail" << endl;
 				free(backgroundfilename);
 				backgroundfilename=NULL;
 			}

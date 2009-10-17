@@ -22,6 +22,8 @@
 #include "photoprint_state.h"
 #include "pp_pageextent.h"
 
+#include "support/debug.h"
+
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
@@ -44,7 +46,7 @@ static void customwidth_changed(GtkWidget *wid,gpointer *ob)
 		return;
 	Dimension *d=DIMENSION(lo->customwidth);
 	int v=int(dimension_get_pt(d));
-	cerr << "Setting custom width to " << v << endl;
+	Debug[TRACE] << "Setting custom width to " << v << endl;
 	lo->state->printer.SetCustomWidth(v);
 	lo->state->layout->UpdatePageSize();
 	pp_pageextent_refresh(lo);
@@ -59,7 +61,7 @@ static void customheight_changed(GtkWidget *wid,gpointer *ob)
 		return;
 	Dimension *d=DIMENSION(lo->customheight);
 	int v=int(dimension_get_pt(d));
-	cerr << "Setting custom height to " << v << endl;
+	Debug[TRACE] << "Setting custom height to " << v << endl;
 	lo->state->printer.SetCustomHeight(v);
 	lo->state->layout->UpdatePageSize();
 	pp_pageextent_refresh(lo);
@@ -116,38 +118,38 @@ static void setcustomsizewidgets(pp_PageExtent *lo)
 	lo->blocksignals=true;
 	GPrinter *p=&lo->state->printer;
 	int nw=0,mw=0,nh=0,mh=0;
-	cerr << "Getting size limits..." << endl;
+	Debug[TRACE] << "Getting size limits..." << endl;
 	p->GetSizeLimits(nw,mw,nh,mh);
-	cerr << "Comparing min and max width:" << endl;
+	Debug[TRACE] << "Comparing min and max width:" << endl;
 	if(nw==mw)
 	{
-		cerr << "No width adjustment possible..." << endl;
+		Debug[TRACE] << "No width adjustment possible..." << endl;
 		gtk_widget_hide(lo->customwidth);
 		gtk_widget_hide(lo->customwidthlabel);
 	}
 	else
 	{
-		cerr << "Allowing width adjustment..." << endl;
+		Debug[TRACE] << "Allowing width adjustment..." << endl;
 		gtk_widget_show(lo->customwidth);
 		gtk_widget_show(lo->customwidthlabel);
-		cerr << "Setting range to :" << nw << " -> " << mw << endl;
+		Debug[TRACE] << "Setting range to :" << nw << " -> " << mw << endl;
 		dimension_set_range_pt(DIMENSION(lo->customwidth),nw,mw);
 		dimension_set_pt(DIMENSION(lo->customwidth),p->pagewidth);
 	}
 
-	cerr << "Comparing min and max height:" << endl;
+	Debug[TRACE] << "Comparing min and max height:" << endl;
 	if(nh==mh)
 	{
-		cerr << "No height adjustment possible..." << endl;
+		Debug[TRACE] << "No height adjustment possible..." << endl;
 		gtk_widget_hide(lo->customheight);
 		gtk_widget_hide(lo->customheightlabel);
 	}
 	else
 	{
-		cerr << "Allowing height adjustment..." << endl;
+		Debug[TRACE] << "Allowing height adjustment..." << endl;
 		gtk_widget_show(lo->customheight);
 		gtk_widget_show(lo->customheightlabel);
-		cerr << "Setting range to :" << nh << " -> " << mh << endl;
+		Debug[TRACE] << "Setting range to :" << nh << " -> " << mh << endl;
 		dimension_set_range_pt(DIMENSION(lo->customheight),nh,mh);
 		dimension_set_pt(DIMENSION(lo->customheight),p->pageheight);
 	}

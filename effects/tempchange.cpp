@@ -4,6 +4,8 @@
 
 #include <gtk/gtk.h>
 
+#include "../support/debug.h"
+
 #include "imagesource_util.h"
 #include "generaldialogs.h"
 #include "tiffsave.h"
@@ -26,10 +28,10 @@ char *create_filename(const char *ofn)
 		--i;
 	}
 	char *nfn=(char *)malloc(strlen(tmp)+9);
-	cerr << "Building filename from: " << tmp << endl;
+	Debug[TRACE] << "Building filename from: " << tmp << endl;
 	sprintf(nfn,"%s-tc.tif",tmp);
 	free(tmp);
-	cerr << "Result: " << nfn << endl;
+	Debug[TRACE] << "Result: " << nfn << endl;
 	return(nfn);
 }
 
@@ -62,7 +64,7 @@ int main(int argc,char **argv)
 				PPEffect *effect=new PPEffect_Temperature(header,0,PPEFFECT_PRESCALE);
 				if(effect->Dialog(NULL,pb))
 				{
-					cerr << "Dialog closed with OK button" << endl;
+					Debug[TRACE] << "Dialog closed with OK button" << endl;
 					ImageSource *is=ISLoadImage(filename);
 					is=header.ApplyEffects(is,PPEFFECT_PRESCALE);
 					char *nfn=create_filename(filename);
@@ -87,7 +89,7 @@ int main(int argc,char **argv)
 	}
 	catch(const char *err)
 	{
-		cerr << "Error: " << err << endl;
+		Debug[TRACE] << "Error: " << err << endl;
 	}
 	return(0);
 }

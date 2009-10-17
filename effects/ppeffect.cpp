@@ -5,6 +5,8 @@
 #include "config.h"
 #endif
 
+#include "../support/debug.h"
+
 #include "ppeffect.h"
 
 using namespace std;
@@ -16,7 +18,7 @@ PPEffectHeader::PPEffectHeader() : RWMutex(), firsteffect(NULL)
 
 PPEffectHeader::PPEffectHeader(PPEffectHeader &pp) : RWMutex(), firsteffect(NULL)
 {
-	cerr << "In PPEffectHeader's Copy Constructor" << endl;
+	Debug[TRACE] << "In PPEffectHeader's Copy Constructor" << endl;
 	pp.ObtainMutexShared();
 	PPEffect *e=pp.GetFirstEffect();
 	while(e)
@@ -39,7 +41,7 @@ PPEffectHeader::~PPEffectHeader()
 
 ImageSource *PPEffectHeader::ApplyEffects(ImageSource *source,enum PPEFFECT_STAGE stage)
 {
-	cerr << "ApplyEffects - Obtain" << endl;
+	Debug[TRACE] << "ApplyEffects - Obtain" << endl;
 	ObtainMutexShared();
 	PPEffect *effect=GetFirstEffect(stage);
 	while(effect)
@@ -47,7 +49,7 @@ ImageSource *PPEffectHeader::ApplyEffects(ImageSource *source,enum PPEFFECT_STAG
 		source=effect->Apply(source);
 		effect=effect->Next(stage);	
 	}
-	cerr << "ApplyEffects - Release" << endl;
+	Debug[TRACE] << "ApplyEffects - Release" << endl;
 	ReleaseMutex();
 	return(source);
 }
@@ -55,7 +57,7 @@ ImageSource *PPEffectHeader::ApplyEffects(ImageSource *source,enum PPEFFECT_STAG
 
 int PPEffectHeader::EffectCount(enum PPEFFECT_STAGE stage)
 {
-	cerr << "EffectCount - obtain" << endl;
+	Debug[TRACE] << "EffectCount - obtain" << endl;
 	ObtainMutexShared();
 	PPEffect *effect=GetFirstEffect(stage);
 	int count=0;
@@ -64,7 +66,7 @@ int PPEffectHeader::EffectCount(enum PPEFFECT_STAGE stage)
 		count++;
 		effect=effect->Next(stage);
 	}
-	cerr << "EffectCount - Release" << endl;
+	Debug[TRACE] << "EffectCount - Release" << endl;
 	ReleaseMutex();
 	return(count);
 }
@@ -72,9 +74,9 @@ int PPEffectHeader::EffectCount(enum PPEFFECT_STAGE stage)
 
 PPEffect *PPEffectHeader::GetFirstEffect(enum PPEFFECT_STAGE stage)
 {
-	cerr << "GetFirstEffect - Obtain" << endl;
+	Debug[TRACE] << "GetFirstEffect - Obtain" << endl;
 //	if(!AttemptMutex())
-//		cerr << "GetFirstEffect - deadlock..." << endl;
+//		Debug[TRACE] << "GetFirstEffect - deadlock..." << endl;
 	ObtainMutexShared();
 	PPEffect *result=NULL;
 	PPEffect *tmp=firsteffect;
@@ -88,7 +90,7 @@ PPEffect *PPEffectHeader::GetFirstEffect(enum PPEFFECT_STAGE stage)
 		else
 			tmp=tmp->Next(stage);
 	}
-	cerr << "GetFirstEffect - Release" << endl;
+	Debug[TRACE] << "GetFirstEffect - Release" << endl;
 	ReleaseMutex();
 	return(result);
 }
@@ -98,9 +100,9 @@ PPEffect *PPEffectHeader::Find(const char *id)
 {
 	if(!id)
 		throw "PPEffectHeader::Find: No ID provided";
-	cerr << "Find - Obtain" << endl;
+	Debug[TRACE] << "Find - Obtain" << endl;
 //	if(!AttemptMutex())
-//		cerr << "Find - deadlock..." << endl;
+//		Debug[TRACE] << "Find - deadlock..." << endl;
 	ObtainMutexShared();
 	PPEffect *result=NULL;
 	PPEffect *tmp=firsteffect;
@@ -115,7 +117,7 @@ PPEffect *PPEffectHeader::Find(const char *id)
 		else
 			tmp=tmp->Next(PPEFFECT_DONTCARE);
 	}
-	cerr << "Find - Releasing" << endl;
+	Debug[TRACE] << "Find - Releasing" << endl;
 	ReleaseMutex();
 	return(result);
 }
@@ -137,7 +139,7 @@ void PPEffectHeader::ObtainMutex()
 PPEffect::PPEffect(PPEffectHeader &header,int priority,enum PPEFFECT_STAGE stage)
 	: priority(priority), stage(stage), header(header),prev(NULL),next(NULL)
 {
-	cerr << "Effect constructor - obtain" << endl;
+	Debug[TRACE] << "Effect constructor - obtain" << endl;
 	header.ObtainMutex();	// Exclusive lock needed
 	PPEffect *node;
 	if((node=header.firsteffect))
@@ -201,14 +203,14 @@ PPEffect::PPEffect(PPEffectHeader &header,int priority,enum PPEFFECT_STAGE stage
 		// Header  <->  <NULL>  -  easy to deal with.
 		header.firsteffect=this;
 	}
-	cerr << "effect constructor - release" << endl;
+	Debug[TRACE] << "effect constructor - release" << endl;
 	header.ReleaseMutex();
 }
 
 
 PPEffect::~PPEffect()
 {
-	cerr << "Effect destructor - Obtain" << endl;
+	Debug[TRACE] << "Effect destructor - Obtain" << endl;
 	header.ObtainMutex();	// Exclusive lock
 	if(prev)
 		prev->next=next;
@@ -216,7 +218,7 @@ PPEffect::~PPEffect()
 		header.firsteffect=next;
 	if(next)
 		next->prev=prev;
-	cerr << "Effect destructor - Release" << endl;
+	Debug[TRACE] << "Effect destructor - Release" << endl;
 	header.ReleaseMutex();
 }
 

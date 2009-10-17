@@ -21,6 +21,7 @@
 #include "miscwidgets/pixbufview.h"
 #include "miscwidgets/simplecombo.h"
 
+#include "support/debug.h"
 #include "support/progressbar.h"
 #include "support/util.h"
 
@@ -243,7 +244,7 @@ class printpreviewdata
 			g_object_unref(G_OBJECT(pb));
 		}
 		else
-			cerr << "Failed to obtain imagesource for page" << page << endl;
+			Debug[ERROR] << "Failed to obtain imagesource for page" << page << endl;
 		gtk_widget_set_sensitive(this->popup,true);
 		drawing=false;
 		if(close)

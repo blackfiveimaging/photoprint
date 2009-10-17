@@ -103,12 +103,10 @@ bool PPEffect_Desaturate::Dialog(GtkWindow *parent,GdkPixbuf *preview)
 		switch(result)
 		{
 			case GTK_RESPONSE_CANCEL:
-				cerr << "Clicked Cancel" << endl;
 				done=true;
 				ret=false;
 				break;
 			case GTK_RESPONSE_OK:
-				cerr << "Clicked OK" << endl;
 				done=true;
 				ret=true;
 				break;

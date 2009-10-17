@@ -9,6 +9,7 @@
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "support/progressbar.h"
+#include "support/debug.h"
 
 #include "profilemanager/profilemanager.h"
 
@@ -76,9 +77,9 @@ static void options_highres(GtkToggleAction *act,gpointer *ob)
 static gboolean radioidlefunc(gpointer userdata)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)userdata;
-	cerr << "In Idle function - reverting menu item" << endl;
+	Debug[TRACE] << "In Idle function - reverting menu item" << endl;
 	OptionsMenu_SetProofMode(mw->uim,CM_PROOFMODE_NONE);
-	cerr << "done" << endl;
+	Debug[TRACE] << "done" << endl;
 	return(FALSE);
 }
 
@@ -87,7 +88,7 @@ static void optionsmenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointe
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	enum CMProofMode proofmode=CMProofMode(gtk_radio_action_get_current_value(ra));
-	cerr << "Proofmode set to: " << proofmode << endl;
+	Debug[TRACE] << "Proofmode set to: " << proofmode << endl;
 	try
 	{
 		mw->state->profilemanager.SetProofMode(proofmode);
@@ -97,7 +98,7 @@ static void optionsmenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointe
 	catch(const char *err)
 	{
 		ErrorMessage_Dialog(err,GTK_WIDGET(mw));
-		cerr << "Dialog displayed - adding idle function..." << endl;
+		Debug[TRACE] << "Dialog displayed - adding idle function..." << endl;
 		gtk_idle_add(radioidlefunc,mw);
 	}
 }
@@ -170,7 +171,7 @@ void OptionsMenu_SetHighresPreviews(GtkUIManager *ui_manager,int hrpreview)
 
 void OptionsMenu_SetProofMode(GtkUIManager *ui_manager,enum CMProofMode item)
 {
-	cerr << "Setting proof mode to " << item << endl;
+	Debug[TRACE] << "Setting proof mode to " << item << endl;
 #if 0
 	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/OptionsMenu/NormalDisplay");
 	if(act)

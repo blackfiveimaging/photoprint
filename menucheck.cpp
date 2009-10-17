@@ -7,6 +7,8 @@
 #include "pp_menu_file.h"
 #include "pp_menu_edit.h"
 
+#include "support/debug.h"
+
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
@@ -203,11 +205,11 @@ int main(int argc,char **argv)
 
 void check(const char *tag)
 {
-	cerr << tag << ": ";
+	Debug[TRACE] << tag << ": ";
 	if(strcmp(_(TEST_STRING),TEST_STRING)==0)
-		cerr << "Failed!" << endl;
+		Debug[TRACE] << "Failed!" << endl;
 	else
-		cerr << "ok" << endl;
+		Debug[TRACE] << "ok" << endl;
 	setlocale(LC_ALL,"");
 }
 
@@ -224,7 +226,7 @@ int main(int argc,char **argv)
 	stp_init();
 	check("stp_init()");
 
-	cerr << "Dither Algorithm -> " << dgettext("gutenprint","Dither Algorithm") << endl;
+	Debug[TRACE] << "Dither Algorithm -> " << dgettext("gutenprint","Dither Algorithm") << endl;
 
 	stp_vars_t *vars=stp_vars_create();
 	check("stp_vars_create()");
@@ -260,20 +262,20 @@ int main(int argc,char **argv)
 
 	check("Startup");
 
-	cerr << "Setting locale to 'C'" << endl;
+	Debug[TRACE] << "Setting locale to 'C'" << endl;
 
 	char *oldlocale=setlocale(LC_ALL,NULL);
     char *savedlocale=strdup(oldlocale);
-	cerr << "Old locale setting: " << oldlocale << endl;
+	Debug[TRACE] << "Old locale setting: " << oldlocale << endl;
 
 	char *result=setlocale(LC_ALL,"C");
 
-	cerr << "Old locale setting: " << oldlocale << endl;
-	cerr << "Result of setlocale: " << result << endl;
+	Debug[TRACE] << "Old locale setting: " << oldlocale << endl;
+	Debug[TRACE] << "Result of setlocale: " << result << endl;
 
 	check("Checking translation (this should fail)");
 
-	cerr << "Restoring locale" << endl;
+	Debug[TRACE] << "Restoring locale" << endl;
 
 	setlocale(LC_ALL,savedlocale);
 	free(savedlocale);

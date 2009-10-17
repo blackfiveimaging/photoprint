@@ -33,6 +33,8 @@
 #include "photoprint_state.h"
 #include "pp_layout_single.h"
 
+#include "support/debug.h"
+
 #include "layout_single.h"
 
 using namespace std;
@@ -101,7 +103,7 @@ Layout_Single_ImageInfo::~Layout_Single_ImageInfo()
 
 void Layout_Single_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int dwidth,int dheight)
 {
-	cerr << "Drawing thumbnail" << endl;
+	Debug[TRACE] << "Drawing thumbnail" << endl;
 	GdkPixbuf *thumbnail=GetThumbnail();
 	GdkPixbuf *transformed=NULL;
 
@@ -111,7 +113,7 @@ void Layout_Single_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,
 	double yr=(yres*100.0)/vscale;
 
 	int w=0,h=0;
-	cerr << "rotation " << rotation << endl;
+	Debug[TRACE] << "rotation " << rotation << endl;
 	switch(rotation)
 	{
 		case PP_ROTATION_AUTO:
@@ -178,7 +180,7 @@ void Layout_Single_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,
 		GDK_RGB_DITHER_NONE,0,0);
 
 	g_object_unref(transformed);
-	cerr << "Finished drawing" << endl;
+	Debug[TRACE] << "Finished drawing" << endl;
 }
 
 
@@ -193,24 +195,24 @@ ImageSource *Layout_Single_ImageInfo::GetImageSource(CMColourDevice target,CMTra
 
 LayoutRectangle *Layout_Single_ImageInfo::GetBounds()
 {
-	cerr << "Pixel width: " << width << endl;
-	cerr << "HScale: " << hscale << endl;
-	cerr << "XRes: " << xres << endl;
-	cerr << "Pixel height: " << height << endl;
-	cerr << "VScale: " << vscale << endl;
-	cerr << "YRes: " << yres << endl;
+	Debug[TRACE] << "Pixel width: " << width << endl;
+	Debug[TRACE] << "HScale: " << hscale << endl;
+	Debug[TRACE] << "XRes: " << xres << endl;
+	Debug[TRACE] << "Pixel height: " << height << endl;
+	Debug[TRACE] << "VScale: " << vscale << endl;
+	Debug[TRACE] << "YRes: " << yres << endl;
 	float w,h;
 	switch(rotation)
 	{
 		case PP_ROTATION_90:
 		case PP_ROTATION_270:
-			cerr << "Rotated" << endl;
+			Debug[TRACE] << "Rotated" << endl;
 			w=(width*72*vscale)/(xres*100);
 			h=(height*72*hscale)/(yres*100);
 			break;
 
 		default:
-			cerr << "No rotation" << endl;
+			Debug[TRACE] << "No rotation" << endl;
 			w=(width*72*hscale)/(xres*100);
 			h=(height*72*vscale)/(yres*100);
 			break;
@@ -271,12 +273,12 @@ int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 	{
 		if(!ImageAt(i))
 		{
-			cerr << "No image found at page " << i << endl;
+			Debug[WARN] << "No image found at page " << i << endl;
 			page=i;
 			i=pages;
 		}
 	}
-	cerr << "Adding image to page " << page << endl;
+	Debug[TRACE] << "Adding image to page " << page << endl;
 	Layout_Single_ImageInfo *ii=NULL;
 	try
 	{
@@ -306,7 +308,7 @@ void Layout_Single::CopyImage(Layout_ImageInfo *ii)
 	{
 		if(!ImageAt(i))
 		{
-			cerr << "No image found at page " << i << endl;
+			Debug[WARN] << "No image found at page " << i << endl;
 			page=i;
 			i=pages;
 		}

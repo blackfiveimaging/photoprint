@@ -6,6 +6,8 @@
 #include "effectselector.h"
 #include "effectlist.h"
 
+#include "../support/debug.h"
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -32,7 +34,7 @@ static void add_effect(GtkWidget *w,gpointer userdata)
 	EffectListItem *eli;
 	if((eli=effectselector_get_selected(EFFECTSELECTOR(ds->availselector))))
 	{
-		cerr << "Got selection: " << eli->GetName() << endl;
+		Debug[TRACE] << "Got selection: " << eli->GetName() << endl;
 //		eli->Action();
 		// Add effect to PPEffectHeader here.
 		effectselector_refresh(EFFECTSELECTOR(ds->currentselector));
@@ -46,7 +48,7 @@ static void effect_settings(GtkWidget *w,gpointer userdata)
 	EffectListItem *eli;
 	if((eli=effectselector_get_selected(EFFECTSELECTOR(ds->currentselector))))
 	{
-		cerr << "Got selection: " << eli->GetName() << endl;
+		Debug[TRACE] << "Got selection: " << eli->GetName() << endl;
 //		eli->Action();
 	}
 }
@@ -58,7 +60,7 @@ static void remove_effect(GtkWidget *w,gpointer userdata)
 	EffectListItem *eli;
 	if((eli=effectselector_get_selected(EFFECTSELECTOR(ds->currentselector))))
 	{
-		cerr << "Got selection: " << eli->GetName() << endl;
+		Debug[TRACE] << "Got selection: " << eli->GetName() << endl;
 		eli->Remove();
 		effectselector_refresh(EFFECTSELECTOR(ds->currentselector));
 	}
@@ -98,11 +100,9 @@ void EffectsDialog(PPEffectHeader &header,GtkWindow *parent,GdkPixbuf *thumbnail
 		switch(result)
 		{
 			case GTK_RESPONSE_CANCEL:
-				cerr << "Clicked Cancel" << endl;
 				done=true;
 				break;
 			case GTK_RESPONSE_OK:
-				cerr << "Clicked OK" << endl;
 				done=true;
 				break;
 		}

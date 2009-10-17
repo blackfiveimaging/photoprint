@@ -7,6 +7,7 @@
 
 #include "stpui_widgets/dimension.h"
 #include "support/signature.h"
+#include "support/debug.h"
 #include "miscwidgets/simplecombo.h"
 #include "pp_pageextent.h"
 #include "photoprint_state.h"
@@ -32,12 +33,12 @@ static void pp_sigcontrol_init (pp_SigControl *stpuicombo);
 
 static void rows_changed(GtkWidget *wid,gpointer ob)
 {
-	cerr << "In rows_changed" << endl;
+	Debug[TRACE] << "In rows_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	GtkSpinButton *spin=GTK_SPIN_BUTTON(wid);
 	int v=gtk_spin_button_get_value_as_int(spin);
-	cerr << "  got value: " << v << endl;
+	Debug[TRACE] << "  got value: " << v << endl;
 	sig->SetRows(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
@@ -46,12 +47,12 @@ static void rows_changed(GtkWidget *wid,gpointer ob)
 
 static void cols_changed(GtkWidget *wid,gpointer ob)
 {
-	cerr << "In cols_changed" << endl;
+	Debug[TRACE] << "In cols_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	GtkSpinButton *spin=GTK_SPIN_BUTTON(wid);
 	int v=gtk_spin_button_get_value_as_int(spin);
-	cerr << "  got value: " << v << endl;
+	Debug[TRACE] << "  got value: " << v << endl;
 	sig->SetColumns(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[REFLOW_SIGNAL], 0);
@@ -60,11 +61,11 @@ static void cols_changed(GtkWidget *wid,gpointer ob)
 
 static void hgutter_changed(GtkWidget *wid,gpointer ob)
 {
-	cerr << "In hgutter_changed" << endl;
+	Debug[TRACE] << "In hgutter_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
-	cerr << "  got value: " << v << endl;
+	Debug[TRACE] << "  got value: " << v << endl;
 	sig->SetHGutter(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 }
@@ -72,11 +73,11 @@ static void hgutter_changed(GtkWidget *wid,gpointer ob)
 
 static void vgutter_changed(GtkWidget *wid,gpointer ob)
 {
-	cerr << "In vgutter_changed" << endl;
+	Debug[TRACE] << "In vgutter_changed" << endl;
 	pp_SigControl *lo=(pp_SigControl *)ob;
 	Signature *sig=lo->sig;
 	int v=int(dimension_get_pt(DIMENSION(wid)));
-	cerr << "  got value: " << v << endl;
+	Debug[TRACE] << "  got value: " << v << endl;
 	sig->SetVGutter(v);
 	g_signal_emit(G_OBJECT (ob),pp_sigcontrol_signals[CHANGED_SIGNAL], 0);
 }
@@ -120,7 +121,7 @@ static void getsizefromimage_clicked(GtkWidget *wid,gpointer ob)
 	{
 		int w=(72.0*ii->GetWidth())/ii->GetXRes();
 		int h=(72.0*ii->GetHeight())/ii->GetYRes();
-		cerr << "Natural size is " << w << " x " << h << endl;
+		Debug[TRACE] << "Natural size is " << w << " x " << h << endl;
 		sig->SetCellWidth(w);
 		sig->SetCellHeight(h);
 		int t=sig->GetRows()*sig->GetColumns();
@@ -144,12 +145,12 @@ void pp_sigcontrol_refresh(pp_SigControl *ob)
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->rows),ob->sig->GetRows());
 	if(ob->cols)
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ob->cols),ob->sig->GetColumns());
-	cerr << "Refreshing gutters" << endl;
+	Debug[TRACE] << "Refreshing gutters" << endl;
 	if(ob->hgutter)
 		dimension_set_pt(DIMENSION(ob->hgutter),ob->sig->GetHGutter());
 	if(ob->vgutter)
 		dimension_set_pt(DIMENSION(ob->vgutter),ob->sig->GetVGutter());
-	cerr << "Refresh done" << endl;
+	Debug[TRACE] << "Refresh done" << endl;
 	if(ob->width)
 	{
 		ob->sig->ReCalcByCellSize();
@@ -326,8 +327,6 @@ pp_sigcontrol_new (Layout_NUp *sig,enum Units unit)
 	ob->sig=sig;
 	ob->unit=unit;
 	
-	GtkWidget *label;
-
 	ob->vbox=gtk_vbox_new(FALSE,0);
 	gtk_container_add(GTK_CONTAINER(ob),ob->vbox);
 	gtk_widget_show(ob->vbox);

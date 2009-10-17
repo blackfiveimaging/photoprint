@@ -36,6 +36,7 @@
 #include "miscwidgets/pixbufview.h"
 #include "miscwidgets/simplecombo.h"
 
+#include "support/debug.h"
 #include "support/pathsupport.h"
 #include "support/rangeparser.h"
 #include "support/progressbar.h"
@@ -59,18 +60,11 @@ using namespace std;
 
 // Colour Management
 
-#if 0
-struct colourmanagementdata
-{
-	PhotoPrint_State *state;
-	GtkWidget *dialog;
-};
-#endif
-
 void ColourManagement_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 {
 	pp_cms_run_dialog(&state,parent);
 }
+
 
 class crt_dialog : public Progress
 {
@@ -98,18 +92,25 @@ class crt_dialog : public Progress
 		gtk_widget_show(table);
 
 
+		GtkWidget *tmp;
+		tmp=gtk_label_new(_("This \"hash\" value is derived from the printer driver's output,\n"
+							"and can be used to verify that no changes have occurred which\n"
+							"might invalidate a colour profile for the printer"));
+		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,3,0,1);
+		gtk_widget_show(tmp);
+
+
 		image=gtk_image_new_from_stock(GTK_STOCK_DIALOG_QUESTION,GTK_ICON_SIZE_DIALOG);
-		gtk_table_attach_defaults(GTK_TABLE(table),image,2,3,0,2);
+		gtk_table_attach_defaults(GTK_TABLE(table),image,2,3,1,3);
 		gtk_widget_show(image);
 
 				
-		GtkWidget *tmp;
 		tmp=gtk_label_new(_("Current hash:"));
-		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,1,0,1);
+		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,1,1,2);
 		gtk_widget_show(tmp);
 
 		tmp=gtk_label_new(_("Stored in preset:"));
-		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,1,1,2);
+		gtk_table_attach_defaults(GTK_TABLE(table),tmp,0,1,2,3);
 		gtk_widget_show(tmp);
 
 		existing=state.printoutput.FindString("ResponseHash");
@@ -119,24 +120,24 @@ class crt_dialog : public Progress
 			storedlabel=gtk_label_new(existing);
 
 		gtk_label_set_selectable(GTK_LABEL(storedlabel),TRUE);
-		gtk_table_attach_defaults(GTK_TABLE(table),storedlabel,1,2,1,2);
+		gtk_table_attach_defaults(GTK_TABLE(table),storedlabel,1,2,2,3);
 		gtk_widget_show(storedlabel);
 
 
 		resultlabel=gtk_label_new(_("Calculating hash of printer response\nwith current driver settings"));
-		gtk_table_attach_defaults(GTK_TABLE(table),resultlabel,1,3,3,6);
+		gtk_table_attach_defaults(GTK_TABLE(table),resultlabel,1,3,4,7);
 		gtk_widget_show(resultlabel);
 
 
 		button=gtk_button_new_with_label(_("Store in preset"));
 		g_signal_connect(G_OBJECT(button),"clicked",G_CALLBACK(clicked),this);
-		gtk_table_attach_defaults(GTK_TABLE(table),button,0,1,4,5);
+		gtk_table_attach_defaults(GTK_TABLE(table),button,0,1,5,6);
 		gtk_widget_set_sensitive(button,FALSE);
 		gtk_widget_show(button);
 
 
 		progressbar=gtk_progress_bar_new();
-		gtk_table_attach_defaults(GTK_TABLE(table),progressbar,1,2,0,1);
+		gtk_table_attach_defaults(GTK_TABLE(table),progressbar,1,2,1,2);
 		gtk_widget_show(progressbar);
 
 		responsetag=state.printer.GetResponseHash(this);
@@ -146,7 +147,7 @@ class crt_dialog : public Progress
 
 		tmp=gtk_label_new(responsetag.c_str());
 		gtk_label_set_selectable(GTK_LABEL(tmp),TRUE);
-		gtk_table_attach_defaults(GTK_TABLE(table),tmp,1,2,0,1);
+		gtk_table_attach_defaults(GTK_TABLE(table),tmp,1,2,1,2);
 		gtk_widget_show(tmp);
 
 
@@ -219,6 +220,7 @@ void ColourResponseTag_Dialog(GtkWidget *parent,PhotoPrint_State &state)
 }
 
 
+
 void Units_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 {
 	enum Units units=state.GetUnits();
@@ -252,17 +254,17 @@ struct printsetupdata
 
 static void driver_changed(GtkWidget *wid,gpointer data)
 {
-	cerr << "In driver_changed()" << endl;
+	Debug[TRACE] << "In driver_changed()" << endl;
 
 	struct printsetupdata *cbd=(struct printsetupdata *)data;
 	PrintOutput *po=&cbd->state->printoutput;
 
 	const char *driver=po->FindString("Driver");
-	cerr << "Driver=" << driver << endl;
+	Debug[TRACE] << "Driver=" << driver << endl;
 
 	if(!(cbd->state->printer.SetDriver(po->FindString("Driver"))))
 	{
-		cerr << "Setting driver failed - reverting to default" << endl;
+		Debug[TRACE] << "Setting driver failed - reverting to default" << endl;
 		po->SetString("Driver",DEFAULT_PRINTER_DRIVER);
 		cbd->state->printer.SetDriver(po->FindString("Driver"));
 		printoutputselector_refresh(PRINTOUTPUTSELECTOR(cbd->printoutput));
@@ -276,7 +278,7 @@ void PrintSetup_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 {
 	printsetupdata dialogdata;
 
-	cerr << "Opening print setup dialog" << endl;
+	Debug[TRACE] << "Opening print setup dialog" << endl;
 	
 	dialogdata.state=&state;
 	dialogdata.backupvars=stp_vars_create_copy(state.printer.stpvars);
@@ -289,12 +291,12 @@ void PrintSetup_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 		NULL);
 	gtk_window_set_default_size(GTK_WINDOW(dialogdata.dialog),500,350);
 
-	cerr << "Creating PrintOutput widget..." << endl;
+	Debug[TRACE] << "Creating PrintOutput widget..." << endl;
 
 	dialogdata.printoutput=printoutputselector_new(&state.printoutput);
 	g_object_ref(G_OBJECT(dialogdata.printoutput));
 
-	cerr << "Created PrintOutput widget..." << endl;
+	Debug[TRACE] << "Created PrintOutput widget..." << endl;
 
 	dialogdata.custompage.name=_("Output");
 	dialogdata.custompage.widget=dialogdata.printoutput;
@@ -666,7 +668,7 @@ void ExportTiff_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 							GTK_MESSAGE_WARNING,GTK_BUTTONS_OK_CANCEL,
 							"File exists - OK to overwrite?");
 							gint response=gtk_dialog_run (GTK_DIALOG (confirm));
-							cerr << "Response: " << response << endl;
+							Debug[TRACE] << "Response: " << response << endl;
 							if(response!=GTK_RESPONSE_OK)
 							{
 								g_free(outputfilename);
@@ -684,25 +686,25 @@ void ExportTiff_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 						if(profileactive)
 							state.profilemanager.SetString("ExportProfile",profile);
 		
-						cerr << "Page range: " << pagerange << endl;
-						cerr << "Resolution: " << res << endl;
-						cerr << "Using profile?: " << profileactive << endl;
+						Debug[TRACE] << "Page range: " << pagerange << endl;
+						Debug[TRACE] << "Resolution: " << res << endl;
+						Debug[TRACE] << "Using profile?: " << profileactive << endl;
 						if(profileactive)
-						cerr << "  " << profile << endl;
+						Debug[TRACE] << "  " << profile << endl;
 		
 						RangeParser rp(pagerange,state.layout->GetPages());
 						int p;
 						CMTransformFactory *factory=state.profilemanager.GetTransformFactory();
 						while((p=rp.Next()))
 						{
-							cerr << "Exporting page " << p << " of " <<  state.layout->GetPages() << endl;
-							cerr << "To filename... ";
+							Debug[TRACE] << "Exporting page " << p << " of " <<  state.layout->GetPages() << endl;
+							Debug[TRACE] << "To filename... ";
 							char *ftmp;
 							if(state.layout->GetPages()>1)
 								ftmp=SerialiseFilename(outputfilename,p,state.layout->GetPages());
 							else
 								ftmp=strdup(outputfilename);
-							cerr << ftmp << endl;
+							Debug[TRACE] << ftmp << endl;
 
 							ImageSource *is=state.layout->GetImageSource(p-1,CM_COLOURDEVICE_EXPORT,factory,res,true);
 							if(is)
@@ -712,9 +714,9 @@ void ExportTiff_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 								if(profileactive)
 								{
 									CMSProfile *prof=state.profilemanager.GetProfile(CM_COLOURDEVICE_EXPORT);
-									cerr << "Got profile " << prof->GetFilename() << endl;
+									Debug[TRACE] << "Got profile " << prof->GetFilename() << endl;
 									is->SetEmbeddedProfile(prof);
-									cerr << "Set profile - saving..." << endl;
+									Debug[TRACE] << "Set profile - saving..." << endl;
 								}
 
 								TIFFSaver ts(ftmp,is,save16bit);
@@ -871,25 +873,25 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 						if(profileactive)
 							state.profilemanager.SetString("ExportProfile",profile);
 		
-						cerr << "Page range: " << pagerange << endl;
-						cerr << "Resolution: " << res << endl;
-						cerr << "Using profile?: " << profileactive << endl;
+						Debug[TRACE] << "Page range: " << pagerange << endl;
+						Debug[TRACE] << "Resolution: " << res << endl;
+						Debug[TRACE] << "Using profile?: " << profileactive << endl;
 						if(profileactive)
-						cerr << "  " << profile << endl;
+						Debug[TRACE] << "  " << profile << endl;
 		
 						RangeParser rp(pagerange,state.layout->GetPages());
 						int p;
 						CMTransformFactory *factory=state.profilemanager.GetTransformFactory();
 						while((p=rp.Next()))
 						{
-							cerr << "Exporting page " << p << " of " <<  state.layout->GetPages() << endl;
-							cerr << "To filename... ";
+							Debug[TRACE] << "Exporting page " << p << " of " <<  state.layout->GetPages() << endl;
+							Debug[TRACE] << "To filename... ";
 							char *ftmp;
 							if(state.layout->GetPages()>1)
 								ftmp=SerialiseFilename(outputfilename,p,state.layout->GetPages());
 							else
 								ftmp=strdup(outputfilename);
-							cerr << ftmp << endl;
+							Debug[TRACE] << ftmp << endl;
 
 							ImageSource *is=state.layout->GetImageSource(p-1,CM_COLOURDEVICE_EXPORT,factory,res,true);
 							if(is)
@@ -899,9 +901,9 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 								if(profileactive)
 								{
 									CMSProfile *prof=state.profilemanager.GetProfile(CM_COLOURDEVICE_EXPORT);
-									cerr << "Got profile " << prof->GetFilename() << endl;
+									Debug[TRACE] << "Got profile " << prof->GetFilename() << endl;
 									is->SetEmbeddedProfile(prof);
-									cerr << "Set profile - saving..." << endl;
+									Debug[TRACE] << "Set profile - saving..." << endl;
 								}
 
 								JPEGSaver ts(ftmp,is,quality);
@@ -989,9 +991,9 @@ static void refreshprofiledialog(GtkWidget *wid,gpointer obj)
 	if(profile)
 		profile=st->state->profilemanager.SearchPaths(profile);
 
-	cerr << "Got profileactive: " << profileactive << endl;
+	Debug[TRACE] << "Got profileactive: " << profileactive << endl;
 	if(profile)
-		cerr << "Got profile: " << profile << endl;
+		Debug[TRACE] << "Got profile: " << profile << endl;
 
 	if(profileactive)
 		st->ii->AssignProfile(profile);
@@ -1001,14 +1003,14 @@ static void refreshprofiledialog(GtkWidget *wid,gpointer obj)
 	LCMSWrapper_Intent intent=intentselector_getintent(INTENTSELECTOR(st->intent));
 	st->ii->SetRenderingIntent(intent);
 
-	cerr << "Rendering intent: " << intent << endl;
+	Debug[TRACE] << "Rendering intent: " << intent << endl;
 
-	cerr << "Assigned" << endl;
+	Debug[TRACE] << "Assigned" << endl;
 
 	// FIXME - deal with Intent here.
 
 	GdkPixbuf *tn=st->ii->GetThumbnail();
-	cerr << "Drawing new image" << endl;
+	Debug[TRACE] << "Drawing new image" << endl;
 	gtk_image_set_from_pixbuf(GTK_IMAGE(st->preview),tn);
 }
 

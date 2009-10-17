@@ -6,6 +6,7 @@
 #include <gtk/gtkdnd.h>
 #include <gtk/gtkmenu.h>
 
+#include "support/debug.h"
 #include "support/layoutrectangle.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "support/progressbar.h"
@@ -72,7 +73,7 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 		}
 		else
 		{	
-			cerr << "URIList: " << urilist << endl;
+			Debug[TRACE] << "URIList: " << urilist << endl;
 			gchar *uri=urilist;
 			while(*urilist && *urilist!='\n' && *urilist!='\r')
 				++urilist;
@@ -305,11 +306,11 @@ pp_layout_single_pageview_expose( GtkWidget      *widget,
 	pageview->scale=pageview->width;
 	pageview->scale/=pageview->layout->pagewidth;
 
-	cerr << "Pageview: Drawing preview" << endl;
+	Debug[TRACE] << "Pageview: Drawing preview" << endl;
 
 	pageview->layout->DrawPreview(widget,pageview->left,pageview->top,pageview->width,pageview->height);
 
-	cerr << "Pageview: done" << endl;
+	Debug[TRACE] << "Pageview: done" << endl;
 
 	return FALSE;
 }

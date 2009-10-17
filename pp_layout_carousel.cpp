@@ -18,6 +18,8 @@
 #include "pp_layout_carousel.h"
 #include "layout_carousel.h"
 
+#include "support/debug.h"
+
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
@@ -58,7 +60,7 @@ static void pe_changed(GtkWidget *wid,gpointer *ob)
 
 static void ic_changed(GtkWidget *wid,gpointer *ob)
 {
-	cerr << "Got changed signal from ImageControl" << endl;
+	Debug[TRACE] << "Got changed signal from ImageControl" << endl;
 	pp_Layout_Carousel *lo=(pp_Layout_Carousel *)ob;
 	pp_Layout_Carousel_PageView *pv=PP_LAYOUT_CAROUSEL_PAGEVIEW(lo->pageview);
 	pp_layout_carousel_pageview_refresh(PP_LAYOUT_CAROUSEL_PAGEVIEW(pv));

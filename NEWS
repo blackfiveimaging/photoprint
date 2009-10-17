@@ -68,6 +68,8 @@ PhotoPrint-0.4.1
   * Added a "Printer Response Hash", which runs a simple image through the printer driver
     and generates an MD5 hash of the printer data so generated.
 
+  * Reduced shell-window pollution by adding a debug level system.
+
 
 PhotoPrint-0.4.0
 

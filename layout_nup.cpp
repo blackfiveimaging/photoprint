@@ -31,6 +31,8 @@
 #include "imagesource/imagesource_montage.h"
 #include "imagesource/imagesource_solid.h"
 
+#include "support/debug.h"
+
 #include "photoprint_state.h"
 #include "pp_layout_nup.h"
 
@@ -146,7 +148,7 @@ bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bo
 	}
 	catch(const char *msg)
 	{
-		cerr << "Caught exception" << endl;
+		Debug[ERROR] << "Caught exception" << msg << endl;
 		ErrorMessage_Dialog(msg);
 		if(ii)
 			delete ii;
@@ -157,7 +159,7 @@ bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bo
 		
 		if(page>=pages)
 			++pages;
-		cerr << "Bumped page numbers" << endl;
+		Debug[TRACE] << "Bumped page numbers" << endl;
 		return(true);
 	}
 	return(false);
@@ -228,7 +230,7 @@ int Layout_NUp::AddImage(const char *filename,bool allowcropping,PP_ROTATION rot
 {
 	int page,row,column;
 	FindFirstFree(page,row,column);
-	cerr << "Placing image at " << page << ", " << row << ", " << column << endl;
+	Debug[TRACE] << "Placing image at " << page << ", " << row << ", " << column << endl;
 	if(PlaceImage(filename,page,row,column,allowcropping,rotation))
 		return(page);
 	else
@@ -291,16 +293,16 @@ ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransfo
 				if(img->height<fit->height)
 					fit->height=img->height;
 
-				cerr << "xoffset: " << fit->xoffset << endl;
-				cerr << "yoffset: " << fit->yoffset << endl;
+				Debug[TRACE] << "xoffset: " << fit->xoffset << endl;
+				Debug[TRACE] << "yoffset: " << fit->yoffset << endl;
 
 				if(ii->allowcropping)
 				{
-					cerr << "Cropping" << endl;
+					Debug[TRACE] << "Cropping" << endl;
 					img=new ImageSource_Crop(img,fit->xoffset,fit->yoffset,fit->width,fit->height);
 				}
 				else
-					cerr << "Not cropping" << endl;
+					Debug[TRACE] << "Not cropping" << endl;
 
 				img=ii->ApplyMask(img);
 

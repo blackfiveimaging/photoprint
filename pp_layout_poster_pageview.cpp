@@ -7,6 +7,7 @@
 #include <gtk/gtkmenu.h>
 
 #include "support/layoutrectangle.h"
+#include "support/debug.h"
 
 #include "stpui_widgets/stpui_combo.h"
 #include "support/progressbar.h"
@@ -73,7 +74,7 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 		}
 		else
 		{	
-			cerr << "URIList: " << urilist << endl;
+			Debug[TRACE] << "URIList: " << urilist << endl;
 			gchar *uri=urilist;
 			while(*urilist && *urilist!='\n' && *urilist!='\r')
 				++urilist;
@@ -427,7 +428,7 @@ void pp_layout_poster_pageview_refresh(pp_Layout_Poster_PageView *pv)
 
 void pp_layout_poster_pageview_set_page(pp_Layout_Poster_PageView *pv,int page)
 {
-	cerr << "Lastpage: " << page << endl;
+	Debug[TRACE] << "Lastpage: " << page << endl;
 	pv->layout->SetCurrentPage(page);
 	pp_layout_poster_pageview_refresh(pv);
 }

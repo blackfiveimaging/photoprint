@@ -21,6 +21,8 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf/gdk-pixdata.h>
 
+#include "../support/debug.h"
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -190,7 +192,7 @@ item_toggled (GtkCellRendererToggle *cell,gchar *path_str,gpointer data)
 		effectselector_remove_selected_effect(sel,sel->current);
 //		if(pe)
 //		{
-//			cerr << "About to delete item of type: " << pe->GetID() << endl;
+//			Debug[TRACE] << "About to delete item of type: " << pe->GetID() << endl;
 //			delete pe;
 //		}
 		if(sel->effectwidget)
@@ -450,12 +452,12 @@ PPEffect *effectselector_add_selected_effect(EffectSelector *es,PPEffectHeader *
 	if(chain)
 	{
 		if(chain->Find(es->available->GetID(es->selected)))
-			cerr << "Effect already present - skipping..." << endl;
+			Debug[TRACE] << "Effect already present - skipping..." << endl;
 		else
 		{
-			cerr << "About to create a new item of type: " << es->available->GetID(es->selected) << endl;
+			Debug[TRACE] << "About to create a new item of type: " << es->available->GetID(es->selected) << endl;
 			result=es->available->CreateEffect(es->selected,*chain);
-			cerr << "Done" << endl;
+			Debug[TRACE] << "Done" << endl;
 		}
 	}
 	chain->ReleaseMutex();
@@ -467,14 +469,14 @@ void effectselector_remove_selected_effect(EffectSelector *es,PPEffectHeader *ch
 {
 	if(chain)
 	{
-		cerr << "RemoveEffect: Obtain" << endl;
+		Debug[TRACE] << "RemoveEffect: Obtain" << endl;
 		chain->ObtainMutex(); // Exclusive
 		PPEffect *pe=chain->Find(es->available->GetID(es->selected));
 		if(pe)
 			delete pe;
 		else
-			cerr << "Effect not found - not deleting!" << endl;
-		cerr << "RemoveEffect: Release" << endl;
+			Debug[WARN] << "Effect not found - not deleting!" << endl;
+		Debug[TRACE] << "RemoveEffect: Release" << endl;
 		chain->ReleaseMutex();
 	}
 }

@@ -6,6 +6,7 @@
 #include <gtk/gtkdnd.h>
 #include <gtk/gtkmenu.h>
 
+#include "support/debug.h"
 #include "support/layoutrectangle.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "support/progressbar.h"
@@ -72,7 +73,7 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 		}
 		else
 		{	
-			cerr << "URIList: " << urilist << endl;
+			Debug[TRACE] << "URIList: " << urilist << endl;
 			gchar *uri=urilist;
 			while(*urilist && *urilist!='\n' && *urilist!='\r')
 				++urilist;

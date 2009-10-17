@@ -29,6 +29,8 @@
 #include "layout_poster.h"
 #include "layout_carousel.h"
 
+#include "support/debug.h"
+
 #include "support/searchpathdbhandler.h"
 #include "support/pathsupport.h"
 
@@ -129,9 +131,7 @@ PhotoPrint_State::PhotoPrint_State(bool batchmode)
 	: ConfigFile(), ConfigDB(Template), layout(NULL), filename(NULL), layoutdb(this,"[Layout]"), printoutput(this,"[Output]"),
 	printer(printoutput,this,"[Print]"), profilemanager(this,"[ColourManagement]"), bordersearchpath(), backgroundsearchpath(), batchmode(batchmode)
 {
-	cerr << "Creating PathDBHandler..." << endl;
 	new PPPathDBHandler(this,"[General]",this,*this);
-	cerr << "Setting default filename" << endl;
 	SetDefaultFilename();
 }
 
@@ -178,13 +178,13 @@ void PhotoPrint_State::ParseConfigFile()
 	printer.Reset();
 	if(!ConfigFile::ParseConfigFile(filename))
 	{
-		cerr << "Parsing of config file failed" << endl;
-		cerr << "Default queue is: " << printoutput.FindString("Queue") << endl;
+		Debug[WARN] << "Parsing of config file failed" << endl;
+		Debug[TRACE] << "Default queue is: " << printoutput.FindString("Queue") << endl;
 //	Shoudn't need to do this any more, since the GPrinterSettings class now ensures a sane
 //  default is set.
 //		if(printoutput.GetPPD())
-//			cerr << "Default PPD is: " << printoutput.GetPPD() << endl;
-//		cerr << "Setting default driver" << endl;
+//			Debug[TRACE] << "Default PPD is: " << printoutput.GetPPD() << endl;
+//		Debug[TRACE] << "Setting default driver" << endl;
 //		printer.SetDriver("ps2");
 	}
 
@@ -225,7 +225,7 @@ bool PhotoPrint_State::SaveConfigFile()
 	// Update the appropriate DB from the current layout...
 	layout->LayoutToDB(layoutdb);
 
-	cerr << "Filename : " << filename << endl;
+	Debug[TRACE] << "Filename : " << filename << endl;
 
 	return(ConfigFile::SaveConfigFile(filename));
 }
@@ -239,22 +239,22 @@ bool PhotoPrint_State::NewLayout(Progress *p)
 
 	if(strcmp(type,"NUp")==0)
 	{
-		cerr << "Building NUp Layout" << endl;
+		Debug[TRACE] << "Building NUp Layout" << endl;
 		nl=new Layout_NUp(*this,layout);
 	}
 	else if(strcmp(type,"Single")==0)
 	{
-		cerr << "Building Single Layout" << endl;
+		Debug[TRACE] << "Building Single Layout" << endl;
 		nl=new Layout_Single(*this,layout);
 	}
 	else if(strcmp(type,"Poster")==0)
 	{
-		cerr << "Building Poster Layout" << endl;
+		Debug[TRACE] << "Building Poster Layout" << endl;
 		nl=new Layout_Poster(*this,layout);
 	}
 	else if(strcmp(type,"Carousel")==0)
 	{
-		cerr << "Building Carousel Layout" << endl;
+		Debug[TRACE] << "Building Carousel Layout" << endl;
 		nl=new Layout_Carousel(*this,layout);
 	}
 	else

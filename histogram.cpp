@@ -3,6 +3,8 @@
 
 #include <gdk/gdkpixbuf.h>
 
+#include "support/debug.h"
+
 #include "histogram.h"
 
 using namespace std;
@@ -68,11 +70,11 @@ GdkPixbuf *PPHistogram::DrawHistogram(int width,int height)
 	{
 		case IS_TYPE_RGB:
 		case IS_TYPE_RGBA:
-			cerr << "Drawing histogram for RGB Image" << endl;
+			Debug[TRACE] << "Drawing histogram for RGB Image" << endl;
 			shades=Hist_RGBShades;
 			break;
 		case IS_TYPE_CMYK:
-			cerr << "Drawing histogram for CMYK Image" << endl;
+			Debug[TRACE] << "Drawing histogram for CMYK Image" << endl;
 			shades=Hist_CMYKShades;
 			break;
 		default:

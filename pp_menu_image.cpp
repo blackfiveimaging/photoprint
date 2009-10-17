@@ -14,6 +14,7 @@
 #include "miscwidgets/generaldialogs.h"
 #include "support/progressbar.h"
 #include "support/pathsupport.h"
+#include "support/debug.h"
 #include "support/layoutrectangle.h" // For rotation enums
 //#include "effects/effects_dialog.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
@@ -193,7 +194,7 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 	if(blocksignals)
 		return;
 
-	cerr << "Responding to AllowCropping..." << endl;
+	Debug[TRACE] << "Responding to AllowCropping..." << endl;
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 
 	bool checked=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
@@ -227,7 +228,7 @@ static void imagemenu_setmask(GtkAction *act,gpointer *ob)
 	char *mask=ImageMask_Dialog(&mw->window,*mw->state,prevfile);
 
 	if(mask)
-		cerr << "Selected " << mask << endl;
+		Debug[TRACE] << "Selected " << mask << endl;
 
 	LayoutIterator it(*mw->state->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();

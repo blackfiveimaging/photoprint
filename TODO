@@ -1,9 +1,12 @@
 URGENT:
 ~~~~~~~
 
-| FIX defaulting of printer options when changing to "Print to file" mode.
+Add crop marks (Support in Auto, Poster and Single layouts)
 
-| FIX segfault when gutenprint data files aren't found.
+Add cutting lines (Support in Auto, Poster and Single layouts)
+
+(Implement these as Layout Capabilities, then place checkmarks in the Layout menu.)
+
 
 Add support for more detailed cropping rectangle.
 

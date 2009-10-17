@@ -10,6 +10,8 @@
 #include "config.h"
 
 #include "support/thread.h"
+#include "support/debug.h"
+
 #include "stpui_widgets/dimension.h"
 #include "imagesource/imagesource_util.h"
 
@@ -30,14 +32,14 @@ class DeferHistogram : public ThreadFunction
 	public:
 	DeferHistogram(pp_Histogram *widget,Layout_ImageInfo *ii) : ThreadFunction(), widget(widget),ii(ii), thread(this)
 	{
-		cerr << "Main thread: Starting DeferHistogram thread" << endl;
+		Debug[TRACE] << "Main thread: Starting DeferHistogram thread" << endl;
 		thread.Start();
-		cerr << "Main thread: Thread started - waiting for Sync" << endl;
+		Debug[TRACE] << "Main thread: Thread started - waiting for Sync" << endl;
 		// FIXME - need to use bi-directional sync signals - can't use the same signal in each direction
 		// because there's no guarantee the main thread will receive the signal before the subthread waits
 		// for the next one.
 		thread.WaitSync();
-		cerr << "Main thread: Startup confirmed" << endl;
+		Debug[TRACE] << "Main thread: Startup confirmed" << endl;
 	}
 	virtual ~DeferHistogram()
 	{
@@ -50,7 +52,7 @@ class DeferHistogram : public ThreadFunction
 		{
 			if(count==0)
 			{
-				cerr << "DeferHistogram: Giving up attempt on mutex - bailing out" << endl;
+				Debug[TRACE] << "DeferHistogram: Giving up attempt on mutex - bailing out" << endl;
 				// The calling thread is waiting for us to acknowledge startup, so we have to send
 				// the Sync before bailing out.
 				thread.SendSync();
@@ -66,31 +68,31 @@ class DeferHistogram : public ThreadFunction
 		}
 		thread.SendSync();
 
-		cerr << "DeferHistogram: Succeeded in obtaining ImageInfo mutex" << endl;
+		Debug[TRACE] << "DeferHistogram: Succeeded in obtaining ImageInfo mutex" << endl;
 		// If we get this far we have a shared lock on the ImageInfo.
 
 		PPHistogram &hist=ii->GetHistogram();
-		cerr << "DeferHistogram: Subscribing to signal" << endl;
+		Debug[TRACE] << "DeferHistogram: Subscribing to signal" << endl;
 		hist.Subscribe();
-		cerr << "DeferHistogram: Subscribed - attemping mutex" << endl;
+		Debug[TRACE] << "DeferHistogram: Subscribed - attemping mutex" << endl;
 		if(!hist.AttemptMutexShared())
 		{
-			cerr << "DeferHistogram: Couldn't get Histogram mutex - waiting..." << endl;
+			Debug[TRACE] << "DeferHistogram: Couldn't get Histogram mutex - waiting..." << endl;
 			hist.QueryAndWait();
-			cerr << "DeferHistogram: Got signal from Histogram - obtaining Mutex..." << endl;
+			Debug[TRACE] << "DeferHistogram: Got signal from Histogram - obtaining Mutex..." << endl;
 			hist.ObtainMutexShared();
 		}
-		cerr << "DeferHistogram: Histogram mutex obtained" << endl;
+		Debug[TRACE] << "DeferHistogram: Histogram mutex obtained" << endl;
 
 		g_timeout_add(1,DeferHistogram::IdleFunc,this);
-		cerr << "DeferHistogram: Handed control back to main thread..." << endl;
+		Debug[TRACE] << "DeferHistogram: Handed control back to main thread..." << endl;
 		thread.WaitSync();
-		cerr << "DeferHistogram: Received signal to say main thread is done - cleaning up" << endl;
+		Debug[TRACE] << "DeferHistogram: Received signal to say main thread is done - cleaning up" << endl;
 		hist.Unsubscribe();
-		cerr << "DeferHistogram: Unsubscribed" << endl;
+		Debug[TRACE] << "DeferHistogram: Unsubscribed" << endl;
 		hist.ReleaseMutexShared();
 		ii->ReleaseMutexShared();
-		cerr << "DeferHistogram: Mutexes released - subthread ending" << endl;
+		Debug[TRACE] << "DeferHistogram: Mutexes released - subthread ending" << endl;
 		return(0);
 	}
 	// IdleFunc - runs on the main thread's context,
@@ -99,18 +101,18 @@ class DeferHistogram : public ThreadFunction
 	{
 		DeferHistogram *p=(DeferHistogram *)ud;
 		PPHistogram &hist=p->ii->GetHistogram();
-		cerr << "DeferHistogram - IdleFunc: Drawing histogram" << endl;
+		Debug[TRACE] << "DeferHistogram - IdleFunc: Drawing histogram" << endl;
 		int width=p->widget->hist->allocation.width;
 		if(width>50)
 		{
 			GdkPixbuf *pb=hist.DrawHistogram(width,(2*width)/3);
 			gtk_image_set_from_pixbuf(GTK_IMAGE(p->widget->hist),pb);
 			g_object_unref(G_OBJECT(pb));
-			cerr << "Done" << endl;
+			Debug[TRACE] << "Done" << endl;
 		}
-		cerr << "DeferHistogram - IdleFunc: Signalling subthread" << endl;
+		Debug[TRACE] << "DeferHistogram - IdleFunc: Signalling subthread" << endl;
 		p->thread.SendSync();
-		cerr << "DeferHistogram - IdleFunc: Deleting payload" << endl;
+		Debug[TRACE] << "DeferHistogram - IdleFunc: Deleting payload" << endl;
 		delete p;
 		return(FALSE);
 	}
@@ -132,10 +134,10 @@ class BuildHistogramThread : public ThreadFunction
 	public:
 	BuildHistogramThread(pp_Histogram *widget,Layout_ImageInfo *ii) : ThreadFunction(), widget(widget), ii(ii), thread(this)
 	{
-		cerr << "BuildHistogramThread: Starting Histogram generation thread" << endl;
+		Debug[TRACE] << "BuildHistogramThread: Starting Histogram generation thread" << endl;
 		thread.Start();
 		thread.WaitSync();
-		cerr << "BuildHistogramThread: Startup confirmed" << endl;
+		Debug[TRACE] << "BuildHistogramThread: Startup confirmed" << endl;
 	}
 	virtual ~BuildHistogramThread()
 	{
@@ -148,7 +150,7 @@ class BuildHistogramThread : public ThreadFunction
 		{
 			if(count==0)
 			{
-				cerr << "BuildHistogramThread: Giving up attempt on mutex - bailing out" << endl;
+				Debug[WARN] << "BuildHistogramThread: Giving up attempt on mutex - bailing out" << endl;
 				// The calling thread is waiting for us to acknowledge startup, so we have to send
 				// the Sync before bailing out.
 				thread.SendSync();
@@ -165,7 +167,7 @@ class BuildHistogramThread : public ThreadFunction
 		ISDataType *junk;
 		ImageSource *is=ii->GetImageSource();
 
-		cerr << "BuildHistogramThread: Succeeded in obtaining ImageInfo mutex" << endl;
+		Debug[TRACE] << "BuildHistogramThread: Succeeded in obtaining ImageInfo mutex" << endl;
 
 		// If we get this far we have a shared lock on the ImageInfo.
 		// We have also created the ImageSource chain, so should have a write lock on the histogram.
@@ -186,9 +188,9 @@ class BuildHistogramThread : public ThreadFunction
 		delete is;
 
 		g_timeout_add(1,BuildHistogramThread::CleanupFunc,this);
-		cerr << "BuildHistogramThread: Handed control back to main thread..." << endl;
+		Debug[TRACE] << "BuildHistogramThread: Handed control back to main thread..." << endl;
 		thread.WaitSync();
-		cerr << "BuildHistogramThread: Received signal to say main thread is done - cleaning up" << endl;
+		Debug[TRACE] << "BuildHistogramThread: Received signal to say main thread is done - cleaning up" << endl;
 		ii->ReleaseMutexShared();
 		return(0);
 	}
@@ -207,7 +209,7 @@ class BuildHistogramThread : public ThreadFunction
 
 void pp_histogram_refresh(pp_Histogram *ob)
 {
-	cerr << "Main thread: Refreshing histogram" << endl;
+	Debug[TRACE] << "Main thread: Refreshing histogram" << endl;
 	if(ob && ob->layout)
 	{
 		LayoutIterator it(*ob->layout);
@@ -217,11 +219,11 @@ void pp_histogram_refresh(pp_Histogram *ob)
 			// Histogram
 			PPHistogram &hist=ii->GetHistogram();
 
-			cerr << "Main thread: Got histogram" << endl;
+			Debug[TRACE] << "Main thread: Got histogram" << endl;
 
 			if(hist.AttemptMutexShared())
 			{
-				cerr << "Main thread: Got histogram's mutex - attempting to draw" << endl;
+				Debug[TRACE] << "Main thread: Got histogram's mutex - attempting to draw" << endl;
 				// If we were able to obtain the histogram's mutex, then it's either
 				// not been generated yet, or it's generated and ready for display...
 				try
@@ -238,7 +240,7 @@ void pp_histogram_refresh(pp_Histogram *ob)
 				catch(const char *err)
 				{
 					// If drawing the histogram failed, we'll process it ourselves...
-					cerr << "Main thread: Couldn't draw histogram - spawning thread to build it..." << endl;
+					Debug[TRACE] << "Main thread: Couldn't draw histogram - spawning thread to build it..." << endl;
 					hist.ReleaseMutexShared();
 					new BuildHistogramThread(ob,ii);
 				}
@@ -247,9 +249,9 @@ void pp_histogram_refresh(pp_Histogram *ob)
 			{
 				// If we couldn't obtain the Histogram's mutex, then histogram generation must
 				// be in progress - so launch a thread to wait for it...
-				cerr << "Main thread: couldn't obtain histogram's mutex - Deferring..." << endl;
-				DeferHistogram *d=new DeferHistogram(ob,ii);
-				cerr << "Main thread: DeferHistogram created..." << endl;
+				Debug[TRACE] << "Main thread: couldn't obtain histogram's mutex - Deferring..." << endl;
+				new DeferHistogram(ob,ii);
+				Debug[TRACE] << "Main thread: DeferHistogram created..." << endl;
 			}
 		}
 		else
@@ -257,7 +259,7 @@ void pp_histogram_refresh(pp_Histogram *ob)
 			gtk_image_clear(GTK_IMAGE(ob->hist));
 		}
 	}
-	cerr << "Main thread: Refresh complete." << endl;
+	Debug[TRACE] << "Main thread: Refresh complete." << endl;
 }
 
 

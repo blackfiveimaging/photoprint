@@ -14,6 +14,8 @@
 
 #include <gtk/gtk.h>
 
+#include "../support/debug.h"
+
 #include "ppeffect.h"
 #include "ppeffect_desaturate.h"
 #include "ppeffect_temperature.h"

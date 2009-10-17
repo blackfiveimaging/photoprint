@@ -26,6 +26,8 @@
 #include "profilemanager/intentselector.h"
 #include "dialogs.h"
 
+#include "support/debug.h"
+
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
@@ -295,7 +297,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	const char *pf;
 	char *pf2;
 
-	cerr << "Populating PP_CMS..." << endl;
+	Debug[TRACE] << "Populating PP_CMS..." << endl;
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ob->printeractive),db->profilemanager.FindInt("PrinterProfileActive"));
 	pf=db->profilemanager.FindString("PrinterProfile");
@@ -303,7 +305,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	{
 		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
-			cerr << "Setting printer profile to " << pf2 << endl;
+			Debug[TRACE] << "Setting printer profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->printerprof),pf2);
 			free(pf2);
 		}
@@ -313,12 +315,12 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ob->rgbactive),db->profilemanager.FindInt("DefaultRGBProfileActive"));
 	pf=db->profilemanager.FindString("DefaultRGBProfile");
-	cerr << "Default RGB Profile" << pf;
+	Debug[TRACE] << "Default RGB Profile" << pf;
 	if(pf && strlen(pf))
 	{
 		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
-			cerr << "Setting RGB profile to " << pf2 << endl;
+			Debug[TRACE] << "Setting RGB profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->rgbprof),pf2);
 			free(pf2);
 		}
@@ -328,12 +330,12 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ob->cmykactive),db->profilemanager.FindInt("DefaultCMYKProfileActive"));
 	pf=db->profilemanager.FindString("DefaultCMYKProfile");
-	cerr << "Default CMYK Profile" << pf;
+	Debug[TRACE] << "Default CMYK Profile" << pf;
 	if(pf && strlen(pf))
 	{
 		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
-			cerr << "Setting CMYK profile to " << pf2 << endl;
+			Debug[TRACE] << "Setting CMYK profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->cmykprof),pf2);
 			free(pf2);
 		}
@@ -347,7 +349,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 	{
 		if((pf2=db->profilemanager.SearchPaths(pf)))
 		{
-			cerr << "Setting Monitor profile to " << pf2 << endl;
+			Debug[TRACE] << "Setting Monitor profile to " << pf2 << endl;
 			profileselector_set_filename(PROFILESELECTOR(ob->monitorprof),pf2);
 			free(pf2);
 		}
@@ -371,28 +373,28 @@ void pp_cms_depopulate(pp_CMS *ob,PhotoPrint_State *db)
 	db->profilemanager.SetInt("PrinterProfileActive",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->printeractive)));
 	pf=db->profilemanager.MakeRelative(profileselector_get_filename(PROFILESELECTOR(ob->printerprof)));
 	if(pf)
-		cerr << "Printer profile: " <<  pf << endl;
+		Debug[TRACE] << "Printer profile: " <<  pf << endl;
 	db->profilemanager.SetString("PrinterProfile",pf);
 	free(pf);
 
 	db->profilemanager.SetInt("DefaultRGBProfileActive",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->rgbactive)));
 	pf=db->profilemanager.MakeRelative(profileselector_get_filename(PROFILESELECTOR(ob->rgbprof)));
 	if(pf)
-		cerr << "RGB profile: " <<  pf << endl;
+		Debug[TRACE] << "RGB profile: " <<  pf << endl;
 	db->profilemanager.SetString("DefaultRGBProfile",pf);
 	free(pf);
 
 	db->profilemanager.SetInt("DefaultCMYKProfileActive",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->cmykactive)));
 	pf=db->profilemanager.MakeRelative(profileselector_get_filename(PROFILESELECTOR(ob->cmykprof)));
 	if(pf)
-		cerr << "CMYK profile: " <<  pf << endl;
+		Debug[TRACE] << "CMYK profile: " <<  pf << endl;
 	db->profilemanager.SetString("DefaultCMYKProfile",pf);
 	free(pf);
 
 	db->profilemanager.SetInt("MonitorProfileActive",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->monitoractive)));
 	pf=db->profilemanager.MakeRelative(profileselector_get_filename(PROFILESELECTOR(ob->monitorprof)));
 	if(pf)
-		cerr << "Monitor profile: " <<  pf << endl;
+		Debug[TRACE] << "Monitor profile: " <<  pf << endl;
 	db->profilemanager.SetString("MonitorProfile",pf);
 	free(pf);
 

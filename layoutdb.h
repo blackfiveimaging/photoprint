@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include "support/debug.h"
 #include "support/configdb.h"
 
 using namespace std;
@@ -63,7 +64,7 @@ class LayoutDB : public ConfigDB
 		singledb(inif,"[Layout_Single]"), posterdb(inif,"[Layout_Poster]"),
 		carouseldb(inif,"[Layout_Carousel]")
 	{
-		cerr << "In LayoutDB constructor" << endl;
+		Debug[TRACE] << "In LayoutDB constructor" << endl;
 		new ConfigDBHandler(inif,section,this);
 	}
 	// Add DBs for each layout type here

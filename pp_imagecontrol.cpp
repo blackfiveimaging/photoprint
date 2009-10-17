@@ -8,6 +8,8 @@
 #include "layout.h"
 #include "photoprint_state.h"
 
+#include "support/debug.h"
+
 #include "effects/ppeffect.h"
 #include "effects/effectselector.h"
 #include "pp_imageinfo.h"
@@ -47,7 +49,7 @@ static void effectselector_changed(GtkWidget *wid,gpointer *ob)
 
 static void effectselector_addeffect(GtkWidget *wid,gpointer *ob)
 {
-	cerr << "Acting on addeffect signal" << endl;
+	Debug[TRACE] << "Acting on addeffect signal" << endl;
 	pp_ImageControl *ic=(pp_ImageControl *)ob;
 	LayoutIterator it(*ic->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();
@@ -62,7 +64,7 @@ static void effectselector_addeffect(GtkWidget *wid,gpointer *ob)
 
 static void effectselector_removeeffect(GtkWidget *wid,gpointer *ob)
 {
-	cerr << "Acting on removeeffect signal" << endl;
+	Debug[TRACE] << "Acting on removeeffect signal" << endl;
 	pp_ImageControl *ic=(pp_ImageControl *)ob;
 	LayoutIterator it(*ic->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();
@@ -77,11 +79,11 @@ static void effectselector_removeeffect(GtkWidget *wid,gpointer *ob)
 
 void pp_imagecontrol_refresh(pp_ImageControl *ob)
 {
-	cerr << "pp_imagecontrol_refresh: refreshing imageinfo" << endl;
+	Debug[TRACE] << "pp_imagecontrol_refresh: refreshing imageinfo" << endl;
 	pp_imageinfo_refresh(PP_IMAGEINFO(ob->imageinfo));
-	cerr << "pp_imagecontrol_refresh: refreshing histogram" << endl;
+	Debug[TRACE] << "pp_imagecontrol_refresh: refreshing histogram" << endl;
 	pp_histogram_refresh(PP_HISTOGRAM(ob->histogram));
-	cerr << "pp_imagecontrol_refresh: done" << endl;
+	Debug[TRACE] << "pp_imagecontrol_refresh: done" << endl;
 }
 
 

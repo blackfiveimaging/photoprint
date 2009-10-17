@@ -15,6 +15,8 @@
 
 #include "pp_imagecontrol.h"
 
+#include "support/debug.h"
+
 #include "effects/ppeffect.h"
 #include "effects/effectselector.h"
 #include "pp_imageinfo.h"
@@ -71,7 +73,7 @@ static void ic_changed(GtkWidget *wid,gpointer *ob)
 	pp_Layout_NUp *lo=(pp_Layout_NUp *)ob;
 	pp_Layout_NUp_PageView *pv=PP_LAYOUT_NUP_PAGEVIEW(lo->pageview);
 	Layout_NUp *l=(Layout_NUp*)lo->state->layout;
-	cerr << "Flushing due to ic_changed" << endl;
+	Debug[TRACE] << "Flushing due to ic_changed" << endl;
 
 	// Loop through twice for performance reasons - firstly to cancel the
 	// thread, secondly to wait for thread exit, and delete the preview.

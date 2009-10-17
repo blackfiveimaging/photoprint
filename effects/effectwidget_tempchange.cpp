@@ -14,6 +14,8 @@
 
 #include <gtk/gtk.h>
 
+#include "../support/debug.h"
+
 #include "ppeffect.h"
 #include "ppeffect_desaturate.h"
 #include "ppeffect_temperature.h"
@@ -45,7 +47,7 @@ static void effectwidget_tempchange_init (EffectWidget_TempChange *sel);
 
 static void value_changed(GtkWidget *wid,gpointer obj)
 {
-	cerr << "Got changed signal from slider - emitting signal" << endl;
+	Debug[TRACE] << "Tempchange got changed signal from slider - emitting signal" << endl;
 	g_signal_emit(G_OBJECT (obj),effectwidget_tempchange_signals[CHANGED_SIGNAL], 0);
 }
 

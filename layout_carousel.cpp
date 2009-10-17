@@ -27,6 +27,8 @@
 
 #include "imagesource/pixbuf_from_imagesource.h"
 
+#include "support/debug.h"
+
 #include "photoprint_state.h"
 #include "pp_layout_carousel.h"
 
@@ -194,7 +196,7 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 		ImageSource *mask=NULL;
 		CMSegment *targetseg=NULL;
 
-		cerr << "Layout_carousel: Left margin: " << leftmargin << endl;
+		Debug[TRACE] << "Layout_carousel: Left margin: " << leftmargin << endl;
 
 		for(int s=0;s<segments;s+=2)
 		{
@@ -591,7 +593,7 @@ Layout_ImageInfo *Layout_Carousel::ImageAtCoord(int x,int y)
 		}
 		delete extent;
 	}
-	cerr << "Best segment: " << bestseg << endl;
+	Debug[TRACE] << "Best segment: " << bestseg << endl;
 	return(ImageAt(currentpage,bestseg+1));
 }
 

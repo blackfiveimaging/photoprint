@@ -10,6 +10,8 @@
 #include "pp_mainwindow.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
+
+#include "support/debug.h"
 #include "support/progressbar.h"
 #include "support/pathsupport.h"
 #include "support/searchpath.h"
@@ -33,7 +35,7 @@ class ShortcutMenuItem : public ConfigFile, public ConfigDB
 		new ConfigDBHandler(this,"[Shortcut]",this);
 		ParseConfigFile(path.c_str());
 
-		cerr << "Have menu item: " << FindString("DisplayName") << endl;
+		Debug[TRACE] << "Have menu item: " << FindString("DisplayName") << endl;
 		action.name=action.label=FindString("DisplayName");
 		action.stock_id=NULL;
 		action.accelerator=NULL;
@@ -68,19 +70,9 @@ class ShortcutMenuItem : public ConfigFile, public ConfigDB
 ConfigTemplate ShortcutMenuItem::Template[]=
 {
 	ConfigTemplate("DisplayName",""),
+	ConfigTemplate("ToolTip",""),
 	ConfigTemplate()
 };
-
-
-
-static void file_profiling_mode(GtkAction *action,gpointer *ob)
-{
-	pp_MainWindow *mw=(pp_MainWindow *)ob;
-	char *fn=substitute_homedir("$HOME" SEARCHPATH_SEPARATOR_S ".photoprint" SEARCHPATH_SEPARATOR_S "profiling.preset");
-	mw->state->ParseSupplementaryConfig(fn);
-	free(fn);
-	pp_mainwindow_rebuild(mw);
-}
 
 
 static GtkActionEntry shortcutsmenu_entries[] = {

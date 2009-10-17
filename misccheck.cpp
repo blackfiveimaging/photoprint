@@ -9,6 +9,7 @@
 #include "imagesource/imagesource_mask.h"
 #include "miscwidgets/pixbufview.h"
 
+#include "support/debug.h"
 #include "support/signature.h"
 #include "stpui_widgets/units.h"
 #include "pp_sigcontrol.h"
@@ -43,7 +44,7 @@ int main(int argc,char**argv)
 	}
 	catch(const char *err)
 	{
-		cerr << "Error: " << err << endl;
+		Debug[ERROR] << "Error: " << err << endl;
 	}
 
 	return(0);

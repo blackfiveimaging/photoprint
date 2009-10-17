@@ -10,6 +10,8 @@
 #include "config.h"
 
 #include "support/thread.h"
+#include "support/debug.h"
+
 #include "stpui_widgets/dimension.h"
 #include "imagesource/imagesource_util.h"
 
@@ -33,7 +35,7 @@ static void pp_imageinfo_init (pp_ImageInfo *stpuicombo);
 
 void pp_imageinfo_refresh(pp_ImageInfo *ob)
 {
-	cerr << "Refreshing imageinfo" << endl;
+	Debug[TRACE] << "Refreshing imageinfo" << endl;
 	if(ob->layout)
 	{
 		LayoutIterator it(*ob->layout);
@@ -42,21 +44,21 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 		{
 			float pixelwidth=ii->GetWidth();
 			float pixelheight=ii->GetHeight();
-			cerr << "Image dimensions: " << pixelwidth << " x " << pixelheight << endl;
+			Debug[TRACE] << "Image dimensions: " << pixelwidth << " x " << pixelheight << endl;
 			RectFit *fit=ii->GetFit(1.0);
-			cerr << "Got fit" << endl;
+			Debug[TRACE] << "Got fit" << endl;
 			if(fit)
 			{
 				double w=fit->width;
-				cerr << "Got width"<< endl;
+				Debug[TRACE] << "Got width"<< endl;
 				double h=fit->height;
-				cerr << "Got height"<< endl;
+				Debug[TRACE] << "Got height"<< endl;
 				double t;
 				switch(fit->rotation)
 				{
 					case 90:
 					case 270:
-						cerr << "Rotation - swapping pixel dimensions" << endl;
+						Debug[TRACE] << "Rotation - swapping pixel dimensions" << endl;
 						t=pixelwidth;
 						pixelwidth=pixelheight;
 						pixelheight=t;
@@ -65,23 +67,23 @@ void pp_imageinfo_refresh(pp_ImageInfo *ob)
 						break;
 				}
 
-				cerr << "Getting bounds..." << endl;
+				Debug[TRACE] << "Getting bounds..." << endl;
 				LayoutRectangle *bounds=ii->GetBounds();
-				cerr << "Checking bounds..." << endl;
+				Debug[TRACE] << "Checking bounds..." << endl;
 				if(bounds)
 				{
 					if(w>bounds->w)
 					{
-						cerr << "Cropping " << w << " to " << bounds->w << endl;
+						Debug[TRACE] << "Cropping " << w << " to " << bounds->w << endl;
 						pixelwidth=(bounds->w*pixelwidth)/w;
-						cerr << "Pixelwidth reduced to: " << pixelwidth << endl;
+						Debug[TRACE] << "Pixelwidth reduced to: " << pixelwidth << endl;
 						w=bounds->w;
 					}
 					if(h>bounds->h)
 					{
-						cerr << "Cropping " << h << " to " << bounds->h << endl;
+						Debug[TRACE] << "Cropping " << h << " to " << bounds->h << endl;
 						pixelheight=(bounds->h*pixelheight)/h;
-						cerr << "Pixelheight reduced to: " << pixelheight << endl;
+						Debug[TRACE] << "Pixelheight reduced to: " << pixelheight << endl;
 						h=bounds->h;
 					}
 
@@ -414,7 +416,7 @@ void pp_imageinfo_change_image(pp_ImageInfo *ob)
 			if(ob->thread)				// Deleting the old thread has the added bonus of ensuring that
 				delete ob->thread;		// any previous iteration has completed.
 
-			ii_payload *p=new ii_payload(fn,ob,ii);
+			new ii_payload(fn,ob,ii);
 			gtk_widget_set_sensitive(GTK_WIDGET(ob->scrollwin),true);	
 		}
 	}

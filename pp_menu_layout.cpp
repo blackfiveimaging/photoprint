@@ -10,6 +10,7 @@
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "support/progressbar.h"
+#include "support/debug.h"
 
 #include "config.h"
 #include "gettext.h"
@@ -114,7 +115,7 @@ static void layoutmenu_setbackground(GtkAction *act,gpointer *ob)
 	char *bg=Background_Dialog(&mw->window,*mw->state,prevfile);
 
 	if(bg)
-		cerr << "Selected " << bg << endl;
+		Debug[TRACE] << "Selected " << bg << endl;
 
 	mw->state->layout->SetBackground(bg);
 //	if(prevfile)

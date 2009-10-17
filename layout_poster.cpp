@@ -12,11 +12,14 @@
 #include <iostream>
 #include <string.h>
 
+#include "support/debug.h"
 #include "support/layoutrectangle.h"
+
 #include "miscwidgets/generaldialogs.h"
 #include "dialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "imageutils/rotatepixbuf.h"
+
 #include "imagesource/imagesource_util.h"
 #include "imagesource/imagesource_crop.h"
 #include "imagesource/imagesource_rotate.h"
@@ -24,6 +27,7 @@
 #include "imagesource/imagesource_flatten.h"
 #include "imagesource/imagesource_montage.h"
 #include "imagesource/imagesource_solid.h"
+
 #include "photoprint_state.h"
 #include "pp_layout_poster.h"
 
@@ -173,8 +177,8 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 		int vt=r/htiles;
 		int ht=r-(htiles*vt);
 
-		cerr << "HT: " << ht << endl;
-		cerr << "VT: " << vt << endl;
+		Debug[TRACE] << "HT: " << ht << endl;
+		Debug[TRACE] << "VT: " << vt << endl;
 
 		Layout_Poster_ImageInfo *ii=(Layout_Poster_ImageInfo *)ImageAt(p);
 		
@@ -196,8 +200,8 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 			int t=vt*(imageableheight-voverlap);
 			int b=(vt+1)*imageableheight-vt*voverlap;
 
-			cerr << "Left: " << l << ", Right: " << r << endl;
-			cerr << "Top: " << t << ", Bottom: " << b << endl;
+			Debug[TRACE] << "Left: " << l << ", Right: " << r << endl;
+			Debug[TRACE] << "Top: " << t << ", Bottom: " << b << endl;
 
 			xoffset=leftmargin;
 			yoffset=topmargin;
@@ -207,8 +211,8 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 			t-=fit->ypos;
 			b-=fit->ypos;
 
-			cerr << "Left: " << l << ", Right: " << r << endl;
-			cerr << "Top: " << t << ", Bottom: " << b << endl;
+			Debug[TRACE] << "Left: " << l << ", Right: " << r << endl;
+			Debug[TRACE] << "Top: " << t << ", Bottom: " << b << endl;
 
 			if(l<0)
 			{
@@ -230,21 +234,21 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 			t+=fit->yoffset;
 			b+=fit->yoffset;
 			
-			cerr << "Left: " << l << ", Right: " << r << endl;
-			cerr << "Top: " << t << ", Bottom: " << b << endl;
+			Debug[TRACE] << "Left: " << l << ", Right: " << r << endl;
+			Debug[TRACE] << "Top: " << t << ", Bottom: " << b << endl;
 
 			l=(is->width*l)/fit->width;
 			r=(is->width*r)/fit->width;
 			t=(is->height*t)/fit->height;
 			b=(is->height*b)/fit->height;
 
-			cerr << "Left: " << l << ", Right: " << r << endl;
-			cerr << "Top: " << t << ", Bottom: " << b << endl;
+			Debug[TRACE] << "Left: " << l << ", Right: " << r << endl;
+			Debug[TRACE] << "Top: " << t << ", Bottom: " << b << endl;
 
 			is=ii->ApplyMask(is);
 			is=new ImageSource_Flatten(is);
 
-			cerr << "Old resolution: " << is->xres << " x " << is->yres << " dpi" << endl;
+			Debug[TRACE] << "Old resolution: " << is->xres << " x " << is->yres << " dpi" << endl;
 			is->SetResolution(72.0/fit->scale,72.0/fit->scale);
 
 			is=new ImageSource_Crop(is,l,t,r-l,b-t);
@@ -305,14 +309,14 @@ void Layout_Poster::SetPageExtent(PageExtent &pe)
 void Layout_Poster::SetMargins(int left,int right,int top,int bottom)
 {
 	if((left+right)>=pagewidth)
-		cerr << "Margins are too wide!" << endl;
+		Debug[WARN] << "Margins are too wide!" << endl;
 	else
 	{
 		leftmargin=left;
 		rightmargin=right;
 	}
 	if((top+bottom)>=pageheight)
-		cerr << "Margins are too tall!" << endl;
+		Debug[WARN] << "Margins are too tall!" << endl;
 	else
 	{
 		topmargin=top;

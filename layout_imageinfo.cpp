@@ -32,6 +32,9 @@
 #include "imagesource/imagesource_invert.h"
 
 #include "photoprint_state.h"
+
+#include "support/debug.h"
+
 #include "support/progress.h"
 #include "support/util.h"
 #include "support/layoutrectangle.h"
@@ -46,15 +49,15 @@ class PPIS_Histogram : public ImageSource
 	public:
 	PPIS_Histogram(ImageSource *source,PPHistogram &hist) : ImageSource(source), source(source,hist), histogram(hist)
 	{
-		cerr << "PPIS_Histogram obtaining Histogram mutex in exclusive mode from " << long(Thread::GetThreadID()) << endl;
+		Debug[TRACE] << "PPIS_Histogram obtaining Histogram mutex in exclusive mode from " << long(Thread::GetThreadID()) << endl;
 		histogram.ObtainMutex();
-		cerr << "Histogram address: " << long(&histogram) << endl;
+		Debug[TRACE] << "Histogram address: " << long(&histogram) << endl;
 	}
 	virtual ~PPIS_Histogram()
 	{
-		cerr << "PPIS_Histogram triggering complete signal" << endl;
+		Debug[TRACE] << "PPIS_Histogram triggering complete signal" << endl;
 		histogram.Trigger();
-		cerr << "PPIS_Histogram releasing Histogram mutex from " << long(Thread::GetThreadID()) << endl;
+		Debug[TRACE] << "PPIS_Histogram releasing Histogram mutex from " << long(Thread::GetThreadID()) << endl;
 		histogram.ReleaseMutex();
 	}
 	virtual ISDataType *GetRow(int row)
@@ -121,7 +124,7 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int pag
 		if(ii->customprofile)
 		{
 			customprofile=strdup(ii->customprofile);
-			cerr << "Copying profile: " << ii->customprofile << endl;
+			Debug[TRACE] << "Copying profile: " << ii->customprofile << endl;
 		}
 		customintent=ii->customintent;
 	
@@ -158,7 +161,7 @@ Layout_ImageInfo::~Layout_ImageInfo()
 	if(customprofile)
 		free(customprofile);
 	free(filename);
-	cerr << "Layout_ImageInfo successfully disposed" << endl;
+	Debug[COMMENT] << "Layout_ImageInfo successfully disposed" << endl;
 }
 
 
@@ -200,7 +203,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 		{
 			if(count==0)
 			{
-				cerr << "Giving up attempt on mutex - bailing out" << endl;
+				Debug[WARN] << "Giving up attempt on mutex - bailing out" << endl;
 				// The calling thread is waiting for us to acknowledge startup, so we have to send
 				// the Sync before bailing out.
 				t.SendSync();
@@ -230,7 +233,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 #endif
 			if(t.TestBreak())
 			{
-//				cerr << "Got break signal while pausing - Releasing" << endl;
+//				Debug[TRACE] << "Got break signal while pausing - Releasing" << endl;
 				ii->ReleaseMutex();
 				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				ReleaseMutex();
@@ -240,7 +243,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 		if(t.TestBreak())
 		{
-//			cerr << "Subthread releasing mutex and cancelling" << endl;
+//			Debug[TRACE] << "Subthread releasing mutex and cancelling" << endl;
 			ii->ReleaseMutex();
 			g_timeout_add(1,hr_payload::CleanupFunc,this);
 			ReleaseMutex();
@@ -263,17 +266,17 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 			if(t.TestBreak())
 			{
-//				cerr << "Subthread releasing mutex and cancelling" << endl;
+//				Debug[TRACE] << "Subthread releasing mutex and cancelling" << endl;
 				ii->ReleaseMutex();
 				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				return(0);
 			}
 
-//			cerr << "Generating high-res preview - Using tdev: " << tdev << endl;
+//			Debug[TRACE] << "Generating high-res preview - Using tdev: " << tdev << endl;
 
 			ImageSource *is=ii->GetImageSource(tdev,factory);
 
-//			cerr << "Got imagesource - fitting and rendering" << endl;
+//			Debug[TRACE] << "Got imagesource - fitting and rendering" << endl;
 
 			LayoutRectangle r(is->width,is->height);
 			LayoutRectangle target(xpos,ypos,width,height);
@@ -295,7 +298,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 			delete is;
 
-//			cerr << "finished - finalising" << endl;
+//			Debug[TRACE] << "finished - finalising" << endl;
 
 			if(transformed)
 			{
@@ -312,12 +315,12 @@ class hr_payload : public PTMutex, public ThreadFunction
 				// between the main thread having completed and the idle function being
 				// triggered to draw the thumbnail.  For this reason we'll have to use a
 				// tie-break in the ImageInfo destructor.
-	//			cerr << "Waiting for all-clear from main thread..." << endl;
+	//			Debug[TRACE] << "Waiting for all-clear from main thread..." << endl;
 	//			t->WaitSync();
 			}
 			else
 			{
-//				cerr << "Thread cancelled" << endl;
+//				Debug[TRACE] << "Thread cancelled" << endl;
 				g_timeout_add(1,hr_payload::CleanupFunc,this);
 				ii->ReleaseMutex();
 				ReleaseMutex();
@@ -326,12 +329,12 @@ class hr_payload : public PTMutex, public ThreadFunction
 		}
 		catch (const char *err)
 		{
-//			cerr << "Subthread caught exception: " << err << endl;
+//			Debug[TRACE] << "Subthread caught exception: " << err << endl;
 			g_timeout_add(1,hr_payload::CleanupFunc,this);
 		}
-//		cerr << "Subthread waiting for main thread to finish drawing" << endl;
+		Debug[COMMENT] << "Subthread waiting for main thread to finish drawing" << endl;
 		thread.WaitSync();
-//		cerr << "Subthread releasing mutex and exiting" << endl;
+		Debug[COMMENT] << "Subthread releasing mutex and exiting" << endl;
 		ii->ReleaseMutex();
 		ReleaseMutex();
 		return(0);
@@ -341,7 +344,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 	static gboolean CleanupFunc(gpointer ud)
 	{
 		hr_payload *p=(hr_payload *)ud;
-//		cerr << "Main thread sending sync signal" << endl;
+//		Debug[TRACE] << "Main thread sending sync signal" << endl;
 		p->thread.SendSync();
 
 		// There's a race condition here.  Once we send this signal the subthread will
@@ -351,11 +354,11 @@ class hr_payload : public PTMutex, public ThreadFunction
 		// this class's destructor deletes the thread - thus the subthread should be
 		// guaranteed to have exited before this class is deleted.)
 
-//		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
+//		Debug[TRACE] << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
 		p->ObtainMutex();
-//		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
+//		Debug[TRACE] << "Thread cleanup - race prevention - releasing mutex" << endl;
 		p->ReleaseMutex();
-		cerr << "Done" << endl;
+		Debug[TRACE] << "Done" << endl;
 
 		// We clear the renderthread pointer in the ImageInfo here before deleting it
 		// to avoid the main thread trying to cancel it after deletion.
@@ -435,7 +438,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 
 			delete fit;
 		}
-//		cerr << "Preview drawn - sending sync to sub-thread" << endl;
+//		Debug[TRACE] << "Preview drawn - sending sync to sub-thread" << endl;
 		p->thread.SendSync();
 
 		// There's a race condition here.  Once we send this signal the subthread will
@@ -445,11 +448,11 @@ class hr_payload : public PTMutex, public ThreadFunction
 		// this class's destructor deletes the thread - thus the subthread should be
 		// guaranteed to have exited before this class is deleted.)
 
-//		cerr << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
+//		Debug[TRACE] << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
 		p->ObtainMutex();
-//		cerr << "Thread cleanup - race prevention - releasing mutex" << endl;
+		Debug[COMMENT] << "Thread cleanup - race prevention - releasing mutex" << endl;
 		p->ReleaseMutex();
-//		cerr << "Done" << endl;
+//		Debug[TRACE] << "Done" << endl;
 
 		// We clear the renderthread pointer in the ImageInfo here before deleting it
 		// to avoid the main thread trying to cancel it after deletion.
@@ -617,10 +620,10 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 	if(maskfilename && !mask)
 	{
 		mask=egg_pixbuf_get_thumbnail_for_file (maskfilename, EGG_PIXBUF_THUMBNAIL_LARGE, &err);
-//		cerr << "Attempting to load mask from: " << maskfilename << endl;
+//		Debug[TRACE] << "Attempting to load mask from: " << maskfilename << endl;
 		if(!mask)
 		{
-//			cerr << "Failed." << endl;
+			Debug[WARN] << "Mask loading failed - trying ImageSource method" << endl;
 			try
 			{
 				ImageSource *src=ISLoadImage(maskfilename);
@@ -641,21 +644,21 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 			}
 			catch(const char *err)
 			{
-				cerr << "Error: " << err << endl;
+				Debug[ERROR] << "Error: " << err << endl;
 			}	
 			if(!mask)
 			{
 				if(err && err->message)
-					cerr << "Error: " << err->message << endl;
+					Debug[ERROR] << "Error: " << err->message << endl;
 				else
-					cerr << "Can't get mask thumbnail" << endl;
+					Debug[ERROR] << "Can't get mask thumbnail" << endl;
 				free(maskfilename);
 				maskfilename=NULL;
 			}
 		}
 	}
 
-	cerr << "Thumbnail not cached - loading..." << endl;
+	Debug[TRACE] << "Thumbnail not cached - loading..." << endl;
 
 	ImageSource *src=NULL;
 		
@@ -663,7 +666,7 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 
 	if(!thumbnail)
 	{
-		cerr << "Can't get pixbuf - loading thumbnail via ImageSource..." << endl;
+		Debug[WARN] << "Can't get pixbuf - loading thumbnail via ImageSource..." << endl;
 		src=ISLoadImage(filename);
 		if(src)
 		{
@@ -703,7 +706,7 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 
 
 	// If there's no display profile, then we can use the Default RGB profile instead...
-//	cerr << "Checking for Display Profile..." << endl;
+//	Debug[TRACE] << "Checking for Display Profile..." << endl;
 	CMSProfile *targetprof;
 	CMColourDevice target=CM_COLOURDEVICE_NONE;
 	if((targetprof=layout.state.profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
@@ -732,11 +735,11 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 				emb=src->GetEmbeddedProfile();
 			if(emb)
 			{
-//				cerr << "Creating embedded->monitor transform..." << endl;
+//				Debug[TRACE] << "Creating embedded->monitor transform..." << endl;
 				if(emb->GetColourSpace()!=IS_TYPE_RGB)
 				{
 //					Need to replace the RGB thumbnail with a CMYK or Greyscale version!
-					cerr << "Creating new thumbnail - CMYK->monitor" << endl;
+					Debug[TRACE] << "Creating new thumbnail - CMYK->monitor" << endl;
 					int w,h;
 					w=(src->width*256)/src->height;
 					h=256;
@@ -760,13 +763,13 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 			}
 			else
 			{
-//				cerr << "Creating default->monitor transform..." << endl;
+//				Debug[TRACE] << "Creating default->monitor transform..." << endl;
 				transform = layout.factory->GetTransform(target,IS_TYPE_RGB,customintent);
 			}
 		}
 		if(transform)
 		{
-//			cerr << "Applying transform..." << endl;
+//			Debug[TRACE] << "Applying transform..." << endl;
 			ImageSource *src2=new ImageSource_GdkPixbuf(thumbnail);
 			src2=new ImageSource_CMS(src2,transform);
 			GdkPixbuf *tn2=pixbuf_from_imagesource(src2);
@@ -781,7 +784,7 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 		delete src;		
 	}
 
-	cerr << "done" << endl;
+	Debug[TRACE] << "done" << endl;
 
 	return(thumbnail);
 }
@@ -790,8 +793,6 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 LayoutRectangle *Layout_ImageInfo::GetBounds()
 {
 	// Dummy function - override in subclasses!
-//	LayoutRectangle *result=new LayoutRectangle(0,0,100,100);
-//	return(result);
 	throw "Layout_ImageInfo::GetBounds() method should be overridden by subclass!";
 }
 
@@ -846,12 +847,12 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 		
 		if(emb)
 		{
-//				cerr << "Has embedded / assigned profile..." << endl;
+//				Debug[TRACE] << "Has embedded / assigned profile..." << endl;
 			transform=factory->GetTransform(target,emb,customintent);  // FIXME: intent!
 		}
 		else
 		{
-//				cerr << "No embedded profile - using default" << endl;
+//				Debug[TRACE] << "No embedded profile - using default" << endl;
 			transform=factory->GetTransform(target,IS_TYPE(STRIP_ALPHA(is->type)),customintent);
 		}
 
@@ -871,7 +872,7 @@ ImageSource *Layout_ImageInfo::ApplyMask(ImageSource *is)
 		if((is->width>is->height)^(mask->width>mask->height))
 		{
 			mask=new ImageSource_Rotate(mask,90);
-//			cerr << "Rotating mask" << endl;
+//			Debug[TRACE] << "Rotating mask" << endl;
 		}
 		mask=ISScaleImageBySize(mask,is->width,is->height,IS_SCALING_AUTOMATIC);
 		mask=new ImageSource_Invert(mask);
@@ -1005,15 +1006,15 @@ int Layout_ImageInfo::GetYRes()
 // FIXME - would be better to require an explicit flush() of some kind.
 void Layout_ImageInfo::ObtainMutex()
 {
-//	cerr << "In custom Obtain method - flushing preview..." << endl;
+//	Debug[TRACE] << "In custom Obtain method - flushing preview..." << endl;
 	FlushHRPreview();
-//	cerr << "Now attempting to obtain exclusive lock..." << endl;
+//	Debug[TRACE] << "Now attempting to obtain exclusive lock..." << endl;
 	while(!PPEffectHeader::AttemptMutex())
 	{
-//		cerr << "Can't get exclusive lock - performing main loop iteration" << endl;
+//		Debug[TRACE] << "Can't get exclusive lock - performing main loop iteration" << endl;
 		gtk_main_iteration();
 	}
-//	cerr << "Done" << endl;
+//	Debug[TRACE] << "Done" << endl;
 }
 
 

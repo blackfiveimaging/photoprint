@@ -7,6 +7,8 @@
 
 #include "stpui_widgets/stpui_combo.h"
 #include "pp_sigcontrol.h"
+
+#include "support/debug.h"
 #include "support/progressbar.h"
 
 #include "pp_menu_image.h"
@@ -74,7 +76,7 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 		}
 		else
 		{	
-			cerr << "URIList: " << urilist << endl;
+			Debug[TRACE] << "URIList: " << urilist << endl;
 			gchar *uri=urilist;
 			while(*urilist && *urilist!='\n' && *urilist!='\r')
 				++urilist;

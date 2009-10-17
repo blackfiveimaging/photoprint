@@ -1,6 +1,6 @@
 /*
  * PhotoPrint
- * Copyright (c) 2004-2006 by Alastair M. Robinson
+ * Copyright (c) 2004-2009 by Alastair M. Robinson
  * Distributed under the terms of the GNU General Public License -
  * see the file named "COPYING" for more details.
  *
@@ -18,7 +18,7 @@
 #include "config.h"
 #include "gettext.h"
 
-
+#include "support/debug.h"
 #include "support/configdb.h"
 #include "photoprint_state.h"
 
@@ -48,13 +48,14 @@ bool ParseOptions(int argc,char *argv[],char **presetname)
 		{"version",no_argument,NULL,'v'},
 		{"preset",required_argument,NULL,'p'},
 		{"batch",no_argument,NULL,'b'},
+		{"debug",required_argument,NULL,'d'},
 		{0, 0, 0, 0}
 	};
 
 	while(1)
 	{
 		int c;
-		c = getopt_long(argc,argv,"hvp:b",long_options,NULL);
+		c = getopt_long(argc,argv,"hvp:bd:",long_options,NULL);
 		if(c==-1)
 			break;
 		switch (c)
@@ -65,6 +66,7 @@ bool ParseOptions(int argc,char *argv[],char **presetname)
 				printf("\t -v --version\t\tdisplay version\n");
 				printf("\t -p --preset\t\tread a specific preset file\n");
 				printf("\t -b --batch\t\trun without user interface\n");
+				printf("\t -d --debug\t\tset debugging level - 0 for silent, 5 for verbose");
 				throw 0;
 				break;
 			case 'v':
@@ -76,6 +78,9 @@ bool ParseOptions(int argc,char *argv[],char **presetname)
 				break;
 			case 'b':
 				batchmode=true;
+				break;
+			case 'd':
+				Debug.SetLevel(DebugLevel(atoi(optarg)));
 				break;
 		}
 	}
@@ -92,7 +97,7 @@ static void destroy( GtkWidget *widget,
 
 int main(int argc,char **argv)
 {
-	cerr << "Photoprint starting..." << endl;
+	Debug[TRACE] << "Photoprint starting..." << endl;
 	gboolean have_gtk=false;
 	char *presetname=NULL;
 
@@ -144,14 +149,14 @@ int main(int argc,char **argv)
 		{
 			try
 			{
-				cerr << "Running in batch mode" << endl;
+				Debug[TRACE] << "Running in batch mode" << endl;
 				if(argc>optind)
 				{
 					bool allowcropping=state.layoutdb.FindInt("AllowCropping");
 					enum PP_ROTATION rotation=PP_ROTATION(state.layoutdb.FindInt("Rotation"));
 					for(int i=optind;i<argc;++i)
 					{
-						cerr << "Adding file: " << argv[i] << endl;
+						Debug[TRACE] << "Adding file: " << argv[i] << endl;
 						state.layout->AddImage(argv[i],allowcropping,rotation);
 					}
 					ProgressText p;
@@ -160,7 +165,7 @@ int main(int argc,char **argv)
 			}
 			catch(const char *err)
 			{
-				cerr << "Error: " << err << endl;
+				Debug[ERROR] << "Error: " << err << endl;
 			}
 		}
 		else
@@ -202,7 +207,7 @@ int main(int argc,char **argv)
 	{
 		if(have_gtk)
 			ErrorMessage_Dialog(err);
-		cerr << "Error: " << err << endl;
+		Debug[ERROR] << "Error: " << err << endl;
 	}
 	catch(int retcode)
 	{

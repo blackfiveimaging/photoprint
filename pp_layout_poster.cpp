@@ -7,6 +7,7 @@
 #include <gtk/gtkscrolledwindow.h>
 #include <gtk/gtkexpander.h>
 
+#include "support/debug.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "stpui_widgets/dimension.h"
 #include "layout.h"
@@ -116,7 +117,7 @@ static void vtiles_changed(GtkWidget *wid,gpointer *ob)
 	Layout_Poster *l=(Layout_Poster*)lo->state->layout;
 	l->FlushHRPreviews();
 
-	cerr << "In VTiles_Changed" << endl;
+	Debug[TRACE] << "In VTiles_Changed" << endl;
 
 	l->vtiles=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(lo->vtiles));
 	l->SizeFromTiles();
@@ -175,7 +176,7 @@ static void pageview_changed(GtkWidget *wid,gpointer *ob)
 static void pageview_popupmenu(GtkWidget *wid,gpointer *ob)
 {
 	pp_Layout_Poster *lo=(pp_Layout_Poster *)ob;
-	cerr << "Forwarding popupmenu signal..." << endl;
+	Debug[TRACE] << "Forwarding popupmenu signal..." << endl;
 	g_signal_emit(G_OBJECT (lo),pp_layout_poster_signals[POPUPMENU_SIGNAL], 0);
 }
 
