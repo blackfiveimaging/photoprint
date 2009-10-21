@@ -8,7 +8,10 @@ Add cutting lines (Support in Auto, Poster and Single layouts)
 (Implement these as Layout Capabilities, then place checkmarks in the Layout menu.)
 
 
+Add Gamma Correction effect
+
 Add support for more detailed cropping rectangle.
+
 
 Sort out problems with certain strings not being collected into the message catalogues.
 
