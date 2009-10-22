@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-17 19:01+0100\n"
+"POT-Creation-Date: 2009-10-22 20:43+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -508,23 +508,23 @@ msgstr "Obraca o 90 stopni przeciwnie do wskazówek zegara"
 msgid "Dither Algorithm"
 msgstr "Algorytm ditheringu"
 
-#: photoprint.cpp:130
+#: photoprint.cpp:132
 msgid "Initializing..."
 msgstr "Inicjowanie..."
 
-#: photoprint.cpp:139
+#: photoprint.cpp:141
 msgid "Checking .photoprint directory..."
 msgstr "Sprawdzanie katalogu .photoprint..."
 
-#: photoprint.cpp:144
+#: photoprint.cpp:146
 msgid "Loading preset..."
 msgstr "Ładowanie wzorca..."
 
-#: photoprint.cpp:149
+#: photoprint.cpp:151
 msgid "Creating layout..."
 msgstr "Tworzenie układu..."
 
-#: photoprint.cpp:192
+#: photoprint.cpp:194
 msgid "Loading images..."
 msgstr "Ładowanie obrazów..."
 

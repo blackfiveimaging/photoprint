@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-17 19:01+0100\n"
+"POT-Creation-Date: 2009-10-22 20:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -498,23 +498,23 @@ msgstr ""
 msgid "Dither Algorithm"
 msgstr ""
 
-#: photoprint.cpp:130
+#: photoprint.cpp:132
 msgid "Initializing..."
 msgstr ""
 
-#: photoprint.cpp:139
+#: photoprint.cpp:141
 msgid "Checking .photoprint directory..."
 msgstr ""
 
-#: photoprint.cpp:144
+#: photoprint.cpp:146
 msgid "Loading preset..."
 msgstr ""
 
-#: photoprint.cpp:149
+#: photoprint.cpp:151
 msgid "Creating layout..."
 msgstr ""
 
-#: photoprint.cpp:192
+#: photoprint.cpp:194
 msgid "Loading images..."
 msgstr ""
 

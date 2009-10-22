@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-17 19:01+0100\n"
+"POT-Creation-Date: 2009-10-22 20:43+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -516,23 +516,23 @@ msgstr "Rotaciona 90 graus no sentido anti-horário."
 msgid "Dither Algorithm"
 msgstr "Algoritmo:"
 
-#: photoprint.cpp:130
+#: photoprint.cpp:132
 msgid "Initializing..."
 msgstr "Iniciando..."
 
-#: photoprint.cpp:139
+#: photoprint.cpp:141
 msgid "Checking .photoprint directory..."
 msgstr "Verificando pasta .photoprint..."
 
-#: photoprint.cpp:144
+#: photoprint.cpp:146
 msgid "Loading preset..."
 msgstr "Carregando pré-seleções..."
 
-#: photoprint.cpp:149
+#: photoprint.cpp:151
 msgid "Creating layout..."
 msgstr "Criando layout..."
 
-#: photoprint.cpp:192
+#: photoprint.cpp:194
 msgid "Loading images..."
 msgstr "Carregando imagens..."
 
