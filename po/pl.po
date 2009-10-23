@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-22 20:43+0100\n"
+"POT-Creation-Date: 2009-10-23 18:57+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -711,6 +711,7 @@ msgstr "Domyślny"
 
 #: pp_layout_carousel.cpp:247 pp_layout_carousel.cpp:379 pp_layout_nup.cpp:222
 #: pp_layout_poster.cpp:310 pp_layout_poster.cpp:462 pp_layout_single.cpp:233
+#: printpreview.cpp:146
 msgid "Page:"
 msgstr "Strona:"
 
@@ -1047,6 +1048,43 @@ msgstr "Centymetry"
 msgid "Units"
 msgstr "Jednostki"
 
+#: printpreview.cpp:153
+#, fuzzy
+msgid "Preview resolution:"
+msgstr "Rozdzielczość:"
+
+#: printpreview.cpp:157
+msgid "180 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:158
+msgid "240 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:159
+msgid "300 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:160
+msgid "360 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:165
+msgid ""
+"Click-and-drag to pan around the preview.\n"
+"Right-click to toggle magnification."
+msgstr ""
+
+#: printpreview.cpp:168
+#, fuzzy
+msgid "Close"
+msgstr "Karuzela"
+
+#: printpreview.cpp:236
+#, fuzzy
+msgid "Drawing preview"
+msgstr "_Podgląd wydruku..."
+
 #: gp_cppsupport/gprintersettings.cpp:413
 msgid ""
 "Can't obtain printer from Gutenprint\n"
@@ -1181,15 +1219,3 @@ msgstr "Obraz"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Przetwarzanie..."
-
-#, fuzzy
-#~ msgid "Preview resolution:"
-#~ msgstr "Rozdzielczość:"
-
-#, fuzzy
-#~ msgid "Close"
-#~ msgstr "Karuzela"
-
-#, fuzzy
-#~ msgid "Drawing preview"
-#~ msgstr "_Podgląd wydruku..."

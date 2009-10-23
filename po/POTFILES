@@ -31,6 +31,7 @@
      ../pp_scaling.cpp \
      ../pp_sigcontrol.cpp \
      ../pp_units.cpp \
+     ../printpreview.cpp \
      ../gp_cppsupport/gprintersettings.cpp \
      ../profilemanager/lcmswrapper.cpp \
      ../profilemanager/profileselector.cpp \

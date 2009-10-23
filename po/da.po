@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-22 20:43+0100\n"
+"POT-Creation-Date: 2009-10-23 18:57+0100\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -711,6 +711,7 @@ msgstr "Standard"
 
 #: pp_layout_carousel.cpp:247 pp_layout_carousel.cpp:379 pp_layout_nup.cpp:222
 #: pp_layout_poster.cpp:310 pp_layout_poster.cpp:462 pp_layout_single.cpp:233
+#: printpreview.cpp:146
 msgid "Page:"
 msgstr "Side:"
 
@@ -1049,6 +1050,43 @@ msgstr "Centimeter"
 msgid "Units"
 msgstr "Enheder"
 
+#: printpreview.cpp:153
+#, fuzzy
+msgid "Preview resolution:"
+msgstr "Opløsning:"
+
+#: printpreview.cpp:157
+msgid "180 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:158
+msgid "240 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:159
+msgid "300 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:160
+msgid "360 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:165
+msgid ""
+"Click-and-drag to pan around the preview.\n"
+"Right-click to toggle magnification."
+msgstr ""
+
+#: printpreview.cpp:168
+#, fuzzy
+msgid "Close"
+msgstr "Karrusel"
+
+#: printpreview.cpp:236
+#, fuzzy
+msgid "Drawing preview"
+msgstr "Udskriv forhånds_visning..."
+
 #: gp_cppsupport/gprintersettings.cpp:413
 msgid ""
 "Can't obtain printer from Gutenprint\n"
@@ -1185,15 +1223,3 @@ msgstr "Billede"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Fremgang..."
-
-#, fuzzy
-#~ msgid "Preview resolution:"
-#~ msgstr "Opløsning:"
-
-#, fuzzy
-#~ msgid "Close"
-#~ msgstr "Karrusel"
-
-#, fuzzy
-#~ msgid "Drawing preview"
-#~ msgstr "Udskriv forhånds_visning..."

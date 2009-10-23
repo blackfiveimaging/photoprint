@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-22 20:43+0100\n"
+"POT-Creation-Date: 2009-10-23 18:57+0100\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -719,6 +719,7 @@ msgstr "Guradar por _Defecto"
 
 #: pp_layout_carousel.cpp:247 pp_layout_carousel.cpp:379 pp_layout_nup.cpp:222
 #: pp_layout_poster.cpp:310 pp_layout_poster.cpp:462 pp_layout_single.cpp:233
+#: printpreview.cpp:146
 msgid "Page:"
 msgstr "Página:"
 
@@ -1063,6 +1064,43 @@ msgstr "Centímetros"
 msgid "Units"
 msgstr "Unidades"
 
+#: printpreview.cpp:153
+#, fuzzy
+msgid "Preview resolution:"
+msgstr "Resolución (dpi):"
+
+#: printpreview.cpp:157
+msgid "180 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:158
+msgid "240 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:159
+msgid "300 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:160
+msgid "360 dots per inch"
+msgstr ""
+
+#: printpreview.cpp:165
+msgid ""
+"Click-and-drag to pan around the preview.\n"
+"Right-click to toggle magnification."
+msgstr ""
+
+#: printpreview.cpp:168
+#, fuzzy
+msgid "Close"
+msgstr "Ruleta"
+
+#: printpreview.cpp:236
+#, fuzzy
+msgid "Drawing preview"
+msgstr "Pre_visualizar..."
+
 #: gp_cppsupport/gprintersettings.cpp:413
 msgid ""
 "Can't obtain printer from Gutenprint\n"
@@ -1193,18 +1231,6 @@ msgstr "Imágen"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr ""
-
-#, fuzzy
-#~ msgid "Preview resolution:"
-#~ msgstr "Resolución (dpi):"
-
-#, fuzzy
-#~ msgid "Close"
-#~ msgstr "Ruleta"
-
-#, fuzzy
-#~ msgid "Drawing preview"
-#~ msgstr "Pre_visualizar..."
 
 #~ msgid "Change Colour Temperature..."
 #~ msgstr "Cambiar temperatura de color..."
