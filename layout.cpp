@@ -148,7 +148,7 @@ void Layout::Clear()
 	while(ii)
 	{
 		delete ii;
-		ii=it.NextImage();
+		ii=it.FirstImage();
 	}
 	pages=1;
 }
