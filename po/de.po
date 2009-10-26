@@ -270,7 +270,7 @@ msgstr "Speichere Vorlage unter neuem Dateinamen"
 
 #: menucheck.cpp:28 pp_menu_file.cpp:140
 msgid "Save _Default"
-msgstr "Speicher Standar_d-Vorlage"
+msgstr "Speichere Standar_d-Vorlage"
 
 #: menucheck.cpp:28 pp_menu_file.cpp:140
 msgid "Save preset as the default"
