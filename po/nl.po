@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-26 11:06+0000\n"
+"POT-Creation-Date: 2009-10-26 11:26+0000\n"
 "PO-Revision-Date:  2009-07-21 21:07+0100\n"
 "Last-Translator: Lex Wernars <lex@theros.nl>\n"
 "Language-Team: Nederlands <lex@theros.nl>\n"
@@ -704,7 +704,7 @@ msgstr "Profiel:"
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:380
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:789
 msgid "Default"
 msgstr "Standaard"
 
@@ -985,7 +985,7 @@ msgstr "Niet mogelijk om print-data te genereren"
 msgid "Algorithm:"
 msgstr "Algoritme:"
 
-#: pp_scaling.cpp:169
+#: pp_scaling.cpp:184
 #, fuzzy
 msgid "Scaling"
 msgstr "_Schalen..."
@@ -1162,6 +1162,27 @@ msgstr "Anders..."
 #: profilemanager/profileselector.cpp:369
 msgid "Please choose a valid ICC profile"
 msgstr "Kies een geldig ICC-profiel"
+
+#: profilemanager/profilemanager.cpp:209
+msgid "Can't do proofing without a valid Printer profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:214
+msgid "Can't do proofing without a valid Monitor profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:219
+msgid "Can't do proofing without a valid Default RGB profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:472
+msgid "No Proof profile provided!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:797
+#, fuzzy
+msgid "Default rendering intent"
+msgstr "Gewenst resultaat:"
 
 #: stpui_widgets/dimension.c:161
 msgid "points"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-26 11:06+0000\n"
+"POT-Creation-Date: 2009-10-26 11:26+0000\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -705,7 +705,7 @@ msgstr "Profil:"
 msgid "pixels"
 msgstr "pikseli"
 
-#: pp_imageinfo.cpp:380
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:789
 msgid "Default"
 msgstr "Domyślny"
 
@@ -988,7 +988,7 @@ msgstr "Nie można wygenerować danych do wydruku"
 msgid "Algorithm:"
 msgstr "Algorytm:"
 
-#: pp_scaling.cpp:169
+#: pp_scaling.cpp:184
 #, fuzzy
 msgid "Scaling"
 msgstr "_Skalowanie..."
@@ -1162,6 +1162,27 @@ msgstr "Inne..."
 #: profilemanager/profileselector.cpp:369
 msgid "Please choose a valid ICC profile"
 msgstr "Wybierz profil kolorystyczny ICC"
+
+#: profilemanager/profilemanager.cpp:209
+msgid "Can't do proofing without a valid Printer profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:214
+msgid "Can't do proofing without a valid Monitor profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:219
+msgid "Can't do proofing without a valid Default RGB profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:472
+msgid "No Proof profile provided!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:797
+#, fuzzy
+msgid "Default rendering intent"
+msgstr "Metoda konwersji kolorów:"
 
 #: stpui_widgets/dimension.c:161
 msgid "points"

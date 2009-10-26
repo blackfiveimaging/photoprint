@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-26 11:06+0000\n"
+"POT-Creation-Date: 2009-10-26 11:26+0000\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -703,7 +703,7 @@ msgstr "Profil RVB :"
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:789
 msgid "Default"
 msgstr ""
 
@@ -991,7 +991,7 @@ msgstr "Génération des données d'impression..."
 msgid "Algorithm:"
 msgstr "Algotithme :"
 
-#: pp_scaling.cpp:169
+#: pp_scaling.cpp:184
 #, fuzzy
 msgid "Scaling"
 msgstr "Mise à l'échelle..."
@@ -1171,6 +1171,27 @@ msgstr "Autre..."
 #: profilemanager/profileselector.cpp:369
 msgid "Please choose a valid ICC profile"
 msgstr ""
+
+#: profilemanager/profilemanager.cpp:209
+msgid "Can't do proofing without a valid Printer profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:214
+msgid "Can't do proofing without a valid Monitor profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:219
+msgid "Can't do proofing without a valid Default RGB profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:472
+msgid "No Proof profile provided!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:797
+#, fuzzy
+msgid "Default rendering intent"
+msgstr "Rendu désiré :"
 
 #: stpui_widgets/dimension.c:161
 #, fuzzy

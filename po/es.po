@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-26 11:06+0000\n"
+"POT-Creation-Date: 2009-10-26 11:26+0000\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -712,7 +712,7 @@ msgstr "Perfil RGB:"
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:789
 #, fuzzy
 msgid "Default"
 msgstr "Guradar por _Defecto"
@@ -1003,7 +1003,7 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
-#: pp_scaling.cpp:169
+#: pp_scaling.cpp:184
 #, fuzzy
 msgid "Scaling"
 msgstr "E_scalado..."
@@ -1169,6 +1169,26 @@ msgstr "Otros..."
 
 #: profilemanager/profileselector.cpp:369
 msgid "Please choose a valid ICC profile"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:209
+msgid "Can't do proofing without a valid Printer profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:214
+msgid "Can't do proofing without a valid Monitor profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:219
+msgid "Can't do proofing without a valid Default RGB profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:472
+msgid "No Proof profile provided!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:797
+msgid "Default rendering intent"
 msgstr ""
 
 #: stpui_widgets/dimension.c:161

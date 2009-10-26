@@ -35,6 +35,7 @@
      ../gp_cppsupport/gprintersettings.cpp \
      ../profilemanager/lcmswrapper.cpp \
      ../profilemanager/profileselector.cpp \
+     ../profilemanager/profilemanager.cpp \
      ../stpui_widgets/dimension.c \
      ../stpui_widgets/stpui_optionbook.c \
      ../miscwidgets/patheditor.cpp \

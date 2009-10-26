@@ -1,8 +1,6 @@
 URGENT:
 ~~~~~~~
 
-Fix non-translation of scaling algorithms.
-
 Add crop marks (Support in Auto, Poster and Single layouts)
 
 Add cutting lines (Support in Auto, Poster and Single layouts)
@@ -140,15 +138,9 @@ Link X and Y scale in Manual Mode.
 
 Sort out form-length issue in roll-feed mode.
 
-| Look into the consistency of the opaque/transparent scale of alpha channels
-
 Add support for printing with black ink only.
 
 Support landscape view of the page.
-
-Allow printing of "cutting lines"
-
-| Need to store collapsed/expanded states for each UI expander in the preset file.
 
 Use a CMS Transform to convert CMYK -> RGB in pixbuf_from_imagesource().
 
@@ -175,23 +167,6 @@ accessible.
 
 Can we separate UI settings and printer/colour settings in any way?
 
-| Segfault when adding second image to Poster mode
-
-| Problem with drawing high-res preview if rotation is set to 90 or 270
-
-| Effects need to be copied when duplicating an image.
-
-| Enhance the ImageInfo widget with physical size of selected image
-| plus its resolution at that size.
-
-| Add the ability for the Profile Manager to use an inbuilt SRGB profile.
-
-| Need a new type of Mutex - one that can differentiate between read- and
-| write-access.  It's safe for multiple threads to access data concurrently
-| so long as none of them is modifying it - so a new form of Shareable mutex.
-| pthreads rwlocks would do nicely here, if it weren't for the fact that the
-| linux implementation doesn't support "upgrading" an ro lock to an rw lock.
-
 | Can we arrange for the rendering subthreads to perform their own cleanup,
 | so we don't have to wait on them before setting a replacement thread going?
 | As long as the preview's idle function removes the pointer from the ImageInfo
@@ -199,26 +174,12 @@ Can we separate UI settings and printer/colour settings in any way?
 | clearing it.  Should be no race condition, since the idle function runs in the
 | main thread's context.
 
-
-| Rearrange scaling functions to separate horizontal and vertical scaling
-| such that t's possible to downsample vertically, while enlarging horizontally
-| with Lanczos Sinc, etc.
-
 | Fix the background colour when using masks - currently if the BG is
 | simulated-paper-white, the mask background remains monitor-white.
-
-| Fix the rendering of greyscale previews.  If the desaturate effect is applied,
-| the paper simulation doesn't happen.
 
 Test and fix, if necessary, custom sizes with PostScript driver.
 
 | Custom page sizes are extremely ill-behaved with borderless enabled!
-
-| Modify ProfileSelector to display "inner" names rather than filenames.
-
-| Add "Duplicate" option to right-click/Image menu.
-
-| Add right-click menu option for "Duplicate to fill page."
 
 | Use finer-grained flushing of previews - no need to flush high-res preview on
 | selection or page change.

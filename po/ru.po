@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-26 11:06+0000\n"
+"POT-Creation-Date: 2009-10-26 11:26+0000\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -709,7 +709,7 @@ msgstr "Профиль:"
 msgid "pixels"
 msgstr "пикселов"
 
-#: pp_imageinfo.cpp:380
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:789
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -990,7 +990,7 @@ msgstr "Невозможно создать печатаемые данные"
 msgid "Algorithm:"
 msgstr "Алгоритм:"
 
-#: pp_scaling.cpp:169
+#: pp_scaling.cpp:184
 #, fuzzy
 msgid "Scaling"
 msgstr "_Интерполяция..."
@@ -1166,6 +1166,27 @@ msgstr "Добавить из файла..."
 #: profilemanager/profileselector.cpp:369
 msgid "Please choose a valid ICC profile"
 msgstr "Выберите корректный профиль ICC"
+
+#: profilemanager/profilemanager.cpp:209
+msgid "Can't do proofing without a valid Printer profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:214
+msgid "Can't do proofing without a valid Monitor profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:219
+msgid "Can't do proofing without a valid Default RGB profile!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:472
+msgid "No Proof profile provided!"
+msgstr ""
+
+#: profilemanager/profilemanager.cpp:797
+#, fuzzy
+msgid "Default rendering intent"
+msgstr "Цветопередача:"
 
 #: stpui_widgets/dimension.c:161
 msgid "points"
