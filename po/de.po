@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre3\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-23 18:57+0100\n"
+"POT-Creation-Date: 2009-10-26 11:06+0000\n"
 "PO-Revision-Date: 2009-10-23 08:42+0200\n"
 "Last-Translator: Heinrich Schwietering <hankschwie@web.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: dialogs.cpp:75
-#, fuzzy
 msgid "Colour Response Hash"
 msgstr "Farbwert-Prüfsumme:"
 
@@ -36,7 +34,6 @@ msgid "Current hash:"
 msgstr "Derzeitige Prüfsumme:"
 
 #: dialogs.cpp:112
-#, fuzzy
 msgid "Stored in preset:"
 msgstr "Speichere in Einstellung:"
 
@@ -53,7 +50,6 @@ msgstr ""
 "mit den derzeitigen Treiber-Einstellungen"
 
 #: dialogs.cpp:132
-#, fuzzy
 msgid "Store in preset"
 msgstr "Speichere in Einstellung"
 
@@ -1000,6 +996,11 @@ msgstr "Erstellen der Druckdaten nicht möglich"
 msgid "Algorithm:"
 msgstr "Algorithmus:"
 
+#: pp_scaling.cpp:169
+#, fuzzy
+msgid "Scaling"
+msgstr "_Skalierung..."
+
 #: pp_sigcontrol.cpp:187
 msgid "Columns:"
 msgstr "Spalten:"
@@ -1234,3 +1235,43 @@ msgstr "Bild"
 #: support/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Fortschritt..."
+
+#: imagesource/imagesource_util.cpp:31
+msgid "Automatic"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:31
+msgid "Selects a scaling algorithm based on scale factor"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:32
+msgid "Fast"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:32
+msgid "Very fast scaling with no interpolation"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:33
+msgid "Bilinear"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:33
+msgid "An interpolation filter with mediocre speed and quality"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:34
+msgid "LanczosSinc"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:34
+msgid "Slow but very high quality interpolation filter"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:36
+msgid "Downsample"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:36
+msgid "High quality filter for reductions only"
+msgstr ""

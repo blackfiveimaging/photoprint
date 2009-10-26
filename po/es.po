@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-23 18:57+0100\n"
+"POT-Creation-Date: 2009-10-26 11:06+0000\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -1003,6 +1003,11 @@ msgstr "Generando datos de impresión..."
 msgid "Algorithm:"
 msgstr "Algoritmo:"
 
+#: pp_scaling.cpp:169
+#, fuzzy
+msgid "Scaling"
+msgstr "E_scalado..."
+
 #: pp_sigcontrol.cpp:187
 msgid "Columns:"
 msgstr "Columnas:"
@@ -1230,6 +1235,47 @@ msgstr "Imágen"
 
 #: support/progressbar.cpp:51
 msgid "Progress..."
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:31
+msgid "Automatic"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:31
+msgid "Selects a scaling algorithm based on scale factor"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:32
+#, fuzzy
+msgid "Fast"
+msgstr "_Pegar"
+
+#: imagesource/imagesource_util.cpp:32
+msgid "Very fast scaling with no interpolation"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:33
+msgid "Bilinear"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:33
+msgid "An interpolation filter with mediocre speed and quality"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:34
+msgid "LanczosSinc"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:34
+msgid "Slow but very high quality interpolation filter"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:36
+msgid "Downsample"
+msgstr ""
+
+#: imagesource/imagesource_util.cpp:36
+msgid "High quality filter for reductions only"
 msgstr ""
 
 #~ msgid "Change Colour Temperature..."

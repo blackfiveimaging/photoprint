@@ -1,6 +1,8 @@
 URGENT:
 ~~~~~~~
 
+Fix non-translation of scaling algorithms.
+
 Add crop marks (Support in Auto, Poster and Single layouts)
 
 Add cutting lines (Support in Auto, Poster and Single layouts)

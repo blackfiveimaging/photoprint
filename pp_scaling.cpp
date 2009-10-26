@@ -73,6 +73,17 @@ pp_scaling_new (IS_ScalingQuality scale)
 	gtk_box_pack_start(GTK_BOX(hbox),label,FALSE,FALSE,0);
 	gtk_widget_show(label);
 
+	SimpleComboOptions opts;
+	for(int i=0;i<IS_SCALING_MAX;++i)
+	{
+		const IS_ScalingQualityDescription *desc=DescribeScalingQuality(IS_ScalingQuality(i));
+		opts.Add(desc->Name,gettext(desc->Name),gettext(desc->Description));
+	}
+
+	ob->scaleselector=simplecombo_new(opts);
+
+#if 0
+
 	ob->scaleselector = gtk_option_menu_new ();      
 	GtkWidget *menu, *menu_item;
 	menu = gtk_menu_new ();
@@ -80,14 +91,16 @@ pp_scaling_new (IS_ScalingQuality scale)
 	for(int i=0;i<IS_SCALING_MAX;++i)
 	{
 		const IS_ScalingQualityDescription *desc=DescribeScalingQuality(IS_ScalingQuality(i));
-		menu_item = gtk_menu_item_new_with_label (desc->Name);
+		menu_item = gtk_menu_item_new_with_label (gettext(desc->Name));
 		gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
 		g_signal_connect(G_OBJECT(menu_item),"activate",G_CALLBACK(scaling_changed),ob);
 		gtk_widget_show (menu_item);
 	}
 
 	gtk_option_menu_set_menu (GTK_OPTION_MENU (ob->scaleselector), menu);
-	
+#endif	
+
+	g_signal_connect(G_OBJECT(ob->scaleselector),"changed",G_CALLBACK(scaling_changed),ob);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->scaleselector,TRUE,TRUE,5);
 	gtk_widget_show(ob->scaleselector);
 
@@ -149,24 +162,26 @@ pp_scaling_init (pp_Scaling *ob)
 
 void pp_scaling_set_scale(pp_Scaling *ob,IS_ScalingQuality scale)
 {
-	gtk_option_menu_set_history(GTK_OPTION_MENU(ob->scaleselector),scale);
+//	gtk_option_menu_set_history(GTK_OPTION_MENU(ob->scaleselector),scale);
+	simplecombo_set_index(SIMPLECOMBO(ob->scaleselector),scale);
 	const IS_ScalingQualityDescription *desc=DescribeScalingQuality(IS_ScalingQuality(scale));
-	gtk_label_set_text(GTK_LABEL(ob->description),desc->Description);
+	gtk_label_set_text(GTK_LABEL(ob->description),gettext(desc->Description));
 }
 
 
 IS_ScalingQuality pp_scaling_get_scale(pp_Scaling *ob)
 {
-	IS_ScalingQuality s=IS_ScalingQuality(gtk_option_menu_get_history(GTK_OPTION_MENU(ob->scaleselector)));
+//	IS_ScalingQuality s=IS_ScalingQuality(gtk_option_menu_get_history(GTK_OPTION_MENU(ob->scaleselector)));
+	IS_ScalingQuality s=IS_ScalingQuality(simplecombo_get_index(SIMPLECOMBO(ob->scaleselector)));
 	const IS_ScalingQualityDescription *desc=DescribeScalingQuality(IS_ScalingQuality(s));
-	gtk_label_set_text(GTK_LABEL(ob->description),desc->Description);
+	gtk_label_set_text(GTK_LABEL(ob->description),gettext(desc->Description));
 	return(s);
 }
 
 
 IS_ScalingQuality pp_scaling_run_dialog(GtkWindow *parent,IS_ScalingQuality scaling)
 {
-	GtkWidget *dialog=gtk_dialog_new_with_buttons("Scaling",
+	GtkWidget *dialog=gtk_dialog_new_with_buttons(_("Scaling"),
 		parent,GtkDialogFlags(0),
 		GTK_STOCK_CANCEL,GTK_RESPONSE_CANCEL,
 		GTK_STOCK_OK,GTK_RESPONSE_OK,

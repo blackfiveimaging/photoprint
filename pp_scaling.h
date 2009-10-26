@@ -10,7 +10,9 @@
 #include <gtk/gtkcombo.h>
 #include <gtk/gtkspinbutton.h>
 
+#include "miscwidgets/simplecombo.h"
 #include "imagesource/imagesource_util.h"
+
 
 G_BEGIN_DECLS
 

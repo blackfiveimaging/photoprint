@@ -74,6 +74,8 @@ PhotoPrint-0.4.1
 
   * Reduced shell-window pollution by adding a debug level system.
 
+  * Fixes to dlocalization - thanks to Heinrich Schwietering
+
 
 PhotoPrint-0.4.0
 

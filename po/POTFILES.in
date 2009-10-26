@@ -48,4 +48,5 @@ shortcuts/Letter-10x8-1up.preset
 shortcuts/LetterProfiling.preset
 shortcuts/A4-8x6-1up.preset
 shortcuts/Letter-7x5-2up.preset 
+imagesource/imagesource_util.cpp
 
