@@ -1,6 +1,10 @@
 URGENT:
 ~~~~~~~
 
+Provide a colour-management bypass option for images.
+
+Add more free-form layout mode - to enable 3-up printing of certain sizes - 2 one way, 1 the other.
+
 Store directory portion of last-added-file in the preset.  (Or add an "Image Path" option to the Paths dialog?)
 
 Add crop marks (Support in Auto, Poster and Single layouts)
