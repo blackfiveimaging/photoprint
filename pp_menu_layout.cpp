@@ -9,7 +9,7 @@
 #include "pp_mainwindow.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/debug.h"
 
 #include "config.h"

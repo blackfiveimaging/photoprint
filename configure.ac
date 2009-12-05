@@ -26,8 +26,6 @@ esac
 # Checks for libraries.
 PKG_CHECK_MODULES([GLIB2], [glib-2.0])
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
-PKG_CHECK_MODULES([GTK2], [gtk+-2.0 >= 2.10.0], AC_SUBST([HAVE_GTK_2_10=YES]), [HAVE_GTK_2_10=NO])
-
 PKG_CHECK_MODULES([GTK2], [gtk+-2.0])
 PKG_CHECK_MODULES([GDKPIXBUF2], [gdk-pixbuf-2.0])
 PKG_CHECK_MODULES([GP], [gutenprint])

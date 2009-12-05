@@ -9,7 +9,7 @@
 #include "pp_sigcontrol.h"
 
 #include "support/debug.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 
 #include "pp_menu_image.h"
 #include "dialogs.h"

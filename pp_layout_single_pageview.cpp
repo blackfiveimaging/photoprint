@@ -9,7 +9,7 @@
 #include "support/debug.h"
 #include "support/layoutrectangle.h"
 #include "stpui_widgets/stpui_combo.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 
 #include "pp_layout_single_pageview.h"
 

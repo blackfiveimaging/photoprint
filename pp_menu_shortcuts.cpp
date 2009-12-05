@@ -12,7 +12,7 @@
 #include "miscwidgets/generaldialogs.h"
 
 #include "support/debug.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/pathsupport.h"
 #include "support/searchpath.h"
 #include "support/dirtreewalker.h"

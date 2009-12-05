@@ -10,7 +10,7 @@
 #include "support/debug.h"
 
 #include "stpui_widgets/stpui_combo.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "dialogs.h"
 
 #include "pp_layout_poster_pageview.h"

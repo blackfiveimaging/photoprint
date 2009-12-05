@@ -8,7 +8,7 @@
 #include "dialogs.h"
 #include "printpreview.h"
 #include "miscwidgets/generaldialogs.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/pathsupport.h"
 
 #include "config.h"

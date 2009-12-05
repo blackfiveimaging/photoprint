@@ -39,7 +39,7 @@
 #include "support/debug.h"
 #include "support/pathsupport.h"
 #include "support/rangeparser.h"
-#include "support/progressbar.h"
+#include "miscwidgets/progressbar.h"
 #include "support/util.h"
 
 #include "imageutils/tiffsave.h"

@@ -12,7 +12,7 @@
 #include "pp_mainwindow.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/pathsupport.h"
 #include "support/debug.h"
 #include "support/layoutrectangle.h" // For rotation enums

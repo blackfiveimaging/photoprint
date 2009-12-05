@@ -23,7 +23,7 @@
 #include "photoprint_state.h"
 
 #include "pp_mainwindow.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/progresstext.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"

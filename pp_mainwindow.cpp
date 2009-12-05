@@ -14,7 +14,7 @@
 #include <gtk/gtkuimanager.h>
 
 #include "stpui_widgets/stpui_combo.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/pathsupport.h"
 #include "layout.h"
 #include "dialogs.h"

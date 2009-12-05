@@ -22,7 +22,7 @@
 #include "miscwidgets/simplecombo.h"
 
 #include "support/debug.h"
-#include "support/progressbar.h"
+#include "progressbar.h"
 #include "support/util.h"
 
 #include "imagesource/pixbuf_from_imagesource.h"
