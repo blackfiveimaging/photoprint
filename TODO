@@ -10,8 +10,52 @@ Store directory portion of last-added-file in the preset.  (Or add an "Image Pat
 Add crop marks (Support in Auto, Poster and Single layouts)
 
 Add cutting lines (Support in Auto, Poster and Single layouts)
-
 (Implement these as Layout Capabilities, then place checkmarks in the Layout menu.)
+
+Need a more user-friendly colour-management dialog.
+Instead of checkboxes beside the selectors, would adding a dummy "<none>" option be a better idea?
+The selector would have to have an "allow none" option.
+Suggest three pages:
+
+	Image profiles
+	Default RGB profile : <builtin sRGB>
+	Default CMYK profile : <none>
+
+	Need an image to represent RGB and CMYK, each of which will be greyed out if there's no
+	profile available.
+	text beneath each one will offer explanation:
+	if no CMYK profile is selected, and the colourspace is set to RGB, should say
+	"CMYK images can only be used if they have an embedded profile."
+
+	How about ticks and crosses or red and green blobs as bullet points?
+	RGB images - 4 possibilities
+		* RGB images will print correctly
+		* RGB images can be printed but colours depend on the driver
+		  (colours will be accurate for images that contain an embedded profile)
+		* RGB images can only be printed if they have an embedded profile
+		* RGB images cannot be printed
+
+	CMYK images - 4 possibilities
+		* CMYK images will print correctly
+		* CMYK images can be printed but colours depend on the driver
+		* CMYK images can only be printed if they have an embedded profile
+		* CMYK images cannot be printed
+
+	Monitor
+		* Images will be displayed correctly
+		* Images will print correctly but display may not be accurate
+		* Images will not be displayed accurately
+
+
+
+	Monitor settings
+	Monitor profile
+	Display mode: Simulate print...
+
+	Printer settings
+	Print Profile
+	Rendering intent
+	Fallback colour space:  RGB / CMYK
 
 
 Add Gamma Correction effect
