@@ -28,18 +28,21 @@ Suggest three pages:
 	"CMYK images can only be used if they have an embedded profile."
 
 	How about ticks and crosses or red and green blobs as bullet points?
-	RGB images - 4 possibilities
-		* RGB images will print correctly
-		* RGB images can be printed but colours depend on the driver
+	RGB images
+		* RGB images will print correctly  [Default RGB and printer profiles available]
+		* RGB images can be printed but colours depend on the driver    [RGB Workflow, no printer profile]
+		* RGB images can be printed but colours depend on the driver    [No default RGB profile]
 		  (colours will be accurate for images that contain an embedded profile)
-		* RGB images can only be printed if they have an embedded profile
-		* RGB images cannot be printed
+		* RGB images can only be printed if they have an embedded profile   [No default RGB profile, CMYK workflow]
+		* RGB images cannot be printed  [No default RGB profile, CMYK workflow and no printer profile]
 
-	CMYK images - 4 possibilities
-		* CMYK images will print correctly
-		* CMYK images can be printed but colours depend on the driver
-		* CMYK images can only be printed if they have an embedded profile
-		* CMYK images cannot be printed
+	CMYK images
+		* CMYK images will print correctly  [Default CMYK profile and printer profiles available]
+		* CMYK images can be printed but colours depend on the driver   [CMYK Workflow, no printer profile]
+		* CMYK images can be printed but colours depend on the driver   [No default CMYK profile, CMYK workflow]
+		  (colours will be accurate for images that contain an embedded profile)
+		* CMYK images can only be printed if they have an embedded profile   [No default CMYK profile, CMYK workflow]
+		* CMYK images cannot be printed  [No default CMYK profile, RGB workflow and no printer profile]
 
 	Monitor
 		* Images will be displayed correctly
