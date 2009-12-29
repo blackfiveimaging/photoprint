@@ -39,6 +39,8 @@ struct _pp_CMS
 	GtkWidget *monitoractive;
 	GtkWidget *monitorprof;
 	GtkWidget *displaymode;
+	GtkWidget *indicator[3];
+	GtkWidget *statusline[3];
 };
 
 

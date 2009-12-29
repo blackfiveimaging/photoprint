@@ -69,6 +69,99 @@ void pp_cms_refresh(pp_CMS *ob)
 	gtk_widget_set_sensitive(ob->rgbprof,ra);
 	gtk_widget_set_sensitive(ob->cmykprof,ca);
 	gtk_widget_set_sensitive(ob->monitorprof,ma);
+
+	int colourspace=simplecombo_get_index(SIMPLECOMBO(ob->colourspace));
+	// FIXME - get colourspace from printer profile, if set.
+
+	const gchar *rgbok=GTK_STOCK_NO;
+	const char *rgbstatus="";
+
+	// Work out implications of current settings for RGB images...
+	if(pa && ra)
+	{
+		rgbok=GTK_STOCK_YES;
+		rgbstatus=_("RGB images will print correctly");
+	}
+	else if(pa && colourspace==0)
+	{
+		rgbok=GTK_STOCK_DIALOG_WARNING;
+		rgbstatus=_("RGB images can be printed but colours depend on the driver\n(Colours will be accurate for images that contain an embedded profile)");
+	}
+	else if(colourspace==0)
+	{
+		rgbok=GTK_STOCK_DIALOG_WARNING;
+		rgbstatus=_("RGB images can be printed but colours depend on the driver");
+	}
+	else if(pa && colourspace==1)
+	{
+		rgbok=GTK_STOCK_DIALOG_WARNING;
+		rgbstatus=_("RGB images can only be printed if they have an embedded profile\n(Workflow is CMYK and there is no default RGB profile)");
+	}
+	else if(colourspace==1)
+	{
+		rgbok=GTK_STOCK_NO;
+		rgbstatus=_("RGB images cannot be printed\n(Workflow is CMYK and there is no printer profile)");
+	}
+
+	const gchar *cmykok=GTK_STOCK_NO;
+	const char *cmykstatus="";
+
+	// Work out implications of current settings for CMYK images...
+	if(pa && ca)
+	{
+		cmykok=GTK_STOCK_YES;
+		cmykstatus=_("CMYK images will print correctly");
+	}
+	else if(pa && colourspace==1)
+	{
+		cmykok=GTK_STOCK_DIALOG_WARNING;
+		cmykstatus=_("CMYK images can be printed but colours depend on the driver\n(Colours will be accurate for images that contain an embedded profile)");
+	}
+	else if(colourspace==1)
+	{
+		cmykok=GTK_STOCK_DIALOG_WARNING;
+		cmykstatus=_("CMYK images can be printed but colours depend on the driver");
+	}
+	else if(pa && colourspace==0)
+	{
+		cmykok=GTK_STOCK_DIALOG_WARNING;
+		cmykstatus=_("CMYK images can only be printed if they have an embedded profile\n(Workflow is RGB and there is no default CMYK profile)");
+	}
+	else if(colourspace==0)
+	{
+		cmykok=GTK_STOCK_NO;
+		cmykstatus=_("CMYK images cannot be printed\n(Workflow is RGB and there is no printer profile)");
+	}
+
+
+	const gchar *monok=GTK_STOCK_NO;
+	const char *monstatus="";
+
+	if(ma && ra)
+	{
+		monok=GTK_STOCK_YES;
+		monstatus=_("Images will be displayed correctly");
+	}
+	else if(ma)
+	{
+		monok=GTK_STOCK_DIALOG_WARNING;
+		monstatus=_("Images will only be displayed correctly if they have an embedded profile");
+	}
+	else
+	{
+		monok=GTK_STOCK_NO;
+		monstatus=_("Images will not be displayed correctly");
+	}
+
+
+	gtk_label_set_text(GTK_LABEL(ob->statusline[0]),rgbstatus);
+	gtk_image_set_from_stock(GTK_IMAGE(ob->indicator[0]),rgbok, GTK_ICON_SIZE_SMALL_TOOLBAR);
+
+	gtk_label_set_text(GTK_LABEL(ob->statusline[1]),cmykstatus);
+	gtk_image_set_from_stock(GTK_IMAGE(ob->indicator[1]),cmykok, GTK_ICON_SIZE_SMALL_TOOLBAR);
+
+	gtk_label_set_text(GTK_LABEL(ob->statusline[2]),monstatus);
+	gtk_image_set_from_stock(GTK_IMAGE(ob->indicator[2]),monok, GTK_ICON_SIZE_SMALL_TOOLBAR);
 }
 
 
@@ -239,6 +332,26 @@ pp_cms_new (ProfileManager *pm)
 	gtk_box_pack_start(GTK_BOX(hbox),ob->cmykprof,TRUE,TRUE,5);
 	gtk_widget_show(ob->cmykprof);
 
+
+	GtkWidget *table=gtk_table_new(3,3,FALSE);
+	gtk_table_set_col_spacings(GTK_TABLE(table),12);
+	gtk_table_set_row_spacings(GTK_TABLE(table),3);
+	gtk_box_pack_start(GTK_BOX(ob),table,FALSE,FALSE,0);
+	gtk_widget_show(table);
+
+	for(int i=0;i<3;++i)
+	{
+		GtkAttachOptions gao = (GtkAttachOptions)(GTK_EXPAND|GTK_FILL);
+
+		ob->indicator[i]=gtk_image_new();
+		gtk_table_attach(GTK_TABLE(table),ob->indicator[i],1,2,i,i+1,GTK_SHRINK,gao,0,0);
+		gtk_widget_show(ob->indicator[i]);
+
+		ob->statusline[i]=gtk_label_new("");
+		gtk_misc_set_alignment(GTK_MISC(ob->statusline[i]),0,0.5);
+		gtk_table_attach(GTK_TABLE(table),ob->statusline[i],2,3,i,i+1,gao,gao,0,0);
+		gtk_widget_show(ob->statusline[i]);
+	}
 
 	g_object_unref(G_OBJECT(sizegroup));
 
