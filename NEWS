@@ -1,5 +1,13 @@
 PhotoPrint-0.4.2
 
+  * Clear Layout no longer causes a segfault if there is more than one image.
+
+  * Migrated Scaling dialog to SimpleCombo
+
+  * Added hints to Colour Management dialog
+
+  * Added support for CUPS -o option sideband - should make it easier
+    to use HPLIP- and TurboPrint-driven printers.
 
 
 PhotoPrint-0.4.1
