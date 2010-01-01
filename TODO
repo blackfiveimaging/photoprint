@@ -1,6 +1,8 @@
 URGENT:
 ~~~~~~~
 
+Make dimension step size user-selectable.
+
 Provide a colour-management bypass option for images.
 
 Add more free-form layout mode - to enable 3-up printing of certain sizes - 2 one way, 1 the other.

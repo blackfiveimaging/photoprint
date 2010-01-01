@@ -56,6 +56,8 @@ static void cms_changed(GtkWidget *wid,gpointer *ob)
 
 void pp_cms_refresh(pp_CMS *ob)
 {
+	Debug[TRACE] << "In pp_cms_refresh" << endl;
+
 	int pa=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->printeractive));
 	int ra=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->rgbactive));
 	int ca=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->cmykactive));
@@ -70,8 +72,59 @@ void pp_cms_refresh(pp_CMS *ob)
 	gtk_widget_set_sensitive(ob->cmykprof,ca);
 	gtk_widget_set_sensitive(ob->monitorprof,ma);
 
-	int colourspace=simplecombo_get_index(SIMPLECOMBO(ob->colourspace));
-	// FIXME - get colourspace from printer profile, if set.
+	IS_TYPE colourspace=simplecombo_get_index(SIMPLECOMBO(ob->colourspace)) ? IS_TYPE_CMYK : IS_TYPE_RGB;
+
+	Debug[TRACE] << "Getting profiles from widgets..." << endl;
+
+	// Get colourspace from printer profile, if set.
+	if(pa)
+	{
+		Debug[TRACE] << "Getting printer profile..." << endl;
+		CMSProfile *p=ob->pm->GetProfile(profileselector_get_filename(PROFILESELECTOR(ob->printerprof)));
+		if(p)
+		{
+			Debug[TRACE] << "Got printer profile..." << endl;
+			colourspace=p->GetColourSpace();
+			delete p;
+		}
+		else
+		{
+			Debug[TRACE] << "Couldn't get printer profile..." << endl;
+			pa=false;
+		}
+	}
+
+	// Check RGB profile...
+	if(ra)
+	{
+		CMSProfile *p=ob->pm->GetProfile(profileselector_get_filename(PROFILESELECTOR(ob->rgbprof)));
+		if(p)
+			delete p;
+		else
+			ra=false;
+	}
+
+	// Check CMYK profile...
+	if(ra)
+	{
+		CMSProfile *p=ob->pm->GetProfile(profileselector_get_filename(PROFILESELECTOR(ob->cmykprof)));
+		if(p)
+			delete p;
+		else
+			ca=false;
+	}
+
+	// Check Monitor profile...
+	if(ra)
+	{
+		CMSProfile *p=ob->pm->GetProfile(profileselector_get_filename(PROFILESELECTOR(ob->monitorprof)));
+		if(p)
+			delete p;
+		else
+			ma=false;
+	}
+
+	Debug[TRACE] << "Got colourspace: " << colourspace << endl;
 
 	const gchar *rgbok=GTK_STOCK_NO;
 	const char *rgbstatus="";
@@ -82,22 +135,22 @@ void pp_cms_refresh(pp_CMS *ob)
 		rgbok=GTK_STOCK_YES;
 		rgbstatus=_("RGB images will print correctly");
 	}
-	else if(pa && colourspace==0)
+	else if(pa && colourspace==IS_TYPE_RGB)
 	{
 		rgbok=GTK_STOCK_DIALOG_WARNING;
 		rgbstatus=_("RGB images can be printed but colours depend on the driver\n(Colours will be accurate for images that contain an embedded profile)");
 	}
-	else if(colourspace==0)
+	else if(colourspace==IS_TYPE_RGB)
 	{
 		rgbok=GTK_STOCK_DIALOG_WARNING;
 		rgbstatus=_("RGB images can be printed but colours depend on the driver");
 	}
-	else if(pa && colourspace==1)
+	else if(pa && colourspace==IS_TYPE_CMYK)
 	{
 		rgbok=GTK_STOCK_DIALOG_WARNING;
 		rgbstatus=_("RGB images can only be printed if they have an embedded profile\n(Workflow is CMYK and there is no default RGB profile)");
 	}
-	else if(colourspace==1)
+	else if(colourspace==IS_TYPE_CMYK)
 	{
 		rgbok=GTK_STOCK_NO;
 		rgbstatus=_("RGB images cannot be printed\n(Workflow is CMYK and there is no printer profile)");
@@ -112,22 +165,22 @@ void pp_cms_refresh(pp_CMS *ob)
 		cmykok=GTK_STOCK_YES;
 		cmykstatus=_("CMYK images will print correctly");
 	}
-	else if(pa && colourspace==1)
+	else if(pa && colourspace==IS_TYPE_CMYK)
 	{
 		cmykok=GTK_STOCK_DIALOG_WARNING;
 		cmykstatus=_("CMYK images can be printed but colours depend on the driver\n(Colours will be accurate for images that contain an embedded profile)");
 	}
-	else if(colourspace==1)
+	else if(colourspace==IS_TYPE_CMYK)
 	{
 		cmykok=GTK_STOCK_DIALOG_WARNING;
 		cmykstatus=_("CMYK images can be printed but colours depend on the driver");
 	}
-	else if(pa && colourspace==0)
+	else if(pa && colourspace==IS_TYPE_RGB)
 	{
 		cmykok=GTK_STOCK_DIALOG_WARNING;
 		cmykstatus=_("CMYK images can only be printed if they have an embedded profile\n(Workflow is RGB and there is no default CMYK profile)");
 	}
-	else if(colourspace==0)
+	else if(colourspace==IS_TYPE_RGB)
 	{
 		cmykok=GTK_STOCK_NO;
 		cmykstatus=_("CMYK images cannot be printed\n(Workflow is RGB and there is no printer profile)");
@@ -171,6 +224,8 @@ pp_cms_new (ProfileManager *pm)
 	pp_CMS *ob=PP_CMS(g_object_new (pp_cms_get_type (), NULL));
 	gtk_box_set_spacing(GTK_BOX(ob),5);
 
+	ob->pm=pm;
+
 	GtkSizeGroup *sizegroup = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
 	GtkWidget *frame;
 	GtkWidget *label;
@@ -201,6 +256,7 @@ pp_cms_new (ProfileManager *pm)
 	gtk_widget_show(ob->printeractive);
 
 	ob->printerprof=profileselector_new(pm,IS_TYPE_NULL,true);
+	g_signal_connect(G_OBJECT(ob->printerprof),"changed",G_CALLBACK(cms_changed),ob);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->printerprof,TRUE,TRUE,5);
 	gtk_widget_show(ob->printerprof);
 
@@ -237,6 +293,7 @@ pp_cms_new (ProfileManager *pm)
 	csopts.Add("CMYK",_("CMYK"),_("Send Cyan, Magenta, Yellow and Black data to the printer driver"));
 
 	ob->colourspace=simplecombo_new(csopts);
+	g_signal_connect(G_OBJECT(ob->colourspace),"changed",G_CALLBACK(cms_changed),ob);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->colourspace,TRUE,TRUE,5);
 	gtk_widget_show(ob->colourspace);
 
@@ -263,6 +320,7 @@ pp_cms_new (ProfileManager *pm)
 	gtk_widget_show(ob->monitoractive);
 
 	ob->monitorprof=profileselector_new(pm,IS_TYPE_RGB,false);
+	g_signal_connect(G_OBJECT(ob->monitorprof),"changed",G_CALLBACK(cms_changed),ob);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->monitorprof,TRUE,TRUE,5);
 	gtk_widget_show(ob->monitorprof);
 
@@ -313,6 +371,7 @@ pp_cms_new (ProfileManager *pm)
 	gtk_widget_show(ob->rgbactive);
 
 	ob->rgbprof=profileselector_new(pm,IS_TYPE_RGB,false);
+	g_signal_connect(G_OBJECT(ob->rgbprof),"changed",G_CALLBACK(cms_changed),ob);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->rgbprof,TRUE,TRUE,5);
 	gtk_widget_show(ob->rgbprof);
 
@@ -329,6 +388,7 @@ pp_cms_new (ProfileManager *pm)
 	gtk_widget_show(ob->cmykactive);
 
 	ob->cmykprof=profileselector_new(pm,IS_TYPE_CMYK,false);
+	g_signal_connect(G_OBJECT(ob->cmykprof),"changed",G_CALLBACK(cms_changed),ob);
 	gtk_box_pack_start(GTK_BOX(hbox),ob->cmykprof,TRUE,TRUE,5);
 	gtk_widget_show(ob->cmykprof);
 
@@ -336,7 +396,7 @@ pp_cms_new (ProfileManager *pm)
 	GtkWidget *table=gtk_table_new(3,3,FALSE);
 	gtk_table_set_col_spacings(GTK_TABLE(table),12);
 	gtk_table_set_row_spacings(GTK_TABLE(table),3);
-	gtk_box_pack_start(GTK_BOX(ob),table,FALSE,FALSE,0);
+	gtk_box_pack_start(GTK_BOX(ob),table,FALSE,FALSE,3);
 	gtk_widget_show(table);
 
 	for(int i=0;i<3;++i)

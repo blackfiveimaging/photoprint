@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.3.8\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2009-10-26 11:26+0000\n"
+"POT-Creation-Date: 2009-12-29 11:02+0000\n"
 "PO-Revision-Date: 2008-10-25 13:25+0200\n"
 "Last-Translator: Mogens Jaeger <mogensjaeger@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Assign Profile:"
 msgstr "Fastsæt profil:"
 
-#: dialogs.cpp:1141 pp_cms.cpp:120
+#: dialogs.cpp:1141 pp_cms.cpp:213
 msgid "Rendering intent:"
 msgstr "Farvegengivelsesmåde:"
 
@@ -573,87 +573,152 @@ msgstr ""
 msgid "Error creating temporary thumbnail file for `%s': %s"
 msgstr "Fejl ved dannelse af midlertidig miniaturefil for `%s': %s"
 
-#: pp_cms.cpp:89
-msgid "Printer"
-msgstr "Printer"
+#: pp_cms.cpp:83
+msgid "RGB images will print correctly"
+msgstr ""
 
-#: pp_cms.cpp:104
-msgid "Printer Profile:"
-msgstr "Printerprofil:"
+#: pp_cms.cpp:88
+msgid ""
+"RGB images can be printed but colours depend on the driver\n"
+"(Colours will be accurate for images that contain an embedded profile)"
+msgstr ""
 
-#: pp_cms.cpp:135
-msgid "Colour space:"
-msgstr "Farverum:"
+#: pp_cms.cpp:93
+msgid "RGB images can be printed but colours depend on the driver"
+msgstr ""
 
-#: pp_cms.cpp:143
-msgid "RGB"
+#: pp_cms.cpp:98
+msgid ""
+"RGB images can only be printed if they have an embedded profile\n"
+"(Workflow is CMYK and there is no default RGB profile)"
+msgstr ""
+
+#: pp_cms.cpp:103
+msgid ""
+"RGB images cannot be printed\n"
+"(Workflow is CMYK and there is no printer profile)"
+msgstr ""
+
+#: pp_cms.cpp:113
+msgid "CMYK images will print correctly"
+msgstr ""
+
+#: pp_cms.cpp:118
+msgid ""
+"CMYK images can be printed but colours depend on the driver\n"
+"(Colours will be accurate for images that contain an embedded profile)"
+msgstr ""
+
+#: pp_cms.cpp:123
+msgid "CMYK images can be printed but colours depend on the driver"
+msgstr ""
+
+#: pp_cms.cpp:128
+msgid ""
+"CMYK images can only be printed if they have an embedded profile\n"
+"(Workflow is RGB and there is no default CMYK profile)"
+msgstr ""
+
+#: pp_cms.cpp:133
+msgid ""
+"CMYK images cannot be printed\n"
+"(Workflow is RGB and there is no printer profile)"
 msgstr ""
 
 #: pp_cms.cpp:143
-msgid "Send Red, Green and Blue data to the printer driver"
+msgid "Images will be displayed correctly"
 msgstr ""
 
-#: pp_cms.cpp:144
-msgid "CMYK"
-msgstr ""
-
-#: pp_cms.cpp:144
-msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
+#: pp_cms.cpp:148
+msgid ""
+"Images will only be displayed correctly if they have an embedded profile"
 msgstr ""
 
 #: pp_cms.cpp:153
+msgid "Images will not be displayed correctly"
+msgstr ""
+
+#: pp_cms.cpp:182
+msgid "Printer"
+msgstr "Printer"
+
+#: pp_cms.cpp:197
+msgid "Printer Profile:"
+msgstr "Printerprofil:"
+
+#: pp_cms.cpp:228
+msgid "Colour space:"
+msgstr "Farverum:"
+
+#: pp_cms.cpp:236
+msgid "RGB"
+msgstr ""
+
+#: pp_cms.cpp:236
+msgid "Send Red, Green and Blue data to the printer driver"
+msgstr ""
+
+#: pp_cms.cpp:237
+msgid "CMYK"
+msgstr ""
+
+#: pp_cms.cpp:237
+msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
+msgstr ""
+
+#: pp_cms.cpp:246
 msgid "Monitor"
 msgstr "Skærm"
 
-#: pp_cms.cpp:166
+#: pp_cms.cpp:259
 msgid "Monitor Profile:"
 msgstr "Skærmprofil:"
 
-#: pp_cms.cpp:180
+#: pp_cms.cpp:273
 msgid "Display mode:"
 msgstr "Visningstilstand:"
 
-#: pp_cms.cpp:189
+#: pp_cms.cpp:282
 msgid "Normal"
 msgstr "Normal"
 
-#: pp_cms.cpp:189
+#: pp_cms.cpp:282
 msgid "Displays images' original colours, transformed to suit the monitor"
 msgstr ""
 
-#: pp_cms.cpp:190
+#: pp_cms.cpp:283
 msgid "Simulate Print"
 msgstr "Simuler udskrift"
 
-#: pp_cms.cpp:190
+#: pp_cms.cpp:283
 msgid ""
 "Simulates how colours will look when printed, imitating the paper's white "
 "point."
 msgstr ""
 
-#: pp_cms.cpp:191
+#: pp_cms.cpp:284
 msgid "Simulate Print, Adapt White"
 msgstr "Simuler udskrift, tilpasset hvid"
 
-#: pp_cms.cpp:191
+#: pp_cms.cpp:284
 msgid ""
 "Simulates how colours will look when printed, adapting colours for the "
 "monitor's white point."
 msgstr ""
 
-#: pp_cms.cpp:201
+#: pp_cms.cpp:294
 msgid "Default Image Profiles"
 msgstr "Standard-billed profiler"
 
-#: pp_cms.cpp:216
+#: pp_cms.cpp:309
 msgid "RGB Profile:"
 msgstr "RGB profil:"
 
-#: pp_cms.cpp:232
+#: pp_cms.cpp:325
 msgid "CMYK Profile:"
 msgstr "CMYK profil:"
 
-#: pp_cms.cpp:413
+#: pp_cms.cpp:526
 msgid "Colour Management"
 msgstr "Farvestyring"
 
@@ -705,7 +770,7 @@ msgstr "Profil:"
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:789
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:787
 msgid "Default"
 msgstr "Standard"
 
@@ -979,7 +1044,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Indstil printer"
 
-#: gp_cppsupport/gprinter.cpp:356
+#: gp_cppsupport/gprinter.cpp:381
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Danner printerdata..."
@@ -1159,7 +1224,7 @@ msgstr ""
 "Gengiver de originale farver (inklusive hvid-punkt) så godt som muligt, a.h."
 "t. sammenligning.  Klipper uopnåelige farver."
 
-#: profilemanager/profileselector.cpp:39 miscwidgets/imageselector.cpp:468
+#: profilemanager/profileselector.cpp:39 miscwidgets/imageselector.cpp:478
 msgid "Other..."
 msgstr "Andet..."
 
@@ -1167,23 +1232,23 @@ msgstr "Andet..."
 msgid "Please choose a valid ICC profile"
 msgstr "Vælg en gyldig ICC-profil"
 
-#: profilemanager/profilemanager.cpp:209
+#: profilemanager/profilemanager.cpp:207
 msgid "Can't do proofing without a valid Printer profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:214
+#: profilemanager/profilemanager.cpp:212
 msgid "Can't do proofing without a valid Monitor profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:219
+#: profilemanager/profilemanager.cpp:217
 msgid "Can't do proofing without a valid Default RGB profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:472
+#: profilemanager/profilemanager.cpp:470
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:797
+#: profilemanager/profilemanager.cpp:795
 #, fuzzy
 msgid "Default rendering intent"
 msgstr "Farvegengivelsesmåde:"
@@ -1242,51 +1307,51 @@ msgstr "Tilføj..."
 msgid "Remove"
 msgstr "Fjern"
 
-#: miscwidgets/imageselector.cpp:448
+#: miscwidgets/imageselector.cpp:458
 msgid "Image"
 msgstr "Billede"
 
-#: support/progressbar.cpp:51
+#: miscwidgets/progressbar.cpp:51
 msgid "Progress..."
 msgstr "Fremgang..."
 
-#: imagesource/imagesource_util.cpp:31
+#: imagesource/imagesource_util.cpp:32
 msgid "Automatic"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:31
+#: imagesource/imagesource_util.cpp:32
 msgid "Selects a scaling algorithm based on scale factor"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:32
+#: imagesource/imagesource_util.cpp:33
 #, fuzzy
 msgid "Fast"
 msgstr "_Indsæt"
 
-#: imagesource/imagesource_util.cpp:32
+#: imagesource/imagesource_util.cpp:33
 msgid "Very fast scaling with no interpolation"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:33
+#: imagesource/imagesource_util.cpp:34
 msgid "Bilinear"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:33
+#: imagesource/imagesource_util.cpp:34
 msgid "An interpolation filter with mediocre speed and quality"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:34
+#: imagesource/imagesource_util.cpp:35
 msgid "LanczosSinc"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:34
+#: imagesource/imagesource_util.cpp:35
 msgid "Slow but very high quality interpolation filter"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:36
+#: imagesource/imagesource_util.cpp:37
 msgid "Downsample"
 msgstr ""
 
-#: imagesource/imagesource_util.cpp:36
+#: imagesource/imagesource_util.cpp:37
 msgid "High quality filter for reductions only"
 msgstr ""

@@ -28,6 +28,7 @@ typedef struct _pp_CMSClass pp_CMSClass;
 struct _pp_CMS
 {
 	GtkVBox	box;
+	ProfileManager *pm;
 	GtkWidget *intent;
 	GtkWidget *colourspace;
 	GtkWidget *printeractive;
