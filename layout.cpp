@@ -182,7 +182,10 @@ IS_TYPE Layout::GetColourSpace(CMColourDevice target)
 	CMSProfile *profile=state.profilemanager.GetProfile(target);
 	if(profile)
 	{
-		colourspace=profile->GetColourSpace();
+		if(profile->IsDeviceLink())
+			colourspace=profile->GetDeviceLinkOutputSpace();
+		else
+			colourspace=profile->GetColourSpace();
 		delete profile;
 	}
 	else

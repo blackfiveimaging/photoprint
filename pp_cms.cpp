@@ -73,6 +73,8 @@ void pp_cms_refresh(pp_CMS *ob)
 	gtk_widget_set_sensitive(ob->monitorprof,ma);
 
 	IS_TYPE colourspace=simplecombo_get_index(SIMPLECOMBO(ob->colourspace)) ? IS_TYPE_CMYK : IS_TYPE_RGB;
+	IS_TYPE dlcolourspace=colourspace;
+	bool isdevicelink=false;
 
 	Debug[TRACE] << "Getting profiles from widgets..." << endl;
 
@@ -85,6 +87,11 @@ void pp_cms_refresh(pp_CMS *ob)
 		{
 			Debug[TRACE] << "Got printer profile..." << endl;
 			colourspace=p->GetColourSpace();
+			if((isdevicelink=p->IsDeviceLink()))
+			{
+				dlcolourspace=colourspace;
+				colourspace=p->GetDeviceLinkOutputSpace();
+			}
 			delete p;
 		}
 		else
@@ -129,8 +136,45 @@ void pp_cms_refresh(pp_CMS *ob)
 	const gchar *rgbok=GTK_STOCK_NO;
 	const char *rgbstatus="";
 
-	// Work out implications of current settings for RGB images...
-	if(pa && ra)
+	// Work out implications of current settings for RGB images
+	if(isdevicelink)	// implies printer active...
+	{
+		if(dlcolourspace==IS_TYPE_CMYK)
+		{
+			if(ca && ra)	// do we have both RGB and CMYK default profiles
+			{
+				// Devicelink with CMYK input, CMYK profile available
+				rgbok=GTK_STOCK_DIALOG_WARNING;
+				rgbstatus=_("Printer profile is a devicelink with CMYK input - RGB images\nwill first be converted to the default CMYK profile");
+			}
+			else if(ra)
+			{
+				// Devicelink with CMYK input, no CMYK profile available
+				rgbok=GTK_STOCK_NO;
+				rgbstatus=_("Printer profile is a devicelink with CMYK input - RGB images\ncannot be printed without a default CMYK profile.");
+			}
+			else
+			{
+				// Devicelink with CMYK input, no RGB or CMYK profile available
+				rgbok=GTK_STOCK_NO;
+				rgbstatus=_("Printer profile is a devicelink with CMYK input - RGB images\ncannot be printed without a default RGB and CMYK profile.");
+				// Exception: input RGB files with embedded profiles - but explaining that would be complicated.
+			}
+		}
+		else if(ra)
+		{
+			// Devicelink with RGB input
+			rgbok=GTK_STOCK_DIALOG_WARNING;
+			rgbstatus=_("Printer profile is a devicelink - RGB images with embedded profiles\nwill first be converted to the default RGB profile.");
+		}
+		else
+		{
+			// Devicelink with RGB input
+			rgbok=GTK_STOCK_DIALOG_WARNING;
+			rgbstatus=_("Printer profile is a devicelink - RGB images with embedded profiles will not\nprint correctly, since there is no default RGB profile.");
+		}
+	}
+	else if(pa && ra)
 	{
 		rgbok=GTK_STOCK_YES;
 		rgbstatus=_("RGB images will print correctly");
@@ -160,7 +204,43 @@ void pp_cms_refresh(pp_CMS *ob)
 	const char *cmykstatus="";
 
 	// Work out implications of current settings for CMYK images...
-	if(pa && ca)
+	if(isdevicelink)
+	{
+		if(dlcolourspace==IS_TYPE_RGB)
+		{
+			if(ra && ca)
+			{
+				// Devicelink with RGB input, CMYK profile available
+				cmykok=GTK_STOCK_DIALOG_WARNING;
+				cmykstatus=_("Printer profile is a devicelink with RGB input - CMYK images\nwill first be converted to the default RGB profile");
+			}
+			else if(ca)
+			{
+				// Devicelink with RGB input, no CMYK profile available
+				cmykok=GTK_STOCK_NO;
+				cmykstatus=_("Printer profile is a devicelink with RGB input - CMYK images\ncannot be printed without a default RGB profile.");
+			}
+			else
+			{
+				// Devicelink with RGB input, no RGB or CMYK profile available
+				cmykok=GTK_STOCK_NO;
+				cmykstatus=_("Printer profile is a devicelink with RGB input - CMYK images\ncannot be printed without a default RGB and CMYK profile.");
+			}
+		}
+		else if(ca)
+		{
+			// Devicelink with CMYK input
+			cmykok=GTK_STOCK_DIALOG_WARNING;
+			cmykstatus=_("Printer profile is a devicelink - CMYK images with embedded profiles\nwill first be converted to the default CMYK profile.");
+		}
+		else
+		{
+			// Devicelink with CMYK input
+			cmykok=GTK_STOCK_DIALOG_WARNING;
+			cmykstatus=_("Printer profile is a devicelink - CMYK images with embedded profiles will not\nprint correctly since there is no default CMYK profile.");
+		}
+	}
+	else if(pa && ca)
 	{
 		cmykok=GTK_STOCK_YES;
 		cmykstatus=_("CMYK images will print correctly");

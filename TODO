@@ -1,6 +1,8 @@
 URGENT:
 ~~~~~~~
 
+Fix DeviceLink handling
+
 Make dimension step size user-selectable.
 
 Provide a colour-management bypass option for images.
@@ -70,8 +72,8 @@ Add support for more detailed cropping rectangle.
 
 Sort out problems with certain strings not being collected into the message catalogues.
 
-Add support for the -o options sideband with CUPS lpr.  Add some kind of warning that options relying
-on that sideband are unavailable on Win32.
+| Add support for the -o options sideband with CUPS lpr.
+Add some kind of warning that options relying on that sideband are unavailable on Win32.
 
 Add a global "Panic" system which will be used instead of throw/catch for global initialisers.
 (Be careful with initialization though - initialize on first use.)
