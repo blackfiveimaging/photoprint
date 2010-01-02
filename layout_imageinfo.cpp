@@ -21,7 +21,7 @@
 #include "imageutils/maskpixbuf.h"
 #include "support/thread.h"
 #include "support/progressthread.h"
-
+#include "miscwidgets/errordialogqueue.h"
 #include "imagesource/imagesource.h"
 #include "imagesource/imagesource_gdkpixbuf.h"
 #include "imagesource/imagesource_cms.h"
@@ -30,6 +30,9 @@
 #include "imagesource/imagesource_rotate.h"
 #include "imagesource/imagesource_promote.h"
 #include "imagesource/imagesource_invert.h"
+
+#include "imageutils/cachedimage.h"
+#include "imageutils/tiffsave.h"
 
 #include "photoprint_state.h"
 
@@ -71,10 +74,10 @@ class PPIS_Histogram : public ImageSource
 
 
 Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int page, bool allowcropping, PP_ROTATION rotation)
-	: PPEffectHeader(), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
+	: PPEffectHeader(), RefCountUI(), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
 	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
-	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
-	threadevents(), histogram(threadevents)
+	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT),
+	threadevents(), histogram(threadevents), hrrenderjob(NULL)
 {
 	bool relative=true;
 
@@ -104,10 +107,10 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int pag
 
 
 Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int page)
-	: PPEffectHeader(*ii), page(page), allowcropping(false), crop_hpan(CENTRE), crop_vpan(CENTRE),
+	: PPEffectHeader(*ii), RefCountUI(), page(page), allowcropping(false), crop_hpan(CENTRE), crop_vpan(CENTRE),
 	rotation(PP_ROTATION_AUTO), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
-	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT), hrrenderthread(NULL),
-	threadevents(), histogram(threadevents)
+	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT),
+	threadevents(), histogram(threadevents), hrrenderjob(NULL)
 {
 	// Effects are copied by the "PPEffectHeader(*ii) above
 	if(ii)
@@ -156,8 +159,6 @@ Layout_ImageInfo::~Layout_ImageInfo()
 	if(mask)
 		g_object_unref(mask);
 
-	layout.imagelist.remove(this);
-
 	if(customprofile)
 		free(customprofile);
 	free(filename);
@@ -165,6 +166,190 @@ Layout_ImageInfo::~Layout_ImageInfo()
 }
 
 
+// Jobqueue-based replacement for the previous high-res preview code.
+// This should be cleaner, and should take care of some of the concurrency issues behind the scenes.
+
+class HRRenderJob : public Job, public Progress
+{
+	public:
+	HRRenderJob(Layout_ImageInfo *ii,GtkWidget *wid,int x,int y,int w,int h)
+		: Job(), Progress(), ii(ii), widget(wid), xpos(x), ypos(y), width(w), height(h), transformed(NULL), sync()
+	{
+		// Need to ref the ImageInfo here.
+		Debug[TRACE] << "Creating HRRenderJob " << hex << this << endl;
+		ii->Ref();
+	}
+	virtual ~HRRenderJob()
+	{
+		Debug[TRACE] << "Deleting HRRenderJob " << hex << this << " - unreferencing ImageInfo..." << endl;
+		ii->UnRef();
+		Debug[TRACE] << "Done - HRRenderJob disposed" << endl;
+	}
+	bool DoProgress(int i, int maxi)
+	{
+		return(GetJobStatus()!=JOBSTATUS_CANCELLED);
+	}
+	static bool testbreak(void *p)
+	{
+		HRRenderJob *j=(HRRenderJob *)p;
+		return(j->DoProgress(0,0)==false);
+	}
+	virtual void Run(Worker *w)
+	{
+		ImageInfo_Worker *iw=(ImageInfo_Worker *)w;
+		try
+		{
+			// Lock the imageinfo against modification while we're using it.
+			// To avoid a deadlock situation if, say, the Apply Profile dialog is open and GTK decides that
+			// now is a good time to redraw the window, we only attempt the mutex, and bail out if it fails.
+			int count=10;
+			while(!ii->AttemptMutexShared())
+			{
+				if(count==0)
+				{
+					Debug[WARN] << "HRRenderJob: Giving up attempt on mutex - bailing out" << endl;
+					Debug.PopLevel();
+					return;
+				}
+	#ifdef WIN32
+				Sleep(50);
+	#else
+				usleep(50000);
+	#endif
+				--count;
+			}
+
+			CMSProfile *targetprof;
+
+			CMColourDevice tdev=CM_COLOURDEVICE_NONE;
+			if((targetprof=iw->profilemanager.GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
+				tdev=CM_COLOURDEVICE_PRINTERPROOF;
+			else if((targetprof=iw->profilemanager.GetProfile(CM_COLOURDEVICE_DISPLAY)))
+				tdev=CM_COLOURDEVICE_DISPLAY;
+			else if((targetprof=iw->profilemanager.GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
+				tdev=CM_COLOURDEVICE_DEFAULTRGB;
+			if(targetprof)
+				delete targetprof;
+
+			ImageSource *is=ii->GetImageSource(tdev,iw->factory);
+
+			LayoutRectangle r(is->width,is->height);
+			LayoutRectangle target(xpos,ypos,width,height);
+
+			RectFit *fit=r.Fit(target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
+
+			if(fit->rotation)
+			{
+				ImageSource_Interruptible *ii=new ImageSource_Rotate(is,fit->rotation);
+				ii->SetTestBreak(testbreak,this);
+				is=ii;
+			}
+
+			is=ISScaleImageBySize(is,fit->width,fit->height,IS_SCALING_AUTOMATIC);
+			delete fit;
+			// We create new Fit in the idle-function because the hpan/vpan may have changed.
+
+			// Instead of build the GdkPixbuf here we create a cached image and convert to pixbuf in the main thread.
+			transformed=new CachedImage(is);
+
+			if(transformed)
+			{
+				// Now we defer to the main thread...
+ 				if(DoProgress(0,0))
+				{
+					g_timeout_add(1,finish_main,this);
+					sync.WaitCondition();
+					Debug[TRACE] << "Received sync from main thread - Job complete, deleting transformed..." << endl;
+				}
+				delete transformed;
+			}
+			else
+				Debug[TRACE] << "RenderHRJob cancelled - detected from subthread" << endl;
+		}
+		catch(const char *err)
+		{
+			ErrorDialogs.AddMessage(err);
+		}
+		ii->ReleaseMutex();
+	}
+
+	// IdleFunc - runs on the main thread's context,
+	// thus, can safely render into the UI.
+	static gboolean finish_main(gpointer ud)
+	{
+		HRRenderJob *p=(HRRenderJob *)ud;
+
+		if(p->DoProgress(0,0))
+		{
+			Debug[TRACE] << "Creating pixbuf from CachedImage" << endl;
+			ImageSource *is=new ImageSource_CachedImage(p->transformed);
+
+			GdkPixbuf *transformed=pixbuf_from_imagesource(is,p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8,p);
+
+			LayoutRectangle r(gdk_pixbuf_get_width(transformed),gdk_pixbuf_get_height(transformed));
+			LayoutRectangle target(p->xpos,p->ypos,p->width,p->height);
+
+			// Disallow rotation here since the image will be rotated already.
+			RectFit *fit=r.Fit(target,p->ii->allowcropping,PP_ROTATION_NONE,p->ii->crop_hpan,p->ii->crop_vpan);
+			int dw=fit->width;
+			int dh=fit->height;
+			
+			if(dw > p->width)
+				dw=p->width;
+
+			if(dh > p->height)
+				dh=p->height;
+
+			if(dw>gdk_pixbuf_get_width(transformed))
+				dw=gdk_pixbuf_get_width(transformed);
+
+			if(dh>gdk_pixbuf_get_height(transformed))
+				dh=gdk_pixbuf_get_height(transformed);
+
+			if(p->ii->mask)
+			{
+				transformed=gdk_pixbuf_copy(transformed);
+				maskpixbuf(transformed,fit->xoffset,fit->yoffset,dw,dh,p->ii->mask,
+					p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8);
+			}
+
+			gdk_draw_pixbuf(p->widget->window,NULL,transformed,
+				fit->xoffset,fit->yoffset,
+				fit->xpos,fit->ypos,
+				dw,dh,
+				GDK_RGB_DITHER_NONE,0,0);
+
+			p->ii->SetHRPreview(transformed);
+
+			if(p->ii->mask)
+				g_object_unref(transformed);
+
+			delete fit;
+		}
+		else
+			Debug[TRACE] << "RenderHRJob cancelled - detected from main thread" << endl;
+
+		if(p->ii->hrrenderjob==p)
+			p->ii->hrrenderjob=NULL;
+
+		Debug[TRACE] << "Main thread callback complete - signalling subthread" << endl;
+
+		p->sync.Broadcast();
+
+		return(FALSE);
+	}
+
+	protected:
+	Layout_ImageInfo *ii;
+	GtkWidget *widget;
+	int xpos,ypos;
+	int width,height;
+	CachedImage *transformed;
+//	GdkPixbuf *transformed;
+	ThreadSync sync;
+};
+
+#if 0
 // Subthread for rendering high-resolution previews.
 // This code uses the subthread to create a GdkPixbuf from
 // an image, then defers to the main thread to perform the
@@ -474,7 +659,7 @@ class hr_payload : public PTMutex, public ThreadFunction
 	GdkPixbuf *transformed;
 	Thread thread;
 };
-
+#endif
 
 void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height)
 {
@@ -567,11 +752,15 @@ void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int wid
 
 		// Trigger a rendering thread if there isn't one already
 		// and if high-res previews are enabled
-		if(hrrenderthread==NULL && layout.state.FindInt("HighresPreviews"))
+		if(hrrenderjob==NULL && layout.state.FindInt("HighresPreviews"))
 		{
 			if(width>192 && height>192) // Generating lots of thumbs simultaneously is expensive, and if the images are small,
 			{							// highres previews are of limited value anyway.
-				hrrenderthread=new hr_payload(&layout.state.profilemanager,layout.factory,this,widget,xpos,ypos,width,height);
+//				hrrenderthread=new hr_payload(&layout.state.profilemanager,layout.factory,this,widget,xpos,ypos,width,height);
+
+				hrrenderjob=new HRRenderJob(this,widget,xpos,ypos,width,height);
+				layout.jobdispatcher.DeleteCompleted();
+				layout.jobdispatcher.AddJob(hrrenderjob);
 			}
 		}
 	}
@@ -828,6 +1017,7 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 
 	// If this fails we don't bother with the histogram, since another thread has it
 	// locked for writing.
+
 	if(histogram.AttemptMutexShared())
 	{
 		is=new PPIS_Histogram(is,histogram);
@@ -917,13 +1107,15 @@ void Layout_ImageInfo::FlushThumbnail()
 
 void Layout_ImageInfo::CancelRenderThread()
 {
-	if(hrrenderthread)
+	if(hrrenderjob)
 	{
-		hrrenderthread->Stop();	// We don't actually delete it here - the thread is responsible for its own
+		layout.jobdispatcher.CancelJob(hrrenderjob);
+//		hrrenderthread->Stop();	// We don't actually delete it here - the thread is responsible for its own
 								// demise (by way of a GTK Idle function running on the main thread's context)
 								// but having signalled it to stop, we can discard this pointer to it.
 	}
-	hrrenderthread=NULL;
+//	hrrenderthread=NULL;
+	hrrenderjob=NULL;
 }
 
 

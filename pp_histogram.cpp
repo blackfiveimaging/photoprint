@@ -33,12 +33,12 @@ class DeferHistogram : public ThreadFunction
 	DeferHistogram(pp_Histogram *widget,Layout_ImageInfo *ii) : ThreadFunction(), widget(widget),ii(ii), thread(this)
 	{
 		Debug[TRACE] << "Main thread: Starting DeferHistogram thread" << endl;
-		thread.Start();
+//		thread.Start();
 		Debug[TRACE] << "Main thread: Thread started - waiting for Sync" << endl;
 		// FIXME - need to use bi-directional sync signals - can't use the same signal in each direction
 		// because there's no guarantee the main thread will receive the signal before the subthread waits
 		// for the next one.
-		thread.WaitSync();
+//		thread.WaitSync();
 		Debug[TRACE] << "Main thread: Startup confirmed" << endl;
 	}
 	virtual ~DeferHistogram()

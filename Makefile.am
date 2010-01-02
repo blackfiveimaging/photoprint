@@ -82,6 +82,7 @@ photoprint_SOURCES = 		\
 	pp_imageinfo.h	\
 	printpreview.cpp	\
 	printpreview.h	\
+	cmtransformworker.h \
 	gettext.h
 
 LDADD = \

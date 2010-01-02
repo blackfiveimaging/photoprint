@@ -1,7 +1,9 @@
 URGENT:
 ~~~~~~~
 
-Fix DeviceLink handling
+Move high-res preview generation to JobQueues.
+
+| Fix DeviceLink handling
 
 Make dimension step size user-selectable.
 

@@ -139,7 +139,7 @@ static void imagemenu_remove(GtkAction *act,gpointer *ob)
 	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
-		delete ii;
+		mw->state->layout->Delete(ii);
 		ii=it.FirstSelected();
 	}
 	mw->state->layout->Reflow();

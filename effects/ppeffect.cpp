@@ -32,6 +32,7 @@ PPEffectHeader::PPEffectHeader(PPEffectHeader &pp) : RWMutex(), firsteffect(NULL
 
 PPEffectHeader::~PPEffectHeader()
 {
+	Debug[TRACE] << "In PPEffectHeader's Destructor" << endl;
 	ObtainMutex();
 	while(firsteffect)
 		delete firsteffect;

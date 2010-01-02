@@ -13,7 +13,10 @@
 #include "support/layoutrectangle.h"
 #include "support/thread.h"
 #include "support/threadevent.h"
+#include "support/jobqueue.h"
 #include "effects/ppeffect.h"
+#include "cmtransformworker.h"
+#include "miscwidgets/refcountui.h"
 
 #include "histogram.h"
 #include "layoutdb.h"
@@ -22,8 +25,22 @@ class Layout;
 class PhotoPrint_State;
 class Progress;
 
+
+class ImageInfo_Worker : public CMTransformWorker
+{
+	public:
+	ImageInfo_Worker(JobQueue &queue,ProfileManager &pm) : CMTransformWorker(queue,pm)
+	{
+	}
+	virtual ~ImageInfo_Worker()
+	{
+	}
+};
+
+
+class HRRenderJob;
 class hr_payload;
-class Layout_ImageInfo : public PPEffectHeader
+class Layout_ImageInfo : public PPEffectHeader, public RefCountUI
 {
 	public:
 	Layout_ImageInfo(Layout &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
@@ -90,11 +107,13 @@ class Layout_ImageInfo : public PPEffectHeader
 	bool selected;
 	char *customprofile;
 	LCMSWrapper_Intent customintent;
-	hr_payload *hrrenderthread;
+//	hr_payload *hrrenderthread;
 	ThreadEventHandler threadevents;
 	PPHistogram histogram;
+	Job *hrrenderjob;
 	friend class Layout;
 	friend class hr_payload;
+	friend class HRRenderJob;
 };
 
 

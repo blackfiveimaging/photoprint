@@ -104,9 +104,11 @@ Layout_ImageInfo *LayoutIterator::NextSelected()
 
 Layout::Layout(PhotoPrint_State &state,Layout *oldlayout)
 	: PageExtent(), state(state), xoffset(0), yoffset(0), pages(1), currentpage(0), backgroundfilename(NULL), background(NULL),
-	backgroundtransformed(NULL), imagelist(NULL), factory(NULL), gc(NULL)
+	backgroundtransformed(NULL), imagelist(NULL), factory(NULL), gc(NULL), jobdispatcher(0)
 {
 	factory=state.profilemanager.GetTransformFactory();
+	jobdispatcher.AddWorker(new ImageInfo_Worker(jobdispatcher,state.profilemanager));
+	jobdispatcher.AddWorker(new ImageInfo_Worker(jobdispatcher,state.profilemanager));
 }
 
 
@@ -116,7 +118,7 @@ Layout::~Layout()
 	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
-		delete ii;
+		Delete(ii);
 		ii=it.FirstImage();
 	}
 
@@ -138,6 +140,14 @@ Layout::~Layout()
 }
 
 
+void Layout::Delete(Layout_ImageInfo *ii)
+{
+	ii->FlushHRPreview();
+	imagelist.remove(ii);
+	ii->UnRef();
+}
+
+
 void Layout::Clear()
 {
 	SetBackground(NULL);
@@ -147,7 +157,7 @@ void Layout::Clear()
 	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
-		delete ii;
+		Delete(ii);
 		ii=it.FirstImage();
 	}
 	pages=1;

@@ -13,6 +13,7 @@
 #include "support/pageextent.h"
 #include "support/layoutrectangle.h"
 #include "support/thread.h"
+#include "support/jobqueue.h"
 #include "effects/ppeffect.h"
 
 #include "layoutdb.h"
@@ -54,6 +55,7 @@ class Layout : public virtual PageExtent
 
 	Layout(PhotoPrint_State &state,Layout *oldlayout=NULL);
 	virtual ~Layout();
+	virtual void Delete(Layout_ImageInfo *ii);
 	virtual const char *GetType()=0;
 	virtual int GetCapabilities();
 	virtual int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
@@ -110,8 +112,6 @@ class Layout : public virtual PageExtent
 	GdkPixbuf *backgroundtransformed;
 
 	// Housekeeping
-//	GList *imagelist;
-//	GList *iterator;
 	list<Layout_ImageInfo *> imagelist;
 
 	// For thumbnails and preview...
@@ -119,8 +119,13 @@ class Layout : public virtual PageExtent
 	GdkGC *gc;
 	GdkColor bgcol;
 	GdkColor bgcol2;
+
+	// JobDispatcher - for tracking the high-res preview rendering.
+	JobDispatcher jobdispatcher;
+
 	friend class Layout_ImageInfo;
 	friend class hr_payload;
+	friend class HRRenderJob;
 	friend class LayoutIterator;
 };
 
