@@ -9,6 +9,9 @@ PhotoPrint-0.4.2
   * Added support for CUPS -o option sideband - should make it easier
     to use HPLIP- and TurboPrint-driven printers.
 
+  * Migrated high-res preview code to the new JobQueue system - should be more stable,
+    better behaved on Win32, and more maintainable.
+
 
 PhotoPrint-0.4.1
 
