@@ -199,6 +199,12 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 
 	bool checked=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
 
+	// Pump any outstanding events - on Win32 without this the damaged portion of the window
+	// gets redrawn at the ii->ObtainMutex() stage, which prematurely triggers
+	// regeneration of the highres preview!
+	while(gtk_events_pending())
+		gtk_main_iteration();
+
 	LayoutIterator it(*mw->state->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();
 	if(!ii)
@@ -229,6 +235,12 @@ static void imagemenu_setmask(GtkAction *act,gpointer *ob)
 
 	if(mask)
 		Debug[TRACE] << "Selected " << mask << endl;
+
+	// Pump any outstanding events - on Win32 without this the damaged portion of the window
+	// gets redrawn at the ii->ObtainMutex() stage, which prematurely triggers
+	// regeneration of the highres preview!
+	while(gtk_events_pending())
+		gtk_main_iteration();
 
 	LayoutIterator it(*mw->state->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();
@@ -271,6 +283,12 @@ static void imagemenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointer 
 
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	enum PP_ROTATION rotation=PP_ROTATION(gtk_radio_action_get_current_value(ra));
+
+	// Pump any outstanding events - on Win32 without this the damaged portion of the window
+	// gets redrawn at the ii->ObtainMutex() stage, which prematurely triggers
+	// regeneration of the highres preview!
+	while(gtk_events_pending())
+		gtk_main_iteration();
 
 	LayoutIterator it(*mw->state->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();
