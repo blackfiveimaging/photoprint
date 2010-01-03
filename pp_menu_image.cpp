@@ -214,6 +214,7 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 		ii->ObtainMutexShared();
 		if(ii->allowcropping!=checked)
 		{
+			ii->allowcropping=checked;
 			ii->ObtainMutex();
 			ii->allowcropping=checked;
 			ii->ReleaseMutex();
@@ -299,6 +300,7 @@ static void imagemenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointer 
 		ii->ObtainMutexShared();
 		if(ii->rotation!=rotation)
 		{
+			ii->rotation=rotation;
 			ii->ObtainMutex();
 			ii->rotation=rotation;
 			ii->ReleaseMutex();

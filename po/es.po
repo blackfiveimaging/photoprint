@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photprint 0.3.5\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-01 14:55+0000\n"
+"POT-Creation-Date: 2010-01-03 10:51+0000\n"
 "PO-Revision-Date: 2007-10-11 23:24+0200\n"
 "Last-Translator: Redy Rodrigez <redy@users.sf.net>\n"
 "Language-Team: Spanish\n"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Select a background..."
 msgstr "Elija un fondo..."
 
-#: dialogs.cpp:1030 pp_menu_image.cpp:263
+#: dialogs.cpp:1030 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "¡Elija primero una imágen!"
 
@@ -317,7 +317,7 @@ msgstr "Salir de Photoprint"
 msgid "_Layout"
 msgstr "_Disposición"
 
-#: menucheck.cpp:63 pp_menu_image.cpp:296
+#: menucheck.cpp:63 pp_menu_image.cpp:316
 msgid "_Image"
 msgstr "_Imágen"
 
@@ -345,23 +345,23 @@ msgstr "Poner _Fondo"
 msgid "Set a background image for the current layout"
 msgstr "Poner imágen de fondo para la disposición actual"
 
-#: menucheck.cpp:70 pp_menu_image.cpp:298
+#: menucheck.cpp:70 pp_menu_image.cpp:318
 msgid "_Add Image..."
 msgstr "_Añadir imágen"
 
-#: menucheck.cpp:70 pp_menu_image.cpp:298
+#: menucheck.cpp:70 pp_menu_image.cpp:318
 msgid "Add images to the current layout"
 msgstr "Añadir imágenes a esta disposición"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:299
+#: menucheck.cpp:71 pp_menu_image.cpp:319
 msgid "_Remove Image"
 msgstr "El_iminar imágen"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:299
+#: menucheck.cpp:71 pp_menu_image.cpp:319
 msgid "Remove selected images from the layout"
 msgstr "Quitar imágenes de la disposición"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:303
+#: menucheck.cpp:73 pp_menu_image.cpp:323
 msgid "_Rotation"
 msgstr "_Rotación"
 
@@ -369,7 +369,7 @@ msgstr "_Rotación"
 msgid "Set Image _Mask..."
 msgstr "Establecer _Máscara de imagen..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:305
+#: menucheck.cpp:75 pp_menu_image.cpp:325
 msgid "Set a border mask for the selected image"
 msgstr "Establecer una máscara para la imágen seleccionada"
 
@@ -381,11 +381,11 @@ msgstr "_Efectos"
 msgid "Apply effects to the selected image"
 msgstr "Aplicar efectos a la imagen seleccionada"
 
-#: menucheck.cpp:77 pp_menu_image.cpp:307
+#: menucheck.cpp:77 pp_menu_image.cpp:327
 msgid "Set Colour _Profile..."
 msgstr "Seleccionar _Perfil de color"
 
-#: menucheck.cpp:77 pp_menu_image.cpp:307
+#: menucheck.cpp:77 pp_menu_image.cpp:327
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr ""
 
@@ -429,11 +429,11 @@ msgstr "Acerca de..."
 msgid "Some information about PhotoPrint"
 msgstr "Alguna información sobre·PhotoPrint"
 
-#: menucheck.cpp:89 pp_menu_image.cpp:312
+#: menucheck.cpp:89 pp_menu_image.cpp:332
 msgid "Allow _Cropping"
 msgstr "Permitir re_corte"
 
-#: menucheck.cpp:89 pp_menu_image.cpp:312
+#: menucheck.cpp:89 pp_menu_image.cpp:332
 msgid "Crop the selected images to fill the available space"
 msgstr ""
 "Recortar las imágenes seleccionadas hasta rellenar el espacio disponible"
@@ -470,43 +470,43 @@ msgstr "Tamaño _Manual"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Imprime imágenes en una única hoja a una escala especificada."
 
-#: menucheck.cpp:101 pp_menu_image.cpp:317
+#: menucheck.cpp:101 pp_menu_image.cpp:337
 msgid "_Auto"
 msgstr "_Auto"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:317
+#: menucheck.cpp:101 pp_menu_image.cpp:337
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Rotar automáticamente para ajustarse al espacio disponible."
 
-#: menucheck.cpp:102 pp_menu_image.cpp:318
+#: menucheck.cpp:102 pp_menu_image.cpp:338
 msgid "_None"
 msgstr "_Ninguna"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:318
+#: menucheck.cpp:102 pp_menu_image.cpp:338
 msgid "No rotation."
 msgstr "Sin rotación"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:319
+#: menucheck.cpp:103 pp_menu_image.cpp:339
 msgid "_90 Degrees"
 msgstr "_90·grados"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:319
+#: menucheck.cpp:103 pp_menu_image.cpp:339
 msgid "Rotate 90 degrees clockwise."
 msgstr "Rotar 90 grados en el sentido del reloj."
 
-#: menucheck.cpp:104 pp_menu_image.cpp:320
+#: menucheck.cpp:104 pp_menu_image.cpp:340
 msgid "_180 Degrees"
 msgstr "_180·grados"
 
-#: menucheck.cpp:104 pp_menu_image.cpp:320
+#: menucheck.cpp:104 pp_menu_image.cpp:340
 msgid "Rotate 180 degrees."
 msgstr "Rotar 180 grados"
 
-#: menucheck.cpp:105 pp_menu_image.cpp:321
+#: menucheck.cpp:105 pp_menu_image.cpp:341
 msgid "_270 Degrees"
 msgstr "_270 grados"
 
-#: menucheck.cpp:105 pp_menu_image.cpp:321
+#: menucheck.cpp:105 pp_menu_image.cpp:341
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Rotar 90 grados contra reloj."
 
@@ -1011,24 +1011,24 @@ msgstr "Añadiendo imágenes..."
 msgid "Page is already full!"
 msgstr ""
 
-#: pp_menu_image.cpp:300
+#: pp_menu_image.cpp:320
 msgid "_Duplicate Image"
 msgstr ""
 
-#: pp_menu_image.cpp:300
+#: pp_menu_image.cpp:320
 #, fuzzy
 msgid "Duplicate the currently selected image"
 msgstr "Aplicar efectos a la imagen seleccionada"
 
-#: pp_menu_image.cpp:301
+#: pp_menu_image.cpp:321
 msgid "Duplicate to _Fill Page"
 msgstr ""
 
-#: pp_menu_image.cpp:301
+#: pp_menu_image.cpp:321
 msgid "Fill the page with copies of the currently selected image"
 msgstr ""
 
-#: pp_menu_image.cpp:305
+#: pp_menu_image.cpp:325
 #, fuzzy
 msgid "Set Image _Border..."
 msgstr "Elige un marco"

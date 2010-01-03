@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-01 14:55+0000\n"
+"POT-Creation-Date: 2010-01-03 10:51+0000\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -152,7 +152,7 @@ msgstr "Качество JPEG"
 msgid "Select a background..."
 msgstr "Выберите фон..."
 
-#: dialogs.cpp:1030 pp_menu_image.cpp:263
+#: dialogs.cpp:1030 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Сначала необходимо выбрать снимок!"
 
@@ -316,7 +316,7 @@ msgstr "Выйти из программы"
 msgid "_Layout"
 msgstr "_Макет"
 
-#: menucheck.cpp:63 pp_menu_image.cpp:296
+#: menucheck.cpp:63 pp_menu_image.cpp:316
 msgid "_Image"
 msgstr "Сн_имок"
 
@@ -344,23 +344,23 @@ msgstr "У_казать фоновый рисунок..."
 msgid "Set a background image for the current layout"
 msgstr "Выбрать фоновый рисунок для текущего макета"
 
-#: menucheck.cpp:70 pp_menu_image.cpp:298
+#: menucheck.cpp:70 pp_menu_image.cpp:318
 msgid "_Add Image..."
 msgstr "_Добавить..."
 
-#: menucheck.cpp:70 pp_menu_image.cpp:298
+#: menucheck.cpp:70 pp_menu_image.cpp:318
 msgid "Add images to the current layout"
 msgstr "Добавить изображения в макет"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:299
+#: menucheck.cpp:71 pp_menu_image.cpp:319
 msgid "_Remove Image"
 msgstr "_Удалить"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:299
+#: menucheck.cpp:71 pp_menu_image.cpp:319
 msgid "Remove selected images from the layout"
 msgstr "Удалить выбранные изображения с макета"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:303
+#: menucheck.cpp:73 pp_menu_image.cpp:323
 msgid "_Rotation"
 msgstr "_Вращение"
 
@@ -368,7 +368,7 @@ msgstr "_Вращение"
 msgid "Set Image _Mask..."
 msgstr "Установить _маску изображения..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:305
+#: menucheck.cpp:75 pp_menu_image.cpp:325
 msgid "Set a border mask for the selected image"
 msgstr "Установить маску рамки для выбранного изображения"
 
@@ -380,11 +380,11 @@ msgstr "Э_ффекты..."
 msgid "Apply effects to the selected image"
 msgstr "Применить эффекты к выбранному изображения"
 
-#: menucheck.cpp:77 pp_menu_image.cpp:307
+#: menucheck.cpp:77 pp_menu_image.cpp:327
 msgid "Set Colour _Profile..."
 msgstr "_Назначить профиль ICC..."
 
-#: menucheck.cpp:77 pp_menu_image.cpp:307
+#: menucheck.cpp:77 pp_menu_image.cpp:327
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Назначить профиль ICC или изменить конечную цветопередачу изображения"
 
@@ -428,11 +428,11 @@ msgstr "О программе..."
 msgid "Some information about PhotoPrint"
 msgstr "Информация о PhotoPrint"
 
-#: menucheck.cpp:89 pp_menu_image.cpp:312
+#: menucheck.cpp:89 pp_menu_image.cpp:332
 msgid "Allow _Cropping"
 msgstr "_Без полей"
 
-#: menucheck.cpp:89 pp_menu_image.cpp:312
+#: menucheck.cpp:89 pp_menu_image.cpp:332
 msgid "Crop the selected images to fill the available space"
 msgstr "Обрезать выбранные изображения для заполнения доступной области"
 
@@ -468,43 +468,43 @@ msgstr "_Другой размер"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Напечатать снимки на одиночном листе с указанным масштабом"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:317
+#: menucheck.cpp:101 pp_menu_image.cpp:337
 msgid "_Auto"
 msgstr "_Автоматическое"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:317
+#: menucheck.cpp:101 pp_menu_image.cpp:337
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Автоматически выбирать угол поворота для заполнения страницы"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:318
+#: menucheck.cpp:102 pp_menu_image.cpp:338
 msgid "_None"
 msgstr "_Нет"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:318
+#: menucheck.cpp:102 pp_menu_image.cpp:338
 msgid "No rotation."
 msgstr "Никакого вращения"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:319
+#: menucheck.cpp:103 pp_menu_image.cpp:339
 msgid "_90 Degrees"
 msgstr "_90°"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:319
+#: menucheck.cpp:103 pp_menu_image.cpp:339
 msgid "Rotate 90 degrees clockwise."
 msgstr "Повернуть на 90° по часовой стрелке"
 
-#: menucheck.cpp:104 pp_menu_image.cpp:320
+#: menucheck.cpp:104 pp_menu_image.cpp:340
 msgid "_180 Degrees"
 msgstr "_180°"
 
-#: menucheck.cpp:104 pp_menu_image.cpp:320
+#: menucheck.cpp:104 pp_menu_image.cpp:340
 msgid "Rotate 180 degrees."
 msgstr "Повернуть на 180° по часовой стрелке"
 
-#: menucheck.cpp:105 pp_menu_image.cpp:321
+#: menucheck.cpp:105 pp_menu_image.cpp:341
 msgid "_270 Degrees"
 msgstr "_270°"
 
-#: menucheck.cpp:105 pp_menu_image.cpp:321
+#: menucheck.cpp:105 pp_menu_image.cpp:341
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Повернуть на 90° против часовой стрелки"
 
@@ -998,24 +998,24 @@ msgstr "Добавляются изображения..."
 msgid "Page is already full!"
 msgstr "На странице не осталось места!"
 
-#: pp_menu_image.cpp:300
+#: pp_menu_image.cpp:320
 msgid "_Duplicate Image"
 msgstr "_Продублировать"
 
-#: pp_menu_image.cpp:300
+#: pp_menu_image.cpp:320
 msgid "Duplicate the currently selected image"
 msgstr "Продублировать выделенное изображение"
 
-#: pp_menu_image.cpp:301
+#: pp_menu_image.cpp:321
 #, fuzzy
 msgid "Duplicate to _Fill Page"
 msgstr "_Заполнить им страницу"
 
-#: pp_menu_image.cpp:301
+#: pp_menu_image.cpp:321
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Заполнить страницу копиями выбранного сейчас изображения"
 
-#: pp_menu_image.cpp:305
+#: pp_menu_image.cpp:325
 #, fuzzy
 msgid "Set Image _Border..."
 msgstr "Выберите рамку"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-01 14:55+0000\n"
+"POT-Creation-Date: 2010-01-03 10:51+0000\n"
 "PO-Revision-Date: 2009-08-01 10:35+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <ubuntu-l10n-cs@lists.ubuntu.cz>\n"
@@ -148,7 +148,7 @@ msgstr "Kvalita JPEG:"
 msgid "Select a background..."
 msgstr "Volba pozadí..."
 
-#: dialogs.cpp:1030 pp_menu_image.cpp:263
+#: dialogs.cpp:1030 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Nejdříve prosím zvolte obrázek!"
 
@@ -312,7 +312,7 @@ msgstr "Ukončí PhotoPrint"
 msgid "_Layout"
 msgstr "Náv_rh"
 
-#: menucheck.cpp:63 pp_menu_image.cpp:296
+#: menucheck.cpp:63 pp_menu_image.cpp:316
 msgid "_Image"
 msgstr "_Obrázek"
 
@@ -340,23 +340,23 @@ msgstr "Nastavit po_zadí"
 msgid "Set a background image for the current layout"
 msgstr "Nastaví obrázek na pozadí pro aktuální návrh"
 
-#: menucheck.cpp:70 pp_menu_image.cpp:298
+#: menucheck.cpp:70 pp_menu_image.cpp:318
 msgid "_Add Image..."
 msgstr "_Přidat obrázek..."
 
-#: menucheck.cpp:70 pp_menu_image.cpp:298
+#: menucheck.cpp:70 pp_menu_image.cpp:318
 msgid "Add images to the current layout"
 msgstr "Přidá obrázky do aktuálního návrhu"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:299
+#: menucheck.cpp:71 pp_menu_image.cpp:319
 msgid "_Remove Image"
 msgstr "_Odebrat obrázek"
 
-#: menucheck.cpp:71 pp_menu_image.cpp:299
+#: menucheck.cpp:71 pp_menu_image.cpp:319
 msgid "Remove selected images from the layout"
 msgstr "Odstraní vybrané obrázky z aktuálního návrhu"
 
-#: menucheck.cpp:73 pp_menu_image.cpp:303
+#: menucheck.cpp:73 pp_menu_image.cpp:323
 msgid "_Rotation"
 msgstr "O_točení"
 
@@ -364,7 +364,7 @@ msgstr "O_točení"
 msgid "Set Image _Mask..."
 msgstr "Nastavit _masku obrázku..."
 
-#: menucheck.cpp:75 pp_menu_image.cpp:305
+#: menucheck.cpp:75 pp_menu_image.cpp:325
 msgid "Set a border mask for the selected image"
 msgstr "Nastaví omezující masku pro vybraný obrázek"
 
@@ -376,11 +376,11 @@ msgstr "_Efekty..."
 msgid "Apply effects to the selected image"
 msgstr "Aplikuje efekty na vybraný obrázek"
 
-#: menucheck.cpp:77 pp_menu_image.cpp:307
+#: menucheck.cpp:77 pp_menu_image.cpp:327
 msgid "Set Colour _Profile..."
 msgstr "Nastavit barevný pro_fil..."
 
-#: menucheck.cpp:77 pp_menu_image.cpp:307
+#: menucheck.cpp:77 pp_menu_image.cpp:327
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr "Přiřadí obrázku profil ICC nebo upřednostňovaný výsledek vykreslování"
 
@@ -424,11 +424,11 @@ msgstr "O aplikaci..."
 msgid "Some information about PhotoPrint"
 msgstr "Pár informací o aplikaci PhotoPrint"
 
-#: menucheck.cpp:89 pp_menu_image.cpp:312
+#: menucheck.cpp:89 pp_menu_image.cpp:332
 msgid "Allow _Cropping"
 msgstr "Povolit oř_ezávání"
 
-#: menucheck.cpp:89 pp_menu_image.cpp:312
+#: menucheck.cpp:89 pp_menu_image.cpp:332
 msgid "Crop the selected images to fill the available space"
 msgstr "Ořezání vybraných obrázků tak, aby vyplnily celou dostupnou plochu"
 
@@ -465,43 +465,43 @@ msgstr "_Ruční rozměry"
 msgid "Print images on a single sheet, at a specified scale."
 msgstr "Vytiskne obrázky na jednotlivé listy se zadaným zmenšením/zvětšením"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:317
+#: menucheck.cpp:101 pp_menu_image.cpp:337
 msgid "_Auto"
 msgstr "_Automaticky"
 
-#: menucheck.cpp:101 pp_menu_image.cpp:317
+#: menucheck.cpp:101 pp_menu_image.cpp:337
 msgid "Automatically choose rotation to fit the available space."
 msgstr "Automaticky zvolí otočení tak, aby se vyplnila dostupná plocha"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:318
+#: menucheck.cpp:102 pp_menu_image.cpp:338
 msgid "_None"
 msgstr "Žá_dné"
 
-#: menucheck.cpp:102 pp_menu_image.cpp:318
+#: menucheck.cpp:102 pp_menu_image.cpp:338
 msgid "No rotation."
 msgstr "Bez otočení"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:319
+#: menucheck.cpp:103 pp_menu_image.cpp:339
 msgid "_90 Degrees"
 msgstr "_90 stupňů"
 
-#: menucheck.cpp:103 pp_menu_image.cpp:319
+#: menucheck.cpp:103 pp_menu_image.cpp:339
 msgid "Rotate 90 degrees clockwise."
 msgstr "Otočení o 90 stupňů proti směru hodinových ručiček"
 
-#: menucheck.cpp:104 pp_menu_image.cpp:320
+#: menucheck.cpp:104 pp_menu_image.cpp:340
 msgid "_180 Degrees"
 msgstr "_180 stupňů"
 
-#: menucheck.cpp:104 pp_menu_image.cpp:320
+#: menucheck.cpp:104 pp_menu_image.cpp:340
 msgid "Rotate 180 degrees."
 msgstr "Otočení o 180 stupňů"
 
-#: menucheck.cpp:105 pp_menu_image.cpp:321
+#: menucheck.cpp:105 pp_menu_image.cpp:341
 msgid "_270 Degrees"
 msgstr "_270 stupňů"
 
-#: menucheck.cpp:105 pp_menu_image.cpp:321
+#: menucheck.cpp:105 pp_menu_image.cpp:341
 msgid "Rotate 90 degrees anticlockwise."
 msgstr "Otočení o 90 stupňů ve směru hodinových ručiček"
 
@@ -998,23 +998,23 @@ msgstr "Přidávám obrázky..."
 msgid "Page is already full!"
 msgstr "Stránka je již plná!"
 
-#: pp_menu_image.cpp:300
+#: pp_menu_image.cpp:320
 msgid "_Duplicate Image"
 msgstr "_Duplikovat obrázek"
 
-#: pp_menu_image.cpp:300
+#: pp_menu_image.cpp:320
 msgid "Duplicate the currently selected image"
 msgstr "Vytvoří kopii aktuálně vybraného obrázku"
 
-#: pp_menu_image.cpp:301
+#: pp_menu_image.cpp:321
 msgid "Duplicate to _Fill Page"
 msgstr "_Vyplnit stránku kopiemi"
 
-#: pp_menu_image.cpp:301
+#: pp_menu_image.cpp:321
 msgid "Fill the page with copies of the currently selected image"
 msgstr "Vyplní stránku kopiemi aktuálně vybraného obrázku"
 
-#: pp_menu_image.cpp:305
+#: pp_menu_image.cpp:325
 msgid "Set Image _Border..."
 msgstr "Nastavit okraj o_brázku..."
 
