@@ -197,6 +197,8 @@ class HRRenderJob : public Job, public Progress
 	virtual void Run(Worker *w)
 	{
 		ImageInfo_Worker *iw=(ImageInfo_Worker *)w;
+
+
 		try
 		{
 			// Lock the imageinfo against modification while we're using it.
@@ -208,16 +210,44 @@ class HRRenderJob : public Job, public Progress
 				if(count==0)
 				{
 					Debug[WARN] << "HRRenderJob: Giving up attempt on mutex - bailing out" << endl;
-					Debug.PopLevel();
 					return;
 				}
-	#ifdef WIN32
+#ifdef WIN32
 				Sleep(50);
-	#else
+#else
 				usleep(50000);
-	#endif
+#endif
 				--count;
 			}
+
+
+			// We sleep briefly before doing anything time-intensive - that way we can bail out rapidly
+			// if the user's doing something heavily interactive, like panning an image, or resizing the window
+
+			for(int i=0;i<25;++i)
+			{
+#ifdef WIN32
+				Sleep(10);
+#else
+				usleep(10000);
+#endif
+				if(!DoProgress(0,0))
+				{
+					Debug[TRACE] << "Got break signal while pausing - Releasing" << endl;
+					ii->ReleaseMutex();
+					return;
+				}
+			}
+
+			if(!DoProgress(0,0))
+			{
+				Debug[TRACE] << "Subthread releasing mutex and cancelling" << endl;
+				ii->ReleaseMutex();
+				return;
+			}
+
+
+			// Now we start the rendering.
 
 			CMSProfile *targetprof;
 

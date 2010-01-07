@@ -12,6 +12,9 @@ PhotoPrint-0.4.2
   * Migrated high-res preview code to the new JobQueue system - should be more stable,
     better behaved on Win32, and more maintainable.
 
+  * Reinstated delay before drawing HR preview - should improve responsiveness on
+    Win32.
+
 
 PhotoPrint-0.4.1
 
