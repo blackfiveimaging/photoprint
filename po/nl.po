@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-03 10:51+0000\n"
+"POT-Creation-Date: 2010-01-09 17:57+0000\n"
 "PO-Revision-Date:  2009-07-21 21:07+0100\n"
 "Last-Translator: Lex Wernars <lex@theros.nl>\n"
 "Language-Team: Nederlands <lex@theros.nl>\n"
@@ -831,7 +831,7 @@ msgstr "Profiel:"
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:795
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:808
 msgid "Default"
 msgstr "Standaard"
 
@@ -1306,7 +1306,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:803
+#: profilemanager/profilemanager.cpp:816
 #, fuzzy
 msgid "Default rendering intent"
 msgstr "Gewenst resultaat:"

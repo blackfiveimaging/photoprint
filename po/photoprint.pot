@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: photoprint 0.4.2-pre1\n"
+"Project-Id-Version: photoprint 0.4.2-pre2\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-03 10:51+0000\n"
+"POT-Creation-Date: 2010-01-09 17:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -818,7 +818,7 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:795
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:808
 msgid "Default"
 msgstr ""
 
@@ -1271,7 +1271,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:803
+#: profilemanager/profilemanager.cpp:816
 msgid "Default rendering intent"
 msgstr ""
 

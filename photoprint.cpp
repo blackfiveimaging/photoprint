@@ -110,21 +110,24 @@ int main(int argc,char **argv)
 	delete logname;
 #endif
 
-	bool batchmode=ParseOptions(argc,argv,&presetname);
-	if(!batchmode)
-		have_gtk=gtk_init_check (&argc, &argv);
-
-	if(have_gtk)
-		gtk_set_locale();
-	else
-		setlocale(LC_ALL,"");
-
-	bindtextdomain(PACKAGE,LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
-	textdomain(PACKAGE);
-
 	try
 	{
+		bool batchmode=ParseOptions(argc,argv,&presetname);
+		if(!batchmode)
+			have_gtk=gtk_init_check (&argc, &argv);
+
+		if(have_gtk)
+			gtk_set_locale();
+		else
+		{
+			g_type_init();
+			setlocale(LC_ALL,"");
+		}
+
+		bindtextdomain(PACKAGE,LOCALEDIR);
+		bind_textdomain_codeset(PACKAGE, "UTF-8");
+		textdomain(PACKAGE);
+
 		SplashScreen *splash=NULL;
 		if(have_gtk)
 		{

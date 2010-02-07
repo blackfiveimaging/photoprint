@@ -43,7 +43,6 @@ class ShortcutMenuItem : public ConfigFile, public ConfigDB
 		action.callback=G_CALLBACK(selected);
 
 		gtk_action_group_add_actions_full(group,&action,1,this,destroy);
-
 	}
 	~ShortcutMenuItem()
 	{
@@ -127,7 +126,10 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 				// and construct menu items...
 				ShortcutMenuItem *item=new ShortcutMenuItem(*it,action_group,mw);
 				uidesc+="<menuitem action='";
-				uidesc+=item->FindString("DisplayName");
+				const char *dname=item->FindString("DisplayName");
+				if(!dname)
+					dname=_("Error fetching preset name!");
+				uidesc+=dname;
 				uidesc+="'/>\n";
 			}
 			separator=true;

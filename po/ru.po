@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-03 10:51+0000\n"
+"POT-Creation-Date: 2010-01-09 17:57+0000\n"
 "PO-Revision-Date: 2008-12-23 02:22+0300\n"
 "Last-Translator: Alexandre Prokoudine <alexandre.prokoudine@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -836,7 +836,7 @@ msgstr "Профиль:"
 msgid "pixels"
 msgstr "пикселов"
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:795
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:808
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -1310,7 +1310,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:803
+#: profilemanager/profilemanager.cpp:816
 #, fuzzy
 msgid "Default rendering intent"
 msgstr "Цветопередача:"

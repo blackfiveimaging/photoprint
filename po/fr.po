@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoprint\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-03 10:51+0000\n"
+"POT-Creation-Date: 2010-01-09 17:57+0000\n"
 "PO-Revision-Date: 2006-12-03 16:52+0100\n"
 "Last-Translator: Skadge <skadge@gmail.com>\n"
 "Language-Team: \n"
@@ -830,7 +830,7 @@ msgstr "Profil RVB :"
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:795
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:808
 msgid "Default"
 msgstr ""
 
@@ -1315,7 +1315,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:803
+#: profilemanager/profilemanager.cpp:816
 #, fuzzy
 msgid "Default rendering intent"
 msgstr "Rendu désiré :"

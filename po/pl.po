@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-03 10:51+0000\n"
+"POT-Creation-Date: 2010-01-09 17:57+0000\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -832,7 +832,7 @@ msgstr "Profil:"
 msgid "pixels"
 msgstr "pikseli"
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:795
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:808
 msgid "Default"
 msgstr "Domyślny"
 
@@ -1306,7 +1306,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:803
+#: profilemanager/profilemanager.cpp:816
 #, fuzzy
 msgid "Default rendering intent"
 msgstr "Metoda konwersji kolorów:"
