@@ -1,7 +1,7 @@
 URGENT:
 ~~~~~~~
 
-Move high-res preview generation to JobQueues.
+| Move high-res preview generation to JobQueues.
 
 | Fix DeviceLink handling
 
