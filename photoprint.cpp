@@ -107,7 +107,7 @@ int main(int argc,char **argv)
 #ifdef WIN32
 	char *logname=substitute_homedir("$HOME" SEARCHPATH_SEPARATOR_S ".photoprint_errorlog");
 	Debug.SetLogFile(logname);
-	delete logname;
+	free(logname);
 #endif
 
 	try
