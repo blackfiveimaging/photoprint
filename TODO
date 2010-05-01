@@ -5,6 +5,27 @@ URGENT:
 
 | Fix DeviceLink handling
 
+Investigate print job cancellation - multi-page documents seem to create empty jobs for subsequence pages when cancelled.
+
+Add alignment options for uncropped mode - Top/Left, Centre, Bottom/Right?
+
+Investigate measurement units for overlap.
+
+Investigate Custom Command box being visible when it shouldn't be.
+
+Figure out how best to fetch default margins from the printer.
+
+Need to be able to print a range of a multi-page layout.
+
+Problem with CUPS PDF printer - all jobs have name "stdin" so each page's PDF overwrites the last one!
+-> Can we set the document name in postscript comments?  Possible via Gutenprint?
+
+Show tile grid in Poster mode
+
+Poster mode - allow tweaking aspect ratio?  In fact, allow that for auto and carousel layouts too?
+
+Investigate crash if button is held down on spin buttons?
+
 Make dimension step size user-selectable.
 
 Provide a colour-management bypass option for images.
