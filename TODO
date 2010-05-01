@@ -20,7 +20,8 @@ Need to be able to print a range of a multi-page layout.
 Problem with CUPS PDF printer - all jobs have name "stdin" so each page's PDF overwrites the last one!
 -> Can we set the document name in postscript comments?  Possible via Gutenprint?
 
-Show tile grid in Poster mode
+|Show tile grid in Poster mode
+Need to stop it being hidden when high-res previews are drawn.
 
 Poster mode - allow tweaking aspect ratio?  In fact, allow that for auto and carousel layouts too?
 

@@ -303,6 +303,26 @@ pp_layout_poster_pageview_expose( GtkWidget      *widget,
 
 	pageview->layout->DrawPreview(widget,pageview->left,pageview->top,pageview->width,pageview->height);
 
+	for(int ht=0;ht<pageview->layout->htiles;++ht)
+	{
+		for(int vt=0;vt<pageview->layout->vtiles;++vt)
+		{
+			double l=pageview->scale*(pageview->layout->leftmargin+ht*(pageview->layout->imageablewidth-pageview->layout->hoverlap));
+			double r=pageview->scale*(pageview->layout->leftmargin+(ht+1)*pageview->layout->imageablewidth-ht*pageview->layout->hoverlap);
+			double t=pageview->scale*(pageview->layout->topmargin+vt*(pageview->layout->imageableheight-pageview->layout->voverlap));
+			double b=pageview->scale*(pageview->layout->topmargin+(vt+1)*pageview->layout->imageableheight-vt*pageview->layout->voverlap);
+			int w=int(r-l+0.5);
+			int h=int(b-t+0.5);
+
+			Debug[TRACE] << "Left: " << l << ", Right: " << r << endl;
+			Debug[TRACE] << "Top: " << t << ", Bottom: " << b << endl;
+
+			gdk_draw_rectangle (widget->window,
+				widget->style->mid_gc[widget->state],FALSE,
+				pageview->left+int(l+0.5),pageview->top+int(t+0.5),w,h);
+		}
+	}
+
 	return FALSE;
 }
 
