@@ -246,6 +246,8 @@ void pp_layout_poster_set_unit(GtkWidget *wid,enum Units unit)
 	pp_pageextent_set_unit(PP_PAGEEXTENT(ob->pageextent),unit);
 	dimension_set_unit(DIMENSION(ob->posterwidth),unit);
 	dimension_set_unit(DIMENSION(ob->posterheight),unit);
+	dimension_set_unit(DIMENSION(ob->hoverlap),unit);
+	dimension_set_unit(DIMENSION(ob->voverlap),unit);
 }
 
 
