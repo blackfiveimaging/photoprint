@@ -22,6 +22,9 @@ Problem with CUPS PDF printer - all jobs have name "stdin" so each page's PDF ov
 
 |Show tile grid in Poster mode
 Need to stop it being hidden when high-res previews are drawn.
+Perhaps move to a generic pageview instead of an individual one for each layout, and subcontract the grid
+rendering to the individual layouts?  Then the high-res preview code can call that routine after drawing the
+preview to re-instate the grid.
 
 Poster mode - allow tweaking aspect ratio?  In fact, allow that for auto and carousel layouts too?
 
