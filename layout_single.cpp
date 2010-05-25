@@ -187,8 +187,21 @@ void Layout_Single_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,
 ImageSource *Layout_Single_ImageInfo::GetImageSource(CMColourDevice target,CMTransformFactory *factory)
 {
 	ImageSource *is=Layout_ImageInfo::GetImageSource(target,factory);
-	is->xres=(xres*100)/hscale;
-	is->yres=(yres*100)/vscale;
+
+	// Need to swap H and V scale if the image is rotated.
+	switch(rotation)
+	{
+		case PP_ROTATION_NONE:
+		case PP_ROTATION_180:
+			is->xres=(xres*100)/hscale;
+			is->yres=(yres*100)/vscale;
+			break;
+		case PP_ROTATION_90:
+		case PP_ROTATION_270:
+			is->xres=(xres*100)/vscale;
+			is->yres=(yres*100)/hscale;
+			break;
+	}
 	return(is);
 }
 

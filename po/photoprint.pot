@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.2-pre2\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-01-09 17:57+0000\n"
+"POT-Creation-Date: 2010-05-25 20:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -498,23 +498,23 @@ msgstr ""
 msgid "Dither Algorithm"
 msgstr ""
 
-#: photoprint.cpp:132
+#: photoprint.cpp:135
 msgid "Initializing..."
 msgstr ""
 
-#: photoprint.cpp:141
+#: photoprint.cpp:144
 msgid "Checking .photoprint directory..."
 msgstr ""
 
-#: photoprint.cpp:146
+#: photoprint.cpp:149
 msgid "Loading preset..."
 msgstr ""
 
-#: photoprint.cpp:151
+#: photoprint.cpp:154
 msgid "Creating layout..."
 msgstr ""
 
-#: photoprint.cpp:194
+#: photoprint.cpp:197
 msgid "Loading images..."
 msgstr ""
 
@@ -818,12 +818,12 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:808
+#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:831
 msgid "Default"
 msgstr ""
 
 #: pp_layout_carousel.cpp:247 pp_layout_carousel.cpp:379 pp_layout_nup.cpp:222
-#: pp_layout_poster.cpp:310 pp_layout_poster.cpp:462 pp_layout_single.cpp:233
+#: pp_layout_poster.cpp:312 pp_layout_poster.cpp:464 pp_layout_single.cpp:233
 #: printpreview.cpp:146
 msgid "Page:"
 msgstr ""
@@ -848,31 +848,31 @@ msgstr ""
 msgid "Inner Radius:"
 msgstr ""
 
-#: pp_layout_poster.cpp:337
+#: pp_layout_poster.cpp:339
 msgid "Poster Layout"
 msgstr ""
 
-#: pp_layout_poster.cpp:352
+#: pp_layout_poster.cpp:354
 msgid "Size"
 msgstr ""
 
-#: pp_layout_poster.cpp:364 pp_layout_poster.cpp:388
+#: pp_layout_poster.cpp:366 pp_layout_poster.cpp:390
 msgid "by"
 msgstr ""
 
-#: pp_layout_poster.cpp:376
+#: pp_layout_poster.cpp:378
 msgid "Tiles"
 msgstr ""
 
-#: pp_layout_poster.cpp:398
+#: pp_layout_poster.cpp:400
 msgid "Overlap"
 msgstr ""
 
-#: pp_layout_poster.cpp:412 pp_pageextent.cpp:262
+#: pp_layout_poster.cpp:414 pp_pageextent.cpp:262
 msgid "H:"
 msgstr ""
 
-#: pp_layout_poster.cpp:424
+#: pp_layout_poster.cpp:426
 msgid "V:"
 msgstr ""
 
@@ -964,8 +964,12 @@ msgstr ""
 msgid "Export pages as JPEG files"
 msgstr ""
 
-#: pp_menu_shortcuts.cpp:79
+#: pp_menu_shortcuts.cpp:78
 msgid "_Shortcuts"
+msgstr ""
+
+#: pp_menu_shortcuts.cpp:131
+msgid "Error fetching preset name!"
 msgstr ""
 
 #: pp_menu_image.cpp:64
@@ -1084,7 +1088,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr ""
 
-#: gp_cppsupport/gprinter.cpp:381
+#: gp_cppsupport/gprinter.cpp:387
 msgid "Unable to generate print data"
 msgstr ""
 
@@ -1196,52 +1200,52 @@ msgid ""
 "Check STP_DATA_PATH and Gutenprint version!"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:535
+#: profilemanager/lcmswrapper.cpp:553
 msgid "Perceptual"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:536
+#: profilemanager/lcmswrapper.cpp:554
 msgid "Relative Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:537
+#: profilemanager/lcmswrapper.cpp:555
 msgid "Relative Colorimetric with BPC"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:538
+#: profilemanager/lcmswrapper.cpp:556
 msgid "Saturation"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:539
+#: profilemanager/lcmswrapper.cpp:557
 msgid "Absolute Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:544
+#: profilemanager/lcmswrapper.cpp:562
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:545
+#: profilemanager/lcmswrapper.cpp:563
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:546
+#: profilemanager/lcmswrapper.cpp:564
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
 "and shadows."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:547
+#: profilemanager/lcmswrapper.cpp:565
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:548
+#: profilemanager/lcmswrapper.cpp:566
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1251,7 +1255,11 @@ msgstr ""
 msgid "Other..."
 msgstr ""
 
-#: profilemanager/profileselector.cpp:384
+#: profilemanager/profileselector.cpp:193
+msgid "None"
+msgstr ""
+
+#: profilemanager/profileselector.cpp:392
 msgid "Please choose a valid ICC profile"
 msgstr ""
 
@@ -1267,11 +1275,11 @@ msgstr ""
 msgid "Can't do proofing without a valid Default RGB profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:474
+#: profilemanager/profilemanager.cpp:497
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:816
+#: profilemanager/profilemanager.cpp:839
 msgid "Default rendering intent"
 msgstr ""
 
@@ -1331,7 +1339,7 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: miscwidgets/progressbar.cpp:51
+#: miscwidgets/progressbar.cpp:52
 msgid "Progress..."
 msgstr ""
 
