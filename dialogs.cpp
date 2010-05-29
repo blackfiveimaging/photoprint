@@ -619,11 +619,7 @@ void ExportTiff_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 	gtk_table_attach_defaults(GTK_TABLE(table),profactive,0,1,3,4);
 	gtk_widget_show(profactive);
 
-#ifdef WIN32
-	char *dirname=substitute_homedir("$HOME\\My Documents\\My Pictures");
-#else
-	char *dirname=substitute_homedir("$HOME");
-#endif
+	char *dirname=substitute_homedir("$HOME_PICTURES");
 	gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(filechooser),dirname);
 	gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(filechooser),"exported.tif");
 	free(dirname);
@@ -827,11 +823,8 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 	gtk_table_attach_defaults(GTK_TABLE(table),profactive,0,1,4,5);
 	gtk_widget_show(profactive);
 
-#ifdef WIN32
-	char *dirname=substitute_homedir("$HOME\\My Documents\\My Pictures");
-#else
-	char *dirname=substitute_homedir("$HOME");
-#endif
+	char *dirname=substitute_homedir("$HOME_PICTURES");
+
 	gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(filechooser),dirname);
 	gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(filechooser),"exported.jpg");
 	free(dirname);

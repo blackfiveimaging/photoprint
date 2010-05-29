@@ -19,6 +19,9 @@ PhotoPrint-0.4.2
 
   * Updated cs translation - thanks to Marek Černocký
 
+  * Export dialogs now set the default path to CSIDL_COMMON_PICTURES on Win32.
+    Thanks to David Stone for pointing out the incorrect path that was previously being used.
+
 
 PhotoPrint-0.4.1
 
