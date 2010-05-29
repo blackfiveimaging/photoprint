@@ -65,6 +65,7 @@ GtkWidget* pp_layout_poster_pageview_new(Layout_Poster *layout);
 GtkType pp_layout_poster_pageview_get_type(void);
 void pp_layout_poster_pageview_set_page(pp_Layout_Poster_PageView *pv,int page);
 void pp_layout_poster_pageview_refresh(pp_Layout_Poster_PageView *pv);
+void pp_layout_poster_pageview_draw_gridlines(pp_Layout_Poster_PageView *pageview);
 
 #ifdef __cplusplus
 }

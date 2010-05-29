@@ -272,6 +272,12 @@ void Layout::RefreshWidget(GtkWidget *widget)
 }
 
 
+void Layout::DrawGridLines(GtkWidget *widget)
+{
+
+}
+
+
 int Layout::GetCurrentPage()
 {
 	return(currentpage);

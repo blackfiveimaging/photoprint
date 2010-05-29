@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-05-25 20:52+0100\n"
+"POT-Creation-Date: 2010-05-29 17:24+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -117,11 +117,11 @@ msgstr "Selecionar uma borda"
 msgid "Export TIFF..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:577 dialogs.cpp:780
+#: dialogs.cpp:577 dialogs.cpp:776
 msgid "Page range:"
 msgstr "Intervalo de páginas"
 
-#: dialogs.cpp:590 dialogs.cpp:790
+#: dialogs.cpp:590 dialogs.cpp:786
 msgid "Resolution (dpi):"
 msgstr "Resolução (dpi)"
 
@@ -129,48 +129,48 @@ msgstr "Resolução (dpi)"
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:617 dialogs.cpp:825
+#: dialogs.cpp:617 dialogs.cpp:821
 msgid "Output Profile:"
 msgstr "Arquivo de saída"
 
-#: dialogs.cpp:681 dialogs.cpp:921
+#: dialogs.cpp:677 dialogs.cpp:914
 msgid "Please provide a filename."
 msgstr "Por favor forneça um nome de arquivo"
 
-#: dialogs.cpp:712 dialogs.cpp:899
+#: dialogs.cpp:708 dialogs.cpp:892
 msgid "Exporting..."
 msgstr "Exportando..."
 
-#: dialogs.cpp:751
+#: dialogs.cpp:747
 #, fuzzy
 msgid "Export JPEG..."
 msgstr "Exportar TIFF"
 
-#: dialogs.cpp:809
+#: dialogs.cpp:805
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:938
+#: dialogs.cpp:931
 msgid "Select a background..."
 msgstr "Selecione um background..."
 
-#: dialogs.cpp:1030 pp_menu_image.cpp:276
+#: dialogs.cpp:1023 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Por favor insira uma imagem primeiro! "
 
-#: dialogs.cpp:1061
+#: dialogs.cpp:1054
 msgid "Set Custom Profile..."
 msgstr "Defina perfil padrão"
 
-#: dialogs.cpp:1073
+#: dialogs.cpp:1066
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:1077
+#: dialogs.cpp:1070
 msgid "After:"
 msgstr "Depois:"
 
-#: dialogs.cpp:1091
+#: dialogs.cpp:1084
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -183,7 +183,7 @@ msgstr ""
 "um RGB padrão ou um perfil Monitor \n"
 "em Options->Gerenciamento de cor"
 
-#: dialogs.cpp:1116
+#: dialogs.cpp:1109
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -191,11 +191,11 @@ msgstr ""
 "Advertência: uma imagem já foi incluída no perfil\n"
 "Incluir outra vai sobrescrevê-la!"
 
-#: dialogs.cpp:1133
+#: dialogs.cpp:1126
 msgid "Assign Profile:"
 msgstr "Definir Perfil:"
 
-#: dialogs.cpp:1141 pp_cms.cpp:349
+#: dialogs.cpp:1134 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr "Tentar Renderização:"
 

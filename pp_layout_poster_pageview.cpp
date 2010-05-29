@@ -303,6 +303,28 @@ pp_layout_poster_pageview_expose( GtkWidget      *widget,
 
 	pageview->layout->DrawPreview(widget,pageview->left,pageview->top,pageview->width,pageview->height);
 
+	pp_layout_poster_pageview_draw_gridlines(pageview);
+
+	return FALSE;
+}
+
+
+void pp_layout_poster_pageview_draw_gridlines(pp_Layout_Poster_PageView *pageview)
+{
+	GtkWidget *widget=GTK_WIDGET(pageview);
+	pageview->height=widget->allocation.height;
+	pageview->width=(pageview->layout->paperwidth*pageview->height)/pageview->layout->paperheight;
+	if(pageview->width>widget->allocation.width)
+	{
+		pageview->width=widget->allocation.width;
+		pageview->height=(pageview->layout->paperheight*pageview->width)/pageview->layout->paperwidth;
+	}
+	pageview->top=(widget->allocation.height-pageview->height)/2;
+	pageview->left=(widget->allocation.width-pageview->width)/2;
+
+	pageview->scale=pageview->width;
+	pageview->scale/=pageview->layout->paperwidth;
+
 	for(int ht=0;ht<pageview->layout->htiles;++ht)
 	{
 		for(int vt=0;vt<pageview->layout->vtiles;++vt)
@@ -322,8 +344,6 @@ pp_layout_poster_pageview_expose( GtkWidget      *widget,
 				pageview->left+int(l+0.5),pageview->top+int(t+0.5),w,h);
 		}
 	}
-
-	return FALSE;
 }
 
 

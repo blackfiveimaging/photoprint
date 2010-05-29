@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-05-25 20:52+0100\n"
+"POT-Creation-Date: 2010-05-29 17:24+0100\n"
 "PO-Revision-Date: 2009-04-15 09:26+0100\n"
 "Last-Translator: Artur Szymanski <arteek@linux.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -111,11 +111,11 @@ msgstr "Wybór obramowania..."
 msgid "Export TIFF..."
 msgstr "Eksport do TIFF..."
 
-#: dialogs.cpp:577 dialogs.cpp:780
+#: dialogs.cpp:577 dialogs.cpp:776
 msgid "Page range:"
 msgstr "Zakres stron:"
 
-#: dialogs.cpp:590 dialogs.cpp:790
+#: dialogs.cpp:590 dialogs.cpp:786
 msgid "Resolution (dpi):"
 msgstr "Rozdzielczość (dpi):"
 
@@ -123,47 +123,47 @@ msgstr "Rozdzielczość (dpi):"
 msgid "Save as 16-bit:"
 msgstr "Zapisz w 16-bit:"
 
-#: dialogs.cpp:617 dialogs.cpp:825
+#: dialogs.cpp:617 dialogs.cpp:821
 msgid "Output Profile:"
 msgstr "Profil wyjściowy:"
 
-#: dialogs.cpp:681 dialogs.cpp:921
+#: dialogs.cpp:677 dialogs.cpp:914
 msgid "Please provide a filename."
 msgstr "Proszę wpisać nazwę pliku."
 
-#: dialogs.cpp:712 dialogs.cpp:899
+#: dialogs.cpp:708 dialogs.cpp:892
 msgid "Exporting..."
 msgstr "Eksportowanie..."
 
-#: dialogs.cpp:751
+#: dialogs.cpp:747
 msgid "Export JPEG..."
 msgstr "Eksport do JPEG..."
 
-#: dialogs.cpp:809
+#: dialogs.cpp:805
 msgid "JPEG Quality:"
 msgstr "Jakość JPEG:"
 
-#: dialogs.cpp:938
+#: dialogs.cpp:931
 msgid "Select a background..."
 msgstr "Wybór tła..."
 
-#: dialogs.cpp:1030 pp_menu_image.cpp:276
+#: dialogs.cpp:1023 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Najpierw należy wybrać obraz!"
 
-#: dialogs.cpp:1061
+#: dialogs.cpp:1054
 msgid "Set Custom Profile..."
 msgstr "Własne ustawienia profilu..."
 
-#: dialogs.cpp:1073
+#: dialogs.cpp:1066
 msgid "Before:"
 msgstr "Przed:"
 
-#: dialogs.cpp:1077
+#: dialogs.cpp:1070
 msgid "After:"
 msgstr "Po:"
 
-#: dialogs.cpp:1091
+#: dialogs.cpp:1084
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -176,7 +176,7 @@ msgstr ""
 "profil RGB lub monitora w menu\n"
 "Opcje->Zarządzanie kolorami!"
 
-#: dialogs.cpp:1116
+#: dialogs.cpp:1109
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -184,11 +184,11 @@ msgstr ""
 "Ostrzeżenie: Obraz posiada już wbudowany profil\n"
 "Przypisanie nowego spowoduje nadpisanie starego!"
 
-#: dialogs.cpp:1133
+#: dialogs.cpp:1126
 msgid "Assign Profile:"
 msgstr "Przypisz profil:"
 
-#: dialogs.cpp:1141 pp_cms.cpp:349
+#: dialogs.cpp:1134 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr "Metoda konwersji kolorów:"
 

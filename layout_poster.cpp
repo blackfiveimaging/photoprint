@@ -30,6 +30,7 @@
 
 #include "photoprint_state.h"
 #include "pp_layout_poster.h"
+#include "pp_layout_poster_pageview.h"
 
 #include "layout_poster.h"
 
@@ -406,6 +407,12 @@ GtkWidget *Layout_Poster::CreateWidget()
 void Layout_Poster::RefreshWidget(GtkWidget *widget)
 {
 	pp_layout_poster_refresh(PP_LAYOUT_POSTER(widget));
+}
+
+
+void Layout_Poster::DrawGridLines(GtkWidget *widget)
+{
+	pp_layout_poster_pageview_draw_gridlines(PP_LAYOUT_POSTER_PAGEVIEW(widget));
 }
 
 

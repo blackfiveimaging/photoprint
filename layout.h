@@ -87,6 +87,7 @@ class Layout : public virtual PageExtent
 	virtual GtkWidget *CreateWidget();
 	virtual void RefreshWidget(GtkWidget *widget);
 	virtual void Print(Progress *p);
+	virtual void DrawGridLines(GtkWidget *widget);
 	virtual void DrawPreviewBorder(GtkWidget *widget);
 	virtual void DrawPreviewBG(GtkWidget *widget,int xpos,int ypos,int width,int height);
 	virtual void DrawPreview(GtkWidget *widget,int xpos,int ypos,int width,int height);

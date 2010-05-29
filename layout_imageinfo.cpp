@@ -354,6 +354,9 @@ class HRRenderJob : public Job, public Progress
 			if(p->ii->mask)
 				g_object_unref(transformed);
 
+			// If drawing the high-res preview obliterates any gridlines we can repair them here.
+			p->ii->layout.DrawGridLines(p->widget);
+
 			delete fit;
 		}
 		else
