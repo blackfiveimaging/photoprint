@@ -22,6 +22,8 @@ PhotoPrint-0.4.2
   * Export dialogs now set the default path to CSIDL_COMMON_PICTURES on Win32.
     Thanks to David Stone for pointing out the incorrect path that was previously being used.
 
+  * Poster mode now has gridlines to show the boundaries and overlaps of each page.
+
 
 PhotoPrint-0.4.1
 

@@ -5,15 +5,15 @@ URGENT:
 
 | Fix DeviceLink handling
 
-Fix output profile in export mode.
+| Fix output profile in export mode.
 
 Investigate print job cancellation - multi-page documents seem to create empty jobs for subsequence pages when cancelled.
 
 Add alignment options for uncropped mode - Top/Left, Centre, Bottom/Right?
 
-Investigate measurement units for overlap.
+| Investigate measurement units for overlap.
 
-Investigate Custom Command box being visible when it shouldn't be.
+| Investigate Custom Command box being visible when it shouldn't be.
 
 Figure out how best to fetch default margins from the printer.
 
@@ -23,10 +23,12 @@ Problem with CUPS PDF printer - all jobs have name "stdin" so each page's PDF ov
 -> Can we set the document name in postscript comments?  Possible via Gutenprint?
 
 |Show tile grid in Poster mode
-Need to stop it being hidden when high-res previews are drawn.
-Perhaps move to a generic pageview instead of an individual one for each layout, and subcontract the grid
-rendering to the individual layouts?  Then the high-res preview code can call that routine after drawing the
-preview to re-instate the grid.
+| Need to stop it being hidden when high-res previews are drawn.
+| Perhaps move to a generic pageview instead of an individual one for each layout, and subcontract the grid
+| rendering to the individual layouts?  Then the high-res preview code can call that routine after drawing the
+| preview to re-instate the grid.
+| (In fact simply exposed a pageview routine to draw the grid, and called it from the individual layouts, via a
+| virtual function in the layout superclass.
 
 Poster mode - allow tweaking aspect ratio?  In fact, allow that for auto and carousel layouts too?
 
