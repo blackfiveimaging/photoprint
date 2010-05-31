@@ -7,7 +7,7 @@ URGENT:
 
 | Fix output profile in export mode.
 
-Investigate print job cancellation - multi-page documents seem to create empty jobs for subsequence pages when cancelled.
+Investigate print job cancellation - multi-page documents seem to create empty jobs for subsequent pages when cancelled.
 
 Add alignment options for uncropped mode - Top/Left, Centre, Bottom/Right?
 

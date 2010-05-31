@@ -17,12 +17,16 @@ libppeffects_la_SOURCES =	\
 	effectwidget_tempchange.h	\
 	effectwidget_unsharpmask.cpp	\
 	effectwidget_unsharpmask.h	\
+	effectwidget_gamma.cpp	\
+	effectwidget_gamma.h	\
 	ppeffect.cpp 	\
 	ppeffect.h		\
 	ppeffect_desaturate.cpp	\
 	ppeffect_desaturate.h	\
 	ppeffect_temperature.cpp	\
 	ppeffect_temperature.h	\
+	ppeffect_gamma.cpp	\
+	ppeffect_gamma.h	\
 	ppeffect_unsharpmask.cpp	\
 	ppeffect_unsharpmask.h
 

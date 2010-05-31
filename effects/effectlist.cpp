@@ -9,11 +9,14 @@
 #include "ppeffect_temperature.h"
 #include "effectwidget_tempchange.h"
 #include "effectwidget_unsharpmask.h"
+#include "effectwidget_gamma.h"
 #include "ppeffect_temperature_icon.cpp"
 #include "ppeffect_desaturate.h"
 #include "ppeffect_desaturate_icon.cpp"
 #include "ppeffect_unsharpmask.h"
 #include "ppeffect_unsharpmask_icon.cpp"
+#include "ppeffect_gamma.h"
+#include "ppeffect_gamma_icon.cpp"
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -25,7 +28,7 @@
 
 using namespace std;
 
-enum EFFECT_PRIORITIES {PRIORITY_UNSHARPMASK,PRIORITY_TEMPERATURE,PRIORITY_DESATURATE};
+enum EFFECT_PRIORITIES {PRIORITY_UNSHARPMASK,PRIORITY_TEMPERATURE,PRIORITY_DESATURATE,PRIORITY_GAMMA};
 
 
 // Abstract base class
@@ -54,6 +57,79 @@ class EffectListEntry
 	{
 	}
 	protected:
+};
+
+
+// Subclass for Gamma effect
+
+
+class EffectListEntry_Gamma : public EffectListEntry
+{
+	public:
+	EffectListEntry_Gamma() :
+		EffectListEntry(), icon(NULL), gamma(1.0)
+	{
+	}
+	virtual ~EffectListEntry_Gamma()
+	{
+	}
+	virtual const char *GetID()
+	{
+		return(PPEffect_Gamma::ID);
+	}
+	virtual const char *GetName()
+	{
+		return(gettext(PPEffect_Gamma::Name));
+	}
+	virtual GdkPixbuf *GetIcon()
+	{
+		if(icon)
+			return(icon);
+		GdkPixdata pd;
+		GError *err;
+
+		if(!gdk_pixdata_deserialize(&pd,sizeof(PPEffect_Gamma_Icon),PPEffect_Gamma_Icon,&err))
+			throw(err->message);
+
+		if(!(icon=gdk_pixbuf_from_pixdata(&pd,false,&err)))
+			throw(err->message);
+
+		return(icon);
+	}
+	virtual PPEffect *CreateEffect(PPEffectHeader &header)
+	{
+		PPEffect_Gamma *result=new PPEffect_Gamma(header,PRIORITY_GAMMA,PPEFFECT_PRESCALE);
+		result->SetGamma(gamma);
+		return(result);
+	}
+	virtual GtkWidget *CreateWidget(PPEffect *effect)
+	{
+		PPEffect_Gamma *pe=(PPEffect_Gamma *)effect;
+		GtkWidget *result=NULL;
+		result=effectwidget_gamma_new();
+		if(pe)
+			EffectToWidget(result,effect);
+		else
+			effectwidget_gamma_set(EFFECTWIDGET_GAMMA(result),gamma);
+		gtk_widget_set_sensitive(result,(pe!=NULL));
+		return(result);
+	}
+	virtual void EffectToWidget(GtkWidget *widget,PPEffect *effect)
+	{
+		PPEffect_Gamma *pe=(PPEffect_Gamma *)effect;
+		if(pe)
+			effectwidget_gamma_set(EFFECTWIDGET_GAMMA(widget),pe->GetGamma());
+	}
+	virtual void WidgetToEffect(GtkWidget *widget,PPEffect *effect)
+	{
+		PPEffect_Gamma *pe=(PPEffect_Gamma *)effect;
+		gamma=effectwidget_gamma_get(EFFECTWIDGET_GAMMA(widget));
+		if(pe)
+			pe->SetGamma(gamma);
+	}
+	protected:
+	GdkPixbuf *icon;
+	double gamma;
 };
 
 
@@ -266,11 +342,13 @@ class EffectListEntry_UnsharpMask : public EffectListEntry
 static EffectListEntry_Desaturate effectlistentry_desaturate;
 static EffectListEntry_Temperature effectlistentry_temperature;
 static EffectListEntry_UnsharpMask effectlistentry_unsharpmask;
+static EffectListEntry_Gamma effectlistentry_gamma;
 
 static EffectListEntry *effectlistsources[]=
 {
 	&effectlistentry_desaturate,
 	&effectlistentry_temperature,
+	&effectlistentry_gamma,
 	&effectlistentry_unsharpmask
 };
 

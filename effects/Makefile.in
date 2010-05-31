@@ -46,8 +46,9 @@ LTLIBRARIES = $(noinst_LTLIBRARIES)
 libppeffects_la_LIBADD =
 am_libppeffects_la_OBJECTS = effectlist.lo effects_dialog.lo \
 	effectselector.lo effectwidget_tempchange.lo \
-	effectwidget_unsharpmask.lo ppeffect.lo ppeffect_desaturate.lo \
-	ppeffect_temperature.lo ppeffect_unsharpmask.lo
+	effectwidget_unsharpmask.lo effectwidget_gamma.lo ppeffect.lo \
+	ppeffect_desaturate.lo ppeffect_temperature.lo \
+	ppeffect_gamma.lo ppeffect_unsharpmask.lo
 libppeffects_la_OBJECTS = $(am_libppeffects_la_OBJECTS)
 libppeffects_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -237,12 +238,16 @@ libppeffects_la_SOURCES = \
 	effectwidget_tempchange.h	\
 	effectwidget_unsharpmask.cpp	\
 	effectwidget_unsharpmask.h	\
+	effectwidget_gamma.cpp	\
+	effectwidget_gamma.h	\
 	ppeffect.cpp 	\
 	ppeffect.h		\
 	ppeffect_desaturate.cpp	\
 	ppeffect_desaturate.h	\
 	ppeffect_temperature.cpp	\
 	ppeffect_temperature.h	\
+	ppeffect_gamma.cpp	\
+	ppeffect_gamma.h	\
 	ppeffect_unsharpmask.cpp	\
 	ppeffect_unsharpmask.h
 
@@ -325,10 +330,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/effectlist.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/effects_dialog.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/effectselector.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/effectwidget_gamma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/effectwidget_tempchange.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/effectwidget_unsharpmask.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ppeffect.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ppeffect_desaturate.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ppeffect_gamma.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ppeffect_temperature.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ppeffect_unsharpmask.Plo@am__quote@
 
