@@ -988,10 +988,17 @@ static void refreshprofiledialog(GtkWidget *wid,gpointer obj)
 	if(profile)
 		Debug[TRACE] << "Got profile: " << profile << endl;
 
-	if(profileactive)
-		st->ii->AssignProfile(profile);
-	else
-		st->ii->AssignProfile(NULL);
+	try
+	{
+		if(profileactive)
+			st->ii->AssignProfile(profile);
+		else
+			st->ii->AssignProfile(NULL);
+	}
+	catch (const char *err)
+	{
+		Debug[ERROR] << "Error: " << err << endl;
+	}
 
 	LCMSWrapper_Intent intent=intentselector_getintent(INTENTSELECTOR(st->intent));
 	st->ii->SetRenderingIntent(intent);
@@ -1002,9 +1009,16 @@ static void refreshprofiledialog(GtkWidget *wid,gpointer obj)
 
 	// FIXME - deal with Intent here.
 
-	GdkPixbuf *tn=st->ii->GetThumbnail();
-	Debug[TRACE] << "Drawing new image" << endl;
-	gtk_image_set_from_pixbuf(GTK_IMAGE(st->preview),tn);
+	try
+	{
+		GdkPixbuf *tn=st->ii->GetThumbnail();
+		Debug[TRACE] << "Drawing new image" << endl;
+		gtk_image_set_from_pixbuf(GTK_IMAGE(st->preview),tn);
+	}
+	catch (const char *err)
+	{
+		Debug[ERROR] << "Error: " << err << endl;
+	}
 }
 
 

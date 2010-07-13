@@ -277,7 +277,7 @@ pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state)
 	gtk_table_attach_defaults(GTK_TABLE(table),GTK_WIDGET(label),0,1,2,3);
 	gtk_widget_show(label);
 
-	ob->lmargin=dimension_new(0.0,300.0,unit);
+	ob->lmargin=dimension_new(0.0,600.0,unit);
 	g_signal_connect(G_OBJECT(ob->lmargin),"value-changed",G_CALLBACK(lmargin_changed),ob);
 	gtk_widget_show(ob->lmargin);
 	
@@ -293,7 +293,7 @@ pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state)
 	gtk_table_attach_defaults(GTK_TABLE(table),GTK_WIDGET(label),2,3,2,3);
 	gtk_widget_show(label);
 
-	ob->rmargin=dimension_new(0.0,300.0,unit);
+	ob->rmargin=dimension_new(0.0,600.0,unit);
 	g_signal_connect(G_OBJECT(ob->rmargin),"value-changed",G_CALLBACK(rmargin_changed),ob);
 	gtk_widget_show(ob->rmargin);
 
@@ -306,7 +306,7 @@ pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state)
 	gtk_table_attach_defaults(GTK_TABLE(table),GTK_WIDGET(label),0,1,3,4);
 	gtk_widget_show(label);
 
-	ob->tmargin=dimension_new(0.0,300.0,unit);
+	ob->tmargin=dimension_new(0.0,800.0,unit);
 	g_signal_connect(G_OBJECT(ob->tmargin),"value-changed",G_CALLBACK(tmargin_changed),ob);
 	gtk_widget_show(ob->tmargin);
 
@@ -317,7 +317,7 @@ pp_pageextent_new (PageExtent *pe,PhotoPrint_State *state)
 	gtk_table_attach_defaults(GTK_TABLE(table),GTK_WIDGET(label),2,3,3,4);
 	gtk_widget_show(label);
 
-	ob->bmargin=dimension_new(0.0,300.0,unit);
+	ob->bmargin=dimension_new(0.0,800.0,unit);
 	g_signal_connect(G_OBJECT(ob->bmargin),"value-changed",G_CALLBACK(bmargin_changed),ob);
 	gtk_widget_show(ob->bmargin);
 

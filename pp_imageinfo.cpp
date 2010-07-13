@@ -345,27 +345,34 @@ class ii_payload : public ThreadFunction
 	{
 		t.SendSync();
 
-		ImageSource *is=ISLoadImage(filename);
-		if(is)
+		try
 		{
-			dimensions=g_strdup_printf("%d x %d %s",imageinfo->GetWidth(),imageinfo->GetHeight(),_("pixels"));
-
-			// Embedded/Assigned Profile
-			CMSProfile *prof=NULL;
-			if(proffilename)
-				prof=new CMSProfile(proffilename);
-			if(!prof)
-				prof=is->GetEmbeddedProfile();
-			if(prof)
+			ImageSource *is=ISLoadImage(filename);
+			if(is)
 			{
-				const char *desc=prof->GetDescription();
-				profname=strdup(desc);
-				if(proffilename)	// Only delete the profile if we created it from a filename
-					delete prof;
+				dimensions=g_strdup_printf("%d x %d %s",imageinfo->GetWidth(),imageinfo->GetHeight(),_("pixels"));
+
+				// Embedded/Assigned Profile
+				CMSProfile *prof=NULL;
+				if(proffilename)
+					prof=new CMSProfile(proffilename);
+				if(!prof)
+					prof=is->GetEmbeddedProfile();
+				if(prof)
+				{
+					const char *desc=prof->GetDescription();
+					profname=strdup(desc);
+					if(proffilename)	// Only delete the profile if we created it from a filename
+						delete prof;
+				}
+				delete is;
 			}
-			delete is;
+			g_idle_add(ii_payload::IdleFunc,this);
 		}
-		g_idle_add(ii_payload::IdleFunc,this);
+		catch (const char *err)
+		{
+			Debug[ERROR] << "Error: " << err << endl;
+		}
 		return(0);
 	}
 	static gboolean IdleFunc(gpointer ud)

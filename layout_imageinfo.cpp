@@ -952,7 +952,7 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 		{
 			CMSProfile *emb;
 			if(customprofile)
-				emb=new CMSProfile(customprofile);  // FIXME: lifespan?
+				emb=layout.factory->GetManager().GetProfile(customprofile);  // FIXME: lifespan?
 			else
 				emb=src->GetEmbeddedProfile();
 			if(emb)
@@ -1064,7 +1064,7 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 	{
 		CMSProfile *emb;
 		if(customprofile)
-			emb=new CMSProfile(customprofile);  // FIXME: Lifespan!
+			emb=factory->GetManager().GetProfile(customprofile);  // FIXME: Lifespan!
 		else
 			emb=is->GetEmbeddedProfile();
 		

@@ -1,6 +1,14 @@
 URGENT:
 ~~~~~~~
 
+Assigning sRGB Built-in to an image causes a segfault.
+
+Fix problem with cached transforms and changing proof mode.
+Either flush factories' cache when changing proof mode, or make the cache take
+display intent into account.
+
+Increase maximum permitted margins.
+
 | Move high-res preview generation to JobQueues.
 
 | Fix DeviceLink handling
@@ -20,7 +28,9 @@ Figure out how best to fetch default margins from the printer.
 Need to be able to print a range of a multi-page layout.
 
 Problem with CUPS PDF printer - all jobs have name "stdin" so each page's PDF overwrites the last one!
--> Can we set the document name in postscript comments?  Possible via Gutenprint?
+-> Can we set the document name in postscript comments?  Possible via Gutenprint?  Or via CUPS -C -J or -T flags?
+Can be set in Win32 using DOCINFO too.
+
 
 |Show tile grid in Poster mode
 | Need to stop it being hidden when high-res previews are drawn.
@@ -96,10 +106,11 @@ Suggest three pages:
 	Fallback colour space:  RGB / CMYK
 
 
-Add Gamma Correction effect
+|Add Gamma Correction effect
+Add icon for Gamma
+Allow gamma correction to be done in CIALab space.
 
 Add support for more detailed cropping rectangle.
-
 
 Sort out problems with certain strings not being collected into the message catalogues.
 
