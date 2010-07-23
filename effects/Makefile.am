@@ -32,7 +32,10 @@ libppeffects_la_SOURCES =	\
 
 libppeffects_la_LDFLAGS = -static
 
-BUILT_SOURCES = ppeffect_temperature_icon.cpp ppeffect_desaturate_icon.cpp ppeffect_unsharpmask_icon.cpp
+BUILT_SOURCES = ppeffect_temperature_icon.cpp ppeffect_desaturate_icon.cpp ppeffect_unsharpmask_icon.cpp ppeffect_gamma_icon.cpp
+
+ppeffect_gamma_icon.cpp: GammaIcon.bmp
+	gdk-pixbuf-csource --name=PPEffect_Gamma_Icon >ppeffect_gamma_icon.cpp GammaIcon.bmp
 
 ppeffect_temperature_icon.cpp: TemperatureIcon.bmp
 	gdk-pixbuf-csource --name=PPEffect_Temperature_Icon >ppeffect_temperature_icon.cpp TemperatureIcon.bmp
@@ -53,5 +56,5 @@ dialogcheck_LDADD = -L. -lppeffects -L../imagesource -limagesource -L../profilem
 	-L../support -lsupport -L../pixbufthumbnail -lpixbufthumbnail  $(LIBINTL) $(TIFF_LIBS) $(LCMS_LIBS) $(GTK2_LIBS)
 
 EXTRA_DIST = TemperatureIcon.bmp DesaturateIcon.bmp UnsharpMaskIcon.bmp \
-		ppeffect_temperature_icon.cpp ppeffect_desaturate_icon.cpp ppeffect_unsharpmask_icon.cpp
+		ppeffect_temperature_icon.cpp ppeffect_desaturate_icon.cpp ppeffect_unsharpmask_icon.cpp ppeffect_gamma_icon.cpp
 
