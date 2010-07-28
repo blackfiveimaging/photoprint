@@ -19,6 +19,8 @@ libppeffects_la_SOURCES =	\
 	effectwidget_unsharpmask.h	\
 	effectwidget_gamma.cpp	\
 	effectwidget_gamma.h	\
+	effectwidget_channelmask.cpp	\
+	effectwidget_channelmask.h	\
 	ppeffect.cpp 	\
 	ppeffect.h		\
 	ppeffect_desaturate.cpp	\
@@ -28,7 +30,9 @@ libppeffects_la_SOURCES =	\
 	ppeffect_gamma.cpp	\
 	ppeffect_gamma.h	\
 	ppeffect_unsharpmask.cpp	\
-	ppeffect_unsharpmask.h
+	ppeffect_unsharpmask.h	\
+	ppeffect_channelmask.cpp	\
+	ppeffect_channelmask.h
 
 libppeffects_la_LDFLAGS = -static
 

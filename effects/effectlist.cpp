@@ -10,6 +10,7 @@
 #include "effectwidget_tempchange.h"
 #include "effectwidget_unsharpmask.h"
 #include "effectwidget_gamma.h"
+#include "effectwidget_channelmask.h"
 #include "ppeffect_temperature_icon.cpp"
 #include "ppeffect_desaturate.h"
 #include "ppeffect_desaturate_icon.cpp"
@@ -17,6 +18,7 @@
 #include "ppeffect_unsharpmask_icon.cpp"
 #include "ppeffect_gamma.h"
 #include "ppeffect_gamma_icon.cpp"
+#include "ppeffect_channelmask.h"
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -28,7 +30,7 @@
 
 using namespace std;
 
-enum EFFECT_PRIORITIES {PRIORITY_UNSHARPMASK,PRIORITY_TEMPERATURE,PRIORITY_DESATURATE,PRIORITY_GAMMA};
+enum EFFECT_PRIORITIES {PRIORITY_UNSHARPMASK,PRIORITY_TEMPERATURE,PRIORITY_DESATURATE,PRIORITY_GAMMA,PRIORITY_CHANNELMASK};
 
 
 // Abstract base class
@@ -57,6 +59,85 @@ class EffectListEntry
 	{
 	}
 	protected:
+};
+
+
+// Subclass for ChannelMask effect
+
+
+class EffectListEntry_ChannelMask : public EffectListEntry
+{
+	public:
+	EffectListEntry_ChannelMask() :
+		EffectListEntry(), icon(NULL), cols(IS_TYPE_CMYK)
+	{
+	}
+	virtual ~EffectListEntry_ChannelMask()
+	{
+	}
+	virtual const char *GetID()
+	{
+		return(PPEffect_ChannelMask::ID);
+	}
+	virtual const char *GetName()
+	{
+		return(gettext(PPEffect_ChannelMask::Name));
+	}
+	virtual GdkPixbuf *GetIcon()
+	{
+		if(icon)
+			return(icon);
+		GdkPixdata pd;
+		GError *err;
+
+		if(!gdk_pixdata_deserialize(&pd,sizeof(PPEffect_Gamma_Icon),PPEffect_Gamma_Icon,&err))
+			throw(err->message);
+
+		if(!(icon=gdk_pixbuf_from_pixdata(&pd,false,&err)))
+			throw(err->message);
+
+		return(icon);
+	}
+	virtual PPEffect *CreateEffect(PPEffectHeader &header)
+	{
+		PPEffect_ChannelMask *result=new PPEffect_ChannelMask(header,PRIORITY_CHANNELMASK,PPEFFECT_PRESCALE);
+//		result->SetGamma(gamma);
+		return(result);
+	}
+	virtual GtkWidget *CreateWidget(PPEffect *effect)
+	{
+		PPEffect_ChannelMask *pe=(PPEffect_ChannelMask *)effect;
+		GtkWidget *result=NULL;
+		result=effectwidget_channelmask_new(&cols);
+		if(pe)
+			EffectToWidget(result,effect);
+		else
+			effectwidget_channelmask_set(EFFECTWIDGET_CHANNELMASK(result),&cols);
+		gtk_widget_set_sensitive(result,(pe!=NULL));
+		return(result);
+	}
+	virtual void EffectToWidget(GtkWidget *widget,PPEffect *effect)
+	{
+		PPEffect_ChannelMask *pe=(PPEffect_ChannelMask *)effect;
+		if(pe)
+		{
+			std::string tmp=pe->GetChannels();
+			cols.SetEnabledColorants(tmp.c_str());
+			effectwidget_channelmask_set(EFFECTWIDGET_CHANNELMASK(widget),&cols);
+		}
+	}
+	virtual void WidgetToEffect(GtkWidget *widget,PPEffect *effect)
+	{
+		PPEffect_ChannelMask *pe=(PPEffect_ChannelMask *)effect;
+		if(pe)
+		{
+			char *tmp=cols.GetEnabledColorants();
+			pe->SetChannels(tmp);
+		}
+	}
+	protected:
+	GdkPixbuf *icon;
+	DeviceNColorantList cols;
 };
 
 
@@ -343,12 +424,14 @@ static EffectListEntry_Desaturate effectlistentry_desaturate;
 static EffectListEntry_Temperature effectlistentry_temperature;
 static EffectListEntry_UnsharpMask effectlistentry_unsharpmask;
 static EffectListEntry_Gamma effectlistentry_gamma;
+static EffectListEntry_ChannelMask effectlistentry_channelmask;
 
 static EffectListEntry *effectlistsources[]=
 {
 	&effectlistentry_desaturate,
 	&effectlistentry_temperature,
 	&effectlistentry_gamma,
+	&effectlistentry_channelmask,
 	&effectlistentry_unsharpmask
 };
 
