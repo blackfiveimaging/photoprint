@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: photoprint 0.4.2-pre2\n"
+"Project-Id-Version: photoprint 0.4.2-pre3\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-05-29 17:24+0100\n"
+"POT-Creation-Date: 2010-07-29 00:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,23 +144,23 @@ msgstr ""
 msgid "Select a background..."
 msgstr ""
 
-#: dialogs.cpp:1023 pp_menu_image.cpp:276
+#: dialogs.cpp:1037 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr ""
 
-#: dialogs.cpp:1054
+#: dialogs.cpp:1068
 msgid "Set Custom Profile..."
 msgstr ""
 
-#: dialogs.cpp:1066
+#: dialogs.cpp:1080
 msgid "Before:"
 msgstr ""
 
-#: dialogs.cpp:1070
+#: dialogs.cpp:1084
 msgid "After:"
 msgstr ""
 
-#: dialogs.cpp:1084
+#: dialogs.cpp:1098
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -169,17 +169,17 @@ msgid ""
 "dialog!"
 msgstr ""
 
-#: dialogs.cpp:1109
+#: dialogs.cpp:1123
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
 msgstr ""
 
-#: dialogs.cpp:1126
+#: dialogs.cpp:1140
 msgid "Assign Profile:"
 msgstr ""
 
-#: dialogs.cpp:1134 pp_cms.cpp:349
+#: dialogs.cpp:1148 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr ""
 
@@ -814,11 +814,11 @@ msgstr ""
 msgid "Profile:"
 msgstr ""
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:353
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:831
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:837
 msgid "Default"
 msgstr ""
 
@@ -1088,7 +1088,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr ""
 
-#: gp_cppsupport/gprinter.cpp:387
+#: gp_cppsupport/gprinter.cpp:388
 msgid "Unable to generate print data"
 msgstr ""
 
@@ -1200,66 +1200,70 @@ msgid ""
 "Check STP_DATA_PATH and Gutenprint version!"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:553
+#: profilemanager/lcmswrapper.cpp:564
 msgid "Perceptual"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:554
+#: profilemanager/lcmswrapper.cpp:565
 msgid "Relative Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:555
+#: profilemanager/lcmswrapper.cpp:566
 msgid "Relative Colorimetric with BPC"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:556
+#: profilemanager/lcmswrapper.cpp:567
 msgid "Saturation"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:557
+#: profilemanager/lcmswrapper.cpp:568
 msgid "Absolute Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:562
+#: profilemanager/lcmswrapper.cpp:573
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:563
+#: profilemanager/lcmswrapper.cpp:574
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:564
+#: profilemanager/lcmswrapper.cpp:575
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
 "and shadows."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:576
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:577
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
 msgstr ""
 
-#: profilemanager/profileselector.cpp:39 miscwidgets/imageselector.cpp:478
+#: profilemanager/profileselector.cpp:40 miscwidgets/imageselector.cpp:478
 msgid "Other..."
 msgstr ""
 
-#: profilemanager/profileselector.cpp:193
+#: profilemanager/profileselector.cpp:195
 msgid "None"
 msgstr ""
 
-#: profilemanager/profileselector.cpp:392
+#: profilemanager/profileselector.cpp:227
+msgid "Choose ICC Profile..."
+msgstr ""
+
+#: profilemanager/profileselector.cpp:394
 msgid "Please choose a valid ICC profile"
 msgstr ""
 
@@ -1279,7 +1283,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:839
+#: profilemanager/profilemanager.cpp:845
 msgid "Default rendering intent"
 msgstr ""
 

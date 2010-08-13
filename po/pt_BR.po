@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-05-29 17:24+0100\n"
+"POT-Creation-Date: 2010-07-29 00:46+0100\n"
 "PO-Revision-Date: 2007-07-14 00:26-0300\n"
 "Last-Translator: Krishnamurti Lelis Lima Vieira Nunes <krishna@colivre.coop."
 "br>\n"
@@ -154,23 +154,23 @@ msgstr ""
 msgid "Select a background..."
 msgstr "Selecione um background..."
 
-#: dialogs.cpp:1023 pp_menu_image.cpp:276
+#: dialogs.cpp:1037 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Por favor insira uma imagem primeiro! "
 
-#: dialogs.cpp:1054
+#: dialogs.cpp:1068
 msgid "Set Custom Profile..."
 msgstr "Defina perfil padrão"
 
-#: dialogs.cpp:1066
+#: dialogs.cpp:1080
 msgid "Before:"
 msgstr "Antes:"
 
-#: dialogs.cpp:1070
+#: dialogs.cpp:1084
 msgid "After:"
 msgstr "Depois:"
 
-#: dialogs.cpp:1084
+#: dialogs.cpp:1098
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -183,7 +183,7 @@ msgstr ""
 "um RGB padrão ou um perfil Monitor \n"
 "em Options->Gerenciamento de cor"
 
-#: dialogs.cpp:1109
+#: dialogs.cpp:1123
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -191,11 +191,11 @@ msgstr ""
 "Advertência: uma imagem já foi incluída no perfil\n"
 "Incluir outra vai sobrescrevê-la!"
 
-#: dialogs.cpp:1126
+#: dialogs.cpp:1140
 msgid "Assign Profile:"
 msgstr "Definir Perfil:"
 
-#: dialogs.cpp:1134 pp_cms.cpp:349
+#: dialogs.cpp:1148 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr "Tentar Renderização:"
 
@@ -836,11 +836,11 @@ msgstr "Resolução (dpi)"
 msgid "Profile:"
 msgstr "Perfil RGB:"
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:353
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:831
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:837
 #, fuzzy
 msgid "Default"
 msgstr "Salvar _Padrão"
@@ -1126,7 +1126,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Configuração da Impressora "
 
-#: gp_cppsupport/gprinter.cpp:387
+#: gp_cppsupport/gprinter.cpp:388
 #, fuzzy
 msgid "Unable to generate print data"
 msgstr "Gerando dados de impressão..."
@@ -1244,27 +1244,27 @@ msgid ""
 "Check STP_DATA_PATH and Gutenprint version!"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:553
+#: profilemanager/lcmswrapper.cpp:564
 msgid "Perceptual"
 msgstr "Percentual"
 
-#: profilemanager/lcmswrapper.cpp:554
+#: profilemanager/lcmswrapper.cpp:565
 msgid "Relative Colorimetric"
 msgstr "Colorimétrica Relativa"
 
-#: profilemanager/lcmswrapper.cpp:555
+#: profilemanager/lcmswrapper.cpp:566
 msgid "Relative Colorimetric with BPC"
 msgstr "Colorimétrica Relativa com BPC"
 
-#: profilemanager/lcmswrapper.cpp:556
+#: profilemanager/lcmswrapper.cpp:567
 msgid "Saturation"
 msgstr "Saturação"
 
-#: profilemanager/lcmswrapper.cpp:557
+#: profilemanager/lcmswrapper.cpp:568
 msgid "Absolute Colorimetric"
 msgstr "Colorimétrica Absoluta"
 
-#: profilemanager/lcmswrapper.cpp:562
+#: profilemanager/lcmswrapper.cpp:573
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
@@ -1272,7 +1272,7 @@ msgstr ""
 "Tenta privilegiar os resultados fotográficos preservando o relacionamento "
 "entre as cores e evitando  clipping of unattainable colours"
 
-#: profilemanager/lcmswrapper.cpp:563
+#: profilemanager/lcmswrapper.cpp:574
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
@@ -1280,7 +1280,7 @@ msgstr ""
 "Tenta preservar as cores originais, relativas às diferenças dos pontos-"
 "brancos"
 
-#: profilemanager/lcmswrapper.cpp:564
+#: profilemanager/lcmswrapper.cpp:575
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
@@ -1290,7 +1290,7 @@ msgstr ""
 "brancos. Usa Compensação de Pontos Pretos para evitar acentuar os reflexos e "
 "sombras."
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:576
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
@@ -1298,7 +1298,7 @@ msgstr ""
 "Tenta obter cores mais brilhantes e saturadas, em detrimento de "
 "relacionamentos entre as cores."
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:577
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1306,16 +1306,21 @@ msgstr ""
 "Imita as cores originais (incluindo pontos brancos) o mais fielmente "
 "possível, para comparações lado-a-lado.  Clips unattainable colours."
 
-#: profilemanager/profileselector.cpp:39 miscwidgets/imageselector.cpp:478
+#: profilemanager/profileselector.cpp:40 miscwidgets/imageselector.cpp:478
 msgid "Other..."
 msgstr "Outro..."
 
-#: profilemanager/profileselector.cpp:193
+#: profilemanager/profileselector.cpp:195
 #, fuzzy
 msgid "None"
 msgstr "_Nenhuma"
 
-#: profilemanager/profileselector.cpp:392
+#: profilemanager/profileselector.cpp:227
+#, fuzzy
+msgid "Choose ICC Profile..."
+msgstr "Perfis ICC"
+
+#: profilemanager/profileselector.cpp:394
 msgid "Please choose a valid ICC profile"
 msgstr ""
 
@@ -1335,7 +1340,7 @@ msgstr ""
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:839
+#: profilemanager/profilemanager.cpp:845
 #, fuzzy
 msgid "Default rendering intent"
 msgstr "Tentar Renderização:"

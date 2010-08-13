@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-05-29 17:24+0100\n"
+"POT-Creation-Date: 2010-07-29 00:46+0100\n"
 "PO-Revision-Date: 2010-02-08 23:29+0100\n"
 "Last-Translator: Kenny Verstraete <verstraete_kenny@skynet.be>\n"
 "Language-Team: Dutch <>\n"
@@ -159,23 +159,23 @@ msgstr "JPEG kwaliteit:"
 msgid "Select a background..."
 msgstr "Kies een achtergrond..."
 
-#: dialogs.cpp:1023 pp_menu_image.cpp:276
+#: dialogs.cpp:1037 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Kies eerst een afbeelding!"
 
-#: dialogs.cpp:1054
+#: dialogs.cpp:1068
 msgid "Set Custom Profile..."
 msgstr "Stel eigen profiel in..."
 
-#: dialogs.cpp:1066
+#: dialogs.cpp:1080
 msgid "Before:"
 msgstr "Voor:"
 
-#: dialogs.cpp:1070
+#: dialogs.cpp:1084
 msgid "After:"
 msgstr "Na:"
 
-#: dialogs.cpp:1084
+#: dialogs.cpp:1098
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -189,7 +189,7 @@ msgstr ""
 "in de Opties->Kleurbeheer\n"
 "dialoog!"
 
-#: dialogs.cpp:1109
+#: dialogs.cpp:1123
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -197,11 +197,11 @@ msgstr ""
 "Waarschuwing: De afbeelding bevat al een kleurprofiel\n"
 "Een nieuw kiezen zal het oude overschrijven!"
 
-#: dialogs.cpp:1126
+#: dialogs.cpp:1140
 msgid "Assign Profile:"
 msgstr "Toewijzen profiel:"
 
-#: dialogs.cpp:1134 pp_cms.cpp:349
+#: dialogs.cpp:1148 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr "Gewenst resultaat:"
 
@@ -895,11 +895,11 @@ msgstr "Resolutie:"
 msgid "Profile:"
 msgstr "Profiel:"
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:353
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:831
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:837
 msgid "Default"
 msgstr "Standaard"
 
@@ -1175,7 +1175,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Printerwachtrij niet gevonden"
 
-#: gp_cppsupport/gprinter.cpp:387
+#: gp_cppsupport/gprinter.cpp:388
 msgid "Unable to generate print data"
 msgstr "Niet mogelijk om printdata te genereren"
 
@@ -1291,27 +1291,27 @@ msgstr ""
 "Kan de printer niet verkrijgen van Gutenprint\n"
 "Controleer STP_DATA_PATH en de Gutenprint versie!"
 
-#: profilemanager/lcmswrapper.cpp:553
+#: profilemanager/lcmswrapper.cpp:564
 msgid "Perceptual"
 msgstr "Perceptueel"
 
-#: profilemanager/lcmswrapper.cpp:554
+#: profilemanager/lcmswrapper.cpp:565
 msgid "Relative Colorimetric"
 msgstr "Relatieve Colorometrie"
 
-#: profilemanager/lcmswrapper.cpp:555
+#: profilemanager/lcmswrapper.cpp:566
 msgid "Relative Colorimetric with BPC"
 msgstr "Relatieve Colorometrie met BPC"
 
-#: profilemanager/lcmswrapper.cpp:556
+#: profilemanager/lcmswrapper.cpp:567
 msgid "Saturation"
 msgstr "Verzadiging"
 
-#: profilemanager/lcmswrapper.cpp:557
+#: profilemanager/lcmswrapper.cpp:568
 msgid "Absolute Colorimetric"
 msgstr "Absolute Colorometrie"
 
-#: profilemanager/lcmswrapper.cpp:562
+#: profilemanager/lcmswrapper.cpp:573
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
@@ -1320,7 +1320,7 @@ msgstr ""
 "vankoppelingen tussen kleuren en knippen van onbereikbare kleuren te "
 "voorkomen."
 
-#: profilemanager/lcmswrapper.cpp:563
+#: profilemanager/lcmswrapper.cpp:574
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
@@ -1328,7 +1328,7 @@ msgstr ""
 "Probeert de originele kleuren te behouden, relatief ten opzichte van de "
 "witbalans."
 
-#: profilemanager/lcmswrapper.cpp:564
+#: profilemanager/lcmswrapper.cpp:575
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
@@ -1338,7 +1338,7 @@ msgstr ""
 "vanwitbalans verschillen. Gebruikt BPC (Zwart Punt Compensatie) om licht en "
 "donker goed weer te geven."
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:576
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
@@ -1346,7 +1346,7 @@ msgstr ""
 "Probeert heldere, meer verzadigde kleuren te krijgen ten koste van de "
 "relaties tussen de kleuren."
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:577
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1354,16 +1354,21 @@ msgstr ""
 "Geeft de originele kleuren (inclusief witbalans) zo goed mogelijk weer, voor "
 "directe vergelijkingen. Filtert onbekende kleuren."
 
-#: profilemanager/profileselector.cpp:39 miscwidgets/imageselector.cpp:478
+#: profilemanager/profileselector.cpp:40 miscwidgets/imageselector.cpp:478
 msgid "Other..."
 msgstr "Andere..."
 
-#: profilemanager/profileselector.cpp:193
+#: profilemanager/profileselector.cpp:195
 #, fuzzy
 msgid "None"
 msgstr "Gee_n"
 
-#: profilemanager/profileselector.cpp:392
+#: profilemanager/profileselector.cpp:227
+#, fuzzy
+msgid "Choose ICC Profile..."
+msgstr "ICC Profielen"
+
+#: profilemanager/profileselector.cpp:394
 msgid "Please choose a valid ICC profile"
 msgstr "Kies een geldig ICC-profiel"
 
@@ -1383,7 +1388,7 @@ msgstr "Kan niet proefdrukken zonder een geldig RGB profiel!"
 msgid "No Proof profile provided!"
 msgstr "Geen proefdruk profiel bezorgd!"
 
-#: profilemanager/profilemanager.cpp:839
+#: profilemanager/profilemanager.cpp:845
 msgid "Default rendering intent"
 msgstr "Gewenst resultaat"
 

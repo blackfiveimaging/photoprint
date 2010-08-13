@@ -4,13 +4,13 @@ URGENT:
 Fix segfault if effects are toggled with no image selected.
 (EffectSelector should be disabled in this case anyway, but fix segfault nonetheless.)
 
-Fix problem with duplicate "Shortcuts" in the path if self-built and packaged versions are concurrently installed.
+| Fix problem with duplicate "Shortcuts" in the path if self-built and packaged versions are concurrently installed.
 
 Effects need to know at creation time which colour space they're operating on.
 
 Need a ChannelMask effect
 
-Assigning sRGB Built-in to an image causes a segfault.
+| Assigning sRGB Built-in to an image causes a segfault.
 
 Fix problem with cached transforms and changing proof mode.
 Either flush factories' cache when changing proof mode, or make the cache take

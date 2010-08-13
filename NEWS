@@ -26,6 +26,10 @@ PhotoPrint-0.4.2
 
   * Now has Gamma effect.
 
+  * No longer segfaults if sRGB built-in is assigned to an image.
+
+  * Fixed problem with shortcut menu when duplicate shortcuts are installed under different paths.
+
 
 PhotoPrint-0.4.1
 

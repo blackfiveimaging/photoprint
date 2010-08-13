@@ -79,6 +79,54 @@ static GtkActionEntry shortcutsmenu_entries[] = {
 };
 
 
+// Class to maintain a list of strings, disallowing duplicates.
+
+class shortcutlist : public std::vector<std::string>
+{
+	public:
+	shortcutlist() : std::vector<std::string>()
+	{
+	}
+	~shortcutlist()
+	{
+	}
+	bool exists(std::string &str)
+	{
+		Debug[TRACE] << "Hunting for " << str << endl;
+		for(unsigned int i=0;i<size();++i)
+		{
+			if((*this)[i]==str)
+				return(true);
+		}
+		return(false);
+	}
+	// Adds the basename of the given string, stripping any path component.
+	bool addbase(std::string str)
+	{
+		char *tmp=strdup(str.c_str());
+		char *t2=basename(tmp);
+		std::string str2(t2);
+		free(tmp);
+		return(add(str2));
+	}
+	// Returns true if the item was added, false if it already existed
+	bool add(std::string str)
+	{
+		if(!exists(str))
+		{
+			Debug[TRACE] << "Adding " << str << endl;
+			push_back(str);
+			return(true);
+		}
+		return(false);
+	}	
+	void sortlist()
+	{
+		sort(begin(),end());
+	}
+};
+
+
 void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)userdata;	
@@ -97,6 +145,8 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 	string uidesc="<ui><menubar name='MainMenu'><menu action='ShortcutsMenu'>\n";
 	gtk_action_group_add_actions (action_group, shortcutsmenu_entries, G_N_ELEMENTS (shortcutsmenu_entries), userdata);
 
+	shortcutlist globallist;
+
 	path=NULL;
 	while((path=spi.GetNextPath(path)))
 	{
@@ -106,13 +156,17 @@ void BuildShortcutsMenu(void *userdata,GtkUIManager *ui_manager)
 		bool separator=false;
 		while(dir)
 		{
-			vector<string> strlist;
+			shortcutlist strlist;
 			const char *file;
 
 			while((file=dir->NextFile()))
-				strlist.push_back(string(file));
-
-			sort(strlist.begin(),strlist.end());
+			{
+				if(globallist.addbase(file))
+					strlist.add(file);
+				else
+					Debug[WARN] << "Not adding " << file << " since an entry of that name already exists." << std::endl;
+			}
+			strlist.sortlist();
 
 			vector<string>::const_iterator it;
 			for(it=strlist.begin(); it!=strlist.end(); ++it)

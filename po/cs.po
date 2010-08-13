@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-05-29 17:24+0100\n"
+"POT-Creation-Date: 2010-07-29 00:46+0100\n"
 "PO-Revision-Date: 2010-04-23 18:04+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -156,23 +156,23 @@ msgstr "Kvalita JPEG:"
 msgid "Select a background..."
 msgstr "Volba pozadí…"
 
-#: dialogs.cpp:1023 pp_menu_image.cpp:276
+#: dialogs.cpp:1037 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr "Nejdříve prosím zvolte obrázek!"
 
-#: dialogs.cpp:1054
+#: dialogs.cpp:1068
 msgid "Set Custom Profile..."
 msgstr "Nastavení uživatelského profilu…"
 
-#: dialogs.cpp:1066
+#: dialogs.cpp:1080
 msgid "Before:"
 msgstr "Před:"
 
-#: dialogs.cpp:1070
+#: dialogs.cpp:1084
 msgid "After:"
 msgstr "Po:"
 
-#: dialogs.cpp:1084
+#: dialogs.cpp:1098
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -185,7 +185,7 @@ msgstr ""
 "výchozí profil RGB nebo obrazovky\n"
 "v dialogu Volby->Správa barev!"
 
-#: dialogs.cpp:1109
+#: dialogs.cpp:1123
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
@@ -193,11 +193,11 @@ msgstr ""
 "Varování: Obrázek již obsahuje uložený profil.\n"
 "Přiřazením nového původní potlačíte."
 
-#: dialogs.cpp:1126
+#: dialogs.cpp:1140
 msgid "Assign Profile:"
 msgstr "Přiřadit profil:"
 
-#: dialogs.cpp:1134 pp_cms.cpp:349
+#: dialogs.cpp:1148 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr "Cíl vykreslování:"
 
@@ -872,11 +872,11 @@ msgstr "Rozlišení:"
 msgid "Profile:"
 msgstr "Profil:"
 
-#: pp_imageinfo.cpp:351
+#: pp_imageinfo.cpp:353
 msgid "pixels"
 msgstr "pixelů"
 
-#: pp_imageinfo.cpp:380 profilemanager/profilemanager.cpp:831
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:837
 msgid "Default"
 msgstr "Výchozí"
 
@@ -1150,7 +1150,7 @@ msgstr ""
 msgid "Printer queue not found"
 msgstr "Tisková fronta nebyla nalezena"
 
-#: gp_cppsupport/gprinter.cpp:387
+#: gp_cppsupport/gprinter.cpp:388
 msgid "Unable to generate print data"
 msgstr "Nelze vygenerovat tisková data"
 
@@ -1266,27 +1266,27 @@ msgstr ""
 "Nelze získat tiskárnu ze systému Gutenprint\n"
 "Zkontrolujte STP_DATA_PATH a verzi Gutenprint!"
 
-#: profilemanager/lcmswrapper.cpp:553
+#: profilemanager/lcmswrapper.cpp:564
 msgid "Perceptual"
 msgstr "Vizuální vjem"
 
-#: profilemanager/lcmswrapper.cpp:554
+#: profilemanager/lcmswrapper.cpp:565
 msgid "Relative Colorimetric"
 msgstr "Relativní kolorimetrie"
 
-#: profilemanager/lcmswrapper.cpp:555
+#: profilemanager/lcmswrapper.cpp:566
 msgid "Relative Colorimetric with BPC"
 msgstr "Relativní kolorimetrie s BPC"
 
-#: profilemanager/lcmswrapper.cpp:556
+#: profilemanager/lcmswrapper.cpp:567
 msgid "Saturation"
 msgstr "Sytost barev"
 
-#: profilemanager/lcmswrapper.cpp:557
+#: profilemanager/lcmswrapper.cpp:568
 msgid "Absolute Colorimetric"
 msgstr "Absolutní kolorimetrie"
 
-#: profilemanager/lcmswrapper.cpp:562
+#: profilemanager/lcmswrapper.cpp:573
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
@@ -1294,13 +1294,13 @@ msgstr ""
 "Pokusí se o příjemný fotografický výsledek pomocí zachování vztahů mezi "
 "barvami a zabránění ořezání nedostupných barev."
 
-#: profilemanager/lcmswrapper.cpp:563
+#: profilemanager/lcmswrapper.cpp:574
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr "Pokusí se zachovat originální barvy relativně k rozdílům bílého bodu."
 
-#: profilemanager/lcmswrapper.cpp:564
+#: profilemanager/lcmswrapper.cpp:575
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
@@ -1309,14 +1309,14 @@ msgstr ""
 "Pokusí se zachovat originální barvy relativně k rozdílům bílého bodu. "
 "Použije kompenzaci černého bodu (BPC), aby se zabránilo ořezání jasů a stínů."
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:576
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
 "Pokusí se poskytnout jasnější a sytější barvy na účet vztahů mezi barvami."
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:577
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1324,16 +1324,21 @@ msgstr ""
 "Napodobí originální barvy (včetně bílého bodu) jak nejlépe to půjde při "
 "vzájemném porovnání. Ořízne nedostupné barvy."
 
-#: profilemanager/profileselector.cpp:39 miscwidgets/imageselector.cpp:478
+#: profilemanager/profileselector.cpp:40 miscwidgets/imageselector.cpp:478
 msgid "Other..."
 msgstr "Další…"
 
-#: profilemanager/profileselector.cpp:193
+#: profilemanager/profileselector.cpp:195
 #, fuzzy
 msgid "None"
 msgstr "Žá_dné"
 
-#: profilemanager/profileselector.cpp:392
+#: profilemanager/profileselector.cpp:227
+#, fuzzy
+msgid "Choose ICC Profile..."
+msgstr "Profily ICC"
+
+#: profilemanager/profileselector.cpp:394
 msgid "Please choose a valid ICC profile"
 msgstr "Zvolte prosím platný profil ICC"
 
@@ -1353,7 +1358,7 @@ msgstr "Bez výchozího profilu RGB nelze provést korekci!"
 msgid "No Proof profile provided!"
 msgstr "Není poskytován žádný korekční profil!"
 
-#: profilemanager/profilemanager.cpp:839
+#: profilemanager/profilemanager.cpp:845
 msgid "Default rendering intent"
 msgstr "Výchozí cíl vykreslování"
 
