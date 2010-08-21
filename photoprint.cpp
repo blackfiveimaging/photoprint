@@ -7,6 +7,8 @@
  */
 
 #include <iostream>
+#include <string>
+#include <deque>
 
 #include <getopt.h>
 #include <stdio.h>
@@ -41,7 +43,7 @@
 
 using namespace std;
 
-bool ParseOptions(int argc,char *argv[],char **presetname)
+bool ParseOptions(int argc,char *argv[],std::deque<std::string> &presetnames)
 {
 	int batchmode=false;
 	static struct option long_options[] =
@@ -76,7 +78,8 @@ bool ParseOptions(int argc,char *argv[],char **presetname)
 				throw 0;
 				break;
 			case 'p':
-				*presetname=optarg;
+				Debug[TRACE] << "Adding preset file " << optarg << endl;
+				presetnames.push_back(optarg);
 				break;
 			case 'b':
 				batchmode=true;
@@ -101,7 +104,7 @@ int main(int argc,char **argv)
 {
 	Debug[TRACE] << "Photoprint starting..." << endl;
 	gboolean have_gtk=false;
-	char *presetname=NULL;
+	std::deque<string> presetnames;
 
 	Debug.SetLevel(WARN);
 #ifdef WIN32
@@ -112,7 +115,7 @@ int main(int argc,char **argv)
 
 	try
 	{
-		bool batchmode=ParseOptions(argc,argv,&presetname);
+		bool batchmode=ParseOptions(argc,argv,presetnames);
 		if(!batchmode)
 			have_gtk=gtk_init_check (&argc, &argv);
 
@@ -137,9 +140,6 @@ int main(int argc,char **argv)
 
 		PhotoPrint_State state(batchmode);
 
-		if(presetname)
-			state.SetFilename(presetname);
-
 		if(have_gtk)
 			splash->SetMessage(_("Checking .photoprint directory..."));
 
@@ -148,6 +148,12 @@ int main(int argc,char **argv)
 		if(have_gtk)
 			splash->SetMessage(_("Loading preset..."));
 		state.ParseConfigFile();
+		for(unsigned int i=0;i<presetnames.size();++i)
+		{
+			Debug[TRACE] << "Parsing config file: " << presetnames[i] << endl;
+			state.SetFilename(presetnames[i].c_str());
+			state.ParseConfigFile();
+		}
 
 		if(have_gtk)
 		{
