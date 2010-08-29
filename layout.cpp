@@ -608,8 +608,9 @@ void Layout::FlushThumbnails()
 	// in case any rendering threads are still using a transform owned
 	// by the factory.
 
-	delete factory;
-	factory=new CMTransformFactory(state.profilemanager);
+//	delete factory;
+//	factory=new CMTransformFactory(state.profilemanager);
+	factory->Flush();
 
 	// If the profile settings have changed, we'll flush the paper white
 	// gc too, so it's regenerate with the new settings.

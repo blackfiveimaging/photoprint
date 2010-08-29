@@ -57,7 +57,7 @@ dialogcheck_DEPENDENCIES = libppeffects.la ../pixbufthumbnail/libpixbufthumbnail
 	../imagesource/libimagesource.la ../profilemanager/libprofilemanager.la \
 	../support/libsupport.la
 dialogcheck_LDADD = -L. -lppeffects -L../imagesource -limagesource -L../profilemanager -lprofilemanager \
-	-L../support -lsupport -L../pixbufthumbnail -lpixbufthumbnail  $(LIBINTL) $(TIFF_LIBS) $(LCMS_LIBS) $(GTK2_LIBS)
+	-L../support -lsupport -L../miscwidgets -lmiscwidgets -L../pixbufthumbnail -lpixbufthumbnail  $(LIBINTL) $(TIFF_LIBS) $(LCMS_LIBS) $(GTK2_LIBS)
 
 EXTRA_DIST = TemperatureIcon.bmp DesaturateIcon.bmp UnsharpMaskIcon.bmp \
 		ppeffect_temperature_icon.cpp ppeffect_desaturate_icon.cpp ppeffect_unsharpmask_icon.cpp ppeffect_gamma_icon.cpp

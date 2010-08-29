@@ -35,6 +35,7 @@ static void options_colourmanagement(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;	
 	ColourManagement_Dialog(GTK_WINDOW(mw),*mw->state);
+	mw->state->layout->FlushHRPreviews();
 	mw->state->layout->FlushThumbnails();
 	pp_mainwindow_refresh(mw);
 	OptionsMenu_SetProofMode(mw->uim,CMProofMode(mw->state->profilemanager.FindInt("ProofMode")));
@@ -91,8 +92,9 @@ static void optionsmenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointe
 	Debug[TRACE] << "Proofmode set to: " << proofmode << endl;
 	try
 	{
-		mw->state->profilemanager.SetProofMode(proofmode);
+		mw->state->layout->FlushHRPreviews();
 		mw->state->layout->FlushThumbnails();
+		mw->state->profilemanager.SetProofMode(proofmode);
 		pp_mainwindow_refresh(mw);
 	}
 	catch(const char *err)
@@ -172,11 +174,11 @@ void OptionsMenu_SetHighresPreviews(GtkUIManager *ui_manager,int hrpreview)
 void OptionsMenu_SetProofMode(GtkUIManager *ui_manager,enum CMProofMode item)
 {
 	Debug[TRACE] << "Setting proof mode to " << item << endl;
-#if 0
+#if 1
+	// GTK installations should by-and-large be new enough now for this to work!
 	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/OptionsMenu/NormalDisplay");
 	if(act)
 		gtk_radio_action_set_current_value(GTK_RADIO_ACTION(act),item);
-
 #else
 	const char *menupaths[]=
 	{
