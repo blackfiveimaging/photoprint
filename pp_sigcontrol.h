@@ -42,6 +42,10 @@ struct _pp_SigControl
 	GtkWidget *height;
 	enum Units unit;
 	Layout_NUp *sig;
+	gulong hgutterhandler;
+	gulong vgutterhandler;
+	gulong widthhandler;
+	gulong heighthandler;
 };
 
 

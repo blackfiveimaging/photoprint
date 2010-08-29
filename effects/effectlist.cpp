@@ -424,14 +424,18 @@ static EffectListEntry_Desaturate effectlistentry_desaturate;
 static EffectListEntry_Temperature effectlistentry_temperature;
 static EffectListEntry_UnsharpMask effectlistentry_unsharpmask;
 static EffectListEntry_Gamma effectlistentry_gamma;
+#ifdef PREPRESS_TOOLS
 static EffectListEntry_ChannelMask effectlistentry_channelmask;
+#endif
 
 static EffectListEntry *effectlistsources[]=
 {
 	&effectlistentry_desaturate,
 	&effectlistentry_temperature,
 	&effectlistentry_gamma,
+#ifdef PREPRESS_TOOLS
 	&effectlistentry_channelmask,
+#endif
 	&effectlistentry_unsharpmask
 };
 

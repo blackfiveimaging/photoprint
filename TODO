@@ -8,7 +8,8 @@ Fix segfault if effects are toggled with no image selected.
 
 Effects need to know at creation time which colour space they're operating on.
 
-Need a ChannelMask effect
+Add a PREPRESS_TOOLS define which will add a few obscure features to PhotoPrint.
+Need a ChannelMask effect (Only when built with PREPRESS_TOOLS enabled)
 
 | Assigning sRGB Built-in to an image causes a segfault.
 
@@ -17,6 +18,16 @@ Either flush factories' cache when changing proof mode, or make the cache take
 display intent into account.
 
 Increase maximum permitted margins.
+
+| In Specify Image mode, present Gap widgets.  When setting size, only adjust gap if it needs to be
+| reduced in order to fit images on the page.
+|  When setting image size:
+|    save old gap and number of columns.
+|    Find out whether new size will fit with same number of columns?
+|      If so, but the gap needs adjusting to achieve it, do so.
+|    otherwise
+|      leave gap unchanged, and set image size only.
+
 
 | Move high-res preview generation to JobQueues.
 
