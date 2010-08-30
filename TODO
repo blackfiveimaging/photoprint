@@ -8,14 +8,13 @@ Fix segfault if effects are toggled with no image selected.
 
 Effects need to know at creation time which colour space they're operating on.
 
-Add a PREPRESS_TOOLS define which will add a few obscure features to PhotoPrint.
-Need a ChannelMask effect (Only when built with PREPRESS_TOOLS enabled)
+| Add a PREPRESS_TOOLS define which will add a few obscure features to PhotoPrint.
+| Need a ChannelMask effect (Only when built with PREPRESS_TOOLS enabled)
 
 | Assigning sRGB Built-in to an image causes a segfault.
 
-Fix problem with cached transforms and changing proof mode.
-Either flush factories' cache when changing proof mode, or make the cache take
-display intent into account.
+| Fix problem with cached transforms and changing proof mode.
+| (The cache now takes display intent into account.)
 
 Increase maximum permitted margins.
 
@@ -733,7 +732,7 @@ Keep in mind the possibility of the current layouts becoming page elements in th
 
 --
 
-Add a dialog for setting rendering resolution
+| Add a dialog for setting rendering resolution
 
 --
 

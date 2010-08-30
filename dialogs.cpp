@@ -57,6 +57,61 @@
 
 using namespace std;
 
+// Rendering Resolution
+
+class renderingres_dialog
+{
+	public:
+	renderingres_dialog(GtkWindow *parent,PhotoPrint_State &state) : state(state)
+	{
+		dialog=gtk_dialog_new_with_buttons(_("Rendering Resolution..."),
+			parent,GtkDialogFlags(0),
+			GTK_STOCK_CANCEL,GTK_RESPONSE_CANCEL,
+			GTK_STOCK_OK,GTK_RESPONSE_OK,
+			NULL);
+//		gtk_window_set_default_size(GTK_WINDOW(dialog),400,50);
+
+		GtkWidget *hbox=gtk_hbox_new(FALSE,0);
+		gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),hbox,FALSE,FALSE,8);
+		GtkWidget *label=gtk_label_new(_("Rendering Resolution:"));
+		gtk_box_pack_start(GTK_BOX(hbox),label,TRUE,TRUE,8);
+		res=gtk_spin_button_new_with_range(180,1200,10);
+		gtk_box_pack_start(GTK_BOX(hbox),res,FALSE,FALSE,0);
+
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(res),state.FindInt("RenderingResolution"));
+	}
+	~renderingres_dialog()
+	{
+		gtk_widget_destroy(dialog);
+	}
+	void Run()
+	{
+		gtk_widget_show_all(dialog);
+		gint result=gtk_dialog_run(GTK_DIALOG(dialog));
+		switch(result)
+		{
+			case GTK_RESPONSE_CANCEL:
+				break;
+			case GTK_RESPONSE_OK:
+				int val=gtk_spin_button_get_value(GTK_SPIN_BUTTON(res));
+				state.SetInt("RenderingResolution",val);
+				break;
+		}
+	}
+	protected:
+	GtkWidget *dialog;
+	GtkWidget *res;
+	PhotoPrint_State &state;
+};
+
+
+void RenderingResolution_Dialog(GtkWindow *parent,PhotoPrint_State &state)
+{
+	renderingres_dialog dialog(parent,state);
+	dialog.Run();
+}
+
+
 
 // Colour Management
 
