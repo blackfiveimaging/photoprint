@@ -9,6 +9,7 @@ void ColourManagement_Dialog(GtkWindow *parent,PhotoPrint_State &state);
 void ColourResponseTag_Dialog(GtkWidget *parent,PhotoPrint_State &state);
 void Units_Dialog(GtkWindow *parent,PhotoPrint_State &state);
 void Scaling_Dialog(GtkWindow *parent,PhotoPrint_State &state);
+void RenderingResolution_Dialog(GtkWindow *parent,PhotoPrint_State &state);
 void PrintSetup_Dialog(GtkWindow *parent,PhotoPrint_State &state);
 void Paths_Dialog(GtkWindow *parent,PhotoPrint_State &state);
 char *ImageMask_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn);

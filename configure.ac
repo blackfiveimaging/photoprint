@@ -87,7 +87,7 @@ AC_CHECK_FUNCS([memset mkdir strcasecmp strdup strncasecmp])
 
 # Check for optional features
 AC_ARG_ENABLE(prepress, AS_HELP_STRING([--enable-prepress],[Obscure, specialist and experimental features]))
-AS_IF([test "x$enable_prepress" = "xyes"], [ CXXFLAGS="$CXXFLAGS -DPREPRESS_TOOLS" ] )
+AS_IF([test "x$enable_prepress" = "xyes"], [ AC_DEFINE([PREPRESS_TOOLS], [], [Obscure, specialist and experimental features]) ] )
 
 AC_CONFIG_FILES([Makefile po/Makefile.in
                  imagesource/Makefile

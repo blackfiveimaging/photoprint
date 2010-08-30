@@ -64,6 +64,13 @@ static void options_scaling(GtkAction *act,gpointer *ob)
 }
 
 
+static void options_renderingresolution(GtkAction *act,gpointer *ob)
+{
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+	RenderingResolution_Dialog(GTK_WINDOW(mw),*mw->state);
+}
+
+
 static void options_highres(GtkToggleAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
@@ -111,9 +118,10 @@ static GtkActionEntry optionsmenu_entries[] = {
 
   { "Paths", NULL, N_("_Paths..."), NULL, N_("Set search paths for ICC profiles, borders, etc."), G_CALLBACK(options_paths) },
   { "ColourManagement", NULL, N_("_Colour Management..."), NULL, N_("Set colour management options"), G_CALLBACK(options_colourmanagement) },
-  { "ColourResponseHash", NULL, N_("_Colour Response Hash..."), NULL, N_("Create a hash for verifying printer settings"), G_CALLBACK(options_colourresponsetag) },
+  { "ColourResponseHash", NULL, N_("Colour Response _Hash..."), NULL, N_("Create a hash for verifying printer settings"), G_CALLBACK(options_colourresponsetag) },
   { "Units", NULL, N_("_Units..."), NULL, N_("Select the units used throughout PhotoPrint"), G_CALLBACK(options_units) },
   { "Scaling", NULL, N_("_Scaling..."), NULL, N_("Select the preferred scaling method."), G_CALLBACK(options_scaling) },
+  { "RenderingResolution", NULL, N_("_Rendering Resolution..."), NULL, N_("Set the resolution at which pages are rendered."), G_CALLBACK(options_renderingresolution) },
 };
 
 static GtkToggleActionEntry optionsmenu_toggle_entries[] = {
@@ -134,6 +142,7 @@ static const char *optionsmenu_ui_description =
 "      <menuitem action='Paths'/>"
 "      <menuitem action='Units'/>"
 "      <menuitem action='Scaling'/>"
+"      <menuitem action='RenderingResolution'/>"
 "      <menuitem action='ColourManagement'/>"
 "      <menuitem action='ColourResponseHash'/>"
 "      <separator/>"
