@@ -8,6 +8,10 @@ Fix segfault if effects are toggled with no image selected.
 
 Effects need to know at creation time which colour space they're operating on.
 
+Split out a libphotoprint from the core app.
+Split out a libphotoprintui.
+Fix circular references between the two sub-libraries.
+
 | Add a PREPRESS_TOOLS define which will add a few obscure features to PhotoPrint.
 | Need a ChannelMask effect (Only when built with PREPRESS_TOOLS enabled)
 

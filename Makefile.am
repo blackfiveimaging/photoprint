@@ -9,11 +9,9 @@ localedir=$(datadir)/locale
 AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./support/ -I./miscwidgets -I./imagesource/ -I./splashscreen -I./profilemanager -I./effects \
 	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS)
 
-bin_PROGRAMS = photoprint
+noinst_LTLIBRARIES = libphotoprint.la libphotoprintui.la
 
-photoprint_SOURCES = 		\
-	dialogs.cpp		\
-	dialogs.h		\
+libphotoprint_la_SOURCES = \
 	layoutdb.h		\
 	layout.cpp		\
 	layout.h		\
@@ -29,9 +27,11 @@ photoprint_SOURCES = 		\
 	layout_single.h	\
 	histogram.cpp \
 	histogram.h	\
-	photoprint.cpp		\
 	photoprint_state.cpp	\
-	photoprint_state.h	\
+	photoprint_state.h
+
+
+libphotoprintui_la_SOURCES = \
 	pp_cms.cpp		\
 	pp_cms.h		\
 	pp_imagecontrol.cpp	\
@@ -81,11 +81,23 @@ photoprint_SOURCES = 		\
 	pp_imageinfo.cpp	\
 	pp_imageinfo.h	\
 	printpreview.cpp	\
-	printpreview.h	\
+	printpreview.h
+
+
+bin_PROGRAMS = photoprint
+
+photoprint_SOURCES = 		\
+	dialogs.cpp		\
+	dialogs.h		\
+	photoprint.cpp		\
 	cmtransformworker.h \
 	gettext.h
 
+
 LDADD = \
+	libphotoprintui.la \
+	libphotoprint.la \
+	libphotoprintui.la \
 	effects/libppeffects.la	\
 	imagesource/libimagesource.la	\
 	imageutils/libimageutils.la	\
