@@ -1,6 +1,8 @@
 URGENT:
 ~~~~~~~
 
+Profilemanager needs to do a recursive scan of paths.  Use DirTreeWalker?  Adjust SearchPathHandler to use DirTreeWalker.
+
 Fix segfault if effects are toggled with no image selected.
 (EffectSelector should be disabled in this case anyway, but fix segfault nonetheless.)
 
