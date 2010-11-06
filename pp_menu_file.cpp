@@ -36,7 +36,7 @@ static void file_open_preset(GtkAction *action,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 	char *filename=File_Dialog(_("Open preset..."),mw->state->filename);
-
+	mw->state->layout->FlushHRPreviews();
 	if(filename)
 	{
 		mw->state->SetFilename(filename);

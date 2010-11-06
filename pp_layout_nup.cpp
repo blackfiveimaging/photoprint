@@ -27,6 +27,8 @@
 
 #include "pp_layout_nup.h"
 
+#include "debug.h"
+
 #include "layout.h"
 #include "dialogs.h"
 
@@ -154,6 +156,7 @@ void pp_layout_nup_refresh(pp_Layout_NUp *ob)
 	pp_layout_nup_pageview_refresh(pv);
 	pp_pageextent_refresh(PP_PAGEEXTENT(ob->pageextent));
 	pp_imagecontrol_refresh(PP_IMAGECONTROL(ob->imagecontrol));
+	Debug[TRACE] << "PPLayout_NUp_Refresh finished" << endl;
 }
 
 
@@ -270,6 +273,8 @@ pp_layout_nup_new (PhotoPrint_State *state)
 	gtk_widget_show(ob->imagecontrol);
 
 	pp_layout_nup_refresh(ob);
+
+	Debug[TRACE] << "PPLayout_NUp created" << endl;
 
 	return(GTK_WIDGET(ob));
 }

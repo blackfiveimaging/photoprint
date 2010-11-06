@@ -27,6 +27,8 @@ static void pp_histogram_class_init (pp_HistogramClass *klass);
 static void pp_histogram_init (pp_Histogram *stpuicombo);
 
 
+//FIXME - DeferHistogram us currently non-operational
+
 class DeferHistogram : public ThreadFunction
 {
 	public:
@@ -209,7 +211,7 @@ class BuildHistogramThread : public ThreadFunction
 
 void pp_histogram_refresh(pp_Histogram *ob)
 {
-	Debug[TRACE] << "Main thread: Refreshing histogram" << endl;
+	Debug[TRACE] << "Main thread: Refreshing histogram for widget " << long(ob) << endl;
 	if(ob && ob->layout)
 	{
 		LayoutIterator it(*ob->layout);
