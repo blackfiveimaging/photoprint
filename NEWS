@@ -30,6 +30,8 @@ PhotoPrint-0.4.2
 
   * Fixed problem with shortcut menu when duplicate shortcuts are installed under different paths.
 
+  * Added dialog for setting rendering resolution.
+
 
 PhotoPrint-0.4.1
 

@@ -29,6 +29,8 @@
 #include "pp_menu_shortcuts.h"
 #include "pp_menu_help.h"
 
+#include "debug.h"
+
 #include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
@@ -232,12 +234,14 @@ void pp_mainwindow_rebuild(pp_MainWindow *mw)
 	
 			if((mw->layout=mw->state->layout->CreateWidget()))
 			{
+				Debug[TRACE] << "Successfully created new widget - showing..." << endl;
 				gtk_box_pack_start(GTK_BOX(mw->vbox),mw->layout,TRUE,TRUE,0);
 				gtk_widget_show(mw->layout);
 				g_signal_connect(G_OBJECT(mw->layout),"changed",G_CALLBACK(layout_changed),mw);
 				g_signal_connect(G_OBJECT(mw->layout),"popupmenu",G_CALLBACK(layout_popupmenu),mw);
 				g_signal_connect(G_OBJECT(mw->layout),"selection_changed",G_CALLBACK(layout_selection_changed),mw);
 			}
+			Debug[TRACE] << "Flushing Thumbnails - not that there should be any yet!" << endl;
 			mw->state->layout->FlushThumbnails();
 		}
 		int caps=mw->state->layout->GetCapabilities();
@@ -247,6 +251,7 @@ void pp_mainwindow_rebuild(pp_MainWindow *mw)
 		OptionsMenu_SetHighresPreviews(mw->uim,mw->state->FindInt("HighresPreviews"));
 		OptionsMenu_SetProofMode(mw->uim,CMProofMode(mw->state->profilemanager.FindInt("ProofMode")));
 
+		Debug[TRACE] << "About to refresh for the first time..." << endl;
 		pp_mainwindow_refresh(mw);
 	}
 	catch(const char *err)

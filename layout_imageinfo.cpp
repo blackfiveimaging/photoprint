@@ -176,12 +176,12 @@ class HRRenderJob : public Job, public Progress
 		: Job(), Progress(), ii(ii), widget(wid), xpos(x), ypos(y), width(w), height(h), transformed(NULL), sync()
 	{
 		// Need to ref the ImageInfo here.
-		Debug[TRACE] << "Creating HRRenderJob " << hex << this << endl;
+		Debug[TRACE] << "Creating HRRenderJob " << long(this) << endl;
 		ii->Ref();
 	}
 	virtual ~HRRenderJob()
 	{
-		Debug[TRACE] << "Deleting HRRenderJob " << hex << this << " - unreferencing ImageInfo..." << endl;
+		Debug[TRACE] << "Deleting HRRenderJob " << long(this) << " - unreferencing ImageInfo..." << endl;
 		ii->UnRef();
 		Debug[TRACE] << "Done - HRRenderJob disposed" << endl;
 	}
