@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <vector>
 
+#include <libgen.h>
+
 #include <gtk/gtkstock.h>
 #include <gtk/gtkmain.h>
 
