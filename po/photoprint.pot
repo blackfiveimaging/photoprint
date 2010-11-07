@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.2-pre3\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-07-29 00:46+0100\n"
+"POT-Creation-Date: 2010-11-06 23:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,151 +16,159 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialogs.cpp:75
+#: dialogs.cpp:67
+msgid "Rendering Resolution..."
+msgstr ""
+
+#: dialogs.cpp:76
+msgid "Rendering Resolution:"
+msgstr ""
+
+#: dialogs.cpp:130
 msgid "Colour Response Hash"
 msgstr ""
 
-#: dialogs.cpp:96
+#: dialogs.cpp:151
 msgid ""
 "This \"hash\" value is derived from the printer driver's output,\n"
 "and can be used to verify that no changes have occurred which\n"
 "might invalidate a colour profile for the printer"
 msgstr ""
 
-#: dialogs.cpp:108
+#: dialogs.cpp:163
 msgid "Current hash:"
 msgstr ""
 
-#: dialogs.cpp:112
+#: dialogs.cpp:167
 msgid "Stored in preset:"
 msgstr ""
 
-#: dialogs.cpp:118
+#: dialogs.cpp:173
 msgid "No hash stored yet"
 msgstr ""
 
-#: dialogs.cpp:127
+#: dialogs.cpp:182
 msgid ""
 "Calculating hash of printer response\n"
 "with current driver settings"
 msgstr ""
 
-#: dialogs.cpp:132
+#: dialogs.cpp:187
 msgid "Store in preset"
 msgstr ""
 
-#: dialogs.cpp:156
+#: dialogs.cpp:211
 msgid ""
 "MATCH - No changes in driver\n"
 "or printer settings detected"
 msgstr ""
 
-#: dialogs.cpp:162
+#: dialogs.cpp:217
 msgid ""
 "This hash can be used to detect changes\n"
 "in printer settings or driver versions\n"
 "that might invalidate colour profiles"
 msgstr ""
 
-#: dialogs.cpp:164
+#: dialogs.cpp:219
 msgid ""
 "MISMATCH - change detected in printer response!\n"
 "Printer's colour profile might no longer be accurate."
 msgstr ""
 
-#: dialogs.cpp:287
+#: dialogs.cpp:342
 msgid "Printer Setup"
 msgstr ""
 
-#: dialogs.cpp:301
+#: dialogs.cpp:356
 msgid "Output"
 msgstr ""
 
-#: dialogs.cpp:338
+#: dialogs.cpp:393
 msgid "About"
 msgstr ""
 
-#: dialogs.cpp:349
+#: dialogs.cpp:404
 msgid "PhotoPrint "
 msgstr ""
 
-#: dialogs.cpp:388
+#: dialogs.cpp:443
 msgid "Set paths..."
 msgstr ""
 
-#: dialogs.cpp:413
+#: dialogs.cpp:468
 msgid "ICC Profiles"
 msgstr ""
 
-#: dialogs.cpp:445
+#: dialogs.cpp:500
 msgid "Borders"
 msgstr ""
 
-#: dialogs.cpp:476
+#: dialogs.cpp:531
 msgid "Backgrounds"
 msgstr ""
 
-#: dialogs.cpp:504
+#: dialogs.cpp:559
 msgid "Select a border..."
 msgstr ""
 
-#: dialogs.cpp:551
+#: dialogs.cpp:606
 msgid "Export TIFF..."
 msgstr ""
 
-#: dialogs.cpp:577 dialogs.cpp:776
+#: dialogs.cpp:632 dialogs.cpp:831
 msgid "Page range:"
 msgstr ""
 
-#: dialogs.cpp:590 dialogs.cpp:786
+#: dialogs.cpp:645 dialogs.cpp:841
 msgid "Resolution (dpi):"
 msgstr ""
 
-#: dialogs.cpp:598
+#: dialogs.cpp:653
 msgid "Save as 16-bit:"
 msgstr ""
 
-#: dialogs.cpp:617 dialogs.cpp:821
+#: dialogs.cpp:672 dialogs.cpp:876
 msgid "Output Profile:"
 msgstr ""
 
-#: dialogs.cpp:677 dialogs.cpp:914
+#: dialogs.cpp:732 dialogs.cpp:969
 msgid "Please provide a filename."
 msgstr ""
 
-#: dialogs.cpp:708 dialogs.cpp:892
+#: dialogs.cpp:763 dialogs.cpp:947
 msgid "Exporting..."
 msgstr ""
 
-#: dialogs.cpp:747
+#: dialogs.cpp:802
 msgid "Export JPEG..."
 msgstr ""
 
-#: dialogs.cpp:805
+#: dialogs.cpp:860
 msgid "JPEG Quality:"
 msgstr ""
 
-#: dialogs.cpp:931
+#: dialogs.cpp:986
 msgid "Select a background..."
 msgstr ""
 
-#: dialogs.cpp:1037 pp_menu_image.cpp:276
+#: dialogs.cpp:1092 pp_menu_image.cpp:276
 msgid "Please select an image first!"
 msgstr ""
 
-#: dialogs.cpp:1068
+#: dialogs.cpp:1123
 msgid "Set Custom Profile..."
 msgstr ""
 
-#: dialogs.cpp:1080
+#: dialogs.cpp:1135
 msgid "Before:"
 msgstr ""
 
-#: dialogs.cpp:1084
+#: dialogs.cpp:1139
 msgid "After:"
 msgstr ""
 
-#: dialogs.cpp:1098
+#: dialogs.cpp:1153
 msgid ""
 "Can't show a colour managed\n"
 "preview unless you choose\n"
@@ -169,17 +177,17 @@ msgid ""
 "dialog!"
 msgstr ""
 
-#: dialogs.cpp:1123
+#: dialogs.cpp:1178
 msgid ""
 "Warning: Image already has an embedded profile\n"
 "Assigning a new one will over-ride it!"
 msgstr ""
 
-#: dialogs.cpp:1140
+#: dialogs.cpp:1195
 msgid "Assign Profile:"
 msgstr ""
 
-#: dialogs.cpp:1148 pp_cms.cpp:349
+#: dialogs.cpp:1203 pp_cms.cpp:349
 msgid "Rendering intent:"
 msgstr ""
 
@@ -306,7 +314,7 @@ msgstr ""
 msgid "_Image"
 msgstr ""
 
-#: menucheck.cpp:64 pp_menu_options.cpp:108
+#: menucheck.cpp:64 pp_menu_options.cpp:117
 msgid "_Options"
 msgstr ""
 
@@ -374,35 +382,35 @@ msgstr ""
 msgid "Assign an ICC profile or custom rendering intent to the image"
 msgstr ""
 
-#: menucheck.cpp:79 pp_menu_options.cpp:110
+#: menucheck.cpp:79 pp_menu_options.cpp:119
 msgid "_Paths..."
 msgstr ""
 
-#: menucheck.cpp:79 pp_menu_options.cpp:110
+#: menucheck.cpp:79 pp_menu_options.cpp:119
 msgid "Set search paths for ICC profiles, borders, etc."
 msgstr ""
 
-#: menucheck.cpp:80 pp_menu_options.cpp:111
+#: menucheck.cpp:80 pp_menu_options.cpp:120
 msgid "_Colour Management..."
 msgstr ""
 
-#: menucheck.cpp:80 pp_menu_options.cpp:111
+#: menucheck.cpp:80 pp_menu_options.cpp:120
 msgid "Set colour management options"
 msgstr ""
 
-#: menucheck.cpp:81 pp_menu_options.cpp:113
+#: menucheck.cpp:81 pp_menu_options.cpp:122
 msgid "_Units..."
 msgstr ""
 
-#: menucheck.cpp:81 pp_menu_options.cpp:113
+#: menucheck.cpp:81 pp_menu_options.cpp:122
 msgid "Select the units used throughout PhotoPrint"
 msgstr ""
 
-#: menucheck.cpp:82 pp_menu_options.cpp:114
+#: menucheck.cpp:82 pp_menu_options.cpp:123
 msgid "_Scaling..."
 msgstr ""
 
-#: menucheck.cpp:82 pp_menu_options.cpp:114
+#: menucheck.cpp:82 pp_menu_options.cpp:123
 msgid "Select the preferred scaling method."
 msgstr ""
 
@@ -498,7 +506,7 @@ msgstr ""
 msgid "Dither Algorithm"
 msgstr ""
 
-#: photoprint.cpp:135
+#: photoprint.cpp:138
 msgid "Initializing..."
 msgstr ""
 
@@ -510,11 +518,11 @@ msgstr ""
 msgid "Loading preset..."
 msgstr ""
 
-#: photoprint.cpp:154
+#: photoprint.cpp:160
 msgid "Creating layout..."
 msgstr ""
 
-#: photoprint.cpp:197
+#: photoprint.cpp:203
 msgid "Loading images..."
 msgstr ""
 
@@ -770,7 +778,7 @@ msgstr ""
 msgid "Colour Management"
 msgstr ""
 
-#: pp_histogram.cpp:282
+#: pp_histogram.cpp:284
 msgid "Histogram"
 msgstr ""
 
@@ -818,11 +826,11 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
-#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:837
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:842
 msgid "Default"
 msgstr ""
 
-#: pp_layout_carousel.cpp:247 pp_layout_carousel.cpp:379 pp_layout_nup.cpp:222
+#: pp_layout_carousel.cpp:247 pp_layout_carousel.cpp:379 pp_layout_nup.cpp:225
 #: pp_layout_poster.cpp:312 pp_layout_poster.cpp:464 pp_layout_single.cpp:233
 #: printpreview.cpp:146
 msgid "Page:"
@@ -888,7 +896,7 @@ msgstr ""
 msgid "V (%):"
 msgstr ""
 
-#: pp_mainwindow.cpp:228
+#: pp_mainwindow.cpp:230
 msgid "Transferring images..."
 msgstr ""
 
@@ -968,7 +976,7 @@ msgstr ""
 msgid "_Shortcuts"
 msgstr ""
 
-#: pp_menu_shortcuts.cpp:131
+#: pp_menu_shortcuts.cpp:185
 msgid "Error fetching preset name!"
 msgstr ""
 
@@ -1004,44 +1012,52 @@ msgstr ""
 msgid "Set Image _Border..."
 msgstr ""
 
-#: pp_menu_options.cpp:112
-msgid "_Colour Response Hash..."
+#: pp_menu_options.cpp:121
+msgid "Colour Response _Hash..."
 msgstr ""
 
-#: pp_menu_options.cpp:112
+#: pp_menu_options.cpp:121
 msgid "Create a hash for verifying printer settings"
 msgstr ""
 
-#: pp_menu_options.cpp:118
+#: pp_menu_options.cpp:124
+msgid "_Rendering Resolution..."
+msgstr ""
+
+#: pp_menu_options.cpp:124
+msgid "Set the resolution at which pages are rendered."
+msgstr ""
+
+#: pp_menu_options.cpp:128
 msgid "High-res Previews"
 msgstr ""
 
-#: pp_menu_options.cpp:118
+#: pp_menu_options.cpp:128
 msgid "Render high-resolution previews in the background"
 msgstr ""
 
-#: pp_menu_options.cpp:122
+#: pp_menu_options.cpp:132
 msgid "_Normal Display"
 msgstr ""
 
-#: pp_menu_options.cpp:122
+#: pp_menu_options.cpp:132
 msgid "Display colours with no print simulation"
 msgstr ""
 
-#: pp_menu_options.cpp:123
+#: pp_menu_options.cpp:133
 msgid "Simulate Prin_t"
 msgstr ""
 
-#: pp_menu_options.cpp:123
+#: pp_menu_options.cpp:133
 msgid ""
 "Adjust colours on screen to imitate printed colours, including paper white"
 msgstr ""
 
-#: pp_menu_options.cpp:124
+#: pp_menu_options.cpp:134
 msgid "Simulate Print, _Adapt White"
 msgstr ""
 
-#: pp_menu_options.cpp:124
+#: pp_menu_options.cpp:134
 msgid "Adjust colours to imitate printed colours, excluding paper white"
 msgstr ""
 
@@ -1100,39 +1116,40 @@ msgstr ""
 msgid "Scaling"
 msgstr ""
 
-#: pp_sigcontrol.cpp:187
+#: pp_sigcontrol.cpp:228
 msgid "Columns:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:201
+#: pp_sigcontrol.cpp:242
 msgid "Rows:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:215 pp_sigcontrol.cpp:229
+#: pp_sigcontrol.cpp:256 pp_sigcontrol.cpp:270 pp_sigcontrol.cpp:328
+#: pp_sigcontrol.cpp:342
 msgid "Gap:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:254
+#: pp_sigcontrol.cpp:295
 msgid "Width:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:268
+#: pp_sigcontrol.cpp:309
 msgid "Height:"
 msgstr ""
 
-#: pp_sigcontrol.cpp:280
+#: pp_sigcontrol.cpp:321
 msgid "From selected image"
 msgstr ""
 
-#: pp_sigcontrol.cpp:338
+#: pp_sigcontrol.cpp:407
 msgid "Layout"
 msgstr ""
 
-#: pp_sigcontrol.cpp:341
+#: pp_sigcontrol.cpp:410
 msgid "Specify rows/columns"
 msgstr ""
 
-#: pp_sigcontrol.cpp:342
+#: pp_sigcontrol.cpp:411
 msgid "Specify image dimensions"
 msgstr ""
 
@@ -1200,52 +1217,52 @@ msgid ""
 "Check STP_DATA_PATH and Gutenprint version!"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:564
+#: profilemanager/lcmswrapper.cpp:556
 msgid "Perceptual"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:557
 msgid "Relative Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:558
 msgid "Relative Colorimetric with BPC"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:567
+#: profilemanager/lcmswrapper.cpp:559
 msgid "Saturation"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:568
+#: profilemanager/lcmswrapper.cpp:560
 msgid "Absolute Colorimetric"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:573
+#: profilemanager/lcmswrapper.cpp:565
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:574
+#: profilemanager/lcmswrapper.cpp:566
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:575
+#: profilemanager/lcmswrapper.cpp:567
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
 "and shadows."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:576
+#: profilemanager/lcmswrapper.cpp:568
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
 
-#: profilemanager/lcmswrapper.cpp:577
+#: profilemanager/lcmswrapper.cpp:569
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1267,23 +1284,23 @@ msgstr ""
 msgid "Please choose a valid ICC profile"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:207
+#: profilemanager/profilemanager.cpp:208
 msgid "Can't do proofing without a valid Printer profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:212
+#: profilemanager/profilemanager.cpp:213
 msgid "Can't do proofing without a valid Monitor profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:217
+#: profilemanager/profilemanager.cpp:218
 msgid "Can't do proofing without a valid Default RGB profile!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:497
+#: profilemanager/profilemanager.cpp:501
 msgid "No Proof profile provided!"
 msgstr ""
 
-#: profilemanager/profilemanager.cpp:845
+#: profilemanager/profilemanager.cpp:850
 msgid "Default rendering intent"
 msgstr ""
 
