@@ -152,7 +152,9 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int pag
 Layout_ImageInfo::~Layout_ImageInfo()
 {
 	// Must flush the HRPreview and any rendering thread first - this ensures the thread isn't running any more.
+	Debug[COMMENT] << "In Layout_ImageInfo destructor for " << long(this) << endl;
 	FlushHRPreview();
+	layout.Remove(this);
 	ObtainMutex();
 	if(thumbnail)
 		g_object_unref(thumbnail);
@@ -197,7 +199,7 @@ class HRRenderJob : public Job, public Progress
 	virtual void Run(Worker *w)
 	{
 		ImageInfo_Worker *iw=(ImageInfo_Worker *)w;
-
+		ImageSource *is=NULL;
 
 		try
 		{
@@ -261,7 +263,8 @@ class HRRenderJob : public Job, public Progress
 			if(targetprof)
 				delete targetprof;
 
-			ImageSource *is=ii->GetImageSource(tdev,iw->factory);
+			// We declare is outside the try block so we can clean up if it fails.
+			is=ii->GetImageSource(tdev,iw->factory);
 
 			LayoutRectangle r(is->width,is->height);
 			LayoutRectangle target(xpos,ypos,width,height);
@@ -279,7 +282,7 @@ class HRRenderJob : public Job, public Progress
 			delete fit;
 			// We create new Fit in the idle-function because the hpan/vpan may have changed.
 
-			// Instead of build the GdkPixbuf here we create a cached image and convert to pixbuf in the main thread.
+			// Instead of building the GdkPixbuf here we create a cached image and convert to pixbuf in the main thread.
 			transformed=new CachedImage(is);
 
 			if(transformed)
@@ -298,6 +301,13 @@ class HRRenderJob : public Job, public Progress
 		}
 		catch(const char *err)
 		{
+			if(is)
+			{
+				Debug[TRACE] << "Deleting ImageSource chain..." << endl;
+				delete is;
+			}
+
+			Debug[TRACE] << "HRRenderJob Caught error: " << err << endl;
 			ErrorDialogs.AddMessage(err);
 		}
 		ii->ReleaseMutex();
@@ -308,65 +318,70 @@ class HRRenderJob : public Job, public Progress
 	static gboolean finish_main(gpointer ud)
 	{
 		HRRenderJob *p=(HRRenderJob *)ud;
-
-		if(p->DoProgress(0,0))
+		try
 		{
-			Debug[TRACE] << "Creating pixbuf from CachedImage" << endl;
-			ImageSource *is=new ImageSource_CachedImage(p->transformed);
-
-			GdkPixbuf *transformed=pixbuf_from_imagesource(is,p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8,p);
-
-			LayoutRectangle r(gdk_pixbuf_get_width(transformed),gdk_pixbuf_get_height(transformed));
-			LayoutRectangle target(p->xpos,p->ypos,p->width,p->height);
-
-			// Disallow rotation here since the image will be rotated already.
-			RectFit *fit=r.Fit(target,p->ii->allowcropping,PP_ROTATION_NONE,p->ii->crop_hpan,p->ii->crop_vpan);
-			int dw=fit->width;
-			int dh=fit->height;
-			
-			if(dw > p->width)
-				dw=p->width;
-
-			if(dh > p->height)
-				dh=p->height;
-
-			if(dw>gdk_pixbuf_get_width(transformed))
-				dw=gdk_pixbuf_get_width(transformed);
-
-			if(dh>gdk_pixbuf_get_height(transformed))
-				dh=gdk_pixbuf_get_height(transformed);
-
-			if(p->ii->mask)
+			if(p->DoProgress(0,0))
 			{
-				transformed=gdk_pixbuf_copy(transformed);
-				maskpixbuf(transformed,fit->xoffset,fit->yoffset,dw,dh,p->ii->mask,
-					p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8);
+				Debug[TRACE] << "Creating pixbuf from CachedImage" << endl;
+				ImageSource *is=new ImageSource_CachedImage(p->transformed);
+
+				GdkPixbuf *transformed=pixbuf_from_imagesource(is,p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8,p);
+
+				LayoutRectangle r(gdk_pixbuf_get_width(transformed),gdk_pixbuf_get_height(transformed));
+				LayoutRectangle target(p->xpos,p->ypos,p->width,p->height);
+
+				// Disallow rotation here since the image will be rotated already.
+				RectFit *fit=r.Fit(target,p->ii->allowcropping,PP_ROTATION_NONE,p->ii->crop_hpan,p->ii->crop_vpan);
+				int dw=fit->width;
+				int dh=fit->height;
+				
+				if(dw > p->width)
+					dw=p->width;
+
+				if(dh > p->height)
+					dh=p->height;
+
+				if(dw>gdk_pixbuf_get_width(transformed))
+					dw=gdk_pixbuf_get_width(transformed);
+
+				if(dh>gdk_pixbuf_get_height(transformed))
+					dh=gdk_pixbuf_get_height(transformed);
+
+				if(p->ii->mask)
+				{
+					transformed=gdk_pixbuf_copy(transformed);
+					maskpixbuf(transformed,fit->xoffset,fit->yoffset,dw,dh,p->ii->mask,
+						p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8);
+				}
+
+				gdk_draw_pixbuf(p->widget->window,NULL,transformed,
+					fit->xoffset,fit->yoffset,
+					fit->xpos,fit->ypos,
+					dw,dh,
+					GDK_RGB_DITHER_NONE,0,0);
+
+				p->ii->SetHRPreview(transformed);
+
+				if(p->ii->mask)
+					g_object_unref(transformed);
+
+				// If drawing the high-res preview obliterates any gridlines we can repair them here.
+				p->ii->layout.DrawGridLines(p->widget);
+
+				delete fit;
 			}
+			else
+				Debug[TRACE] << "RenderHRJob cancelled - detected from main thread" << endl;
 
-			gdk_draw_pixbuf(p->widget->window,NULL,transformed,
-				fit->xoffset,fit->yoffset,
-				fit->xpos,fit->ypos,
-				dw,dh,
-				GDK_RGB_DITHER_NONE,0,0);
+			if(p->ii->hrrenderjob==p)
+				p->ii->hrrenderjob=NULL;
 
-			p->ii->SetHRPreview(transformed);
-
-			if(p->ii->mask)
-				g_object_unref(transformed);
-
-			// If drawing the high-res preview obliterates any gridlines we can repair them here.
-			p->ii->layout.DrawGridLines(p->widget);
-
-			delete fit;
+			Debug[TRACE] << "Main thread callback complete - signalling subthread" << endl;
 		}
-		else
-			Debug[TRACE] << "RenderHRJob cancelled - detected from main thread" << endl;
-
-		if(p->ii->hrrenderjob==p)
-			p->ii->hrrenderjob=NULL;
-
-		Debug[TRACE] << "Main thread callback complete - signalling subthread" << endl;
-
+		catch(const char *err)
+		{
+			Debug[TRACE] << "HRRender main thread function caught error: " << err << endl;
+		}
 		p->sync.Broadcast();
 
 		return(FALSE);
@@ -1037,50 +1052,61 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 {
 	ImageSource *result=NULL;
 	ImageSource *is=ISLoadImage(filename);
-
-	is=ApplyEffects(is,PPEFFECT_PRESCALE);
-
-	IS_TYPE colourspace=layout.GetColourSpace(target);
-
-	if(STRIP_ALPHA(is->type)==IS_TYPE_GREY)
-		is=new ImageSource_Promote(is,colourspace);
-
-	if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
-		is=new ImageSource_Promote(is,colourspace);
-
-	// If this fails we don't bother with the histogram, since another thread has it
-	// locked for writing.
-
-	if(histogram.AttemptMutexShared())
+	try
 	{
-		is=new PPIS_Histogram(is,histogram);
-		histogram.ReleaseMutexShared();	// ReleaseShared because the Histogram itself holds an exclusive lock
-										// and we don't want to cancel its exclusivity!
+		is=ApplyEffects(is,PPEFFECT_PRESCALE);
+
+		IS_TYPE colourspace=layout.GetColourSpace(target);
+
+		if(STRIP_ALPHA(is->type)==IS_TYPE_GREY)
+			is=new ImageSource_Promote(is,colourspace);
+
+		if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
+			is=new ImageSource_Promote(is,colourspace);
+
+		// If this fails we don't bother with the histogram, since another thread has it
+		// locked for writing.
+
+		if(histogram.AttemptMutexShared())
+		{
+			is=new PPIS_Histogram(is,histogram);
+			histogram.ReleaseMutexShared();	// ReleaseShared because the Histogram itself holds an exclusive lock
+											// and we don't want to cancel its exclusivity!
+		}
+
+		CMSTransform *transform=NULL;
+
+		if(factory)
+		{
+			CMSProfile *emb;
+			if(customprofile)
+				emb=factory->GetManager().GetProfile(customprofile);  // FIXME: Lifespan!
+			else
+				emb=is->GetEmbeddedProfile();
+			
+			if(emb)
+			{
+	//				Debug[TRACE] << "Has embedded / assigned profile..." << endl;
+				transform=factory->GetTransform(target,emb,customintent);  // FIXME: intent!
+			}
+			else
+			{
+	//				Debug[TRACE] << "No embedded profile - using default" << endl;
+				transform=factory->GetTransform(target,IS_TYPE(STRIP_ALPHA(is->type)),customintent);
+			}
+
+			if(transform)
+				is=new ImageSource_CMS(is,transform);
+		}
 	}
-
-	CMSTransform *transform=NULL;
-
-	if(factory)
+	catch(const char *err)
 	{
-		CMSProfile *emb;
-		if(customprofile)
-			emb=factory->GetManager().GetProfile(customprofile);  // FIXME: Lifespan!
-		else
-			emb=is->GetEmbeddedProfile();
-		
-		if(emb)
+		if(is)
 		{
-//				Debug[TRACE] << "Has embedded / assigned profile..." << endl;
-			transform=factory->GetTransform(target,emb,customintent);  // FIXME: intent!
+			Debug[TRACE] << "Layout_ImageInfo::GetImageSource bailing out and deleting results so far..." << endl;
+			delete is;
 		}
-		else
-		{
-//				Debug[TRACE] << "No embedded profile - using default" << endl;
-			transform=factory->GetTransform(target,IS_TYPE(STRIP_ALPHA(is->type)),customintent);
-		}
-
-		if(transform)
-			is=new ImageSource_CMS(is,transform);
+		throw err;
 	}
 	result=is;
 	return(result);

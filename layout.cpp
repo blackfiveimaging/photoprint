@@ -114,13 +114,17 @@ Layout::Layout(PhotoPrint_State &state,Layout *oldlayout)
 
 Layout::~Layout()
 {
+	jobdispatcher.WaitCompletion();
+	jobdispatcher.DeleteCompleted();
 	LayoutIterator it(*this);
 	Layout_ImageInfo *ii=it.FirstImage();
 	while(ii)
 	{
+		Debug[TRACE] << "Layout: Disposing of imageinfo " << long(ii) << std::endl;
 		Delete(ii);
 		ii=it.FirstImage();
 	}
+	Debug[TRACE] << "All ImageInfos diposed of." << std::endl;
 
 	if(gc)
 		g_object_unref(G_OBJECT(gc));
@@ -137,14 +141,24 @@ Layout::~Layout()
 	if(backgroundfilename)
 		free(backgroundfilename);
 	backgroundfilename=NULL;
+
+	Debug[TRACE] << "LayoutDestructor completed." << std::endl;
 }
 
 
 void Layout::Delete(Layout_ImageInfo *ii)
 {
 	ii->FlushHRPreview();
-	imagelist.remove(ii);
+	Remove(ii);
+	Debug[TRACE] << "Layout::Delete() - unreferencing..." << std::endl;
 	ii->UnRef();
+	Debug[TRACE] << "Done" << std::endl;
+}
+
+
+void Layout::Remove(Layout_ImageInfo *ii)
+{
+	imagelist.remove(ii);
 }
 
 

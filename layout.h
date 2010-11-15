@@ -56,6 +56,7 @@ class Layout : public virtual PageExtent
 	Layout(PhotoPrint_State &state,Layout *oldlayout=NULL);
 	virtual ~Layout();
 	virtual void Delete(Layout_ImageInfo *ii);
+	virtual void Remove(Layout_ImageInfo *ii);
 	virtual const char *GetType()=0;
 	virtual int GetCapabilities();
 	virtual int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);

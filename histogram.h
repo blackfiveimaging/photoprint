@@ -6,6 +6,7 @@
 #include "imagesource/imagesource_histogram.h"
 #include "support/rwmutex.h"
 #include "support/threadevent.h"
+#include "debug.h"
 
 class PPHistogram : public ISHistogram, public RWMutex, public ThreadEvent
 {
@@ -16,7 +17,9 @@ class PPHistogram : public ISHistogram, public RWMutex, public ThreadEvent
 	}
 	~PPHistogram()
 	{
+		Debug[TRACE] << "In PPHistogram's destructor" << std::endl;
 		ObtainMutex();
+		Debug[TRACE] << "PPHistogram's destructor completed" << std::endl;
 	}
 	virtual void ReleaseMutex()
 	{
