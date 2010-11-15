@@ -32,6 +32,10 @@ PhotoPrint-0.4.2
 
   * Added dialog for setting rendering resolution.
 
+  * Fixed a hang-on-exit bug if fetching an image failed.
+
+  * Grey images with embedded profiles are now supported.
+
 
 PhotoPrint-0.4.1
 

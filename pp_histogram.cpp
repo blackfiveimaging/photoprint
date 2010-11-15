@@ -27,7 +27,7 @@ static void pp_histogram_class_init (pp_HistogramClass *klass);
 static void pp_histogram_init (pp_Histogram *stpuicombo);
 
 
-//FIXME - DeferHistogram us currently non-operational
+//FIXME - DeferHistogram is currently non-operational
 
 class DeferHistogram : public ThreadFunction
 {
