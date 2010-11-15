@@ -1058,7 +1058,7 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 
 		IS_TYPE colourspace=layout.GetColourSpace(target);
 
-		if(STRIP_ALPHA(is->type)==IS_TYPE_GREY)
+		if(STRIP_ALPHA(is->type)==IS_TYPE_GREY && !is->GetEmbeddedProfile())
 			is=new ImageSource_Promote(is,colourspace);
 
 		if(STRIP_ALPHA(is->type)==IS_TYPE_BW)
