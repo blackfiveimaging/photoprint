@@ -59,6 +59,7 @@ void pp_cms_refresh(pp_CMS *ob)
 	Debug[TRACE] << "In pp_cms_refresh" << endl;
 
 	int pa=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->printeractive));
+	int ga=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->greyactive));
 	int ra=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->rgbactive));
 	int ca=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->cmykactive));
 	int ma=gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->monitoractive));
@@ -68,6 +69,7 @@ void pp_cms_refresh(pp_CMS *ob)
 	gtk_widget_set_sensitive(ob->displaymode,ma);
 	gtk_widget_set_sensitive(ob->colourspace,!pa);
 
+	gtk_widget_set_sensitive(ob->greyprof,ga);
 	gtk_widget_set_sensitive(ob->rgbprof,ra);
 	gtk_widget_set_sensitive(ob->cmykprof,ca);
 	gtk_widget_set_sensitive(ob->monitorprof,ma);
@@ -99,6 +101,16 @@ void pp_cms_refresh(pp_CMS *ob)
 			Debug[TRACE] << "Couldn't get printer profile..." << endl;
 			pa=false;
 		}
+	}
+
+	// Check RGB profile...
+	if(ga)
+	{
+		CMSProfile *p=ob->pm->GetProfile(profileselector_get_filename(PROFILESELECTOR(ob->greyprof)));
+		if(p)
+			delete p;
+		else
+			ga=false;
 	}
 
 	// Check RGB profile...
@@ -438,6 +450,24 @@ pp_cms_new (ProfileManager *pm)
 	gtk_container_add(GTK_CONTAINER(frame),vbox);
 	gtk_widget_show(vbox);
 
+
+	// Grey Profile - Checkbox and file entry.
+
+	hbox=gtk_hbox_new(FALSE,0);
+	gtk_box_pack_start(GTK_BOX(vbox),hbox,TRUE,TRUE,0);
+	gtk_widget_show(hbox);
+
+	ob->greyactive=gtk_check_button_new_with_label(_("Grey Profile:"));
+	g_signal_connect(G_OBJECT(ob->greyactive),"toggled",G_CALLBACK(cms_changed),ob);
+	gtk_size_group_add_widget(GTK_SIZE_GROUP(sizegroup),ob->greyactive);
+	gtk_box_pack_start(GTK_BOX(hbox),ob->greyactive,FALSE,FALSE,5);
+	gtk_widget_show(ob->greyactive);
+
+	ob->greyprof=profileselector_new(pm,IS_TYPE_GREY,false);
+	g_signal_connect(G_OBJECT(ob->greyprof),"changed",G_CALLBACK(cms_changed),ob);
+	gtk_box_pack_start(GTK_BOX(hbox),ob->greyprof,TRUE,TRUE,5);
+	gtk_widget_show(ob->greyprof);
+
 	// RGB Profile - Checkbox and file entry.
 
 	hbox=gtk_hbox_new(FALSE,0);
@@ -566,6 +596,21 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 			profileselector_set_filename(PROFILESELECTOR(ob->printerprof),pf);
 	}
 
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ob->greyactive),db->profilemanager.FindInt("DefaultGreyProfileActive"));
+	pf=db->profilemanager.FindString("DefaultGreyProfile");
+	Debug[TRACE] << "Default Grey Profile" << pf;
+	if(pf && strlen(pf))
+	{
+		if((pf2=db->profilemanager.SearchPaths(pf)))
+		{
+			Debug[TRACE] << "Setting Grey profile to " << pf2 << endl;
+			profileselector_set_filename(PROFILESELECTOR(ob->greyprof),pf2);
+			free(pf2);
+		}
+		else
+			profileselector_set_filename(PROFILESELECTOR(ob->greyprof),pf);
+	}
+
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ob->rgbactive),db->profilemanager.FindInt("DefaultRGBProfileActive"));
 	pf=db->profilemanager.FindString("DefaultRGBProfile");
 	Debug[TRACE] << "Default RGB Profile" << pf;
@@ -580,6 +625,7 @@ void pp_cms_populate(pp_CMS *ob,PhotoPrint_State *db)
 		else
 			profileselector_set_filename(PROFILESELECTOR(ob->rgbprof),pf);
 	}
+
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ob->cmykactive),db->profilemanager.FindInt("DefaultCMYKProfileActive"));
 	pf=db->profilemanager.FindString("DefaultCMYKProfile");
@@ -628,6 +674,13 @@ void pp_cms_depopulate(pp_CMS *ob,PhotoPrint_State *db)
 	if(pf)
 		Debug[TRACE] << "Printer profile: " <<  pf << endl;
 	db->profilemanager.SetString("PrinterProfile",pf);
+	free(pf);
+
+	db->profilemanager.SetInt("DefaultGreyProfileActive",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->greyactive)));
+	pf=db->profilemanager.MakeRelative(profileselector_get_filename(PROFILESELECTOR(ob->greyprof)));
+	if(pf)
+		Debug[TRACE] << "Grey profile: " <<  pf << endl;
+	db->profilemanager.SetString("DefaultGreyProfile",pf);
 	free(pf);
 
 	db->profilemanager.SetInt("DefaultRGBProfileActive",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ob->rgbactive)));

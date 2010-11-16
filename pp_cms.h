@@ -33,6 +33,8 @@ struct _pp_CMS
 	GtkWidget *colourspace;
 	GtkWidget *printeractive;
 	GtkWidget *printerprof;
+	GtkWidget *greyactive;
+	GtkWidget *greyprof;
 	GtkWidget *rgbactive;
 	GtkWidget *rgbprof;
 	GtkWidget *cmykactive;

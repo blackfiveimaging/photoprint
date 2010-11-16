@@ -5,7 +5,9 @@ URGENT:
 
 | Fix signal on custom command change causing whole dialog to refresh!
 
-Fix problemn with Histogram whereby the refresh it triggers can occur after the widget's been replaced with a new one!
+Add extra indicator to colour management dialog to indicate whether Grey images will be processed correctly.
+(If the profile's not set, promote grey images as previous.
+Check that promotion works with CMYK as well as RGB!)
 
 Fix segfault if effects are toggled with no image selected.
 (EffectSelector should be disabled in this case anyway, but fix segfault nonetheless.)
