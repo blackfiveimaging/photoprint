@@ -100,6 +100,38 @@ static void destroy( GtkWidget *widget,
 }
 
 
+
+class PreloadProfiles : public Job
+{
+	public:
+	PreloadProfiles(ProfileManager &pm) : Job("Finding ICC profiles..."), pm(pm)
+	{
+	}
+	void Run(Worker *w)
+	{
+		Debug[TRACE] << "Getting profile list..." << endl;
+		pm.ObtainMutex();
+		ProfileInfo *pi=pm.GetFirstProfileInfo();
+		while(pi)
+		{
+			try
+			{
+				pi->GetColourSpace();	// Trigger loading and caching of profile info
+			}
+			catch(const char *err)
+			{
+				Debug[WARN] << "Error: " << err << std::endl;
+			}
+			pi=pi->Next();
+		}		
+		pm.ReleaseMutex();
+	}
+	protected:
+	ProfileManager &pm;
+};
+
+
+
 int main(int argc,char **argv)
 {
 	Debug[TRACE] << "Photoprint starting..." << endl;
@@ -212,7 +244,9 @@ int main(int argc,char **argv)
 				}
 	
 				pp_mainwindow_refresh(PP_MAINWINDOW(mainwindow));
-
+	
+				JobDispatcher disp(1);
+				disp.AddJob(new PreloadProfiles(state.profilemanager));
 				gtk_main ();
 			}
 			catch (const char *err)

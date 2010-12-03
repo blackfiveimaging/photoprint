@@ -50,10 +50,9 @@ using namespace std;
 class PPIS_Histogram : public ImageSource
 {
 	public:
-	PPIS_Histogram(ImageSource *source,PPHistogram &hist) : ImageSource(source), source(source,hist), histogram(hist)
+	PPIS_Histogram(ImageSource *source,PPHistogram &hist) : ImageSource(source), lock(hist), source(source,hist), histogram(hist)
 	{
 		Debug[TRACE] << "PPIS_Histogram obtaining Histogram mutex in exclusive mode from " << long(Thread::GetThreadID()) << endl;
-		histogram.ObtainMutex();
 		Debug[TRACE] << "Histogram address: " << long(&histogram) << endl;
 	}
 	virtual ~PPIS_Histogram()
@@ -61,13 +60,13 @@ class PPIS_Histogram : public ImageSource
 		Debug[TRACE] << "PPIS_Histogram triggering complete signal" << endl;
 		histogram.Trigger();
 		Debug[TRACE] << "PPIS_Histogram releasing Histogram mutex from " << long(Thread::GetThreadID()) << endl;
-		histogram.ReleaseMutex();
 	}
 	virtual ISDataType *GetRow(int row)
 	{
 		return(source.GetRow(row));
 	}
 	protected:
+	PTMutex::Lock lock;
 	ImageSource_Histogram source;
 	PPHistogram &histogram;
 };
@@ -201,17 +200,19 @@ class HRRenderJob : public Job, public Progress
 		ImageInfo_Worker *iw=(ImageInfo_Worker *)w;
 		ImageSource *is=NULL;
 
+		RWMutex::SharedLock lock(*ii,false);
+
 		try
 		{
 			// Lock the imageinfo against modification while we're using it.
 			// To avoid a deadlock situation if, say, the Apply Profile dialog is open and GTK decides that
 			// now is a good time to redraw the window, we only attempt the mutex, and bail out if it fails.
 			int count=10;
-			while(!ii->AttemptMutexShared())
+			while(!lock.Attempt())
 			{
 				if(count==0)
 				{
-					Debug[WARN] << "HRRenderJob: Giving up attempt on mutex - bailing out" << endl;
+					Debug[TRACE] << "HRRenderJob: Giving up attempt on mutex - bailing out" << endl;
 					return;
 				}
 #ifdef WIN32
@@ -236,16 +237,8 @@ class HRRenderJob : public Job, public Progress
 				if(!DoProgress(0,0))
 				{
 					Debug[TRACE] << "Got break signal while pausing - Releasing" << endl;
-					ii->ReleaseMutex();
 					return;
 				}
-			}
-
-			if(!DoProgress(0,0))
-			{
-				Debug[TRACE] << "Subthread releasing mutex and cancelling" << endl;
-				ii->ReleaseMutex();
-				return;
 			}
 
 
@@ -285,12 +278,17 @@ class HRRenderJob : public Job, public Progress
 			// Instead of building the GdkPixbuf here we create a cached image and convert to pixbuf in the main thread.
 			transformed=new CachedImage(is);
 
+			Debug[TRACE] << "Built cached image -rendering" << endl;
+
 			if(transformed)
 			{
+				Debug[TRACE] << "Calling DoProgress" << endl;
 				// Now we defer to the main thread...
  				if(DoProgress(0,0))
 				{
+					Debug[TRACE] << "Calling finish_main" << endl;
 					g_timeout_add(1,finish_main,this);
+					Debug[TRACE] << "Waiting for sync from subthread" << endl;
 					sync.WaitCondition();
 					Debug[TRACE] << "Received sync from main thread - Job complete, deleting transformed..." << endl;
 				}
@@ -310,13 +308,13 @@ class HRRenderJob : public Job, public Progress
 			Debug[TRACE] << "HRRenderJob Caught error: " << err << endl;
 			ErrorDialogs.AddMessage(err);
 		}
-		ii->ReleaseMutex();
 	}
 
 	// IdleFunc - runs on the main thread's context,
 	// thus, can safely render into the UI.
 	static gboolean finish_main(gpointer ud)
 	{
+		Debug[TRACE] << "In finish_main function..." << endl;
 		HRRenderJob *p=(HRRenderJob *)ud;
 		try
 		{
@@ -380,7 +378,7 @@ class HRRenderJob : public Job, public Progress
 		}
 		catch(const char *err)
 		{
-			Debug[TRACE] << "HRRender main thread function caught error: " << err << endl;
+			Debug[WARN] << "HRRender main thread function caught error: " << err << endl;
 		}
 		p->sync.Broadcast();
 
