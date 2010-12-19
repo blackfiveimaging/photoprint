@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.1-pre1\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-11-06 23:24+0000\n"
+"POT-Creation-Date: 2010-12-04 16:49+0000\n"
 "PO-Revision-Date: 2010-02-08 23:29+0100\n"
 "Last-Translator: Kenny Verstraete <verstraete_kenny@skynet.be>\n"
 "Language-Team: Dutch <>\n"
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Assign Profile:"
 msgstr "Toewijzen profiel:"
 
-#: dialogs.cpp:1203 pp_cms.cpp:349
+#: dialogs.cpp:1203 pp_cms.cpp:361
 msgid "Rendering intent:"
 msgstr "Gewenst resultaat:"
 
@@ -534,23 +534,23 @@ msgstr "Roteer 90 graden ani-klokgewijs."
 msgid "Dither Algorithm"
 msgstr "Dither algoritme"
 
-#: photoprint.cpp:138
+#: photoprint.cpp:170
 msgid "Initializing..."
 msgstr "Initialiseren..."
 
-#: photoprint.cpp:144
+#: photoprint.cpp:176
 msgid "Checking .photoprint directory..."
 msgstr "Bezig met controleren van .photoprint map..."
 
-#: photoprint.cpp:149
+#: photoprint.cpp:181
 msgid "Loading preset..."
 msgstr "Voorkeur laden...."
 
-#: photoprint.cpp:160
+#: photoprint.cpp:192
 msgid "Creating layout..."
 msgstr "Layout maken..."
 
-#: photoprint.cpp:203
+#: photoprint.cpp:235
 msgid "Loading images..."
 msgstr "Afbeeldingen laden..."
 
@@ -597,7 +597,7 @@ msgstr "Leesfout `%s': bestand is geen bestand en ook geen snelkoppeling."
 msgid "Error creating temporary thumbnail file for `%s': %s"
 msgstr "Fout bij het maken van een thumbnail voor `%s': %s"
 
-#: pp_cms.cpp:148
+#: pp_cms.cpp:160
 msgid ""
 "Printer profile is a devicelink with CMYK input - RGB images\n"
 "will first be converted to the default CMYK profile"
@@ -605,7 +605,7 @@ msgstr ""
 "Printerprofiel is een apparaatlink met CMYK invoer - RGB afbeeldingen\n"
 "zullen eerst worden geconverteerd naar het standaard CMYK profiel."
 
-#: pp_cms.cpp:154
+#: pp_cms.cpp:166
 msgid ""
 "Printer profile is a devicelink with CMYK input - RGB images\n"
 "cannot be printed without a default CMYK profile."
@@ -613,7 +613,7 @@ msgstr ""
 "Printerprofiel is een apparaatlink met CMYK invoer - RGB afbeeldingen\n"
 "kunnen niet afgedrukt worden met een standaard CMYK profiel."
 
-#: pp_cms.cpp:160
+#: pp_cms.cpp:172
 msgid ""
 "Printer profile is a devicelink with CMYK input - RGB images\n"
 "cannot be printed without a default RGB and CMYK profile."
@@ -621,7 +621,7 @@ msgstr ""
 "Printerprofiel is een apparaatlink met CMYK invoer - RGB afbeeldingen\n"
 "kunnen niet afgedrukt worden zonder een standaard RGB en CMYK profiel."
 
-#: pp_cms.cpp:168
+#: pp_cms.cpp:180
 msgid ""
 "Printer profile is a devicelink - RGB images with embedded profiles\n"
 "will first be converted to the default RGB profile."
@@ -630,7 +630,7 @@ msgstr ""
 "profielen\n"
 "zullen eerst geconverteerd worden naar het standaard RGB profiel."
 
-#: pp_cms.cpp:174
+#: pp_cms.cpp:186
 msgid ""
 "Printer profile is a devicelink - RGB images with embedded profiles will "
 "not\n"
@@ -640,11 +640,11 @@ msgstr ""
 "profielen zullen niet\n"
 "correct afgedrukt worden daar er geen standaard RGB profiel is."
 
-#: pp_cms.cpp:180
+#: pp_cms.cpp:192
 msgid "RGB images will print correctly"
 msgstr "RGB afbeeldingen zullen correct afdrukken"
 
-#: pp_cms.cpp:185
+#: pp_cms.cpp:197
 msgid ""
 "RGB images can be printed but colours depend on the driver\n"
 "(Colours will be accurate for images that contain an embedded profile)"
@@ -654,13 +654,13 @@ msgstr ""
 "(kleuren zullen accuraat zijn voor afbeeldingen die een ingebed profiel "
 "bevatten)"
 
-#: pp_cms.cpp:190
+#: pp_cms.cpp:202
 msgid "RGB images can be printed but colours depend on the driver"
 msgstr ""
 "RGB afbeeldingen kunnen worden afgedrukt maar de kleuren hangen af van de "
 "driver"
 
-#: pp_cms.cpp:195
+#: pp_cms.cpp:207
 msgid ""
 "RGB images can only be printed if they have an embedded profile\n"
 "(Workflow is CMYK and there is no default RGB profile)"
@@ -669,7 +669,7 @@ msgstr ""
 "hebben\n"
 "(Werkstroom is CMYK en er is geen standaard RGB profiel)"
 
-#: pp_cms.cpp:200
+#: pp_cms.cpp:212
 msgid ""
 "RGB images cannot be printed\n"
 "(Workflow is CMYK and there is no printer profile)"
@@ -677,7 +677,7 @@ msgstr ""
 "RGB afbeeldingen kunnen niet afgedrukt worden\n"
 "(Werkstroom is CMYK en er is geen printerprofiel)"
 
-#: pp_cms.cpp:215
+#: pp_cms.cpp:227
 msgid ""
 "Printer profile is a devicelink with RGB input - CMYK images\n"
 "will first be converted to the default RGB profile"
@@ -685,7 +685,7 @@ msgstr ""
 "Printerprofiel is een apparaatlink met RGB invoer - CMYK afbeeldingen\n"
 "zullen eerst geconverteerd worden naar het standaard RGB profiel."
 
-#: pp_cms.cpp:221
+#: pp_cms.cpp:233
 msgid ""
 "Printer profile is a devicelink with RGB input - CMYK images\n"
 "cannot be printed without a default RGB profile."
@@ -693,7 +693,7 @@ msgstr ""
 "Printerprofiel is een apparaatlink met RGB invoer - CMYK afbeeldingen\n"
 "kunnen niet afgedrukt worden met een standaard RGB profiel."
 
-#: pp_cms.cpp:227
+#: pp_cms.cpp:239
 msgid ""
 "Printer profile is a devicelink with RGB input - CMYK images\n"
 "cannot be printed without a default RGB and CMYK profile."
@@ -701,7 +701,7 @@ msgstr ""
 "Printerprofiel is een apparaatlink met RGB invoer - CMYK afbeeldingen\n"
 "kunnen niet worden afgedrukt zonder een standaard RGB en CMYK profiel."
 
-#: pp_cms.cpp:234
+#: pp_cms.cpp:246
 msgid ""
 "Printer profile is a devicelink - CMYK images with embedded profiles\n"
 "will first be converted to the default CMYK profile."
@@ -710,7 +710,7 @@ msgstr ""
 "profielen\n"
 "zullen eerst geconverteerd worden naar het standaard CMYK profiel."
 
-#: pp_cms.cpp:240
+#: pp_cms.cpp:252
 msgid ""
 "Printer profile is a devicelink - CMYK images with embedded profiles will "
 "not\n"
@@ -720,11 +720,11 @@ msgstr ""
 "profielen zullen niet\n"
 "correct afgedrukt worden daar er geen standaard CMYK profiel is."
 
-#: pp_cms.cpp:246
+#: pp_cms.cpp:258
 msgid "CMYK images will print correctly"
 msgstr "CMYK afbeeldingen zullen correct worden afgedrukt"
 
-#: pp_cms.cpp:251
+#: pp_cms.cpp:263
 msgid ""
 "CMYK images can be printed but colours depend on the driver\n"
 "(Colours will be accurate for images that contain an embedded profile)"
@@ -734,13 +734,13 @@ msgstr ""
 "(Kleuren zullen accuraat zijn voor afbeeldingen die een ingebed profiel "
 "hebben)"
 
-#: pp_cms.cpp:256
+#: pp_cms.cpp:268
 msgid "CMYK images can be printed but colours depend on the driver"
 msgstr ""
 "CMYK afbeeldingen kunnen afgedrukt worden maar de kleuren hangen af van de "
 "driver"
 
-#: pp_cms.cpp:261
+#: pp_cms.cpp:273
 msgid ""
 "CMYK images can only be printed if they have an embedded profile\n"
 "(Workflow is RGB and there is no default CMYK profile)"
@@ -749,7 +749,7 @@ msgstr ""
 "hebben\n"
 "(Werkstroom is RGB en er is geen standaard CMYK profiel)"
 
-#: pp_cms.cpp:266
+#: pp_cms.cpp:278
 msgid ""
 "CMYK images cannot be printed\n"
 "(Workflow is RGB and there is no printer profile)"
@@ -757,75 +757,75 @@ msgstr ""
 "CMYK afbeeldingen kunnen niet afgedrukt worden\n"
 "(Werkstroom is RGB en er is geen printerprofiel)"
 
-#: pp_cms.cpp:276
+#: pp_cms.cpp:288
 msgid "Images will be displayed correctly"
 msgstr "Afbeeldingen zullen correct weergegeven worden"
 
-#: pp_cms.cpp:281
+#: pp_cms.cpp:293
 msgid ""
 "Images will only be displayed correctly if they have an embedded profile"
 msgstr ""
 "Afbeeldingen zullen alleen correct worden weergegeven als ze een ingebed "
 "profiel hebben"
 
-#: pp_cms.cpp:286
+#: pp_cms.cpp:298
 msgid "Images will not be displayed correctly"
 msgstr "Afbeeldingen zullen niet correct worden weergegeven"
 
-#: pp_cms.cpp:317
+#: pp_cms.cpp:329
 msgid "Printer"
 msgstr "Printer"
 
-#: pp_cms.cpp:332
+#: pp_cms.cpp:344
 msgid "Printer Profile:"
 msgstr "Printerprofiel:"
 
-#: pp_cms.cpp:364
+#: pp_cms.cpp:376
 msgid "Colour space:"
 msgstr "Kleurgebied:"
 
-#: pp_cms.cpp:372
+#: pp_cms.cpp:384
 msgid "RGB"
 msgstr "RGB"
 
-#: pp_cms.cpp:372
+#: pp_cms.cpp:384
 msgid "Send Red, Green and Blue data to the printer driver"
 msgstr "Stuur Rood, Groen en Blauw data naar de printerdriver"
 
-#: pp_cms.cpp:373
+#: pp_cms.cpp:385
 msgid "CMYK"
 msgstr "CMYK"
 
-#: pp_cms.cpp:373
+#: pp_cms.cpp:385
 msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
 msgstr "Stuur Cyaan, Magenta, Geel en Zwart data naar de printerdriver"
 
-#: pp_cms.cpp:383
+#: pp_cms.cpp:395
 msgid "Monitor"
 msgstr "Monitor"
 
-#: pp_cms.cpp:396
+#: pp_cms.cpp:408
 msgid "Monitor Profile:"
 msgstr "Monitorprofiel:"
 
-#: pp_cms.cpp:411
+#: pp_cms.cpp:423
 msgid "Display mode:"
 msgstr "Display modus:"
 
-#: pp_cms.cpp:420
+#: pp_cms.cpp:432
 msgid "Normal"
 msgstr "Normaal"
 
-#: pp_cms.cpp:420
+#: pp_cms.cpp:432
 msgid "Displays images' original colours, transformed to suit the monitor"
 msgstr ""
 "Geeft de afbeelding zijn originele kleuren weer, aangepast aan de monitor"
 
-#: pp_cms.cpp:421
+#: pp_cms.cpp:433
 msgid "Simulate Print"
 msgstr "Simuleer afdruk"
 
-#: pp_cms.cpp:421
+#: pp_cms.cpp:433
 msgid ""
 "Simulates how colours will look when printed, imitating the paper's white "
 "point."
@@ -833,11 +833,11 @@ msgstr ""
 "Simuleert hoe kleuren eruit zullen zien wanneer afgedrukt, met imitatie van "
 "het papier z'n witbalans."
 
-#: pp_cms.cpp:422
+#: pp_cms.cpp:434
 msgid "Simulate Print, Adapt White"
 msgstr "Simuleer afdruk, pas witbalans aan"
 
-#: pp_cms.cpp:422
+#: pp_cms.cpp:434
 msgid ""
 "Simulates how colours will look when printed, adapting colours for the "
 "monitor's white point."
@@ -845,19 +845,24 @@ msgstr ""
 "Simuleert hoe de kleuren eruit zullen zien wanneer afgedrukt, aangepast aan "
 "de witbalans van de monitor."
 
-#: pp_cms.cpp:432
+#: pp_cms.cpp:444
 msgid "Default Image Profiles"
 msgstr "Standaard afbeeldingsprofielen"
 
-#: pp_cms.cpp:447
+#: pp_cms.cpp:460
+#, fuzzy
+msgid "Grey Profile:"
+msgstr "RGB profiel:"
+
+#: pp_cms.cpp:477
 msgid "RGB Profile:"
 msgstr "RGB profiel:"
 
-#: pp_cms.cpp:464
+#: pp_cms.cpp:494
 msgid "CMYK Profile:"
 msgstr "CMYK profiel:"
 
-#: pp_cms.cpp:666
+#: pp_cms.cpp:719
 msgid "Colour Management"
 msgstr "Kleurbeheer"
 
@@ -909,7 +914,7 @@ msgstr "Profiel:"
 msgid "pixels"
 msgstr "pixels"
 
-#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:842
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:878
 msgid "Default"
 msgstr "Standaard"
 
@@ -1055,11 +1060,11 @@ msgstr "Export naar _JPEG..."
 msgid "Export pages as JPEG files"
 msgstr "Exporteer pagina's als JPEG bestanden"
 
-#: pp_menu_shortcuts.cpp:78
+#: pp_menu_shortcuts.cpp:80
 msgid "_Shortcuts"
 msgstr "_Snelkoppelingen"
 
-#: pp_menu_shortcuts.cpp:185
+#: pp_menu_shortcuts.cpp:187
 msgid "Error fetching preset name!"
 msgstr ""
 
@@ -1311,27 +1316,27 @@ msgstr ""
 "Kan de printer niet verkrijgen van Gutenprint\n"
 "Controleer STP_DATA_PATH en de Gutenprint versie!"
 
-#: profilemanager/lcmswrapper.cpp:556
+#: profilemanager/lcmswrapper.cpp:569
 msgid "Perceptual"
 msgstr "Perceptueel"
 
-#: profilemanager/lcmswrapper.cpp:557
+#: profilemanager/lcmswrapper.cpp:570
 msgid "Relative Colorimetric"
 msgstr "Relatieve Colorometrie"
 
-#: profilemanager/lcmswrapper.cpp:558
+#: profilemanager/lcmswrapper.cpp:571
 msgid "Relative Colorimetric with BPC"
 msgstr "Relatieve Colorometrie met BPC"
 
-#: profilemanager/lcmswrapper.cpp:559
+#: profilemanager/lcmswrapper.cpp:572
 msgid "Saturation"
 msgstr "Verzadiging"
 
-#: profilemanager/lcmswrapper.cpp:560
+#: profilemanager/lcmswrapper.cpp:573
 msgid "Absolute Colorimetric"
 msgstr "Absolute Colorometrie"
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:578
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
@@ -1340,7 +1345,7 @@ msgstr ""
 "vankoppelingen tussen kleuren en knippen van onbereikbare kleuren te "
 "voorkomen."
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:579
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
@@ -1348,7 +1353,7 @@ msgstr ""
 "Probeert de originele kleuren te behouden, relatief ten opzichte van de "
 "witbalans."
 
-#: profilemanager/lcmswrapper.cpp:567
+#: profilemanager/lcmswrapper.cpp:580
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
@@ -1358,7 +1363,7 @@ msgstr ""
 "vanwitbalans verschillen. Gebruikt BPC (Zwart Punt Compensatie) om licht en "
 "donker goed weer te geven."
 
-#: profilemanager/lcmswrapper.cpp:568
+#: profilemanager/lcmswrapper.cpp:581
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
@@ -1366,7 +1371,7 @@ msgstr ""
 "Probeert heldere, meer verzadigde kleuren te krijgen ten koste van de "
 "relaties tussen de kleuren."
 
-#: profilemanager/lcmswrapper.cpp:569
+#: profilemanager/lcmswrapper.cpp:582
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1378,37 +1383,37 @@ msgstr ""
 msgid "Other..."
 msgstr "Andere..."
 
-#: profilemanager/profileselector.cpp:195
+#: profilemanager/profileselector.cpp:204
 #, fuzzy
 msgid "None"
 msgstr "Gee_n"
 
-#: profilemanager/profileselector.cpp:227
+#: profilemanager/profileselector.cpp:236
 #, fuzzy
 msgid "Choose ICC Profile..."
 msgstr "ICC Profielen"
 
-#: profilemanager/profileselector.cpp:394
+#: profilemanager/profileselector.cpp:403
 msgid "Please choose a valid ICC profile"
 msgstr "Kies een geldig ICC-profiel"
 
-#: profilemanager/profilemanager.cpp:208
+#: profilemanager/profilemanager.cpp:212
 msgid "Can't do proofing without a valid Printer profile!"
 msgstr "Kan niet proefdrukken zonder een geldig printerprofiel!"
 
-#: profilemanager/profilemanager.cpp:213
+#: profilemanager/profilemanager.cpp:217
 msgid "Can't do proofing without a valid Monitor profile!"
 msgstr "Kan niet proefdrukken zonder een geldig monitorprofiel!"
 
-#: profilemanager/profilemanager.cpp:218
+#: profilemanager/profilemanager.cpp:222
 msgid "Can't do proofing without a valid Default RGB profile!"
 msgstr "Kan niet proefdrukken zonder een geldig RGB profiel!"
 
-#: profilemanager/profilemanager.cpp:501
+#: profilemanager/profilemanager.cpp:505
 msgid "No Proof profile provided!"
 msgstr "Geen proefdruk profiel bezorgd!"
 
-#: profilemanager/profilemanager.cpp:850
+#: profilemanager/profilemanager.cpp:886
 msgid "Default rendering intent"
 msgstr "Gewenst resultaat"
 

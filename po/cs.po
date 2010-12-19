@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: photoprint 0.4.0\n"
 "Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
-"POT-Creation-Date: 2010-11-06 23:24+0000\n"
+"POT-Creation-Date: 2010-12-04 16:49+0000\n"
 "PO-Revision-Date: 2010-04-23 18:04+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Assign Profile:"
 msgstr "Přiřadit profil:"
 
-#: dialogs.cpp:1203 pp_cms.cpp:349
+#: dialogs.cpp:1203 pp_cms.cpp:361
 msgid "Rendering intent:"
 msgstr "Cíl vykreslování:"
 
@@ -527,23 +527,23 @@ msgstr "Otočení o 90 stupňů ve směru hodinových ručiček"
 msgid "Dither Algorithm"
 msgstr "Algoritmus rozptylu barvy"
 
-#: photoprint.cpp:138
+#: photoprint.cpp:170
 msgid "Initializing..."
 msgstr "Inicializuje se…"
 
-#: photoprint.cpp:144
+#: photoprint.cpp:176
 msgid "Checking .photoprint directory..."
 msgstr "Kontroluje se složka .photoprint…"
 
-#: photoprint.cpp:149
+#: photoprint.cpp:181
 msgid "Loading preset..."
 msgstr "Načítá se nastavení…"
 
-#: photoprint.cpp:160
+#: photoprint.cpp:192
 msgid "Creating layout..."
 msgstr "Vytváří se návrh…"
 
-#: photoprint.cpp:203
+#: photoprint.cpp:235
 msgid "Loading images..."
 msgstr "Načítají se obrázky…"
 
@@ -590,7 +590,7 @@ msgstr ""
 msgid "Error creating temporary thumbnail file for `%s': %s"
 msgstr "Chyba při vytváření dočasného souboru s náhledem pro „%s“: %s"
 
-#: pp_cms.cpp:148
+#: pp_cms.cpp:160
 msgid ""
 "Printer profile is a devicelink with CMYK input - RGB images\n"
 "will first be converted to the default CMYK profile"
@@ -598,7 +598,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink se vstupem CMYK - obrázky\n"
 "RGB budou nejprve převedeny do výchozího profilu CMYK."
 
-#: pp_cms.cpp:154
+#: pp_cms.cpp:166
 msgid ""
 "Printer profile is a devicelink with CMYK input - RGB images\n"
 "cannot be printed without a default CMYK profile."
@@ -606,7 +606,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink se vstupem CMYK - obrázky\n"
 "RGB nebude možné vytisknout bez výchozího profilu CMYK."
 
-#: pp_cms.cpp:160
+#: pp_cms.cpp:172
 msgid ""
 "Printer profile is a devicelink with CMYK input - RGB images\n"
 "cannot be printed without a default RGB and CMYK profile."
@@ -614,7 +614,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink se vstupem CMYK - obrázky\n"
 "RGB nebude možné vytisknout bez výchozího profilu RGB a CMYK."
 
-#: pp_cms.cpp:168
+#: pp_cms.cpp:180
 msgid ""
 "Printer profile is a devicelink - RGB images with embedded profiles\n"
 "will first be converted to the default RGB profile."
@@ -622,7 +622,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink - obrázky RGB s vloženými\n"
 "profily budou nejprve převedeny do výchozího profilu RGB."
 
-#: pp_cms.cpp:174
+#: pp_cms.cpp:186
 msgid ""
 "Printer profile is a devicelink - RGB images with embedded profiles will "
 "not\n"
@@ -631,11 +631,11 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink - obrázky RGB s vloženými profily\n"
 "nebudou vytisknuty správně, protože není žádný výchozí profil RGB."
 
-#: pp_cms.cpp:180
+#: pp_cms.cpp:192
 msgid "RGB images will print correctly"
 msgstr "Obrázky RGB budou vytisknuty správně."
 
-#: pp_cms.cpp:185
+#: pp_cms.cpp:197
 msgid ""
 "RGB images can be printed but colours depend on the driver\n"
 "(Colours will be accurate for images that contain an embedded profile)"
@@ -643,11 +643,11 @@ msgstr ""
 "Obrázky RGB bude možné tisknout, ale v barvách závislých na ovladači\n"
 "(Barvy budou správné u obrázků, které obsahují vložený profil)"
 
-#: pp_cms.cpp:190
+#: pp_cms.cpp:202
 msgid "RGB images can be printed but colours depend on the driver"
 msgstr "Obrázky RGB bude možné tisknout, ale v barvách závislých na ovladači."
 
-#: pp_cms.cpp:195
+#: pp_cms.cpp:207
 msgid ""
 "RGB images can only be printed if they have an embedded profile\n"
 "(Workflow is CMYK and there is no default RGB profile)"
@@ -655,7 +655,7 @@ msgstr ""
 "Obrázky RGB bude možné tisknout, pokud obsahují vložený profil\n"
 "(Pracovní postup je CMYK a není žádný výchozí profil RGB)"
 
-#: pp_cms.cpp:200
+#: pp_cms.cpp:212
 msgid ""
 "RGB images cannot be printed\n"
 "(Workflow is CMYK and there is no printer profile)"
@@ -663,7 +663,7 @@ msgstr ""
 "Obrázky RGB nebude možné tisknout\n"
 "(Pracovní postup je CMYK a není žádný profil tiskárny)"
 
-#: pp_cms.cpp:215
+#: pp_cms.cpp:227
 msgid ""
 "Printer profile is a devicelink with RGB input - CMYK images\n"
 "will first be converted to the default RGB profile"
@@ -671,7 +671,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink se vstupem RGB - obrázky\n"
 "CMYK budou nejprve převedeny do výchozího profilu RGB."
 
-#: pp_cms.cpp:221
+#: pp_cms.cpp:233
 msgid ""
 "Printer profile is a devicelink with RGB input - CMYK images\n"
 "cannot be printed without a default RGB profile."
@@ -679,7 +679,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink se vstupem RGB - obrázky\n"
 "CMYK nebude možné vytisknout bez výchozího profilu RGB."
 
-#: pp_cms.cpp:227
+#: pp_cms.cpp:239
 msgid ""
 "Printer profile is a devicelink with RGB input - CMYK images\n"
 "cannot be printed without a default RGB and CMYK profile."
@@ -687,7 +687,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink se vstupem RGB - obrázky\n"
 "CMYK nebude možné vytisknout bez výchozího profilu RGB a CMYK."
 
-#: pp_cms.cpp:234
+#: pp_cms.cpp:246
 msgid ""
 "Printer profile is a devicelink - CMYK images with embedded profiles\n"
 "will first be converted to the default CMYK profile."
@@ -695,7 +695,7 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink - obrázky CMYK s vloženými\n"
 "profily budou nejprve převedeny do výchozího profilu CMYK."
 
-#: pp_cms.cpp:240
+#: pp_cms.cpp:252
 msgid ""
 "Printer profile is a devicelink - CMYK images with embedded profiles will "
 "not\n"
@@ -704,11 +704,11 @@ msgstr ""
 "Profil tiskárny je typu DeviceLink - obrázky CMYK s vloženými profily\n"
 "nebudou vytisknuty správně, protože není žádný výchozí profil CMYK."
 
-#: pp_cms.cpp:246
+#: pp_cms.cpp:258
 msgid "CMYK images will print correctly"
 msgstr "Obrázky CMYK budou vytisknuty správně."
 
-#: pp_cms.cpp:251
+#: pp_cms.cpp:263
 msgid ""
 "CMYK images can be printed but colours depend on the driver\n"
 "(Colours will be accurate for images that contain an embedded profile)"
@@ -716,11 +716,11 @@ msgstr ""
 "Obrázky CMYK bude možné tisknout, ale v barvách závislých na ovladači\n"
 "(Barvy budou správné u obrázků, které obsahují vložený profil)"
 
-#: pp_cms.cpp:256
+#: pp_cms.cpp:268
 msgid "CMYK images can be printed but colours depend on the driver"
 msgstr "Obrázky CMYK bude možné tisknout, ale v barvách závislých na ovladači"
 
-#: pp_cms.cpp:261
+#: pp_cms.cpp:273
 msgid ""
 "CMYK images can only be printed if they have an embedded profile\n"
 "(Workflow is RGB and there is no default CMYK profile)"
@@ -728,7 +728,7 @@ msgstr ""
 "Obrázky CMYK bude možné tisknout, pokud obsahují vložený profil\n"
 "(Pracovní postup je RGB a není žádný výchozí profil CMYK)"
 
-#: pp_cms.cpp:266
+#: pp_cms.cpp:278
 msgid ""
 "CMYK images cannot be printed\n"
 "(Workflow is RGB and there is no printer profile)"
@@ -736,73 +736,73 @@ msgstr ""
 "Obrázky CMYK nebude možné tisknout\n"
 "(Pracovní postup je RGB a není žádný profil tiskárny)"
 
-#: pp_cms.cpp:276
+#: pp_cms.cpp:288
 msgid "Images will be displayed correctly"
 msgstr "Obrázky budou zobrazeny správně."
 
-#: pp_cms.cpp:281
+#: pp_cms.cpp:293
 msgid ""
 "Images will only be displayed correctly if they have an embedded profile"
 msgstr "Obrázky budou zobrazeny správně jen pokud obsahují vložený profil."
 
-#: pp_cms.cpp:286
+#: pp_cms.cpp:298
 msgid "Images will not be displayed correctly"
 msgstr "Obrázky nebudou zobrazeny správně."
 
-#: pp_cms.cpp:317
+#: pp_cms.cpp:329
 msgid "Printer"
 msgstr "Tiskárna"
 
-#: pp_cms.cpp:332
+#: pp_cms.cpp:344
 msgid "Printer Profile:"
 msgstr "Profil tiskárny:"
 
-#: pp_cms.cpp:364
+#: pp_cms.cpp:376
 msgid "Colour space:"
 msgstr "Barevný prostor:"
 
-#: pp_cms.cpp:372
+#: pp_cms.cpp:384
 msgid "RGB"
 msgstr "RGB"
 
-#: pp_cms.cpp:372
+#: pp_cms.cpp:384
 msgid "Send Red, Green and Blue data to the printer driver"
 msgstr "Odeslat do tiskového ovladače data červené, zelené a modré barvy"
 
-#: pp_cms.cpp:373
+#: pp_cms.cpp:385
 msgid "CMYK"
 msgstr "CMYK"
 
-#: pp_cms.cpp:373
+#: pp_cms.cpp:385
 msgid "Send Cyan, Magenta, Yellow and Black data to the printer driver"
 msgstr ""
 "Odeslat do tiskového ovladače data azurové, purpurové, žluté a černé barvy"
 
-#: pp_cms.cpp:383
+#: pp_cms.cpp:395
 msgid "Monitor"
 msgstr "Obrazovka"
 
-#: pp_cms.cpp:396
+#: pp_cms.cpp:408
 msgid "Monitor Profile:"
 msgstr "Profil obrazovky:"
 
-#: pp_cms.cpp:411
+#: pp_cms.cpp:423
 msgid "Display mode:"
 msgstr "Režim zobrazení:"
 
-#: pp_cms.cpp:420
+#: pp_cms.cpp:432
 msgid "Normal"
 msgstr "Normální"
 
-#: pp_cms.cpp:420
+#: pp_cms.cpp:432
 msgid "Displays images' original colours, transformed to suit the monitor"
 msgstr "Zobrazí originální barvy obrázku, přizpůsobené vybavení monitoru."
 
-#: pp_cms.cpp:421
+#: pp_cms.cpp:433
 msgid "Simulate Print"
 msgstr "Simulace tisku"
 
-#: pp_cms.cpp:421
+#: pp_cms.cpp:433
 msgid ""
 "Simulates how colours will look when printed, imitating the paper's white "
 "point."
@@ -810,11 +810,11 @@ msgstr ""
 "Simuluje, jak budou barvy vypadat po vytisknutí, přičemž napodobuje bílou "
 "barvu papíru."
 
-#: pp_cms.cpp:422
+#: pp_cms.cpp:434
 msgid "Simulate Print, Adapt White"
 msgstr "Simulace tisku, přizpůsobení bílé"
 
-#: pp_cms.cpp:422
+#: pp_cms.cpp:434
 msgid ""
 "Simulates how colours will look when printed, adapting colours for the "
 "monitor's white point."
@@ -822,19 +822,24 @@ msgstr ""
 "Simuluje, jak budou barvy vypadat po vytisknutí, přičemž přizpůsobuje barvy "
 "pro bílou barvu monitoru."
 
-#: pp_cms.cpp:432
+#: pp_cms.cpp:444
 msgid "Default Image Profiles"
 msgstr "Výchozí profily obrázků"
 
-#: pp_cms.cpp:447
+#: pp_cms.cpp:460
+#, fuzzy
+msgid "Grey Profile:"
+msgstr "Profil RGB:"
+
+#: pp_cms.cpp:477
 msgid "RGB Profile:"
 msgstr "Profil RGB:"
 
-#: pp_cms.cpp:464
+#: pp_cms.cpp:494
 msgid "CMYK Profile:"
 msgstr "Profil CMYK:"
 
-#: pp_cms.cpp:666
+#: pp_cms.cpp:719
 msgid "Colour Management"
 msgstr "Správa barev"
 
@@ -886,7 +891,7 @@ msgstr "Profil:"
 msgid "pixels"
 msgstr "pixelů"
 
-#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:842
+#: pp_imageinfo.cpp:387 profilemanager/profilemanager.cpp:878
 msgid "Default"
 msgstr "Výchozí"
 
@@ -1032,11 +1037,11 @@ msgstr "Exportovat _JPEG…"
 msgid "Export pages as JPEG files"
 msgstr "Exportovat stránky jako JPEG soubory"
 
-#: pp_menu_shortcuts.cpp:78
+#: pp_menu_shortcuts.cpp:80
 msgid "_Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: pp_menu_shortcuts.cpp:185
+#: pp_menu_shortcuts.cpp:187
 msgid "Error fetching preset name!"
 msgstr ""
 
@@ -1286,27 +1291,27 @@ msgstr ""
 "Nelze získat tiskárnu ze systému Gutenprint\n"
 "Zkontrolujte STP_DATA_PATH a verzi Gutenprint!"
 
-#: profilemanager/lcmswrapper.cpp:556
+#: profilemanager/lcmswrapper.cpp:569
 msgid "Perceptual"
 msgstr "Vizuální vjem"
 
-#: profilemanager/lcmswrapper.cpp:557
+#: profilemanager/lcmswrapper.cpp:570
 msgid "Relative Colorimetric"
 msgstr "Relativní kolorimetrie"
 
-#: profilemanager/lcmswrapper.cpp:558
+#: profilemanager/lcmswrapper.cpp:571
 msgid "Relative Colorimetric with BPC"
 msgstr "Relativní kolorimetrie s BPC"
 
-#: profilemanager/lcmswrapper.cpp:559
+#: profilemanager/lcmswrapper.cpp:572
 msgid "Saturation"
 msgstr "Sytost barev"
 
-#: profilemanager/lcmswrapper.cpp:560
+#: profilemanager/lcmswrapper.cpp:573
 msgid "Absolute Colorimetric"
 msgstr "Absolutní kolorimetrie"
 
-#: profilemanager/lcmswrapper.cpp:565
+#: profilemanager/lcmswrapper.cpp:578
 msgid ""
 "Aims for pleasing photographic results by preserving relationships between "
 "colours, and avoiding clipping of unattainable colours"
@@ -1314,13 +1319,13 @@ msgstr ""
 "Pokusí se o příjemný fotografický výsledek pomocí zachování vztahů mezi "
 "barvami a zabránění ořezání nedostupných barev."
 
-#: profilemanager/lcmswrapper.cpp:566
+#: profilemanager/lcmswrapper.cpp:579
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences."
 msgstr "Pokusí se zachovat originální barvy relativně k rozdílům bílého bodu."
 
-#: profilemanager/lcmswrapper.cpp:567
+#: profilemanager/lcmswrapper.cpp:580
 msgid ""
 "Attempts to preserve the original colours, relative to white-point "
 "differences.  Uses Black Point Compensation to avoid clipping of highlights "
@@ -1329,14 +1334,14 @@ msgstr ""
 "Pokusí se zachovat originální barvy relativně k rozdílům bílého bodu. "
 "Použije kompenzaci černého bodu (BPC), aby se zabránilo ořezání jasů a stínů."
 
-#: profilemanager/lcmswrapper.cpp:568
+#: profilemanager/lcmswrapper.cpp:581
 msgid ""
 "Attempts to provide brighter, more saturated colours, at the expense of "
 "colour relationships."
 msgstr ""
 "Pokusí se poskytnout jasnější a sytější barvy na účet vztahů mezi barvami."
 
-#: profilemanager/lcmswrapper.cpp:569
+#: profilemanager/lcmswrapper.cpp:582
 msgid ""
 "Mimics the original colours (including white point) as closely as possible, "
 "for side-by-side comparisons.  Clips unattainable colours."
@@ -1348,37 +1353,37 @@ msgstr ""
 msgid "Other..."
 msgstr "Další…"
 
-#: profilemanager/profileselector.cpp:195
+#: profilemanager/profileselector.cpp:204
 #, fuzzy
 msgid "None"
 msgstr "Žá_dné"
 
-#: profilemanager/profileselector.cpp:227
+#: profilemanager/profileselector.cpp:236
 #, fuzzy
 msgid "Choose ICC Profile..."
 msgstr "Profily ICC"
 
-#: profilemanager/profileselector.cpp:394
+#: profilemanager/profileselector.cpp:403
 msgid "Please choose a valid ICC profile"
 msgstr "Zvolte prosím platný profil ICC"
 
-#: profilemanager/profilemanager.cpp:208
+#: profilemanager/profilemanager.cpp:212
 msgid "Can't do proofing without a valid Printer profile!"
 msgstr "Bez platného profilu tiskárny nelze provést korekci!"
 
-#: profilemanager/profilemanager.cpp:213
+#: profilemanager/profilemanager.cpp:217
 msgid "Can't do proofing without a valid Monitor profile!"
 msgstr "Bez platného profilu monitoru nelze provést korekci!"
 
-#: profilemanager/profilemanager.cpp:218
+#: profilemanager/profilemanager.cpp:222
 msgid "Can't do proofing without a valid Default RGB profile!"
 msgstr "Bez výchozího profilu RGB nelze provést korekci!"
 
-#: profilemanager/profilemanager.cpp:501
+#: profilemanager/profilemanager.cpp:505
 msgid "No Proof profile provided!"
 msgstr "Není poskytován žádný korekční profil!"
 
-#: profilemanager/profilemanager.cpp:850
+#: profilemanager/profilemanager.cpp:886
 msgid "Default rendering intent"
 msgstr "Výchozí cíl vykreslování"
 

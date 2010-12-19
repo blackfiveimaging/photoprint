@@ -6,8 +6,17 @@ URGENT:
 | Fix signal on custom command change causing whole dialog to refresh!
 
 Add extra indicator to colour management dialog to indicate whether Grey images will be processed correctly.
-(If the profile's not set, promote grey images as previous.
+(If the profile's not set, promote grey images as previously.
 Check that promotion works with CMYK as well as RGB!)
+
+Move printing to a separate threaded job - that way the rest of the app should be more stable if you prepare
+the next job while this one's printing.
+
+Try and track down problems with "Allow Cropping" flag getting out of sync with the image.  (Maybe to do with doing too
+much from within a signal handler.
+
+Investigate the possibility of queuing tasks to be handled in an idle function rather than doing too much
+from within signal handlers.
 
 Fix segfault if effects are toggled with no image selected.
 (EffectSelector should be disabled in this case anyway, but fix segfault nonetheless.)
@@ -16,8 +25,8 @@ Fix segfault if effects are toggled with no image selected.
 
 Effects need to know at creation time which colour space they're operating on.
 
-Split out a libphotoprint from the core app.
-Split out a libphotoprintui.
+| Split out a libphotoprint from the core app.
+| Split out a libphotoprintui.
 Fix circular references between the two sub-libraries.
 
 | Add a PREPRESS_TOOLS define which will add a few obscure features to PhotoPrint.
