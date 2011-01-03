@@ -963,11 +963,12 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 		CMSTransform *transform=NULL;
 		if(src)
 		{
+			// FIXME - use refcounted pointers here to solve lifespan issue.
 			CMSProfile *emb;
 			if(customprofile)
 				emb=layout.factory->GetManager().GetProfile(customprofile);  // FIXME: lifespan?
 			else
-				emb=src->GetEmbeddedProfile();
+				emb=&*src->GetEmbeddedProfile();
 			if(emb)
 			{
 //				Debug[TRACE] << "Creating embedded->monitor transform..." << endl;
@@ -1076,11 +1077,12 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 
 		if(factory)
 		{
+			// FIXME - use refountptr here.
 			CMSProfile *emb;
 			if(customprofile)
 				emb=factory->GetManager().GetProfile(customprofile);  // FIXME: Lifespan!
 			else
-				emb=is->GetEmbeddedProfile();
+				emb=&*is->GetEmbeddedProfile();
 			
 			if(emb)
 			{

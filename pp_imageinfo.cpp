@@ -357,7 +357,7 @@ class ii_payload : public ThreadFunction
 				if(proffilename)
 					prof=new CMSProfile(proffilename);
 				if(!prof)
-					prof=is->GetEmbeddedProfile();
+					prof=&*is->GetEmbeddedProfile();
 				if(prof)
 				{
 					const char *desc=prof->GetDescription();
