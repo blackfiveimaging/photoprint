@@ -276,7 +276,7 @@ class HRRenderJob : public Job, public Progress
 			// We create new Fit in the idle-function because the hpan/vpan may have changed.
 
 			// Instead of building the GdkPixbuf here we create a cached image and convert to pixbuf in the main thread.
-			transformed=new CachedImage(is);
+			transformed=new CachedImage(RefCountPtr<ImageSource>(is));
 
 			Debug[TRACE] << "Built cached image -rendering" << endl;
 
