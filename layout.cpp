@@ -363,7 +363,7 @@ void Layout::MakeGC(GtkWidget *widget)
 
 	if(target!=CM_COLOURDEVICE_NONE)
 	{
-		CMSTransform *transform=NULL;
+		RefCountPtr<CMSTransform> transform;
 //			Debug[TRACE] << "Creating default->monitor transform..." << endl;
 		transform = factory->GetTransform(target,IS_TYPE_RGB,LCMSWRAPPER_INTENT_DEFAULT);
 		if(transform)

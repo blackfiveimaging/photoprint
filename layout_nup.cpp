@@ -329,7 +329,8 @@ ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransfo
 
 		if(factory)
 		{
-			CMSTransform *transform=factory->GetTransform(target,is);
+			RefCountPtr<CMSTransform> transform;
+			transform=factory->GetTransform(target,is);
 			if(transform)
 				is=new ImageSource_CMS(is,transform);
 		}
@@ -350,7 +351,8 @@ ImageSource *Layout_NUp::GetImageSource(int page,CMColourDevice target,CMTransfo
 
 		if(factory)
 		{
-			CMSTransform *transform=factory->GetTransform(target,colourspace);
+			RefCountPtr<CMSTransform> transform;
+			transform=factory->GetTransform(target,colourspace);
 			if(transform)
 				transform->Transform(white,white,1);
 		}

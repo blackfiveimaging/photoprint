@@ -33,15 +33,13 @@ const char *PPEffect_Temperature::GetName()
 
 
 PPEffect_Temperature::PPEffect_Temperature(PPEffectHeader &header,int priority,enum PPEFFECT_STAGE stage)
-	:	PPEffect(header,priority,stage), tempchange(0), transform(NULL)
+	:	PPEffect(header,priority,stage), tempchange(0)
 {
 }
 
 
 PPEffect_Temperature::~PPEffect_Temperature()
 {
-	if(transform)
-		delete transform;
 }
 
 
@@ -87,7 +85,6 @@ ImageSource *PPEffect_Temperature::Apply(ImageSource *source)
 
 	if(transform->GetInputColourSpace()!=STRIP_ALPHA(source->type))
 	{
-		delete transform;
 		transform=NULL;
 		MakeTransform(source->type);
 	}
@@ -97,8 +94,6 @@ ImageSource *PPEffect_Temperature::Apply(ImageSource *source)
 
 void PPEffect_Temperature::SetTempChange(int tempchange)
 {
-	if(transform)
-		delete transform;
 	transform=NULL;
 	this->tempchange=tempchange;
 }

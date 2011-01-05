@@ -275,7 +275,8 @@ ImageSource *Layout_Poster::GetImageSource(int page,CMColourDevice target,CMTran
 
 			if(factory)
 			{
-				CMSTransform *transform=factory->GetTransform(target,colourspace);
+				RefCountPtr<CMSTransform> transform;
+				transform=factory->GetTransform(target,colourspace);
 				if(transform)
 					transform->Transform(white,white,1);
 			}

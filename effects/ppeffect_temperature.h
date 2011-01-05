@@ -1,8 +1,8 @@
 #ifndef PPEFFECT_TEMPERATURE_H
 
 #include "ppeffect.h"
-
-class CMSTransform;
+#include "lcmswrapper.h"
+#include "refcountptr.h"
 
 class PPEffect_Temperature : public PPEffect
 {
@@ -22,7 +22,7 @@ class PPEffect_Temperature : public PPEffect
 	protected:
 	void MakeTransform(IS_TYPE type);
 	int tempchange;
-	CMSTransform *transform;
+	RefCountPtr<CMSTransform> transform;
 };
 
 #endif

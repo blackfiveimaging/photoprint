@@ -960,15 +960,15 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 			src=ISLoadImage(filename);
 		}
 
-		CMSTransform *transform=NULL;
+		RefCountPtr<CMSTransform> transform;
 		if(src)
 		{
 			// FIXME - use refcounted pointers here to solve lifespan issue.
-			CMSProfile *emb;
+			RefCountPtr<CMSProfile> emb;
 			if(customprofile)
 				emb=layout.factory->GetManager().GetProfile(customprofile);  // FIXME: lifespan?
 			else
-				emb=&*src->GetEmbeddedProfile();
+				emb=src->GetEmbeddedProfile();
 			if(emb)
 			{
 //				Debug[TRACE] << "Creating embedded->monitor transform..." << endl;
@@ -985,7 +985,7 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 						h=(src->height*256)/src->width;
 					}
 					src=ISScaleImageBySize(src,w,h,IS_SCALING_NEARESTNEIGHBOUR);
-					if((transform = layout.factory->GetTransform(target,emb,customintent)))
+					if((transform = layout.factory->GetTransform(target,&*emb,customintent)))
 						src=new ImageSource_CMS(src,transform);
 					thumbnail=pixbuf_from_imagesource(src);
 					delete src;
@@ -994,7 +994,7 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 				}
 				else
 				{
-					transform = layout.factory->GetTransform(target,emb,customintent);
+					transform = layout.factory->GetTransform(target,&*emb,customintent);
 				}
 			}
 			else
@@ -1073,21 +1073,20 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 											// and we don't want to cancel its exclusivity!
 		}
 
-		CMSTransform *transform=NULL;
+		RefCountPtr<CMSTransform> transform;
 
 		if(factory)
 		{
-			// FIXME - use refountptr here.
-			CMSProfile *emb;
+			RefCountPtr<CMSProfile> emb;
 			if(customprofile)
 				emb=factory->GetManager().GetProfile(customprofile);  // FIXME: Lifespan!
 			else
-				emb=&*is->GetEmbeddedProfile();
+				emb=is->GetEmbeddedProfile();
 			
 			if(emb)
 			{
 	//				Debug[TRACE] << "Has embedded / assigned profile..." << endl;
-				transform=factory->GetTransform(target,emb,customintent);  // FIXME: intent!
+				transform=factory->GetTransform(target,&*emb,customintent);  // FIXME: intent!
 			}
 			else
 			{

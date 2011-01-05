@@ -207,7 +207,7 @@ class printpreviewdata
 
 		if(target!=CM_COLOURDEVICE_NONE)
 		{
-			CMSTransform *transform=NULL;
+			RefCountPtr<CMSTransform> transform;
 			transform = factory->GetTransform(target,IS_TYPE_RGB,LCMSWRAPPER_INTENT_DEFAULT);
 			if(transform)
 			{

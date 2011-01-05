@@ -262,7 +262,8 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 
 			if(factory)
 			{
-				CMSTransform *transform=factory->GetTransform(target,colourspace);
+				RefCountPtr<CMSTransform> transform;
+				transform=factory->GetTransform(target,colourspace);
 				if(transform)
 					transform->Transform(white,white,1);
 			}
