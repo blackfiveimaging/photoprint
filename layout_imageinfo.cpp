@@ -32,7 +32,6 @@
 #include "imagesource/imagesource_invert.h"
 
 #include "imageutils/cachedimage.h"
-#include "imageutils/tiffsave.h"
 
 #include "photoprint_state.h"
 

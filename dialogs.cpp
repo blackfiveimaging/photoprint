@@ -42,8 +42,8 @@
 #include "miscwidgets/progressbar.h"
 #include "support/util.h"
 
-#include "imageutils/tiffsave.h"
-#include "imageutils/jpegsave.h"
+#include "imageutils/tiffsaver.h"
+	#include "imageutils/jpegsaver.h"
 #include "imagesource/pixbuf_from_imagesource.h"
 
 #include "profilemanager/profileselector.h"
@@ -770,10 +770,9 @@ void ExportTiff_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 									Debug[TRACE] << "Set profile - saving..." << endl;
 								}
 
-								TIFFSaver ts(ftmp,is,save16bit);
+								TIFFSaver ts(ftmp,ImageSource_rp(is),save16bit);
 								ts.SetProgress(&p);
 								ts.Save();
-								delete is;
 							}
 							
 							free(ftmp);
@@ -954,10 +953,9 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 									Debug[TRACE] << "Set profile - saving..." << endl;
 								}
 
-								JPEGSaver ts(ftmp,is,quality);
+								JPEGSaver ts(ftmp,ImageSource_rp(is),quality);
 								ts.SetProgress(&p);
 								ts.Save();
-								delete is;
 							}
 							
 							free(ftmp);
