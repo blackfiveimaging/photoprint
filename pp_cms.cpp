@@ -383,6 +383,7 @@ pp_cms_new (ProfileManager *pm)
 	SimpleComboOptions csopts;
 	csopts.Add("RGB",_("RGB"),_("Send Red, Green and Blue data to the printer driver"));
 	csopts.Add("CMYK",_("CMYK"),_("Send Cyan, Magenta, Yellow and Black data to the printer driver"));
+	csopts.Add("DeviceN",_("DeviceN"),_("Send raw printer channels to the printer driver"));
 
 	ob->colourspace=simplecombo_new(csopts);
 	g_signal_connect(G_OBJECT(ob->colourspace),"changed",G_CALLBACK(cms_changed),ob);

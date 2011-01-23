@@ -1,0 +1,753 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: photprint 0.3.5\n"
+"Report-Msgid-Bugs-To: blackfive@fakenhamweb.co.uk\n"
+"POT-Creation-Date: 2009-03-14 12:37+0000\n"
+"PO-Revision-Date: 2011-01-23 07:47+0100\n"
+"Last-Translator: Woland <wolandz@tin.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%d degrees K"
+msgstr "%d gradi K"
+
+msgid "About"
+msgstr "Informazioni"
+
+msgid "About..."
+msgstr "Informazioni..."
+
+msgid "Absolute Colorimetric"
+msgstr "Colorimetrico assoluto"
+
+msgid "Active"
+msgstr "Attiva"
+
+msgid "Add images to the current layout"
+msgstr "Aggiungere le immagini al layout"
+
+msgid "Add..."
+msgstr "Aggiungi"
+
+msgid "Adding images..."
+msgstr "Aggiunta immagini..."
+
+msgid "Adjust colours on screen to imitate printed colours, including paper white"
+msgstr "Regola i colori dello schermo per imitare i colori stampati, compreso il bianco"
+
+msgid "Adjust colours to imitate printed colours, excluding paper white"
+msgstr "Regola i colori dello schermo per imitare i colori stampati, escluso il bianco"
+
+msgid "After:"
+msgstr "Dopo:"
+
+msgid "Aims for pleasing photographic results by preserving relationships between colours, and avoiding clipping of unattainable colours"
+msgstr "Tenta di ottenere un risultato fotografico gradevole, mantenendo le relazioni tra i colori ed evitando il clipping di colori inottenibili"
+
+msgid "Algorithm:"
+msgstr "Algoritmo:"
+
+msgid "Allow _Cropping"
+msgstr "Permetti rifilatura"
+
+msgid "Amount: %1.2f"
+msgstr "Quantità: %1.2f"
+
+msgid "Apply effects to the selected image"
+msgstr "Applica effetti all'immagine selezionata"
+
+msgid "Assign Profile:"
+msgstr "Assegna un profilo"
+
+msgid "Assign an ICC profile or custom rendering intent to the image"
+msgstr "Assegnazione di un profilo ICC o di rendering personalizzato per l'immagine"
+
+msgid "Attempts to preserve the original colours, relative to white-point differences."
+msgstr "Tenta di conservare i colori originali, relativi alle differenze dal bianco."
+
+msgid "Attempts to preserve the original colours, relative to white-point differences.  Uses Black Point Compensation to avoid clipping of highlights and shadows."
+msgstr "Tenta di conservare i colori originali, relativi alle differenze dal bianco. Utilizza compensazione del nero per evitare il clipping di luci e ombre."
+
+msgid "Attempts to provide brighter, more saturated colours, at the expense of colour relationships."
+msgstr "Tenta di fornire colori più brillanti e saturi, a scapito dei rapporti di colore."
+
+msgid "Automatically choose rotation to fit the available space."
+msgstr "Sceglie automaticamente la rotazione per adattarsi allo spazio disponibile."
+
+msgid "Automatically place images in a grid"
+msgstr "Colloca automaticamente le immagini nella griglia."
+
+msgid "Backgrounds"
+msgstr "Sfondi"
+
+msgid "Before:"
+msgstr "Prima:"
+
+msgid "Borders"
+msgstr "Bordi"
+
+msgid "Bottom:"
+msgstr "Basso:"
+
+msgid "CMYK Profile:"
+msgstr "Profilo CMYK:"
+
+msgid "C_opy"
+msgstr "Copia"
+
+msgid ""
+"Can't show a colour managed\n"
+"preview unless you choose\n"
+"a Default RGB or Monitor profile\n"
+"in the Options->Colour Management\n"
+"dialog!"
+msgstr ""
+"Impossibile mostrare l'anteprima della \n"
+"gestione colore se non è impostato un \n"
+"profilo RGB del monitor in\n"
+"Opzioni-> Gestione colori "
+
+msgid "Carousel"
+msgstr "Carosello"
+
+msgid "Centimeters"
+msgstr "Centimetri"
+
+msgid "Checking .photoprint directory..."
+msgstr "Verifica directory .photoprint..."
+
+msgid "Colour Management"
+msgstr "Gestione colori"
+
+msgid "Colour space:"
+msgstr "Modalità colore"
+
+msgid "Columns:"
+msgstr "Colonne:"
+
+msgid "Copy the current image to the clipboard"
+msgstr "Copia l'immagine corrente nella clipboard"
+
+msgid "Creating layout..."
+msgstr "Creazione layout..."
+
+msgid "Crop the selected images to fill the available space"
+msgstr "Ritaglia le immagini selezionate per riempire lo spazio disponibile"
+
+msgid "Cut the current image to the clipboard"
+msgstr "Taglia l'immagine corrente e la copia nella clipboard"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Default Image Profiles"
+msgstr "Profilo predefinito per le immagini"
+
+msgid "Desaturate"
+msgstr "Togli saturazione"
+
+msgid "Deselect all images"
+msgstr "Deseleziona tutte le immagini"
+
+msgid "Dimensions:"
+msgstr "Dimensioni:"
+
+msgid "Display colours with no print simulation"
+msgstr "Mostra colori senza simulare la stampa"
+
+msgid "Display mode:"
+msgstr "Modalità visualizzazione:"
+
+msgid "Dither Algorithm"
+msgstr "Algoritmo dither:"
+
+msgid "Duplicate the currently selected image"
+msgstr "Duplica immagine selezionata"
+
+msgid "E_xport"
+msgstr "Esporta"
+
+msgid "E_xport TIFF..."
+msgstr "Esporta TIFF..."
+
+msgid "Effects"
+msgstr "Effetti"
+
+msgid "Error creating directory `%s': %s"
+msgstr "Errore durante la creazione della directory `%s': %s"
+
+msgid "Error creating temporary thumbnail file for `%s': %s"
+msgstr "Errore nella creazione del file temporaneo della miniatura per `%s': %s"
+
+msgid "Error opening `%s': %s"
+msgstr "Errore durante l'apertura di `%s': %s"
+
+msgid "Error reading `%s': %s"
+msgstr "Errore nella lettura di `%s': %s"
+
+msgid "Error reading `%s': file contains no data."
+msgstr "Errore nella lettura di `%s': il file non contiene dati."
+
+msgid "Error reading `%s': file is not a regular file or symbolic link."
+msgstr "Errore durante la lettura di `%s': il file non è un file regolare o un link simbolico."
+
+msgid "Error verifying `%s': %s"
+msgstr "Errore durante la verifica di `%s': %s"
+
+msgid "Exit PhotoPrint"
+msgstr "Esci da Photoprint"
+
+msgid "Export JPEG..."
+msgstr "Esporta JPEG..."
+
+msgid "Export TIFF..."
+msgstr "Esporta TIFF"
+
+msgid "Export _JPEG..."
+msgstr "Esporta JPEG"
+
+msgid "Export _TIFF..."
+msgstr "Esporta TIFF"
+
+msgid "Export pages as JPEG files"
+msgstr "Esporta pagina come file JPEG"
+
+msgid "Export pages as TIFF files"
+msgstr "Esporta pagine come file TIFF"
+
+msgid "Exporting..."
+msgstr "Esportazione..."
+
+msgid "Fade images into a circular 'carousel' - ideal for CD labels."
+msgstr "Mischia le immagini in forma circolare - ideale per etichette per CD."
+
+msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr "Impossibile caricare l'immagine '%s': causa sconosciuta, probabilmente il file è danneggiato"
+
+msgid "Filename:"
+msgstr "Nome del file:"
+
+msgid "Fill the page with copies of the currently selected image"
+msgstr "Riempire la pagina con le copie dell'immagine selezionata"
+
+msgid "From selected image"
+msgstr "Da immagine selezionata"
+
+msgid "Gap:"
+msgstr "Spazio:"
+
+msgid "Generating print data..."
+msgstr "Creazione dati di stampa..."
+
+msgid "H (%):"
+msgstr "Orizz.:"
+
+msgid "H:"
+msgstr "Orizz.:"
+
+msgid "Height:"
+msgstr "Altezza:"
+
+msgid "High-res Previews"
+msgstr "Anteprima in alta risoluzione"
+
+msgid "ICC Profiles"
+msgstr "Profilo colore ICC"
+
+msgid "Icon"
+msgstr "Icona"
+
+msgid "Image"
+msgstr "Immagine"
+
+msgid "Image Info"
+msgstr "Info immagine"
+
+msgid "Inches"
+msgstr "Pollici"
+
+msgid "Initializing..."
+msgstr "Inizializzazione..."
+
+msgid "Inner Radius:"
+msgstr "Raggio interno"
+
+msgid "JPEG Quality:"
+msgstr "Qualità JPEG:"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "Left:"
+msgstr "Sinistro:"
+
+msgid "Loading images..."
+msgstr "Caricamento immagini..."
+
+msgid "Loading preset..."
+msgstr "Caricamento procedura di stampa..."
+
+msgid "Manual scaling"
+msgstr "Scalatura manuale"
+
+msgid "Millimeters"
+msgstr "Millimetri"
+
+msgid "Mimics the original colours (including white point) as closely as possible, for side-by-side comparisons.  Clips unattainable colours."
+msgstr "Imita i colori originali (compreso il livello del bianco) quanto più vicino possibile, per confronto fianco a fianco. Taglia i colori inottenibili."
+
+msgid "Monitor"
+msgstr "Monitor"
+
+msgid "Monitor Profile:"
+msgstr "Profilo del monitor:"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "No rotation."
+msgstr "Nessuna rotazione."
+
+msgid "Normal"
+msgstr "Normale"
+
+msgid "Open File"
+msgstr "Apri file"
+
+msgid "Open a preset"
+msgstr "Apre una procedura di stampa salvata"
+
+msgid "Open preset..."
+msgstr "Apri impostazioni..."
+
+msgid "Other..."
+msgstr "Altro..."
+
+msgid "Output"
+msgstr "Uscita"
+
+msgid "Output Profile:"
+msgstr "Profilo di uscita"
+
+msgid "Overlap"
+msgstr "Sovrapposizione"
+
+msgid "Overlap (%):"
+msgstr "Sovrapposizione (%):"
+
+msgid "Page Size and Margins"
+msgstr "Dimensione pagina e margini"
+
+msgid "Page is already full!"
+msgstr "La pagina è già piena!"
+
+msgid "Page range:"
+msgstr "Pagine da stampare"
+
+msgid "Page:"
+msgstr "Pagina:"
+
+msgid "Paste the contents of the clipboard as a new image"
+msgstr "Incolla il contenuto della clipboard in una nuova immagine"
+
+msgid "Path"
+msgstr "Percorso"
+
+msgid "Perceptual"
+msgstr "Percettivo"
+
+msgid "Please choose a valid ICC profile"
+msgstr "Scegliere un profilo ICC valido"
+
+msgid "Please provide a filename."
+msgstr "Inserire un nome per il file"
+
+msgid "Please select an image first!"
+msgstr "Prima devi scegliere un'immagine!"
+
+msgid "Points"
+msgstr "Punti"
+
+msgid "Poster Layout"
+msgstr "Formato Poster"
+
+msgid "Preview how the printed page will look"
+msgstr "Anteprima di come apparirà la pagina stampata."
+
+msgid "Print Pre_view..."
+msgstr "Anteprima di stampa..."
+
+msgid "Print Queue:"
+msgstr "Coda di stampa:"
+
+msgid "Print S_etup..."
+msgstr "Impostazioni Stampante..."
+
+msgid "Print an image in multiple pages, to be assembled into a poster"
+msgstr "Stampa un'immagine in più pagine da assemblare in un poster"
+
+msgid "Print images on a single sheet, at a specified scale."
+msgstr "Stampa le immagini su un unico foglio, nella scala specificata."
+
+msgid "Print pages"
+msgstr "Stampa pagine"
+
+msgid "Printer"
+msgstr "Stampante"
+
+msgid "Printer Model:"
+msgstr "Modello stampante:"
+
+msgid "Printer Profile:"
+msgstr "Profilo della stampante:"
+
+msgid "Printer Setup"
+msgstr "Impostazioni stampante"
+
+msgid "Printer queue not found"
+msgstr "Coda di stampa inesistente"
+
+msgid "Profile:"
+msgstr "Profilo:"
+
+msgid "Progress..."
+msgstr "Avanzamento..."
+
+msgid "RGB Profile:"
+msgstr "Profilo RGB:"
+
+msgid "Radius: %1.2f"
+msgstr "Raggio: %1.2f"
+
+msgid "Relative Colorimetric"
+msgstr "Colorimetrico relativo"
+
+msgid "Relative Colorimetric with BPC"
+msgstr "Colorimetrico relativo con BPC"
+
+msgid "Remove"
+msgstr "Elimina"
+
+msgid "Remove all images from the layout"
+msgstr "Rimuovi tutte le immagini dal layout"
+
+msgid "Remove selected images from the layout"
+msgstr "Rimuovere le immagini selezionate dal layout"
+
+msgid "Render high-resolution previews in the background"
+msgstr "Render in background delle anteprime ad alta risoluzione"
+
+msgid "Rendering intent:"
+msgstr "Opzioni di rendering:"
+
+msgid "Resolution (dpi):"
+msgstr "Risoluzione (dpi):"
+
+msgid "Resolution:"
+msgstr "Risoluzione:"
+
+msgid "Right:"
+msgstr "Destro:"
+
+msgid "Rotate 180 degrees."
+msgstr "Ruota di 180 gradi."
+
+msgid "Rotate 90 degrees anticlockwise."
+msgstr "Ruota di 90 gradi in senso antiorario."
+
+msgid "Rotate 90 degrees clockwise."
+msgstr "Ruota di 90 gradi in senso orario."
+
+msgid "Rows:"
+msgstr "Righe:"
+
+msgid "Saturation"
+msgstr "Saturazione"
+
+msgid "Save _As..."
+msgstr "Salva come"
+
+msgid "Save _Default"
+msgstr "Salva come predefinita"
+
+msgid "Save a preset"
+msgstr "Salva una procedura di stampa"
+
+msgid "Save as 16-bit:"
+msgstr "Salva in 16 bit:"
+
+msgid "Save preset as the default"
+msgstr "Sava procedura di stampa come predefinita"
+
+msgid "Save preset with a new filename"
+msgstr "Salva procedura con un nuovo nome"
+
+msgid "Save preset..."
+msgstr "Salva impostazioni..."
+
+msgid "Segments:"
+msgstr "Segmenti:"
+
+msgid "Select _All"
+msgstr "Seleziona tutto"
+
+msgid "Select _None"
+msgstr "Deseleziona tutto"
+
+msgid "Select a background..."
+msgstr "Seleziona sfondo..."
+
+msgid "Select a border..."
+msgstr "Seleziona un bordo..."
+
+msgid "Select all images"
+msgstr "Seleziona tutte le immagini."
+
+msgid "Select directory..."
+msgstr "Seleziona directory"
+
+msgid "Select the preferred scaling method."
+msgstr "Seleziona il metodo preferito di scalatura."
+
+msgid "Select the units used throughout PhotoPrint"
+msgstr "Seleziona le unità di misura da utilizzare in PhotoPrint"
+
+msgid "Set Colour _Profile..."
+msgstr "Imposta Profilo colore"
+
+msgid "Set Custom Profile..."
+msgstr "Imposta profilo personalizzato"
+
+msgid "Set Image _Mask..."
+msgstr "Imposta Maschera immagine..."
+
+msgid "Set _Background"
+msgstr "Imposta Sfondo"
+
+msgid "Set a background image for the current layout"
+msgstr "Imposta un'immagine di sfondo per il layout"
+
+msgid "Set a border mask for the selected image"
+msgstr "Imposta una maschera per il bordo dell'immagine selezionata"
+
+msgid "Set colour management options"
+msgstr "Imposta le opzioni di gestione del colore"
+
+msgid "Set paths..."
+msgstr "Seleziona percorso"
+
+msgid "Set printer driver and options"
+msgstr "Impostazione driver della stampante e opzioni"
+
+msgid "Set search paths for ICC profiles, borders, etc."
+msgstr "Impostare i percorsi di ricerca per i profili ICC, bordi, ecc..."
+
+msgid "Sharpen"
+msgstr "Acutezza"
+
+msgid "Simulate Prin_t"
+msgstr "Simulazione stampa"
+
+msgid "Simulate Print"
+msgstr "Simulazione stampa"
+
+msgid "Simulate Print, Adapt White"
+msgstr "Simulazione stampa, adattamento del bianco"
+
+msgid "Simulate Print, _Adapt White"
+msgstr "Simulazione stampa, adattamento bianco"
+
+msgid "Size"
+msgstr "Dimensioni"
+
+msgid "Some information about PhotoPrint"
+msgstr "Alcune informazioni su PhotoPrint"
+
+msgid "Specify image dimensions"
+msgstr "Specifica dimensioni immagine"
+
+msgid "Specify rows/columns"
+msgstr "Specifica righe/colonne"
+
+msgid "Starting angle:"
+msgstr "Angolo di partenza:"
+
+msgid ""
+"The printer queue %s\n"
+" is not found - please choose another"
+msgstr ""
+"La coda di stampa %s\n"
+"è inesistente - sceglierne un'altra"
+
+msgid "Tiles"
+msgstr "Mosaico"
+
+msgid "Top:"
+msgstr "Alto:"
+
+msgid "Transferring images..."
+msgstr "Trasferimento immagini..."
+
+msgid "Unable to generate print data"
+msgstr "Impossibile generare i dati di stampa..."
+
+msgid "Units"
+msgstr "Unità"
+
+msgid "Units:"
+msgstr "Unità di misura:"
+
+msgid "V (%):"
+msgstr "Vert.:"
+
+msgid "V:"
+msgstr "Vert.:"
+
+msgid "W:"
+msgstr "W:"
+
+msgid "Warm/Cool"
+msgstr "Calda/fredda"
+
+msgid ""
+"Warning: Image already has an embedded profile\n"
+"Assigning a new one will over-ride it!"
+msgstr ""
+"Attenzione: L'immagine dispone già di un profilo\n"
+"Assegnane uno nuovo se vuoi sovrascriverlo!"
+
+msgid "Width:"
+msgstr "Larghezza:"
+
+msgid "_180 Degrees"
+msgstr "180·gradi"
+
+msgid "_270 Degrees"
+msgstr "270 gradi"
+
+msgid "_90 Degrees"
+msgstr "90·gradi"
+
+msgid "_Add Image..."
+msgstr "Aggiungi immagine"
+
+msgid "_Auto"
+msgstr "Automatica"
+
+msgid "_Auto Layout"
+msgstr "Layout Automatico"
+
+msgid "_Carousel"
+msgstr "Carosello"
+
+msgid "_Clear Layout"
+msgstr "Cancella layout"
+
+msgid "_Colour Management..."
+msgstr "Gestione Colore"
+
+msgid "_Cut"
+msgstr "Taglia"
+
+msgid "_Duplicate Image"
+msgstr "Duplica immagine"
+
+msgid "_Duplicate to Fill Page"
+msgstr "Riempi la pagina"
+
+msgid "_Edit"
+msgstr "Modifica"
+
+msgid "_Effects..."
+msgstr "Effetti"
+
+msgid "_File"
+msgstr "File"
+
+msgid "_Help"
+msgstr "Aiuto"
+
+msgid "_Image"
+msgstr "Immagine"
+
+msgid "_Layout"
+msgstr "Layout"
+
+msgid "_Manual Size"
+msgstr "Layout Manuale"
+
+msgid "_None"
+msgstr "Nessuna"
+
+msgid "_Normal Display"
+msgstr "Visualizzazione normale"
+
+msgid "_Open Preset..."
+msgstr "Apri procedura di stampa"
+
+msgid "_Options"
+msgstr "Opzioni"
+
+msgid "_Paste"
+msgstr "Incolla"
+
+msgid "_Paths..."
+msgstr "Percorsi..."
+
+msgid "_Poster"
+msgstr "Poster"
+
+msgid "_Print"
+msgstr "Stampa"
+
+msgid "_Quit"
+msgstr "Esci"
+
+msgid "_Remove Image"
+msgstr "Elimina immagine"
+
+msgid "_Rotation"
+msgstr "Rotazione"
+
+msgid "_Save Preset"
+msgstr "Salva procedura di stampa"
+
+msgid "_Scaling..."
+msgstr "Scalatura..."
+
+msgid "_Units..."
+msgstr "Unità di misura"
+
+msgid "by"
+msgstr "di"
+
+msgid "centimeters"
+msgstr "Centimetri"
+
+msgid "cm"
+msgstr "cm"
+
+msgid "in"
+msgstr "in"
+
+msgid "inches"
+msgstr "Pollici"
+
+msgid "millimeters"
+msgstr "Millimetri"
+
+msgid "mm"
+msgstr "mm"
+
+msgid "pixels"
+msgstr "pixels"
+
+msgid "points"
+msgstr "Punti"
+
+msgid "pt"
+msgstr "pt"
+

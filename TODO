@@ -5,6 +5,8 @@ URGENT:
 
 | Fix signal on custom command change causing whole dialog to refresh!
 
+Add a DeviceN print path
+
 Add extra indicator to colour management dialog to indicate whether Grey images will be processed correctly.
 (If the profile's not set, promote grey images as previously.
 Check that promotion works with CMYK as well as RGB!)
