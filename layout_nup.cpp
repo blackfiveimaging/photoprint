@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include "miscwidgets/generaldialogs.h"
+#include "errordialogqueue.h"
 #include "dialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "imageutils/rotatepixbuf.h"
@@ -149,7 +150,8 @@ bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bo
 	catch(const char *msg)
 	{
 		Debug[ERROR] << "Caught exception" << msg << endl;
-		ErrorMessage_Dialog(msg);
+		ErrorDialogs.AddMessage(msg);
+//		ErrorMessage_Dialog(msg);
 		if(ii)
 			delete ii;
 	}
