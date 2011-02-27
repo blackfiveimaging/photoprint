@@ -13,6 +13,7 @@
 #include <gtk/gtkmain.h>
 #include <gtk/gtkuimanager.h>
 
+#include "errordialogqueue.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "progressbar.h"
 #include "support/pathsupport.h"
@@ -256,6 +257,7 @@ void pp_mainwindow_rebuild(pp_MainWindow *mw)
 	}
 	catch(const char *err)
 	{
-		ErrorMessage_Dialog(err);
+		ErrorDialogs.AddMessage(err);
+//		ErrorMessage_Dialog(err);
 	}
 }

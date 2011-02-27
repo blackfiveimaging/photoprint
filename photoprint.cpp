@@ -20,6 +20,7 @@
 #include "config.h"
 #include "gettext.h"
 
+#include "errordialogqueue.h"
 #include "support/debug.h"
 #include "support/configdb.h"
 #include "photoprint_state.h"
@@ -148,8 +149,8 @@ int main(int argc,char **argv)
 	try
 	{
 		bool batchmode=ParseOptions(argc,argv,presetnames);
-		if(!batchmode)
-			have_gtk=gtk_init_check (&argc, &argv);
+//		if(!batchmode)	// We'll try an initialise GTK even if we're in batchmode, so we can use gdkpixbuf loaders, etc.
+		have_gtk=gtk_init_check (&argc, &argv);
 
 		if(have_gtk)
 			gtk_set_locale();
@@ -251,14 +252,16 @@ int main(int argc,char **argv)
 			}
 			catch (const char *err)
 			{
-				ErrorMessage_Dialog(err);
+				ErrorDialogs.AddMessage(err);
+//				ErrorMessage_Dialog(err);
 			}
 		}
 	}
 	catch(const char *err)
 	{
-		if(have_gtk)
-			ErrorMessage_Dialog(err);
+		ErrorDialogs.AddMessage(err);
+//		if(have_gtk)
+//			ErrorMessage_Dialog(err);
 		Debug[ERROR] << "Error: " << err << endl;
 	}
 	catch(int retcode)

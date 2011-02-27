@@ -4,6 +4,7 @@
 #include <gtk/gtkmain.h>
 
 #include "pp_menu_file.h"
+#include "errordialogqueue.h"
 #include "pp_mainwindow.h"
 #include "dialogs.h"
 #include "printpreview.h"

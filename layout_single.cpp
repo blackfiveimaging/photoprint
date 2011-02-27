@@ -24,6 +24,7 @@
 #include <string.h>
 
 #include "miscwidgets/generaldialogs.h"
+#include "errordialogqueue.h"
 #include "dialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "imageutils/rotatepixbuf.h"
@@ -299,7 +300,8 @@ int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 	}
 	catch(const char *msg)
 	{
-		ErrorMessage_Dialog(msg);
+//		ErrorMessage_Dialog(msg);
+		ErrorDialogs.AddMessage(msg);
 	}
 	if(ii)
 	{
@@ -370,7 +372,8 @@ ImageSource *Layout_Single::GetImageSource(int page,CMColourDevice target,CMTran
 	}
 	catch (const char *msg)
 	{
-		ErrorMessage_Dialog(msg);
+//		ErrorMessage_Dialog(msg);
+		ErrorDialogs.AddMessage(msg);
 	}
 	return(result);
 }

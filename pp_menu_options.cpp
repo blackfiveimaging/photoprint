@@ -5,6 +5,7 @@
 #include <gtk/gtkcheckmenuitem.h>
 #include <gtk/gtkmain.h>
 
+#include "errordialogqueue.h"
 #include "pp_mainwindow.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"

@@ -12,6 +12,7 @@
 #include <string.h>
 
 #include "miscwidgets/generaldialogs.h"
+#include "errordialogqueue.h"
 #include "dialogs.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "imageutils/rotatepixbuf.h"
@@ -272,7 +273,8 @@ ImageSource *Layout_Carousel::GetImageSource(int page,CMColourDevice target,CMTr
 	}
 	catch (const char *msg)
 	{
-		ErrorMessage_Dialog(msg);
+		ErrorDialogs.AddMessage(msg);
+//		ErrorMessage_Dialog(msg);
 	}
 	return(result);
 }
@@ -453,7 +455,8 @@ void Layout_Carousel::RenderPreview(int width,int height)
 	}
 	catch (const char *msg)
 	{
-		ErrorMessage_Dialog(msg);
+		ErrorDialogs.AddMessage(msg);
+//		ErrorMessage_Dialog(msg);
 	}
 }
 
