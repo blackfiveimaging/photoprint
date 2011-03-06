@@ -85,7 +85,7 @@ static void get_dnd_data(GtkWidget *widget, GdkDragContext *context,
 			if(*uri && *uri!='\n' && *uri!='\r')
 			{
 				gchar *filename=g_filename_from_uri(uri,NULL,NULL);
-				lastpage=pv->layout->AddImage(filename);
+				lastpage=pv->layout->AddImage_Defaults(filename);
 				pp_layout_carousel_pageview_refresh(pv);
 				g_signal_emit_by_name (GTK_OBJECT (pv), "changed");
 				progress.DoProgress(0,0);

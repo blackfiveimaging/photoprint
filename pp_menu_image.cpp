@@ -279,7 +279,7 @@ static void imagemenu_fliphorizontal(GtkToggleAction *act,gpointer *ob)
 
 		ii=it.NextSelected();
 	}
-	Debug[TRACE] << "Allowcropping: Done - refreshing display " << std::endl;
+	Debug[TRACE] << "FlipHorizontal: Done - refreshing display " << std::endl;
 	pp_mainwindow_refresh(mw);
 }
 
@@ -459,11 +459,14 @@ void BuildImageMenu(void *userdata,GtkUIManager *ui_manager)
 	if (!gtk_ui_manager_add_ui_from_string (ui_manager, imagemenu_ui_description, -1, &error))
 		throw error->message;
 
+#if 0
 	pp_MainWindow *mw=(pp_MainWindow *)userdata;
+	bool allowcropping=mw->state->layoutdb.FindInt("AllowCropping");
 	bool allowcropping=mw->state->layoutdb.FindInt("AllowCropping");
 	enum PP_ROTATION rotation=PP_ROTATION(mw->state->layoutdb.FindInt("Rotation"));
 	ImageMenu_SetCropFlag(ui_manager,allowcropping);
 	ImageMenu_SetRotation(ui_manager,rotation);
+#endif
 }
 
 

@@ -50,6 +50,44 @@ static void pp_mainwindow_init (pp_MainWindow *stpuicombo);
 static void layout_changed(GtkWidget *wid,gpointer *ob);
 
 
+static void pp_mainwindow_update_menus(pp_MainWindow *mw)
+{
+	PP_ROTATION rotation=ImageMenu_GetRotation(mw->uim);
+	bool allowcropping=ImageMenu_GetCropFlag(mw->uim);
+	bool hflip=ImageMenu_GetHFlipFlag(mw->uim);
+	// FIXME add support for vflip.
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
+	if(ii)
+	{
+		allowcropping=ii->allowcropping;
+		rotation=ii->rotation;
+		hflip=ii->fliphorizontal;
+	}
+	else
+	{
+		allowcropping=mw->state->layoutdb.FindInt("AllowCropping");
+		rotation=PP_ROTATION(mw->state->layoutdb.FindInt("Rotation"));
+		hflip=mw->state->layoutdb.FindInt("FlipHorizontal");
+	}
+
+	ii=it.NextSelected();
+	while(ii)
+	{
+		if(rotation!=ii->rotation)
+			rotation=PP_ROTATION_NONE;
+		allowcropping&=ii->allowcropping;
+		hflip&=ii->fliphorizontal;
+		ii=it.NextSelected();
+	}
+
+	ImageMenu_SetCropFlag(mw->uim,allowcropping);
+	ImageMenu_SetHFlipFlag(mw->uim,hflip);
+	ImageMenu_SetRotation(mw->uim,rotation);
+}
+
+
 
 // Functions invoked from the menus:
 
@@ -58,6 +96,8 @@ static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 
+	pp_mainwindow_update_menus(mw);
+#if 0
 	PP_ROTATION rotation=ImageMenu_GetRotation(mw->uim);
 	bool allowcropping=ImageMenu_GetCropFlag(mw->uim);
 	bool hflip=ImageMenu_GetHFlipFlag(mw->uim);
@@ -83,8 +123,9 @@ static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
 	}
 
 	ImageMenu_SetCropFlag(mw->uim,allowcropping);
-	ImageMenu_SetHFlipFlag(mw->uim,allowcropping);
+	ImageMenu_SetHFlipFlag(mw->uim,hflip);
 	ImageMenu_SetRotation(mw->uim,rotation);
+#endif
 }
 
 
@@ -110,7 +151,8 @@ void pp_mainwindow_refresh(pp_MainWindow *ob)
 	if(ob->layout)
 		ob->state->layout->RefreshWidget(ob->layout);
 
-	LayoutMenu_SetLayout(ob->uim,ob->state->layout->GetType());
+	pp_mainwindow_update_menus(ob);
+//	LayoutMenu_SetLayout(ob->uim,ob->state->layout->GetType());
 }
 
 
@@ -169,6 +211,9 @@ pp_mainwindow_new (PhotoPrint_State *state)
 
 	int caps=ob->state->layout->GetCapabilities();
 	ImageMenu_SetLayoutCapabilities(ob->uim,caps);
+	ImageMenu_SetCropFlag(ob->uim,ob->state->layoutdb.FindInt("AllowCropping"));
+	ImageMenu_SetHFlipFlag(ob->uim,ob->state->layoutdb.FindInt("FlipHorizontal"));
+
 	LayoutMenu_SetLayoutCapabilities(ob->uim,caps);
 
 	OptionsMenu_SetHighresPreviews(ob->uim,state->FindInt("HighresPreviews"));
@@ -250,6 +295,8 @@ void pp_mainwindow_rebuild(pp_MainWindow *mw)
 		}
 		int caps=mw->state->layout->GetCapabilities();
 		ImageMenu_SetLayoutCapabilities(mw->uim,caps);
+		ImageMenu_SetCropFlag(mw->uim,mw->state->layoutdb.FindInt("AllowCropping"));
+		ImageMenu_SetHFlipFlag(mw->uim,mw->state->layoutdb.FindInt("FlipHorizontal"));
 		LayoutMenu_SetLayoutCapabilities(mw->uim,caps);
 
 		OptionsMenu_SetHighresPreviews(mw->uim,mw->state->FindInt("HighresPreviews"));
