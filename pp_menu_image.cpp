@@ -195,7 +195,7 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 	if(blocksignals)
 		return;
 
-	Debug[TRACE] << "Responding to AllowCropping..." << endl;
+	Debug[TRACE] << "Responding to AllowCropping..." << std::endl;
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
 
 	bool checked=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
@@ -212,17 +212,74 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 		mw->state->layoutdb.SetInt("AllowCropping",checked);
 	while(ii)
 	{
-		ii->ObtainMutexShared();
-		if(ii->allowcropping!=checked)
+		try
 		{
-			ii->allowcropping=checked;
-			ii->ObtainMutex();
-			ii->allowcropping=checked;
-			ii->ReleaseMutex();
+			Debug[TRACE] << "Allowcropping: Obtaining shared mutex for image " << long(ii) << std::endl;
+			RWMutex::SharedLock rwlock(*ii);
+			if(ii->allowcropping!=checked)	// We don't bother to flush previews and force a redraw unless the checked flag really has changed.
+			{
+				ii->allowcropping=checked;
+				Debug[TRACE] << "Allowcropping: Obtaining Exclusive lock for image " << long(ii) << std::endl;
+				RWMutex::Lock lock(*ii);	// Exclusive lock (flushes preview as a side-effect)...
+				ii->allowcropping=checked;
+			}
 		}
-		ii->ReleaseMutex();
+		catch(const char *err)
+		{
+			ErrorDialogs.AddMessage(err);
+		}
+
 		ii=it.NextSelected();
 	}
+	Debug[TRACE] << "Allowcropping: Done - refreshing display " << std::endl;
+	pp_mainwindow_refresh(mw);
+}
+
+
+static void imagemenu_fliphorizontal(GtkToggleAction *act,gpointer *ob)
+{
+	if(blocksignals)
+		return;
+
+	Debug[TRACE] << "Responding to FlipHorizontal..." << std::endl;
+	pp_MainWindow *mw=(pp_MainWindow *)ob;
+
+	bool checked=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
+
+	// Pump any outstanding events - on Win32 without this the damaged portion of the window
+	// gets redrawn at the ii->ObtainMutex() stage, which prematurely triggers
+	// regeneration of the highres preview!
+	while(gtk_events_pending())
+		gtk_main_iteration();
+
+	LayoutIterator it(*mw->state->layout);
+	Layout_ImageInfo *ii=it.FirstSelected();
+	if(!ii)
+		mw->state->layoutdb.SetInt("FlipHorizontal",checked);
+	while(ii)
+	{
+		try
+		{
+			Debug[TRACE] << "FlipHorizontal: Obtaining shared mutex for image " << long(ii) << std::endl;
+			RWMutex::SharedLock rwlock(*ii);
+			if(ii->fliphorizontal!=checked)	// We don't bother to flush previews and force a redraw unless the checked flag really has changed.
+			{
+				ii->fliphorizontal=checked;
+				Debug[TRACE] << "FlipHorizontal: Obtaining Exclusive lock for image " << long(ii) << std::endl;
+				RWMutex::Lock lock(*ii);	// Exclusive lock (flushes preview as a side-effect)...
+				ii->fliphorizontal=checked;
+				// FIXME - would be better to flip the thumbnail pixbuf.
+				ii->FlushThumbnail();		// Get rid of low-res thumbnail too...
+			}
+		}
+		catch(const char *err)
+		{
+			ErrorDialogs.AddMessage(err);
+		}
+
+		ii=it.NextSelected();
+	}
+	Debug[TRACE] << "Allowcropping: Done - refreshing display " << std::endl;
 	pp_mainwindow_refresh(mw);
 }
 
@@ -230,13 +287,12 @@ static void imagemenu_allowcropping(GtkToggleAction *act,gpointer *ob)
 static void imagemenu_setmask(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
-	static char *prevfile=NULL;
+	static std::string prevfile;
 	// FIXME: Need to get existing filename...
 
-	char *mask=ImageMask_Dialog(&mw->window,*mw->state,prevfile);
+	std::string mask=ImageMask_Dialog(&mw->window,*mw->state,prevfile);
 
-	if(mask)
-		Debug[TRACE] << "Selected " << mask << endl;
+	Debug[TRACE] << "Selected " << mask << endl;
 
 	// Pump any outstanding events - on Win32 without this the damaged portion of the window
 	// gets redrawn at the ii->ObtainMutex() stage, which prematurely triggers
@@ -248,13 +304,11 @@ static void imagemenu_setmask(GtkAction *act,gpointer *ob)
 	Layout_ImageInfo *ii=it.FirstSelected();
 	while(ii)
 	{
-		ii->ObtainMutex();
-		ii->SetMask(mask);
+		RWMutex::Lock lock(*ii);
+		ii->SetMask(mask.c_str());
 		ii->ReleaseMutex();
 		ii=it.NextSelected();
 	}
-//	if(prevfile)
-//		free(prevfile);
 	prevfile=mask;
 	pp_mainwindow_refresh(mw);
 }
@@ -330,7 +384,8 @@ static GtkActionEntry imagemenu_entries[] = {
 
 
 static GtkToggleActionEntry imagemenu_toggle_entries[] = {
-  { "AllowCropping", NULL, N_("Allow _Cropping"), NULL, N_("Crop the selected images to fill the available space"), G_CALLBACK(imagemenu_allowcropping), FALSE }
+  { "AllowCropping", NULL, N_("Allow _Cropping"), NULL, N_("Crop the selected images to fill the available space"), G_CALLBACK(imagemenu_allowcropping), FALSE },
+  { "FlipHorizontal", NULL, N_("_Horizontal Flip"), NULL, N_("Reflect the image horizontally"), G_CALLBACK(imagemenu_fliphorizontal), FALSE }
 };
 
 
@@ -360,6 +415,8 @@ static const char *imagemenu_ui_description =
 "        <menuitem action='Rotation180'/>"
 "        <menuitem action='Rotation270'/>"
 "      </menu>"
+"      <menuitem action='FlipHorizontal'/>"
+"      <separator/>"
 "      <menuitem action='SetImageMask'/>"
 //"      <menuitem action='Effects'/>"
 "      <menuitem action='SetColourProfile'/>"
@@ -379,6 +436,8 @@ static const char *imagemenu_ui_description =
 "      <menuitem action='Rotation180'/>"
 "      <menuitem action='Rotation270'/>"
 "    </menu>"
+"    <menuitem action='FlipHorizontal'/>"
+"    <separator/>"
 "    <menuitem action='SetImageMask'/>"
 //"    <menuitem action='Effects'/>"
 "    <menuitem action='SetColourProfile'/>"
@@ -422,6 +481,46 @@ void ImageMenu_SetCropFlag(GtkUIManager *ui_manager,bool active)
 {
 	blocksignals=true;
 	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/AllowCropping");
+	if(act)
+		gtk_toggle_action_set_active(GTK_TOGGLE_ACTION(act),active);
+	blocksignals=false;
+}
+
+
+bool ImageMenu_GetHFlipFlag(GtkUIManager *ui_manager)
+{
+	bool result=false;
+	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/FlipHorizontal");
+	if(act)
+		result=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
+	return(result);
+}
+
+
+void ImageMenu_SetHFlipFlag(GtkUIManager *ui_manager,bool active)
+{
+	blocksignals=true;
+	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/FlipHorizontal");
+	if(act)
+		gtk_toggle_action_set_active(GTK_TOGGLE_ACTION(act),active);
+	blocksignals=false;
+}
+
+
+bool ImageMenu_GetVFlipFlag(GtkUIManager *ui_manager)
+{
+	bool result=false;
+	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/FlipVertical");
+	if(act)
+		result=gtk_toggle_action_get_active(GTK_TOGGLE_ACTION(act));
+	return(result);
+}
+
+
+void ImageMenu_SetVFlipFlag(GtkUIManager *ui_manager,bool active)
+{
+	blocksignals=true;
+	GtkAction *act=gtk_ui_manager_get_action(ui_manager,"/MainMenu/ImageMenu/FlipVertical");
 	if(act)
 		gtk_toggle_action_set_active(GTK_TOGGLE_ACTION(act),active);
 	blocksignals=false;
@@ -478,6 +577,7 @@ void ImageMenu_SetLayoutCapabilities(GtkUIManager *ui_manager,int features)
 	menucapentry tags[]={
 		{"/MainMenu/ImageMenu/DuplicateToFillPage",PPLAYOUT_DUPLICATE},
 		{"/MainMenu/ImageMenu/AllowCropping",PPLAYOUT_CROP},
+		{"/MainMenu/ImageMenu/FlipHorizontal",PPLAYOUT_FLIP},
 		{"/MainMenu/ImageMenu/Rotation/RotationAuto",PPLAYOUT_ROTATE},
 		{"/MainMenu/ImageMenu/Rotation/RotationNone",PPLAYOUT_ROTATE},
 		{"/MainMenu/ImageMenu/Rotation/Rotation90",PPLAYOUT_ROTATE},
@@ -488,6 +588,7 @@ void ImageMenu_SetLayoutCapabilities(GtkUIManager *ui_manager,int features)
 		{"/MainMenu/ImageMenu/SetColourProfile",PPLAYOUT_PROFILE},
 		{"/popup/DuplicateToFillPage",PPLAYOUT_DUPLICATE},
 		{"/popup/AllowCropping",PPLAYOUT_CROP},
+		{"/popup/FlipHorizontal",PPLAYOUT_FLIP},
 		{"/popup/Rotation/RotationAuto",PPLAYOUT_ROTATE},
 		{"/popup/Rotation/RotationNone",PPLAYOUT_ROTATE},
 		{"/popup/Rotation/Rotation90",PPLAYOUT_ROTATE},

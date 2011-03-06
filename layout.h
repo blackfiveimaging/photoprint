@@ -30,6 +30,7 @@ class Progress;
 #define PPLAYOUT_BACKGROUND 16
 #define PPLAYOUT_EFFECTS 32
 #define PPLAYOUT_DUPLICATE 64
+#define PPLAYOUT_FLIP 128
 
 
 class LayoutIterator
@@ -59,7 +60,9 @@ class Layout : public virtual PageExtent
 	virtual void Remove(Layout_ImageInfo *ii);
 	virtual const char *GetType()=0;
 	virtual int GetCapabilities();
-	virtual int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	// AddImage and AddImage_Defaults return the number of pages needed for the current list of images.
+	virtual int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
+	virtual int AddImage_Defaults(const char *filename);	// Add image, fetching crop/rotate/flip parameters from defaults DB.
 	virtual void CopyImage(Layout_ImageInfo *ii);
 	virtual void TransferImages(Layout *oldlayout,Progress *p=NULL);
 	virtual void Clear();

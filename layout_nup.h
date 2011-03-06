@@ -23,9 +23,10 @@ class Layout_NUp : public Layout, public Signature
 	virtual ~Layout_NUp();
 	const char *GetType();
 	int GetCapabilities();
-	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO,
+		bool fliphorizontal=false,bool flipvertical=false);
 	void CopyImage(Layout_ImageInfo *ii);
-	bool PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate);
+	bool PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate,bool fliphorizontal=false,bool flipvertical=false);
 	void FindFirstFree(int &page,int &row,int &column);
 	int FreeSlots();
 	void Reflow();
@@ -45,7 +46,8 @@ class Layout_NUp : public Layout, public Signature
 class Layout_NUp_ImageInfo : public Layout_ImageInfo
 {
 	public:
-	Layout_NUp_ImageInfo(Layout_NUp &layout,const char *filename,int row,int column,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_NUp_ImageInfo(Layout_NUp &layout,const char *filename,int row,int column,int page,bool allowcropping=false,
+		PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	Layout_NUp_ImageInfo(Layout_NUp &layout,Layout_ImageInfo *ii,int row,int column,int page);
 	virtual ~Layout_NUp_ImageInfo();
 	virtual LayoutRectangle *GetBounds();

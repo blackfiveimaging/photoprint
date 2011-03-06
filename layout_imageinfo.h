@@ -43,7 +43,7 @@ class hr_payload;
 class Layout_ImageInfo : public PPEffectHeader, public RefCountUI
 {
 	public:
-	Layout_ImageInfo(Layout &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_ImageInfo(Layout &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	Layout_ImageInfo(Layout &layout,Layout_ImageInfo *oldii,int page);
 
 	// Housekeeping
@@ -92,6 +92,8 @@ class Layout_ImageInfo : public PPEffectHeader, public RefCountUI
 
 	int page;
 	bool allowcropping;
+	bool fliphorizontal;
+	bool flipvertical;
 	LayoutRectangle_Alignment crop_hpan;
 	LayoutRectangle_Alignment crop_vpan;
 	enum PP_ROTATION rotation;

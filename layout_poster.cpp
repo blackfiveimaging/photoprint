@@ -51,8 +51,8 @@ ConfigTemplate Layout_PosterDB::Template[]=
 };
 
 
-Layout_Poster_ImageInfo::Layout_Poster_ImageInfo(Layout_Poster &layout, const char *filename,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation)
+Layout_Poster_ImageInfo::Layout_Poster_ImageInfo(Layout_Poster &layout, const char *filename,int page,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
+	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation,fliphorizontal,flipvertical)
 {
 }
 
@@ -114,7 +114,7 @@ void Layout_Poster::Reflow()
 }
 
 
-int Layout_Poster::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation)
+int Layout_Poster::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
 {
 	int page=posters+1;
 	for(int i=0;i<=posters;++i)
@@ -128,7 +128,7 @@ int Layout_Poster::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 	Layout_Poster_ImageInfo *ii=NULL;
 	try
 	{
-		ii=new Layout_Poster_ImageInfo(*this,filename,page,allowcropping,rotation);
+		ii=new Layout_Poster_ImageInfo(*this,filename,page,allowcropping,rotation,fliphorizontal,flipvertical);
 	}
 	catch(const char *msg)
 	{

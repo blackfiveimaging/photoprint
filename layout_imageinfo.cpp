@@ -30,6 +30,7 @@
 #include "imagesource/imagesource_rotate.h"
 #include "imagesource/imagesource_promote.h"
 #include "imagesource/imagesource_invert.h"
+#include "imagesource/imagesource_hreflect.h"
 
 #include "imageutils/cachedimage.h"
 
@@ -71,9 +72,10 @@ class PPIS_Histogram : public ImageSource
 };
 
 
-Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int page, bool allowcropping, PP_ROTATION rotation)
-	: PPEffectHeader(), RefCountUI(), page(page), allowcropping(allowcropping), crop_hpan(CENTRE), crop_vpan(CENTRE),
-	rotation(rotation), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
+Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int page, bool allowcropping, PP_ROTATION rotation, bool fliphorizontal,bool flipvertical)
+	: PPEffectHeader(), RefCountUI(), page(page), allowcropping(allowcropping), fliphorizontal(fliphorizontal), flipvertical(flipvertical),
+	crop_hpan(CENTRE), crop_vpan(CENTRE), rotation(rotation),
+	layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
 	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT),
 	threadevents(), histogram(threadevents), hrrenderjob(NULL)
 {
@@ -105,8 +107,9 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, const char *filename, int pag
 
 
 Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int page)
-	: PPEffectHeader(*ii), RefCountUI(), page(page), allowcropping(false), crop_hpan(CENTRE), crop_vpan(CENTRE),
-	rotation(PP_ROTATION_AUTO), layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
+	: PPEffectHeader(*ii), RefCountUI(), page(page), allowcropping(false), fliphorizontal(false), flipvertical(false),
+	crop_hpan(CENTRE), crop_vpan(CENTRE), rotation(PP_ROTATION_AUTO),
+	layout(layout), maskfilename(NULL), thumbnail(NULL), mask(NULL), hrpreview(NULL),
 	selected(false), customprofile(NULL), customintent(LCMSWRAPPER_INTENT_DEFAULT),
 	threadevents(), histogram(threadevents), hrrenderjob(NULL)
 {
@@ -136,6 +139,8 @@ Layout_ImageInfo::Layout_ImageInfo(Layout &layout, Layout_ImageInfo *ii, int pag
 			this->maskfilename=strdup(ii->maskfilename);
 
 		allowcropping=ii->allowcropping;
+		fliphorizontal=ii->fliphorizontal;
+		flipvertical=ii->flipvertical;
 		crop_hpan=ii->crop_hpan;
 		crop_vpan=ii->crop_vpan;
 		rotation=ii->rotation;
@@ -298,11 +303,11 @@ class HRRenderJob : public Job, public Progress
 		}
 		catch(const char *err)
 		{
-			if(is)
-			{
-				Debug[TRACE] << "Deleting ImageSource chain..." << endl;
-				delete is;
-			}
+//			if(is)
+//			{
+//				Debug[TRACE] << "Deleting ImageSource chain..." << endl;
+//				delete is;
+//			}
 
 			Debug[TRACE] << "HRRenderJob Caught error: " << err << endl;
 			ErrorDialogs.AddMessage(err);
@@ -344,9 +349,13 @@ class HRRenderJob : public Job, public Progress
 				if(dh>gdk_pixbuf_get_height(transformed))
 					dh=gdk_pixbuf_get_height(transformed);
 
+				// Set the preview before applying the mask - we store the unmasked version so we can pan quickly
+				// and apply the mask on the fly.
+				p->ii->SetHRPreview(transformed);
+
 				if(p->ii->mask)
 				{
-					transformed=gdk_pixbuf_copy(transformed);
+					transformed=gdk_pixbuf_copy(transformed);	// Make a copy of the hr preview...
 					maskpixbuf(transformed,fit->xoffset,fit->yoffset,dw,dh,p->ii->mask,
 						p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8);
 				}
@@ -357,10 +366,8 @@ class HRRenderJob : public Job, public Progress
 					dw,dh,
 					GDK_RGB_DITHER_NONE,0,0);
 
-				p->ii->SetHRPreview(transformed);
-
 				if(p->ii->mask)
-					g_object_unref(transformed);
+					g_object_unref(transformed);	// ...and free the copy
 
 				// If drawing the high-res preview obliterates any gridlines we can repair them here.
 				p->ii->layout.DrawGridLines(p->widget);
@@ -394,317 +401,6 @@ class HRRenderJob : public Job, public Progress
 	ThreadSync sync;
 };
 
-#if 0
-// Subthread for rendering high-resolution previews.
-// This code uses the subthread to create a GdkPixbuf from
-// an image, then defers to the main thread to perform the
-// actual rendering.
-
-class hr_payload : public PTMutex, public ThreadFunction
-{
-	public:
-	hr_payload(ProfileManager *p,CMTransformFactory *f,Layout_ImageInfo *ii,GtkWidget *wid,int x,int y,int w,int h)
-		: PTMutex(), ThreadFunction(), profman(p), factory(f), ii(ii), widget(wid),
-		xpos(x), ypos(y), width(w), height(h), transformed(NULL), thread(this)
-	{
-		thread.Start();
-		thread.WaitSync();
-	}
-	~hr_payload()
-	{
-	}
-	void Stop()
-	{
-		thread.Stop();
-	}
-	static bool testbreakfunc(void *ud)
-	{
-		Thread *t=(Thread *)ud;
-		return(t->TestBreak());
-	}
-	virtual int Entry(Thread &t)
-	{
-		ObtainMutex();	// We use this to avoid race conditions when cleaning up.
-
-		// To avoid a deadlock situation if, say, the Apply Profile dialog is open and GTK decides that
-		// now is a good time to redraw the window, we only attempt the mutex, and bail out if it fails.
-		int count=10;
-		while(!ii->AttemptMutexShared())
-		{
-			if(count==0)
-			{
-				Debug[WARN] << "Giving up attempt on mutex - bailing out" << endl;
-				// The calling thread is waiting for us to acknowledge startup, so we have to send
-				// the Sync before bailing out.
-				t.SendSync();
-				g_timeout_add(1,hr_payload::CleanupFunc,this);
-				ReleaseMutex();
-				return(0);
-			}
-#ifdef WIN32
-			Sleep(50);
-#else
-			usleep(50000);
-#endif
-			--count;
-		}
-
-		t.SendSync();
-
-		// We sleep briefly before doing anything time-intensive - that way we can bail out rapidly
-		// if the user's doing something heavily interactive, like panning an image, or resizing the window
-
-		for(int i=0;i<75;++i)
-		{
-#ifdef WIN32
-			Sleep(10);
-#else
-			usleep(10000);
-#endif
-			if(t.TestBreak())
-			{
-//				Debug[TRACE] << "Got break signal while pausing - Releasing" << endl;
-				ii->ReleaseMutex();
-				g_timeout_add(1,hr_payload::CleanupFunc,this);
-				ReleaseMutex();
-				return(0);
-			}
-		}
-
-		if(t.TestBreak())
-		{
-//			Debug[TRACE] << "Subthread releasing mutex and cancelling" << endl;
-			ii->ReleaseMutex();
-			g_timeout_add(1,hr_payload::CleanupFunc,this);
-			ReleaseMutex();
-			return(0);
-		}
-
-		try
-		{
-			CMSProfile *targetprof;
-
-			CMColourDevice tdev=CM_COLOURDEVICE_NONE;
-			if((targetprof=profman->GetProfile(CM_COLOURDEVICE_PRINTERPROOF)))
-				tdev=CM_COLOURDEVICE_PRINTERPROOF;
-			else if((targetprof=profman->GetProfile(CM_COLOURDEVICE_DISPLAY)))
-				tdev=CM_COLOURDEVICE_DISPLAY;
-			else if((targetprof=profman->GetProfile(CM_COLOURDEVICE_DEFAULTRGB)))
-				tdev=CM_COLOURDEVICE_DEFAULTRGB;
-			if(targetprof)
-				delete targetprof;
-
-			if(t.TestBreak())
-			{
-//				Debug[TRACE] << "Subthread releasing mutex and cancelling" << endl;
-				ii->ReleaseMutex();
-				g_timeout_add(1,hr_payload::CleanupFunc,this);
-				return(0);
-			}
-
-//			Debug[TRACE] << "Generating high-res preview - Using tdev: " << tdev << endl;
-
-			ImageSource *is=ii->GetImageSource(tdev,factory);
-
-//			Debug[TRACE] << "Got imagesource - fitting and rendering" << endl;
-
-			LayoutRectangle r(is->width,is->height);
-			LayoutRectangle target(xpos,ypos,width,height);
-
-			RectFit *fit=r.Fit(target,ii->allowcropping,ii->rotation,ii->crop_hpan,ii->crop_vpan);
-
-			if(fit->rotation)
-			{
-				ImageSource_Interruptible *ii=new ImageSource_Rotate(is,fit->rotation);
-				ii->SetTestBreak(testbreakfunc,&t);
-				is=ii;
-			}
-			is=ISScaleImageBySize(is,fit->width,fit->height,IS_SCALING_AUTOMATIC);
-			delete fit;
-			// We create new Fit in the idle-function because the hpan/vpan may have changed.
-
-			ProgressThread prog(t);
-			transformed=pixbuf_from_imagesource(is,ii->layout.bgcol.red>>8,ii->layout.bgcol.green>>8,ii->layout.bgcol.blue>>8,&prog);
-
-			delete is;
-
-//			Debug[TRACE] << "finished - finalising" << endl;
-
-			if(transformed)
-			{
-				// Now we defer to the main thread...
-				// We add this as a high-priority event because we want it to be
-				// run as soon as possible, and within a gtk_main_iteration() loop
-				// if necessary.
-	//			g_idle_add_full(G_PRIORITY_HIGH,hr_payload::IdleFunc,p,NULL);
-				g_timeout_add(1,hr_payload::IdleFunc,this);
-
-				// And wait for the main thread to have rendered the preview
-				// Because the rendering will be done via a GTK event callback, there's
-				// a potential deadlock here if the main app attempts to delete this ImageInfo
-				// between the main thread having completed and the idle function being
-				// triggered to draw the thumbnail.  For this reason we'll have to use a
-				// tie-break in the ImageInfo destructor.
-	//			Debug[TRACE] << "Waiting for all-clear from main thread..." << endl;
-	//			t->WaitSync();
-			}
-			else
-			{
-//				Debug[TRACE] << "Thread cancelled" << endl;
-				g_timeout_add(1,hr_payload::CleanupFunc,this);
-				ii->ReleaseMutex();
-				ReleaseMutex();
-				return(0);
-			}
-		}
-		catch (const char *err)
-		{
-//			Debug[TRACE] << "Subthread caught exception: " << err << endl;
-			g_timeout_add(1,hr_payload::CleanupFunc,this);
-		}
-		Debug[COMMENT] << "Subthread waiting for main thread to finish drawing" << endl;
-		thread.WaitSync();
-		Debug[COMMENT] << "Subthread releasing mutex and exiting" << endl;
-		ii->ReleaseMutex();
-		ReleaseMutex();
-		return(0);
-	}
-
-	// CleanupFunc - runs on the main thread's context.
-	static gboolean CleanupFunc(gpointer ud)
-	{
-		hr_payload *p=(hr_payload *)ud;
-//		Debug[TRACE] << "Main thread sending sync signal" << endl;
-		p->thread.SendSync();
-
-		// There's a race condition here.  Once we send this signal the subthread will
-		// release the mutex - but it's possible this function will have deleted the object first.
-		// To avoid this, we obtain the mutex here, then release it again.
-		// (In actual fact this race condition should be avoided by the fact that
-		// this class's destructor deletes the thread - thus the subthread should be
-		// guaranteed to have exited before this class is deleted.)
-
-//		Debug[TRACE] << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
-		p->ObtainMutex();
-//		Debug[TRACE] << "Thread cleanup - race prevention - releasing mutex" << endl;
-		p->ReleaseMutex();
-		Debug[TRACE] << "Done" << endl;
-
-		// We clear the renderthread pointer in the ImageInfo here before deleting it
-		// to avoid the main thread trying to cancel it after deletion.
-		// This should be safe since this function runs on the main thread's context.
-		if(p->ii->hrrenderthread==p)
-			p->ii->hrrenderthread=NULL;
-
-		delete p;
-		return(FALSE);
-	}
-
-	// IdleFunc - runs on the main thread's context,
-	// thus, can safely render into the UI.
-	static gboolean IdleFunc(gpointer ud)
-	{
-		// Once control reaches here the subthread should have
-		// completed.  There's a brief window in which the ImageInfo
-		// could have been deleted by the main thread before this idle-handler
-		// was launched. To fix this, we hold the mutex in the sub-thread, until
-		// this function, running in the main context, has finished with the
-		// ImageInfo.
-
-		hr_payload *p=(hr_payload *)ud;
-
-		// This function runs in the context of the main thread, so it's safe
-		// to clear the ImageInfo's RenderThread member, since only the main thread
-		// creates such.
-		// This idle-function is responsible for disposing of the payload, which
-		// will also delete the thread.
-
-		if(!p->thread.TestBreak())
-		{
-			if(p->ii->hrrenderthread==p)
-				p->ii->hrrenderthread=NULL;
-
-			p->ii->SetHRPreview(p->transformed);
-
-			LayoutRectangle r(gdk_pixbuf_get_width(p->transformed),gdk_pixbuf_get_height(p->transformed));
-			LayoutRectangle target(p->xpos,p->ypos,p->width,p->height);
-
-			// Disallow rotation here since the image will be rotated already.
-			RectFit *fit=r.Fit(target,p->ii->allowcropping,PP_ROTATION_NONE,p->ii->crop_hpan,p->ii->crop_vpan);
-			int dw=fit->width;
-			int dh=fit->height;
-		
-			if(dw > p->width)
-				dw=p->width;
-
-			if(dh > p->height)
-				dh=p->height;
-			
-			if(dw>gdk_pixbuf_get_width(p->transformed))
-			{
-				dw=gdk_pixbuf_get_width(p->transformed);
-			}
-
-			if(dh>gdk_pixbuf_get_height(p->transformed))
-			{
-				dh=gdk_pixbuf_get_height(p->transformed);
-			}
-
-			if(p->ii->mask)
-			{
-				p->transformed=gdk_pixbuf_copy(p->transformed);
-				maskpixbuf(p->transformed,fit->xoffset,fit->yoffset,dw,dh,p->ii->mask,
-					p->ii->layout.bgcol.red>>8,p->ii->layout.bgcol.green>>8,p->ii->layout.bgcol.blue>>8);
-			}
-
-			gdk_draw_pixbuf(p->widget->window,NULL,p->transformed,
-				fit->xoffset,fit->yoffset,
-				fit->xpos,fit->ypos,
-				dw,dh,
-				GDK_RGB_DITHER_NONE,0,0);
-
-			if(p->ii->mask)
-				g_object_unref(p->transformed);
-
-			delete fit;
-		}
-//		Debug[TRACE] << "Preview drawn - sending sync to sub-thread" << endl;
-		p->thread.SendSync();
-
-		// There's a race condition here.  Once we send this signal the subthread will
-		// release the mutex - but it's possible this function will have deleted the object first.
-		// To avoid this, we obtain the mutex here, then release it again.
-		// (In actual fact this race condition should be avoided by the fact that
-		// this class's destructor deletes the thread - thus the subthread should be
-		// guaranteed to have exited before this class is deleted.)
-
-//		Debug[TRACE] << "Thread cleanup - race prevention - obtaining mutex from thread " << p->thread.GetThreadID() << endl;
-		p->ObtainMutex();
-		Debug[COMMENT] << "Thread cleanup - race prevention - releasing mutex" << endl;
-		p->ReleaseMutex();
-//		Debug[TRACE] << "Done" << endl;
-
-		// We clear the renderthread pointer in the ImageInfo here before deleting it
-		// to avoid the main thread trying to cancel it after deletion.
-		// This should be safe since this function runs on the main thread's context.
-		if(p->ii->hrrenderthread==p)
-			p->ii->hrrenderthread=NULL;
-
-		delete p;
-
-		return(FALSE);
-	}
-	protected:
-	ProfileManager *profman;
-	CMTransformFactory *factory;
-	Layout_ImageInfo *ii;
-	GtkWidget *widget;
-	int xpos,ypos;
-	int width,height;
-	GdkPixbuf *transformed;
-	Thread thread;
-};
-#endif
 
 void Layout_ImageInfo::DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height)
 {
@@ -932,6 +628,8 @@ GdkPixbuf *Layout_ImageInfo::GetThumbnail()
 	{
 		ImageSource *src2=new ImageSource_GdkPixbuf(thumbnail);
 		src2=ApplyEffects(src2,PPEFFECT_PRESCALE);
+		if(fliphorizontal)
+			src2=new ImageSource_HReflect(src2);
 		GdkPixbuf *tn2=pixbuf_from_imagesource(src2);
 		delete src2;
 		g_object_unref(G_OBJECT(thumbnail));
@@ -1053,6 +751,8 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 	try
 	{
 		is=ApplyEffects(is,PPEFFECT_PRESCALE);
+		if(fliphorizontal)
+			is=new ImageSource_HReflect(is);
 
 		IS_TYPE colourspace=layout.GetColourSpace(target);
 
@@ -1166,7 +866,9 @@ void Layout_ImageInfo::CancelRenderThread()
 {
 	if(hrrenderjob)
 	{
+		Debug[TRACE] << "Cancelling render job" << std::endl;
 		layout.jobdispatcher.CancelJob(hrrenderjob);
+//		sleep(1);
 //		hrrenderthread->Stop();	// We don't actually delete it here - the thread is responsible for its own
 								// demise (by way of a GTK Idle function running on the main thread's context)
 								// but having signalled it to stop, we can discard this pointer to it.
@@ -1178,9 +880,13 @@ void Layout_ImageInfo::CancelRenderThread()
 
 void Layout_ImageInfo::FlushHRPreview()
 {
+	Debug[TRACE] << "Cancelling render thread" << std::endl;
 	CancelRenderThread();
+//	sleep(1);
+	Debug[TRACE] << "Freeing hrpreview if present" << std::endl;
 	if(hrpreview)
 		g_object_unref(hrpreview);
+//	sleep(1);
 	hrpreview=NULL;
 }
 
@@ -1257,6 +963,7 @@ void Layout_ImageInfo::ObtainMutex()
 {
 //	Debug[TRACE] << "In custom Obtain method - flushing preview..." << endl;
 	FlushHRPreview();
+//	sleep(1);
 //	Debug[TRACE] << "Now attempting to obtain exclusive lock..." << endl;
 	while(!PPEffectHeader::AttemptMutex())
 	{

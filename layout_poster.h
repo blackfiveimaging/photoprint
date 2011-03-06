@@ -32,7 +32,8 @@ class Layout_Poster : public Layout
 	virtual ~Layout_Poster();
 	const char *GetType();
 	int GetCapabilities();
-	int AddImage(const char *filename,bool allowcropping=true,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO,
+		bool fliphorizontal=false,bool flipvertical=false);
 	void CopyImage(Layout_ImageInfo *ii);
 	void Reflow();
 	void SetPageExtent(PageExtent &pe);
@@ -62,7 +63,8 @@ class Layout_Poster : public Layout
 class Layout_Poster_ImageInfo : public Layout_ImageInfo
 {
 	public:
-	Layout_Poster_ImageInfo(Layout_Poster &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_Poster_ImageInfo(Layout_Poster &layout,const char *filename,int page,bool allowcropping=false,
+		PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	Layout_Poster_ImageInfo(Layout_Poster &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Poster_ImageInfo();
 	virtual LayoutRectangle *GetBounds();

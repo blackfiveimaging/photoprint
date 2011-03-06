@@ -552,9 +552,9 @@ void Paths_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 }
 
 
-char *ImageMask_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
+std::string ImageMask_Dialog(GtkWindow *parent,PhotoPrint_State &state,std::string oldfn)
 {
-	char *nfn=oldfn;
+	std::string nfn;
 	GtkWidget *dialog;
 	dialog=gtk_dialog_new_with_buttons(_("Select a border..."),
 		parent,GtkDialogFlags(0),
@@ -570,7 +570,7 @@ char *ImageMask_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
 	gtk_widget_show(dialog);
 
 	imageselector_refresh(IMAGESELECTOR(imagesel));
-	imageselector_set_filename(IMAGESELECTOR(imagesel),oldfn);
+	imageselector_set_filename(IMAGESELECTOR(imagesel),oldfn.c_str());
 
 	gint result=gtk_dialog_run(GTK_DIALOG(dialog));
 	switch(result)
@@ -578,12 +578,7 @@ char *ImageMask_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
 		case GTK_RESPONSE_CANCEL:
 			break;
 		case GTK_RESPONSE_OK:
-			if(oldfn)
-				free(oldfn);
-			nfn=NULL;
-			const char *nstr=imageselector_get_filename(IMAGESELECTOR(imagesel));
-			if(nstr)
-				nfn=strdup(nstr);
+			nfn=imageselector_get_filename(IMAGESELECTOR(imagesel));
 			break;
 	}
 	gtk_widget_destroy(dialog);
@@ -977,9 +972,9 @@ void ExportJPEG_Dialog(GtkWindow *parent,PhotoPrint_State &state)
 }
 
 
-char *Background_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
+std::string Background_Dialog(GtkWindow *parent,PhotoPrint_State &state,std::string oldfn)
 {
-	char *nfn=oldfn;
+	std::string nfn;
 	GtkWidget *dialog;
 	dialog=gtk_dialog_new_with_buttons(_("Select a background..."),
 		parent,GtkDialogFlags(0),
@@ -995,7 +990,7 @@ char *Background_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
 	gtk_widget_show(dialog);
 
 	imageselector_refresh(IMAGESELECTOR(imagesel));
-	imageselector_set_filename(IMAGESELECTOR(imagesel),oldfn);
+	imageselector_set_filename(IMAGESELECTOR(imagesel),oldfn.c_str());
 
 	gint result=gtk_dialog_run(GTK_DIALOG(dialog));
 	switch(result)
@@ -1003,12 +998,7 @@ char *Background_Dialog(GtkWindow *parent,PhotoPrint_State &state,char *oldfn)
 		case GTK_RESPONSE_CANCEL:
 			break;
 		case GTK_RESPONSE_OK:
-			if(oldfn)
-				free(oldfn);
-			nfn=NULL;
-			const char *nstr=imageselector_get_filename(IMAGESELECTOR(imagesel));
-			if(nstr)
-				nfn=strdup(nstr);
+			nfn=imageselector_get_filename(IMAGESELECTOR(imagesel));
 			break;
 	}
 	gtk_widget_destroy(dialog);

@@ -24,7 +24,7 @@ class Layout_Carousel : public Layout
 	virtual ~Layout_Carousel();
 	const char *GetType();
 	int GetCapabilities();
-	int AddImage(const char *filename,bool allowcropping=true,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	void CopyImage(Layout_ImageInfo *ii);
 	void PlaceImage(const char *filename);
 	int FreeSlots();
@@ -65,7 +65,7 @@ class Layout_Carousel : public Layout
 class Layout_Carousel_ImageInfo : public Layout_ImageInfo
 {
 	public:
-	Layout_Carousel_ImageInfo(Layout_Carousel &layout,const char *filename,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_Carousel_ImageInfo(Layout_Carousel &layout,const char *filename,int page,bool allowcropping=false, PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	Layout_Carousel_ImageInfo(Layout_Carousel &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Carousel_ImageInfo();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);

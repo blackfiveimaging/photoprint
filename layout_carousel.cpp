@@ -52,8 +52,8 @@ ConfigTemplate Layout_CarouselDB::Template[]=
 };
 
 
-Layout_Carousel_ImageInfo::Layout_Carousel_ImageInfo(Layout_Carousel &layout, const char *filename,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation)
+Layout_Carousel_ImageInfo::Layout_Carousel_ImageInfo(Layout_Carousel &layout, const char *filename,int page,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
+	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation,fliphorizontal,flipvertical)
 {
 }
 
@@ -130,12 +130,12 @@ void Layout_Carousel::Reflow()
 }
 
 
-int Layout_Carousel::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation)
+int Layout_Carousel::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
 {
 	// AllowCropping is ignored - cropping is always performed.
 	// AllowRotation is ignored - rotation is never allowed.
 	int page=0;
-	Layout_Carousel_ImageInfo *ii=new Layout_Carousel_ImageInfo(*this,filename,page,true,PP_ROTATION_NONE);
+	Layout_Carousel_ImageInfo *ii=new Layout_Carousel_ImageInfo(*this,filename,page,true,PP_ROTATION_NONE,fliphorizontal,flipvertical);
 
 	imagelist.push_back(ii);
 

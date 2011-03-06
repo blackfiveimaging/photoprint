@@ -60,7 +60,8 @@ static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
 
 	PP_ROTATION rotation=ImageMenu_GetRotation(mw->uim);
 	bool allowcropping=ImageMenu_GetCropFlag(mw->uim);
-	bool removeimage=true;
+	bool hflip=ImageMenu_GetHFlipFlag(mw->uim);
+	// FIXME add support for vflip.
 
 	LayoutIterator it(*mw->state->layout);
 	Layout_ImageInfo *ii=it.FirstSelected();
@@ -68,19 +69,21 @@ static void layout_selection_changed(GtkWidget *wid,gpointer *ob)
 	{
 		allowcropping=ii->allowcropping;
 		rotation=ii->rotation;
+		hflip=ii->fliphorizontal;
 	}
-	else
-		removeimage=false;
 
+	ii=it.NextSelected();
 	while(ii)
 	{
 		if(rotation!=ii->rotation)
 			rotation=PP_ROTATION_NONE;
 		allowcropping&=ii->allowcropping;
+		hflip&=ii->fliphorizontal;
 		ii=it.NextSelected();
 	}
 
 	ImageMenu_SetCropFlag(mw->uim,allowcropping);
+	ImageMenu_SetHFlipFlag(mw->uim,allowcropping);
 	ImageMenu_SetRotation(mw->uim,rotation);
 }
 

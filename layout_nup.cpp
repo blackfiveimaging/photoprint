@@ -59,8 +59,8 @@ ConfigTemplate Layout_NUpDB::Template[]=
 };
 
 
-Layout_NUp_ImageInfo::Layout_NUp_ImageInfo(Layout_NUp &layout, const char *filename,int row,int column,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation),
+Layout_NUp_ImageInfo::Layout_NUp_ImageInfo(Layout_NUp &layout, const char *filename,int row,int column,int page,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
+	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation,fliphorizontal,flipvertical),
 	row(row), column(column)
 {
 }
@@ -140,12 +140,12 @@ void Layout_NUp::Reflow()
 }
 
 
-bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate)
+bool Layout_NUp::PlaceImage(const char *filename,int page,int row, int column,bool cropfit,PP_ROTATION rotate,bool fliphorizontal,bool flipvertical)
 {
 	Layout_NUp_ImageInfo *ii=NULL;
 	try
 	{
-		ii=new Layout_NUp_ImageInfo(*this,filename,row,column,page,cropfit,rotate);
+		ii=new Layout_NUp_ImageInfo(*this,filename,row,column,page,cropfit,rotate,fliphorizontal,flipvertical);
 	}
 	catch(const char *msg)
 	{
@@ -228,12 +228,12 @@ void Layout_NUp::FindFirstFree(int &page,int &row,int &column)
 }
 
 
-int Layout_NUp::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation)
+int Layout_NUp::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
 {
 	int page,row,column;
 	FindFirstFree(page,row,column);
 	Debug[TRACE] << "Placing image at " << page << ", " << row << ", " << column << endl;
-	if(PlaceImage(filename,page,row,column,allowcropping,rotation))
+	if(PlaceImage(filename,page,row,column,allowcropping,rotation,fliphorizontal,flipvertical))
 		return(page);
 	else
 		return(currentpage);
@@ -452,6 +452,6 @@ Layout_ImageInfo *Layout_NUp::ImageAtCoord(int x,int y)
 
 int Layout_NUp::GetCapabilities()
 {
-	return(PPLAYOUT_CROP|PPLAYOUT_ROTATE|PPLAYOUT_MASK|PPLAYOUT_EFFECTS|PPLAYOUT_BACKGROUND|PPLAYOUT_PROFILE|PPLAYOUT_DUPLICATE);
+	return(PPLAYOUT_CROP|PPLAYOUT_ROTATE|PPLAYOUT_FLIP|PPLAYOUT_MASK|PPLAYOUT_EFFECTS|PPLAYOUT_BACKGROUND|PPLAYOUT_PROFILE|PPLAYOUT_DUPLICATE);
 }
 

@@ -24,7 +24,7 @@ class Layout_Single : public Layout
 	virtual ~Layout_Single();
 	const char *GetType();
 	int GetCapabilities();
-	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	int AddImage(const char *filename,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	void CopyImage(Layout_ImageInfo *ii);
 	void Reflow();
 	void SetPageExtent(PageExtent &pe);
@@ -45,7 +45,8 @@ class Layout_Single : public Layout
 class Layout_Single_ImageInfo : public Layout_ImageInfo
 {
 	public:
-	Layout_Single_ImageInfo(Layout_Single &layout,const char *filename,int page,bool allowcropping=false,PP_ROTATION rotation=PP_ROTATION_AUTO);
+	Layout_Single_ImageInfo(Layout_Single &layout,const char *filename,int page,bool allowcropping=false,
+		PP_ROTATION rotation=PP_ROTATION_AUTO,bool fliphorizontal=false,bool flipvertical=false);
 	Layout_Single_ImageInfo(Layout_Single &layout,Layout_ImageInfo *ii,int page);
 	virtual ~Layout_Single_ImageInfo();
 	void DrawThumbnail(GtkWidget *widget,int xpos,int ypos,int width,int height);

@@ -83,8 +83,8 @@ void Layout_Single_ImageInfo::Init()
 }
 
 
-Layout_Single_ImageInfo::Layout_Single_ImageInfo(Layout_Single &layout, const char *filename,int page,bool allowcropping,PP_ROTATION rotation)
-	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation), hscale(100), vscale(100)
+Layout_Single_ImageInfo::Layout_Single_ImageInfo(Layout_Single &layout, const char *filename,int page,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
+	: Layout_ImageInfo((Layout &)layout,filename,page,allowcropping,rotation,fliphorizontal,flipvertical), hscale(100), vscale(100)
 {
 	Init();
 }
@@ -280,7 +280,7 @@ void Layout_Single::Reflow()
 }
 
 
-int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation)
+int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation,bool fliphorizontal,bool flipvertical)
 {
 	int page=pages+1;
 	for(int i=0;i<=pages;++i)
@@ -296,7 +296,7 @@ int Layout_Single::AddImage(const char *filename,bool allowcropping,PP_ROTATION 
 	Layout_Single_ImageInfo *ii=NULL;
 	try
 	{
-		ii=new Layout_Single_ImageInfo(*this,filename,page,false,rotation);
+		ii=new Layout_Single_ImageInfo(*this,filename,page,false,rotation,fliphorizontal,flipvertical);
 	}
 	catch(const char *msg)
 	{

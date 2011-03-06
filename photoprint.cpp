@@ -231,15 +231,13 @@ int main(int argc,char **argv)
 
 				if(argc>optind)
 				{
-					bool allowcropping=state.layoutdb.FindInt("AllowCropping");
-					enum PP_ROTATION rotation=PP_ROTATION(state.layoutdb.FindInt("Rotation"));
 					ProgressBar p(_("Loading images..."),true,mainwindow);
 					int lastpage=0;
 					for(int i=optind;i<argc;++i)
 					{
 						if(!p.DoProgress(i-optind,argc-optind))
 							break;
-						lastpage=state.layout->AddImage(argv[i],allowcropping,rotation);
+						lastpage=state.layout->AddImage_Defaults(argv[i]);
 					}
 					state.layout->SetCurrentPage(lastpage);
 				}

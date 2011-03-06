@@ -46,6 +46,8 @@ ConfigTemplate LayoutDB::Template[]=
 {
 	ConfigTemplate("LayoutType","NUp"),
 	ConfigTemplate("AllowCropping",int(0)),
+	ConfigTemplate("FlipHorizontal",int(0)),
+	ConfigTemplate("FlipVertical",int(0)),
 	ConfigTemplate("Rotation",int(PP_ROTATION_AUTO)),
 	ConfigTemplate()
 };
@@ -178,8 +180,18 @@ void Layout::Clear()
 }
 
 
+int Layout::AddImage_Defaults(const char *filename)
+{
+	bool allowcropping=state.layoutdb.FindInt("AllowCropping");
+	bool fliph=state.layoutdb.FindInt("FlipHorizontal");
+	bool flipv=state.layoutdb.FindInt("FlipVertical");
+	enum PP_ROTATION rotation=PP_ROTATION(state.layoutdb.FindInt("Rotation"));
+	return(AddImage(filename,allowcropping,rotation,fliph,flipv));
+}
+
+
 // DUMMY FUNCTION - should be overridden by subclasses
-int Layout::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation)
+int Layout::AddImage(const char *filename,bool allowcropping,PP_ROTATION rotation,bool fliph, bool flipv)
 {
 	Debug[ERROR] << "AddImage: Dummy function - should be overridden" << endl;
 	return(0);

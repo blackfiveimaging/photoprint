@@ -109,15 +109,14 @@ static void layoutmenu_radio_dispatch(GtkAction *act,GtkRadioAction *ra,gpointer
 static void layoutmenu_setbackground(GtkAction *act,gpointer *ob)
 {
 	pp_MainWindow *mw=(pp_MainWindow *)ob;
-	static char *prevfile=NULL;
+	static std::string prevfile;
 	// Need to get existing filename...
 
-	char *bg=Background_Dialog(&mw->window,*mw->state,prevfile);
+	std::string bg=Background_Dialog(&mw->window,*mw->state,prevfile);
 
-	if(bg)
-		Debug[TRACE] << "Selected " << bg << endl;
+	Debug[TRACE] << "Setting background to: " << bg << endl;
 
-	mw->state->layout->SetBackground(bg);
+	mw->state->layout->SetBackground(bg.c_str());
 //	if(prevfile)
 //		free(prevfile);
 	prevfile=bg;
