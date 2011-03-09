@@ -35,6 +35,10 @@ AC_SUBST([LIBM_LIBS])
 AC_CHECK_LIB([pnm], [pnm_readpaminit],,,[-lm])
 AC_CHECK_LIB([netpbm], [pnm_readpaminit],,,[-lm])
 
+# Since the ProfileManager fetches an X atom from the server, we need to link with X11
+# explicitly on some systems
+PKG_CHECK_MODULES([X11], [x11])
+
 # Some distributions have the pam.h header in a netpbm subfolder
 AC_CHECK_HEADERS([netpbm/pam.h])
 

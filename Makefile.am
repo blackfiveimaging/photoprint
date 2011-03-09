@@ -109,7 +109,7 @@ LDADD = \
 	stp_support/libstp_support.la \
 	pixbufthumbnail/libpixbufthumbnail.la	\
 	splashscreen/libsplashscreen.la	\
-	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS)
+	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS) $(X11_LIBS)
 
 check_PROGRAMS = menucheck carouselcheck misccheck
 
