@@ -7,13 +7,13 @@
 #include <gtk/gtkwidget.h>
 #include <gdk/gdkpixbuf.h>
 
-#include "profilemanager/profilemanager.h"
-#include "imagesource/imagesource.h"
+#include "profilemanager.h"
+#include "imagesource.h"
 #include "stpui_widgets/units.h"
-#include "support/pageextent.h"
-#include "support/layoutrectangle.h"
-#include "support/thread.h"
-#include "support/jobqueue.h"
+#include "pageextent.h"
+#include "layoutrectangle.h"
+#include "thread.h"
+#include "jobqueue.h"
 #include "effects/ppeffect.h"
 
 #include "layoutdb.h"

@@ -26,7 +26,7 @@
 #include "profilemanager/intentselector.h"
 #include "dialogs.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "config.h"
 #include "gettext.h"

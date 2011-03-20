@@ -11,7 +11,7 @@
 #include <gtk/gtkspinbutton.h>
 
 #include "profilemanager/lcmswrapper.h"
-#include "support/configdb.h"
+#include "configdb.h"
 #include "photoprint_state.h"
 
 G_BEGIN_DECLS

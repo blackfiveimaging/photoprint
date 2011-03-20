@@ -21,9 +21,9 @@
 #include "miscwidgets/pixbufview.h"
 #include "miscwidgets/simplecombo.h"
 
-#include "support/debug.h"
+#include "debug.h"
 #include "progressbar.h"
-#include "support/util.h"
+#include "util.h"
 
 #include "imagesource/pixbuf_from_imagesource.h"
 

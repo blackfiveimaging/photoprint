@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "support/debug.h"
-#include "support/configdb.h"
+#include "debug.h"
+#include "configdb.h"
 
 using namespace std;
 

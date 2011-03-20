@@ -9,8 +9,8 @@
 #include "imagesource/imagesource_mask.h"
 #include "miscwidgets/pixbufview.h"
 
-#include "support/debug.h"
-#include "support/signature.h"
+#include "debug.h"
+#include "signature.h"
 #include "stpui_widgets/units.h"
 
 #include "config.h"

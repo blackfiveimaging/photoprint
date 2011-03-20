@@ -8,7 +8,7 @@
 #include "layout.h"
 #include "photoprint_state.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "effects/ppeffect.h"
 #include "effects/effectselector.h"

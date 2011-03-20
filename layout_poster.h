@@ -7,7 +7,7 @@
 #include <gdk/gdkpixbuf.h>
 
 #include "imagesource/imagesource.h"
-#include "support/pageextent.h"
+#include "pageextent.h"
 #include "gp_cppsupport/gprinter.h"
 
 #include "layoutdb.h"

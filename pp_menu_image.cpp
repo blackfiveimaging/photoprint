@@ -14,9 +14,9 @@
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "progressbar.h"
-#include "support/pathsupport.h"
-#include "support/debug.h"
-#include "support/layoutrectangle.h" // For rotation enums
+#include "pathsupport.h"
+#include "debug.h"
+#include "layoutrectangle.h" // For rotation enums
 //#include "effects/effects_dialog.h"
 #include "pixbufthumbnail/egg-pixbuf-thumbnail.h"
 #include "pp_menu_image.h"

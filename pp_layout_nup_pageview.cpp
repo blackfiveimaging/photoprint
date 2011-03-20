@@ -8,7 +8,7 @@
 #include "stpui_widgets/stpui_combo.h"
 #include "pp_sigcontrol.h"
 
-#include "support/debug.h"
+#include "debug.h"
 #include "progressbar.h"
 
 #include "pp_menu_image.h"

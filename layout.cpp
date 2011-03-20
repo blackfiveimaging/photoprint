@@ -19,8 +19,8 @@
 #include "imagesource/pixbuf_from_imagesource.h"
 #include "imageutils/rotatepixbuf.h"
 #include "imageutils/maskpixbuf.h"
-#include "support/thread.h"
-#include "support/progressthread.h"
+#include "thread.h"
+#include "progressthread.h"
 
 #include "imagesource/imagesource.h"
 #include "imagesource/imagesource_gdkpixbuf.h"
@@ -32,10 +32,10 @@
 
 #include "photoprint_state.h"
 
-#include "support/debug.h"
-#include "support/progress.h"
-#include "support/util.h"
-#include "support/layoutrectangle.h"
+#include "debug.h"
+#include "progress.h"
+#include "util.h"
+#include "layoutrectangle.h"
 
 #include "layout.h"
 

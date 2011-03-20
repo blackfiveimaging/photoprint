@@ -10,7 +10,7 @@
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "progressbar.h"
-#include "support/debug.h"
+#include "debug.h"
 
 #include "profilemanager/profilemanager.h"
 

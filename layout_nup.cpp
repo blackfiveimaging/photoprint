@@ -32,7 +32,7 @@
 #include "imagesource/imagesource_montage.h"
 #include "imagesource/imagesource_solid.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "photoprint_state.h"
 #include "pp_layout_nup.h"

@@ -9,7 +9,7 @@
 #include "imagesource/imagesource_mask.h"
 #include "miscwidgets/pixbufview.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "layout_carousel.h"
 

@@ -97,6 +97,7 @@ AC_CONFIG_FILES([Makefile po/Makefile.in
                  imagesource/Makefile
                  imageutils/Makefile
                  miscwidgets/Makefile
+                 layoutsupport/Makefile
                  support/Makefile
                  profilemanager/Makefile
                  pixbufthumbnail/Makefile

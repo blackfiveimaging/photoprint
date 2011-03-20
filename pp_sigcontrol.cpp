@@ -6,8 +6,8 @@
 #include <gtk/gtklabel.h>
 
 #include "stpui_widgets/dimension.h"
-#include "support/signature.h"
-#include "support/debug.h"
+#include "signature.h"
+#include "debug.h"
 #include "miscwidgets/simplecombo.h"
 #include "pp_pageextent.h"
 #include "photoprint_state.h"

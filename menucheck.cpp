@@ -7,7 +7,7 @@
 #include "pp_menu_file.h"
 #include "pp_menu_edit.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "config.h"
 #include "gettext.h"

@@ -12,7 +12,7 @@
 
 #include <gutenprint/gutenprint.h>
 
-#include "support/pageextent.h"
+#include "pageextent.h"
 
 G_BEGIN_DECLS
 

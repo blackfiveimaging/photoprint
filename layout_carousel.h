@@ -6,8 +6,8 @@
 #include <gtk/gtkwidget.h>
 #include <gdk/gdkpixbuf.h>
 
-#include "support/circlemontage.h"
-#include "support/pageextent.h"
+#include "circlemontage.h"
+#include "pageextent.h"
 #include "imagesource/imagesource.h"
 #include "gp_cppsupport/gprinter.h"
 

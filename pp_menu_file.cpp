@@ -10,7 +10,7 @@
 #include "printpreview.h"
 #include "miscwidgets/generaldialogs.h"
 #include "progressbar.h"
-#include "support/pathsupport.h"
+#include "pathsupport.h"
 
 #include "config.h"
 #include "gettext.h"

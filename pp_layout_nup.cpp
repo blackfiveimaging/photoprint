@@ -15,7 +15,7 @@
 
 #include "pp_imagecontrol.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "effects/ppeffect.h"
 #include "effects/effectselector.h"

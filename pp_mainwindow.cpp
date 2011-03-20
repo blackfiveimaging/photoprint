@@ -16,7 +16,7 @@
 #include "errordialogqueue.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "progressbar.h"
-#include "support/pathsupport.h"
+#include "pathsupport.h"
 #include "layout.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"

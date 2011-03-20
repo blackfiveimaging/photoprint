@@ -21,13 +21,13 @@
 #include "gettext.h"
 
 #include "errordialogqueue.h"
-#include "support/debug.h"
-#include "support/configdb.h"
+#include "debug.h"
+#include "configdb.h"
 #include "photoprint_state.h"
 
 #include "pp_mainwindow.h"
 #include "progressbar.h"
-#include "support/progresstext.h"
+#include "progresstext.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "splashscreen/splashscreen.h"
@@ -35,8 +35,8 @@
 #include "profilemanager/intentselector.h"
 #include "miscwidgets/patheditor.h"
 
-#include "support/pathsupport.h"
-#include "support/util.h"
+#include "pathsupport.h"
+#include "util.h"
 
 
 #define _(x) gettext(x)

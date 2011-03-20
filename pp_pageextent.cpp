@@ -22,7 +22,7 @@
 #include "photoprint_state.h"
 #include "pp_pageextent.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "config.h"
 #include "gettext.h"

@@ -2,13 +2,13 @@
 #define PHOTOPRINT_STATE_H
 
 #include "layout.h"
-#include "support/configdb.h"
+#include "configdb.h"
 #include "stpui_widgets/units.h"
 #include "gp_cppsupport/printoutput.h"
 #include "gp_cppsupport/gprinter.h"
-#include "support/progress.h"
+#include "progress.h"
 #include "profilemanager/profilemanager.h"
-#include "support/searchpath.h"
+#include "searchpath.h"
 
 class PhotoPrint_State : public ConfigFile, public ConfigDB
 {

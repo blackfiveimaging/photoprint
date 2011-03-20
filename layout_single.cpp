@@ -34,7 +34,7 @@
 #include "photoprint_state.h"
 #include "pp_layout_single.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "layout_single.h"
 

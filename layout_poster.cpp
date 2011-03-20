@@ -12,8 +12,8 @@
 #include <iostream>
 #include <string.h>
 
-#include "support/debug.h"
-#include "support/layoutrectangle.h"
+#include "debug.h"
+#include "layoutrectangle.h"
 
 #include "miscwidgets/generaldialogs.h"
 #include "dialogs.h"

@@ -1,12 +1,13 @@
 # Makefile.am
 # RL 28/11/04
 
-SUBDIRS = po support imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail \
+SUBDIRS = po support layoutsupport imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail \
 	splashscreen profilemanager effects borders shortcuts
 
 localedir=$(datadir)/locale
 
-AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./support/ -I./miscwidgets -I./imagesource/ -I./splashscreen -I./profilemanager -I./effects \
+AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./layoutsupport -I./support/ -I./miscwidgets -I./imagesource/  \
+	-I./splashscreen -I./profilemanager -I./effects -I./miscwidgets \
 	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS)
 
 noinst_LTLIBRARIES = libphotoprint.la libphotoprintui.la
@@ -103,6 +104,7 @@ LDADD = \
 	imageutils/libimageutils.la	\
 	miscwidgets/libmiscwidgets.la	\
 	profilemanager/libprofilemanager.la	\
+	layoutsupport/liblayoutsupport.la	\
 	support/libsupport.la	\
 	gp_cppsupport/libgp_cppsupport.la \
 	stpui_widgets/libstpui_widgets.la	\

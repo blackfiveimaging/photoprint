@@ -28,7 +28,7 @@
 
 #include "imagesource/pixbuf_from_imagesource.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "photoprint_state.h"
 #include "pp_layout_carousel.h"

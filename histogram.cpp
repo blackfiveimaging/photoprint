@@ -3,7 +3,7 @@
 
 #include <gdk/gdkpixbuf.h>
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "histogram.h"
 

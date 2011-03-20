@@ -29,10 +29,10 @@
 #include "layout_poster.h"
 #include "layout_carousel.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
-#include "support/searchpathdbhandler.h"
-#include "support/pathsupport.h"
+#include "searchpathdbhandler.h"
+#include "pathsupport.h"
 
 #include "miscwidgets/generaldialogs.h"
 

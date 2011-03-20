@@ -9,8 +9,8 @@
 
 #include "config.h"
 
-#include "support/thread.h"
-#include "support/debug.h"
+#include "thread.h"
+#include "debug.h"
 
 #include "stpui_widgets/dimension.h"
 #include "imagesource/imagesource_util.h"

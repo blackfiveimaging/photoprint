@@ -36,11 +36,11 @@
 #include "miscwidgets/pixbufview.h"
 #include "miscwidgets/simplecombo.h"
 
-#include "support/debug.h"
-#include "support/pathsupport.h"
-#include "support/rangeparser.h"
+#include "debug.h"
+#include "pathsupport.h"
+#include "rangeparser.h"
 #include "miscwidgets/progressbar.h"
-#include "support/util.h"
+#include "util.h"
 
 #include "imageutils/tiffsaver.h"
 	#include "imageutils/jpegsaver.h"

@@ -4,8 +4,8 @@
 #include <gdk/gdkpixbuf.h>
 
 #include "imagesource/imagesource_histogram.h"
-#include "support/rwmutex.h"
-#include "support/threadevent.h"
+#include "rwmutex.h"
+#include "threadevent.h"
 #include "debug.h"
 
 class PPHistogram : public ISHistogram, public RWMutex, public ThreadEvent

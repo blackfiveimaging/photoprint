@@ -2,7 +2,7 @@
 #define PP_MENU_IMAGE_H
 #include <gtk/gtkwidget.h>
 #include <gtk/gtkuimanager.h>
-#include "support/layoutrectangle.h"
+#include "layoutrectangle.h"
 #include "pp_mainwindow.h"
 
 void BuildImageMenu(void *userdata,GtkUIManager *ui_manager);

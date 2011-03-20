@@ -18,7 +18,7 @@
 #include "pp_layout_carousel.h"
 #include "layout_carousel.h"
 
-#include "support/debug.h"
+#include "debug.h"
 
 #include "config.h"
 #include "gettext.h"

@@ -6,7 +6,7 @@
 #include <gtk/gtkwidget.h>
 #include <gdk/gdkpixbuf.h>
 
-#include "support/signature.h"
+#include "signature.h"
 #include "imagesource/imagesource.h"
 #include "gp_cppsupport/gprinter.h"
 

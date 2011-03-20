@@ -13,12 +13,12 @@
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 
-#include "support/debug.h"
+#include "debug.h"
 #include "progressbar.h"
-#include "support/pathsupport.h"
-#include "support/searchpath.h"
-#include "support/dirtreewalker.h"
-#include "support/configdb.h"
+#include "pathsupport.h"
+#include "searchpath.h"
+#include "dirtreewalker.h"
+#include "configdb.h"
 
 #include "config.h"
 #include "gettext.h"
