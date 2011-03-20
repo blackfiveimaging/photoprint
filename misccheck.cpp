@@ -5,7 +5,7 @@
 #include "imagesource/imagesource_util.h"
 #include "imagesource/pixbuf_from_imagesource.h"
 #include "imagesource/imagesource_montage.h"
-#include "imagesource/imagesource_segmentmask.h"
+#include "imagesource_segmentmask.h"
 #include "imagesource/imagesource_mask.h"
 #include "miscwidgets/pixbufview.h"
 
