@@ -28,6 +28,8 @@ libphotoprint_la_SOURCES = \
 	layout_single.h	\
 	histogram.cpp \
 	histogram.h	\
+	imagesource_segmentmask.cpp \
+	imagesource_segmentmask.h \
 	photoprint_state.cpp	\
 	photoprint_state.h
 

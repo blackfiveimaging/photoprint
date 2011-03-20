@@ -18,13 +18,13 @@
 #include "imageutils/rotatepixbuf.h"
 #include "imagesource/imagesource_util.h"
 #include "imagesource/imagesource_cms.h"
-#include "imagesource/imagesource_segmentmask.h"
 #include "imagesource/imagesource_montage.h"
 #include "imagesource/imagesource_rotate.h"
 #include "imagesource/imagesource_crop.h"
 #include "imagesource/imagesource_mask.h"
 #include "imagesource/imagesource_gdkpixbuf.h"
 #include "imagesource/imagesource_solid.h"
+#include "imagesource_segmentmask.h"
 
 #include "imagesource/pixbuf_from_imagesource.h"
 
