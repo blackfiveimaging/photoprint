@@ -28,6 +28,7 @@
 #include "pp_mainwindow.h"
 #include "progressbar.h"
 #include "progresstext.h"
+#include "breakhandler.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "splashscreen/splashscreen.h"
@@ -44,15 +45,19 @@
 
 using namespace std;
 
+static int repeats;	// Should we have a BatchOptions class or something similar?
+
 bool ParseOptions(int argc,char *argv[],std::deque<std::string> &presetnames)
 {
 	int batchmode=false;
+	repeats=1;
 	static struct option long_options[] =
 	{
 		{"help",no_argument,NULL,'h'},
 		{"version",no_argument,NULL,'v'},
 		{"preset",required_argument,NULL,'p'},
 		{"batch",no_argument,NULL,'b'},
+		{"repeat",required_argument,NULL,'r'},
 		{"debug",required_argument,NULL,'d'},
 		{0, 0, 0, 0}
 	};
@@ -60,7 +65,7 @@ bool ParseOptions(int argc,char *argv[],std::deque<std::string> &presetnames)
 	while(1)
 	{
 		int c;
-		c = getopt_long(argc,argv,"hvp:bd:",long_options,NULL);
+		c = getopt_long(argc,argv,"hvp:br:d:",long_options,NULL);
 		if(c==-1)
 			break;
 		switch (c)
@@ -71,6 +76,7 @@ bool ParseOptions(int argc,char *argv[],std::deque<std::string> &presetnames)
 				printf("\t -v --version\t\tdisplay version\n");
 				printf("\t -p --preset\t\tread a specific preset file\n");
 				printf("\t -b --batch\t\trun without user interface\n");
+				printf("\t -r --repeat\t\trepeats each image n times\n");
 				printf("\t -d --debug\t\tset debugging level - 0 for silent, 4 for verbose");
 				throw 0;
 				break;
@@ -84,6 +90,9 @@ bool ParseOptions(int argc,char *argv[],std::deque<std::string> &presetnames)
 				break;
 			case 'b':
 				batchmode=true;
+				break;
+			case 'r':
+				repeats=atoi(optarg);
 				break;
 			case 'd':
 				Debug.SetLevel(DebugLevel(atoi(optarg)));
@@ -130,7 +139,6 @@ class PreloadProfiles : public Job
 	protected:
 	ProfileManager &pm;
 };
-
 
 
 int main(int argc,char **argv)
@@ -208,9 +216,10 @@ int main(int argc,char **argv)
 					for(int i=optind;i<argc;++i)
 					{
 						Debug[TRACE] << "Adding file: " << argv[i] << endl;
-						state.layout->AddImage(argv[i],allowcropping,rotation);
+						for(int j=0;j<repeats;++j)
+							state.layout->AddImage(argv[i],allowcropping,rotation);
 					}
-					ProgressText p;
+					ProgressTextBreak p;
 					state.layout->Print(&p);
 				}
 			}
