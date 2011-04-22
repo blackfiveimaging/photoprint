@@ -246,7 +246,8 @@ int main(int argc,char **argv)
 					{
 						if(!p.DoProgress(i-optind,argc-optind))
 							break;
-						lastpage=state.layout->AddImage_Defaults(argv[i]);
+						for(int j=0;j<repeats;++j)
+							lastpage=state.layout->AddImage_Defaults(argv[i]);
 					}
 					state.layout->SetCurrentPage(lastpage);
 				}
