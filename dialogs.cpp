@@ -395,7 +395,7 @@ void About_Dialog(GtkWindow *parent)
 		GTK_STOCK_OK,GTK_RESPONSE_OK,
 		NULL);
 
-	GdkPixbuf *pb=SplashScreen::GetPixbuf();
+	GdkPixbuf *pb=SplashScreen_GTK::GetPixbuf();
 
 	GtkWidget *image=gtk_image_new_from_pixbuf(pb);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),image,FALSE,FALSE,0);

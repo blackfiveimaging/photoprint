@@ -173,20 +173,20 @@ int main(int argc,char **argv)
 		textdomain(PACKAGE);
 
 		SplashScreen *splash=NULL;
-		if(have_gtk)
-		{
-			splash=new SplashScreen;
-			splash->SetMessage(_("Initializing..."));
-		}
+		if(have_gtk && !batchmode)
+			splash=new SplashScreen_GTK;
+		if(!splash)
+			splash=new SplashScreen;	// fall back to text-based splash
+		splash->SetMessage(_("Initializing..."));
 
 		PhotoPrint_State state(batchmode);
 
-		if(have_gtk)
+		if(splash)
 			splash->SetMessage(_("Checking .photoprint directory..."));
 
 		CheckSettingsDir(".photoprint");
 
-		if(have_gtk)
+		if(splash)
 			splash->SetMessage(_("Loading preset..."));
 		state.ParseConfigFile();
 		for(unsigned int i=0;i<presetnames.size();++i)
@@ -196,7 +196,7 @@ int main(int argc,char **argv)
 			state.ParseConfigFile();
 		}
 
-		if(have_gtk)
+		if(splash)
 		{
 			splash->SetMessage(_("Creating layout..."));
 			delete splash;

@@ -6,7 +6,7 @@
 #include "splashscreendata.cpp"
 
 
-GdkPixbuf *SplashScreen::GetPixbuf()
+GdkPixbuf *SplashScreen_GTK::GetPixbuf()
 {
 	GdkPixdata pd;
 	GdkPixbuf *result;
@@ -22,7 +22,7 @@ GdkPixbuf *SplashScreen::GetPixbuf()
 }
 
 
-SplashScreen::SplashScreen()
+SplashScreen_GTK::SplashScreen_GTK()
 	: window(NULL), image(NULL), message(NULL), pixbuf(NULL)
 {
 	pixbuf=GetPixbuf();
@@ -47,7 +47,7 @@ SplashScreen::SplashScreen()
 }
 
 
-SplashScreen::~SplashScreen()
+SplashScreen_GTK::~SplashScreen_GTK()
 {
 	if(window)
 		gtk_widget_destroy(window);
@@ -56,7 +56,7 @@ SplashScreen::~SplashScreen()
 }
 
 
-void SplashScreen::SetMessage(const char *msg)
+void SplashScreen_GTK::SetMessage(const char *msg)
 {
 	if(message)
 		gtk_label_set_text(GTK_LABEL(message),msg);
