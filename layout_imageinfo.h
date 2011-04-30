@@ -71,7 +71,7 @@ class Layout_ImageInfo : public PPEffectHeader, public RefCountUI
 	virtual const char *GetAssignedProfile();
 	virtual void SetRenderingIntent(LCMSWrapper_Intent intent);
 	virtual LCMSWrapper_Intent GetRenderingIntent();
-	virtual ImageSource *GetImageSource(CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL);
+	virtual ImageSource *GetImageSource(CMColourDevice target=CM_COLOURDEVICE_PRINTER,CMTransformFactory *factory=NULL,bool calchistogram=false);
 
 	// Thumbnail/preview related
 

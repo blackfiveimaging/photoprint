@@ -58,7 +58,7 @@ class PPIS_Histogram : public ImageSource
 	virtual ~PPIS_Histogram()
 	{
 		Debug[TRACE] << "PPIS_Histogram triggering complete signal" << endl;
-		histogram.Trigger();
+		histogram.event.Trigger();
 		Debug[TRACE] << "PPIS_Histogram releasing Histogram mutex from " << long(Thread::GetThreadID()) << endl;
 	}
 	virtual ISDataType *GetRow(int row)
@@ -261,7 +261,7 @@ class HRRenderJob : public Job, public Progress
 				delete targetprof;
 
 			// We declare is outside the try block so we can clean up if it fails.
-			is=ii->GetImageSource(tdev,iw->factory);
+			is=ii->GetImageSource(tdev,iw->factory,true);
 
 			LayoutRectangle r(is->width,is->height);
 			LayoutRectangle target(xpos,ypos,width,height);
@@ -744,7 +744,7 @@ RectFit *Layout_ImageInfo::GetFit(double scale)
 }
 
 
-ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformFactory *factory)
+ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformFactory *factory,bool calchist)
 {
 	ImageSource *result=NULL;
 	ImageSource *is=ISLoadImage(filename);
@@ -765,7 +765,7 @@ ImageSource *Layout_ImageInfo::GetImageSource(CMColourDevice target,CMTransformF
 		// If this fails we don't bother with the histogram, since another thread has it
 		// locked for writing.
 
-		if(histogram.AttemptMutexShared())
+		if(calchist && histogram.AttemptMutexShared())
 		{
 			is=new PPIS_Histogram(is,histogram);
 			histogram.ReleaseMutexShared();	// ReleaseShared because the Histogram itself holds an exclusive lock

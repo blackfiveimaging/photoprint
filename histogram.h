@@ -8,11 +8,11 @@
 #include "threadevent.h"
 #include "debug.h"
 
-class PPHistogram : public ISHistogram, public RWMutex, public ThreadEvent
+class PPHistogram : public ISHistogram, public RWMutex
 {
 	public:
 	PPHistogram(ThreadEventHandler &header)
-		: ISHistogram(), RWMutex(), ThreadEvent(header,"HistogramBuilt")
+		: ISHistogram(), RWMutex(), event(header,"HistogramBuilt")
 	{
 	}
 	~PPHistogram()
@@ -26,6 +26,7 @@ class PPHistogram : public ISHistogram, public RWMutex, public ThreadEvent
 		RWMutex::ReleaseMutex();
 	}
 	virtual GdkPixbuf *DrawHistogram(int w,int h);
+	ThreadEvent event;
 	protected:
 };
 
