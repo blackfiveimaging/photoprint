@@ -121,12 +121,16 @@ class PreloadProfiles : public Job
 	{
 		Debug[TRACE] << "Getting profile list..." << endl;
 		pm.ObtainMutex();
+//		gdk_threads_enter();	// Prevent multi-thread issue with display profile...
 		ProfileInfo *pi=pm.GetFirstProfileInfo();
+//		gdk_threads_leave();
 		while(pi)
 		{
+			Debug[TRACE] << "Got profile " << pi->GetFilename() << endl;
 			try
 			{
 				pi->GetColourSpace();	// Trigger loading and caching of profile info
+				Debug[TRACE] << "loaded and cached" << endl;
 			}
 			catch(const char *err)
 			{
@@ -158,6 +162,9 @@ int main(int argc,char **argv)
 	{
 		bool batchmode=ParseOptions(argc,argv,presetnames);
 //		if(!batchmode)	// We'll try an initialise GTK even if we're in batchmode, so we can use gdkpixbuf loaders, etc.
+		g_thread_init(NULL);
+		gdk_threads_init();
+
 		have_gtk=gtk_init_check (&argc, &argv);
 
 		if(have_gtk)
@@ -233,6 +240,7 @@ int main(int argc,char **argv)
 			try
 			{
 				GtkWidget *mainwindow;
+
 				mainwindow = pp_mainwindow_new(&state);
 				g_signal_connect (G_OBJECT (mainwindow), "destroy",
 					    G_CALLBACK (destroy), NULL);
@@ -253,10 +261,12 @@ int main(int argc,char **argv)
 				}
 	
 				pp_mainwindow_refresh(PP_MAINWINDOW(mainwindow));
-	
+
 				JobDispatcher disp(1);
 				disp.AddJob(new PreloadProfiles(state.profilemanager));
+//				gdk_threads_enter();
 				gtk_main ();
+//				gdk_threads_leave();
 			}
 			catch (const char *err)
 			{
