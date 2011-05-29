@@ -8,7 +8,7 @@ localedir=$(datadir)/locale
 
 AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./layoutsupport -I./support/ -I./miscwidgets -I./imagesource/  \
 	-I./splashscreen -I./profilemanager -I./effects -I./miscwidgets \
-	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS)
+	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS) $(GTHREAD_CFLAGS)
 
 noinst_LTLIBRARIES = libphotoprint.la libphotoprintui.la
 
@@ -113,7 +113,7 @@ LDADD = \
 	stp_support/libstp_support.la \
 	pixbufthumbnail/libpixbufthumbnail.la	\
 	splashscreen/libsplashscreen.la	\
-	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS) $(X11_LIBS)
+	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS) $(GTHREAD_LIBS) $(X11_LIBS)
 
 check_PROGRAMS = menucheck carouselcheck misccheck
 

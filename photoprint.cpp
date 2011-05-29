@@ -121,23 +121,30 @@ class PreloadProfiles : public Job
 	{
 		Debug[TRACE] << "Getting profile list..." << endl;
 		pm.ObtainMutex();
-//		gdk_threads_enter();	// Prevent multi-thread issue with display profile...
-		ProfileInfo *pi=pm.GetFirstProfileInfo();
-//		gdk_threads_leave();
-		while(pi)
+		try
 		{
-			Debug[TRACE] << "Got profile " << pi->GetFilename() << endl;
-			try
+	//		gdk_threads_enter();	// Prevent multi-thread issue with display profile...
+			ProfileInfo *pi=pm.GetFirstProfileInfo();
+	//		gdk_threads_leave();
+			while(pi)
 			{
-				pi->GetColourSpace();	// Trigger loading and caching of profile info
-				Debug[TRACE] << "loaded and cached" << endl;
-			}
-			catch(const char *err)
-			{
-				Debug[WARN] << "Error: " << err << std::endl;
-			}
-			pi=pi->Next();
-		}		
+				Debug[TRACE] << "Got profile " << pi->GetFilename() << endl;
+				try
+				{
+					pi->GetColourSpace();	// Trigger loading and caching of profile info
+					Debug[TRACE] << "loaded and cached" << endl;
+				}
+				catch(const char *err)
+				{
+					Debug[WARN] << "Error: " << err << std::endl;
+				}
+				pi=pi->Next();
+			}		
+		}
+		catch(const char *err)
+		{
+			Debug[ERROR] << err << endl;
+		}
 		pm.ReleaseMutex();
 	}
 	protected:
