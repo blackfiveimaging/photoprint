@@ -280,7 +280,19 @@ class HRRenderJob : public Job, public Progress
 			// We create new Fit in the idle-function because the hpan/vpan may have changed.
 
 			// Instead of building the GdkPixbuf here we create a cached image and convert to pixbuf in the main thread.
-			transformed=new CachedImage(RefCountPtr<ImageSource>(is));
+			transformed=new CachedImage_Deferred(RefCountPtr<ImageSource>(is));
+
+			for(int i=0;i<is->height;++i)
+			{
+				if(!DoProgress(0,0))
+				{
+					delete transformed;
+					transformed=0;
+					i=is->height;
+				}
+				else
+					transformed->ProcessRow(i);
+			}
 
 			Debug[TRACE] << "Built cached image -rendering" << endl;
 
@@ -310,7 +322,7 @@ class HRRenderJob : public Job, public Progress
 //			}
 
 			Debug[TRACE] << "HRRenderJob Caught error: " << err << endl;
-			ErrorDialogs.AddMessage(err);
+//			ErrorDialogs.AddMessage(err);
 		}
 	}
 
@@ -396,7 +408,7 @@ class HRRenderJob : public Job, public Progress
 	GtkWidget *widget;
 	int xpos,ypos;
 	int width,height;
-	CachedImage *transformed;
+	CachedImage_Deferred *transformed;
 //	GdkPixbuf *transformed;
 	ThreadSync sync;
 };

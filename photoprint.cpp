@@ -169,8 +169,8 @@ int main(int argc,char **argv)
 	{
 		bool batchmode=ParseOptions(argc,argv,presetnames);
 //		if(!batchmode)	// We'll try an initialise GTK even if we're in batchmode, so we can use gdkpixbuf loaders, etc.
-		g_thread_init(NULL);
-		gdk_threads_init();
+//		g_thread_init(NULL);
+//		gdk_threads_init();
 
 		have_gtk=gtk_init_check (&argc, &argv);
 

@@ -277,6 +277,7 @@ void pp_mainwindow_rebuild(pp_MainWindow *mw)
 	try
 	{
 		ProgressBar p(_("Transferring images..."),true,GTK_WIDGET(mw));
+		mw->state->layout->FlushHRPreviews();	// Cancel any render threads that are in progress...
 		if(mw->state->NewLayout(&p))
 		{
 			gtk_widget_destroy(mw->layout);
