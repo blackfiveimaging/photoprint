@@ -7,7 +7,7 @@ SUBDIRS = po support layoutsupport imagesource imageutils miscwidgets stpui_widg
 localedir=$(datadir)/locale
 
 AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./layoutsupport -I./support/ -I./miscwidgets -I./imagesource/  \
-	-I./splashscreen -I./profilemanager -I./effects -I./miscwidgets \
+	-I./splashscreen -I./profilemanager -I./effects -I./miscwidgets -I./stpui_widgets \
 	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS) $(GTHREAD_CFLAGS)
 
 noinst_LTLIBRARIES = libphotoprint.la libphotoprintui.la

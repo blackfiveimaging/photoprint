@@ -20,6 +20,15 @@ struct Hist_Shades
 // Fixme - no reason why we couldn't create these on the fly from a
 // DeviceNColorants.
 
+static Hist_Shades Hist_GreyShades[]=
+{
+	{255,255,255},	// None
+	{128,128,128},	// Black
+	{255,255,255},	// As above but with alpha
+	{64,64,64},	// Black
+};
+
+
 static Hist_Shades Hist_RGBShades[]=
 {
 	{255,255,255},	// None
@@ -76,6 +85,10 @@ GdkPixbuf *PPHistogram::DrawHistogram(int width,int height)
 		case IS_TYPE_CMYK:
 			Debug[TRACE] << "Drawing histogram for CMYK Image" << endl;
 			shades=Hist_CMYKShades;
+			break;
+		case IS_TYPE_GREY:
+			Debug[TRACE] << "Drawing histogram for GREY Image" << endl;
+			shades=Hist_GreyShades;
 			break;
 		default:
 			throw "Unknown histogram type";

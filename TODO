@@ -1,6 +1,10 @@
 URGENT:
 ~~~~~~~
 
+Histogram not working for grey images
+
+Highres preview not working for grey images
+
 Flipping of images - Horizontal now supported, Vertical to be done.
 
 | Profilemanager needs to do a recursive scan of paths.  Use DirTreeWalker?  Adjust SearchPathHandler to use DirTreeWalker.

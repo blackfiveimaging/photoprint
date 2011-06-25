@@ -12,8 +12,9 @@
 #include "thread.h"
 #include "debug.h"
 
-#include "stpui_widgets/dimension.h"
-#include "imagesource/imagesource_util.h"
+#include "errordialogqueue.h"
+#include "dimension.h"
+#include "imagesource_util.h"
 
 #include "photoprint_state.h"
 
@@ -103,15 +104,22 @@ class DeferHistogram : public ThreadFunction
 	static gboolean IdleFunc(gpointer ud)
 	{
 		DeferHistogram *p=(DeferHistogram *)ud;
-		PPHistogram &hist=p->ii->GetHistogram();
-		Debug[TRACE] << "DeferHistogram - IdleFunc: Drawing histogram" << endl;
-		int width=p->widget->hist->allocation.width;
-		if(width>50)
+		try
 		{
-			GdkPixbuf *pb=hist.DrawHistogram(width,(2*width)/3);
-			gtk_image_set_from_pixbuf(GTK_IMAGE(p->widget->hist),pb);
-			g_object_unref(G_OBJECT(pb));
-			Debug[TRACE] << "Done" << endl;
+			PPHistogram &hist=p->ii->GetHistogram();
+			Debug[TRACE] << "DeferHistogram - IdleFunc: Drawing histogram" << endl;
+			int width=p->widget->hist->allocation.width;
+			if(width>50)
+			{
+				GdkPixbuf *pb=hist.DrawHistogram(width,(2*width)/3);
+				gtk_image_set_from_pixbuf(GTK_IMAGE(p->widget->hist),pb);
+				g_object_unref(G_OBJECT(pb));
+				Debug[TRACE] << "Done" << endl;
+			}
+		}
+		catch(const char *err)
+		{
+			ErrorDialogs.AddMessage(err);
 		}
 		Debug[TRACE] << "DeferHistogram - IdleFunc: Signalling subthread" << endl;
 		p->thread.SendSync();
