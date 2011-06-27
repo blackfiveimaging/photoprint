@@ -1,0 +1,3 @@
+[submodule "library"]
+	path = library
+	url = git://gitorious.org/black-five-imaging/library.git

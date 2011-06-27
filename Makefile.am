@@ -1,13 +1,15 @@
 # Makefile.am
 # RL 28/11/04
 
-SUBDIRS = po support layoutsupport imagesource imageutils miscwidgets stpui_widgets stp_support gp_cppsupport pixbufthumbnail \
-	splashscreen profilemanager effects borders shortcuts
+SUBDIRS = po library/support library/layoutsupport library/imagesource library/imageutils library/miscwidgets library/stpui_widgets \
+	library/stp_support library/gp_cppsupport library/pixbufthumbnail \
+	splashscreen library/profilemanager effects borders shortcuts
 
 localedir=$(datadir)/locale
 
-AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -I./layoutsupport -I./support/ -I./miscwidgets -I./imagesource/  \
-	-I./splashscreen -I./profilemanager -I./effects -I./miscwidgets -I./stpui_widgets \
+AM_CXXFLAGS = -DLOCALEDIR=\"$(localedir)\" -Wall -Ilibrary/layoutsupport -Ilibrary/support/ -Ilibrary/miscwidgets -Ilibrary/imagesource/  \
+	-I library/gp_cppsupport -I library/imageutils -I./splashscreen -Ilibrary/profilemanager -I./effects -Ilibrary/miscwidgets \
+	-I library/stpui_widgets -Ilibrary \
 	$(LCMS_CFLAGS) $(GP_CFLAGS) $(GTK2_CFLAGS) $(GTHREAD_CFLAGS)
 
 noinst_LTLIBRARIES = libphotoprint.la libphotoprintui.la
@@ -102,16 +104,18 @@ LDADD = \
 	libphotoprint.la \
 	libphotoprintui.la \
 	effects/libppeffects.la	\
-	imagesource/libimagesource.la	\
-	imageutils/libimageutils.la	\
-	miscwidgets/libmiscwidgets.la	\
-	profilemanager/libprofilemanager.la	\
-	layoutsupport/liblayoutsupport.la	\
-	support/libsupport.la	\
-	gp_cppsupport/libgp_cppsupport.la \
-	stpui_widgets/libstpui_widgets.la	\
-	stp_support/libstp_support.la \
-	pixbufthumbnail/libpixbufthumbnail.la	\
+	library/imagesource/libimagesource.la	\
+	library/imageutils/libimageutils.la	\
+	library/profilemanager/libprofilemanager.la	\
+	library/layoutsupport/liblayoutsupport.la	\
+	library/gp_cppsupport/libgp_cppsupport.la \
+	library/imagesource/libimagesource.la	\
+	library/profilemanager/libprofilemanager.la	\
+	library/support/libsupport.la	\
+	library/miscwidgets/libmiscwidgets.la	\
+	library/stpui_widgets/libstpui_widgets.la	\
+	library/stp_support/libstp_support.la \
+	library/pixbufthumbnail/libpixbufthumbnail.la	\
 	splashscreen/libsplashscreen.la	\
 	$(LIBINTL) $(LIBM_LIBS) $(GETOPT_LIBS) $(JPEG_LIBS) $(PNM_LIBS) $(TIFF_LIBS) $(LCMS_LIBS) $(GP_LIBS) $(GTK2_LIBS) $(GTHREAD_LIBS) $(X11_LIBS)
 

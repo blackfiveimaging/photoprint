@@ -3,7 +3,7 @@
 
 #include <gdk/gdkpixbuf.h>
 
-#include "imagesource/imagesource_histogram.h"
+#include "imagesource_histogram.h"
 #include "rwmutex.h"
 #include "threadevent.h"
 #include "debug.h"

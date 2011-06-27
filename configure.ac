@@ -94,17 +94,17 @@ AC_ARG_ENABLE(prepress, AS_HELP_STRING([--enable-prepress],[Obscure, specialist 
 AS_IF([test "x$enable_prepress" = "xyes"], [ AC_DEFINE([PREPRESS_TOOLS], [], [Obscure, specialist and experimental features]) ] )
 
 AC_CONFIG_FILES([Makefile po/Makefile.in
-                 imagesource/Makefile
-                 imageutils/Makefile
-                 miscwidgets/Makefile
-                 layoutsupport/Makefile
-                 support/Makefile
-                 profilemanager/Makefile
-                 pixbufthumbnail/Makefile
+                 library/imagesource/Makefile
+                 library/imageutils/Makefile
+                 library/miscwidgets/Makefile
+                 library/layoutsupport/Makefile
+                 library/support/Makefile
+                 library/profilemanager/Makefile
+                 library/pixbufthumbnail/Makefile
                  effects/Makefile
-                 stpui_widgets/Makefile
-                 stp_support/Makefile
-                 gp_cppsupport/Makefile
+                 library/stpui_widgets/Makefile
+                 library/stp_support/Makefile
+                 library/gp_cppsupport/Makefile
                  splashscreen/Makefile
                  shortcuts/Makefile
                  borders/Makefile])

@@ -192,6 +192,7 @@ ImageSource *Layout_Single_ImageInfo::GetImageSource(CMColourDevice target,CMTra
 	// Need to swap H and V scale if the image is rotated.
 	switch(rotation)
 	{
+		case PP_ROTATION_AUTO:
 		case PP_ROTATION_NONE:
 		case PP_ROTATION_180:
 			is->xres=(xres*100)/hscale;

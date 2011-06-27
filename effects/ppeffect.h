@@ -4,9 +4,9 @@
 #include <gtk/gtkwindow.h>
 #include <gdk/gdkpixbuf.h>
 
-#include "../imagesource/imagesource.h"
-#include "../support/thread.h"
-#include "../support/rwmutex.h"
+#include "imagesource.h"
+#include "thread.h"
+#include "rwmutex.h"
 
 // These can be compared with bitwise and.
 enum PPEFFECT_STAGE {PPEFFECT_PRESCALE=1,PPEFFECT_POSTSCALE,PPEFFECT_DONTCARE};

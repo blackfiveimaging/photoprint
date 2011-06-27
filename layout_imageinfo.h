@@ -8,7 +8,7 @@
 
 #include "profilemanager.h"
 #include "imagesource.h"
-#include "stpui_widgets/units.h"
+#include "units.h"
 #include "pageextent.h"
 #include "layoutrectangle.h"
 #include "thread.h"
