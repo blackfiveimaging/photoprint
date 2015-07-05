@@ -1,6 +1,8 @@
 # Makefile.am
 # RL 28/11/04
 
+ACLOCAL_AMFLAGS = -I m4
+
 SUBDIRS = po library/support library/layoutsupport library/imagesource library/imageutils library/miscwidgets library/stpui_widgets \
 	library/stp_support library/gp_cppsupport library/pixbufthumbnail \
 	splashscreen library/profilemanager effects borders shortcuts
@@ -128,7 +130,7 @@ misccheck_SOURCES = misccheck.cpp
 imagesource/libimagesource.la:
 	cd imagesource
 	$(MAKE) libimagesource.la
-	
+
 support/libsupport.la:
 	cd support
 	$(MAKE) libsupport.la
@@ -169,5 +171,5 @@ icondir = $(datadir)/icons/hicolor/48x48/apps/
 icon_DATA = fotoprint.png
 
 
-EXTRA_DIST = COPYING README INSTALL TODO photoprint.1 fotoprint.desktop fotoprint.png
+EXTRA_DIST = scripts/config.rpath  COPYING README INSTALL TODO photoprint.1 fotoprint.desktop fotoprint.png
 

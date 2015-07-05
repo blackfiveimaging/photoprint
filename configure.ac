@@ -8,8 +8,12 @@ AC_CONFIG_SRCDIR([photoprint.cpp])
 AM_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([1.9 foreign])
 
-AM_GNU_GETTEXT_VERSION([0.17])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
+AM_GNU_GETTEXT_VERSION([0.19.4])
 AM_GNU_GETTEXT([external])
+
+AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
 AC_PROG_LIBTOOL
