@@ -27,7 +27,6 @@ po/Makefile.in.in
 
 # Autotools
 aclocal.m4
-autogen.sh
 autom4te.cache
 config.h
 config.h.in
