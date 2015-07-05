@@ -3,13 +3,14 @@
 #include <gtk/gtkstock.h>
 #include <gtk/gtkmain.h>
 
+#include "config.h"
+
 #include "pp_menu_edit.h"
 #include "pp_mainwindow.h"
 #include "dialogs.h"
 #include "miscwidgets/generaldialogs.h"
 #include "progressbar.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 #define N_(x) gettext_noop(x)

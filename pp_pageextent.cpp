@@ -11,6 +11,8 @@
 
 #include <string.h>
 
+#include "config.h"
+
 #include <gtk/gtkframe.h>
 #include <gtk/gtksizegroup.h>
 #include <gtk/gtklabel.h>
@@ -24,7 +26,6 @@
 
 #include "debug.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 

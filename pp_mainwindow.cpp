@@ -1,5 +1,7 @@
 #include <string.h>
 
+#include "config.h"
+
 #include <gtk/gtkframe.h>
 #include <gtk/gtksizegroup.h>
 #include <gtk/gtklabel.h>

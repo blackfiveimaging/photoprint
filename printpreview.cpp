@@ -17,6 +17,8 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
+#include "config.h"
+
 #include "miscwidgets/generaldialogs.h"
 #include "miscwidgets/pixbufview.h"
 #include "miscwidgets/simplecombo.h"
@@ -28,7 +30,6 @@
 #include "imagesource/pixbuf_from_imagesource.h"
 
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 

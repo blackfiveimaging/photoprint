@@ -8,6 +8,8 @@
 #include <gtk/gtkscrolledwindow.h>
 #include <gtk/gtkexpander.h>
 
+#include "config.h"
+
 #include "stpui_widgets/dimension.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "layout.h"
@@ -20,7 +22,6 @@
 
 #include "debug.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 

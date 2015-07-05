@@ -1,15 +1,18 @@
 URGENT:
 ~~~~~~~
 
-Histogram not working for grey images
+| Histogram not working for grey images
 
-Highres preview not working for grey images
+| Highres preview not working for grey images
+Problem is with grey images that have an RGB profile embedded.
 
 Flipping of images - Horizontal now supported, Vertical to be done.
 
 | Profilemanager needs to do a recursive scan of paths.  Use DirTreeWalker?  Adjust SearchPathHandler to use DirTreeWalker.
 
 | Fix signal on custom command change causing whole dialog to refresh!
+
+Solid background fill?
 
 Add a DeviceN print path
 

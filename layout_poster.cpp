@@ -12,6 +12,8 @@
 #include <iostream>
 #include <string.h>
 
+#include "config.h"
+
 #include "debug.h"
 #include "layoutrectangle.h"
 

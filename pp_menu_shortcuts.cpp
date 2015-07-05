@@ -5,6 +5,8 @@
 
 #include <libgen.h>
 
+#include "config.h"
+
 #include <gtk/gtkstock.h>
 #include <gtk/gtkmain.h>
 
@@ -20,7 +22,6 @@
 #include "dirtreewalker.h"
 #include "configdb.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 #define N_(x) gettext_noop(x)

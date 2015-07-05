@@ -20,6 +20,8 @@
 #include <gtk/gtkoptionmenu.h>
 #include <gtk/gtkmenuitem.h>
 
+#include "config.h"
+
 #include "pp_cms.h"
 #include "miscwidgets/simplecombo.h"
 #include "profilemanager/profileselector.h"
@@ -28,7 +30,6 @@
 
 #include "debug.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 #define N_(x) gettext_noop(x)

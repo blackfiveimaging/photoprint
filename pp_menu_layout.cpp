@@ -5,6 +5,8 @@
 #include <gtk/gtkcheckmenuitem.h>
 #include <gtk/gtkmain.h>
 
+#include "config.h"
+
 #include "pp_menu_layout.h"
 #include "pp_mainwindow.h"
 #include "dialogs.h"
@@ -12,7 +14,6 @@
 #include "progressbar.h"
 #include "debug.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 #define N_(x) gettext_noop(x)

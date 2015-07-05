@@ -24,10 +24,17 @@ case $host_os in
 esac
 
 # Checks for libraries.
-PKG_CHECK_MODULES([GLIB2], [glib-2.0])
-PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
-PKG_CHECK_MODULES([GTK2], [gtk+-2.0])
-PKG_CHECK_MODULES([GDKPIXBUF2], [gdk-pixbuf-2.0])
+AS_IF([test "x$with_ui" != xno],
+[
+	PKG_CHECK_MODULES([GLIB2], [glib-2.0])
+	PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
+	PKG_CHECK_MODULES([GTK2], [gtk+-2.0],AC_DEFINE([HAVE_GTK],[1],[Use GTK+]))
+	PKG_CHECK_MODULES([GDKPIXBUF2], [gdk-pixbuf-2.0])
+	# Since the ProfileManager fetches an X atom from the server, we need to link with X11
+	# explicitly on some systems
+	PKG_CHECK_MODULES(X11, x11, [HAVE_X11=yes], [HAVE_X11=no])
+])
+
 PKG_CHECK_MODULES([GP], [gutenprint])
 PKG_CHECK_MODULES([LCMS], [lcms])
 AC_CHECK_LIB(m,pow, LIBM_LIBS="-lm")
@@ -35,9 +42,6 @@ AC_SUBST([LIBM_LIBS])
 AC_CHECK_LIB([pnm], [pnm_readpaminit],,,[-lm])
 AC_CHECK_LIB([netpbm], [pnm_readpaminit],,,[-lm])
 
-# Since the ProfileManager fetches an X atom from the server, we need to link with X11
-# explicitly on some systems
-PKG_CHECK_MODULES([X11], [x11])
 
 # Some distributions have the pam.h header in a netpbm subfolder
 AC_CHECK_HEADERS([netpbm/pam.h])

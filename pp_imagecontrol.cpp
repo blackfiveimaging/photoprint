@@ -5,6 +5,8 @@
 #include <gtk/gtksizegroup.h>
 #include <gtk/gtklabel.h>
 
+#include "config.h"
+
 #include "layout.h"
 #include "photoprint_state.h"
 
@@ -17,7 +19,6 @@
 
 #include "pp_imagecontrol.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 

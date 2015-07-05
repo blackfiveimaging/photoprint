@@ -5,6 +5,8 @@
 #include <gtk/gtksizegroup.h>
 #include <gtk/gtklabel.h>
 
+#include "config.h"
+
 #include "stpui_widgets/dimension.h"
 #include "signature.h"
 #include "debug.h"
@@ -14,7 +16,6 @@
 
 #include "pp_sigcontrol.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 #define N_(x) gettext_noop(x)

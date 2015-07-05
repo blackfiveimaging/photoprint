@@ -7,6 +7,8 @@
 #include <gtk/gtkscrolledwindow.h>
 #include <gtk/gtkexpander.h>
 
+#include "config.h"
+
 #include "debug.h"
 #include "stpui_widgets/stpui_combo.h"
 #include "stpui_widgets/dimension.h"

@@ -20,10 +20,11 @@
 #include <gtk/gtkoptionmenu.h>
 #include <gtk/gtkmenuitem.h>
 
+#include "config.h"
+
 #include "pp_units.h"
 #include "dialogs.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 

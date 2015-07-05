@@ -9,6 +9,8 @@
 #include <gtk/gtkdialog.h>
 #include <gtk/gtkmain.h>
 
+#include "config.h"
+
 #include "errordialogqueue.h"
 #include "pp_mainwindow.h"
 #include "dialogs.h"

@@ -5,6 +5,8 @@
 #include <gtk/gtksignal.h>
 #include <gtk/gtkdnd.h>
 
+#include "config.h"
+
 #include "stpui_widgets/stpui_combo.h"
 #include "pp_sigcontrol.h"
 

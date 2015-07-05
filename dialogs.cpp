@@ -23,6 +23,8 @@
 #include <gtk/gtknotebook.h>
 #include <gdk/gdkkeysyms.h>
 
+#include "config.h"
+
 #include "gp_cppsupport/printoutputselector.h"
 #include "pp_cms.h"
 #include "pp_units.h"
@@ -49,7 +51,6 @@
 #include "profilemanager/profileselector.h"
 #include "profilemanager/intentselector.h"
 
-#include "config.h"
 #include "gettext.h"
 #define _(x) gettext(x)
 

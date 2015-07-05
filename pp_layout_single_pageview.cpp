@@ -6,6 +6,8 @@
 #include <gtk/gtkdnd.h>
 #include <gtk/gtkmenu.h>
 
+#include "config.h"
+
 #include "debug.h"
 #include "layoutrectangle.h"
 #include "stpui_widgets/stpui_combo.h"

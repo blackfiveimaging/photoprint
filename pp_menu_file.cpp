@@ -3,6 +3,8 @@
 #include <gtk/gtkstock.h>
 #include <gtk/gtkmain.h>
 
+#include "config.h"
+
 #include "pp_menu_file.h"
 #include "errordialogqueue.h"
 #include "pp_mainwindow.h"

@@ -18,6 +18,8 @@
 #include <iostream>
 #include <string.h>
 
+#include "config.h"
+
 #include "miscwidgets/generaldialogs.h"
 #include "errordialogqueue.h"
 #include "dialogs.h"
