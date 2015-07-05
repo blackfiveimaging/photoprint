@@ -33,6 +33,7 @@ config.h.in
 config.log
 config.status*
 configure
+gettext.h
 libtool
 m4
 scripts/ltmain.sh
