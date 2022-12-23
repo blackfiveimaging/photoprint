@@ -405,7 +405,7 @@ void About_Dialog(GtkWindow *parent)
 	GtkWidget *label=gtk_label_new(_("PhotoPrint "
 	PACKAGE_VERSION
 	" - copyright (c) 2004-2022\n"
-	"by Alastair M. Robinson (amr@blackfiveservices.co.uk)\nDistributed under the terms\nof the GNU General Public Licence.\n"
+	"by Alastair M. Robinson (amr@blackfiveservices.co.uk)\nDistributed under the terms\nof the GNU General Public License.\n"
 	"See the file 'COPYING' for more details.\n"
 	"The borders pack is released under the Creative Commons\nAttribution 4.0 International (CC BY 4.0) License.\n"
 	"This software is based in part on the work of the Independent JPEG Group."));
